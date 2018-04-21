@@ -1,0 +1,20 @@
+{
+  "name": "testing_server_node",
+  "version": "1.0.0",
+  "description": "offline baseline testing application",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "client-sessions": "^0.8.0",
+    "express": "^4.16.3",
+    "express-basic-auth": "^1.1.4",
+    "express-session": "^1.15.6",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TechZM",
+  "license": "ISC"
+}
