@@ -11,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Desun Technology">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Prevent form from caching input fields -->
+<!--     <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1"> -->
+
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!--Custom Css-->
     <link rel="stylesheet" href="css/custom.css">
@@ -78,7 +83,9 @@
                                 <br> At the end of the assessment, you are required to fill in your name</div>
                             <div class="HeaderbannerLabel">SECTION A</div>
                             <h3>(1)  1, 2, __, 4, 5</h3>
-                            <form action="/submit_test" method="post">
+                            <!-- Give form a name so it can be accessed in angular scope -->
+                            <!-- Action and method remain the same -->
+                            <form name="testForm" action="/submit_test" method="post">
                                 <p>
                                     <input type="radio" id="test1" name="solve1" value="1">
                                     <label for="test1">1</label>
@@ -259,12 +266,16 @@
                                     
                                 </p>
                                 <div class="HeaderbannerLabel">CREDENTIALS</div>
-                                    <input type="text" id="stduent_id" name="student_id">
+                                <!-- Apply whitelist directive to student_id input field. Make form invalid if this field invalid -->
+                                <!-- Need to give input field ng-model attribute to apply directive -->
+                                <!-- autocomplete off to prevent browser from caching input field -->
+                                    <input type="text" autocomplete="off" id="stduent_id" name="student_id" ng-model="test_response.student_id" whitelist>
                                     <label for="student_id">Student ID</label>
+                                       <span ng-show="testForm.student_id.$error.whitelist">Please enter a valid student_id</span>
 
                                     <input type="hidden" name="test" value="alpha_comp">
 
-                                    <input type="submit" value="submit">
+                                    <input type="submit" value="submit" ng-disabled="testForm.$invalid">
                             </form>
                         </div>
                     </div>
