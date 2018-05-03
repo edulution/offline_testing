@@ -46,4 +46,26 @@ angular.module('passProtect').controller('ModalInstanceCtrl', function ($scope,$
   };
 });
 
+/*directive to invalidate the form based on studen_id inputted*/
+angular.module('passProtect').directive('whitelist', function (){ 
+   return {
+      require: 'ngModel',
+      link: function(scope, elem, attr, ngModel) {
+        /*Hardcoded list of student_ids*/
+          var whitelist = ['iphiri230403','pnyiro210504','ssinkh10','mnawal241299','mkaoma050400','pkombe210299','cmutin270203','kdaka080605','smaige071202','jngomb230203'];
 
+          //For DOM -> model validation
+          ngModel.$parsers.unshift(function(value) {
+             var valid = whitelist.indexOf(value) > -1;
+             ngModel.$setValidity('whitelist', valid);
+             return valid ? value : undefined;
+          });
+
+          //For model -> DOM validation
+          ngModel.$formatters.unshift(function(value) {
+             ngModel.$setValidity('whitelist', whitelist.indexOf(value) > -1);
+             return value;
+          });
+      }
+   };
+});
