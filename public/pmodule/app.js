@@ -59,11 +59,10 @@ angular.module('passProtect').directive('whitelist', function ($http,$rootScope)
         /*Send get request to endpoint to return all user objects*/
         $http.get( "/get_users").then(function( response) {
           users = response.data; 
-          /*console.log(users);*/
+          console.log(users);
           /*Loop through objects in list and add to usernames list*/
-          for (var i = 0; i < users.length; i++) {
-            usernames.push(users[i]["username"]);
-            i++;
+          for (var i=0, item; item = users[i]; i++) {
+            usernames.push(item["username"].toString());
           }
           /*console.log(usernames);*/
         });
