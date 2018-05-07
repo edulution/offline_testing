@@ -46,13 +46,28 @@ angular.module('passProtect').controller('ModalInstanceCtrl', function ($scope,$
   };
 });
 
-/*directive to invalidate the form based on studen_id inputted*/
-angular.module('passProtect').directive('whitelist', function (){ 
+/*directive to invalidate the form based on student_id inputted*/
+angular.module('passProtect').directive('whitelist', function ($http,$rootScope){ 
    return {
       require: 'ngModel',
+      scope:true,
       link: function(scope, elem, attr, ngModel) {
-        /*Hardcoded list of student_ids*/
-          var whitelist = ['iphiri230403','pnyiro210504','ssinkh10','mnawal241299','mkaoma050400','pkombe210299','cmutin270203','kdaka080605','smaige071202','jngomb230203'];
+        /*global variables to store list of users objects and usernames*/
+        var usernames = [];
+        var users = [];
+
+        /*Send get request to endpoint to return all user objects*/
+        $http.get( "/get_users").then(function( response) {
+          users = response.data; 
+          /*console.log(users);*/
+          /*Loop through objects in list and add to usernames list*/
+          for (var i = 0; i < users.length; i++) {
+            usernames.push(users[i]["username"]);
+            i++;
+          }
+          /*console.log(usernames);*/
+        });
+          var whitelist = usernames;
 
           //For DOM -> model validation
           ngModel.$parsers.unshift(function(value) {
