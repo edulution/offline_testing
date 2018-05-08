@@ -17,7 +17,7 @@ dbfile <- "~/edulution/testing_server_node/public/test_responses.sqlite"
 conn <- dbConnect(sqlite, dbfile)
 
 #get users
-tresponses_query <- dbSendQuery(conn,"SELECT * FROM responses")
+tresponses_query <- dbSendQuery(conn,"select u.user_id,u.group_name,r.* from responses r join users u where r.username = u.username")
   #filter out deleted users and coaches, then select only columns needed for joins later in script
 tresponses <- dbFetch(tresponses_query)
 
@@ -60,7 +60,7 @@ baseline <- function(year_month) {
   
   upper_limit <- substring(upper_limit,1,7)
   tests_for_chosen_month <- tresponses %>% filter(grepl(upper_limit, test_date))
-  write.csv(tests_for_chosen_month, file = generate_filename("baseline_",year_month) ,col.names = TRUE, row.names = FALSE,na="0")
+  write.csv(tests_for_chosen_month, file = generate_filename("baseline_",year_month) ,col.names = TRUE, row.names = FALSE,na="")
   system("echo Baseline extracted successfully!")
   quit(save="no")
 }
