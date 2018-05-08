@@ -269,11 +269,19 @@
                                 <!-- Apply whitelist directive to student_id input field. Make form invalid if this field invalid -->
                                 <!-- Need to give input field ng-model attribute to apply directive -->
                                 <!-- autocomplete off to prevent browser from caching input field -->
-                                    <input type="text" autocomplete="off" id="stduent_id" name="student_id" ng-model="test_response.student_id" whitelist>
-                                    <label for="student_id">Student ID</label>
-                                       <span ng-show="testForm.student_id.$error.whitelist">Please enter a valid student_id</span>
+                                    <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist>
+                                    <label for="username">Student ID</label>
+                                       <span ng-show="testForm.$dirty && testForm.username.$error.whitelist">Please enter a valid student_id</span>
 
+                                    <!-- Hidden field with test name -->
                                     <input type="hidden" name="test" value="alpha_comp">
+
+                                    <!-- Hidden field with module name -->
+                                    <input type="hidden" name="module" value="numeracy">
+
+                                    <input type="email" name="coach_email" ng-model="test_response.coach_email">
+                                    <label for="coach_email">Coach email</label>
+                                        <span ng-show="testForm.coach_email.$error.email">Please enter a valid email</span>
 
                                     <input type="submit" value="submit" ng-disabled="testForm.$invalid">
                             </form>
