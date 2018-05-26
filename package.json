@@ -1,18 +1,26 @@
 {
   "name": "testing_server_node",
   "version": "1.0.0",
-  "description": "offline baseline testing application",
+  "description": "",
   "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "csv": "^3.0.2",
-    "express": "^4.16.3",
-    "sqlite3": "^4.0.0"
+    "body-parser": "1.18.2",
+    "csv": "3.0.2",
+    "express": "4.16.3",
+    "sqlite3": "4.0.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "TechZM",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techZM/offline_testing.git"
+  },
+  "author": "techzm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techZM/offline_testing/issues"
+  },
+  "homepage": "https://github.com/techZM/offline_testing#readme"
 }
