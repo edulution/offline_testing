@@ -24,21 +24,7 @@ tresponses <- dbFetch(tresponses_query)
 #clean up and close database connection
 dbDisconnect(conn)
 
-ka_db <- "~/.kalite/database/data.sqlite"
-conn2 <- dbConnect(sqlite, ka_db)
-
-#get device name
-#device name derived by getting id of own device from metadata, then joining to devices config table
-device_query <- dbSendQuery(conn2,"SELECT * FROM securesync_device")
-device <- dbFetch(device_query) %>% select(id,name)
-
-meta_query <- dbSendQuery(conn2,"SELECT * FROM securesync_devicemetadata")
-device_meta <- dbFetch(meta_query) %>% select(id,device_id,is_own_device)
-device_name <- device_meta %>% filter(is_own_device == 1) %>% left_join(device,by=c("device_id" = "id"))
-device_name <- substring(device_name$name,1,3)
-
-dbDisconnect(conn2)
-
+device_name <- readLines("~/.baseline_testing/device_name.csv")
 
 # Simple function to generate filename of csv report in desired format
 generate_filename <- function(report,date){
