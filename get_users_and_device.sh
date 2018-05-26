@@ -4,7 +4,16 @@
 ka_database=~/.kalite/database/data.sqlite
 
 # path to test_responses database
-responses_database=~/edulution/testing_server_node/public/test_responses.sqlite
+responses_database=~/.baseline_testing/public/test_responses.sqlite
+
+test -f $responses_database
+if [ "$?" = "0" ]; then
+	echo "Database already exists.Skipping..."
+else
+	echo "Database does not exist. Creating now..."
+	cp ~/.baseline_testing/public/test_responses.pristine.sqlite ~/.baseline_testing/public/test_responses.sqlite
+fi
+
 
 # clear contents of device_name and users csv files if they already exist
 if [ -e "device_name.csv" ] ; then
@@ -21,7 +30,7 @@ sqlite3 -header -csv $ka_database "SELECT d.name FROM securesync_device d JOIN s
 
 # get list of users and save in csv file
 echo "extracting user details from kalite database"
-sqlite3 -header -csv $ka_database "select su.id as user_id, su.username, sf.name as group_name,su.first_name, su.last_name from securesync_facilityuser su join securesync_facilitygroup sf where su.group_id = sf.id and su.deleted = 0;" >> users.csv
+sqlite3 -header -csv $ka_database "select su.id as user_id, su.username, sf.name as group_name,su.first_name, su.last_name from securesync_facilityuser su left join securesync_facilitygroup sf on sf.id=su.group_id where su.deleted = 0" >> users.csv
 
 # clear out users table
 echo "Cleaning users table..."
