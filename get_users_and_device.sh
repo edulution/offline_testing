@@ -6,6 +6,7 @@ ka_database=~/.kalite/database/data.sqlite
 # path to test_responses database
 responses_database=~/.baseline_testing/public/test_responses.sqlite
 
+# check if test responses db exists. If not, copy pristine db 
 test -f $responses_database
 if [ "$?" = "0" ]; then
 	echo "Database already exists.Skipping..."
