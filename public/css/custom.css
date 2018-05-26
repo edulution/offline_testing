@@ -3,16 +3,16 @@ body{
 	background-color: #B3FFB3;
 }
 .bg_img{
-	background-image: url('../images/bg-images.png');
+	/*background-image: url('../images/bg-images.png');*/
 	height: 379px;
 }
 .page {
     background-color: rgb(255, 255, 255);
-    border-top: 8px solid rgb(0, 255, 0);
+    /*border-top: 8px solid rgb(0, 255, 0);*/
     display: table;
-    margin: -120px auto 0;
+    /*margin: -120px auto 0;*/
     position: relative;
-    right: -64px;
+    /*right: -64px;*/
     width: 56%;
 }
 .pd-lr{
@@ -23,7 +23,7 @@ body{
     color: rgba(0, 0, 0, 0.87);
     padding: 34px 0;
 }
-.HeaderbannerLabel {
+/*.HeaderbannerLabel {
     background-image: url("../images/title-bg.png");
     background-repeat: no-repeat;
     color: rgb(255, 255, 255);
@@ -33,7 +33,7 @@ body{
     margin-left: -34px;
     margin-top: 15px;
     padding-left: 34px;
-}
+}*/
 .ins {
     font-size: 14px;
     font-weight: 400;
@@ -109,11 +109,11 @@ body{
     padding-top: 77px;
     width: 89%;
 }
-span {
+/*span {
     display: block;
     font-size: 12px;
     margin-bottom: 28px;
-}
+}*/
 /* Responsive */
 
 /* Responsive */
