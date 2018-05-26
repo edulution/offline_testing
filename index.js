@@ -25,7 +25,7 @@ var csv = require('csv');
 var users = [];
 
 /*read users csv file with headers*/
-var readStream = fs.createReadStream('users.csv.headers');
+var readStream = fs.createReadStream(__dirname + '/users.csv.headers');
 
 /*parse by columns and push objects to users array*/
 var parser = csv.parse({columns:true});
@@ -43,7 +43,7 @@ parser.on('error', function(err) {
 
 /*log users array when finished sucessfully*/
 parser.on('finish', (function() {
-  console.log(users);
+  console.log('successfully loaded '+ users.length + ' users from database...');
 }));
 
 readStream.pipe(parser);
@@ -67,9 +67,18 @@ if(mm<10) {
 today = "'"+ yyyy + '-' + mm + '-' + dd +"'";
 
 
-/*Single form for demonstration. Loaded when root of server requested*/
-app.get('', function (req, res) {
- res.sendFile( __dirname + '/form1.html');
+
+/*Urls for forms*/
+app.get('/prealp_comp_1', function (req, res) {
+ res.sendFile( __dirname + '/prealp_comp_1_final.html');
+});
+
+app.get('/prealp_comp_2', function (req, res) {
+ res.sendFile( __dirname + '/prealp_comp_2_final.html');
+});
+
+app.get('/prealp_comp_3', function (req, res) {
+ res.sendFile( __dirname + '/prealp_comp_3_final.html');
 });
 
 
@@ -112,5 +121,5 @@ app.post('/submit_test', [function(req, res,next){
 }]);
 
 app.listen(port, '0.0.0.0', function() {
- console.log('Server running at port ' + port);
+ console.log('Server running on port ' + port);
 });
