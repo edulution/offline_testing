@@ -13,7 +13,7 @@ library(RSQLite)
 
 # connect to KA database 
 sqlite <- dbDriver("SQLite")
-dbfile <- "~/edulution/testing_server_node/public/test_responses.sqlite"
+dbfile <- "~/.baseline_testing/public/test_responses.sqlite"
 conn <- dbConnect(sqlite, dbfile)
 
 #get users
