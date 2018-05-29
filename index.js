@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 
 /*Por the server will run on*/
-var port = 8888;
+var port = 5000;
 
 /*Use sqlite3 Database*/
 const sqlite3 = require('sqlite3').verbose();
@@ -122,6 +122,6 @@ app.post('/submit_test', [function(req, res,next){
 		res.sendFile( __dirname + '/sucessful_submission.html');
 }]);
 
-app.listen(port, '0.0.0.0', function() {
- console.log('Server running on port ' + port);
+app.listen(.listen(process.env.PORT || 5000), '0.0.0.0', function() {
+ console.log('Server running on port ' + process.env.PORT);
 });
