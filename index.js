@@ -83,6 +83,10 @@ app.get('/prealp_comp_3', function (req, res) {
  res.sendFile( __dirname + '/prealp_comp_3_final.html');
 });
 
+app.get('/results', function (req, res) {
+ res.sendFile( __dirname + '/dashboard/index.html');
+});
+
 
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){

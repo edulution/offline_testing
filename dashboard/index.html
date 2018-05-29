@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html ng-app="coachDashBoard">
+<head>
+	<title>Coach Dashboard</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<script src="pmodule/angular.min.js"></script>
+	<script src="pmodule/angular-animate.js"></script>
+	<script src="pmodule/angular-sanitize.js"></script>
+	<script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+	<link rel="stylesheet" href="pmodule/password_modal.css">
+
+	
+	<script src="js/coachDashboard/app.js"></script>
+
+</head>
+<body ng-controller="MainCtrl as ctrl">
+	<script type="text/ng-template" id="passwordModalContent.html">
+	    <div class="modal-header">
+	        <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
+	    </div>
+	    <div class="modal-body" id="modal-body">
+	        <label class="item item-input">
+	            <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
+	        </label>
+	        <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
+	    </div>
+	    <div class="modal-footer">
+	        <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
+	        <button class="btn btn-danger" type="button">Cancel</button>
+	    </div>
+	</script>
+    <!-- <span ng-init=ctrl.openModal()></span> -->
+
+    <div class="container-fluid">
+    	<div class="row">
+    		<h3>Test Results</h3>
+    	</div>
+    	<div class="row">
+    		<div class="table-responsive">
+    			<table class="table table-bordered">
+    				<tr>
+    					<th>Username</th>
+    					<th>Test</th>
+    					<th>Module</th>
+    					<th>Coach ID</th>
+    					<th>Test Date</th>
+    					<th>q1</th>
+    					<th>q2</th>
+    					<th>q3</th>
+    					<th>q4</th>
+    					<th>q5</th>
+    					<th>q6</th>
+    					<th>q7</th>
+    					<th>q8</th>
+    					<th>q9</th>
+    					<th>q10</th>
+    					<th>q11</th>
+    					<th>q12</th>
+    					<th>q13</th>
+    					<th>q14</th>
+    					<th>q15</th>
+    					<th>q16</th>
+    					<th>q17</th>
+    					<th>q18</th>
+    					<th>q19</th>
+    					<th>q20</th>
+    					<th>q21</th>
+    					<th>q22</th>
+    					<th>q23</th>
+    					<th>q24</th>
+    					<th>q25</th>
+    					<th>q26</th>
+    					<th>q27</th>
+    					<th>q28</th>
+    					<th>q29</th>
+    					<th>q30</th>
+    					<th>q31</th>
+    					<th>q32</th>
+    					<th>q33</th>
+    					<th>q34</th>
+    					<th>q35</th>
+    					<th>q36</th>
+    					<th>q37</th>
+    					<th>q38</th>
+    					<th>q39</th>
+    					<th>q40</th>
+    					<th>q41</th>
+    					<th>q42</th>
+    					<th>q43</th>
+    					<th>q44</th>
+    					<th>q45</th>
+    					<th>q46</th>
+    					<th>q47</th>
+    					<th>q48</th>
+    					<th>q49</th>
+    					<th>q50</th>
+    					<th>q51</th>
+    					<th>q52</th>
+    					<th>q53</th>
+    					<th>q54</th>
+    					<th>q55</th>
+    					<th>q56</th>
+    					<th>q57</th>
+    					<th>q58</th>
+    					<th>q59</th>
+    					<th>q60</th>
+    					<th>q61</th>
+    					<th>q62</th>
+    					<th>q63</th>
+    					<th>q64</th>
+    					<th>q65</th>
+    					<th>q66</th>
+    					<th>q67</th>
+    					<th>q68</th>
+    					<th>q69</th>
+    					<th>q70</th>
+
+    				</tr>
+    				<tr ng-repeat="result in results">
+
+    					<td>{{result.username}}</td>
+    					<td>{{result.test}}</td>
+    					<td>{{result.module}}</td>
+    					<td>{{result.coach_id}}</td>
+    					<td>{{result.test_date}}</td>
+    					<td>{{result.q1}}</td>
+    					<td>{{result.q2}}</td>
+    					<td>{{result.q3}}</td>
+    					<td>{{result.q4}}</td>
+    					<td>{{result.q5}}</td>
+    					<td>{{result.q6}}</td>
+    					<td>{{result.q7}}</td>
+    					<td>{{result.q8}}</td>
+    					<td>{{result.q9}}</td>
+    					<td>{{result.q10}}</td>
+    					<td>{{result.q11}}</td>
+    					<td>{{result.q12}}</td>
+    					<td>{{result.q13}}</td>
+    					<td>{{result.q14}}</td>
+    					<td>{{result.q15}}</td>
+    					<td>{{result.q16}}</td>
+    					<td>{{result.q17}}</td>
+    					<td>{{result.q18}}</td>
+    					<td>{{result.q19}}</td>
+    					<td>{{result.q20}}</td>
+    					<td>{{result.q21}}</td>
+    					<td>{{result.q22}}</td>
+    					<td>{{result.q23}}</td>
+    					<td>{{result.q24}}</td>
+    					<td>{{result.q25}}</td>
+    					<td>{{result.q26}}</td>
+    					<td>{{result.q27}}</td>
+    					<td>{{result.q28}}</td>
+    					<td>{{result.q29}}</td>
+    					<td>{{result.q30}}</td>
+    					<td>{{result.q31}}</td>
+    					<td>{{result.q32}}</td>
+    					<td>{{result.q33}}</td>
+    					<td>{{result.q34}}</td>
+    					<td>{{result.q35}}</td>
+    					<td>{{result.q36}}</td>
+    					<td>{{result.q37}}</td>
+    					<td>{{result.q38}}</td>
+    					<td>{{result.q39}}</td>
+    					<td>{{result.q40}}</td>
+    					<td>{{result.q41}}</td>
+    					<td>{{result.q42}}</td>
+    					<td>{{result.q43}}</td>
+    					<td>{{result.q44}}</td>
+    					<td>{{result.q45}}</td>
+    					<td>{{result.q46}}</td>
+    					<td>{{result.q47}}</td>
+    					<td>{{result.q48}}</td>
+    					<td>{{result.q49}}</td>
+    					<td>{{result.q50}}</td>
+    					<td>{{result.q51}}</td>
+    					<td>{{result.q52}}</td>
+    					<td>{{result.q53}}</td>
+    					<td>{{result.q54}}</td>
+    					<td>{{result.q55}}</td>
+    					<td>{{result.q56}}</td>
+    					<td>{{result.q57}}</td>
+    					<td>{{result.q58}}</td>
+    					<td>{{result.q59}}</td>
+    					<td>{{result.q60}}</td>
+    					<td>{{result.q61}}</td>
+    					<td>{{result.q62}}</td>
+    					<td>{{result.q63}}</td>
+    					<td>{{result.q64}}</td>
+    					<td>{{result.q65}}</td>
+    					<td>{{result.q66}}</td>
+    					<td>{{result.q67}}</td>
+    					<td>{{result.q68}}</td>
+    					<td>{{result.q69}}</td>
+    					<td>{{result.q70}}</td>
+    				</tr>
+
+    			</table>
+    			
+    		</div>
+    		
+
+    	</div>
+    </div>
+
+    
+
+</body>
+</html>
