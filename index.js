@@ -122,6 +122,4 @@ app.post('/submit_test', [function(req, res,next){
 		res.sendFile( __dirname + '/sucessful_submission.html');
 }]);
 
-app.listen(.listen(process.env.PORT || 5000), '0.0.0.0', function() {
- console.log('Server running on port ' + process.env.PORT);
-});
+app.listen(process.env.PORT || 5000);
