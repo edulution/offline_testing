@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 
 /*Por the server will run on*/
 var port = 8888;
@@ -13,7 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 /*Serve static assets from the public folder*/
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname,'public')));
+
 
 /*Get users from csv file and store as arraylist*/
 /*===========*/
