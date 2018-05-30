@@ -95,7 +95,7 @@ app.get('/get_users',function(req, res){
 
 /*endpoint to get all test_responses as json*/
 app.get('/get_responses',function(req, res){
-        let db = new sqlite3.Database('public/test_responses.sqlite');
+        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
         var responses_query='select u.user_id,u.group_name,r.* from responses r join users u where r.username = u.username;';
         db.all(responses_query,function(err,rows){
         	/*console.log(rows);*/
@@ -117,7 +117,7 @@ app.post('/submit_test', [function(req, res,next){
 	console.log(insert_statement);
 
 	/*Open database and run insert satement. Then close database*/
-	let db = new sqlite3.Database('public/test_responses.sqlite');
+	let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
 	db.run(insert_statement);
 	db.close();
 	next();}
