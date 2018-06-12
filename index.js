@@ -83,6 +83,24 @@ app.get('/prealp_comp_3', function (req, res) {
  res.sendFile( __dirname + '/prealp_comp_3_final.html');
 });
 
+app.get('/sec_a1', function (req, res) {
+ res.sendFile( __dirname + '/sec_a1.html');
+});
+
+app.get('/sec_a2', function (req, res) {
+ res.sendFile( __dirname + '/sec_a2.html');
+});
+
+
+app.get('/sec_b1', function (req, res) {
+ res.sendFile( __dirname + '/sec_b1.html');
+});
+
+app.get('/sec_c1', function (req, res) {
+ res.sendFile( __dirname + '/sec_c1.html');
+});
+
+
 
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
