@@ -69,42 +69,65 @@ if(mm<10) {
 today = "'"+ yyyy + '-' + mm + '-' + dd +"'";
 
 
-
-/*Urls for forms*/
-
-/*Prealpha comp tests*/
-app.get('/prealp_comp_1', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_1_final.html');
-});
-
-app.get('/prealp_comp_2', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_2_final.html');
-});
-
-app.get('/prealp_comp_3', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_3_final.html');
-});
-
 /*Results dashboard page*/
 app.get('/results', function (req, res) {
  res.sendFile( __dirname + '/dashboard/index.html');
 });
 
+/*Urls for forms*/
+
+/*Prealpha comp tests*/
+app.get('/prealp_comp_1', function (req, res) {
+ res.sendFile( __dirname + '/prealp_comp_1.html');
+});
+
+app.get('/prealp_comp_2', function (req, res) {
+ res.sendFile( __dirname + '/prealp_comp_2.html');
+});
+
+app.get('/prealp_comp_3', function (req, res) {
+ res.sendFile( __dirname + '/prealp_comp_3.html');
+});
+
+
+/*Alpha comp tests*/
+app.get('/alp_comp_1', function (req, res) {
+ res.sendFile( __dirname + '/alp_comp_1.html');
+});
+
+app.get('/alp_comp_2', function (req, res) {
+ res.sendFile( __dirname + '/alp_comp_2.html');
+});
+
+
 /*Alpha sectional tests*/
-app.get('/sec_a1', function (req, res) {
- res.sendFile( __dirname + '/sec_a1.html');
+
+/*Alpha section A*/
+app.get('/alp_sec_a1', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_a1.html');
 });
 
-app.get('/sec_a2', function (req, res) {
- res.sendFile( __dirname + '/sec_a2.html');
+app.get('/alp_sec_a2', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_a2.html');
 });
 
-app.get('/sec_b1', function (req, res) {
- res.sendFile( __dirname + '/sec_b1.html');
+
+/*Alpha section B*/
+app.get('/alp_sec_b1', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_b1.html');
 });
 
-app.get('/sec_c1', function (req, res) {
- res.sendFile( __dirname + '/sec_c1.html');
+app.get('/alp_sec_b2', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_b1.html');
+});
+
+/*Alpha section C*/
+app.get('/alp_sec_c1', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_c1.html');
+});
+
+app.get('/alp_sec_c2', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_c2.html');
 });
 
 /*endpoint to get users list as json*/
