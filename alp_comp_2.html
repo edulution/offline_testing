@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
@@ -8,20 +8,21 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
 <title>Alpha Comprehensive Test 2</title>
-    <meta charset="utf-8" />
+<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!--Custom Css-->
     <link rel="stylesheet" href="css/custom.css">
     <!--Fonts-->
+
     <!-- TODO : please ensure that all fonts and libraries are offline -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!--Js-->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="pmodule/angular.min.js"></script>
@@ -30,6 +31,7 @@
     <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
+
 
 <style>
 .HeaderbannerLabel {
@@ -126,11 +128,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <label for="q1_a">6</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q1_b" name="q1" value="1">
+					    <input type="radio" id="q1_b" name="q1" value="0">
 					    <label for="q1_b">9</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q1_c" name="q1" value="0">
+					    <input type="radio" id="q1_c" name="q1" value="1">
 					    <label for="q1_c">12</label>
 					  </p>
 					  <p>
@@ -151,7 +153,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <label for="q2_a">5</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q2_b" name="q2" value="1">
+					    <input type="radio" id="q2_b" name="q2" value="0">
 					    <label for="q2_b">20</label>
 					  </p>
 					  <p>
@@ -159,7 +161,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <label for="q2_c">30</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q2_d" name="q2" value="0">
+					    <input type="radio" id="q2_d" name="q2" value="1">
 					    <label for="q2_d">35</label>
 						</p>
 						
@@ -169,7 +171,7 @@ span.frac > sub {  display: block;  font: inherit;}
 								<span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span>
 						</span>
 						<p>
-					    <input type="radio" id="q3_a" name="q3" value="0">
+					    <input type="radio" id="q3_a" name="q3" value="1">
 					    <label for="q3_a">10</label>
 					  </p>
 					  <p>
@@ -177,7 +179,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <label for="q3_b">20</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q3_c" name="q3" value="1">
+					    <input type="radio" id="q3_c" name="q3" value="0">
 					    <label for="q3_c">50</label>
 					  </p>
 					  <p>
@@ -196,11 +198,11 @@ span.frac > sub {  display: block;  font: inherit;}
 							<label for="q4_a"> > </label>
 						</p>
 						<p>
-							<input type="radio" id="q4_b" name="q4" value="0">
+							<input type="radio" id="q4_b" name="q4" value="1">
 							<label for="q4_b"> < </label>
 						</p>
 						<p>
-							<input type="radio" id="q4_c" name="q4" value="1">
+							<input type="radio" id="q4_c" name="q4" value="0">
 							<label for="q4_c"> = </label>
 						</p>
 						<p>
@@ -214,19 +216,19 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"><i class="far fa-square"></i></span>
 					</h3>
 					  <p>
-					    <input type="radio" id="q5_a" name="q5" value="0">
+					    <input type="radio" id="q5_a" name="q5" value="1">
 							<label for="q5_a">
 								6<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span> 
 							</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q5_b" name="q5" value="1">
+					    <input type="radio" id="q5_b" name="q5" value="0">
 					    <label for="q5_b">
 							<span class="frac"><sup>28</sup><span>/</span><sub>5</sub></span> 
 						</label>
 						</p>
 						<p>
-					    <input type="radio" id="q5_c" name="q5" value="1">
+					    <input type="radio" id="q5_c" name="q5" value="0">
 					    <label for="q5_c">
 							<span class="frac"><sup>21</sup><span>/</span><sub>5</sub></span> 
 						</label>
@@ -261,13 +263,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						<h3>(7) Rewrite 0.5 as a fraction.</h3>
 						<span> 0.5 = <span class="icon"><i class="far fa-square"></i></span></span>
 					   <p>
-							<input type="radio" id="q7_a" name="q7" value="0">
+							<input type="radio" id="q7_a" name="q7" value="1">
 							<label for="q7_a">
 								<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> 
 							</label>
 						</p>
 						<p>
-							<input type="radio" id="q7_b" name="q7" value="1">
+							<input type="radio" id="q7_b" name="q7" value="0">
 							<label for="q7_b">
 								<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> 
 							</label>
@@ -312,7 +314,7 @@ span.frac > sub {  display: block;  font: inherit;}
 							<div class="half" style="width: 276px;">
 								<div><img src="images/alp_comp_2/question9_a.png" class="displayed center-block"/></div>
 								<p>
-									<input type="radio" id="q9_a" name="q9" value="1">
+									<input type="radio" id="q9_a" name="q9" value="0">
 									<label for="q9_a">A</label>
 								</p>
 							</div>
@@ -320,7 +322,7 @@ span.frac > sub {  display: block;  font: inherit;}
 							<div class="angle_img" style="width: 276px;">
 								<div><img src="images/alp_comp_2/question9_b.png" class="displayed center-block"/></div>
 								<p>
-									<input type="radio" id="q9_b" name="q9" value="0">
+									<input type="radio" id="q9_b" name="q9" value="1">
 									<label for="q9_b">B</label>
 								</p>
 							</div>
@@ -329,7 +331,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<h3>(10) Estimate the angle shown below.</h3>
 						<div><img src="images/alp_comp_2/question10.jpg" alt="image missing" class="img-responsive"/></div>
 					  <p>
-					    <input type="radio" id="q10_a" name="q10" value="0">
+					    <input type="radio" id="q10_a" name="q10" value="1">
 					    <label for="q10_a">30&deg;</label>
 					  </p>
 					  <p>
@@ -341,7 +343,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <label for="q10_c">135&deg;</label>
 					  </p>
 					  <p>
-					    <input type="radio" id="q10_d" name="q10" value="1">
+					    <input type="radio" id="q10_d" name="q10" value="0">
 					    <label for="q10_d">180&deg;</sup></label>
 					  </p>
 					  
@@ -351,7 +353,7 @@ span.frac > sub {  display: block;  font: inherit;}
 								<label for="q11_a">25</label>
 							</p>
 							<p>
-								<input type="radio" id="q11_b" name="q11" value="1">
+								<input type="radio" id="q11_b" name="q11" value="0">
 								<label for="q11_b">33</label>
 							</p>
 							<p>
@@ -359,7 +361,7 @@ span.frac > sub {  display: block;  font: inherit;}
 								<label for="q11_c">65</label>
 							</p>
 							<p>
-								<input type="radio" id="q11_d" name="q11" value="0">
+								<input type="radio" id="q11_d" name="q11" value="1">
 								<label for="q11_d">71</label>
 							</p>
 										
@@ -369,7 +371,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q12_a">4</label>
 					</p>
 					<p>
-						<input type="radio" id="q12_b" name="q12" value="1">
+						<input type="radio" id="q12_b" name="q12" value="0">
 						<label for="q12_b">75</label>
 					</p>
 					<p>
@@ -403,11 +405,11 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(14) 3.9 &minus; 2.31  = <span class="icon"></span><i class="far fa-square"></i></span></h3>
 					<p>
-						<input type="radio" id="q14_a" name="q14" value="0">
+						<input type="radio" id="q14_a" name="q14" value="1">
 						<label for="q14_a">1.59</label>
 					</p>
 					<p>
-						<input type="radio" id="q14_b" name="q14" value="1">
+						<input type="radio" id="q14_b" name="q14" value="0">
 						<label for="q14_b">2.82</label>
 					</p>
 					<p>
@@ -429,17 +431,17 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q15_b">6,760</label>
 					</p>
 					<p>
-						<input type="radio" id="q15_c" name="q15" value="1">
+						<input type="radio" id="q15_c" name="q15" value="0">
 						<label for="q15_c">1,356</label>
 					</p>
 					<p>
-						<input type="radio" id="q15_d" name="q15" value="0">
+						<input type="radio" id="q15_d" name="q15" value="1">
 						<label for="q15_d">5,876</label>
 					</p>
 
 					<h3>(16)  0.82 &times; 0.3 = <span class="icon"></span><i class="far fa-square"></i></span></h3>
 					<p>
-						<input type="radio" id="q16_a" name="q16" value="1">
+						<input type="radio" id="q16_a" name="q16" value="0">
 						<label for="q16_a">0.52</label>
 					</p>
 					<p>
@@ -461,7 +463,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q17_a">264</label>
 					</p>
 					<p>
-						<input type="radio" id="q17_b" name="q17" value="1">
+						<input type="radio" id="q17_b" name="q17" value="0">
 						<label for="q17_b">272</label>
 					</p>
 					<p>
@@ -475,7 +477,7 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(18) 7 &divide; 4 = <span class="icon"></span><i class="far fa-square"></i></span> </h3>
 					<p>
-						<input type="radio" id="q18_a" name="q18" value="1">
+						<input type="radio" id="q18_a" name="q18" value="0">
 						<label for="q18_a">1.34</label>
 					</p>
 					<p>
@@ -493,11 +495,11 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(19) 4.2 &divide; 0.3 = <span class="icon"></span><i class="far fa-square"></i></span> </h3>
 					<p>
-						<input type="radio" id="q19_a" name="q19" value="1">
+						<input type="radio" id="q19_a" name="q19" value="0">
 						<label for="q19_a">1.4</label>
 					</p>
 					<p>
-						<input type="radio" id="q19_b" name="q19" value="1">
+						<input type="radio" id="q19_b" name="q19" value="0">
 						<label for="q19_b">12</label>
 					</p>
 					<p>
@@ -505,7 +507,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q19_c">0.4</label>
 					</p>
 					<p>
-						<input type="radio" id="q19_d" name="q19" value="0">
+						<input type="radio" id="q19_d" name="q19" value="1">
 						<label for="q19_d">14</label>
 					</p>
 					
@@ -515,13 +517,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"></span><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q20_a" name="q20" value="1">
+						<input type="radio" id="q20_a" name="q20" value="0">
 						<label for="q20_a">
 							<span class="frac"><sup>6</sup><span>/</span><sub>13</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q20_b" name="q20" value="1">
+						<input type="radio" id="q20_b" name="q20" value="0">
 						<label for="q20_b">
 							<span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span>
 						</label>
@@ -533,7 +535,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q20_d" name="q20" value="0">
+						<input type="radio" id="q20_d" name="q20" value="1">
 						<label for="q20_d">
 							<span class="frac"><sup>5</sup><span>/</span><sub>6</sub></span>
 						</label>
@@ -545,13 +547,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"></span><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q21_a" name="q21" value="1">
+						<input type="radio" id="q21_a" name="q21" value="0">
 						<label for="q21_a">
 							3<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q21_b" name="q21" value="1">
+						<input type="radio" id="q21_b" name="q21" value="0">
 						<label for="q21_b">
 							<span class="frac"><sup>5</sup><span>/</span><sub>18</sub></span>							
 						</label>
@@ -563,7 +565,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q21_d" name="q21" value="0">
+						<input type="radio" id="q21_d" name="q21" value="1">
 						<label for="q21_d">
 							2<span class="frac"><sup>5</sup><span>/</span><sub>18</sub></span>
 						</label>
@@ -575,13 +577,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"></span><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q22_a" name="q22" value="1">
+						<input type="radio" id="q22_a" name="q22" value="0">
 						<label for="q22_a">
 							4<span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q22_b" name="q22" value="1">
+						<input type="radio" id="q22_b" name="q22" value="0">
 						<label for="q22_b">
 							<span class="frac"><sup>9</sup><span>/</span><sub>42</sub></span>
 						</label>
@@ -593,7 +595,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q22_d" name="q22" value="0">
+						<input type="radio" id="q22_d" name="q22" value="1">
 						<label for="q22_d">
 							<span class="frac"><sup>25</sup><span>/</span><sub>42</sub></span>
 						</label>
@@ -605,19 +607,19 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"></span><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q23_a" name="q23" value="1">
+						<input type="radio" id="q23_a" name="q23" value="0">
 						<label for="q23_a">
 								2.5
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q23_b" name="q23" value="1">
+						<input type="radio" id="q23_b" name="q23" value="0">
 						<label for="q23_b">
 								5.0
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q23_c" name="q23" value="0">
+						<input type="radio" id="q23_c" name="q23" value="1">
 						<label for="q23_c">
 							10
 						</label>
@@ -633,15 +635,15 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span>10<sup>5</sup></span> =
 						<span class="icon"><i class="far fa-square"></i></span>
 					<p>
-						<input type="radio" id="q24_a" name="q24" value="1">
+						<input type="radio" id="q24_a" name="q24" value="0">
 						<label for="q24_a">5,000</label>
 					</p>
 					<p>
-						<input type="radio" id="q24_b" name="q24" value="1">
+						<input type="radio" id="q24_b" name="q24" value="0">
 						<label for="q24_b">500,000</label>
 					</p>
 					<p>
-						<input type="radio" id="q24_c" name="q24" value="0">
+						<input type="radio" id="q24_c" name="q24" value="1">
 						<label for="q24_c">100,000</label>
 					</p>
 					<p>
@@ -653,15 +655,15 @@ span.frac > sub {  display: block;  font: inherit;}
 					<span>Volume = <span class="icon"><i class="far fa-square"></i></span> cubic units</span>
 					<span><div><img src="images/alp_comp_2/question25.jpg" alt="image missing" class="img-responsive"/></div></span>
 					<p>
-						<input type="radio" id="q25_a" name="q25" value="1">
+						<input type="radio" id="q25_a" name="q25" value="0">
 						<label for="q25_a">20</label>
 					</p>
 					<p>
-						<input type="radio" id="q25_b" name="q25" value="1">
+						<input type="radio" id="q25_b" name="q25" value="0">
 						<label for="q25_b">50</label>
 					</p>
 					<p>
-						<input type="radio" id="q25_c" name="q25" value="0">
+						<input type="radio" id="q25_c" name="q25" value="1">
 						<label for="q25_c">40</label>
 					</p>
 					<p>
@@ -676,7 +678,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q26_a">17</label>
 					</p>
 					<p>
-						<input type="radio" id="q26_b" name="q26" value="1">
+						<input type="radio" id="q26_b" name="q26" value="0">
 						<label for="q26_b">0.17</label>
 					</p>
 					<p>
@@ -684,18 +686,18 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q26_c">170</label>
 					</p>
 					<p>
-						<input type="radio" id="q26_d" name="q26" value="0">
+						<input type="radio" id="q26_d" name="q26" value="1">
 						<label for="q26_d">1.7</label>
 					</p>
 
 					<h3>(27) What are the coordinates of the point below?</h3>
 					<span><div><img src="images/alp_comp_2/question27.jpg" alt="image missing" class="img-responsive"/></div></span>
 					<p>
-						<input type="radio" id="q27_a" name="q27" value="1">
+						<input type="radio" id="q27_a" name="q27" value="0">
 						<label for="q27_a">(2, 4)</label>
 					</p>
 					<p>
-						<input type="radio" id="q27_b" name="q27" value="1">
+						<input type="radio" id="q27_b" name="q27" value="0">
 						<label for="q27_b">(3, 5)</label>
 					</p>
 					<p>
@@ -703,7 +705,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q27_c">(4, 4)</label>
 					</p>
 					<p>
-						<input type="radio" id="q27_d" name="q27" value="0">
+						<input type="radio" id="q27_d" name="q27" value="1">
 						<label for="q27_d">(5, 4)</label>
 					</p>
 
@@ -711,11 +713,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					
 					<h3>(28)  3.5 : 7 therefore, <span class="icon"><i class="far fa-square"></i></span> : 14 </h3>
 					<p>
-						<input type="radio" id="q28_a" name="q28" value="1">
+						<input type="radio" id="q28_a" name="q28" value="0">
 						<label for="q28_a">3.5</label>
 					</p>
 					<p>
-						<input type="radio" id="q28_b" name="q28" value="1">
+						<input type="radio" id="q28_b" name="q28" value="0">
 						<label for="q28_b">7.5</label>
 					</p>
 					<p>
@@ -723,7 +725,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q28_c">14</label>
 					</p>
 					<p>
-						<input type="radio" id="q28_d" name="q28" value="0">
+						<input type="radio" id="q28_d" name="q28" value="1">
 						<label for="q28_d">7</label>
 					</p>
 					
@@ -732,7 +734,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"><i class="far fa-square"></i></span>%		
 					</h3>
 					<p>
-						<input type="radio" id="q29_a" name="q29" value="1">
+						<input type="radio" id="q29_a" name="q29" value="0">
 						<label for="q29_a">
 							22
 						</label>
@@ -758,15 +760,15 @@ span.frac > sub {  display: block;  font: inherit;}
 					
 					<h3>(30)  342.2 &divide; 0.58 =  <span class="icon"><i class="far fa-square"></i></span> </h3>
 					<p>
-						<input type="radio" id="q30_a" name="q30" value="1">
+						<input type="radio" id="q30_a" name="q30" value="0">
 						<label for="q30_a">342</label>
 					</p>
 					<p>
-						<input type="radio" id="q30_b" name="q30" value="1">
+						<input type="radio" id="q30_b" name="q30" value="0">
 						<label for="q30_b">340</label>
 					</p>
 					<p>
-						<input type="radio" id="q30_c" name="q30" value="0">
+						<input type="radio" id="q30_c" name="q30" value="1">
 						<label for="q30_c">590</label>
 					</p>
 					<p>
@@ -780,13 +782,13 @@ span.frac > sub {  display: block;  font: inherit;}
 							<span class="icon"><i class="far fa-square"></i></span>
 						</h3>
 						<p>
-							<input type="radio" id="q31_a" name="q31" value="1">
+							<input type="radio" id="q31_a" name="q31" value="0">
 							<label for="q31_a">
 								<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>
 							</label>
 						</p>
 						<p>
-							<input type="radio" id="q31_b" name="q31" value="1">
+							<input type="radio" id="q31_b" name="q31" value="0">
 							<label for="q31_b">
 								<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span>
 							</label>
@@ -798,7 +800,7 @@ span.frac > sub {  display: block;  font: inherit;}
 							</label>
 						</p>
 						<p>
-							<input type="radio" id="q31_d" name="q31" value="0">
+							<input type="radio" id="q31_d" name="q31" value="1">
 							<label for="q31_d">								
 								<span class="frac"><sup>27</sup><span>/</span><sub>40</sub></span>
 							</label>
@@ -813,7 +815,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q32_a">0</label>
 					</p>
 					<p>
-						<input type="radio" id="q32_b" name="q32" value="1">
+						<input type="radio" id="q32_b" name="q32" value="0">
 						<label for="q32_b">3</label>
 					</p>
 					<p>
@@ -830,13 +832,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						 <span class="icon"><i class="far fa-square"></i> 
 					</h3>
 					<p>
-						<input type="radio" id="q33_a" name="q33" value="1">
+						<input type="radio" id="q33_a" name="q33" value="0">
 						<label for="q33_a">
 							<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q33_b" name="q33" value="1">
+						<input type="radio" id="q33_b" name="q33" value="0">
 						<label for="q33_b">
 							<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span>
 						</label>
@@ -848,7 +850,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q33_d" name="q33" value="0">
+						<input type="radio" id="q33_d" name="q33" value="1">
 						<label for="q33_d">
 							1<span class="frac"><sup>1</sup><span>/</span><sub>64</sub></span>
 						</label>
@@ -857,15 +859,15 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(34) What is the value of the blue point on the number line?</h3>
 					<div><img src="images/alp_comp_2/question34.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q34_a" name="q34" value="1">
+						<input type="radio" id="q34_a" name="q34" value="0">
 						<label for="q34_a">34</label>
 					</p>
 					<p>
-						<input type="radio" id="q34_b" name="q34" value="1">
+						<input type="radio" id="q34_b" name="q34" value="0">
 						<label for="q34_b">5</label>
 					</p>
 					<p>
-						<input type="radio" id="q34_c" name="q34" value="0">
+						<input type="radio" id="q34_c" name="q34" value="1">
 						<label for="q34_c">&minus;10</label>
 					</p>
 					<p>
@@ -876,15 +878,15 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(35) What is not true about about -R?</h3>
 					<div><img src="images/alp_comp_2/question35.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q35_a" name="q35" value="1">
+						<input type="radio" id="q35_a" name="q35" value="0">
 						<label for="q35_a">&minus;R > 0</label>
 					</p>
 					<p>
-						<input type="radio" id="q35_b" name="q35" value="1">
+						<input type="radio" id="q35_b" name="q35" value="0">
 						<label for="q35_b">&minus;R = V</label>
 					</p>
 					<p>
-						<input type="radio" id="q35_c" name="q35" value="0">
+						<input type="radio" id="q35_c" name="q35" value="1">
 						<label for="q35_c">&minus;R = &minus;V</label>
 					</p>
 					<p>
@@ -897,7 +899,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					</h3>
 					<span>Find the absolute value.</span>
 					<p>
-						<input type="radio" id="q36_a" name="q36" value="1">
+						<input type="radio" id="q36_a" name="q36" value="0">
 						<label for="q36_a">&minus;0.6</label>
 					</p>
 					<p>
@@ -916,7 +918,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(37) Find the coordiantes of point B</h3>
 					<div><img src="images/alp_comp_2/question37.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q37_a" name="q37" value="1">
+						<input type="radio" id="q37_a" name="q37" value="0">
 						<label for="q37_a">(3, 3)</label>						
 					</p>
 					<p>
@@ -934,11 +936,11 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(38)  Find the lowest common multiple (LCM) for 11 and 7</h3>
 					<p>
-						<input type="radio" id="q38_a" name="q38" value="1">
+						<input type="radio" id="q38_a" name="q38" value="0">
 						<label for="q38_a">11</label>
 					</p>
 					<p>
-						<input type="radio" id="q38_b" name="q38" value="1">
+						<input type="radio" id="q38_b" name="q38" value="0">
 						<label for="q38_b">7</label>
 					</p>
 					<p>
@@ -946,17 +948,17 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q38_c">70</label>
 					</p>
 					<p>
-						<input type="radio" id="q38_d" name="q38" value="0">
+						<input type="radio" id="q38_d" name="q38" value="1">
 						<label for="q38_d">77</label>
 					</p>
 
 					<h3>(39) Find the highest common factor (HCF) for 25, 50 and 100.</h3>
 					<p>
-						<input type="radio" id="q39_a" name="q38" value="1">
+						<input type="radio" id="q39_a" name="q39" value="0">
 						<label for="q39_a">10</label>
 					</p>
 					<p>
-						<input type="radio" id="q39_b" name="q39" value="1">
+						<input type="radio" id="q39_b" name="q39" value="0">
 						<label for="q39_b">15</label>
 					</p>
 					<p>
@@ -964,17 +966,17 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q39_c">20</label>
 					</p>
 					<p>
-						<input type="radio" id="q39_d" name="q39" value="0">
+						<input type="radio" id="q39_d" name="q39" value="1">
 						<label for="q39_d">25</label>
 
 					<h3>(40)Solve the expression when s = 4</h3>
 					<span>9 &minus; <span class="frac"><sup>8</sup><span>/</span><sub>s</sub></span> = <span class="icon"><i class="far fa-square"></i></span> </span>
 					<p>
-						<input type="radio" id="q40_a" name="q40" value="1">
+						<input type="radio" id="q40_a" name="q40" value="0">
 						<label for="q40_a">9</label>
 					</p>
 					<p>
-						<input type="radio" id="q40_b" name="q40" value="1">
+						<input type="radio" id="q40_b" name="q40" value="0">
 						<label for="q40_b">13</label>
 					</p>
 					<p>
@@ -982,7 +984,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q40_c">15</label>
 					</p>
 					<p>
-						<input type="radio" id="q40_d" name="q40" value="0">
+						<input type="radio" id="q40_d" name="q40" value="1">
 						<label for="q40_d">7</label>
 					</p>
 
@@ -991,11 +993,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					</h3>
 					<span>Solve the expression when g = 2 and h = 7</span>
 					<p>
-						<input type="radio" id="q41_a" name="q41" value="1">
+						<input type="radio" id="q41_a" name="q41" value="0">
 						<label for="q41_a">2</label>
 					</p>
 					<p>
-						<input type="radio" id="q41_b" name="q41" value="1">
+						<input type="radio" id="q41_b" name="q41" value="0">
 						<label for="q41_b">7</label>
 					</p>
 					<p>
@@ -1003,7 +1005,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q41_c">11</label>
 					</p>
 					<p>
-						<input type="radio" id="q41_d" name="q41" value="0">
+						<input type="radio" id="q41_d" name="q41" value="1">
 						<label for="q41_d">3</label>
 					</p> 
 
@@ -1011,13 +1013,13 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(42) 3 = 10p</h3>
 					<span>Find the value of p</span>
 					<p>
-						<input type="radio" id="q42_a" name="q42" value="1">
+						<input type="radio" id="q42_a" name="q42" value="0">
 						<label for="q42_a">
 							<span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q42_b" name="q42" value="1">
+						<input type="radio" id="q42_b" name="q42" value="0">
 						<label for="q42_b">
 							<span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>
 						</label>
@@ -1029,7 +1031,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q42_d" name="q42" value="0">
+						<input type="radio" id="q42_d" name="q42" value="1">
 						<label for="q42_d">
 							<span class="frac"><sup>3</sup><span>/</span><sub>10</sub></span>
 						</label>
@@ -1043,7 +1045,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q43_a">s = 6</label>
 					</p>
 					<p>
-						<input type="radio" id="q43_b" name="q43" value="1">
+						<input type="radio" id="q43_b" name="q43" value="0">
 						<label for="q43_b">s = 12</label>
 					</p>
 					<p>
@@ -1060,11 +1062,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					</h3>
 					<span>Simplify the expression.</span>
 					<p>
-						<input type="radio" id="q44_a" name="q44" value="1">
+						<input type="radio" id="q44_a" name="q44" value="0">
 						<label for="q44_a">3</label>
 					</p>
 					<p>
-						<input type="radio" id="q44_b" name="q44" value="1">
+						<input type="radio" id="q44_b" name="q44" value="0">
 						<label for="q44_b">5</label>
 					</p>
 					<p>
@@ -1072,7 +1074,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q44_c">15</label>
 					</p>
 					<p>
-						<input type="radio" id="q44_d" name="q44" value="0">
+						<input type="radio" id="q44_d" name="q44" value="1">
 						<label for="q44_d">2</label>
 					</p> 
 					
@@ -1080,11 +1082,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<span>Area = <span class="icon"><i class="far fa-square"></i></span> square units</span>
 					<div><img src="images/alp_comp_2/question45.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q45_a" name="q45" value="1">
+						<input type="radio" id="q45_a" name="q45" value="0">
 						<label for="q45_a">110</label>
 					</p>
 					<p>
-						<input type="radio" id="q45_b" name="q45" value="1">
+						<input type="radio" id="q45_b" name="q45" value="0">
 						<label for="q45_b">132</label>
 					</p>
 					<p>
@@ -1092,7 +1094,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q45_c">32</label>
 					</p>
 					<p>
-						<input type="radio" id="q45_d" name="q45" value="0">
+						<input type="radio" id="q45_d" name="q45" value="1">
 						<label for="q45_d">120</label>
 					</p> 
 
@@ -1100,13 +1102,13 @@ span.frac > sub {  display: block;  font: inherit;}
 					<span>Volume = <span class="icon"><i class="far fa-square"></i></span> cubic units</span>
 					<div><img src="images/alp_comp_2/question46.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q46_a" name="q46" value="1">
+						<input type="radio" id="q46_a" name="q46" value="0">
 						<label for="q46_a">
 							1<span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q46_b" name="q46" value="1">
+						<input type="radio" id="q46_b" name="q46" value="0">
 						<label for="q46_b">
 							<span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span>
 						</label>
@@ -1118,7 +1120,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q46_d" name="q46" value="0">
+						<input type="radio" id="q46_d" name="q46" value="1">
 						<label for="q46_d">
 							1<span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span>
 						</label>
@@ -1128,11 +1130,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<span>Surface area  = <span class="icon"><i class="far fa-square"></i></span> square units</span>
 					<div><img src="images/alp_comp_2/question47.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q47_a" name="q47" value="1">
+						<input type="radio" id="q47_a" name="q47" value="0">
 						<label for="q47_a">14</label>
 					</p>
 					<p>
-						<input type="radio" id="q47_b" name="q47" value="1">
+						<input type="radio" id="q47_b" name="q47" value="0">
 						<label for="q47_b">20</label>
 					</p>
 					<p>
@@ -1140,18 +1142,18 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q47_c">100</label>
 					</p>
 					<p>
-						<input type="radio" id="q47_d" name="q47" value="0">
+						<input type="radio" id="q47_d" name="q47" value="1">
 						<label for="q47_d">65</label>
 					</p> 
 
 					<h3>(48) 3, 2, 26, 9</h3>
 					<span>Find the mean/average of the above data set</span>
 					<p>
-						<input type="radio" id="q48_a" name="q48" value="1">
+						<input type="radio" id="q48_a" name="q48" value="0">
 						<label for="q48_a">9</label>
 					</p>
 					<p>
-						<input type="radio" id="q48_b" name="q48" value="1">
+						<input type="radio" id="q48_b" name="q48" value="0">
 						<label for="q48_b">14</label>
 					</p>
 					<p>
@@ -1159,7 +1161,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q48_c">26</label>
 					</p>
 					<p>
-						<input type="radio" id="q48_d" name="q48" value="0">
+						<input type="radio" id="q48_d" name="q48" value="1">
 						<label for="q48_d">10</label>
 					</p> 
 
@@ -1167,7 +1169,7 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(49) 17 + (&minus;8) &minus; (&minus;8) = <span class="icon"><i class="far fa-square"></i></span> </h3>
 					<p>
-						<input type="radio" id="q49_a" name="q49" value="1">
+						<input type="radio" id="q49_a" name="q49" value="0">
 						<label for="q49_a">1</label>
 					</p>
 					<p>
@@ -1189,7 +1191,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q50_a" name="q50" value="1">
+						<input type="radio" id="q50_a" name="q50" value="0">
 						<label for="q50_a">
 								&minus;8<span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span>							
 						</label>
@@ -1216,7 +1218,7 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(51) |&minus;2.6 &minus; (&minus;1)| = <span class="icon"><i class="far fa-square"></i></span> </h3>
 					<p>
-						<input type="radio" id="q51_a" name="q51" value="1">
+						<input type="radio" id="q51_a" name="q51" value="0">
 						<label for="q51_a">&minus;3.6</label>
 					</p>
 					<p>
@@ -1235,11 +1237,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(52) &minus;16 = 8 + s </h3>
 					<span>Find the value of s</span>
 					<p>
-						<input type="radio" id="q52_a" name="q52" value="1">
+						<input type="radio" id="q52_a" name="q52" value="0">
 						<label for="q52_a">2</label>
 					</p>
 					<p>
-						<input type="radio" id="q52_b" name="q52" value="1">
+						<input type="radio" id="q52_b" name="q52" value="0">
 						<label for="q52_b">128</label>
 					</p>
 					<p>
@@ -1247,7 +1249,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q52_c">&minus;8</label>
 					</p>
 					<p>
-						<input type="radio" id="q52_d" name="q52" value="0">
+						<input type="radio" id="q52_d" name="q52" value="1">
 						<label for="q52_d">&minus;24</label>
 					</p> 
 
@@ -1258,21 +1260,21 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q53_a" name="q53" value="1">
+						<input type="radio" id="q53_a" name="q53" value="0">
 						<label for="q53_a">
 								&minus;3<span class="frac"><sup>3</sup><span>/</span><sub>11</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q53_b" name="q53" value="1">
+						<input type="radio" id="q53_b" name="q53" value="0">
 						<label for="q53_b">
 							&minus;<span class="frac"><sup>3</sup><span>/</span><sub>7</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q53_c" name="q53" value="0">
+						<input type="radio" id="q53_c" name="q53" value="1">
 						<label for="q53_c">
-							<span class="frac"><sup>4</sup><span>/</span><sub>7</sub></span>
+							&minus;<span class="frac"><sup>4</sup><span>/</span><sub>7</sub></span>
 						</label>
 					</p>
 					<p>
@@ -1284,7 +1286,7 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(54) (&minus;3)<sup>3</sup> = <span class="icon"><i class="far fa-square"></i></span></h3>
 					<p>
-						<input type="radio" id="q54_a" name="q54" value="1">
+						<input type="radio" id="q54_a" name="q54" value="0">
 						<label for="q54_a">9</label>
 					</p>
 					<p>
@@ -1305,13 +1307,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="icon"><i class="far fa-square"></i></span>
 					</h3>
 					<p>
-						<input type="radio" id="q55_a" name="q55" value="1">
+						<input type="radio" id="q55_a" name="q55" value="0">
 						<label for="q55_a">
 							<span class="frac"><sup>9</sup><span>/</span><sub>25</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q55_b" name="q55" value="1">
+						<input type="radio" id="q55_b" name="q55" value="0">
 						<label for="q55_b">
 							<span class="frac"><sup>7</sup><span>/</span><sub>6</sub></span>
 						</label>
@@ -1323,7 +1325,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q55_d" name="q55" value="0">
+						<input type="radio" id="q55_d" name="q55" value="1">
 						<label for="q55_d">
 							2<span class="frac"><sup>7</sup><span>/</span><sub>9</sub></span>
 						</label>
@@ -1331,11 +1333,11 @@ span.frac > sub {  display: block;  font: inherit;}
 
 					<h3>(56) 1 &times; (&minus;4 + (&minus;8)) = <span class="icon"><i class="far fa-square"></i></span></h3>
 					<p>
-						<input type="radio" id="q56_a" name="q56" value="1">
+						<input type="radio" id="q56_a" name="q56" value="0">
 						<label for="q56_a">&minus;4</label>
 					</p>
 					<p>
-						<input type="radio" id="q56_b" name="q56" value="1">
+						<input type="radio" id="q56_b" name="q56" value="0">
 						<label for="q56_b">&minus;8</label>
 					</p>
 					<p>
@@ -1343,7 +1345,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q56_c">24</label>
 					</p>
 					<p>
-						<input type="radio" id="q56_d" name="q56" value="0">
+						<input type="radio" id="q56_d" name="q56" value="1">
 						<label for="q56_d">&minus;12</label>
 					</p> 	
 					
@@ -1356,13 +1358,13 @@ span.frac > sub {  display: block;  font: inherit;}
 						<span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span>				
 					</span>
 					<p>
-						<input type="radio" id="q57_a" name="q57" value="1">
+						<input type="radio" id="q57_a" name="q57" value="0">
 						<label for="q57_a">
 							2<span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span>
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q57_b" name="q57" value="1">
+						<input type="radio" id="q57_b" name="q57" value="0">
 						<label for="q57_b">
 							2<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span>
 						</label>
@@ -1374,7 +1376,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						</label>
 					</p>
 					<p>
-						<input type="radio" id="q57_d" name="q57" value="0">
+						<input type="radio" id="q57_d" name="q57" value="1">
 						<label for="q57_d">
 							3<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span>
 						</label>
@@ -1384,11 +1386,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(58) 250 &minus; 150x = <span class="icon"><i class="far fa-square"></i></span>(5 &minus; 3x)</h3>
 					<span>Apply the distributive property to factor out the highest common factor.</span>
 					<p>
-						<input type="radio" id="q58_a" name="q58" value="1">
+						<input type="radio" id="q58_a" name="q58" value="0">
 						<label for="q58_a">100</label>
 					</p>
 					<p>
-						<input type="radio" id="q58_b" name="q58" value="1">
+						<input type="radio" id="q58_b" name="q58" value="0">
 						<label for="q58_b">250</label>
 					</p>
 					<p>
@@ -1396,7 +1398,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q58_c">150</label>
 					</p>
 					<p>
-						<input type="radio" id="q58_d" name="q58" value="0">
+						<input type="radio" id="q58_d" name="q58" value="1">
 						<label for="q58_d">50</label>
 					</p> 
 
@@ -1408,7 +1410,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q59_a">4</label>
 					</p>
 					<p>
-						<input type="radio" id="q59_b" name="q59" value="1">
+						<input type="radio" id="q59_b" name="q59" value="0">
 						<label for="q59_b">5</label>
 					</p>
 					<p>
@@ -1422,7 +1424,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					
 					<h3>(60) Find the diameter of a circle with radius 11</h3>
 					<p>
-						<input type="radio" id="q60_a" name="q60" value="1">
+						<input type="radio" id="q60_a" name="q60" value="0">
 						<label for="q60_a">11</label>
 					</p>
 					<p>
@@ -1441,11 +1443,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(61) Find the area of a circle with a circumference of 8&pi;.</h3>
 					<span>&pi; = 3</span>
 					<p>
-						<input type="radio" id="q61_a" name="q61" value="1">
+						<input type="radio" id="q61_a" name="q61" value="0">
 						<label for="q61_a">3.4</label>
 					</p>
 					<p>
-						<input type="radio" id="q61_b" name="q61" value="1">
+						<input type="radio" id="q61_b" name="q61" value="0">
 						<label for="q61_b">3.5</label>
 					</p>
 					<p>
@@ -1453,7 +1455,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q61_c">4.3</label>
 					</p>
 					<p>
-						<input type="radio" id="q61_d" name="q61" value="0">
+						<input type="radio" id="q61_d" name="q61" value="1">
 						<label for="q61_d">5.3</label>
 					</p> 
 
@@ -1461,11 +1463,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<span>x = <span class="icon"><i class="far fa-square"></i></span>&deg;</span>
 					<div><img src="images/alp_comp_2/question62.jpg" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q62_a" name="q62" value="1">
+						<input type="radio" id="q62_a" name="q62" value="0">
 						<label for="q62_a">6</label>
 					</p>
 					<p>
-						<input type="radio" id="q62_b" name="q62" value="1">
+						<input type="radio" id="q62_b" name="q62" value="0">
 						<label for="q62_b">240</label>
 					</p>
 					<p>
@@ -1473,7 +1475,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q62_c">160</label>
 					</p>
 					<p>
-						<input type="radio" id="q62_d" name="q62" value="0">
+						<input type="radio" id="q62_d" name="q62" value="1">
 						<label for="q62_d">20</label>
 					</p> 
 
@@ -1484,7 +1486,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q63_a">5</label>
 					</p>
 					<p>
-						<input type="radio" id="q63_b" name="q63" value="1">
+						<input type="radio" id="q63_b" name="q63" value="0">
 						<label for="q63_b">6</label>
 					</p>
 					<p>
@@ -1501,7 +1503,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<div class="angle_img" style="width: 276px;">
 							<div><img src="images/alp_comp_2/question64_a.png" class="displayed center-block"/></div>
 							<p>
-								<input type="radio" id="q64_a" name="q64" value="1">
+								<input type="radio" id="q64_a" name="q64" value="0">
 								<label for="q64_a">A</label>
 							</p>
 						</div>
@@ -1509,7 +1511,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<div class="half" style="width: 276px;">
 							<div><img src="images/alp_comp_2/question64_b.png" class="displayed center-block"/></div>
 							<p>
-								<input type="radio" id="q64_b" name="q64" value="0">
+								<input type="radio" id="q64_b" name="q64" value="1">
 								<label for="q64_b">B</label>
 							</p>
 						</div>
@@ -1519,11 +1521,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					<h3>(65) How many pieces of cheese did Samuel eat?</h3>
 					<div><img src="images/alp_comp_2/question65.png" alt="image missing" class="img-responsive"/></div>
 					<p>
-						<input type="radio" id="q65_a" name="q65" value="1">
+						<input type="radio" id="q65_a" name="q65" value="0">
 						<label for="q65_a">1</label>
 					</p>
 					<p>
-						<input type="radio" id="q65_b" name="q65" value="1">
+						<input type="radio" id="q65_b" name="q65" value="0">
 						<label for="q65_b">2</label>
 					</p>
 					<p>
@@ -1531,7 +1533,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q65_c">3</label>
 					</p>
 					<p>
-						<input type="radio" id="q65_d" name="q65" value="0">
+						<input type="radio" id="q65_d" name="q65" value="1">
 						<label for="q65_d">4</label>
 					</p> 
 
@@ -1542,7 +1544,7 @@ span.frac > sub {  display: block;  font: inherit;}
 						<label for="q66_a">Thirds</label>
 					</p>
 					<p>
-						<input type="radio" id="q66_b" name="q66" value="1">
+						<input type="radio" id="q66_b" name="q66" value="0">
 						<label for="q66_b">Fourths</label>
 					</p>
 					<p>
