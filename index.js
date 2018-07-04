@@ -118,7 +118,7 @@ app.get('/alp_sec_b1', function (req, res) {
 });
 
 app.get('/alp_sec_b2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_b1.html');
+ res.sendFile( __dirname + '/alp_sec_b2.html');
 });
 
 /*Alpha section C*/
