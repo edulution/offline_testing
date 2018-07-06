@@ -130,6 +130,15 @@ app.get('/alp_sec_c2', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_c2.html');
 });
 
+/*Alpha section D*/
+app.get('/alp_sec_d1', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_d1.html');
+});
+
+app.get('/alp_sec_d2', function (req, res) {
+ res.sendFile( __dirname + '/alp_sec_d2.html');
+});
+
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
         return res.json(users);
