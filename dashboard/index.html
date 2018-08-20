@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<script src="pmodule/angular.min.js"></script>
-	<script src="pmodule/angular-animate.js"></script>
-	<script src="pmodule/angular-sanitize.js"></script>
-	<script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
-	<link rel="stylesheet" href="pmodule/password_modal.css">
+    <script src="js/coachDashboard/smart-table.min.js"></script>
+    <script src="pmodule/angular-animate.js"></script>
+    <script src="pmodule/angular-sanitize.js"></script>
+    <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link rel="stylesheet" href="pmodule/password_modal.css">
 
-	
+    
 	<script src="js/coachDashboard/app.js"></script>
 
 </head>
@@ -200,9 +201,36 @@
     			</table>
     			
     		</div>
+
+
     		
 
     	</div>
+        <div><h2>Learners</h2></div>
+        <div class="table-responsive">
+            <table st-table="users_placeholder" st-safe-src="users" class="table">
+              <tr>
+                  <th colspan="1">
+                    <input st-search type="search" placeholder="Search for a user or topic...." class="form-control">
+                  </th>
+              </tr>
+            
+              <tr>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Group</th>
+                  
+              </tr>
+              <tr ng-repeat="row in users_placeholder">
+                <td>{{row.username}}</td>
+                <td>{{row.first_name}}</td>
+                <td>{{row.last_name}}</td>
+                <td>{{row.group_name}}</td>
+              </tr>
+              
+            </table>
+        </div>
     </div>
 
     

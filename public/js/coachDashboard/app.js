@@ -1,6 +1,9 @@
-angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
+angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smart-table'])
 .controller('MainCtrl', function ($scope,$uibModal, $log, $document,$http) {
   var $ctrl = this;
+
+  /*placeholder value used in smart-table because users are loaded asynchorously*/
+  $scope.users_placeholder = [];
 
   $ctrl.animationsEnabled = true;
 
