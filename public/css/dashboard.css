@@ -24,7 +24,7 @@
 }
 #topnav,#bottomnav{
 	background: #00A546;
-	padding-top: 1%;
+	padding-top: 0.5%;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
