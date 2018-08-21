@@ -16,57 +16,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /*Serve static assets from the public folder*/
 app.use(express.static(path.join(__dirname,'public')));
 
-
-/*Get users from csv file and store as arraylist*/
-/*===========*/
-/*require filestream and csv libraries*/
-var fs = require('fs');
-var csv = require('csv');
-
-/*instantiate empty users array*/
-var users = [];
-
-/*read users csv file with headers*/
-var readStream = fs.createReadStream(__dirname + '/users.csv.headers');
-
-/*parse by columns and push objects to users array*/
-var parser = csv.parse({columns:true});
-
-parser.on('readable', function() {
-  while(record = parser.read()) {
-    users.push(record);
-  }
-});
-
-/*log error messages*/
-parser.on('error', function(err) {
-  console.log(err.message);
-});
-
-/*log users array when finished sucessfully*/
-parser.on('finish', (function() {
-  console.log('successfully loaded '+ users.length + ' users from database...');
-}));
-
-readStream.pipe(parser);
-/*=======*/
-
-/*Get today's date in the form yyyy-mm-dd*/
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-if(dd<10) {
-    dd = '0'+dd
-} 
-
-if(mm<10) {
-    mm = '0'+mm
-} 
-
 /*Return today as string*/
-today = "'"+ yyyy + '-' + mm + '-' + dd +"'";
+/*Used for timestamping of responses*/
+function get_datetime_string() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+
+	/*prefix date with 0 if less than 10(for consisitency with central db)*/
+	if(dd<10) {
+	    dd = '0'+dd
+	} 
+
+	/*prefix month with 0 if less than 10(for consisitency with central db)*/
+	if(mm<10) {
+	    mm = '0'+mm
+	}
+	/*return today's date as string*/
+	today = "'"+ yyyy + '-' + mm + '-' + dd +"'";
+	return today;
+
+}
 
 
 /*Results dashboard page*/
@@ -141,7 +112,12 @@ app.get('/alp_sec_d2', function (req, res) {
 
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
-        return res.json(users);
+        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+        var responses_query='select * from users';
+        db.all(responses_query,function(err,rows){
+        	console.log('Retrieved '+rows.length+' users from the database');
+        	return res.json(rows);
+        });
 });
 
 /*endpoint to get all test_responses as json*/
@@ -164,7 +140,7 @@ app.post('/submit_test', [function(req, res,next){
 	var answers_quoted = "'" + answers.join("','") + "'";
 
 	/*Insert statement to run on database. test date added as current date from server*/
-	var insert_statement = 'INSERT INTO responses('+questions.toString()+',test_date) values ('+answers_quoted+','+today+')';
+	var insert_statement = 'INSERT INTO responses('+questions.toString()+',test_date) values ('+answers_quoted+','+get_datetime_string()+')';
 	console.log(insert_statement);
 
 	/*Open database and run insert satement. Then close database*/
