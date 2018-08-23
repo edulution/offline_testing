@@ -6,7 +6,13 @@ var path = require('path');
 var port = 5000;
 
 /*Use sqlite3 Database*/
-const sqlite3 = require('sqlite3').verbose();
+/*const sqlite3 = require('sqlite3').verbose();*/
+const { Pool, Client } = require('pg')
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
 
 /*Use bodyParser to parse form data*/ 
 const bodyParser = require('body-parser');
@@ -111,23 +117,52 @@ app.get('/alp_sec_d2', function (req, res) {
 });
 
 /*endpoint to get users list as json*/
-app.get('/get_users',function(req, res){
-        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
-        var responses_query='select * from users';
-        db.all(responses_query,function(err,rows){
-        	console.log('Retrieved '+rows.length+' users from the database');
-        	return res.json(rows);
-        });
-});
+app.get('/get_users', (req, res, next) => {
+  const users_query = {
+    // give the query a unique name
+    name: 'fetch-users',
+    text: 'SELECT * FROM users'
+  }
+
+  // callback
+  pool.query(users_query, (err, result) => {
+    if (err) {
+      console.log(err.stack)
+    } else {
+    	res.status(200).send(result.rows)
+    }
+  })
+
+  // promise
+  pool.query(users_query)
+    .then(result => res.rows)
+    .catch(e => console.error(e.stack))
+  });
 
 /*endpoint to get all test_responses as json*/
 app.get('/get_responses',function(req, res){
-        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
-        var responses_query='select u.user_id,u.group_name,r.* from responses r join users u where r.username = u.username;';
-        db.all(responses_query,function(err,rows){
-        	/*console.log(rows);*/
-        	return res.json(rows);
-        });
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
+        const responses_query = {
+          // give the query a unique name
+          name: 'fetch-responses',
+          text: 'select u.user_id,u.group_name,r.* from responses r join users u on r.username = u.username'
+        }
+
+        // callback
+        pool.query(responses_query, (err, result) => {
+          if (err) {
+            console.log(err.stack)
+          } else {
+            res.status(200).send(result.rows)
+          }
+        })
+
+        // promise
+        pool.query(responses_query)
+          .then(result => res.rows)
+          .catch(e => console.error(e.stack))
+
+
 });
 
 
@@ -144,10 +179,22 @@ app.post('/submit_test', [function(req, res,next){
 	console.log(insert_statement);
 
 	/*Open database and run insert satement. Then close database*/
-	let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+	/*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
+	pool.query(insert_statement, (err, res) => {
+	  if (err) {
+	    console.log(err.stack)
+	  } else {
+	    res.status(200).send("Test submited sucessfully!")
+	  }
+	})
 
-	db.run(insert_statement);
-	db.close();
+	// promise
+	pool.query(insert_statement)
+	  .then(res => {
+	    res.status(200).send("Test submited sucessfully!")
+	  })
+	  .catch(e => console.error(e.stack))
+
 	next();}
 	, function(req,res){
 		/*Display successful submission page after request sucessful*/
