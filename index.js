@@ -193,7 +193,7 @@ app.post('/submit_test', [function(req, res,next){
 	  .then(result => {
 	    console.log("Promise returned: Test submited sucessfully!")
 	  })
-	  .catch(e => console.error(e.stack)
+	  .catch(e => console.error(e.stack))
 	next();}
 	, function(req,res){
 		/*Display successful submission page after request sucessful*/
