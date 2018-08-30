@@ -180,21 +180,20 @@ app.post('/submit_test', [function(req, res,next){
 
 	/*Open database and run insert satement. Then close database*/
 	/*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
-	pool.query(insert_statement, (err, res) => {
+	pool.query(insert_statement, (err, result) => {
 	  if (err) {
 	    console.log(err.stack)
 	  } else {
-	    res.status(200).send("Test submited sucessfully!")
+	    console.log("Test submited sucessfully!")
 	  }
 	})
 
 	// promise
 	pool.query(insert_statement)
-	  .then(res => {
-	    res.status(200).send("Test submited sucessfully!")
+	  .then(result => {
+	    console.log("Promise returned: Test submited sucessfully!")
 	  })
-	  .catch(e => console.error(e.stack))
-
+	  .catch(e => console.error(e.stack)
 	next();}
 	, function(req,res){
 		/*Display successful submission page after request sucessful*/
