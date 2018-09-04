@@ -4,18 +4,24 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "async": "^2.6.1",
     "body-parser": "1.18.2",
     "csv": "3.0.2",
     "express": "4.16.3",
+    "foreman": "3.0.1",
+    "pg": "^7.4.3",
     "sqlite3": "4.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techZM/offline_testing.git"
+  },
+  "engines": {
+    "node": "v8.11.1"
   },
   "author": "techzm",
   "license": "ISC",
