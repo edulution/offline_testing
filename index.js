@@ -41,7 +41,7 @@ function get_datetime_string() {
 
 
 /*Results dashboard page*/
-app.get('/results', function (req, res) {
+app.get('/coach', function (req, res) {
  res.sendFile( __dirname + '/dashboard/index.html');
 });
 
