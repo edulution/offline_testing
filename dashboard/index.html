@@ -230,15 +230,20 @@
             <table st-table="users_placeholder" st-safe-src="users" class="table">
               <tr>
                   <th colspan="1">
-                    <input st-search type="search" placeholder="Search for a username,first name, last name, or group...." class="form-control">
+                    <input st-search type="search" placeholder="Search for a username,first name, last name...." class="form-control">
+                  </th>
+              </tr>              
+              <tr>
+                  <th colspan="1">
+                    <input st-search="group_name" type="search" placeholder="Search for a group...." class="form-control">
                   </th>
               </tr>
             
               <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Group</th>
+                <th st-sort="username">Username</th>
+                <th st-sort="first_name">First Name</th>
+                <th st-sort="last_name">Last Name</th>
+                <th st-sort="group_name">Group</th>
                   
               </tr>
               <tr ng-repeat="row in users_placeholder">
