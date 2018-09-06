@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Script runs on reboot as set by the cronjob
+
+# Can also be manually triggered by bash alias restartbl 
+
+# get users and device name from KA Lite database
+~/.baseline_testing/get_users_and_device.sh
+
+# Stop any running forever processes and 
+~/.baseline_testing/start_testing_server.sh
