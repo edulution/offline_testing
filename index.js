@@ -48,7 +48,7 @@ app.get('/coach', function (req, res) {
 /*Urls for forms*/
 
 /*Prealpha comp tests*/
-app.get('/prealp_comp_1', function (req, res) {
+/*app.get('/prealp_comp_1', function (req, res) {
  res.sendFile( __dirname + '/prealp_comp_1.html');
 });
 
@@ -58,57 +58,57 @@ app.get('/prealp_comp_2', function (req, res) {
 
 app.get('/prealp_comp_3', function (req, res) {
  res.sendFile( __dirname + '/prealp_comp_3.html');
-});
+});*/
 
 
 /*Alpha comp tests*/
-app.get('/alp_comp_1', function (req, res) {
+/*app.get('/alp_comp_1', function (req, res) {
  res.sendFile( __dirname + '/alp_comp_1.html');
 });
 
 app.get('/alp_comp_2', function (req, res) {
  res.sendFile( __dirname + '/alp_comp_2.html');
-});
+});*/
 
 
 /*Alpha sectional tests*/
 
 /*Alpha section A*/
-app.get('/alp_sec_a1', function (req, res) {
+/*app.get('/alp_sec_a1', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_a1.html');
 });
 
 app.get('/alp_sec_a2', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_a2.html');
 });
-
+*/
 
 /*Alpha section B*/
-app.get('/alp_sec_b1', function (req, res) {
+/*app.get('/alp_sec_b1', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_b1.html');
 });
 
 app.get('/alp_sec_b2', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_b2.html');
-});
+});*/
 
 /*Alpha section C*/
-app.get('/alp_sec_c1', function (req, res) {
+/*app.get('/alp_sec_c1', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_c1.html');
 });
 
 app.get('/alp_sec_c2', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_c2.html');
-});
+});*/
 
 /*Alpha section D*/
-app.get('/alp_sec_d1', function (req, res) {
+/*app.get('/alp_sec_d1', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_d1.html');
 });
 
 app.get('/alp_sec_d2', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_d2.html');
-});
+});*/
 
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
