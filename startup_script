@@ -4,6 +4,9 @@
 
 # Can also be manually triggered by bash alias restartbl 
 
+# kill any processes on port 8888 (port taken by testing server)
+fuser -k 8888/tcp
+
 # get users and device name from KA Lite database
 ~/.baseline_testing/get_users_and_device.sh
 
