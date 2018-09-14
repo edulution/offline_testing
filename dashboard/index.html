@@ -50,8 +50,8 @@
         <nav id="bottomnav" class="navbar navbar-default">
           <div class="container-fluid">
             <ul class="nav nav-tabs">
-              <li ng-class="{ active: menu.isSelected(0) }"><a href="#" ng-click="menu.selectTab(0)"><h3>Test Results</h3></a></li>
-              <li ng-class="{ active: menu.isSelected(1) }"><a href="#" ng-click="menu.selectTab(1)"><h3>Learners</h3></a></li>
+              <li ng-class="{ active: menu.isSelected(0) }"><a href="#" ng-click="menu.selectTab(1)"><h3>Learners</h3></a></li>
+              <li ng-class="{ active: menu.isSelected(1) }"><a href="#" ng-click="menu.selectTab(0)"><h3>Test Results</h3></a></li>
             </ul>
           </div>
         </nav>
@@ -62,7 +62,7 @@
     
 
     <div class="container-fluid">
-    		<div  ng-show="menu.isSelected(0)" class="table-responsive row">
+    		<div  ng-show="menu.isSelected(1)" class="table-responsive row">
     			<table class="table table-bordered">
     				<tr>
     					<th>Username</th>
@@ -226,30 +226,35 @@
     		</div> <!-- table row -->
 
     	
-        <div ng-show="menu.isSelected(1)" class="table-responsive row">
-            <table st-table="users_placeholder" st-safe-src="users" class="table">
-              <tr>
-                  <th colspan="1">
-                    <input st-search type="search" placeholder="Search for a username,first name, last name, or group...." class="form-control">
-                  </th>
-              </tr>
-            
-              <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Group</th>
+            <div ng-show="menu.isSelected(0)" class="table-responsive row">
+                <table st-table="users_placeholder" st-safe-src="users" class="table">
+                  <tr>
+                      <th colspan="1">
+                        <input st-search type="search" placeholder="Search for a username,first name, last name...." class="form-control">
+                      </th>
+                  </tr>              
+                  <tr>
+                      <th colspan="1">
+                        <input st-search="group_name" type="search" placeholder="Search for a group...." class="form-control">
+                      </th>
+                  </tr>
+                
+                  <tr>
+                    <th st-sort="username">Username</th>
+                    <th st-sort="first_name">First Name</th>
+                    <th st-sort="last_name">Last Name</th>
+                    <th st-sort="group_name">Group</th>
+                      
+                  </tr>
+                  <tr ng-repeat="row in users_placeholder">
+                    <td>{{row.username}}</td>
+                    <td>{{row.first_name}}</td>
+                    <td>{{row.last_name}}</td>
+                    <td>{{row.group_name}}</td>
+                  </tr>
                   
-              </tr>
-              <tr ng-repeat="row in users_placeholder">
-                <td>{{row.username}}</td>
-                <td>{{row.first_name}}</td>
-                <td>{{row.last_name}}</td>
-                <td>{{row.group_name}}</td>
-              </tr>
-              
-            </table>
-        </div> <!-- table row -->
+                </table>
+            </div> <!-- table row -->
     </div>
 
     
