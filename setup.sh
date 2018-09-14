@@ -15,3 +15,7 @@ npm link express
 
 #set up cron job to restart amd repopulate users table on reboot
 ~/.baseline_testing/setup_cronjob.sh
+
+# Stop any running forever processes and start the server
+# assumes that node and forever located in /usr/local/bin
+~/.baseline_testing/start_testing_server.sh
