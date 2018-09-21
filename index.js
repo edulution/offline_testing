@@ -116,6 +116,40 @@ app.get('/alp_sec_d2', function (req, res) {
  res.sendFile( __dirname + '/alp_sec_d2.html');
 });
 
+
+/*Litercy tests*/
+app.get('/lit_alp_a1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_a1.html');
+});
+
+app.get('/lit_alp_a2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_a2.html');
+});
+
+app.get('/lit_alp_b1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_b1.html');
+});
+
+app.get('/lit_alp_b2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_b2.html');
+});
+
+app.get('/lit_alp_c1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_c1.html');
+});
+
+app.get('/lit_alp_c2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_c2.html');
+});
+
+app.get('/lit_alp_d1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_d1.html');
+});
+
+app.get('/lit_alp_d2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alp_d2.html');
+});
+
 /*endpoint to get users list as json*/
 app.get('/get_users', (req, res, next) => {
   const users_query = {
