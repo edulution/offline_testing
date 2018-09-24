@@ -150,6 +150,14 @@ app.get('/lit_alp_d2', function (req, res) {
  res.sendFile( __dirname + '/literacy/alp_d2.html');
 });
 
+app.get('/lit_prealp_1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/prealp_1.html');
+});
+
+app.get('/lit_prealp_2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/prealp_2.html');
+});
+
 /*endpoint to get users list as json*/
 app.get('/get_users', (req, res, next) => {
   const users_query = {
