@@ -118,6 +118,21 @@ body{
     
 }
 
+[type="checkbox"]:checked + label:after,
+[type="checkbox"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #008000;
+    border: 2px solid #008000;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 25%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
 [type="checkbox"]:checked + label:before,
 [type="checkbox"]:not(:checked) + label:before {
     content: "\f096";
@@ -127,9 +142,10 @@ body{
     width: 18px;
     height: 18px;
     border: 2px solid #ddd;
-    border-radius: 100%;
+    border-radius: 25%;
     background: #fff;
 }
+
 
 .half {
     float: left;
