@@ -63,7 +63,7 @@ body{
 }
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
-    content: '';
+    content: "\f10c";
     position: absolute;
     left: 1px;
     top: 1px;
@@ -75,7 +75,7 @@ body{
 }
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
-    content: '';
+    content: "\f10c";
     width: 12px;
     height: 12px;
     background: #008000;
