@@ -42,6 +42,11 @@ body{
 .h3, h3 {
     font-size: 20px;
 }
+
+.li {
+	margin: 1em 0;
+}
+
 /*Radio button*/
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -54,7 +59,7 @@ body{
     color: #444;
     cursor: pointer;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 20px;
     padding-left: 28px;
