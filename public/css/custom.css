@@ -69,7 +69,7 @@ body{
     top: 1px;
     width: 18px;
     height: 18px;
-    border: 2px solid #ddd;
+    border: 1px solid #151515;
     border-radius: 100%;
     background: #fff;
 }
@@ -79,7 +79,7 @@ body{
     width: 12px;
     height: 12px;
     background: #008000;
-    border: 2px solid #008000;
+    border: 1px solid #008000;
     position: absolute;
     top: 4px;
     left: 4px;
@@ -107,7 +107,7 @@ body{
 [type="checkbox"]:checked + label,
 [type="checkbox"]:not(:checked) + label
 {
-    color: #444;
+    color: #151515;
     cursor: pointer;
     display: inline-block;
     font-size: 18px;
@@ -115,7 +115,6 @@ body{
     line-height: 20px;
     padding-left: 28px;
     position: relative;
-    
 }
 
 [type="checkbox"]:checked + label:after,
@@ -124,25 +123,25 @@ body{
     width: 12px;
     height: 12px;
     background: #008000;
-    border: 2px solid #008000;
+    border: 0px solid #008000;
     position: absolute;
     top: 4px;
     left: 4px;
-    border-radius: 25%;
+    border-radius: 10%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
 
 [type="checkbox"]:checked + label:before,
 [type="checkbox"]:not(:checked) + label:before {
-    content: "\f096";
+    content: '';
     position: absolute;
     left: 1px;
     top: 1px;
     width: 18px;
     height: 18px;
-    border: 2px solid #ddd;
-    border-radius: 25%;
+    border: 1px solid #151515;
+    border-radius: 10%;
     background: #fff;
 }
 
