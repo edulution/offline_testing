@@ -65,6 +65,6 @@ sqlite3 $responses_database <<!
 .mode csv
 .import $device_name_file device
 !
-echo "Populating device_name tbale.."
+echo "Populating device_name table.."
 
 echo "Done!"
