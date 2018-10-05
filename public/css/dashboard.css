@@ -58,6 +58,7 @@ thead {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    background-color: #F0F0F0;
 }
 
 tbody {
