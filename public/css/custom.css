@@ -42,6 +42,14 @@ body{
 .h3, h3 {
     font-size: 20px;
 }
+
+li {
+	margin: 10px;
+	font-size: 15px;
+	margin-left: -20px;
+		
+}
+
 /*Radio button*/
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -54,7 +62,7 @@ body{
     color: #444;
     cursor: pointer;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 20px;
     padding-left: 28px;
@@ -67,22 +75,22 @@ body{
     position: absolute;
     left: 1px;
     top: 1px;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #ddd;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #151515;
     border-radius: 100%;
     background: #fff;
 }
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
     content: '';
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
     background: #008000;
-    border: 2px solid #008000;
+    border: 1px solid #008000;
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 3px;
+    left: 3px;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
@@ -97,6 +105,64 @@ body{
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+
+/*Checkbox button*/
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="checkbox"]:checked + label,
+[type="checkbox"]:not(:checked) + label
+{
+    color: #151515;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-left: 28px;
+    position: relative;
+}
+
+[type="checkbox"]:checked + label:after,
+[type="checkbox"]:not(:checked) + label:after {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #008000;
+    border: 0px solid #008000;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 10%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="checkbox"]:checked + label:before,
+[type="checkbox"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #151515;
+    border-radius: 10%;
+    background: #fff;
+}
+
+[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+
 .half {
     float: left;
     width: 50%;

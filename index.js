@@ -209,11 +209,42 @@ app.get('/get_responses',function(req, res){
 
 
 app.post('/submit_test', [function(req, res,next){
+
+	/*simple function to sum values in an array*/
+	const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
+		
+	response = req.body;
+	/*check if respponse response was checkboxes
+	will appear as array in response*/
+
+	/*for each response recieved*/
+	for (v in response){
+		/*if the reponse is of type object(array). Questions with a single response will be of type string*/
+	  if (typeof(response[v]) == "object"){
+	  	/*use reducer method to get sum of elements*/
+	   total = response[v].reduce(reducer,0)
+	   /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
+	   if(total <= 0){
+	    response[v] = '0'
+	   }
+	   else{
+	   	/*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
+	    response[v] = '1'
+	   }
+	  }
+	  else {
+	  	/*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
+	  	if(Number(response[v])<1){
+	  		response[v] = '0'
+	  	}
+	  }
+	}
+
 	/*Get questions answered as array*/
-	var questions = Object.keys(req.body);
+	var questions = Object.keys(response);
 
 	/*Get answers for questions above as array. Preserve quotes for insertion into database*/
-	var answers = questions.map(function(v) { return req.body[v]; });
+	var answers = questions.map(function(v) { return response[v]; });
 	var answers_quoted = "'" + answers.join("','") + "'";
 
 	/*Insert statement to run on database. test date added as current date from server*/
@@ -222,13 +253,13 @@ app.post('/submit_test', [function(req, res,next){
 
 	/*Open database and run insert satement. Then close database*/
 	/*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
-	pool.query(insert_statement, (err, result) => {
+/*	pool.query(insert_statement, (err, result) => {
 	  if (err) {
 	    console.log(err.stack)
 	  } else {
 	    console.log("Test submited sucessfully!")
 	  }
-	})
+	})*/
 
 	// promise
 	pool.query(insert_statement)
