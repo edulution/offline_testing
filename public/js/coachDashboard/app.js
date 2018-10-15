@@ -74,4 +74,13 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
 			controllerAs: 'menu'
 		};
 	})
+.directive('learners', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'learners.html',
+			link: function(scope, element, attributes){
+			        element.addClass('learners');
+			      }
+		};
+	})
 ;

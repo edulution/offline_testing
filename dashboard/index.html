@@ -58,6 +58,38 @@
           </div>
         </nav>
     </script>
+    <script type="text/ng-template" id="learners.html">
+        <div class="table-responsive row">
+            <table st-table="users_placeholder" st-safe-src="users" class="table">
+            <thead>
+              <tr>
+                  <th colspan="2">
+                    <input st-search type="search" placeholder="Username, First name, or Last name...." class="form-control">
+                  </th>
+                  <th colspan="1">
+                    <input st-search="group_name" type="search" placeholder="Group...." class="form-control">
+                  </th>
+              </tr>
+              <tr>
+                <th st-ratio="20" st-sort="username">Username</th>
+                <th st-ratio="30" st-sort="first_name">First Name</th>
+                <th st-ratio="30" st-sort="last_name">Last Name</th>
+                <th st-ratio="20" st-sort="group_name">Group</th>
+                  
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="row in users_placeholder">
+                <td st-ratio="20">{{row.username}}</td>
+                <td st-ratio="30">{{row.first_name}}</td>
+                <td st-ratio="30">{{row.last_name}}</td>
+                <td st-ratio="20">{{row.group_name}}</td>
+              </tr>
+            </tbody>
+            </table>
+        </div> <!-- table row -->
+    </script>
+
     <!-- <span ng-init=ctrl.openModal()></span> -->
     
     <navigation></navigation>
@@ -66,6 +98,9 @@
     <div class="container-fluid">
     		<div  ng-show="menu.isSelected(1)" class="table-responsive row">
     			<table class="table table-bordered">
+                    <thead>
+                        
+                    
     				<tr>
     					<th>Username</th>
     					<th>Test</th>
@@ -145,6 +180,10 @@
     					<th>q70</th>
 
     				</tr>
+                    </thead>
+                    
+                        
+                    
     				<tr ng-repeat="result in results">
 
     					<td>{{result.username}}</td>
@@ -225,40 +264,15 @@
     					<td>{{result.q70}}</td>
     				</tr>
 
+
     			</table>
     			
     		</div> <!-- table row -->
 
+            <learners ng-show="menu.isSelected(0)"></learners>
+
     	
-            <div ng-show="menu.isSelected(0)" class="table-responsive row">
-                <table st-table="users_placeholder" st-safe-src="users" class="table">
-                <thead>
-                  <tr>
-                      <th colspan="2">
-                        <input st-search type="search" placeholder="Username, First name, or Last name...." class="form-control">
-                      </th>
-                      <th colspan="1">
-                        <input st-search="group_name" type="search" placeholder="Group...." class="form-control">
-                      </th>
-                  </tr>
-                  <tr>
-                    <th st-ratio="20" st-sort="username">Username</th>
-                    <th st-ratio="30" st-sort="first_name">First Name</th>
-                    <th st-ratio="30" st-sort="last_name">Last Name</th>
-                    <th st-ratio="20" st-sort="group_name">Group</th>
-                      
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="row in users_placeholder">
-                    <td st-ratio="20">{{row.username}}</td>
-                    <td st-ratio="30">{{row.first_name}}</td>
-                    <td st-ratio="30">{{row.last_name}}</td>
-                    <td st-ratio="20">{{row.group_name}}</td>
-                  </tr>
-                </tbody>
-                </table>
-            </div> <!-- table row -->
+
     </div>
 
     

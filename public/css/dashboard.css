@@ -39,7 +39,7 @@
 	color: white
 }
 
-table {
+.learners table {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     display: flex;
@@ -48,45 +48,45 @@ table {
     height: 800px; /* this can vary */
 }
 
-table * {
+.learners table * {
     box-sizing: inherit;
     -moz-box-sizing: inherit;
 }
 
-thead {
+.learners thead {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     background-color: #F0F0F0;
 }
 
-tbody {
+.learners tbody {
     overflow-y: scroll;
     display: inline-block;
 }
 
-thead > tr, tbody > tr, tfoot > tr {
+.learners thead > tr, .learners tbody > tr, .learners tfoot > tr {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-thead, tfoot {
+.learners thead, tfoot {
     flex-shrink: 0;
 }
 
-th, tbody td {
+.learners th, .learners tbody td {
     width: 25%; /* this can vary */
     overflow-x: hidden;
     text-overflow: ellipsis;
     display: inline-block;
 }
 
-tfoot {
+.learners tfoot {
     display: inline-block;
 }
 
-tfoot td {
+.learners tfoot td {
     width: 100%;
     display: inline-block;
 }
