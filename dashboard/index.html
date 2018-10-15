@@ -16,6 +16,8 @@
 
     
     <script src="js/coachDashboard/app.js"></script>
+<!--     <script src="js/coachDashboard/lrStickyHeader.js"></script>
+    <script src="js/coachDashboard/stStickyHeader.js"></script> -->
     <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
@@ -68,8 +70,9 @@
     					<th>Username</th>
     					<th>Test</th>
     					<th>Module</th>
-    					<th>Coach ID</th>
-    					<th>Test Date</th>
+                        <th>Score</th>
+                        <th>Test Date</th>
+                        <th>Coach ID</th>
     					<th>q1</th>
     					<th>q2</th>
     					<th>q3</th>
@@ -147,8 +150,9 @@
     					<td>{{result.username}}</td>
     					<td>{{result.test}}</td>
     					<td>{{result.module}}</td>
-    					<td>{{result.coach_id}}</td>
-    					<td>{{result.test_date}}</td>
+                        <td>{{result.score_pct * 100}}</td>
+                        <td>{{result.test_date}}</td>
+                        <td>{{result.coach_id}}</td>
     					<td>{{result.q1}}</td>
     					<td>{{result.q2}}</td>
     					<td>{{result.q3}}</td>
@@ -228,31 +232,31 @@
     	
             <div ng-show="menu.isSelected(0)" class="table-responsive row">
                 <table st-table="users_placeholder" st-safe-src="users" class="table">
+                <thead>
                   <tr>
-                      <th colspan="1">
-                        <input st-search type="search" placeholder="Search for a username,first name, last name...." class="form-control">
+                      <th colspan="2">
+                        <input st-search type="search" placeholder="Username, First name, or Last name...." class="form-control">
                       </th>
-                  </tr>              
-                  <tr>
                       <th colspan="1">
-                        <input st-search="group_name" type="search" placeholder="Search for a group...." class="form-control">
+                        <input st-search="group_name" type="search" placeholder="Group...." class="form-control">
                       </th>
                   </tr>
-                
                   <tr>
-                    <th st-sort="username">Username</th>
-                    <th st-sort="first_name">First Name</th>
-                    <th st-sort="last_name">Last Name</th>
-                    <th st-sort="group_name">Group</th>
+                    <th st-ratio="20" st-sort="username">Username</th>
+                    <th st-ratio="30" st-sort="first_name">First Name</th>
+                    <th st-ratio="30" st-sort="last_name">Last Name</th>
+                    <th st-ratio="20" st-sort="group_name">Group</th>
                       
                   </tr>
+                </thead>
+                <tbody>
                   <tr ng-repeat="row in users_placeholder">
-                    <td>{{row.username}}</td>
-                    <td>{{row.first_name}}</td>
-                    <td>{{row.last_name}}</td>
-                    <td>{{row.group_name}}</td>
+                    <td st-ratio="20">{{row.username}}</td>
+                    <td st-ratio="30">{{row.first_name}}</td>
+                    <td st-ratio="30">{{row.last_name}}</td>
+                    <td st-ratio="20">{{row.group_name}}</td>
                   </tr>
-                  
+                </tbody>
                 </table>
             </div> <!-- table row -->
     </div>
