@@ -1,4 +1,3 @@
-
 #navlogo{
 	background-image:url('../images/coachDashboard/edlogo.png');
 	width:20%;
@@ -38,4 +37,56 @@
 
 .nav > li > a{
 	color: white
+}
+
+.learners table {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 800px; /* this can vary */
+}
+
+.learners table * {
+    box-sizing: inherit;
+    -moz-box-sizing: inherit;
+}
+
+.learners thead {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #F0F0F0;
+}
+
+.learners tbody {
+    overflow-y: scroll;
+    display: inline-block;
+}
+
+.learners thead > tr, .learners tbody > tr, .learners tfoot > tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.learners thead, tfoot {
+    flex-shrink: 0;
+}
+
+.learners th, .learners tbody td {
+    width: 25%; /* this can vary */
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.learners tfoot {
+    display: inline-block;
+}
+
+.learners tfoot td {
+    width: 100%;
+    display: inline-block;
 }
