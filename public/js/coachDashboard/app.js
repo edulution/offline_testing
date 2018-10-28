@@ -3,7 +3,10 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
   var $ctrl = this;
 
   /*placeholder value used in smart-table because users are loaded asynchorously*/
-  $scope.users_placeholder = [];
+  $scope.users_placeholder = [];  
+
+  /*placeholder value used in smart-table because results are loaded asynchorously*/
+  $scope.results_placeholder = [];
 
   $ctrl.animationsEnabled = true;
 
@@ -57,30 +60,39 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
   };
 })
 .directive('navigation', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'navigation.html',
-			controller: function () {
-					this.tab = 0;	/* initially set tab to 1*/
-					this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
-						this.tab = setTab;
-						console.log(this.tab);
-					};
-					this.isSelected = function (checkTab) {/* Check which tab is selected to trigger show of selected tab */
-						return this.tab === checkTab;
+    return {
+      restrict: 'E',
+      templateUrl: 'navigation.html',
+      controller: function () {
+          this.tab = 0; /* initially set tab to 1*/
+          this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
+            this.tab = setTab;
+            console.log(this.tab);
+          };
+          this.isSelected = function (checkTab) {/* Check which tab is selected to trigger show of selected tab */
+            return this.tab === checkTab;
 
-					};
-				},
-			controllerAs: 'menu'
-		};
-	})
+          };
+        },
+      controllerAs: 'menu'
+    };
+  })
 .directive('learners', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'learners.html',
-			link: function(scope, element, attributes){
-			        element.addClass('learners');
-			      }
-		};
-	})
+    return {
+      restrict: 'E',
+      templateUrl: 'learners.html',
+      link: function(scope, element, attributes){
+              element.addClass('learners');
+            }
+    };
+  })
+.directive('responses', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'responses.html',
+      link: function(scope, element, attributes){
+              element.addClass('responses');
+            }
+    };
+  })
 ;
