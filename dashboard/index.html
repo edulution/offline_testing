@@ -89,6 +89,13 @@
                 <td st-ratio="20">{{row.group_name}}</td>
               </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                    </td>
+                </tr>
+            </tfoot>
             </table>
         </div> <!-- table row -->
     </script>
@@ -136,6 +143,13 @@
                         <td st-ratio="10">{{result.coach_id}}</td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
             
         </div> <!-- table row -->

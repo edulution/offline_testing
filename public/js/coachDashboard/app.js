@@ -8,6 +8,9 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
   /*placeholder value used in smart-table because results are loaded asynchorously*/
   $scope.results_placeholder = [];
 
+  /*pagination - items to display on each page*/
+  $scope.itemsByPage = 15;
+
   $ctrl.animationsEnabled = true;
 
   $ctrl.openModal = function (parentSelector) {

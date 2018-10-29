@@ -39,6 +39,15 @@
     color: white
 }
 
+/*pagination styles*/
+.pagination > .active > a, .pagination > .active > a:hover{
+    background-color:#00A546;
+    border-color:#00A546; 
+}
+.pagination > li > a{
+    color:#00A546;
+}
+
 
 /*scoped styles for the learners tab only*/
 .learners table {
