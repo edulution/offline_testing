@@ -98,4 +98,13 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
             }
     };
   })
+.directive('questresponses', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'responses_q.html',
+      link: function(scope, element, attributes){
+              element.addClass('questresponses');
+            }
+    };
+  })
 ;
