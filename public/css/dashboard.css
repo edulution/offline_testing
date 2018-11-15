@@ -30,6 +30,18 @@
 .nav-tabs{
     border-bottom: 0
 }
+
+/*Div that contains refresh button*/
+/*text has width of 80%*/
+#navbuttons{
+    width:20%;
+}
+
+/*Container div for topnav elements*/
+#topnav_container{
+    display: flex;
+}
+
 #topnav,#bottomnav{
     background: #00A546;
     padding-top: 0.5%;

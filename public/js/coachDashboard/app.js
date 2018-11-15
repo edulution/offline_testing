@@ -76,6 +76,11 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
             return this.tab === checkTab;
 
           };
+
+          /*function to refresh page when button clicked*/
+          this.refresh = function(){
+            $window.location.reload();
+          }
         },
       controllerAs: 'menu'
     };
