@@ -66,7 +66,7 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
     return {
       restrict: 'E',
       templateUrl: 'navigation.html',
-      controller: function () {
+      controller: function ($window) {
           this.tab = 0; /* initially set tab to 1*/
           this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
             this.tab = setTab;
