@@ -1,3 +1,12 @@
+/*up-down arrows when user sorts table by column*/
+.st-sort-ascent:before {
+    content: '\25B2';
+}
+
+.st-sort-descent:before {
+    content: '\25BC';
+}
+
 #navlogo{
     background-image:url('../images/coachDashboard/edlogo.png');
     width:20%;
