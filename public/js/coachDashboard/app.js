@@ -37,6 +37,11 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
     });
 
   $http.get( "/get_responses").then(function(response) {
+        /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
+        for (var i = response.data.length - 1; i >= 0; i--) {
+           response.data[i]["test_date"] = new Date(response.data[i]["test_date"])
+         };
+         
          $scope.results = response.data;
          console.log($scope.results);
     }); 
