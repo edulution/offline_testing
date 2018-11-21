@@ -183,7 +183,7 @@
 }
 
 .responses th, .responses tbody td {
-    width: 12.5%; /* this can vary */
+    width: 14.3%; /* this can vary */
     overflow-x: hidden;
     text-overflow: ellipsis;
     display: inline-block;
