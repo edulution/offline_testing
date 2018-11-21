@@ -180,6 +180,30 @@ app.get('/get_users', (req, res, next) => {
     .catch(e => console.error(e.stack))
   });
 
+
+/*endpoint to test count stats list as json*/
+app.get('/get_test_count', (req, res, next) => {
+  const test_counts_query = {
+    // give the query a unique name
+    name: 'fetch-test-counts',
+    text: 'SELECT last_day(test_date::date) as test_month, count(*) as number_of_tests from responses group by last_day(test_date::date) order by last_day(test_date::date) desc'
+  }
+
+  // callback
+  pool.query(test_counts_query, (err, result) => {
+    if (err) {
+      console.log(err.stack)
+    } else {
+    	res.status(200).send(result.rows)
+    }
+  })
+
+  // promise
+  pool.query(test_counts_query)
+    .then(result => res.rows)
+    .catch(e => console.error(e.stack))
+  });
+
 /*endpoint to get all test_responses as json*/
 app.get('/get_responses',function(req, res){
         /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
