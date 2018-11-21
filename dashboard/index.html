@@ -7,6 +7,7 @@
 
 
     <script src="pmodule/angular.min.js"></script>
+    <script src="js/coachDashboard/angular-filter.min.js"></script>
     <script src="js/coachDashboard/smart-table.min.js"></script>
     <script src="pmodule/angular-animate.js"></script>
     <script src="pmodule/angular-sanitize.js"></script>
@@ -119,6 +120,12 @@
                     <tr>
                         <th id="responses_search">
                           <input st-search type="search" placeholder="Username, First name, Last name, Test, Test Date..." class="form-control">
+                        </th>
+                        <th id="module_search">
+                            <select st-search="module" class=" form-control module_select_dropdown">
+                                <option value="" class="module_initial_value">Module</option>
+                                <option ng-repeat="row in results | unique: 'module'" value="{{row.module}}">{{row.module | ucfirst}}</option>
+                            </select>
                         </th>                        
                     </tr>
                     <tr>
@@ -126,7 +133,6 @@
                         <th st-ratio="15" st-sort="first_name">First Name</th>
                         <th st-ratio="15" st-sort="last_name">Last Name</th>
                         <th st-ratio="10" st-sort="test_name">Test</th>
-                        <th st-ratio="10" st-sort="module">Module</th>
                         <th st-ratio="10" st-sort="score_pct">Score</th>
                         <th st-ratio="10" st-sort="test_date">Test Date</th>
                         <th st-ratio="10" st-sort="coach_id">Coach ID</th>
@@ -140,7 +146,6 @@
                         <td st-ratio="15">{{result.first_name }}</td>
                         <td st-ratio="15">{{result.last_name}}</td>
                         <td st-ratio="10">{{result.test_name}}</td>
-                        <td st-ratio="10">{{result.module}}</td>
                         <!-- color the score percent cells using same color scheme from heat map -->
                         <td st-ratio="10" ng-style="result.score_pct <= 0 && {'background-color': '#D9D9D9'} ||
                                       result.score_pct <= .25 && {'background-color': '#FF412A'} ||

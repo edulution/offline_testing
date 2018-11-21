@@ -1,4 +1,4 @@
-angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smart-table'])
+angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smart-table','angular.filter'])
 .controller('MainCtrl', function ($scope,$uibModal, $log, $document,$http) {
   var $ctrl = this;
 
@@ -41,7 +41,7 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
         for (var i = response.data.length - 1; i >= 0; i--) {
            response.data[i]["test_date"] = new Date(response.data[i]["test_date"])
          };
-         
+
          $scope.results = response.data;
          console.log($scope.results);
     }); 

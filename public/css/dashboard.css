@@ -1,3 +1,9 @@
+/*select module dropdown to be same height as other search bar and have enough width*/
+.module_select_dropdown{
+    width: 100%;
+    height: 100%;
+}
+
 /*up-down arrows when user sorts table by column*/
 .st-sort-ascent:before {
     content: '\25B2';
