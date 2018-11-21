@@ -67,6 +67,9 @@
                 <a href="#" ng-click="menu.selectTab(2)"><h3>Results by Question</h3>
                 </a>
               </li>
+              <li ng-class="{ active: menu.isSelected(3) }">
+                <a href="#" ng-click="menu.selectTab(3)"><h3>Tests Count</h3></a>
+              </li>  
             </ul>
           </div>
         </nav>
@@ -333,6 +336,18 @@
         </div> <!-- table row -->
     </script>
 
+    <script type="text/ng-template" id="testscount.html">
+        <table class="table">
+            <tr>
+                <th>Month</th>
+                <th>Number of Tests</th>
+            </tr>
+            <tr ng-repeat="stat in tests_count" >
+                <td>{{ stat.test_month | date:'MMMM yyyy'}}</td>
+                <td>{{ stat.number_of_tests }}</td>
+            </tr>            
+        </table>
+    </script>
     
     <!-- open password modal when page is loaded(prod only) -->
     <!-- <span ng-init=ctrl.openModal()></span> -->
@@ -342,6 +357,7 @@
         <learners ng-show="menu.isSelected(0)"></learners>
         <responses ng-show="menu.isSelected(1)"></responses>
         <questresponses ng-show="menu.isSelected(2)"></questresponses>
+        <testscount ng-show="menu.isSelected(3)"></testscount>
     </div>
 
     

@@ -36,6 +36,11 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
          console.log($scope.users);
     });
 
+  $http.get( "/get_test_count").then(function(response) {
+         $scope.tests_count = response.data;
+         console.log($scope.tests_count);
+    });
+
   $http.get( "/get_responses").then(function(response) {
         /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
         for (var i = response.data.length - 1; i >= 0; i--) {
@@ -114,6 +119,15 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
       templateUrl: 'responses_q.html',
       link: function(scope, element, attributes){
               element.addClass('questresponses');
+            }
+    };
+  })
+.directive('testscount', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'testscount.html',
+      link: function(scope, element, attributes){
+              element.addClass('testscount');
             }
     };
   })
