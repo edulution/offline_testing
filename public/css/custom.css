@@ -2,6 +2,14 @@ body{
 	font-family: 'Roboto', sans-serif;
 	background-color: #B3FFB3;
 }
+
+/*center an image within a div*/
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
 .bg_img{
 	/*background-image: url('../images/bg-images.png');*/
 	height: 379px;
