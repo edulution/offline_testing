@@ -116,14 +116,16 @@ try again</p>
                             <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; 
 
 min-width: 0%;"> Pre Alpha 1</p>
-                            <p style="font-size: 13px;line-height: 135%;margin-top: 22px;white-space: pre-
-
-wrap;">TIME ALLOWED: 1 HOUR</p>
                             <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
                             <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                            <div class="ins">Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
-                            <div class="HeaderbannerLabel">SECTION A</div>
-                            <h3>(1)  1, 2, 3, <span style="display: inline-block;font-size: 1.1em"><i class="far 
+                            <div class="ins">Time allowed: 1 hour <br> Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
+                          <!-- Input fiels for user_id contains some js code for validation -->
+                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Student ID</label>
+                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
+                                                  
+                          <div class="HeaderbannerLabel">SECTION A</div>
+                           <h3>(1)  1, 2, 3, <span style="display: inline-block;font-size: 1.1em"><i class="far 
 
 fa-square"></i></span> , 5</h3>
                             <!-- TODO: Add form name,action and method -->
@@ -1121,13 +1123,9 @@ class="far fa-square"></i></span> minutes</h3>
                                 </p>
                                 <div class="HeaderbannerLabel">CREDENTIALS</div>
                                 <!-- TODO: Add text input fields for user_id, coach_email -->
-                                <!-- Input fiels for user_id contains some js code for validation -->
-                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Student ID</label>
-                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
                                 <!-- Hidden fields for test,course and module -->
-                                <input type="hidden" name="test" value="prealpha_1">
-                                <input type="hidden" name="course" value="prealpha">
+                                <input type="hidden" name="test" value="prealp_comp_1">
+                                <!-- <input type="hidden" name="course" value="prealpha"> -->
                                 <input type="hidden" name="module" value="numeracy">
                                 <br>
                                 <br>
