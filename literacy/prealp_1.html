@@ -7,7 +7,7 @@
     <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
-    <title>Pre Alpha Test 1</title>
+    <title>Pre Alpha 1</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -38,10 +38,10 @@
         padding-left: 34px;
         margin-left: -30px;
         font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-        padding: 8px 8px 8px 42px;
+        padding: 8px 8px 8px 34px;
         margin-top: 30px;
         margin-bottom: 25px;
-        width: 30%;
+        width: 45%;
     }
 
     p {
@@ -100,9 +100,15 @@
                     <div class="pd-tb">
                         <div class="pd-lr">
                             <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;">Pre Alpha 1</p>
-                            <p style="font-size: 13px;line-height: 135%;margin-top: 22px;white-space: pre-wrap;">TIME ALLOWED: 40 MINUTES</p>
+                           <div class="HeaderbannerLabel">USERNAME</div>
+                          <!-- Input fiels for user_id contains some js code for validation -->
+                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Username</label>
+                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
+                          <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+
                              <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                            <div class="ins">Ask your coach if you are not sure how to answer the questions</div>
+                            <div class="ins">Time allowed: 40 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
                             <div class="HeaderbannerLabel">ASSESSMENT</div>
                             
                             <!-- TODO: Add form name,action and method -->
@@ -766,26 +772,19 @@
 									<input type="radio" id="q40_b" name="q40" value="0">
 									<label for="q40_b">the sun</label>
 								</p>
-                        
-                            <div class="HeaderbannerLabel">CREDENTIALS</div>
-                            <!-- TODO: Add text input fields for user_id, coach_email -->
-                            <!-- Input fiels for user_id contains some js code for validation -->
-                            <label for="username" style="color: #000;font-size: 20px;line-height: 135%;width: 100%;">Student ID</label>
-                            <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                            <span class="password-error" ng-show="testForm2.$dirty && testForm2.username.$error.whitelist">Please enter a valid Student ID</span>
-                            <input type="hidden" name="test" value="lit_prealp_1">
-                            <input type="hidden" name="module" value="literacy">
-                            <br>
-                            <br>
-                            <label for="coach_id" style="color: #000;font-size: 20px;line-height: 135%;width: 100%;">Coach ID</label>
-                            <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                            <span class="password-error" ng-show="testForm2.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
-                            <!-- Submit button disabled if form is invalid -->
-                            <!-- <input type="submit" value="submit" ng-disabled="testForm2.$invalid"> -->
-                            <br>
-                            <br>
-                            <button type="submit" value="Submit" ng-disabled="testForm2.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
-                        </form>
+                         <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                                <!-- TODO: Add text input fields for user_id, coach_email -->
+                                <!-- Hidden fields for test,course and module -->
+                                <input type="hidden" name="test" value="lit_prealp_1">
+                                <!-- <input type="hidden" name="course" value="alpha"> -->
+                                <input type="hidden" name="module" value="litracy">
+                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
+                                <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
+                                <!-- Submit button disabled if form is invalid -->
+                                <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
+                                <button type="submit" value="Submit" ng-disabled="testForm1.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -803,3 +802,4 @@
 </body>
 
 </html>
+                    
