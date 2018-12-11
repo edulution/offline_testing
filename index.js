@@ -52,109 +52,100 @@ app.get('/results', function (req, res) {
 
 /*Urls for forms*/
 
-/*Prealpha comp tests*/
-app.get('/prealp_comp_1', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_1.html');
+/*Numeracy prealpha tests*/
+app.get('/num_prealpha_1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/prealpha_1.html');
 });
 
-app.get('/prealp_comp_2', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_2.html');
+app.get('/num_prealpha_2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/prealpha_2.html');
 });
 
-app.get('/prealp_comp_3', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_3.html');
-});
-
-
-/*Alpha comp tests*/
-app.get('/alp_comp_1', function (req, res) {
- res.sendFile( __dirname + '/alp_comp_1.html');
-});
-
-app.get('/alp_comp_2', function (req, res) {
- res.sendFile( __dirname + '/alp_comp_2.html');
+app.get('/num_prealpha_3', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/prealpha_3.html');
 });
 
 
-/*Alpha sectional tests*/
 
-/*Alpha section A*/
-app.get('/alp_sec_a1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_a1.html');
+/*Alpha course family
+
+/*Alpha A tests*/
+app.get('/num_alpha_a1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_a1.html');
 });
 
-app.get('/alp_sec_a2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_a2.html');
+app.get('/num_alpha_a2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_a2.html');
 });
 
 
-/*Alpha section B*/
-app.get('/alp_sec_b1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_b1.html');
+/*Alpha B tests*/
+app.get('/num_alpha_b1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_b1.html');
 });
 
-app.get('/alp_sec_b2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_b2.html');
+app.get('/num_alpha_b2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_b2.html');
 });
 
-/*Alpha section C*/
-app.get('/alp_sec_c1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_c1.html');
+/*Alpha C tests*/
+app.get('/num_alpha_c1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_c1.html');
 });
 
-app.get('/alp_sec_c2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_c2.html');
+app.get('/num_alpha_c2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_c2.html');
 });
 
-/*Alpha section D*/
-app.get('/alp_sec_d1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_d1.html');
+/*Alpha D tests*/
+app.get('/num_alpha_d1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_d1.html');
 });
 
-app.get('/alp_sec_d2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_d2.html');
+app.get('/num_alpha_d2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_d2.html');
 });
 
 
 /*Litercy tests*/
-app.get('/lit_alp_a1', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_a1.html');
+app.get('/lit_alpha_a1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_a1.html');
 });
 
-app.get('/lit_alp_a2', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_a2.html');
+app.get('/lit_alpha_a2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_a2.html');
 });
 
-app.get('/lit_alp_b1', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_b1.html');
+app.get('/lit_alpha_b1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_b1.html');
 });
 
-app.get('/lit_alp_b2', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_b2.html');
+app.get('/lit_alpha_b2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_b2.html');
 });
 
-app.get('/lit_alp_c1', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_c1.html');
+app.get('/lit_alpha_c1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_c1.html');
 });
 
-app.get('/lit_alp_c2', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_c2.html');
+app.get('/lit_alpha_c2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_c2.html');
 });
 
-app.get('/lit_alp_d1', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_d1.html');
+app.get('/lit_alpha_d1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_d1.html');
 });
 
-app.get('/lit_alp_d2', function (req, res) {
- res.sendFile( __dirname + '/literacy/alp_d2.html');
+app.get('/lit_alpha_d2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_d2.html');
 });
 
-app.get('/lit_prealp_1', function (req, res) {
- res.sendFile( __dirname + '/literacy/prealp_1.html');
+app.get('/lit_prealpha_1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/prealpha_1.html');
 });
 
-app.get('/lit_prealp_2', function (req, res) {
- res.sendFile( __dirname + '/literacy/prealp_2.html');
+app.get('/lit_prealpha_2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });
 
 /*endpoint to get users list as json*/
