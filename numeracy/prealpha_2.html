@@ -42,10 +42,10 @@
     padding-left: 34px;
     margin-left: -30px;
     font: 400 16px/24px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    padding: 8px 8px 8px 42px;
+    padding: 8px 8px 8px 34px;
     margin-top: 30px;
     margin-bottom: 25px;
-    width: 30%;
+    width: 45%;
 }
 .ins {
     color: #212121;
@@ -97,17 +97,21 @@ span.frac > sub {  display: block;  font: inherit;}
 				</div>
 			 <div class="pd-tb">
 			    <div class="pd-lr"> 
+				    <form action="/submit_test" name="testForm2" method="post">
 			       <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Pre Alpha 2</p>
-			       <p style="font-size: 13px;line-height: 135%;margin-top: 22px;white-space: pre-wrap;">TIME ALLOWED: 1 HOUR</p>
+				    <div class="HeaderbannerLabel">USERNAME</div>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <label for="username" style="color: #000;font-size: 20px;line-height: 135%;width: 100%;">Username</label>
+					   <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+					   <span class="password-error" ng-show="testForm2.$dirty && testForm2.username.$error.whitelist">Please enter a valid Student ID</span>
 			        <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>		
 			        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-			        <div class="ins">Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
+			        <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                     
 		    <div class="HeaderbannerLabel">SECTION A</div>
                     <h3>(1)  1, 2, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 4, 5</h3>
                     <!-- TODO: Add form name,action and method --> 
                     <!-- <form name="testForm" action="/submit_test" method="post"> -->
-                    <form action="/submit_test" name="testForm2" method="post">
 					  <p>
 					  	<!-- TODO: Add value attribute to each radio button -->
 					  	<!-- Each group of radio buttons with the same name corresponds to one question -->
@@ -721,7 +725,7 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <input type="radio" id="test131" name="q34" value="0">
 					    <label for="test131">11</label>
 					  </p>
-					  <h3>(35) 8 × 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> × 8</h3>
+					  <h3>(35) 8 × 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> × 10</h3>
 
 					  <p>
 					    <input type="radio" id="test132" name="q35" value="0">
@@ -733,11 +737,11 @@ span.frac > sub {  display: block;  font: inherit;}
 					  </p>
 					  <p>
 					    <input type="radio" id="test134"name="q35" value="0">
-					    <label for="test134">4</label>
+					    <label for="test134">6</label>
 					  </p>
 					  <p>
 					    <input type="radio" id="test135" name="q35" value="1">
-					    <label for="test135">6</label>
+					    <label for="test135">4</label>
 					  </p>
 					  <h3>(36) <span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span> <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> <span class="frac"><sup>6</sup><span>/</span><sub>8</sub></span></h3>
 					  <span>Compare fractions with >, < or =.</span>
@@ -997,17 +1001,12 @@ span.frac > sub {  display: block;  font: inherit;}
 					    <input type="radio" id="test195" name="q50" value="0">
 					    <label for="test195">600</label>
 					  </p>
-					   <div class="HeaderbannerLabel">CREDENTIALS</div>
-					   
-					   
-					   <!-- TODO: Add text input fields for user_id, coach_email -->
-					   <!-- Input fiels for user_id contains some js code for validation -->
-                        <label for="username" style="color: #000;font-size: 20px;line-height: 135%;width: 100%;">Student ID</label>
-					   <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-					   <span class="password-error" ng-show="testForm2.$dirty && testForm2.username.$error.whitelist">Please enter a valid Student ID</span>
-					   <input type="hidden" name="test" value="prealp_comp_2">
-					   <input type="hidden" name="module" value="numeracy">
-					   <br><br>
+					   <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+					    <!-- TODO: Add text input fields for user_id, coach_email -->
+					    <!-- Hidden fields for test,course and module -->
+					   <input type="hidden" name="test" value="prealpha_2">
+	                   <input type="hidden" name="course" value="prealpha">
+					    <input type="hidden" name="module" value="numeracy">
 					    <label for="coach_id" style="color: #000;font-size: 20px;line-height: 135%;width: 100%;">Coach ID</label>
 						<input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">	
 						<span class="password-error" ng-show="testForm2.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
