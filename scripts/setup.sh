@@ -5,10 +5,10 @@
 cd ~/.baseline_testing/
 
 # Link npm packages
-npm link sqlite3
-npm link csv
-npm link body-parser
-npm link express
+npm link sqlite3 > /dev/null
+npm link csv > /dev/null
+npm link body-parser > /dev/null
+npm link express > /dev/null
 
 #make scripts executable
 chmod +x ~/.baseline_testing/scripts/reporting/baseline.sh
