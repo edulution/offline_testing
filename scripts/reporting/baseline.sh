@@ -26,6 +26,7 @@ if [ "$?" = "0" ]; then
        # fetch the first argument given(the month_year) on the command line and use it as an argument to the Rscript
        Rscript ~/.baseline_testing/scripts/reporting/baseline.R "$1"
        # After Rscript executes, execute send report script
+       chmod +x ~/.baseline_testing/scripts/reporting/send_baseline.sh
        ~/.baseline_testing/scripts/reporting/send_baseline.sh
    else 
        echo Please enter a valid year and month e.g 02-17
