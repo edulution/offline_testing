@@ -1,14 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 # check if directories exist
-# DIRECTORIES=(~/reports ~/backups ~/reports/baseline)
-# for DIRECTORY in ${DIRECTORIES[@]}; do
-#   if [ ! -d "$DIRECTORY" ]; then
-#     mkdir "$DIRECTORY"
-#   else
-#     echo "$DIRECTORY already exists. Skipping this step"
-#   fi
-# done
+DIRECTORIES=( ~/reports/baseline )
+for DIRECTORY in ${DIRECTORIES[@]}; do
+  if [ ! -d "$DIRECTORY" ]; then
+    mkdir "$DIRECTORY"
+  else
+    echo "$DIRECTORY already exists. Skipping this step"
+  fi
+done
 
 #pull latest changes from master branch in repo
 cd ~/.baseline_testing
@@ -24,9 +24,9 @@ if [ "$?" = "0" ]; then
 	); then
        echo "Extracting baseline tests for month $1"
        # fetch the first argument given on the command line and use it as an argument to the Rscript
-       Rscript ~/.baseline_testing/scripts/extraction/baseline.R "$1"
+       Rscript ~/.baseline_testing/scripts/reporting/baseline.R "$1"
        # After Rscript executes, execute send report script
-       ~/.baseline_testing/scripts/extraction/send_baseline.sh
+       ~/.baseline_testing/scripts/reporting/send_baseline.sh
    else 
        echo Please enter a valid year and month e.g 02-17
        exit 1 
