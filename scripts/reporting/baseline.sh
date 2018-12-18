@@ -23,7 +23,7 @@ if [ "$?" = "0" ]; then
     egrep '^(1[0-2]|0[0-9])[-/][0-9]{2}' > /dev/null
 	); then
        echo "Extracting baseline tests for month $1"
-       # fetch the first argument given on the command line and use it as an argument to the Rscript
+       # fetch the first argument given(the month_year) on the command line and use it as an argument to the Rscript
        Rscript ~/.baseline_testing/scripts/reporting/baseline.R "$1"
        # After Rscript executes, execute send report script
        ~/.baseline_testing/scripts/reporting/send_baseline.sh

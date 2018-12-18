@@ -8,5 +8,5 @@ if (crontab -l | grep -q '@reboot ~/.baseline_testing/scripts/startup_script'); 
 else
 	#add entry if doesnt exist
 	echo 'Cronjob does not exist. Creating now'
-	(crontab -l 2>/dev/null; echo "@reboot ~/.baseline_testing/startup_script") | crontab -
+	(crontab -l 2>/dev/null; echo "@reboot ~/.baseline_testing/scripts/startup_script") | crontab -
 fi

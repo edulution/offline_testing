@@ -10,10 +10,10 @@ npm link csv
 npm link body-parser
 npm link express
 
-#set up responses db and get users from KA
+#set up responses db and get users from KA,IXL. Check for any schema upgrades
 ~/.baseline_testing/scripts/start_users_extraction.sh
 
-#set up cron job to restart amd repopulate users table on reboot
+#set up cron job to restart and repopulate users table on reboot
 ~/.baseline_testing/scripts/setup_cronjob.sh
 
 # Stop any running forever processes and start the server
