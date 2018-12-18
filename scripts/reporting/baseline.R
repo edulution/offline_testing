@@ -144,7 +144,7 @@ tresponses<- tresponses %>% select(-testmaxscore)
 # Simple function to generate filename of csv report in desired format
 generate_filename <- function(report,date){
   # put generated file in a folder called reports in home directory, and generate filename based on name of report and user input
-  filename <- paste("~/reports/baseline/",report,device_name,"_numeracy_",date,".csv",sep = "")
+  filename <- paste("~/reports/baseline/",report,device_name,"_",date,".csv",sep = "")
 }
 
 # Function to get data extract only for month that user inputs
