@@ -48,6 +48,9 @@ tresponses<- tresponses %>% select(HEADER,test_date,centre,module ,course,test,v
 
 #helper function to set empty strings to 0 and otherwise return the actual string
 empty_as_zero<- function(x){
+  if(is.na(x)){
+    return("0")
+  }
   if(x == ""){
     return("0")
   }
@@ -71,10 +74,6 @@ for(i in 1:nrow(tresponses)) {
 
 #set the tmp dataframe to the real thing
 tresponses<-tresponses_tmp
-
-from_vals<-c("q1","q2","q3","q4","q5","q6","q7","q8","q9","q10","q11","q12","q13","q14","q15","q16","q17","q18","q19","q20","q21","q22","q23","q24","q25","q26","q27","q28","q29","q30","q31","q32","q33","q34","q35","q36","q37","q38","q39","q40","q41","q42","q43","q44","q45","q46","q47","q48","q49","q50","q51","q52","q53","q54","q55","q56","q57","q58","q59","q60","q61","q62","q63","q64","q65","q66","q67","q68","q69","q70")
-
-to_vals<-c("res001","res002","res003","res004","res005","res006","res007","res008","res009","res010","res011","res012","res013","res014","res015","res016","res017","res018","res019","res020","res021","res022","res023","res024","res025","res026","res027","res028","res029","res030","res031","res032","res033","res034","res035","res036","res037","res038","res039","res040","res041","res042","res043","res044","res045","res046","res047","res048","res049","res050","res051","res052","res053","res054","res055","res056","res057","res058","res059","res060","res061","res062","res063","res064","res065","res066","res067","res068","res069","res070")
 
 #add missing cols
 tresponses$res071=""
@@ -136,7 +135,76 @@ tresponses$res126=""
 
 
 #rename question cols to have res..
-tresponses<- tresponses %>% rename_at(vars(from_vals),function(x) to_vals)
+tresponses<- tresponses %>% rename(res001 = q1)
+tresponses<- tresponses %>% rename(res002 = q2)
+tresponses<- tresponses %>% rename(res003 = q3)
+tresponses<- tresponses %>% rename(res004 = q4)
+tresponses<- tresponses %>% rename(res005 = q5)
+tresponses<- tresponses %>% rename(res006 = q6)
+tresponses<- tresponses %>% rename(res007 = q7)
+tresponses<- tresponses %>% rename(res008 = q8)
+tresponses<- tresponses %>% rename(res009 = q9)
+tresponses<- tresponses %>% rename(res010 = q10)
+tresponses<- tresponses %>% rename(res011 = q11)
+tresponses<- tresponses %>% rename(res012 = q12)
+tresponses<- tresponses %>% rename(res013 = q13)
+tresponses<- tresponses %>% rename(res014 = q14)
+tresponses<- tresponses %>% rename(res015 = q15)
+tresponses<- tresponses %>% rename(res016 = q16)
+tresponses<- tresponses %>% rename(res017 = q17)
+tresponses<- tresponses %>% rename(res018 = q18)
+tresponses<- tresponses %>% rename(res019 = q19)
+tresponses<- tresponses %>% rename(res020 = q20)
+tresponses<- tresponses %>% rename(res021 = q21)
+tresponses<- tresponses %>% rename(res022 = q22)
+tresponses<- tresponses %>% rename(res023 = q23)
+tresponses<- tresponses %>% rename(res024 = q24)
+tresponses<- tresponses %>% rename(res025 = q25)
+tresponses<- tresponses %>% rename(res026 = q26)
+tresponses<- tresponses %>% rename(res027 = q27)
+tresponses<- tresponses %>% rename(res028 = q28)
+tresponses<- tresponses %>% rename(res029 = q29)
+tresponses<- tresponses %>% rename(res030 = q30)
+tresponses<- tresponses %>% rename(res031 = q31)
+tresponses<- tresponses %>% rename(res032 = q32)
+tresponses<- tresponses %>% rename(res033 = q33)
+tresponses<- tresponses %>% rename(res034 = q34)
+tresponses<- tresponses %>% rename(res035 = q35)
+tresponses<- tresponses %>% rename(res036 = q36)
+tresponses<- tresponses %>% rename(res037 = q37)
+tresponses<- tresponses %>% rename(res038 = q38)
+tresponses<- tresponses %>% rename(res039 = q39)
+tresponses<- tresponses %>% rename(res040 = q40)
+tresponses<- tresponses %>% rename(res041 = q41)
+tresponses<- tresponses %>% rename(res042 = q42)
+tresponses<- tresponses %>% rename(res043 = q43)
+tresponses<- tresponses %>% rename(res044 = q44)
+tresponses<- tresponses %>% rename(res045 = q45)
+tresponses<- tresponses %>% rename(res046 = q46)
+tresponses<- tresponses %>% rename(res047 = q47)
+tresponses<- tresponses %>% rename(res048 = q48)
+tresponses<- tresponses %>% rename(res049 = q49)
+tresponses<- tresponses %>% rename(res050 = q50)
+tresponses<- tresponses %>% rename(res051 = q51)
+tresponses<- tresponses %>% rename(res052 = q52)
+tresponses<- tresponses %>% rename(res053 = q53)
+tresponses<- tresponses %>% rename(res054 = q54)
+tresponses<- tresponses %>% rename(res055 = q55)
+tresponses<- tresponses %>% rename(res056 = q56)
+tresponses<- tresponses %>% rename(res057 = q57)
+tresponses<- tresponses %>% rename(res058 = q58)
+tresponses<- tresponses %>% rename(res059 = q59)
+tresponses<- tresponses %>% rename(res060 = q60)
+tresponses<- tresponses %>% rename(res061 = q61)
+tresponses<- tresponses %>% rename(res062 = q62)
+tresponses<- tresponses %>% rename(res063 = q63)
+tresponses<- tresponses %>% rename(res064 = q64)
+tresponses<- tresponses %>% rename(res065 = q65)
+tresponses<- tresponses %>% rename(res066 = q66)
+tresponses<- tresponses %>% rename(res067 = q67)
+tresponses<- tresponses %>% rename(res068 = q68)
+tresponses<- tresponses %>% rename(res069 = q69)
+tresponses<- tresponses %>% rename(res070 = q70)
 
 #remove testmaxscore column
 tresponses<- tresponses %>% select(-testmaxscore)
