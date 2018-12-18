@@ -4,7 +4,7 @@
 #source config.sh
 
 # check if device is online or offline
-wget -q --spider http://google.com
+timeout 10 wget -q --spider http://google.com
 
 if [[ $? -eq 0 ]]; then
     #statements
