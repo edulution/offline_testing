@@ -1,5 +1,18 @@
 #!/bin/bash
 
+#colors
+#=======
+export red=`tput setaf 1`
+export green=`tput setaf 2`
+export yellow=`tput setaf 3`
+export blue=`tput setaf 4`
+
+# reset to default bash text style
+export reset=`tput sgr0`
+
+# make actual text bold
+export bold=`tput bold`
+
 # check if test responses db exists. If not, copy pristine db 
 test -f $responses_database
 if [ "$?" = "0" ]; then

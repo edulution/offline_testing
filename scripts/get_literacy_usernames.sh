@@ -1,7 +1,18 @@
 #!/bin/bash
 
 # get config vars
-#source config.sh
+#colors
+#=======
+export red=`tput setaf 1`
+export green=`tput setaf 2`
+export yellow=`tput setaf 3`
+export blue=`tput setaf 4`
+
+# reset to default bash text style
+export reset=`tput sgr0`
+
+# make actual text bold
+export bold=`tput bold`
 
 # check if device is online or offline
 timeout 10 wget -q --spider http://google.com
@@ -22,10 +33,11 @@ if [[ $? -eq 0 ]]; then
         echo "${green}Adding details for literacy learners...${reset}"
         echo "${green}${bold}Done!${reset}"
     else
-        echo "There was a problem fetching details for literacy learners. Please check your internet connection or try again"
+        echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again"
+        echo "Please Ignore this message if your centre does not give literacy lessons${reset}"
     fi
 else
-    echo "Device is Offline"
+    echo "${yellow}Device is Offline"
     echo "Could not fetch details for Literacy learners"
-    echo "Please Ignore this message if your centre does not give literacy lessons"
+    echo "Please Ignore this message if your centre does not give literacy lessons${reset}"
 fi
