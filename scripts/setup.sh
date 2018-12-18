@@ -10,6 +10,12 @@ npm link csv
 npm link body-parser
 npm link express
 
+#make scripts executable
+chmod +x ~/.baseline_testing/scripts/reporting/baseline.sh
+chmod +x ~/.baseline_testing/scripts/reporting/send_baseline.sh
+chmod +x ~/.baseline_testing/scripts/setup_cronjob.sh
+chmod +x ~/.baseline_testing/scripts/schema_upgrade.sh
+
 #set up responses db and get users from KA,IXL. Check for any schema upgrades
 ~/.baseline_testing/scripts/start_users_extraction.sh
 
