@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Go into reports folder
 cd ~/reports/baseline
 
