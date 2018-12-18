@@ -1,23 +1,11 @@
 #!/bin/bash
 
-# path to kalite database
-ka_database=~/.kalite/database/data.sqlite
-
-# path to test_responses database
-baseline_testing_directory=~/.baseline_testing/
-
-#placeholder values for device name and users files
-device_name_file=~/.baseline_testing/device_name.csv
-users_file=~/.baseline_testing/users.csv
-
-responses_database=~/.baseline_testing/public/test_responses.sqlite
-
 # check if test responses db exists. If not, copy pristine db 
 test -f $responses_database
 if [ "$?" = "0" ]; then
-	echo "Database already exists.Skipping..."
+	echo "${blue}Database already exists.Skipping...${reset}"
 else
-	echo "Database does not exist. Creating now..."
+	echo "${green}Database does not exist. Creating now...${reset}"
 	cp ~/.baseline_testing/public/test_responses.pristine.sqlite ~/.baseline_testing/public/test_responses.sqlite
 fi
 
@@ -66,5 +54,7 @@ sqlite3 $responses_database <<!
 .import $device_name_file device
 !
 echo "Populating device_name table.."
+
+# get details for literacy learners
 
 echo "Done!"

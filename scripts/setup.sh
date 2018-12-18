@@ -11,11 +11,11 @@ npm link body-parser
 npm link express
 
 #set up responses db and get users from KA
-~/.baseline_testing/get_users_and_device.sh
+~/.baseline_testing/scripts/get_users_and_device.sh
 
 #set up cron job to restart amd repopulate users table on reboot
-~/.baseline_testing/setup_cronjob.sh
+~/.baseline_testing/scripts/setup_cronjob.sh
 
 # Stop any running forever processes and start the server
 # assumes that node and forever located in /usr/local/bin
-~/.baseline_testing/start_testing_server.sh
+~/.baseline_testing/scripts/start_testing_server.sh

@@ -45,69 +45,100 @@ app.get('/coach', function (req, res) {
  res.sendFile( __dirname + '/dashboard/index.html');
 });
 
-/*Urls for forms*/
 
-/*Prealpha comp tests*/
-/*app.get('/prealp_comp_1', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_1.html');
+/*Numeracy prealpha tests*/
+/*app.get('/num_prealpha_1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/prealpha_1.html');
 });
 
-app.get('/prealp_comp_2', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_2.html');
+app.get('/num_prealpha_2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/prealpha_2.html');
 });
 
-app.get('/prealp_comp_3', function (req, res) {
- res.sendFile( __dirname + '/prealp_comp_3.html');
+app.get('/num_prealpha_3', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/prealpha_3.html');
 });*/
 
 
-/*Alpha comp tests*/
-/*app.get('/alp_comp_1', function (req, res) {
- res.sendFile( __dirname + '/alp_comp_1.html');
+/*Alpha course family
+
+/*Alpha A tests*/
+/*app.get('/num_alpha_a1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_a1.html');
 });
 
-app.get('/alp_comp_2', function (req, res) {
- res.sendFile( __dirname + '/alp_comp_2.html');
+app.get('/num_alpha_a2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_a2.html');
 });*/
 
 
-/*Alpha sectional tests*/
-
-/*Alpha section A*/
-/*app.get('/alp_sec_a1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_a1.html');
+/*Alpha B tests*/
+/*app.get('/num_alpha_b1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_b1.html');
 });
 
-app.get('/alp_sec_a2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_a2.html');
+app.get('/num_alpha_b2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_b2.html');
+});*/
+
+/*Alpha C tests*/
+/*app.get('/num_alpha_c1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_c1.html');
+});
+
+app.get('/num_alpha_c2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_c2.html');
 });
 */
-
-/*Alpha section B*/
-/*app.get('/alp_sec_b1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_b1.html');
+/*Alpha D tests*/
+/*app.get('/num_alpha_d1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_d1.html');
 });
 
-app.get('/alp_sec_b2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_b2.html');
+app.get('/num_alpha_d2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/alpha_d2.html');
 });*/
 
-/*Alpha section C*/
-/*app.get('/alp_sec_c1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_c1.html');
+
+/*Litercy tests*/
+/*app.get('/lit_alpha_a1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_a1.html');
 });
 
-app.get('/alp_sec_c2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_c2.html');
-});*/
-
-/*Alpha section D*/
-/*app.get('/alp_sec_d1', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_d1.html');
+app.get('/lit_alpha_a2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_a2.html');
 });
 
-app.get('/alp_sec_d2', function (req, res) {
- res.sendFile( __dirname + '/alp_sec_d2.html');
+app.get('/lit_alpha_b1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_b1.html');
+});
+
+app.get('/lit_alpha_b2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_b2.html');
+});
+
+app.get('/lit_alpha_c1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_c1.html');
+});
+
+app.get('/lit_alpha_c2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_c2.html');
+});
+
+app.get('/lit_alpha_d1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_d1.html');
+});
+
+app.get('/lit_alpha_d2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/alpha_d2.html');
+});
+
+app.get('/lit_prealpha_1', function (req, res) {
+ res.sendFile( __dirname + '/literacy/prealpha_1.html');
+});
+
+app.get('/lit_prealpha_2', function (req, res) {
+ res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });*/
 
 /*endpoint to get users list as json*/
@@ -121,10 +152,21 @@ app.get('/get_users',function(req, res){
 });
 
 /*endpoint to get all test_responses as json*/
+/*modified responses query to join on course, test and module for new config*/
 app.get('/get_responses',function(req, res){
         let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
-        var responses_query='select u.user_id,u.group_name,r.* from responses r join users u where r.username = u.username;';
+        var responses_query='select u.username,u.first_name,u.last_name,tm.test_name,((ifnull(q1,0.0)+ ifnull(q2,0.0)+ ifnull(q3,0.0)+ ifnull(q4,0.0)+ ifnull(q5,0.0)+ ifnull(q6,0.0)+ ifnull(q7,0.0)+ ifnull(q8,0.0)+ ifnull(q9,0.0)+ ifnull(q10,0.0)+ ifnull(q11,0.0)+ ifnull(q12,0.0)+ ifnull(q13,0.0)+ ifnull(q14,0.0)+ ifnull(q15,0.0)+ ifnull(q16,0.0)+ ifnull(q17,0.0)+ ifnull(q18,0.0)+ ifnull(q19,0.0)+ ifnull(q20,0.0)+ ifnull(q21,0.0)+ ifnull(q22,0.0)+ ifnull(q23,0.0)+ ifnull(q24,0.0)+ ifnull(q25,0.0)+ ifnull(q26,0.0)+ ifnull(q27,0.0)+ ifnull(q28,0.0)+ ifnull(q29,0.0)+ ifnull(q30,0.0)+ ifnull(q31,0.0)+ ifnull(q32,0.0)+ ifnull(q33,0.0)+ ifnull(q34,0.0)+ ifnull(q35,0.0)+ ifnull(q36,0.0)+ ifnull(q37,0.0)+ ifnull(q38,0.0)+ ifnull(q39,0.0)+ ifnull(q40,0.0)+ ifnull(q41,0.0)+ ifnull(q42,0.0)+ ifnull(q43,0.0)+ ifnull(q44,0.0)+ ifnull(q45,0.0)+ ifnull(q46,0.0)+ ifnull(q47,0.0)+ ifnull(q48,0.0)+ ifnull(q49,0.0)+ ifnull(q50,0.0)+ ifnull(q51,0.0)+ ifnull(q52,0.0)+ ifnull(q53,0.0)+ ifnull(q54,0.0)+ ifnull(q55,0.0)+ ifnull(q56,0.0)+ ifnull(q57,0.0)+ ifnull(q58,0.0)+ ifnull(q59,0.0)+ ifnull(q60,0.0)+ ifnull(q61,0.0)+ ifnull(q62,0.0)+ ifnull(q63,0.0)+ ifnull(q64,0.0)+ ifnull(q65,0.0)+ ifnull(q66,0.0)+ ifnull(q67,0.0)+ ifnull(q68,0.0)+ ifnull(q69,0.0)+ ifnull(q70,0.0))/testmaxscore) as score_pct, r.* from responses r  left join users u  on r.username = u.username left join test_marks tm  on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc';
         db.all(responses_query,function(err,rows){
+        	/*console.log(rows);*/
+        	return res.json(rows);
+        });
+});
+
+/*endpoint to get all test_responses as json*/
+app.get('/get_test_count',function(req, res){
+        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+        var count_query="SELECT date(test_date,'start of month','+1 month','-1 day') as test_month, count(*) as number_of_tests from responses group by date(test_date,'start of month','+1 month','-1 day') order by date(test_date,'start of month','+1 month','-1 day') desc";
+        db.all(count_query,function(err,rows){
         	/*console.log(rows);*/
         	return res.json(rows);
         });
@@ -132,11 +174,41 @@ app.get('/get_responses',function(req, res){
 
 
 app.post('/submit_test', [function(req, res,next){
+	/*simple function to sum values in an array*/
+	const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
+		
+	response = req.body;
+	/*check if respponse response was checkboxes
+	will appear as array in response*/
+
+	/*for each response recieved*/
+	for (v in response){
+		/*if the reponse is of type object(array). Questions with a single response will be of type string*/
+	  if (typeof(response[v]) == "object"){
+	  	/*use reducer method to get sum of elements*/
+	   total = response[v].reduce(reducer,0)
+	   /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
+	   if(total <= 0){
+	    response[v] = '0'
+	   }
+	   else{
+	   	/*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
+	    response[v] = '1'
+	   }
+	  }
+	  else {
+	  	/*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
+	  	if(Number(response[v])<1){
+	  		response[v] = '0'
+	  	}
+	  }
+	}
+
 	/*Get questions answered as array*/
-	var questions = Object.keys(req.body);
+	var questions = Object.keys(response);
 
 	/*Get answers for questions above as array. Preserve quotes for insertion into database*/
-	var answers = questions.map(function(v) { return req.body[v]; });
+	var answers = questions.map(function(v) { return response[v]; });
 	var answers_quoted = "'" + answers.join("','") + "'";
 
 	/*Insert statement to run on database. test date added as current date from server*/
@@ -151,7 +223,7 @@ app.post('/submit_test', [function(req, res,next){
 	next();}
 	, function(req,res){
 		/*Display successful submission page after request sucessful*/
-		res.sendFile( __dirname + '/sucessful_submission.html');
+		res.sendFile( __dirname + '/submit/sucessful_submission.html');
 }]);
 
 app.listen(port, '0.0.0.0', function() {

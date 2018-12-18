@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+    <title>Alpha C1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="pmodule/angular.min.js"></script>
+    <script src="pmodule/angular-animate.js"></script>
+    <script src="pmodule/angular-sanitize.js"></script>
+    <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="pmodule/app.js"></script>
+    <link rel="stylesheet" href="pmodule/password_modal.css">
+    <style>
+    .HeaderbannerLabel {
+        background-color: rgb(0, 159, 21);
+        color: rgba(255, 255, 255, 1);
+        font-size: 20px;
+        font-weight: 500;
+        padding-left: 34px;
+        margin-left: -30px;
+        font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+        padding: 8px 8px 8px 34px;
+        margin-top: 30px;
+        margin-bottom: 25px;
+        width: 45%;
+    }
+    p {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-weight: normal;
+    }
+    </style>
+</head>
+
+<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+    <!-- TODO: Add inline script for passowrd modal -->
+    <!-- Password modal -->
+    <script type="text/ng-template" id="testModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <label class="item item-input">
+                <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
+            </label>
+            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
+            <button class="btn btn-danger" type="button">Cancel</button>
+        </div>
+    </script>
+    <!-- TODO: Add tag to instantiate modal when page opens-->
+    <span ng-init=ctrl.openModal()></span> 
+    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+        <div class="row">
+            <div class="container page">
+                <div class="row">
+                    <div id="edulution_logo">
+                        <img src="images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <div class="pd-tb">
+                        <div class="pd-lr">
+				<form action="/submit_test" name="testForm1" method="post">
+                            <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;">Alpha C1</p>
+                               <div class="HeaderbannerLabel">USERNAME</div>
+                          <!-- Input fiels for user_id contains some js code for validation -->
+                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Username</label>
+                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
+                          <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                            <div class="ins">Time allowed: 60 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
+                            <div class="HeaderbannerLabel">ASSESSMENT</div>
+                            <!-- TODO: Add form name,action and method -->
+                            <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                                <h3>(1) What is she getting so excited about?</h3>
+                                <p>Identify the type of the question.</p>
+                                <p>
+                                    <!-- TODO: Add value attribute to each radio button -->
+                                    <!-- Each group of radio buttons with the same name corresponds to one question -->
+                                    <!-- Wrong answers are 0, correct answer is 1 -->
+                                    <!-- Example below -->
+                                    <!-- <input type="radio" id="test1" name="q1" value="0"> -->
+                                    <input type="radio" id="q1_a" name="q1" value="0">
+                                    <label for="q1_a">a statement</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q1_b" name="q1" value="1">
+                                    <label for="q1_b">a question</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q1_c" name="q1" value="0">
+                                    <label for="q1_c">an exclamation</label>
+                                </p>
+                          
+                                <h3>(2) Which is a complete sentence?</h3>
+                                <p>
+                                    <input type="radio" id="q2_a" name="q2" value="1">
+                                    <label for="q2_a">We went to Livingstone and saw the Victoria Falls.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q2_b" name="q2" value="0">
+                                    <label for="q2_b">The curious boy looked the rubbish pit.</label>
+                                </p>
+                                                      
+                                <h3>(3) Which is a complete sentence?</h3>
+                                <p>
+                                    <input type="radio" id="q3_a" name="q3" value="1">
+                                    <label for="q3_a">Snakes and turtles are two kinds of reptiles.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q3_b" name="q3" value="0">
+                                    <label for="q3_b">Changed his clothes and washed his face.</label>
+                                </p>
+                                                         
+                                <h3>(4) The potatoes on this plate are delicious!</h3>
+                                <p>Select the TWO nouns.</p>
+                                <p>
+                                    <input type="checkbox" id="q4_a" name="q4" value="-1">
+                                    <label for="q4_a">The</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_b" name="q4" value="0.5">
+                                    <label for="q4_b">potatoes</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_c" name="q4" value="-1">
+                                    <label for="q4_c">on</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_d" name="q4" value="-1">
+                                    <label for="q4_d">this</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_e" name="q4" value="0.5">
+                                    <label for="q4_e">plate</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_f" name="q4" value="-1">
+                                    <label for="q4_f">are</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_g" name="q4" value="-1">
+                                    <label for="q4_g">delicious</label>
+                                </p>
+
+                                                   
+                                <h3>(5) My friend has never been to Zambia.</h3>
+                                <p>Select the ONE proper noun.</p>
+                                <p>
+                                    <input type="radio" id="q5_a" name="q5" value="0">
+                                    <label for="q5_a">My</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_b" name="q5" value="0">
+                                    <label for="q5_b">friend</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_c" name="q5" value="0">
+                                    <label for="q5_c">has</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_d" name="q5" value="0">
+                                    <label for="q5_d">never</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_e" name="q5" value="0">
+                                    <label for="q5_e">been</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_f" name="q5" value="0">
+                                    <label for="q5_f">to</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_g" name="q5" value="1">
+                                    <label for="q5_g">Zambia</label>
+                                </p>
+                                                   
+                                <h3>(6) I was invited to three _____(party)____ this month.</h3>
+                                <p>Select the correct plural of the word in brackets.</p>
+                                    <p>
+                                        <input type="radio" id="q6_a" name="q6" value="1">
+                                        <label for="q6_a">parties</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q6_b" name="q6" value="0">
+                                        <label for="q6_b">partys</label>
+                                    </p>
+                               
+                                    <h3>7. You should always brush your (teeth) when you eat chocolate.</h3>
+                                    <p>Is the word in brackets singular or plural?</p>
+                                    <p>
+                                        <input type="radio" id="q7_a" name="q7" value="1">
+                                        <label for="q7_a">plural</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q7_b" name="q7" value="0">
+                                        <label for="q7_b">singular</label>
+                                    </p>
+                                   
+                                
+                                    <h3>(8) Most healthy ____(person)____ exercise and eat well.</h3>
+                                    <p>Select the correct plural of the word in brackets.</p>
+                                    <p>
+                                        <input type="radio" id="q8_a" name="q8" value="1">
+                                        <label for="q8_a">people</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q8_b" name="q8" value="0">
+                                        <label for="q8_b">peoples</label>
+                                    </p>
+                                 
+                                    <h3>(9)  Why does the (company's) address keep changing?</h3>
+                                    <p>What is the word in brackets?</p>
+                                    <p>
+                                        <input type="radio" id="q9_a" name="q9" value="1">
+                                        <label for="q9_a">a singular possesive noun</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q9_b" name="q9" value="0">
+                                        <label for="q9_b">a plural possesive noun</label>
+                                    </p>
+                             
+                                    <h3>(10) Before running, we should stretch.</h3>
+                                    <p>Select the pronoun.</p>
+                                    <p>
+                                        <input type="radio" id="q10_a" name="q10" value="0">
+                                        <label for="q10_a">Before</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q10_b" name="q10" value="0">
+                                        <label for="q10_b">running</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q10_c" name="q10" value="1">
+                                        <label for="q10_c">we</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q10_d" name="q10" value="0">
+                                        <label for="q10_d">should</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q10_e" name="q10" value="0">
+                                        <label for="q10_e">stretch</label>
+                                    </p>
+                                    
+                                    <h3>(11) We will not disappoint _________</h3>
+                                    <p>Select the correct pronoun to complete the sentence.</p>
+                                    <p>
+                                        <input type="radio" id="q11_a" name="q11" value="0">
+                                        <label for="q11_a">she.</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q11_b" name="q11" value="1">
+                                        <label for="q11_b">her.</label>
+                                    </p>
+                                                                     
+                                    <h3>(12) (The excited fans) will clap wildly when the band walks onto the stage.</h3>
+                                    <p>Select the best pronoun to replace the word in brackets.</p>
+                                    <p>
+                                        <input type="radio" id="q12_a" name="q12" value="0">
+                                        <label for="q12_a">Them</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q12_b" name="q12" value="1">
+                                        <label for="q12_b">They</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q12_c" name="q12" value="0">
+                                        <label for="q12_c">All</label>
+                                    </p>
+                                                                 
+                                    <h3>(13) Did you recognise my friend and _________?</h3>
+                                    <p>Write down the correct pronoun to complete the sentence.</p>
+                                    <p>
+                                        <input type="radio" id="q13_a" name="q13" value="0">
+                                        <label for="q13_a">me</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q13_b" name="q13" value="1">
+                                        <label for="q13_b">I</label>
+                                    </p>
+                                  
+                                    <h3>(14) The two girls met their new teacher.</h3>
+                                    <p>Select the possessive pronoun.</p>
+                                    <p>
+                                        <input type="radio" id="q14_a" name="q14" value="0">
+                                        <label for="q14_a">The</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q14_b" name="q14" value="0">
+                                        <label for="q14_b">two</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q14_c" name="q14" value="0">
+                                        <label for="q14_c">girls</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q14_d" name="q14" value="0">
+                                        <label for="q14_d">met</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q14_e" name="q14" value="1">
+                                        <label for="q14_e">their</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q14_g" name="q14" value="0">
+                                        <label for="q14_g">new</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q14_h" name="q14" value="0">
+                                        <label for="q14_h">teacher</label>
+                                    </p>
+                                                                   
+                                    <h3>(15) Those paints belong to us. They are _________ paints.</h3>
+                                    <p>Select the correct pronoun to complete the sentence.</p>
+                                    <p>
+                                        <input type="radio" id="q15_a" name="q15" value="1">
+                                        <label for="q15_a">our</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q15_b" name="q15" value="0">
+                                        <label for="q15_b">hour</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q15_c" name="q15" value="0">
+                                        <label for="q15_c">your</label>
+                                    </p>
+                           
+                                    <h3>(16) Our mother sings to _________ all day long.</h3>
+                                    <p>Select the correct pronoun to complete the sentence.</p>
+                                    <p>
+                                        <input type="radio" id="q16_a" name="q16" value="0">
+                                        <label for="q16_a">myself</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q16_b" name="q16" value="1">
+                                        <label for="q16_b">herself</label>
+                                    </p>
+                              
+                                    <h3>(17) A spider creeps across the floor.</h3>
+                                    <p>Select the action verb.</p>
+			                        <p>
+                                        <input type="radio" id="q17_a" name="q17" value="0">
+                                        <label for="q17_a">A</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q17_b" name="q17" value="0">
+                                        <label for="q17_b">spider</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q17_c" name="q17" value="1">
+                                        <label for="q17_c">creeps</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q17_d" name="q17" value="0">
+                                        <label for="q17_d">across</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q17_e" name="q17" value="0">
+                                        <label for="q17_e">the</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q17_f" name="q17" value="0">
+                                        <label for="q17_f">floor</label>
+                                    </p>
+                                   
+                                   
+                                    <h3>(18) (My brothers) repair cars at the garage in town.</h3>
+                                    <p>Look at the subject in brackets. Is it singular or plural?</p>
+                                    <p>
+                                        <input type="radio" id="q18_a" name="q18" value="0">
+                                        <label for="q18_a">singular</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q18_b" name="q18" value="1">
+                                        <label for="q18_b">plural</label>
+                                    </p>
+                                  
+                                    <h3>(19) _________ stretches for twenty minutes before running.</h3>
+                                    <p>Complete the sentence with the best word.</p>
+                                    <p>
+                                        <input type="radio" id="q19_a" name="q19" value="1">
+                                        <label for="q19_a">Jane</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q19_b" name="q19" value="0">
+                                        <label for="q19_b">The</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q19_c" name="q19" value="0">
+                                        <label for="q19_c">Boys</label>
+                                    </p>
+                                           
+                                                                  
+                                    <h3>(20) I _________ impossible things.</h3>
+                                    <p>Complete the sentence with the best verb.</p>
+                                    <p>
+                                        <input type="radio" id="q20_a" name="q20" value="1">
+                                        <label for="q20_a">imagine</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q20_b" name="q20" value="0">
+                                        <label for="q20_b">imagines</label>
+                                    </p>
+
+                                    <h3>(21) Select the sentence in the PAST TENSE.</h3>	
+                                    <p>
+                                        <input type="radio" id="q21_a" name="q21" value="0">
+                                        <label for="q21_a">Prisca will earn lots of money.</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q21_b" name="q21" value="1">
+                                        <label for="q21_b">The rainbow amazed her.</label>
+                                    </p>
+                                
+                                    <h3>(22) She boasted about her good marks.</h3>
+                                    <p>Select the verb in the PAST TENSE.</p>
+                                <p>
+                                    <input type="radio" id="q22_a" name="q22" value="0">
+                                    <label for="q22_a">She</label>
+                                  </p>
+                                  <p>
+                                    <input type="radio" id="q22_b" name="q22" value="1">
+                                    <label for="q22_b">boasted</label>
+                                  </p>
+                                  <p>
+                                    <input type="radio" id="q22_c" name="q22" value="0">
+                                    <label for="q22_c">about</label>
+                                  </p>
+                                  <p>
+                                    <input type="radio" id="q22_d" name="q22" value="0">
+                                    <label for="q22_d">her</label>
+                                  </p>
+                                  <p>
+                                    <input type="radio" id="q22_e" name="q22" value="0">
+                                    <label for="q22_e">good</label>
+                                  </p>
+                                  <p>
+                                    <input type="radio" id="q22_f" name="q22" value="0">
+                                    <label for="q22_f">marks</label>
+                                  </p>
+                                  
+            
+                                <h3>(23) Which sentence is in the PAST TENSE?</h3>
+                                  <p>
+                                    <input type="radio" id="q23_a" name="q23" value="1">
+                                    <label for="q23_a">The avocado fell from the tree.</label>
+                                  </p>
+                                  <p>
+                                    <input type="radio" id="q23_b" name="q23" value="0">
+                                    <label for="q23_b">The avocado falls from the tree.</label>
+                                  </p>
+                                
+                                <h3>(24) Joseph followed his dreams and ____(become)____ an Edulution coach.</h3> 
+				    <p>Select the verb in brackets put in the PAST TENSE.</p>
+				   
+                               <p>
+                                    <input type="radio" id="q24_a" name="q24" value="0">
+                                    <label for="q24_a">becomes</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q24_b" name="q24" value="1">
+                                    <label for="q24_b">became</label>
+                                </p>
+                            
+                            
+                                <h3>(25) Jo ____(break)____ her pencil, so I got her another one.</h3>
+                                <p>Select the verb in brackets put in the PAST TENSE.</p>
+                                <p>
+                                   <input type="radio" id="q25_a" name="q25" value="0">
+                                   <label for="q25_a">breaks</label>
+                                  </p>
+                                   <p>
+                                    <input type="radio" id="q25_b" name="q25" value="1">
+                                    <label for="q25_b">broke</label>
+                                   </p>
+                                    
+                                         
+                                 <h3>(26) _________she disappointed about the change in plans?</h3>
+                                 <p>Fill in the blank with the correct word.</p>
+                                    <p>
+                                        <input type="radio" id="q26_a" name="q26" value="1">
+                                        <label for="q26_a">Was</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q26_b" name="q26" value="0">
+                                        <label for="q26_b">Were</label>
+                                    </p>
+                                                          
+                                <h3>(27) John _________ brushed his teeth long before bedtime.</h3>
+                                <p>Fill in the blank with the correct word.</p>
+                                <p>
+                                   <input type="radio" id="q27_a" name="q27" value="1">
+                                   <label for="q27_a">had</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q27_b" name="q27" value="0">
+                                    <label for="q27_b">has</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q27_c" name="q27" value="0">
+                                    <label for="q27_c">have</label>
+                                </p>
+                                   
+                                <h3>(28) The old man left his hat in the park.</h3>
+                                <p>Which tense does this sentence use?</p>
+                                <p>
+                                    <input type="radio" id="q28_a" name="q28" value="1">
+                                    <label for="q28_a">Past tense</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q28_b" name="q28" value="0">
+                                    <label for="q28_b">Present tense</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q28_c" name="q28" value="0">
+                                    <label for="q28_c">Future tense</label>
+                                </p>
+                        
+                                <h3>(29) That track is _________ only way to the village.</h3>
+                                <p>Select the correct article to complete the sentence.</p>
+                                <p>
+                                    <input type="radio" id="q29_a" name="q29" value="0">
+                                    <label for="q29_a">a</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q29_b" name="q29" value="0">
+                                    <label for="q29_b">an</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q29_c" name="q29" value="1">
+                                    <label for="q29_c">the</label>
+                                </p>
+                        
+                                <h3>(30) The shopper bought (some) spoons.</h3>
+                                <p>Does the adjective in brackets tell you what kind or how many?</p>
+                                <p>
+                                    <input type="radio" id="q30_a" name="q30" value="0">
+                                    <label for="q30_a">what kind</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q30_b" name="q30" value="1">
+                                    <label for="q30_b">how many</label>
+                                </p>
+                                
+                                <h3>(31) All people need restful sleep.</h3>
+                                <p>Select the adjective.</p>
+                                <p>
+                                    <input type="radio" id="q31_a" name="q31" value="0">
+                                    <label for="q31_a">All</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q31_b" name="q31" value="0">
+                                    <label for="q31_b">people</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q31_c" name="q31" value="0">
+                                    <label for="q31_c">need</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q31_d" name="q31" value="1">
+                                    <label for="q31_d">restful</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q31_e" name="q31" value="0">
+                                    <label for="q31_e">sleep</label>
+                                </p>
+                                
+                                <h3>(32) They appeared (suddenly).</h3>
+                                <p>Does the adverb in brackets tell you how, when or where?</p>
+                                <p>
+                                    <input type="radio" id="q32_a" name="q32" value="1">
+                                    <label for="q32_a">how</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q32_b" name="q32" value="0">
+                                    <label for="q32_b">when</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q32_c" name="q32" value="0">
+                                    <label for="q32_c">where</label>
+                                </p>
+                               
+
+                                <h3>(33) The number nine is _________ than six.</h3>
+                                <p>Fill in the blank with the correct adjective.</p>
+                                <p>
+                                    <input type="radio" id="q33_a" name="q33" value="1">
+                                    <label for="q33_a">greater</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q33_b" name="q33" value="0">
+                                    <label for="q33_b">greatest</label>
+                                </p>
+                                
+                                <h3>(34) My hair is ____(dry)____ than yours.</h3>
+                                <p>Select the correct form of the word in brackets.</p>
+                                <p>
+                                    <input type="radio" id="q34_a" name="q34" value="0">
+                                    <label for="q34_a">driyer</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q34_b" name="q34" value="1">
+                                    <label for="q34_b">drier</label>
+                                </p>
+                                
+                               
+                                <h3>(35) Of all the students in his maths class, Toby tries _________.</h3>
+                                <p>Fill in the blank with the correct adverb.</p>
+                                <p>
+                                    <input type="radio" id="q35_a" name="q35" value="0">
+                                    <label for="q35_a">harder</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q35_b" name="q35" value="1">
+                                    <label for="q35_b">hardest</label>
+                                </p>                                
+
+                                <h3>(36) I love walking in the rain.</h3>
+                                <p>Select the ONE preposition</p>
+                                <p>
+                                    <input type="radio" id="q36_a" name="q36" value="0">
+                                    <label for="q36_a">I</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q36_b" name="q36" value="0">
+                                    <label for="q36_b">love</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q36_c" name="q36" value="0">
+                                    <label for="q36_c">walking</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q36_d" name="q36" value="1">
+                                    <label for="q36_d">in</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q36_e" name="q36" value="0">
+                                    <label for="q36_e">the</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q36_f" name="q36" value="0">
+                                    <label for="q36_f">rain</label>
+                                </p>
+
+                                <h3>(37) Does your mother work _________ does she stay at home?</h3>
+                                <p>Fill in the blank with the correct conjunction.</p>
+                                <p>
+                                    <input type="radio" id="q37_a" name="q37" value="0">
+                                    <label for="q37_a">so</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q37_b" name="q37" value="1">
+                                    <label for="q37_b">or</label>
+                                </p>
+
+                                <h3>(38) _________ we paint the walls, we must scrape off the old paint. </h3>
+                                <p>Fill in the blank with the correct conjunction.</p>
+                                <p>
+                                    <input type="radio" id="q38_a" name="q38" value="1">
+                                    <label for="q38_a">Before</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q38_b" name="q38" value="0">
+                                    <label for="q38_b">Because</label>
+                                </p>
+                                
+
+                                <h3>(39) The girls are back from school and (they are) hungry.</h3>
+                                <p>Select the correct contraction for the words in brackets.</p>
+                                <p>
+                                    <input type="radio" id="q39_a" name="q39" value="0">
+                                    <label for="q39_a">theyre'</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q39_b" name="q39" value="1">
+                                    <label for="q39_b">they're</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q39_c" name="q39" value="0">
+                                    <label for="q39_c">theyre</label>
+                                </p>
+
+                                <h3>(40) If you (do not) stretch before running, you could hurt yourself.</h3>
+                                <p>Select the correct contraction for the words in brackets.</p>
+                                <p>
+                                    <input type="radio" id="q40_a" name="q40" value="1">
+                                    <label for="q40_a">don't</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q40_b" name="q40" value="0">
+                                    <label for="q40_b">dont'</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q40_c" name="q40" value="0">
+                                    <label for="q40_c">do'nt</label>
+                                </p>
+                                    
+                                <h3>(41) Select the correct sentence.</h3>
+                                <p>
+                                    <input type="radio" id="q41_a" name="q41" value="1">
+                                    <label for="q41_a">I voted for Grace for class leader.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q41_b" name="q41" value="0">
+                                    <label for="q41_b">I voted for grace as class leader.</label>
+                                </p>
+                            
+                                <h3>(42) Which is the correct closing of a letter?</h3>
+                                <p>
+                                    <input type="radio" id="q42_a" name="q42" value="1">
+                                    <label for="q42_a">Your student,<br> Tom</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q42_b" name="q42" value="0">
+                                    <label for="q42_b">Your Student,<br> Tom</label>
+                                </p>
+                             
+
+                                <h3>(43) Select the correct sentence.</h3>
+                                <p>
+                                    <input type="radio" id="q43_a" name="q43" value="0">
+                                    <label for="q43_a">Sara played the song Morning has Broken on the piano.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q43_b" name="q43" value="0">
+                                    <label for="q43_b">Sara played the song, Morning Has Broken on the piano.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q43_c" name="q43" value="1">
+                                    <label for="q43_c">Sara played the song 'Morning has Broken' on the piano.</label>
+                                </p>
+                            
+                                <h3>(44) What does the word symbiosis mean?</h3>
+                                <p>
+                                    <input type="radio" id="q44_a" name="q44" value="1">
+                                    <label for="q44_a">a helpful relationship between two living things</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q44_b" name="q44" value="0">
+                                    <label for="q44_b">the movement of two objects away from one another</label>
+                                </p>
+                            
+                                <h3>(45) fruit, freedom, from</h3>
+                                <p>Select the words that are in correct alphabetical order.</p>
+                                <p>
+                                    <input type="radio" id="q45_a" name="q45" value="0">
+                                    <label for="q45_a">fruit, freedom, from</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q45_b" name="q45" value="0">
+                                    <label for="q45_b">fruit, from, freedom</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q45_c" name="q45" value="1">
+                                    <label for="q45_c">freedom, from, fruit</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q45_d" name="q45" value="0">
+                                    <label for="q45_d">freedom, fruit, from</label>
+                                </p>
+                        
+                                <h3>(46) dough, door, do</h3>
+                                <p>Select the words that are in correct alphabetical order.</p>
+                                <p>
+                                    <input type="radio" id="q46_a" name="q46" value="0">
+                                    <label for="q46_a">door, dough, do</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q46_b" name="q46" value="0">
+                                    <label for="q46_b">do, dough, door</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q46_c" name="q46" value="1">
+                                    <label for="q46_c">do, door, dough</label>
+                                </p>
+                                        
+                                <h3>(47) Select the word similar to awful.</h3>
+                                <p>
+                                    <input type="radio" id="q47_a" name="q47" value="0">
+                                    <label for="q47_a">average</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q47_b" name="q47" value="1">
+                                    <label for="q47_b">terrible</label>
+                                </p>
+                            
+                                <h3>(48) Select the opposite of tell.</h3>
+                                <p>
+                                    <input type="radio" id="q48_a" name="q48" value="1">
+                                    <label for="q48_a">ask</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q48_b" name="q48" value="0">
+                                    <label for="q48_b">know</label>
+                                </p>
+                                                    
+                                <h3>(49) All of the runners on the athletics team are fit and (lean).</h3>
+                                <p>Select what lean means in this sentence.</p>
+                                <p>
+                                    <input type="radio" id="q49_a" name="q49" value="0">
+                                    <label for="q49_a">(lean) - verb; to rest against something.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q49_b" name="q49" value="1">
+                                    <label for="q49_b">(lean) - adjective; thin and healthy.</label>
+                                </p>
+                                                
+                                <h3>(50) The jam on my bread is like glue.</h3>
+                                <p>Choose the sentence that gives the meaning of the simile in the above sentence.</p>
+                                <p>
+                                    <input type="radio" id="q50_a" name="q50" value="0">
+                                    <label for="q50_a">The jam is glue.</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q50_b" name="q50" value="1">
+                                    <label for="q50_b">The jam is sticky.</label>
+                                </p>                               
+                                
+                      <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                                <!-- TODO: Add text input fields for user_id, coach_email -->
+                                <!-- Hidden fields for test,course and module -->
+                                <input type="hidden" name="test" value="alpha_c1">
+                                <input type="hidden" name="course" value="alpha_c">
+                                <input type="hidden" name="module" value="literacy">
+                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
+                                <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
+                                <!-- Submit button disabled if form is invalid -->
+                                <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
+                                <button type="submit" value="Submit" ng-disabled="testForm1.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html> 

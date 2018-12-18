@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+<head>
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+<title>Alpha A2</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<!--Custom Css-->
+<link rel="stylesheet" href="css/custom.css">
+<!--Fonts-->
+<!-- TODO : please ensure that all fonts and libraries are offline -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="css/fontawesome-all.min.css" rel="stylesheet">
+<!--Js-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- TODO: Include password modal js below -->
+<!-- password modal js -->
+<script src="pmodule/angular.min.js"></script>
+<script src="pmodule/angular-animate.js"></script>
+<script src="pmodule/angular-sanitize.js"></script>
+<script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="pmodule/app.js"></script>
+<link rel="stylesheet" href="pmodule/password_modal.css">
+
+<style>
+.HeaderbannerLabel {
+    background-color: rgb(0, 159, 21);
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 34px;
+    margin-left: -30px;
+    font: 400 16px/24px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    padding: 8px 8px 8px 34px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    width: 45%;
+}
+.ins {
+    color: #212121;
+    font: 400 14px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    line-height: 135%;
+    margin-top: 22px;
+    white-space: pre-wrap;
+}
+h3 {
+    font-weight: normal;
+}
+.box {	display: inline-block;
+	background-color: none; 
+	vertical-align: middle}
+span.frac {  display: inline-block;  font-size: 75%;  text-align: center; vertical-align: middle}
+span.frac > sup {  display: block;  border-bottom: 1px solid;  font: inherit;}
+span.frac > span {  display: none;}
+span.icon > span {  display: inline-block; font-size: 1.1em}
+span.frac > sub {  display: block;  font: inherit;}
+</style>
+</head>
+<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+	<!-- TODO: Add inline script for passowrd modal -->
+	<!-- Password modal -->
+    <script type="text/ng-template" id="testModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <label class="item item-input">
+                <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
+            </label>
+            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
+            <button class="btn btn-danger" type="button">Cancel</button>
+        </div>
+    </script> 
+
+
+	<!-- TODO: Add tag to instantiate modal when page opens -->
+	<span ng-init=ctrl.openModal()></span>
+<section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+	<div class="row">
+		<div class="container page">
+			<div class="row">
+				<div id="edulution_logo">
+				    <img src="images/edulution_logo.png" class="img-responsive center-block">
+				</div>
+			 <div class="pd-tb">
+			    <div class="pd-lr"> 
+				    <form action="/submit_test" name="testForm1" method="post">
+			       <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Alpha A2</p>
+			  <div class="HeaderbannerLabel">USERNAME</div>
+                           <!-- Input fiels for user_id contains some js code for validation -->
+                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
+                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
+			        <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>		
+			        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+			        <div class="ins">Time allowed: 45 minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
+                    
+				<div class="HeaderbannerLabel">ASSESSMENT</div>				
+						<h3>(1) 
+							<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &#x3D;
+							<span class="frac"><sup><span class="icon"><i class="far fa-square"></i></span></sup><span>/</span>
+								<sub>8</sub>
+
+							</span>
+						</h3>
+						<!-- TODO: Add form name,action and method --> 
+						<!-- <form name="testForm" action="/submit_test" method="post"> -->
+					  <p>
+					  	<!-- TODO: Add value attribute to each radio button -->
+					  	<!-- Each group of radio buttons with the same name corresponds to one question -->
+					  	<!-- Wrong answers are 0, correct answer is 1 -->
+					  	<!-- Example below -->
+					    <!-- <input type="radio" id="q1_a" name="q1" value="0"> -->
+					    <input type="radio" id="q1_a" name="q1" value="1">
+					    <label for="q1_a">2</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q1_b" name="q1" value="0">
+					    <label for="q1_b">4</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q1_c" name="q1" value="0">
+					    <label for="q1_c">6</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q1_d" name="q1" value="0">
+					    <label for="q1_d">8</label>
+						</p>
+						
+						<h3>(2) 
+								<span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span> &#x3D;
+								<span class="frac">
+									<sup>
+											<span class="icon"><i class="far fa-square"></i></span>
+									</sup>
+								<span>/</span><sub>2</sub></span>
+							</h3>
+					  <p>
+					    <input type="radio" id="q2_a" name="q2" value="1">
+					    <label for="q2_a">1</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q2_b" name="q2" value="0">
+					    <label for="q2_b">2</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q2_c" name="q2" value="0">
+					    <label for="q2_c">3</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q2_d" name="q2" value="0">
+					    <label for="q2_d">6</label>
+						</p>
+						
+						<h3>(3) Find the lowest common multiple of 6 and 8.</h3> 
+						<p>
+					    <input type="radio" id="q3_a" name="q3" value="0">
+					    <label for="q3_a">8</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q3_b" name="q3" value="0">
+					    <label for="q3_b">12</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q3_c" name="q3" value="1">
+					    <label for="q3_c">24</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q3_d" name="q3" value="0">
+					    <label for="q3_d">36</label>
+					  </p>
+					  
+						<h3>(4) <span class="frac"><sup>2</sup><span>/</span><sub>6</sub></span>
+							<span class="icon"></span><i class="far fa-square"></i></span>
+							<span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span> </h3>
+						<span>	
+						Fill in the blank with <, > or =.	
+						</span>	
+					
+						<p>
+								<input type="radio" id="q4_a" name="q4" value="0">
+								<label for="q4_a">></label>
+						</p>
+						<p>
+								<input type="radio" id="q4_b" name="q4" value="0">
+								<label for="q4_b"><</label>
+						</p>
+						<p>
+								<input type="radio" id="q4_c" name="q4" value="1">
+								<label for="q4_c">=</label>
+						</p>
+						<p>
+								<input type="radio" id="q4_d" name="q4" value="0">
+								<label for="q4_d">None of the above</label>
+						</p>
+
+					<h3>(5) 
+								3<span class="frac"><sup>5</sup><span>/</span><sub>6</sub></span> -
+								1<span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span>
+				  </h3>
+              <span>Solve the fractions above.</span>
+							<p>
+					    <input type="radio" id="q5_a" name="q5" value="0">
+					    <label for="q5_a">
+								<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>
+							</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q5_b" name="q5" value="0">
+					    <label for="q5_b">
+									<span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span>
+							</label>
+						</p>
+						<p>
+					    <input type="radio" id="q5_c" name="q5" value="1">
+					    <label for="q5_c">
+									2<span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span>
+							</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q5_d" name="q5" value="0">
+					    <label for="q5_d">
+									2<span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span>
+							</label>
+					  </p>
+					  
+				
+						<h3>(6) 0.4 <span class="icon"><i class="far fa-square"></i></span> 0.04</h3>
+						<span>
+						Fill in the blank with <, > or =.
+						</span>
+					  <p>
+					    <input type="radio" id="q6_a" name="q6" value="1">
+					    <label for="q6_a">></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q6_b" name="q6" value="0">
+					    <label for="q6_b"><</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q6_c" name="q6" value="0">
+					    <label for="q6_c">=</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q6_d" name="q6" value="0">
+					    <label for="q6_d">None of the above</label>
+					  </p>
+					  
+					  <h3>(7) Change 0.25 to a fraction in its lowest terms.</h3>
+					   <p>
+								<input type="radio" id="q7_a" name="q7" value="0">
+								<label for="q7_a">
+									<span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span>
+								</label>
+							</p>
+							<p>
+								<input type="radio" id="q7_b" name="q7" value="0">
+								<label for="q7_b">
+										<span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span>
+								</label>
+							</p>
+							<p>
+								<input type="radio" id="q7_c" name="q7" value="0">
+								<label for="q7_c">
+										<span class="frac"><sup>1</sup><span>/</span><sub>75</sub></span>
+								</label>
+							</p>
+							
+							<p>
+								<input type="radio" id="q7_d" name="q7" value="1">
+								<label for="q7_d">
+										<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>
+								</label>
+							</p>
+		
+						<h3>(8) 
+								0.3 <span class="icon"><i class="far fa-square"></i></span> <span class="frac"><sup>2</sup><span>/</span><sub>100</sub></span></h3>
+						<span>
+							Fill in the blank with <, > or =.
+						</span>
+					  <p>
+					    <input type="radio" id="q8_a" name="q8" value="1">
+					    <label for="q8_a">></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q8_b" name="q8" value="0">
+					    <label for="q8_b"><</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q8_c" name="q8" value="0">
+					    <label for="q8_c">=</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q8_d" name="q8" value="0">
+					    <label for="q8_d">None of the above</label>
+					  </p>
+					  
+						<h3>(9) Which angle is greater?</h3>						
+							<div class="full" style="display:flex;">
+									<div class="half" style="width: 276px;">
+										<div><img src="images/alp_sec_a2/question9_1.jpg" class="center-block"/></div>
+										<p>
+											<input type="radio" id="q9_a" name="q9" value="1">
+											<label for="q9_a">A</label>
+										</p>
+									</div>
+									 
+									<div class="half" style="width: 276px;">
+										<div><img src="images/alp_sec_a2/question9_2.jpg" class="center-block"/></div>
+										<p>
+											<input type="radio" id="q9_b" name="q9" value="0">
+											<label for="q9_b">B</label>
+										</p>
+									</div>
+							</div>
+			 				 
+					  <h3>(10) Estimate the angle shown.
+								<div><img src="images/alp_sec_a2/question10.jpg" alt="image missing" class="img-responsive"/></div>
+						</h3>
+					  <p>
+					    <input type="radio" id="q10_a" name="q10" value="0">
+					    <label for="q10_a">45&deg;</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q10_b" name="q10" value="0">
+					    <label for="q10_b">90&deg;</sup></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q10_c" name="q10" value="1">
+					    <label for="q10_c">130&deg;</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q10_d" name="q10" value="0">
+					    <label for="q10_d">180&deg;</sup></label>
+					  </p>
+				 <h3>(11) (10 - 2) ÷ 2 = <span class="icon"><i class="far fa-square"></i></span></h3>
+					  <p>
+					    <input type="radio" id="q11_a" name="q11" value="0">
+					    <label for="q11_a">2</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q11_b" name="q11" value="1">
+					    <label for="q11_b">4</label></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q11_c" name="q11" value="0">
+					    <label for="q11_c">8</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q11_d" name="q11" value="0">
+					    <label for="q11_d">14</label>
+					  </p>
+	                                  <h3>(12) Name the angle below.
+						<div><img src="images/alp_sec_a2/question9_1.jpg" alt="image missing" class="img-responsive"/></div>
+						</h3>
+					  <p>
+					    <input type="radio" id="q12_a" name="q12" value="0">
+					    <label for="q12_a">Acute angle</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q12_b" name="q12" value="0">
+					    <label for="q12_b">Reflex angle</sup></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q12_c" name="q12" value="1">
+					    <label for="q12_c">Right angle</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q12_d" name="q12" value="0">
+					    <label for="q12_d">Obtuse angle</sup></label>
+					  </p>
+                                          <h3>(13) <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> + 
+					    <span class="frac"><sup>6</sup><span>/</span><sub>10</sub></span> - 
+				            <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>
+					 </h3>
+                                           <p>
+                                             Work out the fraction above.
+					   <p>   
+					  <p>
+					    <input type="radio" id="q13_a" name="q13" value="0">
+					    <label for="q13_a"><span class="frac"><sup>3</sup><span>/</span><sub>11</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q13_b" name="q13" value="0">
+					    <label for="q13_b"> 
+						 <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q13_c" name="q13" value="1">
+					    <label for="q13_c">
+					     <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q13_d" name="q13" value="0">
+					    <label for="q13_d">
+					    <span class="frac"><sup>7</sup><span>/</span><sub>13</sub></span></label>
+					  </p>
+							  
+					 <h3>(14) What is <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &#247
+						 <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></h3>
+					  <p>
+					    <input type="radio" id="q14_a" name="q14" value="0">
+					    <label for="q14_a"><span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q14_b" name="q14" value="1">
+					    <label for="q14_b"> 
+						 <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q14_c" name="q14" value="0">
+					    <label for="q14_c">
+					     <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q14_d" name="q14" value="0">
+					    <label for="q14_d">
+					    <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></label>
+                                           </p>
+                                 <h3>(15) <span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span> × 
+					 <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></h3>
+					  <p>
+					  Work out the fraction above in its lowest term.   	  
+					 </p>
+					  <p>
+					    <input type="radio" id="q15_a" name="q15" value="0">
+					    <label for="q15_a">
+					          <span class="frac"><sup>8</sup><span>/</span><sub>9</sub></span>
+							</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q15_b" name="q15" value="0">
+					    <label for="q15_b">
+									<span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span>
+							</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q15_c" name="q15" value="0">
+					    <label for="q15_c">
+									<span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span>
+							</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q15_d" name="q15" value="1">
+					    <label for="q15_d">
+									<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>
+							</label>
+					  </p>
+						
+					 <h3>(16) <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span> and 
+                                                  <span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span></h3> 
+					     <p>
+						Find the lowest common denominator of the fraction above.
+                                             </p>
+					     <p>
+					    <input type="radio" id="q16_a" name="q16" value="0">
+					    <label for="q16_a"><span>16</span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q16_b" name="q16" value="0">
+					    <label for="q16_b"><span>28</span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q16_c" name="q16" value="1">
+					    <label for="q16_c"><span>35</span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q16_d" name="q16" value="0">
+					    <label for="q16_d"><span>42</span></label>
+					  </p>		  
+					<h3>(17) Which of the following is a composite number? </h3>	
+					<p>
+					    <input type="radio" id="q17_a" name="q17" value="0">
+					    <label for="q17_a">5</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q17_b" name="q17" value="0">
+					    <label for="q17_b">7</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q17_c" name="q17" value="1">
+					    <label for="q17_c">9</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q17_d" name="q17" value="0">
+					    <label for="q17_d">13</label>
+					  </p>
+					 <h3>(18) What do you call an angle that is between 90&deg; and 180&deg;?</h3>
+					   <p>
+					    <input type="radio" id="q18_a" name="q18" value="0">
+					    <label for="q18_a">Acute angle</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q18_b" name="q18" value="0">
+					    <label for="q18_b">Reflex angle</sup></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q18_c" name="q18" value="0">
+					    <label for="q18_c">Right angle</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q18_d" name="q18" value="1">
+					    <label for="q18_d">Obtuse angle</label>
+					  </p>
+							  
+					<h3>(19) Which fraction is the largest? </h3>	  
+					<p>
+					    <input type="radio" id="q19_a" name="q19" value="0">
+					    <label for="q19_a"><span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q19_b" name="q19" value="1">
+					    <label for="q19_b"> 
+						    <span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q19_c" name="q19" value="0">
+					    <label for="q19_c">
+					     <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q19_d" name="q19" value="0">
+					    <label for="q19_d">
+					    <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span></label>
+					  </p>	  
+					<h3>(20) Change <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span> to a decimal.</h3>
+				          <p>
+					    <input type="radio" id="q20_a" name="q20" value="0">
+					    <label for="q20_a">0.3</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q20_b" name="q20" value="0">
+					    <label for="q20_b">0.5</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q20_c" name="q20" value="1">
+					    <label for="q20_c">0.6</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q20_d" name="q20" value="0">
+					    <label for="q20_d">0.8</label>
+					  </p>
+					<h3>(21) How many lines of symmetry does the equilateral triangle below have?</h3>
+						<span><div><img src="images/alp_sec_a2/question21.JPG" alt="image missing" class="img-responsive"/></div></span>
+	                                  <p>
+					    <input type="radio" id="q21_a" name="q21" value="0">
+					    <label for="q21_a">1</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q21_b" name="q21" value="1">
+					    <label for="q21_b">3</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q21_c" name="q21" value="0">
+					    <label for="q21_c">6</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q21_d" name="q21" value="0">
+					    <label for="q21_d">8</label>
+					  </p>
+				        <h3>(22) Which one of the following is a prime number?</h3>
+					 <p>
+					    <input type="radio" id="q22_a" name="q22" value="0">
+					    <label for="q22_a">8</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q22_b" name="q22" value="0">
+					    <label for="q22_b">10</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q22_c" name="q22" value="1">
+					    <label for="q22_c">13</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q22_d" name="q22" value="0">
+					    <label for="q22_d">15</label>
+					  </p>
+
+					<h3>(23) 0.8 <span class="icon"><i class="far fa-square"></i></span> 0.09</h3>
+						<p>
+							Fill in the blank with <, > or =.
+						</p>
+					  <p>
+					    <input type="radio" id="q23_a" name="q23" value="1">
+					    <label for="q23_a">></label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q23_b" name="q23" value="0">
+					    <label for="q23_b"><</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q23_c" name="q23" value="0">
+					    <label for="q23_c">=</label>
+					  </p>
+					  <p>
+					    <input type="radio" id="q23_d" name="q23" value="0">
+					    <label for="q23_d">None of the above</label>
+					  </p>
+                                          <h3>(24)  6<span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> -
+			                            3<span class="frac"><sup>8</sup><span>/</span><sub>15</sub></span> </h3>                               
+	                                         
+						      <p>
+								<input type="radio" id="q24_a" name="q24" value="0">
+								<label for="q24_a">
+									2<span class="frac"><sup>4</sup><span>/</span><sub>15</sub></span>
+								</label>
+							</p>
+							<p>
+								<input type="radio" id="q24_b" name="q24" value="1">
+								<label for="q24_b">
+										3<span class="frac"><sup>4</sup><span>/</span><sub>15</sub></span>
+								</label>
+							</p>
+							<p>
+								<input type="radio" id="q24_c" name="q24" value="0">
+								<label for="q24_c">
+										4<span class="frac"><sup>13</sup><span>/</span><sub>15</sub></span>
+								</label>
+							</p>
+							
+							<p>
+								<input type="radio" id="q24_d" name="q24" value="0">
+								<label for="q24_d">
+										2<span class="frac"><sup>8</sup><span>/</span><sub>15</sub></span>
+								</label>
+							</p>
+						
+					<h3>(25) Find the Highest Common Factor (HCF) of 6, 12 and 24.</h3>
+					<p>
+					   <input type="radio" id="q25_a" name="q25" value="0">
+					   <label for="q25_a">3</label>
+					  </p>
+				       <p>
+					    <input type="radio" id="q25_b" name="q25" value="1">
+					    <label for="q25_b">6</label>
+				       </p>
+				         <p>
+					    <input type="radio" id="q25_c" name="q25" value="0">
+					    <label for="q25_c">7</label>
+					</p>
+					<p>
+					    <input type="radio" id="q25_d" name="q25" value="0">
+					    <label for="q25_d">21</label>
+					 </p> 		    
+				     <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                                <!-- TODO: Add text input fields for user_id, coach_email -->
+                                <!-- Hidden fields for test,course and module -->
+                                <input type="hidden" name="test" value="alpha_a2">
+                                <input type="hidden" name="course" value="alpha_a">
+                                <input type="hidden" name="module" value="numeracy">
+                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
+                                <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
+                                <!-- Submit button disabled if form is invalid -->
+                                <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
+                                <button type="submit" value="Submit" ng-disabled="testForm1.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>			 

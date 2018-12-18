@@ -1,9 +1,15 @@
-angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smart-table'])
+angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smart-table','angular.filter'])
 .controller('MainCtrl', function ($scope,$uibModal, $log, $document,$http) {
   var $ctrl = this;
 
   /*placeholder value used in smart-table because users are loaded asynchorously*/
-  $scope.users_placeholder = [];
+  $scope.users_placeholder = [];  
+
+  /*placeholder value used in smart-table because results are loaded asynchorously*/
+  $scope.results_placeholder = [];
+
+  /*pagination - items to display on each page*/
+  $scope.itemsByPage = 15;
 
   $ctrl.animationsEnabled = true;
 
@@ -28,9 +34,18 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
   $http.get( "/get_users").then(function(response) {
          $scope.users = response.data;
          console.log($scope.users);
+    }); 
+
+  $http.get( "/get_test_count").then(function(response) {
+         $scope.tests_count = response.data;
+         console.log($scope.tests_count);
     });
 
   $http.get( "/get_responses").then(function(response) {
+        for (var i = response.data.length - 1; i >= 0; i--) {
+           var test_date_js = new Date(response.data[i]["test_date"])
+           response.data[i]["test_date"] = test_date_js;
+         };
          $scope.results = response.data;
          console.log($scope.results);
     }); 
@@ -57,21 +72,61 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
   };
 })
 .directive('navigation', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'navigation.html',
-			controller: function () {
-					this.tab = 0;	/* initially set tab to 1*/
-					this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
-						this.tab = setTab;
-						console.log(this.tab);
-					};
-					this.isSelected = function (checkTab) {/* Check which tab is selected to trigger show of selected tab */
-						return this.tab === checkTab;
+    return {
+      restrict: 'E',
+      templateUrl: 'navigation.html',
+      controller: function ($window) {
+          this.tab = 0; /* initially set tab to 1*/
+          this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
+            this.tab = setTab;
+            console.log(this.tab);
+          };
+          this.isSelected = function (checkTab) {/* Check which tab is selected to trigger show of selected tab */
+            return this.tab === checkTab;
 
-					};
-				},
-			controllerAs: 'menu'
-		};
-	})
+          };
+
+          this.refresh = function(){
+            $window.location.reload();
+          }
+        },
+      controllerAs: 'menu'
+    };
+  })
+.directive('learners', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'learners.html',
+      link: function(scope, element, attributes){
+              element.addClass('learners');
+            }
+    };
+  })
+.directive('responses', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'responses.html',
+      link: function(scope, element, attributes){
+              element.addClass('responses');
+            }
+    };
+  })
+.directive('questresponses', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'responses_q.html',
+      link: function(scope, element, attributes){
+              element.addClass('questresponses');
+            }
+    };
+  })
+.directive('testscount', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'testscount.html',
+      link: function(scope, element, attributes){
+              element.addClass('testscount');
+            }
+    };
+  })
 ;

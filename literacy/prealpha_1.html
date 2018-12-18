@@ -1,0 +1,806 @@
+﻿<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+    <title>Pre Alpha 1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="pmodule/angular.min.js"></script>
+    <script src="pmodule/angular-animate.js"></script>
+    <script src="pmodule/angular-sanitize.js"></script>
+    <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="pmodule/app.js"></script>
+    <link rel="stylesheet" href="pmodule/password_modal.css">
+    <style>
+    .HeaderbannerLabel {
+        background-color: rgb(0, 159, 21);
+        color: rgba(255, 255, 255, 1);
+        font-size: 20px;
+        font-weight: 500;
+        padding-left: 34px;
+        margin-left: -30px;
+        font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+        padding: 8px 8px 8px 34px;
+        margin-top: 30px;
+        margin-bottom: 25px;
+        width: 45%;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-weight: normal;
+    }
+
+	options{
+		width: 276px;
+		height: 276px;
+	}
+
+    img.displayed {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .padd{
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    </style>
+</head>
+
+<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+    <!-- TODO: Add inline script for passowrd modal -->
+    <!-- Password modal -->
+    <script type="text/ng-template" id="testModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <label class="item item-input">
+                <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
+            </label>
+            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
+            <button class="btn btn-danger" type="button">Cancel</button>
+        </div>
+    </script>
+    <!-- TODO: Add tag to instantiate modal when page opens -->
+    <span ng-init=ctrl.openModal()></span> 
+    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+        <div class="row">
+            <div class="container page">
+                <div class="row">
+                    <div id="edulution_logo">
+                        <img src="images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <div class="pd-tb">
+                        <div class="pd-lr">
+				<form action="/submit_test" name="testForm1" method="post">
+                            <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;">Pre Alpha 1</p>
+                           <div class="HeaderbannerLabel">USERNAME</div>
+                          <!-- Input fiels for user_id contains some js code for validation -->
+                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Username</label>
+                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
+                          <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+
+                             <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                            <div class="ins">Time allowed: 40 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
+                            <div class="HeaderbannerLabel">ASSESSMENT</div>
+                            
+                            <!-- TODO: Add form name,action and method -->
+                            <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                                <h3>(1) Choose the sentence that is spaced correctly.</h3>
+                                <p>
+                                    <!-- TODO: Add value attribute to each radio button -->
+                                    <!-- Each group of radio buttons with the same name corresponds to one question -->
+                                    <!-- Wrong answers are 0, correct answer is 1 -->
+                                    <!-- Example below -->
+                                    <!-- <input type="radio" id="test1" name="q1" value="0"> -->
+                                    <input type="radio" id="q1_a" name="q1" value="0">
+                                    <label for="q1_a">Herecomesthebus!</label>
+                                </p>
+								<p>
+                                    <input type="radio" id="q1_b" name="q1" value="1">
+                                    <label for="q1_b">Here comes the bus!</label>
+                                </p>
+								
+                          
+                                <h3>(2) Choose the TWO words that are the same.</h3>
+                                <p>
+                                    <input type="checkbox" id="q2_a" name="q2" value="0.5">
+                                    <label for="q2_a">dog</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q2_b" name="q2" value="-1">
+                                    <label for="q2_b">duck</label>
+                                </p>
+								<p>
+                                    <input type="checkbox" id="q2_c" name="q2" value="0.5">
+                                    <label for="q2_c">dog</label>
+                                </p>
+                       
+                                <h3>(3) Choose the lowercase (small) letter that matches (P).</h3>                                
+                                <p>
+                                    <input type="radio" id="q3_a" name="q3" value="0">
+                                    <label for="q3_a">d</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q3_b" name="q3" value="1">
+                                    <label for="q3_b">p</label>
+                                </p>
+                              
+                        
+                                <h3>(4) Find the TWO lowercase (small) letters.</h3>                               
+                                <p>
+                                    <input type="checkbox" id="q4_a" name="q4" value="-1">
+                                    <label for="q4_a">Z</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="q4_b" name="q4" value="0.5">
+                                    <label for="q4_b">w</label>
+                                </p>
+								 <p>
+                                    <input type="checkbox" id="q4_c" name="q4" value="-1">
+                                    <label for="q4_c">N</label>
+                                </p>
+								 <p>
+                                    <input type="checkbox" id="q4_d" name="q4" value="0.5">
+                                    <label for="q4_d">m</label>
+                                </p>
+                           
+                                <h3>(5) Choose the uppercase (capital) letter that matches (j).</h3>                            
+                                <p>
+                                    <input type="radio" id="q5_a" name="q5" value="0">
+                                    <label for="q5_a">i</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_b" name="q5" value="1">
+                                    <label for="q5_b">J</label>
+                                </p>
+								<p>
+                                    <input type="radio" id="q5_c" name="q5" value="0">
+                                    <label for="q5_c">D</label>
+                                </p>
+                          
+                                <h3>(6) Find the TWO uppercase letters. </h3>                               
+                                    <p>
+                                        <input type="checkbox" id="q6_a" name="q6" value="0.5">
+                                        <label for="q6_a">Q</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" id="q6_b" name="q6" value="-1">
+                                        <label for="q6_b">a</label>
+                                    </p>
+									<p>
+                                        <input type="checkbox" id="q6_c" name="q6" value="-1">
+                                        <label for="q6_c">g</label>
+                                    </p>
+									<p>
+                                        <input type="checkbox" id="q6_d" name="q6" value="0.5">
+                                        <label for="q6_d">O</label>
+                                    </p>
+                               
+                                    <h3>(7) Select the letters that are in alphabetical order.</h3>
+									<p>
+                                        <input type="radio" id="q7_d" name="q7" value="0">
+                                        <label for="q7_d">i, h, k</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q7_e" name="q7" value="1">
+                                        <label for="q7_e">h, i, k</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q7_f" name="q7" value="0">
+                                        <label for="q7_f">h, k, i</label>
+                                    </p>
+                                				
+                                    <h3>(8) Select the TWO letters that are consonants.</h3>                                    
+                                    <p>
+                                        <input type="checkbox" id="q8_a" name="q8" value="-1">
+                                        <label for="q8_a">u</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" id="q8_b" name="q8" value="0.5">
+                                        <label for="q8_b">q</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" id="q8_c" name="q8" value="0.5">
+                                        <label for="q8_c">s</label>
+                                    </p>
+									<p>
+                                        <input type="checkbox" id="q8_d" name="q8" value="-1">
+                                        <label for="q8_d">e</label>
+                                    </p>
+                                    
+                                    <h3>(9) Choose the vowel.</h3>
+                                    
+                                    <p>
+                                        <input type="radio" id="q9_a" name="q9" value="0">
+                                        <label for="q9_a">d</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q9_b" name="q9" value="1">
+                                        <label for="q9_b">i</label>
+                                    </p>
+									 <p>
+                                        <input type="radio" id="q9_c" name="q9" value="0">
+                                        <label for="q9_c">g</label>
+                                    </p>
+                                   
+									<h3>(10) Which word rhymes with ten?</h3>
+									     
+									<div class="full" style="display:flex;">
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q10a.png" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+											<input type="radio" id="q10_a" name="q10" value="0">
+											<label for="q10_a">fish</label>
+											</p>
+										</div>
+												
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q10b.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q10_b" name="q10" value="1">
+												<label for="q10_b">hen</label>
+											</p>
+										</div>
+									</div>
+                                
+                                    
+                                    <h3>(11) Which word does not rhyme?</h3>
+                                    <p>
+                                        <input type="radio" id="q11_a" name="q11" value="0">
+                                        <label for="q11_a">fox</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q11_b" name="q11" value="0">
+                                        <label for="q11_b">box</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="q11_c" name="q11" value="1">
+                                        <label for="q11_c">cut</label>
+                                    </p>
+                                    
+                                    <h3>(12)  The fish is in a _________.</h3>
+                                    <p>Complete the rhyme.</p>
+                                    <p>
+                                        <input type="radio" id="q12_a" name="q12" value="0">
+                                        <label for="q12_a">pot</label>
+                                    </p>                    
+                                    <p>
+                                        <input type="radio" id="q12_b" name="q12" value="1">
+                                        <label for="q12_b">dish</label>
+                                    </p>
+                                
+                                    <h3>(13) Sid the snail likes things that start with an s.</h3>
+									<p>Select the things that start with an s sound.</p>
+									<div class="full" style="display:flex;">
+										<div style="width: 276px;">
+											<div><img src="images/literacy/prealp_1/q13c.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+												<p>
+												<input type="checkbox" id="q13_a" name="q13" value="-1">
+												<label for="q13_a">tie</label>
+											</p>
+										</div>
+
+										<div style="width: 276px;">
+										<div><img src="images/literacy/prealp_1/q13b.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="checkbox" id="q13_b" name="q13" value="0.5">
+												<label for="q13_b">six</label>
+											</p>
+										</div>												
+										
+										<div style="width: 276px;">
+											<div><img src="images/literacy/prealp_1/q13a.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+												<p>
+												<input type="checkbox" id="q13_c" name="q13" value="0.5">
+												<label for="q13_c">socks</label>
+											</p>
+										</div>																
+									</div>
+                                     
+                                    <h3>(14) _________um</h3>
+									<p>Complete the word to match the picture.</p>
+									<div class="full" style="display:flex;">
+										<div>
+											<div class="padd"><img src="images/literacy/prealp_1/q14.jpg" alt="image missing" height="379"/></div>
+											<p>
+										<input type="radio" id="q14_a" name="q14" value="0">
+										<label for="q14_a">Sl</label>
+										</p>
+										
+										<p>
+										<input type="radio" id="q14_b" name="q14" value="1">
+										<label for="q14_b">Dr</label>
+										</p>
+									</div>
+									</div>
+										
+                                    <h3>(15) Which word matches the picture?</h3>
+									<div class="uneven_imgs" style="width: 276px;">
+										<div class="padd"><img src="images/literacy/prealp_1/q15.jpg" alt="image missing" height="379"/></div>
+										<p>
+										<input type="radio" id="q15_a" name="q15" value="0">
+										<label for="q15_a">lock</label>
+										</p>
+										
+										<p>
+										<input type="radio" id="q15_b" name="q15" value="1">
+										<label for="q15_b">clock</label>
+									    </p>
+									</div>
+                                   
+                                    <h3>(16) be_________</h3>
+									<p>Complete the word to match the picture.</p>
+                                    <div class="full" style="display:flex;">
+									<div>
+										<div class="padd"><img src="images/literacy/prealp_1/q16.jpg" alt="image missing" height="379"/></div>
+										<p>
+										<input type="radio" id="q16_a" name="q16" value="0">
+										<label for="q16_a">mp</label>
+										</p>
+										
+										<p>
+										<input type="radio" id="q16_b" name="q16" value="1">
+										<label for="q16_b">lt</label>
+										</p>
+									</div>
+									</div>
+                                   
+                              
+                                    <h3>(17) Which word matches the picture?</h3>			
+                                    <div class="full" style="display:flex;">
+									<div>
+									<div class="padd"><img src="images/literacy/prealp_1/q17.jpg" alt="image missing" height="379"/></div>
+										<p>
+											<input type="radio" id="q17_a" name="q17" value="1">
+											<label for="q17_a">hunt</label>
+										</p>
+										
+										<p>
+											<input type="radio" id="q17_b" name="q17" value="0">
+											<label for="q17_b">hut</label>
+										</p>
+										</div>
+									</div>
+                                   
+                                    <h3>(18) Which word matches the picture?</h3>									
+                                   <div class="full" style="display:flex;">
+									<div>
+										<div><img src="images/literacy/prealp_1/q18.jpg" alt="image missing" height="379"/></div>
+										<p>
+											<input type="radio" id="q18_a" name="q18" value="1">
+											<label for="q18_a">cap</label>
+										</p>
+										<p>
+										<input type="radio" id="q18_b" name="q18" value="0">
+										<label for="q18_b">bad</label>
+										</p>
+										
+										<p>
+											<input type="radio" id="q18_c" name="q18" value="0">
+											<label for="q18_c">sat</label>
+										</p>
+										</div>
+									</div>
+                                  
+                                    <h3>(19) Which picture matches the word PEN?</h3>
+										<div class="full" style="display:flex;">
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q19a.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+												<p>
+													<input type="radio" id="q19_a" name="q19" value="1">
+													<label for="q19_a">a</label>
+												</p>
+										</div>
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q19b.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q19_b" name="q19" value="0">
+												<label for="q19_b">b</label>
+											</p>
+										</div>
+									</div>
+                                  
+									
+                                    <h3>(20) Which word matches the picture? </h3>
+									  <div class="full" style="display:flex;">
+											<div>
+												<div class="padd"><img src="images/literacy/prealp_1/q20.jpg" alt="image missing" height="379"/></div>
+												<p>
+													<input type="radio" id="q20_a" name="q20" value="0">
+													<label for="q20_a">rip</label>
+												</p>
+												<p>
+													<input type="radio" id="q20_b" name="q20" value="1">
+													<label for="q20_b">lid</label>
+												</p>										
+												<p>
+													<input type="radio" id="q20_c" name="q20" value="0">
+													<label for="q20_c">kid</label>
+												</p>
+											</div>
+										</div>
+                                  
+												 
+										<h3>(21) Which word matches the picture?</h3>	
+									   <div class="full" style="display:flex;">
+										<div>
+											<div class="padd"><img src="images/literacy/prealp_1/q21.jpg" alt="image missing" height="379"/></div>
+											<p>
+												<input type="radio" id="q21_a" name="q21" value="1">
+												<label for="q21_a">log</label>
+											</p>
+											<p>
+												<input type="radio" id="q21_b" name="q21" value="0">
+												<label for="q21_b">fox</label>
+											</p>
+										
+										<p>
+										<input type="radio" id="q21_c" name="q21" value="0">
+										<label for="q21_c">box</label>
+									</p>
+										</div>
+										</div>
+					
+										<h3>(22) Which picture matches the word HUT?</h3>
+										 <div class="full" style="display:flex;">
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q22a.jpg" alt="image missing" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q22_a" name="q22" value="1">
+												<label for="q22_a">a</label>
+											</p>
+										</div>											
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q22b.jpg" alt="image missing" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q22_b" name="q22" value="0">
+												<label for="q22_b">b</label>
+											</p>
+											</div>
+										</div>
+
+									<h3>(23) Run to the _________.</h3>
+									<p>Which word makes the most sense in the sentence?</p>
+									  <p>
+										<input type="radio" id="q23_a" name="q23" value="1">
+										<label for="q23_a">net</label>
+									  </p>
+									  <p>
+										<input type="radio" id="q23_b" name="q23" value="0">
+										<label for="q23_b">had</label>
+									  </p>
+					 
+					
+									<h3>(24) Can you run to the sun?</h3> 
+	
+									<p>
+										<input type="radio" id="q24_a" name="q24" value="0">
+										<label for="q24_a">yes</label>
+									</p>
+									<p>
+										<input type="radio" id="q24_b" name="q24" value="1">
+										<label for="q24_b">no</label>
+									</p>
+                
+                
+								<h3>(25) _________ is the map?</h3>
+								<p>Choose the right question word.</p>
+								<p>
+								   <input type="radio" id="q25_a" name="q25" value="1">
+								   <label for="q25_a">Where</label>
+								  </p>
+								   <p>
+									<input type="radio" id="q25_b" name="q25" value="0">
+									<label for="q25_b">Who</label>
+								   </p>
+								   <p>
+									<input type="radio" id="q25_c" name="q25" value="0">
+									<label for="q25_c">Why</label>
+								   </p>
+				        
+								 <h3>(26) Choose the exclamation mark.</h3>								
+									<p>
+										<input type="radio" id="q26_a" name="q26" value="0">
+										<label for="q26_a">?</label>
+									</p>
+									<p>
+										<input type="radio" id="q26_b" name="q26" value="1">
+										<label for="q26_b">!</label>
+									</p>
+									<p>
+										<input type="radio" id="q26_c" name="q26" value="0">
+										<label for="q26_c">.</label>
+									</p>							   
+
+                        
+									<h3>(27) Which word matches the picture?</h3>
+									<div class="full" style="display:flex;">
+										<div style="width: 276px;">
+									<div class="padd"><img src="images/literacy/prealp_1/q27.jpg" alt="image missing" height="379"/></div>
+										
+									<p>
+									       <input type="radio" id="q27_a" name="q27" value="0">
+									        <label for="q27_a">bee</label>
+										</p>
+									  <p>
+										<input type="radio" id="q27_b" name="q27" value="1">
+										<label for="q27_b">bees</label>
+									</p>
+										</div>
+									</div>
+									   
+									<h3>(28) The men walk.</h3>	
+									<p>Choose the picture that matches the sentence. </p>						
+									<div class="full" style="display:flex;">
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q28a.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q28_a" name="q28" value="0">
+												<label for="q28_a">a</label>
+											</p>
+										</div>
+											
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q28b.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q28_b" name="q28" value="1">
+												<label for="q28_b">b</label>
+											</p>
+										</div>
+									</div>
+						
+								
+					
+									<h3>(29) Find the verb.</h3>
+									<p>A verb shows an action.</p>
+								   <div class="full" style="display:flex;">
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q29a.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q29_a" name="q29" value="0">
+												<label for="q29_a">cat</label>
+											</p>
+										</div>											
+										<div style="width: 276px;">
+											<div class="padd"><img src="images/literacy/prealp_1/q29b.jpg" alt="image missing" height="176" class="displayed center-block"/></div>
+											<p>
+												<input type="radio" id="q29_b" name="q29" value="1">
+												<label for="q29_b">jump</label>
+											</p>
+										</div>
+									</div>
+					
+            
+										<h3>(30) The woman _________ the meat.</h3>
+										<p>Complete the sentence to match the picture.</p>
+										<div class="full" style="display:flex;">
+										<div>
+											<div class="padd"><img src="images/literacy/prealp_1/q30.jpg" alt="image missing" height="379"/></div>
+											<p>
+										<input type="radio" id="q30_a" name="q30" value="1">
+										<label for="q30_a">cuts</label>
+										</p>
+											<p>
+										<input type="radio" id="q30_b" name="q30" value="0">
+										<label for="q30_b">dips</label>
+										</p>
+								
+										</div>
+										</div>
+
+										<h3>(31) Find the flat land.</h3>
+										<div class="full" style="display:flex;">
+											<div style="width: 276px;">
+												<div class="padd"><img src="images/literacy/prealp_1/q31a.jpg" alt="image missing" class="displayed center-block"/></div>
+												<p>
+													<input type="radio" id="q31_a" name="q31" value="1">
+													<label for="q31_a">a</label>
+												</p>
+												</div>
+													
+											<div style="width: 276px;">
+												<div class="padd"><img src="images/literacy/prealp_1/q31b.jpg" alt="image missing" class="displayed center-block"/></div>
+												<p>
+													<input type="radio" id="q31_b" name="q31" value="0">
+													<label for="q31_b">b</label>
+												</p>
+											</div>
+										</div>
+									
+										<h3>(32) How many balls are there?</h3>
+										<div class="full" style="display:flex;">
+											<div class="uneven_imgs">
+												<div class="padd"><img src="images/literacy/prealp_1/q32.jpg" alt="image missing" height="379"/></div>
+												<p>
+													<input type="radio" id="q32_a" name="q32" value="1">
+													<label for="q32_a">seven</label>
+												</p>
+												<p>
+													<input type="radio" id="q32_b" name="q32" value="0">
+													<label for="q32_b">nine</label>
+												</p>								
+											</div>
+										</div>
+
+										<h3>(33) What colour is this?</h3>
+											<div>
+												<div class="padd"><img src="images/literacy/prealp_1/q33.jpg" alt="image missing" height="379"/></div>
+												<p>
+													<input type="radio" id="q33_a" name="q33" value="0">
+													<label for="q33_a">black</label>
+												</p>
+												<p>
+													<input type="radio" id="q33_b" name="q33" value="1">
+													<label for="q33_b">blue</label>
+												</p>
+												<p>
+													<input type="radio" id="q33_c" name="q33" value="0">
+													<label for="q33_c">pink</label>
+												</p>
+											</div>
+								
+                    
+										<h3>(34) Is the dog inside or outside the house? </h3>
+										<div class="full" style="display:flex;">
+										<div>
+											<div class="padd"><img src="images/literacy/prealp_1/q34.jpg" alt="image missing" height="379"/></div>
+											<p>
+										<input type="radio" id="q34_a" name="q34" value="0">
+										<label for="q34_a">inside</label>
+										</p>
+											<p>
+										<input type="radio" id="q34_b" name="q34" value="1">
+										<label for="q34_b">outside</label>
+										</p>
+									 
+										</div>
+										</div>
+                    
+                    
+								<h3>(35) The elephant is _________ the trees.</h3>
+								<p>Complete the sentence to match the picture.</p>
+								  <div class="full" style="display:flex;">
+										<div>
+											<div class="padd"><img src="images/literacy/prealp_1/q35.jpg" alt="image missing" height="379"/></div>
+											<p>
+										<input type="radio" id="q35_a" name="q35" value="0">
+										<label for="q35_a">behind</label>
+										</p>
+											<p>
+										<input type="radio" id="q35_b" name="q35" value="1">
+										<label for="q35_b">in front of</label>
+										</p>
+									 
+										</div>
+										</div>
+                    
+
+										<h3>(36) _________ut the cups in the box.</h3>
+										<p>Complete the sentence with an upper case letter.</p>
+										<p>
+										<input type="radio" id="q36_a" name="q36" value="1">
+										<label for="q36_a">P</label>
+										</p>
+										<p>
+											<input type="radio" id="q36_b" name="q36" value="0">
+											<label for="q36_b">p</label>
+										</p>
+									   
+											
+										<h3>(37) Which sentence is right?</h3>
+										
+										<p>
+										<input type="radio" id="q37_a" name="q37" value="1">
+										<label for="q37_a">Now I can read.</label>
+										</p>
+										<p>
+											<input type="radio" id="q37_b" name="q37" value="0">
+											<label for="q37_b">Now i can read.</label>
+										</p>
+
+										<h3>(38) Find the TWO phrases that mean almost the same thing.</h3>
+									   
+										<p>
+										<input type="checkbox" id="q38_a" name="q38" value="-1">
+										<label for="q38_a">look _________ happy</label>
+										</p>
+										<p>
+											<input type="checkbox" id="q38_b" name="q38" value="0.5">
+											<label for="q38_b">look _________ see</label>
+										</p>
+										 <p>
+										<input type="checkbox" id="q38_c" name="q38" value="0.5">
+										<label for="q38_c">glad _________ happy</label>
+										</p>
+										<p>
+											<input type="checkbox" id="q38_d" name="q38" value="-1">
+											<label for="q38_d">glad _________ see</label>
+										</p>					
+										
+										<h3>(39) How do the kids feel?</h3>
+										<div class="full" style="display:flex;">
+											<div>
+												<div class="padd"><img src="images/literacy/prealp_1/q39.jpg" alt="image missing" height="379"/></div>
+												<p>
+													<input type="radio" id="q39_a" name="q39" value="0">
+													<label for="q39_a">sad</label>
+												</p>
+												<p>
+													<input type="radio" id="q39_b" name="q39" value="1">
+													<label for="q39_b">excited</label>
+												</p>										
+											</div>
+										</div>
+
+								
+								<h3>(40) I have wheels. I take boys and girls to school. You may see me in the street. What am I?</h3>
+								<p>Solve the riddle.</p>
+								<p>
+								<input type="radio" id="q40_a" name="q40" value="1">
+								<label for="q40_a">a bus</label>
+								</p>
+								<p>
+									<input type="radio" id="q40_b" name="q40" value="0">
+									<label for="q40_b">the sun</label>
+								</p>
+                         <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                                <!-- TODO: Add text input fields for user_id, coach_email -->
+                                <!-- Hidden fields for test,course and module -->
+                                <input type="hidden" name="test" value="prealpha_1">
+                                <input type="hidden" name="course" value="prealpha">
+                                <input type="hidden" name="module" value="literacy">
+                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
+                                <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
+                                <!-- Submit button disabled if form is invalid -->
+                                <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
+                                <button type="submit" value="Submit" ng-disabled="testForm1.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+                    
+>>>>>>> 9fccb1561a99d9092577aa9b52dfce590d6c7f68:literacy/prealp_1.html

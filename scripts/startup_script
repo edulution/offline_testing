@@ -8,7 +8,7 @@
 fuser -k 8888/tcp
 
 # get users and device name from KA Lite database
-~/.baseline_testing/get_users_and_device.sh
+~/.baseline_testing/scripts/start_users_extraction.sh
 
 # Stop any running forever processes and 
-~/.baseline_testing/start_testing_server.sh
+~/.baseline_testing/scripts/start_testing_server.sh

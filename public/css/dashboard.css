@@ -1,30 +1,54 @@
+/*select module dropdown to be same height as other search bar and have enough width*/
+.module_select_dropdown{
+    width: 100%;
+    height: 100%;
+}
+
+/*arrows on table headers when clicked to sort ascending or descending*/
+.st-sort-ascent:before {
+    content: '\25B2';
+}
+
+.st-sort-descent:before {
+    content: '\25BC';
+}
+
 
 #navlogo{
-	background-image:url('../images/coachDashboard/edlogo.png');
-	width:20%;
-	height:100%;
-	background-repeat: no-repeat;
+    background-image:url('../images/coachDashboard/edlogo.png');
+    width:20%;
+    height:100%;
+    background-repeat: no-repeat;
 }
 #navtitle{
-	width: 80%;
-	text-align: center;
+    width: 80%;
+    text-align: center;
 }
 
 #navtitle > h1{
-	color: white;
+    color: white;
+}
+
+#navbuttons{
+    width:20%;
 }
 
 .navbar{
-	margin-bottom: 0;
-	border:0;
-	border-radius: 0;
+    margin-bottom: 0;
+    border:0;
+    border-radius: 0;
 }
 .nav-tabs{
-	border-bottom: 0
+    border-bottom: 0
 }
+
+#topnav_container{
+    display: flex;
+}
+
 #topnav,#bottomnav{
-	background: #00A546;
-	padding-top: 0.5%;
+    background: #00A546;
+    padding-top: 0.5%;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
@@ -37,10 +61,21 @@
     }
 
 .nav > li > a{
-	color: white
+    color: white
 }
 
-table {
+/*pagination styles*/
+.pagination > .active > a, .pagination > .active > a:hover{
+    background-color:#00A546;
+    border-color:#00A546; 
+}
+.pagination > li > a{
+    color:#00A546;
+}
+
+
+/*scoped styles for the learners tab only*/
+.learners table {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     display: flex;
@@ -49,45 +84,115 @@ table {
     height: 800px; /* this can vary */
 }
 
-table * {
+.learners .table>thead>tr>th {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    }
+
+.learners table * {
     box-sizing: inherit;
     -moz-box-sizing: inherit;
 }
 
-thead {
+.learners thead {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     background-color: #F0F0F0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
-tbody {
+.learners tbody {
     overflow-y: scroll;
     display: inline-block;
 }
 
-thead > tr, tbody > tr, tfoot > tr {
+.learners thead > tr, .learners tbody > tr, .learners tfoot > tr {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-thead, tfoot {
+.learners thead, tfoot {
     flex-shrink: 0;
 }
 
-th, tbody td {
+.learners th, .learners tbody td {
     width: 25%; /* this can vary */
     overflow-x: hidden;
     text-overflow: ellipsis;
     display: inline-block;
 }
 
-tfoot {
+.learners tfoot {
     display: inline-block;
 }
 
-tfoot td {
+.learners tfoot td {
+    width: 100%;
+    display: inline-block;
+}
+
+
+/*scoped styles for responses tab only*/
+#responses_search {
+    width: 40%;
+}
+.responses table {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 800px; /* this can vary */
+}
+
+.responses .table>thead>tr>th {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    }
+
+.responses table * {
+    box-sizing: inherit;
+    -moz-box-sizing: inherit;
+}
+
+.responses thead {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #F0F0F0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.responses tbody {
+    overflow-y: scroll;
+    display: inline-block;
+}
+
+.responses thead > tr, .responses tbody > tr, .responses tfoot > tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.responses thead, tfoot {
+    flex-shrink: 0;
+}
+
+/*width set by dividing 100% by number of columns in the table e.g 7 columns = 100/7 ~ 14.28*/
+.responses th, .responses tbody td {
+    width: 14.3%; /* this can vary */
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.responses tfoot {
+    display: inline-block;
+}
+
+.responses tfoot td {
     width: 100%;
     display: inline-block;
 }
