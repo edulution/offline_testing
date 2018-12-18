@@ -17,6 +17,9 @@ chmod +x ~/.baseline_testing/scripts/setup_cronjob.sh
 chmod +x ~/.baseline_testing/scripts/schema_upgrade.sh
 chmod +x ~/.baseline_testing/scripts/start_users_extraction.sh
 chmod +x ~/.baseline_testing/scripts/start_testing_server.sh
+chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
+chmod +x ~/.baseline_testing/scripts/get_ka_users_and_device.sh
+
 
 #set up responses db and get users from KA,IXL. Check for any schema upgrades
 ~/.baseline_testing/scripts/start_users_extraction.sh
