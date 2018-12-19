@@ -20,6 +20,9 @@ chmod +x ~/.baseline_testing/scripts/start_testing_server.sh
 chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
 chmod +x ~/.baseline_testing/scripts/get_ka_users_and_device.sh
 
+# open up port for server
+sudo ufw allow 8888
+
 
 #set up responses db and get users from KA,IXL. Check for any schema upgrades
 ~/.baseline_testing/scripts/start_users_extraction.sh
