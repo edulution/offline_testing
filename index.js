@@ -47,7 +47,7 @@ app.get('/coach', function (req, res) {
 
 
 /*Numeracy prealpha tests*/
-/*app.get('/num_prealpha_1', function (req, res) {
+app.get('/num_prealpha_1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/prealpha_1.html');
 });
 
@@ -57,51 +57,51 @@ app.get('/num_prealpha_2', function (req, res) {
 
 app.get('/num_prealpha_3', function (req, res) {
  res.sendFile( __dirname + '/numeracy/prealpha_3.html');
-});*/
+});
 
 
 /*Alpha course family
 
 /*Alpha A tests*/
-/*app.get('/num_alpha_a1', function (req, res) {
+app.get('/num_alpha_a1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_a1.html');
 });
 
 app.get('/num_alpha_a2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_a2.html');
-});*/
+});
 
 
 /*Alpha B tests*/
-/*app.get('/num_alpha_b1', function (req, res) {
+app.get('/num_alpha_b1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_b1.html');
 });
 
 app.get('/num_alpha_b2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_b2.html');
-});*/
+});
 
 /*Alpha C tests*/
-/*app.get('/num_alpha_c1', function (req, res) {
+app.get('/num_alpha_c1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_c1.html');
 });
 
 app.get('/num_alpha_c2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_c2.html');
 });
-*/
+
 /*Alpha D tests*/
-/*app.get('/num_alpha_d1', function (req, res) {
+app.get('/num_alpha_d1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_d1.html');
 });
 
 app.get('/num_alpha_d2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_d2.html');
-});*/
+});
 
 
 /*Litercy tests*/
-/*app.get('/lit_alpha_a1', function (req, res) {
+app.get('/lit_alpha_a1', function (req, res) {
  res.sendFile( __dirname + '/literacy/alpha_a1.html');
 });
 
@@ -139,7 +139,7 @@ app.get('/lit_prealpha_1', function (req, res) {
 
 app.get('/lit_prealpha_2', function (req, res) {
  res.sendFile( __dirname + '/literacy/prealpha_2.html');
-});*/
+});
 
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
