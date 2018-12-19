@@ -8,7 +8,9 @@
 fuser -k 8888/tcp
 
 # get users and device name from KA Lite database
+chmod +x ~/.baseline_testing/scripts/start_users_extraction.sh
 ~/.baseline_testing/scripts/start_users_extraction.sh
 
 # Stop any running forever processes and 
+chmod +x ~/.baseline_testing/scripts/start_testing_server.sh
 ~/.baseline_testing/scripts/start_testing_server.sh
