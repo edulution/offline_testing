@@ -29,6 +29,9 @@ schema_upgrade(){
 	elif [[ $(get_database_version $1) == 1 ]]; then
 		# add user_id column to responses
 		sqlite3 $1 "alter table responses add column user_id varchar"
+		
+		# attempt to get user_ids for any existing responses
+		sqlite3 $1 "update responses set user_id = (select user_id from users where users.username = responses.username)"
 
 		# upgrade version to 2
 		sqlite3 $1 "pragma user_version = 2"
