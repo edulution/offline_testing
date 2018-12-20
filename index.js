@@ -261,8 +261,12 @@ app.post('/submit_test', [function(req, res,next){
 	var answers = questions.map(function(v) { return response[v]; });
 	var answers_quoted = "'" + answers.join("','") + "'";
 
+	/*query to get user_id(will be used as subquery on insert)*/
+	var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";
+
 	/*Insert statement to run on database. test date added as current date from server*/
-	var insert_statement = 'INSERT INTO responses('+questions.toString()+',test_date) values ('+answers_quoted+','+get_datetime_string()+')';
+
+	var insert_statement = 'INSERT INTO responses('+questions.toString()+',user_id,test_date) values ('+answers_quoted+','+get_user_id_query+','+get_datetime_string()+')';
 	console.log(insert_statement);
 	
 	// promise
