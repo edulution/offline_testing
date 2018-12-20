@@ -26,8 +26,18 @@ schema_upgrade(){
 		# run the function again to ensure that schema upgraded
 		schema_upgrade $1
 
-	# Do nothing if schema is up to date. Version 1 is the latest version
 	elif [[ $(get_database_version $1) == 1 ]]; then
+		# add user_id column to responses
+		sqlite3 $1 "alter table responses add column user_id varchar"
+
+		# upgrade version to 2
+		sqlite3 $1 "pragma user_version = 2"
+
+		# run the function again to ensure that schema upgraded
+		schema_upgrade $1
+
+	# Do nothing if schema is up to date. Version 2 is the latest version
+	elif [[ $(get_database_version $1) == 2 ]]; then
 		echo "Database schema up to date"
 	fi
 

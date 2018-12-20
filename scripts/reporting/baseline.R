@@ -17,7 +17,7 @@ dbfile <- "~/.baseline_testing/public/test_responses.sqlite"
 conn <- dbConnect(sqlite, dbfile)
 
 #get test responses, join with user_id
-tresponses_query<-dbSendQuery(conn,"select u.user_id,r.*, tm.testmaxscore from responses r  left join users u on r.username = u.username left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
+tresponses_query<-dbSendQuery(conn,"select r.*, tm.testmaxscore from responses r left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
 tresponses<-dbFetch(tresponses_query) 
 
 #get device name
@@ -31,7 +31,7 @@ dbDisconnect(conn)
 
 
 #remove unecessary columns
-drop_cols<-c("username","coach_id")
+drop_cols<-c("coach_id")
 tresponses<- tresponses %>% select(-one_of(drop_cols))
 
 #rename user_id column to header(for load with load_answers function)

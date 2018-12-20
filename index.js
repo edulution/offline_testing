@@ -204,22 +204,33 @@ app.post('/submit_test', [function(req, res,next){
 	  }
 	}
 
-	/*Get questions answered as array*/
+	/*Open database and run insert satement. Then close database*/
+	let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+
+	/*get user id from username*/
+	var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";
+
 	var questions = Object.keys(response);
 
 	/*Get answers for questions above as array. Preserve quotes for insertion into database*/
 	var answers = questions.map(function(v) { return response[v]; });
 	var answers_quoted = "'" + answers.join("','") + "'";
 
-	/*Insert statement to run on database. test date added as current date from server*/
-	var insert_statement = 'INSERT INTO responses('+questions.toString()+',test_date) values ('+answers_quoted+','+get_datetime_string()+')';
-	console.log(insert_statement);
 
-	/*Open database and run insert satement. Then close database*/
-	let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+	/*put quotes around user_id*/
+	
+	db.serialize(function() {
+        var insert_statement = 'INSERT INTO responses('+questions.toString()+',user_id,test_date) values ('+answers_quoted+','+get_user_id_query+','+get_datetime_string()+')';
+        console.log(insert_statement);
 
-	db.run(insert_statement);
-	db.close();
+        db.run(insert_statement);
+        db.close();
+	});
+
+	/*Get questions answered as array*/
+
+
+	/*Insert statement to run on database. test date added as current date from server*/	
 	next();}
 	, function(req,res){
 		/*Display successful submission page after request sucessful*/
