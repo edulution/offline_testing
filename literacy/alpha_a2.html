@@ -79,7 +79,7 @@
             <button class="btn btn-danger" type="button">Cancel</button>
         </div>
     </script>
-    <!-- TODO: Add tag to instantiate modal when page opens -->
+    <!-- TODO: Add tag to instantiate modal when page opens-->
     <span ng-init=ctrl.openModal()></span> 
     <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
         <div class="row">
@@ -93,13 +93,13 @@
 				<form action="/submit_test" name="testForm1" method="post">
                             <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;">Alpha A2</p>
                             <div class="HeaderbannerLabel">USERNAME</div>
-			  <!-- Input fiels for user_id contains some js code for validation -->
+                          <!-- Input fiels for user_id contains some js code for validation -->
                           <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Username</label>
                           <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
                           <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
-
-                            <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                            <div class="ins">Ask your coach if you are not sure how to answer the questions</div>
+                          <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                            <div class="ins">Time allowed: 60 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
                             <div class="HeaderbannerLabel">ASSESSMENT</div>
                             <!-- TODO: Add form name,action and method -->
                             <!-- <form name="testForm" action="/submit_test" method="post"> -->
