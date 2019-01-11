@@ -31,7 +31,7 @@ dbDisconnect(conn)
 
 
 #remove unecessary columns
-drop_cols<-c("coach_id")
+drop_cols<-c("coach_id","username")
 tresponses<- tresponses %>% select(-one_of(drop_cols))
 
 #rename user_id column to header(for load with load_answers function)
