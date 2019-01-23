@@ -78,7 +78,6 @@ app.get('/num_alpha_a2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_a2.html');
 });
 
-
 /*Alpha B tests*/
 app.get('/num_alpha_b1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_b1.html');
@@ -104,6 +103,45 @@ app.get('/num_alpha_d1', function (req, res) {
 
 app.get('/num_alpha_d2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_d2.html');
+});
+
+
+/*Bravo course family
+
+/*Bravo A tests*/
+app.get('/num_bravo_a1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_a1.html');
+});
+
+app.get('/num_bravo_a2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_a2.html');
+});
+
+/*Bravo B tests*/
+app.get('/num_bravo_b1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_b1.html');
+});
+
+app.get('/num_bravo_b2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_b2.html');
+});
+
+/*Bravo C tests*/
+app.get('/num_bravo_c1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_c1.html');
+});
+
+app.get('/num_bravo_c2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_c2.html');
+});
+
+/*Bravo D tests*/
+app.get('/num_bravo_d1', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_d1.html');
+});
+
+app.get('/num_bravo_d2', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/bravo_d2.html');
 });
 
 
@@ -148,6 +186,8 @@ app.get('/lit_prealpha_2', function (req, res) {
  res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });
 
+
+/*Endpoints*/
 /*endpoint to get users list as json*/
 app.get('/get_users', (req, res, next) => {
   const users_query = {
