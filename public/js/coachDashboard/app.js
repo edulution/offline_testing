@@ -41,11 +41,17 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
          console.log($scope.tests_count);
     });
 
+  $http.get( "/get_test_count").then(function(response) {
+         $scope.tests_count = response.data;
+         console.log($scope.tests_count);
+    });
+
   $http.get( "/get_responses").then(function(response) {
+        /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
         for (var i = response.data.length - 1; i >= 0; i--) {
-           var test_date_js = new Date(response.data[i]["test_date"])
-           response.data[i]["test_date"] = test_date_js;
+           response.data[i]["test_date"] = new Date(response.data[i]["test_date"])
          };
+
          $scope.results = response.data;
          console.log($scope.results);
     }); 
@@ -86,6 +92,7 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
 
           };
 
+          /*function to refresh page when button clicked*/
           this.refresh = function(){
             $window.location.reload();
           }

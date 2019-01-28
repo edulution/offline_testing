@@ -4,7 +4,7 @@
     height: 100%;
 }
 
-/*arrows on table headers when clicked to sort ascending or descending*/
+/*up-down arrows when user sorts table by column*/
 .st-sort-ascent:before {
     content: '\25B2';
 }
@@ -12,7 +12,6 @@
 .st-sort-descent:before {
     content: '\25BC';
 }
-
 
 #navlogo{
     background-image:url('../images/coachDashboard/edlogo.png');
@@ -29,10 +28,6 @@
     color: white;
 }
 
-#navbuttons{
-    width:20%;
-}
-
 .navbar{
     margin-bottom: 0;
     border:0;
@@ -42,6 +37,13 @@
     border-bottom: 0
 }
 
+/*Div that contains refresh button*/
+/*text has width of 80%*/
+#navbuttons{
+    width:20%;
+}
+
+/*Container div for topnav elements*/
 #topnav_container{
     display: flex;
 }
@@ -180,7 +182,6 @@
     flex-shrink: 0;
 }
 
-/*width set by dividing 100% by number of columns in the table e.g 7 columns = 100/7 ~ 14.28*/
 .responses th, .responses tbody td {
     width: 14.3%; /* this can vary */
     overflow-x: hidden;
