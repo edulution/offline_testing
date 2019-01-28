@@ -62,11 +62,12 @@
               </li>
               <li ng-class="{ active: menu.isSelected(1) }">
                 <a href="#" ng-click="menu.selectTab(1)"><h3>Test Results</h3></a>
-              </li>              
-              <li ng-class="{ active: menu.isSelected(2) }">
+              </li>
+              <!-- Hide results by question tab for now -->              
+<!--               <li ng-class="{ active: menu.isSelected(2) }">
                 <a href="#" ng-click="menu.selectTab(2)"><h3>Results by Question</h3>
                 </a>
-              </li>
+              </li> -->
               <li ng-class="{ active: menu.isSelected(3) }">
                 <a href="#" ng-click="menu.selectTab(3)"><h3>Tests Count</h3></a>
               </li>  
@@ -356,7 +357,8 @@
     <div class="container-fluid">
         <learners ng-show="menu.isSelected(0)"></learners>
         <responses ng-show="menu.isSelected(1)"></responses>
-        <questresponses ng-show="menu.isSelected(2)"></questresponses>
+        <!-- hide results by question tab for now -->
+        <!-- <questresponses ng-show="menu.isSelected(2)"></questresponses> -->
         <testscount ng-show="menu.isSelected(3)"></testscount>
     </div>
 

@@ -5,13 +5,8 @@ var path = require('path');
 /*Por the server will run on*/
 var port = 8888;
 
-/*Demo only - use postgres*/
-const { Pool, Client } = require('pg')
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
+/*Use sqlite3 Database*/
+const sqlite3 = require('sqlite3').verbose();
 
 /*Use bodyParser to parse form data*/ 
 const bodyParser = require('body-parser');
@@ -65,9 +60,7 @@ app.get('/num_prealpha_3', function (req, res) {
 });
 
 
-
 /*Alpha course family
-
 /*Alpha A tests*/
 app.get('/num_alpha_a1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_a1.html');
@@ -76,6 +69,7 @@ app.get('/num_alpha_a1', function (req, res) {
 app.get('/num_alpha_a2', function (req, res) {
  res.sendFile( __dirname + '/numeracy/alpha_a2.html');
 });
+
 
 /*Alpha B tests*/
 app.get('/num_alpha_b1', function (req, res) {
@@ -139,14 +133,6 @@ app.get('/num_bravo_d1', function (req, res) {
  res.sendFile( __dirname + '/numeracy/bravo_d1.html');
 });
 
-app.get('/num_bravo_d2', function (req, res) {
- res.sendFile( __dirname + '/numeracy/bravo_d2.html');
-});
-
-/*Alpha C tests*/
-app.get('/num_alpha_c1', function (req, res) {
- res.sendFile( __dirname + '/numeracy/alpha_c1.html');
-});
 
 /*Litercy tests*/
 app.get('/lit_alpha_a1', function (req, res) {
@@ -189,8 +175,6 @@ app.get('/lit_prealpha_2', function (req, res) {
  res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });
 
-
-/*Endpoints*/
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
         let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
@@ -201,39 +185,16 @@ app.get('/get_users',function(req, res){
         });
 });
 
-
-/*endpoint to test count stats list as json*/
-app.get('/get_test_count', (req, res, next) => {
-  const test_counts_query = {
-    // give the query a unique name
-    name: 'fetch-test-counts',
-    text: 'SELECT last_day(test_date::date) as test_month, count(*) as number_of_tests from responses group by last_day(test_date::date) order by last_day(test_date::date) desc'
-  }
-
-  // callback
-  pool.query(test_counts_query, (err, result) => {
-    if (err) {
-      console.log(err.stack)
-    } else {
-    	res.status(200).send(result.rows)
-    }
-  })
-
-  // promise
-  pool.query(test_counts_query)
-    .then(result => res.rows)
-    .catch(e => console.error(e.stack))
-  });
-
 /*endpoint to get all test_responses as json*/
 /*modified responses query to join on course, test and module for new config*/
 app.get('/get_responses',function(req, res){
-        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
-        const responses_query = {
-          // give the query a unique name
-          name: 'fetch-responses',
-          text: 'select u.username,u.first_name,u.last_name,tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0)+ coalesce(q20::integer,0.0)+ coalesce(q21::integer,0.0)+ coalesce(q22::integer,0.0)+ coalesce(q23::integer,0.0)+ coalesce(q24::integer,0.0)+ coalesce(q25::integer,0.0)+ coalesce(q26::integer,0.0)+ coalesce(q27::integer,0.0)+ coalesce(q28::integer,0.0)+ coalesce(q29::integer,0.0)+ coalesce(q30::integer,0.0)+ coalesce(q31::integer,0.0)+ coalesce(q32::integer,0.0)+ coalesce(q33::integer,0.0)+ coalesce(q34::integer,0.0)+ coalesce(q35::integer,0.0)+ coalesce(q36::integer,0.0)+ coalesce(q37::integer,0.0)+ coalesce(q38::integer,0.0)+ coalesce(q39::integer,0.0)+ coalesce(q40::integer,0.0)+ coalesce(q41::integer,0.0)+ coalesce(q42::integer,0.0)+ coalesce(q43::integer,0.0)+ coalesce(q44::integer,0.0)+ coalesce(q45::integer,0.0)+ coalesce(q46::integer,0.0)+ coalesce(q47::integer,0.0)+ coalesce(q48::integer,0.0)+ coalesce(q49::integer,0.0)+ coalesce(q50::integer,0.0)+ coalesce(q51::integer,0.0)+ coalesce(q52::integer,0.0)+ coalesce(q53::integer,0.0)+ coalesce(q54::integer,0.0)+ coalesce(q55::integer,0.0)+ coalesce(q56::integer,0.0)+ coalesce(q57::integer,0.0)+ coalesce(q58::integer,0.0)+ coalesce(q59::integer,0.0)+ coalesce(q60::integer,0.0)+ coalesce(q61::integer,0.0)+ coalesce(q62::integer,0.0)+ coalesce(q63::integer,0.0)+ coalesce(q64::integer,0.0)+ coalesce(q65::integer,0.0)+ coalesce(q66::integer,0.0)+ coalesce(q67::integer,0.0)+ coalesce(q68::integer,0.0)+ coalesce(q69::integer,0.0)+ coalesce(q70::integer,0.0))/testmaxscore,2) as score_pct from responses r left join users u on r.user_id = u.user_id left join test_marks tm on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc'
-        }
+        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+        var responses_query='select u.username,u.first_name,u.last_name,tm.test_name,((ifnull(q1,0.0)+ ifnull(q2,0.0)+ ifnull(q3,0.0)+ ifnull(q4,0.0)+ ifnull(q5,0.0)+ ifnull(q6,0.0)+ ifnull(q7,0.0)+ ifnull(q8,0.0)+ ifnull(q9,0.0)+ ifnull(q10,0.0)+ ifnull(q11,0.0)+ ifnull(q12,0.0)+ ifnull(q13,0.0)+ ifnull(q14,0.0)+ ifnull(q15,0.0)+ ifnull(q16,0.0)+ ifnull(q17,0.0)+ ifnull(q18,0.0)+ ifnull(q19,0.0)+ ifnull(q20,0.0)+ ifnull(q21,0.0)+ ifnull(q22,0.0)+ ifnull(q23,0.0)+ ifnull(q24,0.0)+ ifnull(q25,0.0)+ ifnull(q26,0.0)+ ifnull(q27,0.0)+ ifnull(q28,0.0)+ ifnull(q29,0.0)+ ifnull(q30,0.0)+ ifnull(q31,0.0)+ ifnull(q32,0.0)+ ifnull(q33,0.0)+ ifnull(q34,0.0)+ ifnull(q35,0.0)+ ifnull(q36,0.0)+ ifnull(q37,0.0)+ ifnull(q38,0.0)+ ifnull(q39,0.0)+ ifnull(q40,0.0)+ ifnull(q41,0.0)+ ifnull(q42,0.0)+ ifnull(q43,0.0)+ ifnull(q44,0.0)+ ifnull(q45,0.0)+ ifnull(q46,0.0)+ ifnull(q47,0.0)+ ifnull(q48,0.0)+ ifnull(q49,0.0)+ ifnull(q50,0.0)+ ifnull(q51,0.0)+ ifnull(q52,0.0)+ ifnull(q53,0.0)+ ifnull(q54,0.0)+ ifnull(q55,0.0)+ ifnull(q56,0.0)+ ifnull(q57,0.0)+ ifnull(q58,0.0)+ ifnull(q59,0.0)+ ifnull(q60,0.0)+ ifnull(q61,0.0)+ ifnull(q62,0.0)+ ifnull(q63,0.0)+ ifnull(q64,0.0)+ ifnull(q65,0.0)+ ifnull(q66,0.0)+ ifnull(q67,0.0)+ ifnull(q68,0.0)+ ifnull(q69,0.0)+ ifnull(q70,0.0))/testmaxscore) as score_pct, r.* from responses r  left join users u  on r.user_id = u.user_id left join test_marks tm  on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc';
+        db.all(responses_query,function(err,rows){
+        	/*console.log(rows);*/
+        	return res.json(rows);
+        });
+});
 
 /*endpoint to get all test_responses as json*/
 app.get('/get_test_count',function(req, res){
@@ -283,59 +244,27 @@ app.post('/submit_test', [function(req, res,next){
 	/*get user id from username*/
 	var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";
 
-app.post('/submit_test', [function(req, res,next){
-
-	/*simple function to sum values in an array*/
-	const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
-		
-	response = req.body;
-	/*check if respponse response was checkboxes
-	will appear as array in response*/
-
-	/*for each response recieved*/
-	for (v in response){
-		/*if the reponse is of type object(array). Questions with a single response will be of type string*/
-	  if (typeof(response[v]) == "object"){
-	  	/*use reducer method to get sum of elements*/
-	   total = response[v].reduce(reducer,0)
-	   /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
-	   if(total <= 0){
-	    response[v] = '0'
-	   }
-	   else{
-	   	/*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
-	    response[v] = '1'
-	   }
-	  }
-	  else {
-	  	/*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
-	  	if(Number(response[v])<1){
-	  		response[v] = '0'
-	  	}
-	  }
-	}
-
-	/*Get questions answered as array*/
 	var questions = Object.keys(response);
 
 	/*Get answers for questions above as array. Preserve quotes for insertion into database*/
 	var answers = questions.map(function(v) { return response[v]; });
 	var answers_quoted = "'" + answers.join("','") + "'";
 
-	/*query to get user_id(will be used as subquery on insert)*/
-	var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";
 
-	/*Insert statement to run on database. test date added as current date from server*/
-
-	var insert_statement = 'INSERT INTO responses('+questions.toString()+',user_id,test_date) values ('+answers_quoted+','+get_user_id_query+','+get_datetime_string()+')';
-	console.log(insert_statement);
+	/*put quotes around user_id*/
 	
-	// promise
-	pool.query(insert_statement)
-	  .then(result => {
-	    console.log("Promise returned: Test submited sucessfully!")
-	  })
-	  .catch(e => console.error(e.stack))
+	db.serialize(function() {
+        var insert_statement = 'INSERT INTO responses('+questions.toString()+',user_id,test_date) values ('+answers_quoted+','+get_user_id_query+','+get_datetime_string()+')';
+        console.log(insert_statement);
+
+        db.run(insert_statement);
+        db.close();
+	});
+
+	/*Get questions answered as array*/
+
+
+	/*Insert statement to run on database. test date added as current date from server*/	
 	next();}
 	, function(req,res){
 		/*Display successful submission page after request sucessful*/
