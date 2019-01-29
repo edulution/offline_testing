@@ -31,6 +31,8 @@ schema_upgrade(){
 		sqlite3 $1 "alter table responses add column user_id varchar"
 		
 		# attempt to get user_ids for any existing responses
+		# this line should be removed after first run
+		# can lead to wrongly assigned user_ids
 		sqlite3 $1 "update responses set user_id = (select user_id from users where users.username = responses.username)"
 
 		# upgrade version to 2
