@@ -103,7 +103,7 @@ try again</p>
         </div>
     </script>
     <!-- TODO: Add tag to instantiate modal when page opens -->
-    <span ng-init=ctrl.openModal()></span>
+    <!-- <span ng-init=ctrl.openModal()></span> -->
     <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
         <div class="row">
             <div class="container page">
@@ -1132,7 +1132,7 @@ class="far fa-square"></i></span> minutes</h3>
                                 <input type="hidden" name="course" value="prealpha">
                                 <input type="hidden" name="module" value="numeracy">
                                 <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
-                                <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <input type="text" name="coach_id" ng-model="test_response.coach_id" required ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
                                 <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
                                 <!-- Submit button disabled if form is invalid -->
                                 <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
