@@ -2,14 +2,14 @@
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
+
 <head>
-<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
     <title>Pre-Alpha 1</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!--Custom Css-->
@@ -30,7 +30,7 @@
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <style>
-    .HeaderbannerLabel {
+        .HeaderbannerLabel {
         background-color: rgb(0, 159, 21);
         color: rgba(255, 255, 255, 1);
         font-size: 1.1em;
@@ -80,9 +80,7 @@
     </style>
 </head>
 
-<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: 
-
-Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
     <script type="text/ng-template" id="testModalContent.html">
@@ -93,9 +91,7 @@ Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
             <label class="item item-input">
                 <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
             </label>
-            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please 
-
-try again</p>
+            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
         </div>
         <div class="modal-footer">
             <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
@@ -103,7 +99,7 @@ try again</p>
         </div>
     </script>
     <!-- TODO: Add tag to instantiate modal when page opens -->
-    <!-- <span ng-init=ctrl.openModal()></span> -->
+    <span ng-init=ctrl.openModal()></span>
     <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
         <div class="row">
             <div class="container page">
@@ -113,33 +109,23 @@ try again</p>
                     </div>
                     <div class="pd-tb">
                         <div class="pd-lr">
-				<form action="/submit_test" name="testForm1" method="post">
-                            <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; 
-
-min-width: 0%;"> Pre Alpha 1</p>
-                          <div class="HeaderbannerLabel">USERNAME</div>
-                          
-
-                          
-                          <!-- Input fiels for user_id contains some js code for validation -->
-                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
-                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
-                          <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
-                            
-                          <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                            <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
-                          <div class="HeaderbannerLabel">SECTION A</div>
-                           <h3>(1)  1, 2, 3, <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> , 5</h3>
-                            <!-- TODO: Add form name,action and method -->
-                            <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                            <form action="/submit_test" name="testForm1" method="post">
+                                <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Pre Alpha 1</p>
+                                <div class="HeaderbannerLabel">USERNAME</div>
+                                <!-- Input fiels for user_id contains some js code for validation -->
+                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
+                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
+                                <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                                <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                                <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
+                                <div class="HeaderbannerLabel">SECTION A</div>
+                                <h3>(1) 1, 2, 3, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 5</h3>
+                                <!-- TODO: Add form name,action and method -->
+                                <!-- <form name="testForm" action="/submit_test" method="post"> -->
                                 <p>
                                     <!-- TODO: Add value attribute to each radio button -->
-                                    <!-- Each group of radio buttons with the same name corresponds to one question 
-
--->
+                                    <!-- Each group of radio buttons with the same name corresponds to one question -->
                                     <!-- Wrong answers are 0, correct answer is 1 -->
                                     <!-- Example below -->
                                     <!-- <input type="radio" id="test1" name="q1" value="0"> -->
@@ -158,9 +144,7 @@ fa-square"></i></span> , 5</h3>
                                     <input type="radio" id="test4" name="q1" value="0">
                                     <label for="test4">8</label>
                                 </p>
-                                <h3>(2) 50, 55, <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> , 65, 70</h3>
+                                <h3>(2) 50, 55, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 65, 70</h3>
                                 <p>
                                     <input type="radio" id="test5" name="q2" value="0">
                                     <label for="test5">50</label>
@@ -177,9 +161,7 @@ fa-square"></i></span> , 65, 70</h3>
                                     <input type="radio" id="test8" name="q2" value="0">
                                     <label for="test8">80</label>
                                 </p>
-                                <h3>(3) 20, 30, 40, <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span> , 60 </h3>
+                                <h3>(3) 20, 30, 40, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 60 </h3>
                                 <p>
                                     <input type="radio" id="test9" name="q3" value="0">
                                     <label for="test9">20</label>
@@ -213,9 +195,7 @@ class="far fa-square"></i></span> , 60 </h3>
                                     <input type="radio" id="test16" name="q4" value="1">
                                     <label for="test16">8</label>
                                 </p>
-                                <h3>(5) 1 + 3 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span></h3>
+                                <h3>(5) 1 + 3 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test17" name="q5" value="0">
                                     <label for="test17">2</label>
@@ -232,9 +212,7 @@ fa-square"></i></span></h3>
                                     <input type="radio" id="test20" name="q5" value="0">
                                     <label for="test20">8</label>
                                 </p>
-                                <h3>(6) 6 - 4 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span></h3>
+                                <h3>(6) 6 - 4 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test21" name="q6" value="1">
                                     <label for="test21">2</label>
@@ -278,7 +256,7 @@ fa-square"></i></span></h3>
                                 </div>
                                 <div class="clearfix"></div>
                                 <h3>(8) 69 <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> 96</h3>
-                                <span>Fill in the blank with <, > or =.</span>
+                                <span>Fill in the blank with <,> or =.</span>
                                 <p>
                                     <input type="radio" id="test28" name="q8" value="0">
                                     <label for="test28">></label>
@@ -286,11 +264,9 @@ fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test29" name="q8" value="1">
                                     <label for="test29">
-                                        <</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test30" name="q8" value="0">
-                                    <label for="test30">=</label>
+                                        <</label> </p> <p>
+                                            <input type="radio" id="test30" name="q8" value="0">
+                                            <label for="test30">=</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test31" name="q8" value="0">
@@ -332,7 +308,6 @@ fa-square"></i></span></h3>
                                     <label for="test39">72</sup>
                                     </label>
                                 </p>
-              
                                 <h3>(11) 62 + 78 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="q11_a" name="q11" value="0">
@@ -352,10 +327,7 @@ fa-square"></i></span></h3>
                                     <label for="q11_d">140</sup>
                                     </label>
                                 </p>
-
-                                <h3>(12) 87 + 4 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(12) 87 + 4 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test40" name="q12" value="0">
                                     <label for="test40">64</label>
@@ -372,11 +344,8 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test43" name="q12" value="1">
                                     <label for="test43">91</label>
                                 </p>
-  
                                 <h3>(13) How many squares long is the pink line?</h3>
-                                <div><img src="images/prealpha_1/MeasureLengthsTest1.png" class="img-responsive" 
-
-/></div>
+                                <div><img src="images/prealpha_1/MeasureLengthsTest1.png" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="test44" name="q13" value="0">
                                     <label for="test44">3</label>
@@ -395,9 +364,7 @@ class="far fa-square"></i></span></h3>
                                     <label for="test47">12</label>
                                 </p>
                                 <h3>(14) What time is it in the morning?</h3>
-                                <div><img src="images/prealpha_1/TellTimetoHourorHalfanHourTest1.png" 
-
-class="img-responsive" /></div>
+                                <div><img src="images/prealpha_1/TellTimetoHourorHalfanHourTest1.png" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="test48" name="q14" value="0">
                                     <label for="test48">30:00</label>
@@ -414,9 +381,7 @@ class="img-responsive" /></div>
                                     <input type="radio" id="test51" name="q14" value="1">
                                     <label for="test51">03:00</label>
                                 </p>
-                                <h3>(15) 56 - 5 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(15) 56 - 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test52" name="q15" value="0">
                                     <label for="test52">50</label>
@@ -433,9 +398,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test55" name="q15" value="0">
                                     <label for="test55">61</label>
                                 </p>
-                                <h3>(16) 37 - 12 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(16) 37 - 12 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test56" name="q16" value="0">
                                     <label for="test56">21</label>
@@ -452,9 +415,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test59" name="q16" value="0">
                                     <label for="test59">49</label>
                                 </p>
-                                <h3>(17) 53 - 6 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(17) 53 - 6 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test60" name="q17" value="0">
                                     <label for="test60">45</label>
@@ -471,9 +432,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test63" name="q17" value="0">
                                     <label for="test63">60</label>
                                 </p>
-                                <h3>(18) 89 - 25 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(18) 89 - 25 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test64" name="q18" value="1">
                                     <label for="test64">64</label>
@@ -490,9 +449,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test67" name="q18" value="0">
                                     <label for="test67">120</label>
                                 </p>
-                                <h3>(19) 999, 899, <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span> , 699, 599</h3>
+                                <h3>(19) 999, 899, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 699, 599</h3>
                                 <span>Count backwards by 100s.</span>
                                 <p>
                                     <input type="radio" id="test68" name="q19" value="0">
@@ -510,9 +467,7 @@ class="far fa-square"></i></span> , 699, 599</h3>
                                     <input type="radio" id="test71" name="q19" value="0">
                                     <label for="test71">997</label>
                                 </p>
-                                <h3>(20) 87 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> + 76</h3>
+                                <h3>(20) 87 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> + 76</h3>
                                 <p>
                                     <input type="radio" id="test72" name="q20" value="0">
                                     <label for="test72">1</label>
@@ -529,9 +484,7 @@ fa-square"></i></span> + 76</h3>
                                     <input type="radio" id="test75" name="q20" value="0">
                                     <label for="test75">143</label>
                                 </p>
-                                <h3>(21) 91 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> + 83</h3>
+                                <h3>(21) 91 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> + 83</h3>
                                 <p>
                                     <input type="radio" id="q21_a" name="q21" value="1">
                                     <label for="q21_a">8</label>
@@ -548,9 +501,7 @@ fa-square"></i></span> + 83</h3>
                                     <input type="radio" id="q21_d" name="q21" value="0">
                                     <label for="q21_d">36</label>
                                 </p>
-                                <h3>(22) 24 + 135 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(22) 24 + 135 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test76" name="q22" value="0">
                                     <label for="test76">111</label>
@@ -567,9 +518,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test79" name="q22" value="1">
                                     <label for="test79">159</label>
                                 </p>
-                                <h3>(23) 89 - 24 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(23) 89 - 24 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test80" name="q23" value="0">
                                     <label for="test80">55</label>
@@ -586,9 +535,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test83" name="q23" value="0">
                                     <label for="test83">113</label>
                                 </p>
-                                <h3>(24) 346 - 34 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(24) 346 - 34 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="q24_a" name="q24" value="1">
                                     <label for="q24_a">312</label>
@@ -606,9 +553,7 @@ class="far fa-square"></i></span></h3>
                                     <label for="q24_d">380</label>
                                 </p>
                                 <h3>(25) How long is the rectangle in cm?</h3>
-                                <div><img src="images/prealpha_1/MeasureLength2Test1.png" class="img-responsive" 
-
-/></div>
+                                <div><img src="images/prealpha_1/MeasureLength2Test1.png" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="test84" name="q25" value="0">
                                     <label for="test84">2</label>
@@ -626,9 +571,7 @@ class="far fa-square"></i></span></h3>
                                     <label for="test87">8</label>
                                 </p>
                                 <h3>(26) What time is it in the morning?</h3>
-                                <div><img src="images/prealpha_1/TellTimewithLabelledClockTest1.png" 
-
-class="img-responsive" /></div>
+                                <div><img src="images/prealpha_1/TellTimewithLabelledClockTest1.png" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="test88" name="q26" value="0">
                                     <label for="test88">90:10</label>
@@ -645,9 +588,7 @@ class="img-responsive" /></div>
                                     <input type="radio" id="test91" name="q26" value="0">
                                     <label for="test91">09:01</label>
                                 </p>
-                                <h3>(27) 418 + 418 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(27) 418 + 418 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test92" name="q27" value="0">
                                     <label for="test92">418</label>
@@ -664,9 +605,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test95" name="q27" value="0">
                                     <label for="test95">840</label>
                                 </p>
-                                <h3>(28) 889 - 250 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(28) 889 - 250 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test96" name="q28" value="0">
                                     <label for="test96">250</label>
@@ -683,7 +622,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test99" name="q28" value="0">
                                     <label for="test99">889</label>
                                 </p>
-            <div class="HeaderbannerLabel">SECTION B</div>
+                                <div class="HeaderbannerLabel">SECTION B</div>
                                 <h3>(29) Which one is the same as 4 × 9?</h3>
                                 <p>
                                     <input type="radio" id="test100" name="q29" value="0">
@@ -701,9 +640,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test103" name="q29" value="0">
                                     <label for="test103">4 + 9 + 4 + 9</label>
                                 </p>
-                                <h3>(30) 3 × 9 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span></h3>
+                                <h3>(30) 3 × 9 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test104" name="q30" value="0">
                                     <label for="test104">11</label>
@@ -720,9 +657,7 @@ fa-square"></i></span></h3>
                                     <input type="radio" id="test107" name="q30" value="1">
                                     <label for="test107">27</label>
                                 </p>
-                                <h3>(31) 12 ÷ 4 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(31) 12 ÷ 4 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test108" name="q31" value="1">
                                     <label for="test108">3</label>
@@ -739,9 +674,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test111" name="q31" value="0">
                                     <label for="test111">8</label>
                                 </p>
-                                <h3>(32) 15 ÷ 5 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(32) 15 ÷ 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test112" name="q32" value="1">
                                     <label for="test112">3</label>
@@ -758,9 +691,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test115" name="q32" value="0">
                                     <label for="test115">15</label>
                                 </p>
-                                <h3>(33) 16 ÷ <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span>= 8</h3>
+                                <h3>(33) 16 ÷ <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span>= 8</h3>
                                 <p>
                                     <input type="radio" id="test116" name="q33" value="1">
                                     <label for="test116">2</label>
@@ -777,9 +708,7 @@ fa-square"></i></span>= 8</h3>
                                     <input type="radio" id="test119" name="q33" value="0">
                                     <label for="test119">8</label>
                                 </p>
-                                <h3>(34)  3 × 2 = 1 × <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(34) 3 × 2 = 1 × <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test120" name="q34" value="0">
                                     <label for="test120">2</label>
@@ -796,7 +725,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test123" name="q34" value="0">
                                     <label for="test123">8</label>
                                 </p>
-                                <h3>(35)  2 × 4 = 4 × <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(35) 2 × 4 = 4 × <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="q35_a" name="q35" value="1">
                                     <label for="q35_a">2</label>
@@ -813,32 +742,25 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="q35_d" name="q35" value="0">
                                     <label for="q35_d">8</label>
                                 </p>
-                                <h3>(36) <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> <span 
-
-style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> <span 
-
-class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></h3>
-                                <span>Fill in the blank with <, > or =.</span>
+                                <h3>(36) <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></h3>
+                                <span>Fill in the blank with <,> or =.</span>
                                 <p>
                                     <input type="radio" id="test128" name="q36" value="1">
                                     <label for="test128">></label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test129" name="q36" value="0">
-                                    <label for="test129"><</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test130" name="q36" value="0">
-                                    <label for="test130">=</label>
+                                    <label for="test129">
+                                        <</label> </p> <p>
+                                            <input type="radio" id="test130" name="q36" value="0">
+                                            <label for="test130">=</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test131" name="q36" value="0">
                                     <label for="test131">None of the above</label>
                                 </p>
-                                <h3>(37) 1 631 <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> 3 161 </h3>
-                                <span>Fill in the blank with <, > or =.</span>
+                                <h3>(37) 1 631 <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> 3 161 </h3>
+                                <span>Fill in the blank with <,> or =.</span>
                                 <p>
                                     <input type="radio" id="test132" name="q37" value="0">
                                     <label for="test132">></label>
@@ -846,19 +768,15 @@ fa-square"></i></span> 3 161 </h3>
                                 <p>
                                     <input type="radio" id="test133" name="q37" value="1">
                                     <label for="test133">
-                                        <</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test134" name="q37" value="0">
-                                    <label for="test134">=</label>
+                                        <</label> </p> <p>
+                                            <input type="radio" id="test134" name="q37" value="0">
+                                            <label for="test134">=</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test135" name="q37" value="0">
                                     <label for="test135">None of the above</label>
                                 </p>
-                                <h3>(38) 24 344 + 18 342 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(38) 24 344 + 18 342 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test136" name="q38" value="0">
                                     <label for="test136">43 786</label>
@@ -875,9 +793,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test139" name="q38" value="0">
                                     <label for="test139">43 686</label>
                                 </p>
-                                <h3>(39) 259 006 + 641 454 = <span style="display: inline-block;font-size: 
-
-1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(39) 259 006 + 641 454 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test140" name="q39" value="0">
                                     <label for="test140">100 460</label>
@@ -894,9 +810,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test143" name="q39" value="1">
                                     <label for="test143">900 460</label>
                                 </p>
-                                <h3>(40)  389 002 - 76 151 = <span style="display: inline-block;font-size: 
-
-1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(40) 389 002 - 76 151 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test144" name="q40" value="0">
                                     <label for="test144">312 000</label>
@@ -913,10 +827,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test147" name="q40" value="0">
                                     <label for="test147">100 851</label>
                                 </p>
-
-                                <h3>(41) 13 x 8 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(41) 13 x 8 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test148" name="q41" value="0">
                                     <label for="test148">21</label>
@@ -933,9 +844,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test151" name="q41" value="1">
                                     <label for="test151">104</label>
                                 </p>
-                                <h3>(42) 60 x 6 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(42) 60 x 6 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="q42_a" name="q42" value="0">
                                     <label for="q42_a">36</label>
@@ -952,9 +861,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="q42_d" name="q42" value="0">
                                     <label for="q42_d">3 600</label>
                                 </p>
-                                <h3>(43) 4 × 820 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(43) 4 × 820 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test152" name="q43" value="0">
                                     <label for="test152">1 800</label>
@@ -971,9 +878,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test155" name="q43" value="0">
                                     <label for="test155">8 200</label>
                                 </p>
-                                <h3>(44) 125 ÷ 5 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(44) 125 ÷ 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test156" name="q44" value="0">
                                     <label for="test156">20</label>
@@ -990,9 +895,7 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="test159" name="q44" value="0">
                                     <label for="test159">120</label>
                                 </p>
-                                <h3>(45) 444 ÷ 2 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
+                                <h3>(45) 444 ÷ 2 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="q45_a" name="q45" value="0">
                                     <label for="q45_a">111</label>
@@ -1009,68 +912,44 @@ class="far fa-square"></i></span></h3>
                                     <input type="radio" id="q45_d" name="q45" value="0">
                                     <label for="q45_d">888</label>
                                 </p>
-                                <h3>(46) <span class="frac"><sup>2</sup><span>/</span><sub>8</sub></span> + <span 
-
-class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> = <span class="frac"> <sup><span class="icon"><i 
-
-class="far fa-square"></i></span></sup><span>/</span><sub>8</sub></span>
-</h3>
+                                <h3>(46) <span class="frac"><sup>2</sup><span>/</span><sub>8</sub></span> + <span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> = <span class="frac"> <sup><span class="icon"><i class="far fa-square"></i></span></sup><span>/</span><sub>8</sub></span>
+                                </h3>
                                 <p>
                                     <input type="radio" id="test160" name="q46" value="1">
-                                    <label for="test160"><span 
-
-class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
+                                    <label for="test160"><span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test161" name="q46" value="0">
-                                    <label for="test161"><span 
-
-class="frac"><sup>7</sup><span>/</span><sub>16</sub></span></label>
+                                    <label for="test161"><span class="frac"><sup>7</sup><span>/</span><sub>16</sub></span></label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test162" name="q46" value="0">
-                                    <label for="test162"><span 
-
-class="frac"><sup>10</sup><span>/</span><sub>18</sub></span></label>
+                                    <label for="test162"><span class="frac"><sup>10</sup><span>/</span><sub>18</sub></span></label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test163" name="q46" value="0">
-                                    <label for="test163"><span 
-
-class="frac"><sup>10</sup><span>/</span><sub>64</sub></span></label>
+                                    <label for="test163"><span class="frac"><sup>10</sup><span>/</span><sub>64</sub></span></label>
                                 </p>
-                                <h3>(47)  <span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span> &minus;
- <span 
-
-class="frac"><sup>2</sup><span>/</span><sub>6</sub></span> = <span style="display: inline-block;font-size: 
-
-1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(47) <span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span> &minus;
+                                    <span class="frac"><sup>2</sup><span>/</span><sub>6</sub></span> = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test164" name="q47" value="0">
                                     <label for="test164">1</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test165" name="q47" value="1">
-                                    <label for="test165"><span 
-
-class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
+                                    <label for="test165"><span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test166" name="q47" value="0">
-                                    <label for="test166"><span 
-
-class="frac"><sup>5</sup><span>/</span><sub>36</sub></span></label>
+                                    <label for="test166"><span class="frac"><sup>5</sup><span>/</span><sub>36</sub></span></label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test167" name="q47" value="0">
-                                    <label for="test167"><span 
-
-class="frac"><sup>12</sup><span>/</span><sub>18</sub></span></label>
+                                    <label for="test167"><span class="frac"><sup>12</sup><span>/</span><sub>18</sub></span></label>
                                 </p>
-                                <h3>(48)  4 kg = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span > g</h3>
-				<span>1kg = 1 000g</span>
+                                <h3>(48) 4 kg = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> g</h3>
+                                <span>1kg = 1 000g</span>
                                 <p>
                                     <input type="radio" id="test168" name="q48" value="0">
                                     <label for="test168">4</label>
@@ -1087,9 +966,7 @@ fa-square"></i></span > g</h3>
                                     <input type="radio" id="test171" name="q48" value="1">
                                     <label for="test171">4 000</label>
                                 </p>
-                                <h3>(49) 1m = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> cm</h3>
+                                <h3>(49) 1m = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> cm</h3>
                                 <p>
                                     <input type="radio" id="test172" name="q49" value="0">
                                     <label for="test172">1</label>
@@ -1106,9 +983,7 @@ fa-square"></i></span> cm</h3>
                                     <input type="radio" id="test175" name="q49" value="0">
                                     <label for="test175">1 000</label>
                                 </p>
-                                <h3>(50)  2 hours = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span> minutes</h3>
+                                <h3>(50) 2 hours = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> minutes</h3>
                                 <p>
                                     <input type="radio" id="test176" name="q50" value="0">
                                     <label for="test176">2</label>
