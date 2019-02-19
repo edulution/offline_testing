@@ -1,0 +1,1 @@
+angular.module('edulutionPortal', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', 'ui.filters']);
