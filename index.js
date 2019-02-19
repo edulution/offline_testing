@@ -181,9 +181,10 @@ app.get('/get_server_date', function (req, res) {
 	return res.json(current_date)
 });
 
-app.get('/ngsub', function (req, res) {
+/*app.get('/ngsub', function (req, res) {
  res.sendFile( __dirname + '/numeracy/test_submit.html');
-});
+});*/
+
 
 app.get('/sucessful_submit', function (req, res) {
  res.sendFile( __dirname + '/submit/sucessful_submission.html');
