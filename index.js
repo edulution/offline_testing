@@ -40,6 +40,13 @@ function get_datetime_string() {
 }
 
 
+/*portal homepage*/
+app.get('/', function (req, res) {
+ res.sendFile( __dirname + '/portal/index.html');
+});
+
+
+
 /*Results dashboard page*/
 app.get('/coach', function (req, res) {
  res.sendFile( __dirname + '/dashboard/index.html');
