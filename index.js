@@ -34,7 +34,7 @@ function get_datetime_string() {
 	    mm = '0'+mm
 	}
 	/*return today's date as string*/
-	today = "'"+ yyyy + '-' + mm + '-' + dd +"'";
+	today = yyyy + '-' + mm + '-' + dd;
 	return today;
 
 }
@@ -175,6 +175,20 @@ app.get('/lit_prealpha_2', function (req, res) {
  res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });
 
+
+app.get('/get_server_date', function (req, res) {
+	var current_date = get_datetime_string()
+	return res.json(current_date)
+});
+
+app.get('/ngsub', function (req, res) {
+ res.sendFile( __dirname + '/numeracy/test_submit.html');
+});
+
+app.get('/sucessful_submit', function (req, res) {
+ res.sendFile( __dirname + '/submit/sucessful_submission.html');
+});
+
 /*endpoint to get users list as json*/
 app.get('/get_users',function(req, res){
         let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
@@ -196,7 +210,7 @@ app.get('/get_responses',function(req, res){
         });
 });
 
-/*endpoint to get all test_responses as json*/
+/*endpoint to get a count of all test_responses as json*/
 app.get('/get_test_count',function(req, res){
         let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
         var count_query="SELECT date(test_date,'start of month','+1 month','-1 day') as test_month, count(*) as number_of_tests from responses group by date(test_date,'start of month','+1 month','-1 day') order by date(test_date,'start of month','+1 month','-1 day') desc";
@@ -242,19 +256,23 @@ app.post('/submit_test', [function(req, res,next){
 	let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
 
 	/*get user id from username*/
-	var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";
+	/*var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";*/
 
-	var questions = Object.keys(response);
+	/*var get_user_id_query = "'"+response['user_id']+"'";*/
 
-	/*Get answers for questions above as array. Preserve quotes for insertion into database*/
-	var answers = questions.map(function(v) { return response[v]; });
-	var answers_quoted = "'" + answers.join("','") + "'";
+	/*properties of response object - user_id,username,q1,q2..*/
+	var response_props = Object.keys(response);
+
+	/*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
+	var uresponses = response_props.map(function(v) { return response[v]; });
+	var uresponses_quoted = "'" + uresponses.join("','") + "'";
 
 
 	/*put quotes around user_id*/
 	
 	db.serialize(function() {
-        var insert_statement = 'INSERT INTO responses('+questions.toString()+',user_id,test_date) values ('+answers_quoted+','+get_user_id_query+','+get_datetime_string()+')';
+        /*var insert_statement = 'INSERT INTO responses('+response_props.toString()+',test_date) values ('+uresponses_quoted+','+get_datetime_string()+')';*/
+        var insert_statement = 'INSERT INTO responses('+response_props.toString()+') values ('+uresponses_quoted+')';
         console.log(insert_statement);
 
         db.run(insert_statement);
