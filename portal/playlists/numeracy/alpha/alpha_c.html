@@ -2,66 +2,45 @@
 <html ng-app="offlineTests">
 <head>
 	<title>Alpha C</title>
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/alpha.css">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/portal/playlists/alpha.css">
 	<!-- <link rel="stylesheet" type="text/css" href="css/password_modal.css"> -->
-	<!-- <script src="../lib/ionic/js/ionic.bundle.js"></script> -->
-	<script src="../cordova.js"></script>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/playlists.js"></script>
+	<!--  -->
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="js/portal/playlists.js"></script>
 
-	<script src="js/angular.js"></script>
-	<!-- <script src="pmodule/angular-animate.js"></script>
-	<script src="pmodule/angular-sanitize.js"></script>
-	<script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
-	<script src="pmodule/app.js"></script>
- -->
-	<!-- script with function to open tests on new system -->
-	<script src="js/open_offline_tests.js"></script>
+	
+div
 
 </head>
 <body>
-	<!-- Password modal -->
-<!-- 	<script type="text/ng-template" id="testModalContent.html">
-	    <div class="modal-header">
-	        <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
-	    </div>
-	    <div class="modal-body" id="modal-body">
-	      <label class="item item-input">
-	        <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
-	      </label>
-	      <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
-	    </div>
-	    <div class="modal-footer">
-	        <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
-	        <button class="btn btn-danger" type="button" ng-click="$ctrl.cancel()">Cancel</button>
-	    </div>
-	</script> -->
+
 
 	<!-- Playlist title and edulution logo -->
 	<div class="row titlerow">
 		<div class="col-md-3" id="elogo-container">
-			<a href="../index.html"><img src="elogo.png" class="elogo"></a>
+			<a href="#" onclick="window.open('/','_self')"><img src="images/portal/edulution_logo-small.png" class="elogo"></a>
 		</div>
 		<div class="col-md-6" id="playlist-name-container">
 			<h2 class="playlist_title">Alpha C Playlist</h2>
 		</div>
 		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="images/portal/kalitelogo.jpg" class="elogo"></a>
 		</div>		
 	</div>
 	<div class="container" id="menu" class="panel-group">
 		<div id="back_btn">
-			<a href="../index.html">
+			<a href="#" onclick="window.open('/','_self')">
 				<i class="fa fa-chevron-left"></i> Back
 			</a>
 		</div>
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="ra_menu" data-toggle="collapse" data-target="#ra_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/frac.png">   Ratios, Rates and Proportion</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/frac.png">   Ratios, Rates and Proportion</h3>
 		    </div>
 		    <div id="ra_ev" class="collapse" data-toggle="collapse" data-parent="#ra_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -122,7 +101,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="ath_menu" data-toggle="collapse" data-target="#ath_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/oop.png">   Artihmetic Operations</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/oop.png">   Artihmetic Operations</h3>
 		    </div>
 		    <div id="ath_ev" class="collapse" data-toggle="collapse" data-parent="#ath_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -193,7 +172,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="n_menu" data-toggle="collapse" data-target="#n_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/adsub2.png">   Negative Numbers</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/adsub2.png">   Negative Numbers</h3>
 		    </div>
 		    <div id="n_ev" class="collapse" data-toggle="collapse" data-parent="#n_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -268,7 +247,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="p_menu" data-toggle="collapse" data-target="#p_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/oop.png">   Properties of Numbers</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/oop.png">   Properties of Numbers</h3>
 		    </div>
 		    <div id="p_ev" class="collapse" data-toggle="collapse" data-parent="#p_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -321,7 +300,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="v_menu" data-toggle="collapse" data-target="#v_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/muldiv.png">   Variables & Expressions Induction</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/muldiv.png">   Variables & Expressions Induction</h3>
 		    </div>
 		    <div id="v_ev" class="collapse" data-toggle="collapse" data-parent="#v_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -392,7 +371,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="g_topic" data-toggle="collapse" data-target="#g_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/facmul.png">   Geometry</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/facmul.png">   Geometry</h3>
 		    </div>
 		    <div id="g_ev" class="collapse" data-toggle="collapse" data-parent="#g_topic" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -462,7 +441,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="d_topic" data-toggle="collapse" data-target="#d_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="alphaimgs/deci.png">   Data, Mean & Mode</h3>
+		        <h3 class="topic"><img src="images/portal/alphaimgs/deci.png">   Data, Mean & Mode</h3>
 		    </div>
 		    <div id="d_ev" class="collapse" data-toggle="collapse" data-parent="#d_topic" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -525,14 +504,14 @@
 		<!-- End row panel -->
 
 		<!-- Assessments -->
-		<div class="row panel" ng-controller="TestsCtrl as $ctrl">
+		<div class="row panel" >
 			<div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
-				<h3 class="topic"><img src="img/exam.png">   Assessments</h3>	
+				<h3 class="topic"><img src="images/portal/exam.png">   Assessments</h3>	
 			</div>
 			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
 				<table class="table">					
 					
-					<tr ng-click="$ctrl.openTest('num_alpha_c1')">
+					<tr onclick="window.open('num_alpha_c1')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>
@@ -541,7 +520,7 @@
 						</td>
 					</tr>						
 
-					<tr ng-click="$ctrl.openTest('num_alpha_c2')">
+					<tr onclick="window.open('num_alpha_c2')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>
@@ -550,7 +529,7 @@
 						</td>
 					</tr>						
 
-<!-- 					<tr ng-click="$ctrl.openTest('num_alpha_c3')">
+<!-- 					<tr onclick="window.open('num_alpha_c3')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>

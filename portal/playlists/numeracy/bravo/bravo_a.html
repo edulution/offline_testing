@@ -5,25 +5,23 @@
 	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/playlists/bravo.css">
-	<!-- <script src="../lib/ionic/js/ionic.bundle.js"></script> -->
-	<script src="../cordova.js"></script>
+	<!--  -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script src="js/playlists.js"></script>
+	<script src="js/portal/playlists.js"></script>
 
-	<script src="js/angular.min.js"></script>
 </head>
 <body>
 	<!-- Playlist title and edulution logo -->
 	<div class="row titlerow">
 		<div class="col-md-3" id="elogo-container">
-			<a a href="#" onclick="window.open('/','_self')"><img src="elogo.png" class="elogo"></a>
+			<a href="#" onclick="window.open('/','_self')"><img src="images/portal/edulution_logo-small.png" class="elogo"></a>
 		</div>
 		<div class="col-md-6" id="playlist-name-container">
 			<h2 class="playlist_title">Bravo A Playlist</h2>
 		</div>
 		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="images/portal/kalitelogo.jpg" class="elogo"></a>
 		</div>		
 	</div>
 	<div class="container" id="menu" class="panel-group">
@@ -35,7 +33,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="n_menu" data-toggle="collapse" data-target="#n_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/oop.png">   Numbers and Operations</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/oop.png">   Numbers and Operations</h3>
 		    </div>
 		    <div id="n_ev" class="collapse" data-toggle="collapse" data-parent="#n_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -117,7 +115,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="so_menu" data-toggle="collapse" data-target="#so_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Solving Equations with One Unknown</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Solving Equations with One Unknown</h3>
 		    </div>
 		    <div id="so_ev" class="collapse" data-toggle="collapse" data-parent="#so_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -178,7 +176,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="li_menu" data-toggle="collapse" data-target="#li_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Linear Equations and Functions</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Linear Equations and Functions</h3>
 		    </div>
 		    <div id="li_ev" class="collapse" data-toggle="collapse" data-parent="#li_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -262,7 +260,7 @@
 		<!-- Assessments -->
 		<div class="row panel">
 			<div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
-				<h3 class="topic"><img src="img/exam.png">   Assessments</h3>	
+				<h3 class="topic"><img src="images/portal/exam.png">   Assessments</h3>	
 			</div>
 			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
 				<table class="table">					

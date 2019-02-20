@@ -2,47 +2,40 @@
 <html ng-app="offlineTests">
 <head>
 	<title>Bravo C</title>
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/bravo.css">
-	<!-- <script src="../lib/ionic/js/ionic.bundle.js"></script> -->
-	<script src="../cordova.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/playlists.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/playlists/bravo.css">
+	<!--  -->
+	
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="js/portal/playlists.js"></script>
 
-	<script src="js/angular.js"></script>
-	<!-- <script src="pmodule/angular-animate.js"></script>
-	<script src="pmodule/angular-sanitize.js"></script>
-	<script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
-	<script src="pmodule/app.js"></script>
- -->
-	<!-- script with function to open tests on new system -->
-	<script src="js/open_offline_tests.js"></script>
+	
 </head>
 <body>
 	<!-- Playlist title and edulution logo -->
 	<div class="row titlerow">
 		<div class="col-md-3" id="elogo-container">
-			<a href="../index.html"><img src="elogo.png" class="elogo"></a>
+			<a href="#" onclick="window.open('/','_self')"><img src="images/portal/edulution_logo-small.png" class="elogo"></a>
 		</div>
 		<div class="col-md-6" id="playlist-name-container">
 			<h2 class="playlist_title">Bravo C Playlist</h2>
 		</div>
 		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="images/portal/kalitelogo.jpg" class="elogo"></a>
 		</div>		
 	</div>
 	<div class="container" id="menu" class="panel-group">
 		<div id="back_btn">
-			<a href="../index.html">
+			<a href="#" onclick="window.open('/','_self')">
 				<i class="fa fa-chevron-left"></i> Back
 			</a>
 		</div>
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="so_menu" data-toggle="collapse" data-target="#so_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Solving Equations and Inequalities</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Solving Equations and Inequalities</h3>
 		    </div>
 		    <div id="so_ev" class="collapse" data-toggle="collapse" data-parent="#so_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -115,7 +108,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="wo_menu" data-toggle="collapse" data-target="#wo_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/abs.png">   Working with Units</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/abs.png">   Working with Units</h3>
 		    </div>
 		    <div id="wo_ev" class="collapse" data-toggle="collapse" data-parent="#wo_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -169,7 +162,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="li_menu" data-toggle="collapse" data-target="#li_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Linear Equations and Graphs</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Linear Equations and Graphs</h3>
 		    </div>
 		    <div id="li_ev" class="collapse" data-toggle="collapse" data-parent="#li_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -251,7 +244,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="fu_menu" data-toggle="collapse" data-target="#fu_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lin.png">   Functions</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lin.png">   Functions</h3>
 		    </div>
 		    <div id="fu_ev" class="collapse" data-toggle="collapse" data-parent="#fu_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -343,7 +336,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="lin_menu" data-toggle="collapse" data-target="#lin_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/abs.png">   Linear Word Problems</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/abs.png">   Linear Word Problems</h3>
 		    </div>
 		    <div id="lin_ev" class="collapse" data-toggle="collapse" data-parent="#lin_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -397,7 +390,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="sys_menu" data-toggle="collapse" data-target="#sys_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lin.png">   Systems of Equations</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lin.png">   Systems of Equations</h3>
 		    </div>
 		    <div id="sys_ev" class="collapse" data-toggle="collapse" data-parent="#sys_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -446,7 +439,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="in_menu" data-toggle="collapse" data-target="#in_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Inequalities (Systems and Graphs)</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Inequalities (Systems and Graphs)</h3>
 		    </div>
 		    <div id="in_ev" class="collapse" data-toggle="collapse" data-parent="#in_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -513,7 +506,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="d_topic" data-toggle="collapse" data-target="#d_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/stats.png">   Data Distributions</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/stats.png">   Data Distributions</h3>
 		    </div>
 		    <div id="d_ev" class="collapse" data-toggle="collapse" data-parent="#d_topic" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -571,7 +564,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="se_menu" data-toggle="collapse" data-target="#se_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/prob.png">   Sequences</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/prob.png">   Sequences</h3>
 		    </div>
 		    <div id="se_ev" class="collapse" data-toggle="collapse" data-parent="#se_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -636,7 +629,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="ep_menu" data-toggle="collapse" data-target="#ep_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/exp.png">   Exponential Growth and Decay</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/exp.png">   Exponential Growth and Decay</h3>
 		    </div>
 		    <div id="ep_ev" class="collapse" data-toggle="collapse" data-parent="#ep_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -692,7 +685,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="gt_menu" data-toggle="collapse" data-target="#gt_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/triangle.png">   Geometry Transformations</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/triangle.png">   Geometry Transformations</h3>
 		    </div>
 		    <div id="gt_ev" class="collapse" data-toggle="collapse" data-parent="#gt_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -776,7 +769,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="co_menu" data-toggle="collapse" data-target="#co_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/triangle.png">   Congruence</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/triangle.png">   Congruence</h3>
 		    </div>
 		    <div id="co_ev" class="collapse" data-toggle="collapse" data-parent="#co_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -851,7 +844,7 @@
 		<div class="row panel">
 		    <!-- Begin row panel -->
 		    <div id="an_menu" data-toggle="collapse" data-target="#an_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/vol.png">   Analytic Geometry</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/vol.png">   Analytic Geometry</h3>
 		    </div>
 		    <div id="an_ev" class="collapse" data-toggle="collapse" data-parent="#an_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -911,14 +904,14 @@
 		<!-- End row panel -->
 
 		<!-- Assessments -->
-		<div class="row panel" ng-controller="TestsCtrl as $ctrl">
+		<div class="row panel" >
 			<div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
-				<h3 class="topic"><img src="img/exam.png">   Assessments</h3>	
+				<h3 class="topic"><img src="images/portal/exam.png">   Assessments</h3>	
 			</div>
 			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
 				<table class="table">					
 					
-					<tr ng-click="$ctrl.openTest('num_bravo_c1')">
+					<tr onclick="window.open('num_bravo_c1','_self')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>
@@ -927,27 +920,15 @@
 						</td>
 					</tr>						
 
-					<tr ng-click="$ctrl.openTest('num_bravo_c2')">
+					<tr onclick="window.open('num_bravo_c2','_self')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>
 						<td>
 							<h4 class="assesment_name">Test 2</h4>
 						</td>
-					</tr>						
-
-<!-- 					<tr ng-click="$ctrl.openTest('num_bravo_c3')">
-						<td>
-							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
-						</td>
-						<td>
-							<h4 class="assesment_name">Test 3</h4>
-						</td>
-					</tr> -->						
-																
+					</tr>										
 				</table>				
-					
-			
 			</div>
 		</div> 
 		<!-- End Assessments -->
