@@ -56,54 +56,54 @@ app.get('/literacy_tests', function (req, res) {
 
 /*Alpha playlists*/
 app.get('/alpha_a', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/alpha_a.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_a.html');
 });
 
 app.get('/alpha_b', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/alpha_b.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_b.html');
 });
 
 app.get('/alpha_c', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/alpha_c.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_c.html');
 });
 
 app.get('/alpha_d', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/alpha_d.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_d.html');
 });
 
 
 /*Bravo Playlists*/
 app.get('/bravo_a', function (req, res) {
- res.sendFile( __dirname + '/portal/bravo_a.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_a.html');
 });
 
 app.get('/bravo_b', function (req, res) {
- res.sendFile( __dirname + '/portal/bravo_b.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_b.html');
 });
 
 app.get('/bravo_c', function (req, res) {
- res.sendFile( __dirname + '/portal/bravo_c.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_c.html');
 });
 
 app.get('/bravo_d', function (req, res) {
- res.sendFile( __dirname + '/portal/bravo_d.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_d.html');
 });
 
 /*Pre-Alpha playlists*/
 app.get('/prealpha_a', function (req, res) {
- res.sendFile( __dirname + '/portal/prealpha_a.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_a.html');
 });
 
 app.get('/prealpha_b', function (req, res) {
- res.sendFile( __dirname + '/portal/prealpha_b.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_b.html');
 });
 
 app.get('/prealpha_c', function (req, res) {
- res.sendFile( __dirname + '/portal/prealpha_c.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_c.html');
 });
 
 app.get('/prealpha_d', function (req, res) {
- res.sendFile( __dirname + '/portal/prealpha_d.html');
+ res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_d.html');
 });
 
 
