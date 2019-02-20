@@ -45,6 +45,70 @@ app.get('/', function (req, res) {
  res.sendFile( __dirname + '/portal/index.html');
 });
 
+/*index of topics*/
+app.get('/topics', function (req, res) {
+ res.sendFile( __dirname + '/portal/topics-index.html');
+});
+
+app.get('/literacy_tests', function (req, res) {
+ res.sendFile( __dirname + '/portal/literacy_tests.html');
+});
+
+/*Alpha playlists*/
+app.get('/alpha_a', function (req, res) {
+ res.sendFile( __dirname + '/portal/playlists/alpha_a.html');
+});
+
+app.get('/alpha_b', function (req, res) {
+ res.sendFile( __dirname + '/portal/playlists/alpha_b.html');
+});
+
+app.get('/alpha_c', function (req, res) {
+ res.sendFile( __dirname + '/portal/playlists/alpha_c.html');
+});
+
+app.get('/alpha_d', function (req, res) {
+ res.sendFile( __dirname + '/portal/playlists/alpha_d.html');
+});
+
+
+/*Bravo Playlists*/
+app.get('/bravo_a', function (req, res) {
+ res.sendFile( __dirname + '/portal/bravo_a.html');
+});
+
+app.get('/bravo_b', function (req, res) {
+ res.sendFile( __dirname + '/portal/bravo_b.html');
+});
+
+app.get('/bravo_c', function (req, res) {
+ res.sendFile( __dirname + '/portal/bravo_c.html');
+});
+
+app.get('/bravo_d', function (req, res) {
+ res.sendFile( __dirname + '/portal/bravo_d.html');
+});
+
+/*Pre-Alpha playlists*/
+app.get('/prealpha_a', function (req, res) {
+ res.sendFile( __dirname + '/portal/prealpha_a.html');
+});
+
+app.get('/prealpha_b', function (req, res) {
+ res.sendFile( __dirname + '/portal/prealpha_b.html');
+});
+
+app.get('/prealpha_c', function (req, res) {
+ res.sendFile( __dirname + '/portal/prealpha_c.html');
+});
+
+app.get('/prealpha_d', function (req, res) {
+ res.sendFile( __dirname + '/portal/prealpha_d.html');
+});
+
+
+
+
 /*Results dashboard page*/
 app.get('/coach', function (req, res) {
  res.sendFile( __dirname + '/dashboard/index.html');
