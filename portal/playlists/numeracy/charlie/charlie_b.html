@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Charlie B</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/charlie.css">
+	<script src="../lib/ionic/js/ionic.bundle.js"></script>
+	<script src="../cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<script src="js/playlists.js"></script>
+</head>
+<body>
+	<!-- Playlist title and edulution logo -->
+	<div class="row titlerow">
+		<div class="col-md-3" id="elogo-container">
+			<a href="../index.html"><img src="elogo.png" class="elogo"></a>
+		</div>
+		<div class="col-md-6" id="playlist-name-container">
+			<h2 class="playlist_title">Charlie B Playlist</h2>
+		</div>
+		<div class="col-md-3" id="elogo-container">
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+		</div>		
+	</div>
+			
+	<div class="container" id="menu" class="panel-group">
+		<div id="back_btn">
+			<a href="../index.html">
+				<i class="fa fa-chevron-left"></i> Back
+			</a>
+		</div>
+		<div class="row panel" >
+			<div data-toggle="collapse" data-target="#aplhaA1" data-parent="#menu">
+				<h3 class="topic"><img src="charlieimgs/mat.png">   Matrices</h3>
+			</div>
+			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="aplhaA1">
+				<table class="table">
+					<tr onclick="playlisturl('Charlie','B',0,'Exercise')">
+						<td>
+							<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+						</td>
+						<td>
+							<h4 class="assesment_name">Introduction to the matrix</h4>
+						</td>
+						</tr>				
+						<tr onclick="playlisturl('Charlie','B',1,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Matrix dimensions</h4>
+							</td>
+						</tr>					
+						<tr onclick="playlisturl('Charlie','B',2,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Matrix transpose</h4>
+							</td>
+						</tr>					
+						<tr onclick="playlisturl('Charlie','B',3,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Scalar multiplication</h4>
+							</td>
+						</tr>					
+						<tr onclick="playlisturl('Charlie','B',4,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Matrix addition and subtraction</h4>
+							</td>
+						</tr>					
+						<tr onclick="playlisturl('Charlie','B',5,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Zero matrix</h4>
+							</td>
+						</tr>					
+						<tr onclick="playlisturl('Charlie','B',6,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Multiplying matrix by a matrix</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',7,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Finding the determinant of a 2 x 2 matrix</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',8,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Inverse of a 2 x 2 matrix</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',9,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Determine inverse matrice</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',10,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Matrices to solve a system of equations</h4>
+							</td>
+						</tr>						
+					
+				</table>
+
+				
+			</div>
+		</div>
+
+			<div class="row panel">
+				<div data-toggle="collapse" data-target="#aplhaA2" data-parent="#menu">
+					<h3 class="topic"><img src="charlieimgs/trig.png">   Trigonometry and Pre-calculus</h3>	
+				</div>
+				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="aplhaA2">
+					<table class="table">
+						<tr onclick="playlisturl('Charlie','B',11,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Arithemetic Sequence</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',12,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Finding the 100th term in a sequence</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',13,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Arithmetic Sequence 1</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',14,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Recursive formulas for sequences</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',15,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Recursive formulas for sequences</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',16,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Extending arithmetic sequences</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',17,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Explicit formulas- or arithmetic sequences</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',18,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Explicit formulas for arithmetic sequences 1</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',19,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Geometric sequences introduction</h4>
+							</td>
+						</tr>												
+						<tr onclick="playlisturl('Charlie','B',21,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Geometric sequences 1</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',22,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Geometric sequence 2</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',23,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Sequence word problem</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',24,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Sequences word problems</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',25,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Midpoint formula</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',26,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Midpoint formula</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',27,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Distance formula</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',28,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Distance formula</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',29,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Slope of a line: negative slope</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',30,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Slope of a line secant to a curve</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',31,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Equation of a line from fractional slope and point</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',32,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Equation of a line: any form</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',33,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Intro to linear equation standard form</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',34,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Graph from slope intercept equation</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',35,'Exercise')">
+							<td>
+								<i class="fa fa-play-circle-o fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Parallel and perpendicular lines intro</h4>
+							</td>
+						</tr>						
+						<tr onclick="playlisturl('Charlie','B',36,'Exercise')">
+							<td>
+								<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h4 class="assesment_name">Recognizing parallel and perpendicular lines</h4>
+							</td>
+						</tr>					
+											
+					</table>				
+						
+				
+				</div>
+			</div>			
+			
+			
+	</div>
+
+</body>
+</html>

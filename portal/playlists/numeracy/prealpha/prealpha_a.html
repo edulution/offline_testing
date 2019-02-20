@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pre-Alpha B</title>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/prealpha.css">
+	<script src="../lib/ionic/js/ionic.bundle.js"></script>
+	<script src="js/angular1.6.min.js"></script>
+	<script src="js/page_behavior.js"></script>
+	<script src="../js/app.js"></script>
+	<script src="../cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<script src="js/playlists.js"></script>
+</head>
+<body>
+
+	<!-- Playlist title and edulution logo -->
+	<div class="row titlerow">
+		<div class="col-md-3" id="elogo-container">
+			<a href="../index.html"><img src="elogo.png" class="elogo"></a>
+		</div>
+		<div class="col-md-6" id="playlist-name-container">
+			<h2 class="playlist_title">Pre-Alpha A Playlist</h2>
+		</div>
+		<div class="col-md-3" id="kalogo-container">
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+		</div>		
+	</div>
+	<div class="container" id="menu" class="panel-group">
+		<div id="back_btn">
+			<a href="../index.html">
+				<i class="fa fa-chevron-left"></i> Back
+			</a>
+		</div>
+		<div class="row panel" >
+			<div id="c_topic" data-toggle="collapse" data-target="#c_ex" data-parent="#menu">
+				<h3 class="topic"><img src="prealphaimgs/counting1.png">   Counting</h3>
+			</div>
+			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="c_ex">
+				<table class="table">
+					<tr onclick="playlisturl('Pre','A',1,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">1. Count with Small Numbers</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',2,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">2. Count in Order</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',3,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">3. Finding One More or One Less than a Number</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',4,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">4. Missing Numbers</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',5,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">5. Numbers to 100</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',6,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">6. Numbers to 120</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',7,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">7. Count Tens</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',8,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">8. Count in Pictures</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',9,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">9. Count Objects 1</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',10,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">10. Count Objects 2</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',11,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">11. Compare Numbers of Objects 1</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',12,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">12. Comparing Numbers to 10</h4></td></tr>
+					<tr onclick="playlisturl('Pre','A',13,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">13. Compare Number of Objects 2</h4></td></tr>
+				</table>
+
+				
+			</div>
+		</div>
+			<div class="row panel">
+				<div id="a_topic" data-toggle="collapse" data-target="#a_ex" data-parent="#menu">
+				
+					<h3 class="topic"><img src="prealphaimgs/addsub.png">   Addition and Subtraction</h3>	
+				</div>
+				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="a_ex">
+					<table class="table">
+						<tr onclick="playlisturl('Pre','A',14,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">14. adding within 5</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',15,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">15. Subract within 5</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',16,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">16. Making 5</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',17,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">17. Making Small Numbers in Different Ways</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',18,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">18. Make 10 (grids and number bonds)</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',19,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">19. Make10</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',20,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">20. Add within 10</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',21,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">21. Subtract within 10</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',22,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">22. Relate Addition and Subtraction</h4></td></tr>
+					</table>
+
+				
+				</div>
+			</div>
+			<div class="row panel">
+				<div id="g_topic" data-toggle="collapse" data-target="#g_ex" data-parent="#menu">
+					<h3 class="topic"><img src="prealphaimgs/geometry.png">   Basic Geometry</h3>	
+				</div>
+				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="g_ex">
+					<table class="table">					
+						<tr onclick="playlisturl('Pre','A',23,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">23. Compare Size</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',24,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">24. Name shapes 1</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',25,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">25. Name shapes 2</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',26,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">26. Relative position</h4></td></tr>
+						<tr onclick="playlisturl('Pre','A',27,'Exercise')"><td><i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i></td><td><h4 class="assesment_name">27. Compose shapes</h4></td></tr>						
+					</table>				
+						
+				
+				</div>
+			</div>
+	</div>
+
+</body>
+</html>
