@@ -1,0 +1,87 @@
+
+#extra_btns{
+	margin-bottom: 10%;
+}
+#index-of-topics-btn{
+	float: left;
+	margin-left: 10%;
+	padding: 1%;
+	background-color: #159B15;
+	box-shadow: 2px 2px 2px 2px #3F3F3F;
+	border: #159B15;
+}
+
+#literacy-assessments-btn{
+	float: right;
+	margin-right: 6%;
+	padding: 1%;
+	background-color: #159B15;
+	box-shadow: 2px 2px 2px 2px #3F3F3F;
+	border: #159B15;
+}
+
+#index-of-topics-btn a{
+	text-decoration: none;
+}
+#index-of-topics-btn a:link{
+	text-decoration: none;
+
+}
+#index-of-topics-btn a:hover{
+	text-decoration: none;
+
+}
+#index-of-topics-btn a:visited{
+	text-decoration: none;
+}
+
+#index-of-topics-btn a h2{
+	margin-bottom: 0;
+}
+
+
+#literacy-assessments-btn a{
+	text-decoration: none;
+}
+#literacy-assessments-btn a:link{
+	text-decoration: none;
+
+}
+#literacy-assessments-btn a:hover{
+	text-decoration: none;
+
+}
+#literacy-assessments-btn a:visited{
+	text-decoration: none;
+}
+
+#literacy-assessments-btn a h2{
+	margin-bottom: 0;
+}
+
+/*Back button*/
+#back_btn{
+	position: absolute;
+	padding: 1.2%;
+	border: 1px solid whitesmoke;
+	margin-top: 1.5%;
+	border-radius: 10px;
+	font-size: 18px;
+	color: black;
+	background-color: whitesmoke;
+	box-shadow: 0 1px 1px;
+}
+
+#back_btn a:hover{
+	color: black;
+	text-decoration: none;
+}	
+
+#back_btn a:link{
+	color: black;
+}
+
+#back_btn a:active{
+	color: black;
+	text-decoration: none;
+}
