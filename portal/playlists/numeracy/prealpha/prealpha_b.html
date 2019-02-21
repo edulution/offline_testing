@@ -2,41 +2,41 @@
 <html>
 <head>
 	<title>Pre-Alpha B</title>
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/prealpha.css">
-	<script src="../lib/ionic/js/ionic.bundle.js"></script>
-	<script src="js/angular1.6.min.js"></script>
-	<script src="js/page_behavior.js"></script>
-	<script src="../js/app.js"></script>
-	<script src="../cordova.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/playlists.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/playlists/prealpha.css">
+	
+	
+	
+	
+	
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="js/portal/playlists.js"></script>
 </head>
 <body>
 
 	<!-- Playlist title and edulution logo -->
 	<div class="row titlerow">
 		<div class="col-md-3" id="elogo-container">
-			<a href="../index.html"><img src="elogo.png" class="elogo"></a>
+			<a href="#" onclick="window.open('/','_self')"><img src="images/portal/edulution_logo-small.png" class="elogo"></a>
 		</div>
 		<div class="col-md-6" id="playlist-name-container">
 			<h2 class="playlist_title">Pre-Alpha B Playlist</h2>
 		</div>
 		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="images/portal/kalitelogo.jpg" class="elogo"></a>
 		</div>		
 	</div>
 	<div class="container" id="menu" class="panel-group">
 		<div id="back_btn">
-			<a href="../index.html">
+			<a href="#" onclick="window.open('/','_self')">
 				<i class="fa fa-chevron-left"></i> Back
 			</a>
 		</div>
-		<div class="row panel" >
+		<div  >
 			<div id="p_topic" data-toggle="collapse" data-target="#p_ex" data-parent="#menu">
-				<h3 class="topic"><img src="prealphaimgs/counting1.png">   Place Value</h3>
+				<h3 class="topic"><img src="images/portal/prealphaimgs/counting1.png">   Place Value</h3>
 			</div>
 			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="p_ex">
 				<table class="table">
@@ -49,10 +49,10 @@
 				
 			</div>
 		</div>
-			<div class="row panel">
+			<div >
 				<div id="a_topic" data-toggle="collapse" data-target="#a_ex" data-parent="#menu">
 				
-					<h3 class="topic"><img src="prealphaimgs/addsub.png">   Addition and Subtraction</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/addsub.png">   Addition and Subtraction</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="a_ex">
 					<table class="table">
@@ -71,9 +71,9 @@
 				
 				</div>
 			</div>
-			<div class="row panel">
+			<div >
 				<div id="m_topic" data-toggle="collapse" data-target="#m_ex" data-parent="#menu">
-					<h3 class="topic"><img src="prealphaimgs/geometry.png">   Measurement and Data</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/geometry.png">   Measurement and Data</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="m_ex">
 					<table class="table">
@@ -85,9 +85,9 @@
 				</div>
 			</div>
 
-			<div class="row panel">
+			<div >
 				<div id="g_topic" data-toggle="collapse" data-target="#g_ex" data-parent="#menu">
-					<h3 class="topic"><img src="prealphaimgs/geometry.png">   Geometry</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/geometry.png">   Geometry</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="g_ex">
 					<table class="table">
@@ -99,9 +99,9 @@
 				</div>
 			</div>			
 
-			<div class="row panel">
+			<div >
 				<div id="pv_topic" data-toggle="collapse" data-target="#pv_ex" data-parent="#menu">
-					<h3 class="topic"><img src="prealphaimgs/counting1.png">   Place Value 2</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/counting1.png">   Place Value 2</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="pv_ex">
 					<table class="table">
@@ -113,9 +113,9 @@
 				
 				</div>
 			</div>			
-			<div class="row panel">
+			<div >
 				<div id="adsub2_topic" data-toggle="collapse" data-target="#adsub2_ex" data-parent="#menu">
-					<h3 class="topic"><img src="prealphaimgs/addsub.png">   Addition and Subtraction 2</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/addsub.png">   Addition and Subtraction 2</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="adsub2_ex">
 					<table class="table">
@@ -146,9 +146,9 @@
 				
 				</div>
 			</div>			
-			<div class="row panel">
+			<div >
 				<div id="md_topic" data-toggle="collapse" data-target="#md_ex" data-parent="#menu">
-					<h3 class="topic"><img src="prealphaimgs/counting1.png">   Measurement and Data 2</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/counting1.png">   Measurement and Data 2</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="md_ex">
 					<table class="table">
@@ -164,9 +164,9 @@
 				
 				</div>
 			</div>			
-			<div class="row panel">
+			<div >
 				<div id="g2_topic" data-toggle="collapse" data-target="#g2_ex" data-parent="#menu">
-					<h3 class="topic"><img src="prealphaimgs/geometry.png">   Geometry 2</h3>	
+					<h3 class="topic"><img src="images/portal/prealphaimgs/geometry.png">   Geometry 2</h3>	
 				</div>
 				<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="g2_ex">
 					<table class="table">

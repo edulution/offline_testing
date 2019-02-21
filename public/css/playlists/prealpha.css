@@ -295,3 +295,9 @@ a:active {
 		text-decoration: none;
 	}
 }
+
+
+/* icon padding */
+.icons{
+    margin-right:400px;
+}

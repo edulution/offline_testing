@@ -2,47 +2,38 @@
 <html ng-app="offlineTests">
 <head>
 	<title>Bravo A</title>
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/bravo.css">
-	<!-- <script src="../lib/ionic/js/ionic.bundle.js"></script> -->
-	<script src="../cordova.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/playlists.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/playlists/bravo.css">
+	<!--  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="js/portal/playlists.js"></script>
 
-	<script src="js/angular.js"></script>
-	<!-- <script src="pmodule/angular-animate.js"></script>
-	<script src="pmodule/angular-sanitize.js"></script>
-	<script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
-	<script src="pmodule/app.js"></script>
- -->
-	<!-- script with function to open tests on new system -->
-	<script src="js/open_offline_tests.js"></script>
 </head>
 <body>
 	<!-- Playlist title and edulution logo -->
 	<div class="row titlerow">
 		<div class="col-md-3" id="elogo-container">
-			<a href="../index.html"><img src="elogo.png" class="elogo"></a>
+			<a href="#" onclick="window.open('/','_self')"><img src="images/portal/edulution_logo-small.png" class="elogo"></a>
 		</div>
 		<div class="col-md-6" id="playlist-name-container">
 			<h2 class="playlist_title">Bravo A Playlist</h2>
 		</div>
 		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_system','location=yes')"><img src="kalitelogo.jpg" class="elogo"></a>
+			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="images/portal/kalitelogo.jpg" class="elogo"></a>
 		</div>		
 	</div>
 	<div class="container" id="menu" class="panel-group">
 		<div id="back_btn">
-			<a href="../index.html">
+			<a href="#" onclick="window.open('/','_self')">
 				<i class="fa fa-chevron-left"></i> Back
 			</a>
 		</div>
-		<div class="row panel">
+		<div >
 		    <!-- Begin row panel -->
 		    <div id="n_menu" data-toggle="collapse" data-target="#n_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/oop.png">   Numbers and Operations</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/oop.png">   Numbers and Operations</h3>
 		    </div>
 		    <div id="n_ev" class="collapse" data-toggle="collapse" data-parent="#n_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -121,10 +112,10 @@
 		    <!-- End ev_container -->
 		</div>
 		<!-- End row panel -->
-		<div class="row panel">
+		<div >
 		    <!-- Begin row panel -->
 		    <div id="so_menu" data-toggle="collapse" data-target="#so_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Solving Equations with One Unknown</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Solving Equations with One Unknown</h3>
 		    </div>
 		    <div id="so_ev" class="collapse" data-toggle="collapse" data-parent="#so_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -182,10 +173,10 @@
 		    <!-- End ev_container -->
 		</div>
 		<!-- End row panel -->
-		<div class="row panel">
+		<div >
 		    <!-- Begin row panel -->
 		    <div id="li_menu" data-toggle="collapse" data-target="#li_ev" data-parent="#menu">
-		        <h3 class="topic"><img src="bravoimgs/lineq.png">   Linear Equations and Functions</h3>
+		        <h3 class="topic"><img src="images/portal/bravoimgs/lineq.png">   Linear Equations and Functions</h3>
 		    </div>
 		    <div id="li_ev" class="collapse" data-toggle="collapse" data-parent="#li_menu" class="collapse">
 		        <!-- Begin exercises/videos container -->
@@ -267,14 +258,14 @@
 		<!-- End row panel -->
 
 		<!-- Assessments -->
-		<div class="row panel" ng-controller="TestsCtrl as $ctrl">
+		<div >
 			<div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
-				<h3 class="topic"><img src="img/exam.png">   Assessments</h3>	
+				<h3 class="topic"><img src="images/portal/exam.png">   Assessments</h3>	
 			</div>
 			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
 				<table class="table">					
 					
-					<tr ng-click="$ctrl.openTest('num_bravo_a1')">
+					<tr onclick="window.open('/num_bravo_a1','_self')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>
@@ -283,24 +274,14 @@
 						</td>
 					</tr>						
 
-					<tr ng-click="$ctrl.openTest('num_bravo_a2')">
+					<tr onclick="window.open('/num_bravo_a2','_self')">
 						<td>
 							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
 						</td>
 						<td>
 							<h4 class="assesment_name">Test 2</h4>
 						</td>
-					</tr>						
-
-<!-- 					<tr ng-click="$ctrl.openTest('num_bravo_a3')">
-						<td>
-							<i class="fa fa-pencil fa-2x exercise_icon" aria-hidden="true"></i>
-						</td>
-						<td>
-							<h4 class="assesment_name">Test 3</h4>
-						</td>
-					</tr> -->						
-																
+					</tr>											
 				</table>				
 					
 			
