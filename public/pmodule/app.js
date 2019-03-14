@@ -8,7 +8,7 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
   $ctrl.animationsEnabled = true;
 
 /*Initalize function when page is loaded*/
-  $scope.init = function(argument) {
+  $scope.init = function() {
     /*Empty object for testResponse*/
     $scope.testResponse = {};
 
@@ -38,7 +38,7 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
     })
 
     /*Open password modal when page loads*/
-    /*$ctrl.openPasswordModal();*/
+    $ctrl.openPasswordModal();
   }
 
   /*Function to open password modal*/
@@ -114,7 +114,9 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
     $scope.testResponse.user_id = currentUser.user_id 
 
     /*set the test date of the response to the server date*/
-    $scope.testResponse.test_date = $scope.serverDate 
+    $scope.testResponse.test_date = $scope.serverDate
+
+    /*console.log($scope.testResponse)*/
     
     $http.post("/submit_test", $scope.testResponse).then(function(success) {
       /*redirect to sucessful submission page*/
