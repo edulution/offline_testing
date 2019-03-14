@@ -116,8 +116,6 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
     /*set the test date of the response to the server date*/
     $scope.testResponse.test_date = $scope.serverDate
 
-    /*console.log($scope.testResponse)*/
-    
     $http.post("/submit_test", $scope.testResponse).then(function(success) {
       /*redirect to sucessful submission page*/
       window.location = '/sucessful_submit'
