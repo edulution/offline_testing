@@ -4,9 +4,6 @@
 <html ng-app="passProtect">
 
 <head>
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<![endif]-->
     <title>Bravo D2</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +15,7 @@
     <!--Fonts-->
     <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!--Js-->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -33,617 +30,602 @@
 
     <style>
         .HeaderbannerLabel {
-			background-color: rgb(0, 0, 255);
-			color: rgba(255, 255, 255, 1);
-			font-size: 20px;
-			font-weight: 500;
-			padding-left: 34px;
-			margin-left: -30px;
-			font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-			padding: 8px 8px 8px 42px;
-			margin-top: 30px;
-			margin-bottom: 25px;
-			width: 30%;
-		}
+            background-color: rgb(0, 0, 255);
+            color: rgba(255, 255, 255, 1);
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 34px;
+            margin-left: -30px;
+            font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+            padding: 8px 8px 8px 42px;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            width: 30%;
+        }
 
-		.ins {
-			color: #212121;
-			font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-			line-height: 135%;
-			margin-top: 22px;
-			white-space: pre-wrap;
-		}
+        .ins {
+            color: #212121;
+            font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+            line-height: 135%;
+            margin-top: 22px;
+            white-space: pre-wrap;
+        }
 
-		h3 {
-			font-weight: normal;
-		}
+        h3 {
+            font-weight: normal;
+        }
 
-		.box {
-			display: inline-block;
-			background-color: none;
-			vertical-align: middle
-		}
+        .box {
+            display: inline-block;
+            background-color: none;
+            vertical-align: middle
+        }
 
-		span.frac {
-			display: inline-block;
-			font-size: 75%;
-			text-align: center;
-			vertical-align: middle
-		}
+        span.frac {
+            display: inline-block;
+            font-size: 75%;
+            text-align: center;
+            vertical-align: middle
+        }
 
-		span.frac>sup {
-			display: block;
-			border-bottom: 1px solid;
-			font: inherit;
-		}
+        span.frac>sup {
+            display: block;
+            border-bottom: 1px solid;
+            font: inherit;
+        }
 
-		span.frac>span {
-			display: none;
-		}
+        span.frac>span {
+            display: none;
+        }
 
-		span.icon>span {
-			display: inline-block;
-			font-size: 1.1em
-		}
+        span.icon>span {
+            display: inline-block;
+            font-size: 1.1em
+        }
 
-		span.frac>sub {
-			display: block;
-			font: inherit;
-		}
-	</style>
+        span.frac>sub {
+            display: block;
+            font: inherit;
+        }
+    </style>
 </head>
 
-<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(135, 206, 250); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
-    <!-- TODO: Add inline script for passowrd modal -->
-    <!-- Password modal -->
-    <script type="text/ng-template" id="testModalContent.html">
-        <div class="modal-header">
-<h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
-				</div>
-<div class="modal-body" id="modal-body">
-<label class="item item-input">
-		<input ng-model="password" type="password" class="form-control" id="passwordInput" required>
-				</label>
-<p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
-				</div>
-<div class="modal-footer">
-<button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
-<button class="btn btn-danger" type="button">Cancel</button>
-				</div>
-		</script>
+<body ng-controller="MainCtrl as ctrl" style="background-color: rgb(135, 206, 250); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+    <!-- include partial for password modal -->
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
-    <span ng-init=ctrl.openModal()></span>
+    <span ng-init=init()></span>
     <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
         <div class="row">
             <div class="container page">
                 <div class="row">
                     <div id="edulution_logo">
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
-					</div>
-                        <div class="pd-tb">
-                            <div class="pd-lr">
-                                <form action="/submit_test" name="testForm2" method="post">
-                                    <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Bravo D2</p>
-                                    <div class="HeaderbannerLabel">USERNAME</div>
-                                    <!-- Input fiels for user_id contains some js code for validation -->
-                                    <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
-                                    <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                    <span class="password-error" ng-show="testForm2.$dirty && testForm2.username.$error.whitelist">Please enter a valid Student ID</span>
-                                    <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
-                                    <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                                    <div class="ins">Time allowed: 1 Hour <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
-                                    <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
-                                    <!-- TODO: Add form name,action and method -->
-                                    <!-- <form name="testForm" action="/submit_test" method="post"> -->
-                                    <h3>(1) Given the formula for a piecewise function, evaluate it for specific input.</h3>
-                                    <p>g(12) = ?</p>
-                                    <div>
-                                        <img src="images/bravo_d2/d2q1.jpg" />
-								</div>
-                                        <p>
-                                            <!-- TODO: Add value attribute to each radio button -->
-                                            <!-- Each group of radio buttons with the same name corresponds to one question -->
-                                            <!-- Wrong answers are 0, correct answer is 1 -->
-                                            <!-- Example below -->
-                                            <!-- <input type="radio" id="test1" name="q1" value="0"> -->
-                                            <input type="radio" id="q1_a" name="q1" value="0">
-                                            <label for="q1_a">6</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q1_b" name="q1" value="0">
-                                            <label for="q1_b">8</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q1_c" name="q1" value="1">
-                                            <label for="q1_c">10</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q1_d" name="q1" value="0">
-                                            <label for="q1_d">12</label>
-                                        </p>
-                                        <h3>(2) (&minus;5q<sup>2</sup> &plus; 6q &plus; 7) &plus; (&minus;q<sup>2</sup> &plus; 4q)</h3>
-                                        <p>Simplify the expression above.</p>
-                                        <p>
-                                            <input type="radio" id="q2_a" name="q2" value="0">
-                                            <label for="q2_a">&minus;6q<sup>2</sup> &minus; 10q &plus; 7</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q2_b" name="q2" value="0">
-                                            <label for="q2_b">6q<sup>2</sup> &plus; 10q &minus; 7</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q2_c" name="q2" value="1">
-                                            <label for="q2_c">&minus;6q<sup>2</sup> &plus; 10q &plus; 7</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q2_d" name="q2" value="0">
-                                            <label for="q2_d">&minus;6q<sup>2</sup> &plus; 10q &minus; 7</label>
-                                        </p>
-                                        <h3>(3) &minus;f<sup>7</sup> &times; &minus;f<sup>5</sup></h3>
-                                        <p>Simplify the expression above.</p>
-                                        <p>
-                                            <input type="radio" id="q3_a" name="q3" value="0">
-                                            <label for="q3_a">f<sup>5</sup></label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q3_b" name="q3" value="0">
-                                            <label for="q3_b">f<sup>7</sup></label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q3_c" name="q3" value="0">
-                                            <label for="q3_c">f<sup>9</sup></label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q3_d" name="q3" value="1">
-                                            <label for="q3_d">f<sup>12</sup></label>
-                                        </p>
-                                        <h3>(4) &minus;15y<sup>4</sup> &equals; d(3y<sup>2</sup>)</h3>
-                                        <p>Find the missing factor d that makes the equality true.</p>
-                                        <p>
-                                            <input type="radio" id="q4_a" name="q4" value="0">
-                                            <label for="q4_a">5y<sup>2</sup></label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q4_b" name="q4" value="1">
-                                            <label for="q4_b">&minus;5y<sup>2</sup></label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q4_c" name="q4" value="0">
-                                            <label for="q4_c">&minus;5y<sup>4</sup></label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q4_d" name="q4" value="0">
-                                            <label for="q4_d">&minus;5y<sup>6</sup></label>
-                                        </p>
-                                        <h3>(5) 25y<sup>2</sup> &minus; 35y </h3>
-                                        <p>Factor the polynomial by its greatest common monomial factor.</p>
-                                        <p>
-                                            <input type="radio" id="q5_a" name="q5" value="0">
-                                            <label for="q5_a">5(5y &minus; 7)</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q5_b" name="q5" value="0">
-                                            <label for="q5_b">5y(5 &minus; 7)</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q5_c" name="q5" value="1">
-                                            <label for="q5_c">5y(5y &minus; 7)</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q5_d" name="q5" value="0">
-                                            <label for="q5_d">5y(5y &plus; 7)</label>
-                                        </p>
-                                        <h3>(6) 9 &minus; 25x<sup>2</sup></h3>
-                                        <p>Factorise the equation above.</p>
-                                        <p>
-                                            <input type="radio" id="q6_a" name="q6" value="1">
-                                            <label for="q6_a">(3 &minus; 5x)(3 &minus; 5x)</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q6_b" name="q6" value="0">
-                                            <label for="q6_b">(3 &plus; 5x)(3 &minus; 5x)</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q6_c" name="q6" value="0">
-                                            <label for="q6_c">(3 &plus; 5x)(3 &plus; 5x)</label>
-                                        </p>
-                                        <p>
-                                            <input type="radio" id="q6_d" name="q6" value="0">
-                                            <label for="q6_d">(3 &plus; 5x)(3 &minus; 5x)<sup>2</sup></label>
-                                        </p>
-                                        <h3>(7) Find the arc length shaded in blue of AC.</h3>
-                                        <p>Use &pi; = 3.14</p>
-                                        <div>
-                                            <img src="images/bravo_d2/d2q7.jpg" />
-								</div>
-                                            <p>
-                                                <input type="radio" id="q7_a" name="q7" value="0">
-                                                <label for="q7_a">3.14cm</label>
-                                            </p>
-                                            <p>
-                                                <input type="radio" id="q7_b" name="q7" value="1">
-                                                <label for="q7_b">6.28cm</label>
-                                            </p>
-                                            <p>
-                                                <input type="radio" id="q7_c" name="q7" value="0">
-                                                <label for="q7_c">12.56cm</label>
-                                            </p>
-                                            <p>
-                                                <input type="radio" id="q7_d" name="q7" value="0">
-                                                <label for="q7_d">31.4cm</label>
-                                            </p>
-                                            <h3>(8) 3<sup>(7 &minus; 2x)</sup> &equals;
-									(<span class="frac">
-										<sup>1</sup>
-										<span>/</span>
-										<sub>27</sub>
-									</span>)<sup>&minus;8</sup>
-								</h3>
-                                            <p>Solve the exponential equation for x</p>
-                                            <p>
-                                                <input type="radio" id="q8_a" name="q8" value="0">
-                                                <label for="q8_a">
-                                                    1<span class="frac">
-											<sup>1</sup>
-											<span>/</span>
-                                                    <sub>27</sub>
-                                                    </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <input type="radio" id="q8_b" name="q8" value="0">
-                                                <label for="q8_b">
-                                                    1<span class="frac">
-											<sup>2</sup>
-											<span>/</span>
-                                                    <sub>3</sub>
-                                                    </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <input type="radio" id="q8_c" name="q8" value="1">
-                                                <label for="q8_c">
-                                                    &minus;8<span class="frac">
-											<sup>1</sup>
-											<span>/</span>
-                                                    <sub>2</sub>
-                                                    </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <input type="radio" id="q8_d" name="q8" value="0">
-                                                <label for="q8_d">
-                                                    &minus;7<span class="frac">
-											<sup>1</sup>
-											<span>/</span>
-                                                    <sub>2</sub>
-                                                    </span>
-                                                </label>
-                                            </p>
-                                            <h3>(9) Find the value of x.</h3>
-                                            <div>
-                                                <img src="images/bravo_d2/d2q9.jpg" />
-								</div>
-                                                <p>
-                                                    <input type="radio" id="q9_a" name="q9" value="1">
-                                                    <label for="q9_a">3</label>
-                                                </p>
-                                                <p>
-                                                    <input type="radio" id="q9_b" name="q9" value="0">
-                                                    <label for="q9_b">6</label>
-                                                </p>
-                                                <p>
-                                                    <input type="radio" id="q9_c" name="q9" value="0">
-                                                    <label for="q9_c">9</label>
-                                                </p>
-                                                <p>
-                                                    <input type="radio" id="q9_d" name="q9" value="0">
-                                                    <label for="q9_d">12</label>
-                                                </p>
-                                                <h3>(10) In the diagram below, OJ is perpendicular to IK.</h3>
-                                                <p>Find the length HD.</p>
-                                                <div>
-                                                    <img src="images/bravo_d2/d2q10.jpg" />
-								</div>
-                                                    <p>
-                                                        <input type="radio" id="q10_a" name="q10" value="0">
-                                                        <label for="q10_a">9</label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="radio" id="q10_b" name="q10" value="1">
-                                                        <label for="q10_b">11</label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="radio" id="q10_c" name="q10" value="0">
-                                                        <label for="q10_c">17</label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="radio" id="q10_d" name="q10" value="0">
-                                                        <label for="q10_d">27</label>
-                                                    </p>
-                                                    <h3>(11) Find the value of Sin (A).</h3>
-                                                    <div>
-                                                        <img src="images/bravo_d2/d2q11.jpg" />
-								</div>
-                                                        <p>
-                                                            <input type="radio" id="q11_a" name="q11" value="0">
-                                                            <label for="q11_a">
-                                                                <span class="frac">
-											<sup>3</sup>
-											<span>/</span>
-                                                                <sub>4</sub>
-                                                                </span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <input type="radio" id="q11_b" name="q11" value="1">
-                                                            <label for="q11_b">
-                                                                <span class="frac">
-											<sup>7</sup>
-											<span>/</span>
-                                                                <sub>25</sub>
-                                                                </span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <input type="radio" id="q11_c" name="q11" value="0">
-                                                            <label for="q11_c">
-                                                                <span class="frac">
-											<sup>7</sup>
-											<span>/</span>
-                                                                <sub>12</sub>
-                                                                </span>
-                                                            </label>
-                                                        </p>
-                                                        <p>
-                                                            <input type="radio" id="q11_d" name="q11" value="0">
-                                                            <label for="q11_d">
-                                                                <span class="frac">
-											<sup>4</sup>
-											<span>/</span>
-                                                                <sub>25</sub>
-                                                                </span>
-                                                            </label>
-                                                        </p>
-                                                        <h3>(12) What is the volume of the cylinder below?</h3>
-                                                        <p>Use &pi; &equals; 3.14</p>
-                                                        <div>
-                                                            <img src="images/bravo_d2/d2q12.jpg" />
-								</div>
-                                                            <p>
-                                                                <input type="radio" id="q12_a" name="q12" value="0">
-                                                                <label for="q12_a">56.5cm<sup>3</sup></label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q12_b" name="q12" value="0">
-                                                                <label for="q12_b">75.4cm<sup>3</sup></label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q12_c" name="q12" value="0">
-                                                                <label for="q12_c">113cm<sup>3</sup></label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q12_d" name="q12" value="1">
-                                                                <label for="q12_d">226cm<sup>3</sup></label>
-                                                            </p>
-                                                            <h3>(13) Find the height of a solid cylinder of radius 2.1cm and a total surface area of 39.6cm<sup>2</sup> and
-									its π is 3.14cm.</h3>
-                                                            <p>
-                                                                <input type="radio" id="q13_a" name="q13" value="0">
-                                                                <label for="q13_a">11.0cm</label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q13_b" name="q13" value="0">
-                                                                <label for="q13_b">12.5cm</label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q13_c" name="q13" value="1">
-                                                                <label for="q13_c">0.9cm</label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q13_d" name="q13" value="0">
-                                                                <label for="q13_d">0.125cm</label>
-                                                            </p>
-                                                            <h3>(14) If you flip a coin and roll a 6-sided die.</h3>
-                                                            <p>What is the probability that you will flip a tails and roll at least a 2?</p>
-                                                            <p>
-                                                                <input type="radio" id="q14_a" name="q14" value="0">
-                                                                <label for="q14_a">
-                                                                    <span class="frac">
-											<sup>5</sup>
-											<span>/</span>
-                                                                    <sub>7</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q14_b" name="q14" value="0">
-                                                                <label for="q14_b">
-                                                                    <span class="frac">
-											<sup>5</sup>
-											<span>/</span>
-                                                                    <sub>9</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q14_c" name="q14" value="1">
-                                                                <label for="q14_c">
-                                                                    <span class="frac">
-											<sup>5</sup>
-											<span>/</span>
-                                                                    <sub>12</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q14_d" name="q14" value="0">
-                                                                <label for="q14_d">
-                                                                    <span class="frac">
-											<sup>7</sup>
-											<span>/</span>
-                                                                    <sub>15</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <h3>(15) A bag contains 3 yellow marbles, 2 red marbles, 2 green marbles and 1 blue marble. Find the
-									probability of picking a yellow marble from the bag.</h3>
-                                                            <p>
-                                                                <input type="radio" id="q15_a" name="q15" value="0">
-                                                                <label for="q15_a">
-                                                                    <span class="frac">
-											<sup>1</sup>
-											<span>/</span>
-                                                                    <sub>4</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q15_b" name="q15" value="1">
-                                                                <label for="q15_b">
-                                                                    <span class="frac">
-											<sup>3</sup>
-											<span>/</span>
-                                                                    <sub>8</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q15_c" name="q15" value="0">
-                                                                <label for="q15_c">
-                                                                    <span class="frac">
-											<sup>1</sup>
-											<span>/</span>
-                                                                    <sub>8</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <p>
-                                                                <input type="radio" id="q15_d" name="q15" value="0">
-                                                                <label for="q15_d">
-                                                                    <span class="frac">
-											<sup>1</sup>
-											<span>/</span>
-                                                                    <sub>7</sub>
-                                                                    </span>
-                                                                </label>
-                                                            </p>
-                                                            <h3>(16) In the fiqure below, BD and EC are diameters of circle P. What is the arc measure of ADE in degrees?</h3>
-                                                            <div>
-                                                                <img src="images/bravo_d2/d2q16.jpg" />
-								</div>
-                                                                <p>
-                                                                    <input type="radio" id="q16_a" name="q16" value="0">
-                                                                    <label for="q16_a">33</label>
-                                                                </p>
-                                                                <p>
-                                                                    <input type="radio" id="q16_b" name="q16" value="0">
-                                                                    <label for="q16_b">240</label>
-                                                                </p>
-                                                                <p>
-                                                                    <input type="radio" id="q16_c" name="q16" value="0">
-                                                                    <label for="q16_c">360</label>
-                                                                </p>
-                                                                <p>
-                                                                    <input type="radio" id="q16_d" name="q16" value="1">
-                                                                    <label for="q16_d">333</label>
-                                                                </p>
-                                                                <h3>(17) What is the area of the shaded sector?</h3>
-                                                                <p>Use &pi; &equals; 3.14</p>
-                                                                <div>
-                                                                    <img src="images/bravo_d2/d2q17.jpg" />
-								</div>
-                                                                    <p>
-                                                                        <input type="radio" id="q17_a" name="q17" value="0">
-                                                                        <label for="q17_a">1.57cm<sup>2</sup></label>
-                                                                    </p>
-                                                                    <p>
-                                                                        <input type="radio" id="q17_b" name="q17" value="0">
-                                                                        <label for="q17_b">2.m9cm<sup>2</sup></label>
-                                                                    </p>
-                                                                    <p>
-                                                                        <input type="radio" id="q17_c" name="q17" value="1">
-                                                                        <label for="q17_c">4.71cm<sup>2</sup></label>
-                                                                    </p>
-                                                                    <p>
-                                                                        <input type="radio" id="q17_d" name="q17" value="0">
-                                                                        <label for="q17_d">4.19cm<sup>2</sup></label>
-                                                                    </p>
-                                                                    <h3>(18) Is the discriminant of f positive, zero or negative?</h3>
-                                                                    <div>
-                                                                        <img src="images/bravo_d2/d2q18.jpg" />
-								</div>
-                                                                        <p>
-                                                                            <input type="radio" id="q18_a" name="q18" value="0">
-                                                                            <label for="q18_a">Positive</label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q18_b" name="q18" value="1">
-                                                                            <label for="q18_b">Negative</label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q18_c" name="q18" value="0">
-                                                                            <label for="q18_c">Zero</label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q18_d" name="q18" value="0">
-                                                                            <label for="q18_d">None</label>
-                                                                        </p>
-                                                                        <h3>(19) 1 &plus; 12x &minus; 36 &equals; 0 &plus; 11x</h3>
-                                                                        <p>Simplify the equation above.</p>
-                                                                        <p>
-                                                                            <input type="radio" id="q19_a" name="q19" value="1">
-                                                                            <label for="q19_a">x &equals; 35</label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q19_b" name="q19" value="0">
-                                                                            <label for="q19_b">x &equals; 37</label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q19_c" name="q19" value="0">
-                                                                            <label for="q19_c">x &equals; 37x</label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q19_d" name="q19" value="0">
-                                                                            <label for="q19_d">x &equals; 1</label>
-                                                                        </p>
-                                                                        <h3>(20) A team of ecologists is tracking mountain lions throught out Lusaka. They count 4543 mountain lions in
-									the entire province. The area of Lusaka 423, 970 km<sup>2</sup>.</h3>
-                                                                        <p>What is the population density of mountain lions per 250 km<sup>2</sup> in Lusaka</p>
-                                                                        <p>
-                                                                            <input type="radio" id="q20_a" name="q20" value="0">
-                                                                            <label for="q20_a">About 1 mountain lion per 250 km<sup>2</sup></label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q20_b" name="q20" value="1">
-                                                                            <label for="q20_b">About 3 mountain lion per 250 km<sup>2</sup></label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q20_c" name="q20" value="0">
-                                                                            <label for="q20_c">About 5 mountain lion per 250 km<sup>2</sup></label>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" id="q20_d" name="q20" value="0">
-                                                                            <label for="q20_d">About 10 mountain lion per 250 km<sup>2</sup></label>
-                                                                        </p>
-                                                                        <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
-                                                                        <!-- TODO: Add text input fields for user_id, coach_email -->
-                                                                        <!-- Hidden fields for test,course and module -->
-                                                                        <input type="hidden" name="test" value="bravo_d2">
-                                                                        <input type="hidden" name="course" value="bravo_d">
-                                                                        <input type="hidden" name="module" value="numeracy">
-                                                                        <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
-                                                                        <input type="text" name="coach_id" ng-model="test_response.coach_id" required ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                                                        <span class="password-error" ng-show="testForm2.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
-                                                                        <!-- Submit button disabled if form is invalid -->
-                                                                        <!-- <input type="submit" value="submit" ng-disabled="testForm2.$invalid"> -->
-                                                                        <button type="submit" value="Submit" ng-disabled="testForm2.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
-                                </form>
-                            </div>
+                    </div>
+                    <div class="pd-tb">
+                        <div class="pd-lr">
+                            <form action="/submit_test" name="testForm2" method="post">
+                                <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Bravo D2</p>
+                                <div class="HeaderbannerLabel">USERNAME</div>
+                                <!-- Input fiels for user_id contains some js code for validation -->
+                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
+                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm2.$dirty && testForm2.username.$error.whitelist">Please enter a valid Student ID</span>
+                                <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                                <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                                <div class="ins">Time allowed: 1 Hour <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
+                                <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
+                                <!-- TODO: Add form name,action and method -->
+                                <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                                <h3>(1) Given the formula for a piecewise function, evaluate it for specific input.</h3>
+                                <p>g(12) = ?</p>
+                                <div>
+                                    <img src="images/bravo_d2/d2q1.jpg" />
+                                </div>
+                                <p>
+                                    <!-- TODO: Add value attribute to each radio button -->
+                                    <!-- Each group of radio buttons with the same name corresponds to one question -->
+                                    <!-- Wrong answers are 0, correct answer is 1 -->
+                                    <!-- Example below -->
+                                    <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                                    <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
+                                    <label for="q1_a">6</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="0">
+                                    <label for="q1_b">8</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="1">
+                                    <label for="q1_c">10</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0">
+                                    <label for="q1_d">12</label>
+                                </p>
+                                <h3>(2) (&minus;5q<sup>2</sup> &plus; 6q &plus; 7) &plus; (&minus;q<sup>2</sup> &plus; 4q)</h3>
+                                <p>Simplify the expression above.</p>
+                                <p>
+                                    <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
+                                    <label for="q2_a">&minus;6q<sup>2</sup> &minus; 10q &plus; 7</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="0">
+                                    <label for="q2_b">6q<sup>2</sup> &plus; 10q &minus; 7</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="1">
+                                    <label for="q2_c">&minus;6q<sup>2</sup> &plus; 10q &plus; 7</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
+                                    <label for="q2_d">&minus;6q<sup>2</sup> &plus; 10q &minus; 7</label>
+                                </p>
+                                <h3>(3) &minus;f<sup>7</sup> &times; &minus;f<sup>5</sup></h3>
+                                <p>Simplify the expression above.</p>
+                                <p>
+                                    <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
+                                    <label for="q3_a">f<sup>5</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="0">
+                                    <label for="q3_b">f<sup>7</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="0">
+                                    <label for="q3_c">f<sup>9</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="1">
+                                    <label for="q3_d">f<sup>12</sup></label>
+                                </p>
+                                <h3>(4) &minus;15y<sup>4</sup> &equals; d(3y<sup>2</sup>)</h3>
+                                <p>Find the missing factor d that makes the equality true.</p>
+                                <p>
+                                    <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
+                                    <label for="q4_a">5y<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
+                                    <label for="q4_b">&minus;5y<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="0">
+                                    <label for="q4_c">&minus;5y<sup>4</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0">
+                                    <label for="q4_d">&minus;5y<sup>6</sup></label>
+                                </p>
+                                <h3>(5) 25y<sup>2</sup> &minus; 35y </h3>
+                                <p>Factor the polynomial by its greatest common monomial factor.</p>
+                                <p>
+                                    <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
+                                    <label for="q5_a">5(5y &minus; 7)</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="0">
+                                    <label for="q5_b">5y(5 &minus; 7)</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
+                                    <label for="q5_c">5y(5y &minus; 7)</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0">
+                                    <label for="q5_d">5y(5y &plus; 7)</label>
+                                </p>
+                                <h3>(6) 9 &minus; 25x<sup>2</sup></h3>
+                                <p>Factorise the equation above.</p>
+                                <p>
+                                    <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="1">
+                                    <label for="q6_a">(3 &minus; 5x)(3 &minus; 5x)</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="0">
+                                    <label for="q6_b">(3 &plus; 5x)(3 &minus; 5x)</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="0">
+                                    <label for="q6_c">(3 &plus; 5x)(3 &plus; 5x)</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0">
+                                    <label for="q6_d">(3 &plus; 5x)(3 &minus; 5x)<sup>2</sup></label>
+                                </p>
+                                <h3>(7) Find the arc length shaded in blue of AC.</h3>
+                                <p>Use &pi; = 3.14</p>
+                                <div>
+                                    <img src="images/bravo_d2/d2q7.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
+                                    <label for="q7_a">3.14cm</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                                    <label for="q7_b">6.28cm</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="0">
+                                    <label for="q7_c">12.56cm</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0">
+                                    <label for="q7_d">31.4cm</label>
+                                </p>
+                                <h3>(8) 3<sup>(7 &minus; 2x)</sup> &equals;
+                                    (<span class="frac">
+                                        <sup>1</sup>
+                                        <span>/</span>
+                                        <sub>27</sub>
+                                    </span>)<sup>&minus;8</sup>
+                                </h3>
+                                <p>Solve the exponential equation for x</p>
+                                <p>
+                                    <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
+                                    <label for="q8_a">
+                                        1<span class="frac">
+                                            <sup>1</sup>
+                                            <span>/</span>
+                                            <sub>27</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0">
+                                    <label for="q8_b">
+                                        1<span class="frac">
+                                            <sup>2</sup>
+                                            <span>/</span>
+                                            <sub>3</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
+                                    <label for="q8_c">
+                                        &minus;8<span class="frac">
+                                            <sup>1</sup>
+                                            <span>/</span>
+                                            <sub>2</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0">
+                                    <label for="q8_d">
+                                        &minus;7<span class="frac">
+                                            <sup>1</sup>
+                                            <span>/</span>
+                                            <sub>2</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <h3>(9) Find the value of x.</h3>
+                                <div>
+                                    <img src="images/bravo_d2/d2q9.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="1">
+                                    <label for="q9_a">3</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="0">
+                                    <label for="q9_b">6</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="0">
+                                    <label for="q9_c">9</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0">
+                                    <label for="q9_d">12</label>
+                                </p>
+                                <h3>(10) In the diagram below, OJ is perpendicular to IK.</h3>
+                                <p>Find the length HD.</p>
+                                <div>
+                                    <img src="images/bravo_d2/d2q10.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
+                                    <label for="q10_a">9</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
+                                    <label for="q10_b">11</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="0">
+                                    <label for="q10_c">17</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0">
+                                    <label for="q10_d">27</label>
+                                </p>
+                                <h3>(11) Find the value of Sin (A).</h3>
+                                <div>
+                                    <img src="images/bravo_d2/d2q11.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                                    <label for="q11_a">
+                                        <span class="frac">
+                                            <sup>3</sup>
+                                            <span>/</span>
+                                            <sub>4</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="1">
+                                    <label for="q11_b">
+                                        <span class="frac">
+                                            <sup>7</sup>
+                                            <span>/</span>
+                                            <sub>25</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="0">
+                                    <label for="q11_c">
+                                        <span class="frac">
+                                            <sup>7</sup>
+                                            <span>/</span>
+                                            <sub>12</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0">
+                                    <label for="q11_d">
+                                        <span class="frac">
+                                            <sup>4</sup>
+                                            <span>/</span>
+                                            <sub>25</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <h3>(12) What is the volume of the cylinder below?</h3>
+                                <p>Use &pi; &equals; 3.14</p>
+                                <div>
+                                    <img src="images/bravo_d2/d2q12.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
+                                    <label for="q12_a">56.5cm<sup>3</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="0">
+                                    <label for="q12_b">75.4cm<sup>3</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="0">
+                                    <label for="q12_c">113cm<sup>3</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="1">
+                                    <label for="q12_d">226cm<sup>3</sup></label>
+                                </p>
+                                <h3>(13) Find the height of a solid cylinder of radius 2.1cm and a total surface area of 39.6cm<sup>2</sup> and
+                                    its π is 3.14cm.</h3>
+                                <p>
+                                    <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                                    <label for="q13_a">11.0cm</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="0">
+                                    <label for="q13_b">12.5cm</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
+                                    <label for="q13_c">0.9cm</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0">
+                                    <label for="q13_d">0.125cm</label>
+                                </p>
+                                <h3>(14) If you flip a coin and roll a 6-sided die.</h3>
+                                <p>What is the probability that you will flip a tails and roll at least a 2?</p>
+                                <p>
+                                    <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
+                                    <label for="q14_a">
+                                        <span class="frac">
+                                            <sup>5</sup>
+                                            <span>/</span>
+                                            <sub>7</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="0">
+                                    <label for="q14_b">
+                                        <span class="frac">
+                                            <sup>5</sup>
+                                            <span>/</span>
+                                            <sub>9</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="1">
+                                    <label for="q14_c">
+                                        <span class="frac">
+                                            <sup>5</sup>
+                                            <span>/</span>
+                                            <sub>12</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0">
+                                    <label for="q14_d">
+                                        <span class="frac">
+                                            <sup>7</sup>
+                                            <span>/</span>
+                                            <sub>15</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <h3>(15) A bag contains 3 yellow marbles, 2 red marbles, 2 green marbles and 1 blue marble. Find the
+                                    probability of picking a yellow marble from the bag.</h3>
+                                <p>
+                                    <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
+                                    <label for="q15_a">
+                                        <span class="frac">
+                                            <sup>1</sup>
+                                            <span>/</span>
+                                            <sub>4</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
+                                    <label for="q15_b">
+                                        <span class="frac">
+                                            <sup>3</sup>
+                                            <span>/</span>
+                                            <sub>8</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="0">
+                                    <label for="q15_c">
+                                        <span class="frac">
+                                            <sup>1</sup>
+                                            <span>/</span>
+                                            <sub>8</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0">
+                                    <label for="q15_d">
+                                        <span class="frac">
+                                            <sup>1</sup>
+                                            <span>/</span>
+                                            <sub>7</sub>
+                                        </span>
+                                    </label>
+                                </p>
+                                <h3>(16) In the fiqure below, BD and EC are diameters of circle P. What is the arc measure of ADE in degrees?</h3>
+                                <div>
+                                    <img src="images/bravo_d2/d2q16.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0">
+                                    <label for="q16_a">33</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="0">
+                                    <label for="q16_b">240</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="0">
+                                    <label for="q16_c">360</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="1">
+                                    <label for="q16_d">333</label>
+                                </p>
+                                <h3>(17) What is the area of the shaded sector?</h3>
+                                <p>Use &pi; &equals; 3.14</p>
+                                <div>
+                                    <img src="images/bravo_d2/d2q17.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0">
+                                    <label for="q17_a">1.57cm<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="0">
+                                    <label for="q17_b">2.m9cm<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="1">
+                                    <label for="q17_c">4.71cm<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="0">
+                                    <label for="q17_d">4.19cm<sup>2</sup></label>
+                                </p>
+                                <h3>(18) Is the discriminant of f positive, zero or negative?</h3>
+                                <div>
+                                    <img src="images/bravo_d2/d2q18.jpg" />
+                                </div>
+                                <p>
+                                    <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="0">
+                                    <label for="q18_a">Positive</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="1">
+                                    <label for="q18_b">Negative</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="0">
+                                    <label for="q18_c">Zero</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="0">
+                                    <label for="q18_d">None</label>
+                                </p>
+                                <h3>(19) 1 &plus; 12x &minus; 36 &equals; 0 &plus; 11x</h3>
+                                <p>Simplify the equation above.</p>
+                                <p>
+                                    <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="1">
+                                    <label for="q19_a">x &equals; 35</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="0">
+                                    <label for="q19_b">x &equals; 37</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="0">
+                                    <label for="q19_c">x &equals; 37x</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
+                                    <label for="q19_d">x &equals; 1</label>
+                                </p>
+                                <h3>(20) A team of ecologists is tracking mountain lions throught out Lusaka. They count 4543 mountain lions in
+                                    the entire province. The area of Lusaka 423, 970 km<sup>2</sup>.</h3>
+                                <p>What is the population density of mountain lions per 250 km<sup>2</sup> in Lusaka</p>
+                                <p>
+                                    <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="0">
+                                    <label for="q20_a">About 1 mountain lion per 250 km<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="1">
+                                    <label for="q20_b">About 3 mountain lion per 250 km<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="0">
+                                    <label for="q20_c">About 5 mountain lion per 250 km<sup>2</sup></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="0">
+                                    <label for="q20_d">About 10 mountain lion per 250 km<sup>2</sup></label>
+                                </p>
+                                <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                                <!-- TODO: Add text input fields for user_id, coach_email -->
+                                <!-- Hidden fields for test,course and module -->
+                                <input type="hidden" name="test" ng-init="testResponse.test='bravo_d2'">
+                                <input type="hidden" name="course" ng-init="testResponse.course='bravo_d'">
+                                <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
+                                <input type="text" name="coach_id" ng-model="testResponse.coach_id" required ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
+                                <span class="password-error" ng-show="testForm2.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
+                                <!-- Submit button disabled if form is invalid -->
+                                <!-- <input type="submit" value="submit" ng-disabled="testForm2.$invalid"> -->
+                                <input type="submit" value="Submit" ng-click="submit()" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;"></input>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <footer class="container-fluid">
         <div class="row">
