@@ -44,8 +44,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
       /*console.log($scope.existingResponses)*/
     })
 
+    /*variables for validating coach_id*/
+    $scope.testSubmitPassword ="Ctrib3";
+    $scope.wrongPassword = false;
+    $scope.wrongCoachID = false;
+    
+
     /*Open password modal when page loads*/
-    $ctrl.openPasswordModal();
+    /*$ctrl.openPasswordModal();*/
   }
 
   /*Function to open password modal*/
@@ -87,6 +93,28 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     });
 
     /*console.log("modal loaded");*/
+  };
+
+  $scope.validate_coach_id_and_password = function(coach_id,password) {
+    if (coach_id.length <= 5 && password == $scope.testSubmitPassword) {
+      $scope.wrongPassword = false;
+      $scope.wrongCoachID = false;
+      
+      /*If the username and password are valid, check if the test submitted already exists*/
+      $scope.check_reponse_before_submit()
+    }
+    else if (coach_id.length>5) {
+      $scope.wrongCoachID = true;
+      console.log('Invalid coach ID');
+    }
+    else if (password != $scope.testSubmitPassword) {
+      $scope.wrongPassword = true;
+      console.log('Wrong password');
+    }
+    else{
+      $scope.wrongPassword = true;
+      $scope.wrongCoachID = true;
+    }
   };
 
   /*Helper functions to check for duplicated tests*/
@@ -137,10 +165,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     /*set the test date of the response to the server date*/
     $scope.testResponse.test_date = $scope.serverDate
 
-/*    $http.post("/submit_test", $scope.testResponse).then(function(success) {
-      redirect to sucessful submission page
-      window.location = '/sucessful_submit'
-    });*/
     /*check if the response already exists*/
     check_response_already_exists($scope.testResponse)
   }
