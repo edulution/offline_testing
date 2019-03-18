@@ -1,6 +1,6 @@
 /*Angular module to display password modal and make sure correct password is entered*/
-angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', 'ui.filters']);
-angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uibModal, $location,$log, $document) {
+angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', 'ui.filters'])
+.controller('MainCtrl', function ($scope,$http,$uibModal,$location,$log, $document) {
 
   /*Alias for controller*/
   var $ctrl = this;
@@ -29,12 +29,19 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
         $scope.usernames.push(item["username"].toString());
       }
       
-    });
+    })
 
     /*get server date from enpoint*/
     $http.get("/get_server_date").then(function(response){
       /*set to scope variable serverDate*/
       $scope.serverDate = response.data;
+    })    
+
+    /*get server date from enpoint*/
+    $http.get("/get_responses").then(function(response){
+      /*set to scope variable serverDate*/
+      $scope.existingResponses = get_responses_concat_list(response.data)
+      /*console.log($scope.existingResponses)*/
     })
 
     /*Open password modal when page loads*/
@@ -58,10 +65,11 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
       appendTo: parentElem
     });
 
-    console.log("modal loaded");
+    /*console.log("modal loaded");*/
   };  
 
   /*Function to open confirm submission modal*/
+  /*share scope with main scope*/
   $ctrl.openConfirmSubmitModal = function (parentSelector) {
     var parentElem = parentSelector ? 
     /*parent element of the modal set to body*/
@@ -70,15 +78,15 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
-      templateUrl: 'pmodule/templates/pmodal_content.html',
-      controller: 'ModalInstanceCtrl',
-      controllerAs: '$password_modal_ctrl',
+      templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
+      controller: 'MainCtrl',
+      scope: $scope,
       backdrop: 'static',
       keyboard: false,
       appendTo: parentElem
     });
 
-    console.log("modal loaded");
+    /*console.log("modal loaded");*/
   };
 
   /*Helper functions to check for duplicated tests*/
@@ -105,8 +113,21 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
     return responses_list
   };
 
-/*Test submission function*/
-  $scope.submit = function() {
+  function check_response_already_exists(testResponse){
+    var testResponse_concat = concat_props(testResponse)
+
+    /*check if the response submitted exists in list of existing responses*/
+    if ($scope.existingResponses.indexOf(testResponse_concat) >= 0) {
+      /*if the response already exists, open the confirm submit dialog*/
+      $ctrl.openConfirmSubmitModal()
+    }
+    else{
+      /*if the response does not exist, submit it*/
+      $scope.submit()
+    }
+  }
+
+  $scope.check_reponse_before_submit = function() {
     /*Get user_id of user that filled in the test, from the users array*/
     var currentUser = $scope.users.find(user => {return user.username == $scope.testResponse.username})
 
@@ -116,14 +137,37 @@ angular.module('passProtect').controller('MainCtrl', function ($scope,$http,$uib
     /*set the test date of the response to the server date*/
     $scope.testResponse.test_date = $scope.serverDate
 
+/*    $http.post("/submit_test", $scope.testResponse).then(function(success) {
+      redirect to sucessful submission page
+      window.location = '/sucessful_submit'
+    });*/
+    /*check if the response already exists*/
+    check_response_already_exists($scope.testResponse)
+  }
+
+/*Test submission function*/
+  $scope.submit = function() {
     $http.post("/submit_test", $scope.testResponse).then(function(success) {
       /*redirect to sucessful submission page*/
       window.location = '/sucessful_submit'
     });
   }
 
+  /*Test submission function*/
+  $scope.overwrite_test = function() {
+    $http.post("/overwrite_test", $scope.testResponse).then(function(res) {
+      /*redirect to sucessful submission page*/
+      if (res.status == 200) {
+        console.log('Recieved status of 200')
+        $scope.submit()
+      }
+    });
+  }
+
 
 /*end MainCtrl*/
+
+
 })
 /*Controller for password modal*/
 .controller('ModalInstanceCtrl', function ($scope,$uibModalInstance) {

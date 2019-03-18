@@ -13,8 +13,15 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+/*Open the databas connection and declare it as a constant*/
+const db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'), (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+})
+
 /*Serve static assets from the public folder*/
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'public')))
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
@@ -41,129 +48,129 @@ function get_datetime_string() {
 
 
 /*portal homepage*/
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
  res.sendFile( __dirname + '/portal/index.html');
 });
 
 /*index of topics*/
-app.get('/topics', function (req, res) {
+app.get('/topics', (req, res) => {
  res.sendFile( __dirname + '/portal/topics-index.html');
 });
 
-app.get('/literacy_tests', function (req, res) {
+app.get('/literacy_tests', (req, res) => {
  res.sendFile( __dirname + '/portal/literacy_tests.html');
 });
 
 /*Alpha playlists*/
-app.get('/alpha_a', function (req, res) {
+app.get('/alpha_a', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_a.html');
 });
 
-app.get('/alpha_b', function (req, res) {
+app.get('/alpha_b', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_b.html');
 });
 
-app.get('/alpha_c', function (req, res) {
+app.get('/alpha_c', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_c.html');
 });
 
-app.get('/alpha_d', function (req, res) {
+app.get('/alpha_d', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_d.html');
 });
 
 
 /*Bravo Playlists*/
-app.get('/bravo_a', function (req, res) {
+app.get('/bravo_a', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_a.html');
 });
 
-app.get('/bravo_b', function (req, res) {
+app.get('/bravo_b', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_b.html');
 });
 
-app.get('/bravo_c', function (req, res) {
+app.get('/bravo_c', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_c.html');
 });
 
-app.get('/bravo_d', function (req, res) {
+app.get('/bravo_d', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_d.html');
 });
 
 /*Pre-Alpha playlists*/
-app.get('/prealpha_a', function (req, res) {
+app.get('/prealpha_a', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_a.html');
 });
 
-app.get('/prealpha_b', function (req, res) {
+app.get('/prealpha_b', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_b.html');
 });
 
-app.get('/prealpha_c', function (req, res) {
+app.get('/prealpha_c', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_c.html');
 });
 
-app.get('/prealpha_d', function (req, res) {
+app.get('/prealpha_d', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_d.html');
 });
 
 
 
-
 /*Results dashboard page*/
-app.get('/coach', function (req, res) {
+app.get('/coach', (req, res) => {
  res.sendFile( __dirname + '/dashboard/index.html');
 });
 
 
+
 /*Numeracy prealpha tests*/
-app.get('/num_prealpha_1', function (req, res) {
+app.get('/num_prealpha_1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/prealpha_1.html');
 });
 
-app.get('/num_prealpha_2', function (req, res) {
+app.get('/num_prealpha_2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/prealpha_2.html');
 });
 
-app.get('/num_prealpha_3', function (req, res) {
+app.get('/num_prealpha_3', (req, res) => {
  res.sendFile( __dirname + '/numeracy/prealpha_3.html');
 });
 
 
 /*Alpha course family
 /*Alpha A tests*/
-app.get('/num_alpha_a1', function (req, res) {
+app.get('/num_alpha_a1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_a1.html');
 });
 
-app.get('/num_alpha_a2', function (req, res) {
+app.get('/num_alpha_a2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_a2.html');
 });
 
 
 /*Alpha B tests*/
-app.get('/num_alpha_b1', function (req, res) {
+app.get('/num_alpha_b1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_b1.html');
 });
 
-app.get('/num_alpha_b2', function (req, res) {
+app.get('/num_alpha_b2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_b2.html');
 });
 
 /*Alpha C tests*/
-app.get('/num_alpha_c1', function (req, res) {
+app.get('/num_alpha_c1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_c1.html');
 });
 
-app.get('/num_alpha_c2', function (req, res) {
+app.get('/num_alpha_c2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_c2.html');
 });
 
 /*Alpha D tests*/
-app.get('/num_alpha_d1', function (req, res) {
+app.get('/num_alpha_d1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_d1.html');
 });
 
-app.get('/num_alpha_d2', function (req, res) {
+app.get('/num_alpha_d2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/alpha_d2.html');
 });
 
@@ -171,99 +178,95 @@ app.get('/num_alpha_d2', function (req, res) {
 /*Bravo course family
 
 /*Bravo A tests*/
-app.get('/num_bravo_a1', function (req, res) {
+app.get('/num_bravo_a1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_a1.html');
 });
 
-app.get('/num_bravo_a2', function (req, res) {
+app.get('/num_bravo_a2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_a2.html');
 });
 
 /*Bravo B tests*/
-app.get('/num_bravo_b1', function (req, res) {
+app.get('/num_bravo_b1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_b1.html');
 });
 
-app.get('/num_bravo_b2', function (req, res) {
+app.get('/num_bravo_b2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_b2.html');
 });
 
 /*Bravo C tests*/
-app.get('/num_bravo_c1', function (req, res) {
+app.get('/num_bravo_c1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_c1.html');
 });
 
-app.get('/num_bravo_c2', function (req, res) {
+app.get('/num_bravo_c2', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_c2.html');
 });
 
 /*Bravo D tests*/
-app.get('/num_bravo_d1', function (req, res) {
+app.get('/num_bravo_d1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_d1.html');
 });
 
 
 /*Litercy tests*/
-app.get('/lit_alpha_a1', function (req, res) {
+app.get('/lit_alpha_a1', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_a1.html');
 });
 
-app.get('/lit_alpha_a2', function (req, res) {
+app.get('/lit_alpha_a2', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_a2.html');
 });
 
-app.get('/lit_alpha_b1', function (req, res) {
+app.get('/lit_alpha_b1', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_b1.html');
 });
 
-app.get('/lit_alpha_b2', function (req, res) {
+app.get('/lit_alpha_b2', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_b2.html');
 });
 
-app.get('/lit_alpha_c1', function (req, res) {
+app.get('/lit_alpha_c1', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_c1.html');
 });
 
-app.get('/lit_alpha_c2', function (req, res) {
+app.get('/lit_alpha_c2', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_c2.html');
 });
 
-app.get('/lit_alpha_d1', function (req, res) {
+app.get('/lit_alpha_d1', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_d1.html');
 });
 
-app.get('/lit_alpha_d2', function (req, res) {
+app.get('/lit_alpha_d2', (req, res) => {
  res.sendFile( __dirname + '/literacy/alpha_d2.html');
 });
 
-app.get('/lit_prealpha_1', function (req, res) {
+app.get('/lit_prealpha_1', (req, res) => {
  res.sendFile( __dirname + '/literacy/prealpha_1.html');
 });
 
-app.get('/lit_prealpha_2', function (req, res) {
+app.get('/lit_prealpha_2', (req, res) => {
  res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });
 
 
-app.get('/get_server_date', function (req, res) {
+app.get('/get_server_date', (req, res) => {
 	var current_date = get_datetime_string()
 	return res.json(current_date)
 });
 
-/*app.get('/ngsub', function (req, res) {
- res.sendFile( __dirname + '/numeracy/test_submit.html');
-});*/
 
-
-app.get('/sucessful_submit', function (req, res) {
+app.get('/sucessful_submit', (req, res) => {
  res.sendFile( __dirname + '/submit/sucessful_submission.html');
 });
 
 /*endpoint to get users list as json*/
-app.get('/get_users',function(req, res){
-        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+app.get('/get_users',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
         var responses_query='select * from users';
-        db.all(responses_query,function(err,rows){
+        db.all(responses_query,(err,rows) => {
         	console.log('Retrieved '+rows.length+' users from the database');
         	return res.json(rows);
         });
@@ -271,27 +274,27 @@ app.get('/get_users',function(req, res){
 
 /*endpoint to get all test_responses as json*/
 /*modified responses query to join on course, test and module for new config*/
-app.get('/get_responses',function(req, res){
-        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+app.get('/get_responses',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
         var responses_query='select u.username,u.first_name,u.last_name,tm.test_name,((ifnull(q1,0.0)+ ifnull(q2,0.0)+ ifnull(q3,0.0)+ ifnull(q4,0.0)+ ifnull(q5,0.0)+ ifnull(q6,0.0)+ ifnull(q7,0.0)+ ifnull(q8,0.0)+ ifnull(q9,0.0)+ ifnull(q10,0.0)+ ifnull(q11,0.0)+ ifnull(q12,0.0)+ ifnull(q13,0.0)+ ifnull(q14,0.0)+ ifnull(q15,0.0)+ ifnull(q16,0.0)+ ifnull(q17,0.0)+ ifnull(q18,0.0)+ ifnull(q19,0.0)+ ifnull(q20,0.0)+ ifnull(q21,0.0)+ ifnull(q22,0.0)+ ifnull(q23,0.0)+ ifnull(q24,0.0)+ ifnull(q25,0.0)+ ifnull(q26,0.0)+ ifnull(q27,0.0)+ ifnull(q28,0.0)+ ifnull(q29,0.0)+ ifnull(q30,0.0)+ ifnull(q31,0.0)+ ifnull(q32,0.0)+ ifnull(q33,0.0)+ ifnull(q34,0.0)+ ifnull(q35,0.0)+ ifnull(q36,0.0)+ ifnull(q37,0.0)+ ifnull(q38,0.0)+ ifnull(q39,0.0)+ ifnull(q40,0.0)+ ifnull(q41,0.0)+ ifnull(q42,0.0)+ ifnull(q43,0.0)+ ifnull(q44,0.0)+ ifnull(q45,0.0)+ ifnull(q46,0.0)+ ifnull(q47,0.0)+ ifnull(q48,0.0)+ ifnull(q49,0.0)+ ifnull(q50,0.0)+ ifnull(q51,0.0)+ ifnull(q52,0.0)+ ifnull(q53,0.0)+ ifnull(q54,0.0)+ ifnull(q55,0.0)+ ifnull(q56,0.0)+ ifnull(q57,0.0)+ ifnull(q58,0.0)+ ifnull(q59,0.0)+ ifnull(q60,0.0)+ ifnull(q61,0.0)+ ifnull(q62,0.0)+ ifnull(q63,0.0)+ ifnull(q64,0.0)+ ifnull(q65,0.0)+ ifnull(q66,0.0)+ ifnull(q67,0.0)+ ifnull(q68,0.0)+ ifnull(q69,0.0)+ ifnull(q70,0.0))/testmaxscore) as score_pct, r.* from responses r  left join users u  on r.user_id = u.user_id left join test_marks tm  on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc';
-        db.all(responses_query,function(err,rows){
+        db.all(responses_query, (err,rows) => {
         	/*console.log(rows);*/
         	return res.json(rows);
         });
 });
 
 /*endpoint to get a count of all test_responses as json*/
-app.get('/get_test_count',function(req, res){
-        let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
+app.get('/get_test_count',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
         var count_query="SELECT date(test_date,'start of month','+1 month','-1 day') as test_month, count(*) as number_of_tests from responses group by date(test_date,'start of month','+1 month','-1 day') order by date(test_date,'start of month','+1 month','-1 day') desc";
-        db.all(count_query,function(err,rows){
+        db.all(count_query,(err,rows) => {
         	/*console.log(rows);*/
         	return res.json(rows);
         });
 });
 
 
-app.post('/submit_test', [function(req, res,next){
+app.post('/submit_test', [(req, res,next) => {
 	/*simple function to sum values in an array*/
 	const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 		
@@ -305,7 +308,7 @@ app.post('/submit_test', [function(req, res,next){
 	  if (typeof(response[v]) == "object"){
 	  	/*use reducer method to get sum of elements*/
 	  	/*create array from values of responses with checkboxes*/
-	  	var dataArray = Object.keys(response[v]).map(function(k){return response[v][k]})
+	  	var dataArray = Object.keys(response[v]).map((k) => {return response[v][k]})
 	   total = dataArray.reduce(reducer,0)
 	   /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
 	   if(total <= 0){
@@ -324,43 +327,66 @@ app.post('/submit_test', [function(req, res,next){
 	  }
 	}
 
-	/*Open database and run insert satement. Then close database*/
-	let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));
-
-	/*get user id from username*/
-	/*var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";*/
-
-	/*var get_user_id_query = "'"+response['user_id']+"'";*/
 
 	/*properties of response object - user_id,username,q1,q2..*/
 	var response_props = Object.keys(response);
 
 	/*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
-	var uresponses = response_props.map(function(v) { return response[v]; });
+	var uresponses = response_props.map((v) => { return response[v]; });
 	var uresponses_quoted = "'" + uresponses.join("','") + "'";
 
 
 	/*put quotes around user_id*/
 	
-	db.serialize(function() {
+	db.serialize(() => {
         /*var insert_statement = 'INSERT INTO responses('+response_props.toString()+',test_date) values ('+uresponses_quoted+','+get_datetime_string()+')';*/
         var insert_statement = 'INSERT INTO responses('+response_props.toString()+') values ('+uresponses_quoted+')';
         console.log(insert_statement);
 
         db.run(insert_statement);
-        db.close();
 	});
 
-	/*Get questions answered as array*/
-
-
-	/*Insert statement to run on database. test date added as current date from server*/	
+	/*Redirect to sucessful submission page if sucessful*/
 	next();}
-	, function(req,res){
+	,(req,res) => {
 		/*Display successful submission page after request sucessful*/
 		res.sendFile( __dirname + '/submit/sucessful_submission.html');
 }]);
 
-app.listen(port, '0.0.0.0', function() {
+/*An endpoint to delete a test based on user_id, test, course, module, and test date*/
+app.post('/overwrite_test', [(req, res,next) => {
+	/*get the test response from the request body*/
+	response = req.body;
+
+	/*Get the props which we will use as our criteria for deleting the existing test*/
+	/*Before inserting the one which has just been submitted*/
+	var user_id = response['user_id'];
+	var test_done = response['test'];
+	var course = response['course'];
+	var module = response['module'];
+	var test_date = response['test_date'];
+	
+	db.serialize(() => {
+		/*Run delete statement on responses table using params gathered above*/
+        db.run(`DELETE FROM responses where user_id=(?) and test=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,test_done,course,module,test_date],function(err){
+        	if(err){
+        		console.error(err.message)
+        		res.status(400).send('Could not delete row(s)')
+        		res.end()
+        	}
+
+        })
+	});
+
+	/*send a status of 200 and a success message back to the client*/
+	next();}
+	,(req,res) => {
+		let success_message = "Sucessfully deleted row(s)"
+		res.status(200)
+		res.send(success_message)
+        console.log(success_message)
+}]);
+
+app.listen(port, '0.0.0.0', () => {
  console.log('Server running on port ' + port);
 });
