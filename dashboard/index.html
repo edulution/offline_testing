@@ -157,7 +157,7 @@
                                       result.score_pct <= .69 && {'background-color': '#F5C216'} ||
                                       result.score_pct <= .84 && {'background-color': '#99CC33'} ||
                                       result.score_pct <=  1 && {'background-color': '#00B050'}">
-                                {{result.score_pct * 100}}%
+                                {{result.score_pct * 100 | number : 1}}%
                         </td>
                         <td st-ratio="10">{{result.test_date | date: 'mediumDate'}}</td>
                         <td st-ratio="10">{{result.coach_id}}</td>
