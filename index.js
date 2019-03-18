@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-/*Open the databas connection and declare it as a constant*/
+/*Open the database connection and declare it as a constant*/
 const db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'), (err) => {
   if (err) {
     console.error(err.message);
