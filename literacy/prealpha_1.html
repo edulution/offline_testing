@@ -28,54 +28,15 @@
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
-    <style>
-        .HeaderbannerLabel {
-        background-color: rgb(0, 159, 21);
-        color: rgba(255, 255, 255, 1);
-        font-size: 20px;
-        font-weight: 500;
-        padding-left: 34px;
-        margin-left: -30px;
-        font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-        padding: 8px 8px 8px 34px;
-        margin-top: 30px;
-        margin-bottom: 25px;
-        width: 45%;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    h3 {
-        font-weight: normal;
-    }
-
-    options{
-        width: 276px;
-        height: 276px;
-    }
-
-    img.displayed {
-        display: block;
-        margin-left: auto;
-        margin-right: auto
-    }
-
-    .padd{
-        padding-bottom: 10px;
-        padding-top: 10px;
-    }
-    </style>
 </head>
 
-<body ng-controller="MainCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="MainCtrl as ctrl">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
     <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
     <span ng-init=init()></span>
-    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+    <section class="container-fluid main_section">
         <div class="row">
             <div class="container page">
                 <div class="row">
@@ -85,13 +46,8 @@
                     <div class="pd-tb">
                         <div class="pd-lr">
                             <form name="testForm">
-                                <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;">Pre Alpha 1</p>
-                                <div class="HeaderbannerLabel">USERNAME</div>
-                                <!-- Input fiels for user_id contains some js code for validation -->
-                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Username</label>
-                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm.$dirty && testForm.username.$error.whitelist">Please enter a valid Student ID</span>
-                                <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                                <p class="test_name">Pre Alpha 1</p>
+                                <div ng-include="'pmodule/templates/username_input.html'"></div>
                                 <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                                 <div class="ins">Time allowed: 40 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
                                 <div class="HeaderbannerLabel">ASSESSMENT</div>
@@ -224,15 +180,15 @@
                                     <label for="q9_c">g</label>
                                 </p>
                                 <h3>(10) Which word rhymes with ten?</h3>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q10a.png" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0000">
                                             <label for="q10_a">fish</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q10b.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
@@ -265,22 +221,22 @@
                                 </p>
                                 <h3>(13) Sid the snail likes things that start with an s.</h3>
                                 <p>Select the things that start with an s sound.</p>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div><img src="images/literacy/prealp_1/q13c.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="checkbox" id="q13_a" name="q13_a" ng-model="testResponse.q13[1]" ng-true-value="-1">
                                             <label for="q13_a">tie</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div><img src="images/literacy/prealp_1/q13b.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="checkbox" id="q13_b" name="q13_b" ng-model="testResponse.q13[2]" ng-true-value="0.5">
                                             <label for="q13_b">six</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div><img src="images/literacy/prealp_1/q13a.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="checkbox" id="q13_c" name="q13_c" ng-model="testResponse.q13[3]" ng-true-value="0.5">
@@ -290,7 +246,7 @@
                                 </div>
                                 <h3>(14) _________um</h3>
                                 <p>Complete the word to match the picture.</p>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q14.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -304,7 +260,7 @@
                                     </div>
                                 </div>
                                 <h3>(15) Which word matches the picture?</h3>
-                                <div class="uneven_imgs" style="width: 276px;">
+                                <div>
                                     <div class="padd"><img src="images/literacy/prealp_1/q15.jpg" alt="image missing" height="379" /></div>
                                     <p>
                                         <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0000">
@@ -317,7 +273,7 @@
                                 </div>
                                 <h3>(16) be_________</h3>
                                 <p>Complete the word to match the picture.</p>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q16.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -331,7 +287,7 @@
                                     </div>
                                 </div>
                                 <h3>(17) Which word matches the picture?</h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q17.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -345,7 +301,7 @@
                                     </div>
                                 </div>
                                 <h3>(18) Which word matches the picture?</h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div><img src="images/literacy/prealp_1/q18.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -363,15 +319,15 @@
                                     </div>
                                 </div>
                                 <h3>(19) Which picture matches the word PEN?</h3>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q19a.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="1">
                                             <label for="q19_a">a</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q19b.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="0000">
@@ -380,7 +336,7 @@
                                     </div>
                                 </div>
                                 <h3>(20) Which word matches the picture? </h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q20.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -398,7 +354,7 @@
                                     </div>
                                 </div>
                                 <h3>(21) Which word matches the picture?</h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q21.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -416,15 +372,15 @@
                                     </div>
                                 </div>
                                 <h3>(22) Which picture matches the word HUT?</h3>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q22a.jpg" alt="image missing" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
                                             <label for="q22_a">a</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q22b.jpg" alt="image missing" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="000">
@@ -479,8 +435,8 @@
                                     <label for="q26_c">.</label>
                                 </p>
                                 <h3>(27) Which word matches the picture?</h3>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q27.jpg" alt="image missing" height="379" /></div>
                                         <p>
                                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="00000">
@@ -494,15 +450,15 @@
                                 </div>
                                 <h3>(28) The men walk.</h3>
                                 <p>Choose the picture that matches the sentence. </p>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q28a.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="0">
                                             <label for="q28_a">a</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q28b.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="1">
@@ -512,15 +468,15 @@
                                 </div>
                                 <h3>(29) Find the verb.</h3>
                                 <p>A verb shows an action.</p>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q29a.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="00">
                                             <label for="q29_a">cat</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q29b.jpg" alt="image missing" height="176" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="1">
@@ -530,7 +486,7 @@
                                 </div>
                                 <h3>(30) The woman _________ the meat.</h3>
                                 <p>Complete the sentence to match the picture.</p>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q30.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -544,15 +500,15 @@
                                     </div>
                                 </div>
                                 <h3>(31) Find the flat land.</h3>
-                                <div class="full" style="display:flex;">
-                                    <div style="width: 276px;">
+                                <div class="img_answers">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q31a.jpg" alt="image missing" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q31_a" name="q31" ng-model="testResponse.q31" value="1">
                                             <label for="q31_a">a</label>
                                         </p>
                                     </div>
-                                    <div style="width: 276px;">
+                                    <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q31b.jpg" alt="image missing" class="displayed center-block" /></div>
                                         <p>
                                             <input type="radio" id="q31_b" name="q31" ng-model="testResponse.q31" value="0000">
@@ -561,7 +517,7 @@
                                     </div>
                                 </div>
                                 <h3>(32) How many balls are there?</h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div class="uneven_imgs">
                                         <div class="padd"><img src="images/literacy/prealp_1/q32.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -591,7 +547,7 @@
                                     </p>
                                 </div>
                                 <h3>(34) Is the dog inside or outside the house? </h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q34.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -606,7 +562,7 @@
                                 </div>
                                 <h3>(35) The elephant is _________ the trees.</h3>
                                 <p>Complete the sentence to match the picture.</p>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q35.jpg" alt="image missing" height="379" /></div>
                                         <p>
@@ -656,7 +612,7 @@
                                     <label for="q38_d">glad _________ see</label>
                                 </p>
                                 <h3>(39) How do the kids feel?</h3>
-                                <div class="full" style="display:flex;">
+                                <div class="img_answers">
                                     <div>
                                         <div class="padd"><img src="images/literacy/prealp_1/q39.jpg" alt="image missing" height="379" /></div>
                                         <p>

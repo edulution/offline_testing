@@ -4,74 +4,39 @@
 <html ng-app="passProtect">
 
 <head>
-<title>Alpha A2</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<!--Custom Css-->
-<link rel="stylesheet" href="css/custom.css">
-<!--Fonts-->
-<!-- TODO : please ensure that all fonts and libraries are offline -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-<link href="css/fontawesome-all.min.css" rel="stylesheet">
-<link href="css/angular-ui.min.css" rel="stylesheet">
-<!--Js-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- TODO: Include password modal js below -->
-<!-- password modal js -->
-<script src="js/angular.min.js"></script>
-<script src="js/angular-animate.js"></script>
-<script src="js/angular-sanitize.js"></script>
-<script src="js/angular-ui.min.js"></script>
-<script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-<script src="pmodule/app.js"></script>
-<link rel="stylesheet" href="pmodule/password_modal.css">
-
-
-<style>
-.HeaderbannerLabel {
-    background-color: rgb(0, 159, 21);
-    color: rgba(255, 255, 255, 1);
-    font-size: 20px;
-    font-weight: 500;
-    padding-left: 34px;
-    margin-left: -30px;
-    font: 400 16px/24px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    padding: 8px 8px 8px 34px;
-    margin-top: 30px;
-    margin-bottom: 25px;
-    width: 45%;
-}
-.ins {
-    color: #212121;
-    font: 400 14px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    line-height: 135%;
-    margin-top: 22px;
-    white-space: pre-wrap;
-}
-h3 {
-    font-weight: normal;
-}
-.box {	display: inline-block;
-	background-color: none; 
-	vertical-align: middle}
-span.frac {  display: inline-block;  font-size: 75%;  text-align: center; vertical-align: middle}
-span.frac > sup {  display: block;  border-bottom: 1px solid;  font: inherit;}
-span.frac > span {  display: none;}
-span.icon > span {  display: inline-block; font-size: 1.1em}
-span.frac > sub {  display: block;  font: inherit;}
-</style>
+    <title>Alpha A2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-ui.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="pmodule/app.js"></script>
+    <link rel="stylesheet" href="pmodule/password_modal.css">
 </head>
 
-<body ng-controller="MainCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="MainCtrl as ctrl">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
     <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
     <span ng-init=init()></span>
-    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+    <section class="container-fluid main_section">
         <div class="row">
             <div class="container page">
                 <div class="row">
@@ -81,13 +46,8 @@ span.frac > sub {  display: block;  font: inherit;}
                     <div class="pd-tb">
                         <div class="pd-lr">
                             <form name="testForm">
-                                <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Alpha A2</p>
-                                <div class="HeaderbannerLabel">USERNAME</div>
-                                <!-- Input fiels for user_id contains some js code for validation -->
-                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
-                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm.$dirty && testForm.username.$error.whitelist">Please enter a valid Student ID</span>
-                                <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                                <p class="test_name"> Alpha A2</p>
+                                <div ng-include="'pmodule/templates/username_input.html'"></div>
                                 <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                                 <div class="ins">Time allowed: 45 minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                                 <div class="HeaderbannerLabel">ASSESSMENT</div>
@@ -622,12 +582,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                 <input type="hidden" name="test" ng-init="testResponse.test='alpha_a2'">
                                 <input type="hidden" name="course" ng-init="testResponse.course='alpha_a'">
                                 <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
-                                <input type="text" name="coach_id" ng-model="testResponse.coach_id" required ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
-                                <!-- Submit button disabled if form is invalid -->
-                                <!-- <input type="submit" value="submit" ng-disabled="testForm.$invalid"> -->
-                                <button type="submit" value="Submit" ng-disabled="testForm.$invalid" ng-click="check_reponse_before_submit()" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
+                                <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                             </form>
                         </div>
                     </div>

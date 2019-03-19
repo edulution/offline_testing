@@ -7,7 +7,6 @@
     <title>Bravo A1</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!--Custom Css-->
@@ -27,53 +26,14 @@
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
-
-    <style>
-        .HeaderbannerLabel {
-                background-color: rgb(0, 0, 255);
-                color: rgba(255, 255, 255, 1);
-                font-size: 20px;
-                font-weight: 500;
-                padding-left: 34px;
-                margin-left: -30px;
-                font: 400 16px/24px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-                padding: 8px 8px 8px 42px;
-                margin-top: 30px;
-                margin-bottom: 25px;
-                width: 30%;
-        }
-
-        .ins {
-                color: #212121;
-                font: 400 14px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-                line-height: 135%;
-                margin-top: 22px;
-                white-space: pre-wrap;
-        }
-
-        h3 {
-                font-weight: normal;
-        }
-
-        .box {  display: inline-block;
-                background-color: none; 
-                vertical-align: middle
-        }
-
-        span.frac {  display: inline-block;  font-size: 75%;  text-align: center; vertical-align: middle}
-        span.frac > sup {  display: block;  border-bottom: 1px solid;  font: inherit;}
-        span.frac > span {  display: none;}
-        span.icon > span {  display: inline-block; font-size: 1.1em}
-        span.frac > sub {  display: block;  font: inherit;}
-</style>
 </head>
 
-<body ng-controller="MainCtrl as ctrl" style="background-color: rgb(135, 206, 250); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="MainCtrl as ctrl">
     <!-- Password modal -->
     <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
     <span ng-init=init()></span>
-    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+    <section class="container-fluid main_section">
         <div class="row">
             <div class="container page">
                 <div class="row">
@@ -82,14 +42,9 @@
                     </div>
                     <div class="pd-tb">
                         <div class="pd-lr">
-                            <form action="/submit_test" name="testForm2" method="post">
-                                <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Bravo A1</p>
-                                <div class="HeaderbannerLabel">USERNAME</div>
-                                <!-- Input fiels for user_id contains some js code for validation -->
-                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
-                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm2.$dirty && testForm2.username.$error.whitelist">Please enter a valid Student ID</span>
-                                <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                            <form name="testForm">
+                                <p class="test_name"> Bravo A1</p>
+                                <div ng-include="'pmodule/templates/username_input.html'"></div>
                                 <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                                 <div class="ins">Time allowed: 1 Hour <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                                 <div class="HeaderbannerLabel">ASSESSMENT</div>
@@ -332,7 +287,7 @@
                                     <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="000">
                                     <label for="q11_d">55</label>
                                 </p>
-                                <h3>(12) 8x &#43; 14&deg; &#x3D; 6x &#43; 34&deg;</h3>
+                                <h3>(12) 8x &plus; 14&deg; &#x3D; 6x &plus; 34&deg;</h3>
                                 <p>Find the value of x.</p>
                                 <p>
                                     <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0000">
@@ -350,7 +305,7 @@
                                     <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0">
                                     <label for="q12_d">14</label>
                                 </p>
-                                <h3>(13) 3x &#43; 112&deg; &#x3D; 5x &#43; 100&deg;</h3>
+                                <h3>(13) 3x &plus; 112&deg; &#x3D; 5x &plus; 100&deg;</h3>
                                 <p>Find the value of x.</p>
                                 <p>
                                     <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="00">
@@ -453,7 +408,7 @@
                                         </span>
                                     </label>
                                 </p>
-                                <h3>(16) y &#43; 6 &#x3D; 5(x &minus; 4)</h3>
+                                <h3>(16) y &plus; 6 &#x3D; 5(x &minus; 4)</h3>
                                 <p>Write a formula for f(x) in terms of x.</p>
                                 <p>
                                     <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0">
@@ -471,7 +426,7 @@
                                     <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="000">
                                     <label for="q16_d">f(x) &#x3D; 5x &minus; 26</label>
                                 </p>
-                                <h3>(17) 4a &#43; 7x = &minus; 52</h3>
+                                <h3>(17) 4a &plus; 7x = &minus; 52</h3>
                                 <p>Write a formula for f(x) in terms of x.</p>
                                 <p>
                                     <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0000">
@@ -482,7 +437,7 @@
                                 <p>
                                     <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="00000">
                                     <label for="q17_b">
-                                        f(x) &#x3D; &minus; 13 &#43; (<span class="frac"><sup>7</sup><span>/</span><sub>4</sub></span>)x
+                                        f(x) &#x3D; &minus; 13 &plus; (<span class="frac"><sup>7</sup><span>/</span><sub>4</sub></span>)x
                                     </label>
                                 </p>
                                 <p>
@@ -521,7 +476,7 @@
                                     <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="000">
                                     <label for="q19_b">No</label>
                                 </p>
-                                <h3>(20) 2x &#43; 3y = 10</h3>
+                                <h3>(20) 2x &plus; 3y = 10</h3>
                                 <p>Which ordered pair is a solution of the equation above?</p>
                                 <p>
                                     <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
@@ -545,7 +500,7 @@
                                 <input type="hidden" name="test" ng-init="testResponse.test='bravo_a1'">
                                 <input type="hidden" name="course" ng-init="testResponse.course='bravo_a'">
                                 <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-<div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
+                                <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                             </form>
                         </div>
                     </div>

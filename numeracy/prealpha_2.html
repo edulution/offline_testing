@@ -4,71 +4,39 @@
 <html ng-app="passProtect">
 
 <head>
-<title>Pre-Alpha 2</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<!--Custom Css-->
-<link rel="stylesheet" href="css/custom.css">
-<!--Fonts-->
-<!-- TODO : please ensure that all fonts and libraries are offline -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-<link href="css/fontawesome-all.min.css" rel="stylesheet">
-<link href="css/angular-ui.min.css" rel="stylesheet">
-<!--Js-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- TODO: Include password modal js below -->
-<!-- password modal js -->
-<script src="js/angular.min.js"></script>
-<script src="js/angular-animate.js"></script>
-<script src="js/angular-sanitize.js"></script>
-<script src="js/angular-ui.min.js"></script>
-<script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-<script src="pmodule/app.js"></script>
-<link rel="stylesheet" href="pmodule/password_modal.css">
-<style>
-.HeaderbannerLabel {
-    background-color: rgb(0, 159, 21);
-    color: rgba(255, 255, 255, 1);
-    font-size: 20px;
-    font-weight: 500;
-    padding-left: 34px;
-    margin-left: -30px;
-    font: 400 16px/24px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    padding: 8px 8px 8px 34px;
-    margin-top: 30px;
-    margin-bottom: 25px;
-    width: 45%;
-}
-.ins {
-    color: #212121;
-    font: 400 14px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    line-height: 135%;
-    margin-top: 22px;
-    white-space: pre-wrap;
-}
-h3 {
-    font-weight: normal;
-}
-.box {	display: inline-block;
-	background-color: none; 
-	vertical-align: middle}
-span.frac {  display: inline-block;  font-size: 75%;  text-align: center; vertical-align: middle}
-span.frac > sup {  display: block;  border-bottom: 1px solid;  font: inherit;}
-span.frac > span {  display: none;}
-span.frac > sub {  display: block;  font: inherit;}
-</style>
+    <title>Pre-Alpha 2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-ui.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="pmodule/app.js"></script>
+    <link rel="stylesheet" href="pmodule/password_modal.css">
 </head>
 
-<body ng-controller="MainCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="MainCtrl as ctrl">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
     <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
     <span ng-init=init()></span>
-    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
+    <section class="container-fluid main_section">
         <div class="row">
             <div class="container page">
                 <div class="row">
@@ -78,17 +46,12 @@ span.frac > sub {  display: block;  font: inherit;}
                     <div class="pd-tb">
                         <div class="pd-lr">
                             <form name="testForm">
-                                <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;"> Pre Alpha 2</p>
-                                <div class="HeaderbannerLabel">USERNAME</div>
-                                <!-- Input fiels for user_id contains some js code for validation -->
-                                <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
-                                <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm.$dirty && testForm.username.$error.whitelist">Please enter a valid Student ID</span>
-                                <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
+                                <p class="test_name"> Pre Alpha 2</p>
+                                <div ng-include="'pmodule/templates/username_input.html'"></div>
                                 <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                                 <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                                 <div class="HeaderbannerLabel">SECTION A</div>
-                                <h3>(1) 1, 2, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 4, 5</h3>
+                                <h3>(1) 1, 2, <span class="empty_square"><i class="far fa-square"></i></span> , 4, 5</h3>
                                 <!-- TODO: Add form name,action and method -->
                                 <!-- <form name="testForm" action="/submit_test" method="post"> -->
                                 <p>
@@ -112,7 +75,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test4" name="q1" ng-model="testResponse.q1" value="00">
                                     <label for="test4">7</label>
                                 </p>
-                                <h3>(2) 15, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 25, 30, 35</h3>
+                                <h3>(2) 15, <span class="empty_square"><i class="far fa-square"></i></span> , 25, 30, 35</h3>
                                 <p>
                                     <input type="radio" id="test5" name="q2" ng-model="testResponse.q2" value="000">
                                     <label for="test5">15</label>
@@ -129,7 +92,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test8" name="q2" ng-model="testResponse.q2" value="0">
                                     <label for="test8">30</label>
                                 </p>
-                                <h3>(3) 60, 70, 80, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 100 </h3>
+                                <h3>(3) 60, 70, 80, <span class="empty_square"><i class="far fa-square"></i></span> , 100 </h3>
                                 <p>
                                     <input type="radio" id="test9" name="q3" ng-model="testResponse.q3" value="00">
                                     <label for="test9">50</label>
@@ -163,7 +126,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test16" name="q4" ng-model="testResponse.q4" value="1">
                                     <label for="test16">6</label>
                                 </p>
-                                <h3>(5) 2 &#43; 2 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(5) 2 &plus; 2 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test17" name="q5" ng-model="testResponse.q5" value="000">
                                     <label for="test17">2</label>
@@ -180,7 +143,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test20" name="q5" ng-model="testResponse.q5" value="00000">
                                     <label for="test20">8</label>
                                 </p>
-                                <h3>(6) 7 - 2 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> </h3>
+                                <h3>(6) 7 - 2 = <span class="empty_square"><i class="far fa-square"></i></span> </h3>
                                 <p>
                                     <input type="radio" id="test21" name="q6" ng-model="testResponse.q6" value="1">
                                     <label for="test21">5</label>
@@ -223,7 +186,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
-                                <h3>(8) 83 <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> 58 </h3>
+                                <h3>(8) 83 <span class="empty_square"><i class="far fa-square"></i></span> 58 </h3>
                                 <span>Compare fractions with &gt;, &lt; or=.</span>
                                 <p>
                                     <input type="radio" id="test28" name="q8" ng-model="testResponse.q8" value="1">
@@ -241,7 +204,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test31" name="q8" ng-model="testResponse.q8" value="00">
                                     <label for="test31">None of the above</label>
                                 </p>
-                                <h3>(9) 17 - <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> = 5</h3>
+                                <h3>(9) 17 - <span class="empty_square"><i class="far fa-square"></i></span> = 5</h3>
                                 <p>
                                     <input type="radio" id="test32" name="q9" ng-model="testResponse.q9" value="1">
                                     <label for="test32">12</label>
@@ -258,7 +221,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test35" name="q9" ng-model="testResponse.q9" value="00000">
                                     <label for="test35">21</label>
                                 </p>
-                                <h3>(10) 23 &#43; 46 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(10) 23 &plus; 46 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test36" name="q10" ng-model="testResponse.q10" value="0">
                                     <label for="test36">6</label>
@@ -275,7 +238,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test39" name="q10" ng-model="testResponse.q10" value="1">
                                     <label for="test39">69</sup></label>
                                 </p>
-                                <h3>(11) 38 &#43; 4 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(11) 38 &plus; 4 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test40" name="q11" ng-model="testResponse.q11" value="0000">
                                     <label for="test40">24</label>
@@ -292,7 +255,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test43" name="q11" ng-model="testResponse.q11" value="1">
                                     <label for="test43">42</label>
                                 </p>
-                                <h3>(12) 96 &#43; 16 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(12) 96 &plus; 16 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test1800" name="q12" ng-model="testResponse.q12" value="00">
                                     <label for="test1800">96</label>
@@ -345,7 +308,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test51" name="q14" ng-model="testResponse.q14" value="1">
                                     <label for="test51">11:00</label>
                                 </p>
-                                <h3>(15) 98 - 60 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(15) 98 - 60 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test52" name="q15" ng-model="testResponse.q15" value="0">
                                     <label for="test52">28</label>
@@ -362,7 +325,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test55" name="q15" ng-model="testResponse.q15" value="000">
                                     <label for="test55">60</label>
                                 </p>
-                                <h3>(16) 95 - 31 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(16) 95 - 31 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test56" name="q16" ng-model="testResponse.q16" value="0000">
                                     <label for="test56">38</label>
@@ -379,7 +342,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test59" name="q16" ng-model="testResponse.q16" value="0">
                                     <label for="test59">72</label>
                                 </p>
-                                <h3>(17) 53 - 9 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(17) 53 - 9 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test60" name="q17" ng-model="testResponse.q17" value="00">
                                     <label for="test60">22</label>
@@ -396,7 +359,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test63" name="q17" ng-model="testResponse.q17" value="0000">
                                     <label for="test63">46</label>
                                 </p>
-                                <h3>(18) 84 - 45 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(18) 84 - 45 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test64" name="q18" ng-model="testResponse.q18" value="00000">
                                     <label for="test64">29</label>
@@ -413,7 +376,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test67" name="q18" ng-model="testResponse.q18" value="00">
                                     <label for="test67">43</label>
                                 </p>
-                                <h3>(19) 1065, 965, <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> , 765, 665</h3>
+                                <h3>(19) 1065, 965, <span class="empty_square"><i class="far fa-square"></i></span> , 765, 665</h3>
                                 <span>Count backwards by 100s.</span>
                                 <p>
                                     <input type="radio" id="test68" name="q19" ng-model="testResponse.q19" value="1">
@@ -431,7 +394,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test71" name="q19" ng-model="testResponse.q19" value="00000">
                                     <label for="test71">465</label>
                                 </p>
-                                <h3>(20) 62 - <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> = 18</h3>
+                                <h3>(20) 62 - <span class="empty_square"><i class="far fa-square"></i></span> = 18</h3>
                                 <p>
                                     <input type="radio" id="test72" name="q20" ng-model="testResponse.q20" value="0">
                                     <label for="test72">22</label>
@@ -448,7 +411,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test75" name="q20" ng-model="testResponse.q20" value="000">
                                     <label for="test75">46</label>
                                 </p>
-                                <h3>(21) 105 = 75 &#43; <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(21) 105 = 75 &plus; <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test76" name="q21" ng-model="testResponse.q21" value="0000">
                                     <label for="test76">10</label>
@@ -465,7 +428,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test79" name="q21" ng-model="testResponse.q21" value="1">
                                     <label for="test79">30</label>
                                 </p>
-                                <h3>(22) 203 &#43; 495 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(22) 203 &plus; 495 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test80" name="q22" ng-model="testResponse.q22" value="00">
                                     <label for="test80">498</label>
@@ -482,7 +445,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test83" name="q22" ng-model="testResponse.q22" value="1">
                                     <label for="test83">698</label>
                                 </p>
-                                <h3>(23) 346 - 46 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(23) 346 - 46 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test84" name="q23" ng-model="testResponse.q23" value="00000">
                                     <label for="test84">133</label>
@@ -499,7 +462,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test87" name="q23" ng-model="testResponse.q23" value="00">
                                     <label for="test87">340</label>
                                 </p>
-                                <h3>(24) 764 - 531 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(24) 764 - 531 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test88" name="q24" ng-model="testResponse.q24" value="000">
                                     <label for="test88">133</label>
@@ -552,7 +515,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test99" name="q26" ng-model="testResponse.q26" value="00">
                                     <label for="test99">06:10</label>
                                 </p>
-                                <h3>(27) 250 &#43; 79 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(27) 250 &plus; 79 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test100" name="q27" ng-model="testResponse.q27" value="000">
                                     <label for="test100">79</label>
@@ -569,7 +532,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test103" name="q27" ng-model="testResponse.q27" value="1">
                                     <label for="test103">329</label>
                                 </p>
-                                <h3>(28) 190 - 172 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(28) 190 - 172 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test104" name="q28" ng-model="testResponse.q28" value="1">
                                     <label for="test104">18</label>
@@ -590,21 +553,21 @@ span.frac > sub {  display: block;  font: inherit;}
                                 <h3>(29) Which one is the same as 5 × 8</h3>
                                 <p>
                                     <input type="radio" id="test108" name="q29" ng-model="testResponse.q29" value="0">
-                                    <label for="test108">5 &#43; 5 &#43; 5 &#43; 5 &#43; 5</label>
+                                    <label for="test108">5 &plus; 5 &plus; 5 &plus; 5 &plus; 5</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test109" name="q29" ng-model="testResponse.q29" value="1">
-                                    <label for="test109">8 &#43; 8 &#43; 8 &#43; 8 &#43; 8</label>
+                                    <label for="test109">8 &plus; 8 &plus; 8 &plus; 8 &plus; 8</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test110" name="q29" ng-model="testResponse.q29" value="0">
-                                    <label for="test110">8 &#43; 8 &#43; 8 &#43; 5 &#43; 5</label>
+                                    <label for="test110">8 &plus; 8 &plus; 8 &plus; 5 &plus; 5</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="test111" name="q29" ng-model="testResponse.q29" value="00">
-                                    <label for="test111">5 &#43; 5 &#43; 5 &#43; 8 &#43; 8</label>
+                                    <label for="test111">5 &plus; 5 &plus; 5 &plus; 8 &plus; 8</label>
                                 </p>
-                                <h3>(30) 3 × 6 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(30) 3 × 6 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test112" name="q30" ng-model="testResponse.q30" value="000">
                                     <label for="test112">6</label>
@@ -621,7 +584,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test115" name="q30" ng-model="testResponse.q30" value="1">
                                     <label for="test115">18</label>
                                 </p>
-                                <h3>(31) 42 ÷ 7 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(31) 42 ÷ 7 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test116" name="q31" ng-model="testResponse.q31" value="0">
                                     <label for="test116">4</label>
@@ -638,7 +601,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test119" name="q31" ng-model="testResponse.q31" value="000">
                                     <label for="test119">9</label>
                                 </p>
-                                <h3>(32) 40 ÷ 10 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(32) 40 ÷ 10 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test120" name="q32" ng-model="testResponse.q32" value="0000">
                                     <label for="test120">1</label>
@@ -655,7 +618,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test123" name="q32" ng-model="testResponse.q32" value="1">
                                     <label for="test123">4</label>
                                 </p>
-                                <h3>(33) 12 ÷ <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> = 3</h3>
+                                <h3>(33) 12 ÷ <span class="empty_square"><i class="far fa-square"></i></span> = 3</h3>
                                 <p>
                                     <input type="radio" id="test124" name="q33" ng-model="testResponse.q33" value="1">
                                     <label for="test124">4</label>
@@ -672,7 +635,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test127" name="q33" ng-model="testResponse.q33" value="000">
                                     <label for="test127">11</label>
                                 </p>
-                                <h3>(34) <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> × 3 = 3 × 9</h3>
+                                <h3>(34) <span class="empty_square"><i class="far fa-square"></i></span> × 3 = 3 × 9</h3>
                                 <p>
                                     <input type="radio" id="test128" name="q34" ng-model="testResponse.q34" value="0000">
                                     <label for="test128">3</label>
@@ -689,7 +652,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test131" name="q34" ng-model="testResponse.q34" value="0">
                                     <label for="test131">11</label>
                                 </p>
-                                <h3>(35) 8 × 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> × 10</h3>
+                                <h3>(35) 8 × 5 = <span class="empty_square"><i class="far fa-square"></i></span> × 10</h3>
                                 <p>
                                     <input type="radio" id="test132" name="q35" ng-model="testResponse.q35" value="00">
                                     <label for="test132">1</label>
@@ -706,7 +669,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test135" name="q35" ng-model="testResponse.q35" value="1">
                                     <label for="test135">4</label>
                                 </p>
-                                <h3>(36) <span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span> <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> <span class="frac"><sup>6</sup><span>/</span><sub>8</sub></span></h3>
+                                <h3>(36) <span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span> <span class="empty_square"><i class="far fa-square"></i></span> <span class="frac"><sup>6</sup><span>/</span><sub>8</sub></span></h3>
                                 <span>Compare fractions with &gt;, &lt; or=.</span>
                                 <p>
                                     <input type="radio" id="test136" name="q36" ng-model="testResponse.q36" value="1">
@@ -725,7 +688,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <label for="test139">None of the above</label>
                                 </p>
                                 </p>
-                                <h3>(37) 2 351 <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> 3 125</h3>
+                                <h3>(37) 2 351 <span class="empty_square"><i class="far fa-square"></i></span> 3 125</h3>
                                 <span>Compare fractions with &gt;, &lt; or=.</span>
                                 <p>
                                     <input type="radio" id="test140" name="q37" ng-model="testResponse.q37" value="000">
@@ -743,7 +706,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test143" name="q37" ng-model="testResponse.q37" value="00000">
                                     <label for="test143">None of the above</label>
                                 </p>
-                                <h3>(38) 64 183 &#43; 38 445 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(38) 64 183 &plus; 38 445 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test144" name="q38" ng-model="testResponse.q38" value="0">
                                     <label for="test144">101 628</label>
@@ -760,7 +723,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test147" name="q38" ng-model="testResponse.q38" value="1">
                                     <label for="test147">102 628</label>
                                 </p>
-                                <h3>(39) 17 346 &#43; 92 601 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(39) 17 346 &plus; 92 601 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test148" name="q39" ng-model="testResponse.q39" value="0000">
                                     <label for="test148">18 346</label>
@@ -777,7 +740,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test151" name="q39" ng-model="testResponse.q39" value="0">
                                     <label for="test151">110 947</label>
                                 </p>
-                                <h3>(40) 884 227 - 793 019 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(40) 884 227 - 793 019 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test152" name="q40" ng-model="testResponse.q40" value="00">
                                     <label for="test152">84 227</label>
@@ -794,7 +757,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test155" name="q40" ng-model="testResponse.q40" value="0000">
                                     <label for="test155">110 947</label>
                                 </p>
-                                <h3>(41) 70 × 30 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(41) 70 × 30 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test156" name="q41" ng-model="testResponse.q41" value="00000">
                                     <label for="test156">210</label>
@@ -811,7 +774,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test159" name="q41" ng-model="testResponse.q41" value="1">
                                     <label for="test159">2 100</label>
                                 </p>
-                                <h3>(42) 16 × 5 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(42) 16 × 5 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test160" name="q42" ng-model="testResponse.q42" value="000">
                                     <label for="test160">40</label>
@@ -828,7 +791,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test163" name="q42" ng-model="testResponse.q42" value="1">
                                     <label for="test163">80</label>
                                 </p>
-                                <h3>(43) 2 × 4 555 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(43) 2 × 4 555 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test164" name="q43" ng-model="testResponse.q43" value="0">
                                     <label for="test164">4 555</label>
@@ -845,7 +808,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test167" name="q43" ng-model="testResponse.q43" value="1">
                                     <label for="test167">9 110</label>
                                 </p>
-                                <h3>(44) 213 ÷ 3 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(44) 213 ÷ 3 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test168" name="q44" ng-model="testResponse.q44" value="0000">
                                     <label for="test168">62</label>
@@ -862,7 +825,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test171" name="q44" ng-model="testResponse.q44" value="0">
                                     <label for="test171">84</label>
                                 </p>
-                                <h3>(45) 864 ÷ 8 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
+                                <h3>(45) 864 ÷ 8 = <span class="empty_square"><i class="far fa-square"></i></span></h3>
                                 <p>
                                     <input type="radio" id="test172" name="q45" ng-model="testResponse.q45" value="00">
                                     <label for="test172">64</label>
@@ -879,7 +842,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test175" name="q45" ng-model="testResponse.q45" value="0000">
                                     <label for="test175">600</label>
                                 </p>
-                                <h3>(46) <span class="frac"><sup>4</sup><span>/</span><sub>6</sub></span> &#43; <span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span> = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> </h3>
+                                <h3>(46) <span class="frac"><sup>4</sup><span>/</span><sub>6</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span> = <span class="empty_square"><i class="far fa-square"></i></span> </h3>
                                 <p>
                                     <input type="radio" id="test176" name="q46" ng-model="testResponse.q46" value="00000">
                                     <label for="test176"><span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span></label>
@@ -896,7 +859,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test179" name="q46" ng-model="testResponse.q46" value="00">
                                     <label for="test179"><span class="frac"><sup>6</sup><span>/</span><sub>10</sub></span></label>
                                 </p>
-                                <h3>(47) <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span> &#43; <span class="frac"><sup>5</sup><span>/</span><sub>10</sub></span> = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> </h3>
+                                <h3>(47) <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span> &plus; <span class="frac"><sup>5</sup><span>/</span><sub>10</sub></span> = <span class="empty_square"><i class="far fa-square"></i></span> </h3>
                                 <p>
                                     <input type="radio" id="test180" name="q47" ng-model="testResponse.q47" value="000">
                                     <label for="test180"> &minus; <span class="frac"><sup>2</sup><span>/</span><sub>10</sub></span></label>
@@ -913,7 +876,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test183" name="q47" ng-model="testResponse.q47" value="00000">
                                     <label for="test183"><span class="frac"><sup>12</sup><span>/</span><sub>11</sub></span></label>
                                 </p>
-                                <h3>(48) 7 kg = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> g </h3>
+                                <h3>(48) 7 kg = <span class="empty_square"><i class="far fa-square"></i></span> g </h3>
                                 <span>1kg = 1 000g</span>
                                 <p>
                                     <input type="radio" id="test184" name="q48" ng-model="testResponse.q48" value="0">
@@ -931,7 +894,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test187" name="q48" ng-model="testResponse.q48" value="1">
                                     <label for="test187">7000</label>
                                 </p>
-                                <h3>(49) 4m = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> mm</h3>
+                                <h3>(49) 4m = <span class="empty_square"><i class="far fa-square"></i></span> mm</h3>
                                 <p>
                                     <input type="radio" id="test188" name="q49" ng-model="testResponse.q49" value="0000">
                                     <label for="test188">4</label>
@@ -948,7 +911,7 @@ span.frac > sub {  display: block;  font: inherit;}
                                     <input type="radio" id="test191" name="q49" ng-model="testResponse.q49" value="1">
                                     <label for="test191">4000</label>
                                 </p>
-                                <h3>(50) 6 minutes = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> seconds</h3>
+                                <h3>(50) 6 minutes = <span class="empty_square"><i class="far fa-square"></i></span> seconds</h3>
                                 <p>
                                     <input type="radio" id="test192" name="q50" ng-model="testResponse.q50" value="00">
                                     <label for="test192">36</label>
