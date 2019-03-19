@@ -16,13 +16,13 @@ body {
 }
 
 .page {
-    background-color: rgb(255, 255, 255);
+    /*background-color: rgb(255, 255, 255);*/
     /*border-top: 8px solid rgb(0, 255, 0);*/
     /*display: table;*/
     /*margin: -120px auto 0;*/
     /*position: relative;*/
     /*right: -64px;*/
-    width: 100%;
+    /*width: 100%;*/
 }
 
 /*.pd-lr {
@@ -279,8 +279,9 @@ span.frac>sub {
 /*Sits on top of the colored background of the page*/
 .main_section {
     margin: auto;
-    width: 80%;
-    background-color: white;
+    padding-bottom: 5%;
+    /*width: 80%;*/
+    /*background-color: white;*/
 }
 
 /*Empty boxes on test questions*/
@@ -302,6 +303,11 @@ span.frac>sub {
 /*Small amount of margin to ensure the images don't touch each other*/ 
 .img_answers > div{
     margin-right: 1.5%
+}
+
+.main_content{
+    background:white;
+    padding-bottom: 5%;
 }
 
 /* Responsive */
