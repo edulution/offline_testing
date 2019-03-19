@@ -209,6 +209,10 @@ app.get('/num_bravo_d1', (req, res) => {
  res.sendFile( __dirname + '/numeracy/bravo_d1.html');
 });
 
+app.get('/num_bravo_d2', (req, res) => {
+ res.sendFile( __dirname + '/numeracy/bravo_d2.html');
+});
+
 
 /*Litercy tests*/
 app.get('/lit_alpha_a1', (req, res) => {
