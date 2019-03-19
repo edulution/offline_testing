@@ -1,6 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #B3FFB3;
+    background-color: rgb(179, 255, 179);
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
 
 /*center an image within a div*/
@@ -18,43 +18,46 @@ body {
 .page {
     background-color: rgb(255, 255, 255);
     /*border-top: 8px solid rgb(0, 255, 0);*/
-    display: table;
+    /*display: table;*/
     /*margin: -120px auto 0;*/
-    position: relative;
+    /*position: relative;*/
     /*right: -64px;*/
     width: 100%;
 }
 
-.pd-lr {
+/*.pd-lr {
     padding-left: 34px;
     padding-right: 34px;
-}
+}*/
 
-.pd-tb {
+/*.pd-tb {
     color: rgba(0, 0, 0, 0.87);
     padding: 34px 0;
-}
-
-/*.HeaderbannerLabel {
-    background-image: url("../images/title-bg.png");
-    background-repeat: no-repeat;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    height: 39px;
-    line-height: 39px;
-    margin-left: -34px;
-    margin-top: 15px;
-    padding-left: 34px;
 }*/
-.ins {
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 20px;
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
-.h3,
+.padd {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.ins {
+    color: #212121;
+    font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    line-height: 135%;
+    margin-top: 22px;
+    white-space: pre-wrap;
+}
+
+
 h3 {
     font-size: 20px;
+    font-weight: normal;
 }
 
 li {
@@ -62,6 +65,54 @@ li {
     font-size: 15px;
     margin-left: -20px;
 
+}
+
+/*Green background for headings including username,instructions, and coach credentials*/
+.HeaderbannerLabel {
+    background-color: rgb(0, 159, 21);
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-weight: 500;
+    /*padding-left: 34px;*/
+    /*margin-left: -30px;*/
+    font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    padding: 8px 8px 8px 34px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    width: 45%;
+}
+
+.box {
+    display: inline-block;
+    background-color: none;
+    vertical-align: middle
+}
+
+span.frac {
+    display: inline-block;
+    font-size: 75%;
+    text-align: center;
+    vertical-align: middle
+}
+
+span.frac>sup {
+    display: block;
+    border-bottom: 1px solid;
+    font: inherit;
+}
+
+span.frac>span {
+    display: none;
+}
+
+span.icon>span {
+    display: inline-block;
+    font-size: 1.1em
+}
+
+span.frac>sub {
+    display: block;
+    font: inherit;
 }
 
 /*Radio button*/
@@ -197,6 +248,7 @@ li {
     width: 89%;
 }
 
+/*Input fields such as username,coach_id, and password*/
 .user_input {
     border: 0px;
     border-bottom: 1px solid #c0c0c0;
@@ -214,11 +266,44 @@ li {
     z-index: 0;
 }
 
-/*span {
-    display: block;
-    font-size: 12px;
-    margin-bottom: 28px;
-}*/
+/*Test name that appears at the top of the page, below the logo e.g Alpha A1*/
+.test_name {
+    box-sizing: border-box;
+    font-size: 34px;
+    line-height: 135%;
+    max-width: 100%;
+    min-width: 0%;
+}
+
+/*Main section with a white background which contains all the content.*/
+/*Sits on top of the colored background of the page*/
+.main_section {
+    margin: auto;
+    width: 80%;
+    background-color: white;
+}
+
+/*Empty boxes on test questions*/
+.empty_square {
+    display: inline-block;
+    font-size: 1.1em
+}
+
+/*Questions in which the answer choices are images*/
+/*Behavior of flex will space images equally within div*/
+.img_answers{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap:nowrap;
+
+}
+
+/*Answers and their labels within img_answers div expected to be inside divs*/
+/*Small amount of margin to ensure the images don't touch each other*/ 
+.img_answers > div{
+    margin-right: 1.5%
+}
+
 /* Responsive */
 
 /* Responsive */
