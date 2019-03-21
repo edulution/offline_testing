@@ -35,7 +35,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/early-math/cc-early-math-geometry-topic/cc-early-math-composing-shapes/compose-shapes_1/"
 
 				];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Prealpha B*/
@@ -95,7 +95,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/early-math/cc-early-math-measure-data-topic/cc-early-math-time/telling_time/",
 						"http://192.168.8.200:8008/learn/khan/math/early-math/cc-early-math-geometry-topic/cc-early-math-properties-shapes/recognizing-shapes_1/"
 				];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Prealpha C*/
@@ -175,7 +175,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-class-6th-math-cbse/in-in-6th-know-numbers/in-in-6th-know-numbers-rounding/rounding-to-the-nearest-ten-or-hundred/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-class-6th-math-cbse/in-in-6th-know-numbers/in-in-6th-know-numbers-rounding/rounding-to-the-nearest-10-or-100-on-the-number-line/"
 				];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Prealpha D*/
@@ -208,7 +208,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-class-7th-math-cbse/in-in-7th-perimeter-area/in-in-7th-area-perimeter-word-problems/area_of_squares_and_rectangles/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-class-6th-math-cbse/in-in-6th-know-numbers/in-in-6th-know-numbers-rounding-whole-nos/rounding_whole_numbers/"
 				];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 	
 
@@ -263,7 +263,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/pre-algebra/pre-algebra-equations-expressions/pre-algebra-constructing-numeric-expressions/creating-expressions-with-parenthesis/"
 											
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Alpha B exercises*/
@@ -331,7 +331,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-class-6th-math-cbse/in-in-6th-elementary-shapes/in-in-6th-elementary-shapes-classifying-triangles/recognizing-triangles/",
 						"http://192.168.8.200:8008/learn/khan/math/in-fifth-grade-math/see-pattern/patterns/visualizing-and-interpreting-relationships-between-patterns/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Alpha C exercises*/
@@ -416,7 +416,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/displaying-describing-data/box-whisker-plots/box-plots/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-statistics-2/in-in-mean-deviation/calculating-the-mean-absolute-deviation--mad-/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Alpha D exercises*/
@@ -498,7 +498,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/early-math/cc-early-math-add-sub-20/cc-early-math-word-problems-within-20/addition-and-subtraction-word-problems-within-20--level-1/",
 						"http://192.168.8.200:8008/learn/khan/math/early-math/cc-early-math-measure-data-topic/cc-early-math-measuring-length/measuring-lengths-2_1/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Alpha A videos*/
@@ -529,7 +529,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-fifth-grade-math/ways-multiply-divide/strategies-multiplication-division/constructing-numerical-expressions-example/",
 						"http://192.168.8.200:8008/learn/khan/math/pre-algebra/pre-algebra-equations-expressions/pre-algebra-constructing-numeric-expressions/evaluating-an-expression-with-and-without-parentheses/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Alpha B videos*/
@@ -576,7 +576,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-fifth-grade-math/see-pattern/patterns/interpreting-and-graphing-relationships-between-patterns/",
 						"http://192.168.8.200:8008/learn/khan/math/in-fifth-grade-math/see-pattern/patterns/sequence-relationship-example/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Alpha C videos*/
@@ -650,7 +650,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/displaying-describing-data/box-whisker-plots/reading-box-and-whisker-plots/",
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/displaying-describing-data/box-whisker-plots/constructing-a-box-and-whisker-plot/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 
@@ -724,7 +724,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/pre-algebra/pre-algebra-arith-prop/pre-algebra-place-value/place-value-1/",
 						"http://192.168.8.200:8008/learn/khan/math/early-math/cc-early-math-measure-data-topic/cc-early-math-length-word-problems/length-word-problems/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Bravo playlists*/
@@ -767,7 +767,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-relations-and-functions/copy-of-recognizing-functions-ddp/recog-func-2/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-relations-and-functions/copy-of-recognizing-functions-ddp/recognizing_functions/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Bravo B exercises*/
@@ -797,7 +797,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/displaying-describing-data/two-way-tables-for-categorical-data/frequencies-of-bivariate-data/",
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/displaying-describing-data/two-way-tables-for-categorical-data/trends-in-categorical-data/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Bravo C exercises*/
@@ -905,7 +905,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-straight-lines/copy-of-parallel-and-perpendicular/line_relationships/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-straight-lines/copy-of-parallel-and-perpendicular/writing-equations-for-parallel-or-perpendicular-lines/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Bravo D exercises*/
@@ -1032,7 +1032,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-12-ncert/in-in-probability-of-events/copy-of-multiplication-rule-dependent-events/dependent_probability/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-probability/copy-of-addition-rule-for-probability/adding-probability/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Bravo A Videos*/
@@ -1095,7 +1095,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/algebra/linear-word-problems/constructing-linear-models/constructing-linear-functions-2/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-relations-and-functions/copy-of-recognizing-functions-ddp/recognizing-functions-example-2/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Bravo B videos*/
@@ -1143,7 +1143,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/displaying-describing-data/two-way-tables-for-categorical-data/analyzing-trends-categorical-data/",
 						"http://192.168.8.200:8008/learn/khan/math/statistics-probability/inference-categorical-data-chi-square-tests/chi-square-tests-for-homogeneity-and-association-independence/frequency-table-independent-events/	"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 
@@ -1322,7 +1322,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-class-6th-math-cbse/in-in-6th-elementary-shapes/in-in-6th-elementary-shapes-parallel-and-perpendicular/parallel-and-perpendicular-lines-intro/",
 						"http://192.168.8.200:8008/learn/khan/math/geometry/hs-geo-analytic-geometry/hs-geo-coordinate-plane-proofs/classfying-a-quadrilateral-on-the-coordinate-plane/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}	
 
 	/*Bravo D videos*/
@@ -1552,7 +1552,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-probability/copy-of-addition-rule-for-probability/probability-with-playing-cards-and-venn-diagrams/",
 						"http://192.168.8.200:8008/learn/khan/math/in-in-grade-11-ncert/in-in-class11-probability/copy-of-addition-rule-for-probability/addition-rule-for-probability/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 
@@ -1571,7 +1571,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/pre-algebra/exponents-radicals/negative-exponents-tutorial/zero-negative-and-fractional-exponents/",
 						"http://192.168.8.200:8008/learn/khan/math/algebra-basics/core-algebra-linear-equations-inequalities/core-algebra-linear-equation-word-problems/linear-equation-word-problem-example/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Charlie B*/
@@ -1615,7 +1615,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/basic-geo/basic-geo-angles/basic-geo-interpreting-angles/parallel-and-perpendicular-lines-intro/",
 						"http://192.168.8.200:8008/learn/khan/math/basic-geo/basic-geo-angles/basic-geo-interpreting-angles/recognizing-parallel-and-perpendicular-lines/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Charlie C*/
@@ -1666,7 +1666,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/trigonometry/trigonometry-right-triangles/reciprocal-trig-ratios/reciprocal_trig_funcs/",
 						"http://192.168.8.200:8008/learn/khan/math/trigonometry/trig-with-general-triangles/law-of-sines/law-of-sines/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 	}
 
 	/*Charlie D*/
@@ -1706,7 +1706,7 @@ var playlisturl = function (course, playlist, assessment,assessment_type) {
 						"http://192.168.8.200:8008/learn/khan/math/differential-calculus/taking-derivatives/derivatives-inverse-functions/derivative-natural-logarithm/",
 						"http://192.168.8.200:8008/learn/khan/math/differential-calculus/taking-derivatives/derivatives-inverse-functions/derivatives-of-inverse-functions/"
 		];
-		window.open(exercises[assessment],'_system','location=yes');
+		window.open(exercises[assessment],"_self");
 		
 	}
 
