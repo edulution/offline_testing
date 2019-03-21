@@ -4,9 +4,6 @@
 <html ng-app="passProtect">
 
 <head>
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<![endif]-->
     <title>Alpha D2</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,938 +15,801 @@
     <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
-    <script src="pmodule/angular.min.js"></script>
-    <script src="pmodule/angular-animate.js"></script>
-    <script src="pmodule/angular-sanitize.js"></script>
-    <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-ui.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
-    <style>
-    .HeaderbannerLabel {
-        background-color: rgb(0, 159, 21);
-        color: rgba(255, 255, 255, 1);
-        font-size: 20px;
-        font-weight: 500;
-        padding-left: 34px;
-        margin-left: -30px;
-        font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-        padding: 8px 8px 8px 34px;
-        margin-top: 30px;
-        margin-bottom: 25px;
-        width: 45%;
-    }
-    p {
-        font-size: 16px;
-    }
-
-    h3 {
-        font-weight: normal;
-    }
-    </style>
 </head>
 
-<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="MainCtrl as ctrl">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
-    <script type="text/ng-template" id="testModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <label class="item item-input">
-                <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
-            </label>
-            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
-            <button class="btn btn-danger" type="button">Cancel</button>
-        </div>
-    </script>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
-    <span ng-init=ctrl.openModal()></span> 
-    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
-        <div class="row">
-            <div class="container page">
-                <div class="row">
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
                     <div id="edulution_logo">
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
-                    <div class="pd-tb">
-                        <div class="pd-lr">
-				<form action="/submit_test" name="testForm1" method="post">
-                            <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; min-width: 0%;">Alpha D2</p>
-                            <div class="HeaderbannerLabel">USERNAME</div> 
-                          <!-- Input fiels for user_id contains some js code for validation -->
-                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Username</label>
-                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
-                          <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
-
-				<div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                            <div class="ins">Time allowed: 60 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
-                            <div class="HeaderbannerLabel">ASSESSMENT</div>										
-                            <!-- TODO: Add form name,action and method -->
-                            <!-- <form name="testForm" action="/submit_test" method="post"> -->                 
-                            <h3>(1) Hurricanes develop over warm water.</h3>
-							<p>Select the simple subject.</p>
-                                <p>
-                                    <!-- TODO: Add value attribute to each radio button -->
-                                    <!-- Each group of radio buttons with the same name corresponds to one question -->
-                                    <!-- Wrong answers are 0, correct answer is 1 -->
-                                    <!-- Example below -->
-                                    <!-- <input type="radio" id="test1" name="q1" value="0"> -->
-                                    <input type="radio" id="q1_a" name="q1" value="1">
-                                    <label for="q1_a">Hurricanes</label>
-                                </p>
-								<p>
-                                    <input type="radio" id="q1_b" name="q1" value="0">
-                                    <label for="q1_b">develop</label>
-                                </p>
-								<p>
-                                    <input type="radio" id="q1_c" name="q1" value="0">
-                                    <label for="q1_c">over</label>
-                                </p>
-								<p>
-                                    <input type="radio" id="q1_d" name="q1" value="0">
-                                    <label for="q1_d">warm</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q1_e" name="q1" value="0">
-                                    <label for="q1_e">water</label>
-                                </p>
-                          
-                                <h3>(2)	Which is a complete sentence?</h3>
-                                <p>
-                                    <input type="radio" id="q2_a" name="q2" value="0">
-                                    <label for="q2_a">John's skills and Sarah's knowledge of physics.</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q2_b" name="q2" value="1">
-                                    <label for="q2_b">Mrs Mubita's nephew is nervous about his exams.</label>
-                                </p>
-                       
-                                <h3>(3)  We will harvest the lettuce and keep it fresh in the fridge.</h3>
-                                <p>Select which of the words is a noun.</p>
-                                <p>
-                                    <input type="radio" id="q3_a" name="q3" value="0">
-                                    <label for="q3_a">Harvest</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q3_b" name="q3" value="0">
-                                    <label for="q3_b">keep</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q3_c" name="q3" value="1">
-                                    <label for="q3_c">fridge</label>
-                                </p>
-                        
-                                <h3>(4) The boy ______ won the race is my brother.</h3>
-                                <p>Select the correct relative pronoun.</p>
-                                <p>
-                                    <input type="radio" id="q4_a" name="q4" value="0">
-                                    <label for="q4_a">which</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q4_b" name="q4" value="1">
-                                    <label for="q4_b">who</label>
-                                </p>
-								 <p>
-                                    <input type="radio" id="q4_c" name="q4" value="0">
-                                    <label for="q4_c">whom</label>
-                                </p>
-								 <p>
-                                    <input type="radio" id="q4_d" name="q4" value="0">
-                                    <label for="q4_d">that</label>
-                                </p>
-                           
-                                <h3>(5) The farmer removes the wool from all her (sheep) in spring.</h3>
-                                <p>Is the noun in brackets  singular or plural?</p>
-                                <p>
-                                    <input type="radio" id="q5_a" name="q5" value="0">
-                                    <label for="q5_a">singular</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q5_b" name="q5" value="1">
-                                    <label for="q5_b">plural</label>
-                                </p>
-                          
-                                <h3>(6) The ____(dinosaur)____ claws. </h3>
-                                <p>Complete the phrase with the possessive form of the noun in brackets.</p>
-                                    <p>
-                                        <input type="radio" id="q6_a" name="q6" value="0">
-                                        <label for="q6_a">dinosaurs</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q6_b" name="q6" value="1">
-                                        <label for="q6_b">dinosaur's</label>
-                                    </p>
-									<p>
-                                        <input type="radio" id="q6_c" name="q6" value="0">
-                                        <label for="q6_c">dinosaurses</label>
-                                    </p>
-									
-                                    <h3>(7) He _________ the air and said, "Something smells delicious!"</h3>
-                                    <p>Choose the best action verb to complete the sentence.</p>
-									<p>
-                                        <input type="radio" id="q7_a" name="q7" value="0">
-                                        <label for="q7_a">swung</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q7_b" name="q7" value="1">
-                                        <label for="q7_b">sniffed</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q7_c" name="q7" value="0">
-                                        <label for="q7_c">echoes</label>
-                                    </p>
-                                				
-                                    <h3>(8) My greedy dog stole the sandwich right off my plate!</h3>
-                                    <p>Select the action verb in the sentence.</p>
-                                    <p>
-                                        <input type="radio" id="q8_a" name="q8" value="0">
-                                        <label for="q8_a">My</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q8_b" name="q8" value="0">
-                                        <label for="q8_b">greedy</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q8_c" name="q8" value="0">
-                                        <label for="q8_c">dog</label>
-                                    </p>
-									<p>
-                                        <input type="radio" id="q8_d" name="q8" value="1">
-                                        <label for="q8_d">stole</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q8_e" name="q8" value="0">
-                                        <label for="q8_e">sandwich</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q8_f" name="q8" value="0">
-                                        <label for="q8_f">off</label>
-                                    </p>
-									<p>
-                                        <input type="radio" id="q8_g" name="q8" value="0">
-                                        <label for="q8_g">my</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q8_h" name="q8" value="0">
-                                        <label for="q8_h">plate</label>
-                                    </p>
-                                 
-                                    <h3>(9) My (feet) ached after walking all the way home.</h3>
-                                    <p>Is the word in brackets singular or plural?</p>
-                                    <p>
-                                        <input type="radio" id="q9_a" name="q9" value="0">
-                                        <label for="q9_a">singular</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q9_b" name="q9" value="1">
-                                        <label for="q9_b">plural</label>
-                                    </p>
-                                   
-                                    <h3>(10) Women _________ in a wide range of positions at the company.</h3>
-                                    <p>Choose the best word complete the sentence.</p>
-                                    <p>
-                                        <input type="radio" id="q10_a" name="q10" value="0">
-                                        <label for="q10_a"> works </label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q10_b" name="q10" value="1">
-                                        <label for="q10_b">work </label>
-                                    </p>
-                                    
-                                    <h3>(11) You should write _________ a reminder to bring a pencil to school tomorrow.</h3>
-                                    <p>Choose the best subject pronoun to complete the sentence.</p>
-									<p>
-                                        <input type="radio" id="q11_a" name="q11" value="0">
-                                        <label for="q11_a">you</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q11_b" name="q11" value="1">
-                                        <label for="q11_b">youself</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q11_c" name="q11" value="0">
-                                        <label for="q11_c">your</label>
-                                    </p>
-                                    
-                                    <h3>(12) The cars ____(stop)____ at the flashing red light.</h3>
-                                    <p>Complete the sentence with the past tense of the word in brackets.</p>
-                                    <p>
-                                        <input type="radio" id="q12_a" name="q12" value="1">
-                                        <label for="q12_a">stopped</label>   
-                                    </p>
-                                    
-                                    <p>
-                                        <input type="radio" id="q12_b" name="q12" value="0">
-                                        <label for="q12_b">stoping</label>
-                                    </p>
-									<p>
-                                        <input type="radio" id="q12_c" name="q12" value="0">
-                                        <label for="q12_c">stops</label>
-                                    </p>
-                                
-                                    <h3>(13)  Loud noises ____(disturb)____ the baby during his nap.</h3>
-                                    <p>Complete the sentence with the future tense of the verb in brackets.</p>
-                                    <p>
-                                        <input type="radio" id="q13_a" name="q13" value="0">
-                                        <label for="q13_a">disturbs</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q13_b" name="q13" value="1">
-                                        <label for="q13_b"> will disturb</label>
-                                    </p>
-                                  
-                                    <h3>(14) When the party started, we _________ already grilled all the food.</h3>
-                                    <p>Choose the correct past tense form of to be to complete the sentence.</p>
-                                    <p>
-                                        <input type="radio" id="q14_a" name="q14" value="1">
-                                        <label for="q14_a">had</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q14_b" name="q14" value="0">
-                                        <label for="q14_b">have</label>
-                                    </p>
-                                    
-                             
-                                    <h3>(15) _________ she a teacher at a school in your neighbourhood?</h3>
-                                    <p>Choose the correct word to complete the sentence. </p>
-                                    <p>
-                                        <input type="radio" id="q15_a" name="q15" value="1">
-                                        <label for="q15_a">Is</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q15_b" name="q15" value="0">
-                                        <label for="q15_b">Are</label>
-                                    </p>
-                                   
-                                    <h3>(16) John ____(bend)____ the frame of his glasses when he sat on them.</h3>
-									<p>Complete the sentence with the past tense of the verb in brackets.</p>
-                                    <p>
-                                        <input type="radio" id="q16_a" name="q16" value="0">
-                                        <label for="q16_a">bended</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q16_b" name="q16" value="1">
-                                        <label for="q16_b">bent</label>
-                                    </p>
-                              
-                                    <h3>(17) The farmer ____(dig)____ holes to plant the seeds in.</h3>
-									<p>Complete the sentence with the past tense of the verb in brackets.</p>
-			                        <p>
-                                        <input type="radio" id="q17_a" name="q17" value="0">
-                                        <label for="q17_a">digged</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q17_b" name="q17" value="1">
-                                        <label for="q17_b">dug</label>
-                                    </p>
-									
-                                    <h3>(18) The blanket I ____(buy)____ should keep me warm.</h3>
-									<p>Complete the sentence with the past tense of the verb in brackets.</p>
-                                    <p>
-                                        <input type="radio" id="q18_a" name="q18" value="0">
-                                        <label for="q18_a">buying</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q18_b" name="q18" value="0">
-                                        <label for="q18_b">buyed</label>
-                                    </p>
-									<p>
-                                        <input type="radio" id="q18_c" name="q18" value="1">
-                                        <label for="q18_c">bought</label>
-                                    </p>
-                                  
-                                    <h3>(19) The man ____(speak)____ about his trip to India.</h3>
-									<p>Complete the sentence with the past tense of the verb in brackets.</p>
-                                    <p>
-                                        <input type="radio" id="q19_a" name="q19" value="0">
-                                        <label for="q19_a">speaked</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q19_b" name="q19" value="1">
-                                        <label for="q19_b">spoke</label>
-                                    </p>
-									<p>
-                                        <input type="radio" id="q19_c" name="q19" value="0">
-                                        <label for="q19_c">spoken</label>
-                                    </p>
-									
-                                    <h3>(20) The water in the bucket froze during the cold night. </h3>
-									<p>Which tense does the sentence use?</p>
-                                    <p>
-                                        <input type="radio" id="q20_a" name="q20" value="1">
-                                        <label for="q20_a">Past tense</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q20_b" name="q20" value="0">
-                                        <label for="q20_b">Present tense</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="q20_c" name="q20" value="0">
-                                        <label for="q20_c">Future tense</label>
-                                    </p>
-                                 
-                        <h3>(21) Whose horses were galloping by?</h3>	
+                    <form name="testForm">
+                        <p class="test_name">Alpha D2</p>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Time allowed: 60 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
+                        <div class="HeaderbannerLabel">ASSESSMENT</div>
+                        <!-- TODO: Add form name,action and method -->
+                        <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                        <h3>(1) Hurricanes develop over warm water.</h3>
+                        <p>Select the simple subject.</p>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_a">Hurricanes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_b">develop</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_c">over</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="q1_d">warm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_e" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_e">water</label>
+                        </p>
+                        <h3>(2) Which is a complete sentence?</h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="q2_a">John's skills and Sarah's knowledge of physics.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_b">Mrs Mubita's nephew is nervous about his exams.</label>
+                        </p>
+                        <h3>(3) We will harvest the lettuce and keep it fresh in the fridge.</h3>
+                        <p>Select which of the words is a noun.</p>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
+                            <label for="q3_a">Harvest</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="q3_b">keep</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_c">fridge</label>
+                        </p>
+                        <h3>(4) The boy ______ won the race is my brother.</h3>
+                        <p>Select the correct relative pronoun.</p>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_a">which</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_b">who</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="q4_c">whom</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="00">
+                            <label for="q4_d">that</label>
+                        </p>
+                        <h3>(5) The farmer removes the wool from all her (sheep) in spring.</h3>
+                        <p>Is the noun in brackets singular or plural?</p>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="q5_a">singular</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_b">plural</label>
+                        </p>
+                        <h3>(6) The ____(dinosaur)____ claws. </h3>
+                        <p>Complete the phrase with the possessive form of the noun in brackets.</p>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0000">
+                            <label for="q6_a">dinosaurs</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_b">dinosaur's</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="q6_c">dinosaurses</label>
+                        </p>
+                        <h3>(7) He _________ the air and said, "Something smells delicious!"</h3>
+                        <p>Choose the best action verb to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="q7_a">swung</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_b">sniffed</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="00">
+                            <label for="q7_c">echoes</label>
+                        </p>
+                        <h3>(8) My greedy dog stole the sandwich right off my plate!</h3>
+                        <p>Select the action verb in the sentence.</p>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_a">My</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
+                            <label for="q8_b">greedy</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="00000">
+                            <label for="q8_c">dog</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_d">stole</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_e" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="q8_e">sandwich</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_f" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="q8_f">off</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_g" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_g">my</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_h" name="q8" ng-model="testResponse.q8" value="0000">
+                            <label for="q8_h">plate</label>
+                        </p>
+                        <h3>(9) My (feet) ached after walking all the way home.</h3>
+                        <p>Is the word in brackets singular or plural?</p>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="00000">
+                            <label for="q9_a">singular</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_b">plural</label>
+                        </p>
+                        <h3>(10) Women _________ in a wide range of positions at the company.</h3>
+                        <p>Choose the best word complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
+                            <label for="q10_a"> works </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_b">work </label>
+                        </p>
+                        <h3>(11) You should write _________ a reminder to bring a pencil to school tomorrow.</h3>
+                        <p>Choose the best subject pronoun to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a">you</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_b">youself</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="00">
+                            <label for="q11_c">your</label>
+                        </p>
+                        <h3>(12) The cars ____(stop)____ at the flashing red light.</h3>
+                        <p>Complete the sentence with the past tense of the word in brackets.</p>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_a">stopped</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_b">stoping</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_c">stops</label>
+                        </p>
+                        <h3>(13) Loud noises ____(disturb)____ the baby during his nap.</h3>
+                        <p>Complete the sentence with the future tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="00000">
+                            <label for="q13_a">disturbs</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_b"> will disturb</label>
+                        </p>
+                        <h3>(14) When the party started, we _________ already grilled all the food.</h3>
+                        <p>Choose the correct past tense form of to be to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_a">had</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="0">
+                            <label for="q14_b">have</label>
+                        </p>
+                        <h3>(15) _________ she a teacher at a school in your neighbourhood?</h3>
+                        <p>Choose the correct word to complete the sentence. </p>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_a">Is</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="q15_b">Are</label>
+                        </p>
+                        <h3>(16) John ____(bend)____ the frame of his glasses when he sat on them.</h3>
+                        <p>Complete the sentence with the past tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="000">
+                            <label for="q16_a">bended</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="q16_b">bent</label>
+                        </p>
+                        <h3>(17) The farmer ____(dig)____ holes to plant the seeds in.</h3>
+                        <p>Complete the sentence with the past tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0000">
+                            <label for="q17_a">digged</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="q17_b">dug</label>
+                        </p>
+                        <h3>(18) The blanket I ____(buy)____ should keep me warm.</h3>
+                        <p>Complete the sentence with the past tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="00000">
+                            <label for="q18_a">buying</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="0">
+                            <label for="q18_b">buyed</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="q18_c">bought</label>
+                        </p>
+                        <h3>(19) The man ____(speak)____ about his trip to India.</h3>
+                        <p>Complete the sentence with the past tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="00">
+                            <label for="q19_a">speaked</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="1">
+                            <label for="q19_b">spoke</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="000">
+                            <label for="q19_c">spoken</label>
+                        </p>
+                        <h3>(20) The water in the bucket froze during the cold night. </h3>
+                        <p>Which tense does the sentence use?</p>
+                        <p>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="q20_a">Past tense</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="0000">
+                            <label for="q20_b">Present tense</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="00000">
+                            <label for="q20_c">Future tense</label>
+                        </p>
+                        <h3>(21) Whose horses were galloping by?</h3>
                         <p>Select the verb.</p>
-	                         <p>
-								<input type="radio" id="q21_a" name="q21" value="0">
-								<label for="q21_a">Whose</label>
-							</p>
-							<p>
-								<input type="radio" id="q21_b" name="q21" value="0">
-								<label for="q21_b">horses</label>
-							</p>
-							<p>
-								<input type="radio" id="q21_c" name="q21" value="0">
-								<label for="q21_c">were</label>
-							</p>
-							<p>
-								<input type="radio" id="q21_d" name="q21" value="1">
-								<label for="q21_d">galloping</label>
-							</p>
-							<p>
-								<input type="radio" id="q21_e" name="q21" value="0">
-								<label for="q21_e">by</label>
-							</p>
-							
-					
-				        <h3>(22) Can it wait? I _________ writing an email to my friend right now.</h3>
-					    <p>Choose the correct helping verb or verbs to complete the sentence.</p>
-			                  <p>
-					    <input type="radio" id="q22_a" name="q22" value="0">
-					    <label for="q22_a">will be</label>
-					  </p>
-					  <p>
-					    <input type="radio" id="q22_b" name="q22" value="1">
-					    <label for="q22_b">am</label>
-					  </p>
-					
-
-                    <h3>(23) My teammates ____(burst)____ with excitement after winning the game.</h3>
-                    <p>Complete the sentence with the past progressive tense of the verb in brackets.</p>
-					  <p>
-					    <input type="radio" id="q23_a" name="q23" value="1">
-					    <label for="q23_a">burst</label>
-					  </p>
-					  <p>
-					    <input type="radio" id="q23_b" name="q23" value="0">
-					    <label for="q23_b">were bursting</label>
-					  </p>
-			
-					
-                    <h3>(24) The police officer ____(pin)____ her badge onto her uniform.</h3> 
-                    <p>Complete the sentence with the present progressive tense of the verb in brackets.</p>
-                                
                         <p>
-                        <input type="radio" id="q24_a" name="q24" value="1">
-                        <label for="q24_a">pinned</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q24_b" name="q24" value="0">
-                        <label for="q24_b">pinning</label>
-                    </p>
-                
-                
-					<h3>(25) At this time tomorrow, I ____(fly)____ to England.</h3>
-                    <p>Complete the sentence with the future progressive tense of the verb in brackets.</p>
-					<p>
-					   <input type="radio" id="q25_a" name="q25" value="0">
-					   <label for="q25_a">flied</label>
-					  </p>
-				       <p>
-					    <input type="radio" id="q25_b" name="q25" value="1">
-					    <label for="q25_b">will be flying</label>
-				       </p>
-				        
-                     <h3>(26) Tom ____(help)____ his father with the garden shed before going out with his friends.</h3>
-                     <p>Complete the sentence with the past perfect form of the verb in brackets.</p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="0">
+                            <label for="q21_a">Whose</label>
+                        </p>
                         <p>
-                            <input type="radio" id="q26_a" name="q26" value="0">
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00">
+                            <label for="q21_b">horses</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="000">
+                            <label for="q21_c">were</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_d">galloping</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_e" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_e">by</label>
+                        </p>
+                        <h3>(22) Can it wait? I _________ writing an email to my friend right now.</h3>
+                        <p>Choose the correct helping verb or verbs to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="00000">
+                            <label for="q22_a">will be</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="q22_b">am</label>
+                        </p>
+                        <h3>(23) My teammates ____(burst)____ with excitement after winning the game.</h3>
+                        <p>Complete the sentence with the past progressive tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="1">
+                            <label for="q23_a">burst</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="0">
+                            <label for="q23_b">were bursting</label>
+                        </p>
+                        <h3>(24) The police officer ____(pin)____ her badge onto her uniform.</h3>
+                        <p>Complete the sentence with the present progressive tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="1">
+                            <label for="q24_a">pinned</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="00">
+                            <label for="q24_b">pinning</label>
+                        </p>
+                        <h3>(25) At this time tomorrow, I ____(fly)____ to England.</h3>
+                        <p>Complete the sentence with the future progressive tense of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="000">
+                            <label for="q25_a">flied</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_b" name="q25" ng-model="testResponse.q25" value="1">
+                            <label for="q25_b">will be flying</label>
+                        </p>
+                        <h3>(26) Tom ____(help)____ his father with the garden shed before going out with his friends.</h3>
+                        <p>Complete the sentence with the past perfect form of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="0000">
                             <label for="q26_a">helps</label>
                         </p>
                         <p>
-                            <input type="radio" id="q26_b" name="q26" value="1">
+                            <input type="radio" id="q26_b" name="q26" ng-model="testResponse.q26" value="1">
                             <label for="q26_b">had helped</label>
                         </p>
                         <p>
-                            <input type="radio" id="q26_c" name="q26" value="0">
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="00000">
                             <label for="q26_c">help</label>
                         </p>
-                       
-
-                        
-					<h3>(27) The schools ____(close)____ for the holiday.</h3>
-                    <p>Complete the sentence with the present perfect form of the verb in brackets.</p>
-					<p>
-					   <input type="radio" id="q27_a" name="q27" value="0">
-					   <label for="q27_a">were closed</label>
-					  </p>
-				       <p>
-					    <input type="radio" id="q27_b" name="q27" value="1">
-					    <label for="q27_b">have closed</label>
-                       </p>
-					   <p>
-					    <input type="radio" id="q27_c" name="q27" value="0">
-					    <label for="q27_c">will closed</label>
-                       </p>
-                       
-                    <h3>(28) By the time he is eighty, my father ____(lose)____ all his hair.</h3>
-                    <p>Complete the sentence with the future perfect form of the verb in brackets.</p>
-                    <p>
-                        <input type="radio" id="q28_a" name="q28" value="0">
-                        <label for="q28_a">will lose</label>
+                        <h3>(27) The schools ____(close)____ for the holiday.</h3>
+                        <p>Complete the sentence with the present perfect form of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="0">
+                            <label for="q27_a">were closed</label>
                         </p>
                         <p>
-                        <input type="radio" id="q28_b" name="q28" value="1">
-                        <label for="q28_b">will have lost</label>
+                            <input type="radio" id="q27_b" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="q27_b">have closed</label>
                         </p>
-            
-                    <h3>(29) My father has recently _________ the manager of his company.</h3>
-                    <p>Choose the correct form of the verb to complete the sentence.</p>
-                    <p>
-                        <input type="radio" id="q29_a" name="q29" value="0">
-                        <label for="q29_a">became</label>
-                    </p>
                         <p>
-                        <input type="radio" id="q29_b" name="q29" value="1">
-                        <label for="q29_b">become</label>
+                            <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="00">
+                            <label for="q27_c">will closed</label>
                         </p>
-            
-                    <h3>(30) According to some scientists, dinosaurs (may) have been warm-blooded, not cold-blooded.</h3>
-					<p>What does the verb in brackets show?</p>
-                    <p>
-                    <input type="radio" id="q30_a" name="q30" value="1">
-                    <label for="q30_a">possibility</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q30_b" name="q30" value="0">
-                        <label for="q30_b">a request </label>
-                    </p>
-
-                    <h3>(31) My mother _________ dance beautifully until she hurt her knee.</h3>
-                    <p>Choose the word that best completes the sentence.</p>
-                    <p>
-                    <input type="radio" id="q31_a" name="q31" value="1">
-                    <label for="q31_a">could</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q31_b" name="q31" value="0">
-                        <label for="q31_b">can</label>
-                    </p>
-                
-                    <h3>(32) She can clean and bandage that cut for _________.</h3>
-					<p>Choose the correct pronoun to complete the sentence.</p>
-                    <p>
-                    <input type="radio" id="q32_a" name="q32" value="1">
-                    <label for="q32_a">you</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q32_b" name="q32" value="0">
-                        <label for="q32_b">yourself</label>
-                    </p>
-
-                    <h3>(33)  My brother who is in grade 3 is very clever.</h3>
-					<p>Select the relative pronoun.</p>
-                    <p>
-                    <input type="radio" id="q33_a" name="q33" value="0">
-                    <label for="q33_a">my</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q33_b" name="q33" value="0">
-                        <label for="q33_b">brother</label>
-                    </p>
-					<p>
-                    <input type="radio" id="q33_c" name="q33" value="1">
-                    <label for="q33_c">who</label>
-                    </p>
-					
-                    <p>
-                        <input type="radio" id="q33_d" name="q33" value="0">
-                        <label for="q33_d">grade</label>
-                    </p>
-					
-					<p>
-                    <input type="radio" id="q33_e" name="q33" value="0">
-                    <label for="q33_e">is</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q33_f" name="q33" value="0">
-                        <label for="q33_f">very</label>
-                    </p>
-					
-					<p>
-                    <input type="radio" id="q33_g" name="q33" value="0">
-                    <label for="q33_g">clever</label>
-                    </p>
-                    
-                    
-                    <h3>(34) My sister is _________ better student than my brother.</h3>
-                    <p>Choose the correct word to complete the sentence.</p>
-                    <p>
-                    <input type="radio" id="q34_a" name="q34" value="1">
-                    <label for="q34_a">a</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q34_b" name="q34" value="0">
-                        <label for="q34_b">an</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q34_c" name="q34" value="0">
-                        <label for="q34_c">the</label>
-                    </p>
-                    
-                    
-                    <h3>(35) We stayed (inside) and played games.</h3>
-					<p>Does the word in brackets tell you how, when or where?</p>
-                    <p>
-                    <input type="radio" id="q35_a" name="q35" value="0">
-                    <label for="q35_a">how</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q35_b" name="q35" value="0">
-                        <label for="q35_b">when</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q35_c" name="q35" value="1">
-                        <label for="q35_c">where</label>
-                    </p>
-                    
-
-                    <h3>(36) Is this the neighbourhood _________ you saw that famous actor?</h3>
-                    <p>Choose the correct relative adverb to complete the sentence.</p>
-                    <p>
-                    <input type="radio" id="q36_a" name="q36" value="0">
-                    <label for="q36_a">when</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q36_b" name="q36" value="0">
-                        <label for="q36_b">why</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q36_c" name="q36" value="1">
-                        <label for="q36_c">where</label>
-                    </p>
-						
-						
-                    <h3>(37) The clever girl ________(answered) all the questions in the test.</h3>
-                    <p>Choose the word that best completes the sentence.</p>
-                    <p>
-                    <input type="radio" id="q37_a" name="q37" value="0">
-                    <label for="q37_a">correct</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q37_b" name="q37" value="1">
-                        <label for="q37_b">correctly</label>
-                    </p>
-
-                    <h3>(38) The (low) temperatures this week have forced me to put on my overcoat.</h3>
-                    <p>Is the word in brackets an adjective or an adverb?</p>
-                    <p>
-                    <input type="radio" id="q38_a" name="q38" value="1">
-                    <label for="q38_a">adjective</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q38_b" name="q38" value="0">
-                        <label for="q38_b">adverb</label>
-                    </p>
-
-                    <h3>(39) Your hair is ____(messy)____ than mine!</h3>
-                    <p>Complete the sentence with the correct comparative or superlative form of the adjective in brackets.</p>
-                    <p>
-                    <input type="radio" id="q39_a" name="q39" value="0">
-                    <label for="q39_a">messiest</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q39_b" name="q39" value="1">
-                        <label for="q39_b">messier</label>
-                    </p>
-					<p>
-                        <input type="radio" id="q39_c" name="q39" value="0">
-                        <label for="q39_c">mercy</label>
-                    </p>
-
-                    <h3>(40) The new maths teacher for our class is ________ (helpful) than the old one.</h3>
-                    <p>Choose the correct form of the adjective to complete the sentence.</p>
-                    <p>
-                    <input type="radio" id="q40_a" name="q40" value="0">
-                    <label for="q40_a">most helpful</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q40_b" name="q40" value="1">
-                        <label for="q40_b">more helpful</label>
-                    </p>
-                    <p>
-                    <input type="radio" id="q40_c" name="q40" value="0">
-                    <label for="q40_c">better helpful</label>
-                    </p>
-                   
-
-                    <h3>(41) We can go to sleep _________ on the weekend than during the week.</h3>
-					<p>Choose the correct form of the adverb to complete the sentence.</p>
-                    <p>
-                        <input type="radio" id="q41_a" name="q41" value="1">
-                        <label for="q41_a">later</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q41_b" name="q41" value="0">
-                        <label for="q41_b">latest</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q41_c" name="q41" value="0">
-                        <label for="q41_c">cooling</label>
-                    </p>
-                  
-                    <h3>(42) She forgot to wash up the dishes, _________ she couldn't go to the cinema.</h3>
-                       <p>Select the correct coordinating conjunction to complete the sentence.</p>
-                       <p>
-                           <input type="radio" id="q42_a" name="q42" value="1">
-                           <label for="q42_a">so</label>
-                       </p>
-                       <p>
-                           <input type="radio" id="q42_b" name="q42" value="0">
-                           <label for="q42_b">but</label>
-                       </p>
-                       
-
-                    <h3>(43) Sibongile played the drums better _________ she started taking lessons.</h3>
-                    <p>Select the correct subordinating conjunction to complete the sentence.
-</p>
-                    <p>
-                        <input type="radio" id="q43_a" name="q43" value="1">
-                        <label for="q43_a">after</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q43_b" name="q43" value="0">
-                        <label for="q43_b">unless</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q43_c" name="q43" value="0">
-                        <label for="q43_c">until</label>
-                    </p>
-                    
-                    <h3>(44) Select the correctly capitalised sentence.</h3>               
-                    <p>
-                        <input type="radio" id="q44_a" name="q44" value="1">
-                        <label for="q44_a">When my aunt visited Paris, she practised speaking French.</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q44_b" name="q44" value="0">
-                        <label for="q44_b">When my aunt visited paris, she practised speaking French.</label>
-                    </p>                   
-
-                    <h3>(45) Select the sentence that uses the correct commas.</h3>
-                    <p>
-                        <input type="radio" id="q45_a" name="q45" value="0">
-                        <label for="q45_a">Wow there is going to be a new airport, in Lusaka soon!</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q45_b" name="q45" value="1">
-                        <label for="q45_b">Wow, there is going to be a new airport in Lusaka soon!</label>
-                    </p>
-                    
-
-                    <h3>(46) Which is the correct opening to a letter?</h3>
-                    <p>
-                        <input type="radio" id="q46_a" name="q46" value="1">
-                        <label for="q46_a">Dear Dr Dean,</label>
-                    </p>                         
-                    <p>
-                        <input type="radio" id="q46_b" name="q46" value="0">
-                        <label for="q46_b">Dear, Dr Dean</label>
-                    </p>                                                           
-                    
-                    <h3>(47) Which word is similar to quickly?</h3>
-                    <p>
-                        <input type="radio" id="q47_a" name="q47" value="1">
-                        <label for="q47_a"> swiftly </label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q47_b" name="q47" value="0">
-                        <label for="q47_b"> race </label>
-                    </p>                    
-
-                    <h3>(48) Please don't (disturb) your friends while they are using their tablets.</h3>
-                    <p>Choose the sentence that has a similar meaning of the word in brackets.</p>
-                    <p>
-                        <input type="radio" id="q48_a" name="q48" value="1">
-                        <label for="q48_a">Please don't bother your friends while they are using their tablets.</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q48_b" name="q48" value="0">
-                        <label for="q48_b">Please don't help your friends while they are using their tablets.</label>
-                    </p>                    
-                   
-                    <h3>(49) Which word is the antonym of common?</h3>                   
-                    <p>
-                        <input type="radio" id="q49_a" name="q49" value="0">
-                        <label for="q49_a">together</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q49_b" name="q49" value="1">
-                        <label for="q49_b">unusual</label>
-                    </p>
-                    
-                    <h3>(50) The scientist is fairly certain that her latest experiment will (succeed).</h3>
-                    <p>Choose the sentence that has the opposite meaning of the word in brackets.</p>
-                    <p>
-                        <input type="radio" id="q50_a" name="q50" value="1">
-                        <label for="q50_a">The scientist is fairly certain that her latest experiment will fail.</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q50_b" name="q50" value="0">
-                        <label for="q50_b">The scientist is fairly certain that her latest experiment will help.</label>
-                    </p>
-					
-					<h3>(51) Which phrase has a more positive meaning?</p>
-                    <p>
-                        <input type="radio" id="q51_a" name="q51" value="0">
-                        <label for="q51_a">feeling sad</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q51_b" name="q51" value="1">
-                        <label for="q51_b">feeling glad</label>
-                    </p>
-					
-					<h3>(52) The Zambia athlete came _________ in the race.</h3>
-                    <p>Select the correct word to complete the sentence.</p>
-                    <p>
-                        <input type="radio" id="q52_a" name="q52" value="0">
-                        <label for="q52_a">forth</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q52_b" name="q52" value="1">
-                        <label for="q52_b">fourth</label>
-                    </p>
-					
-					<h3>(53) What is the base word in misrepresented?</h3>                    
-                    <p>
-                        <input type="radio" id="q53_a" name="q53" value="0">
-                        <label for="q53_a">mis</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q53_b" name="q53" value="1">
-                        <label for="q53_b">represented</label>
-                    </p>
-					
-					<h3>(54)  Please _________ heat the oven before you put the food in to bake.</h3>
-                    <p>Select the correct prefix to complete the sentence.</p>
-                    <p>
-                        <input type="radio" id="q54_a" name="q54" value="0">
-                        <label for="q54_a">mis</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q54_b" name="q54" value="1">
-                        <label for="q54_b">pre</label>
-                    </p>
-					
-					<h3>(55)  What does cloudless mean?</h3>                   
-                    <p>
-                        <input type="radio" id="q55_a" name="q55" value="0">
-                        <label for="q55_a">the action of having clouds</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q55_b" name="q55" value="1">
-                        <label for="q55_b">without clouds</label>
-                    </p>
-					
-					<h3>(56) Why might a certain task be stressful?</h3>
-                    
-                    <p>
-                        <input type="radio" id="q56_a" name="q56" value="1">
-                        <label for="q56_a">because it's urgent</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q56_b" name="q56" value="0">
-                        <label for="q56_b">because it's relaxing</label>
-                    </p>
-					
-					<h3>(57) The root word PHOTO means light. What does the word photograph mean?</h3>
-                    <p>
-                        <input type="radio" id="q57_a" name="q57" value="1">
-                        <label for="q57_a">a picture made using the light that enters a camera</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q57_b" name="q57" value="0">
-                        <label for="q57_b">a picture made by creating scratches on a metal surface</label>
-                    </p>
-			<h3>(58) yell, yes, yeast.</h3> 		
-			 
-		 <p>Rewrite the words in alphabetical order.</p>	                   
-                    
-		 <p>
-                        <input type="radio" id="q58_a" name="q58" value="0">
-                        <label for="q58_a">yell, yes, yeast</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q58_b" name="q58" value="0">
-                        <label for="q58_b">yes, yell, yes</label>
-                    </p>
-					<p>
-                        <input type="radio" id="q58_c" name="q58" value="1">
-                        <label for="q58_c">yeast, yell, yes</label>
-                    </p>
-					<p>
-                        <input type="radio" id="q58_d" name="q58" value="0">
-                        <label for="q58_d">yell, yeast, yes</label>
-                    </p>
-					
-					<h3>(59) The drops of water were like glass beads.</h3>
-                    <p>Select the meaning of the simile.</p>
-                    <p>
-                        <input type="radio" id="q59_a" name="q59" value="0">
-                        <label for="q59_a">The drops of water were rolling off the glass.</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q59_b" name="q59" value="1">
-                        <label for="q59_b">The drops of water were clear and round.</label>
-                    </p>
-					
-					<h3>(60) Maggie's smile is like the sun.</h3>
-                    <p>What does the simile above mean?</p>
-                    <p>
-                        <input type="radio" id="q60_a" name="q60" value="1">
-                        <label for="q60_a">Maggie's smile is cheerful.</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="q60_b" name="q60" value="0">
-                        <label for="q60_b">Maggie's smile is far way.</label>
-                    </p>
-                     <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
-                                <!-- TODO: Add text input fields for user_id, coach_email -->
-                                <!-- Hidden fields for test,course and module -->
-                                <input type="hidden" name="test" value="alpha_d2">
-                                <input type="hidden" name="course" value="alpha_d">
-                                <input type="hidden" name="module" value="literacy">
-                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
-                                <input type="text" name="coach_id" ng-model="test_response.coach_id" required ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
-                                <!-- Submit button disabled if form is invalid -->
-                                <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
-                                <button type="submit" value="Submit" ng-disabled="testForm1.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
-                            </form>
-                        </div>
-                    </div>
+                        <h3>(28) By the time he is eighty, my father ____(lose)____ all his hair.</h3>
+                        <p>Complete the sentence with the future perfect form of the verb in brackets.</p>
+                        <p>
+                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
+                            <label for="q28_a">will lose</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="1">
+                            <label for="q28_b">will have lost</label>
+                        </p>
+                        <h3>(29) My father has recently _________ the manager of his company.</h3>
+                        <p>Choose the correct form of the verb to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0000">
+                            <label for="q29_a">became</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="1">
+                            <label for="q29_b">become</label>
+                        </p>
+                        <h3>(30) According to some scientists, dinosaurs (may) have been warm-blooded, not cold-blooded.</h3>
+                        <p>What does the verb in brackets show?</p>
+                        <p>
+                            <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="1">
+                            <label for="q30_a">possibility</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="00000">
+                            <label for="q30_b">a request </label>
+                        </p>
+                        <h3>(31) My mother _________ dance beautifully until she hurt her knee.</h3>
+                        <p>Choose the word that best completes the sentence.</p>
+                        <p>
+                            <input type="radio" id="q31_a" name="q31" ng-model="testResponse.q31" value="1">
+                            <label for="q31_a">could</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_b" name="q31" ng-model="testResponse.q31" value="0">
+                            <label for="q31_b">can</label>
+                        </p>
+                        <h3>(32) She can clean and bandage that cut for _________.</h3>
+                        <p>Choose the correct pronoun to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q32_a" name="q32" ng-model="testResponse.q32" value="1">
+                            <label for="q32_a">you</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_b" name="q32" ng-model="testResponse.q32" value="00">
+                            <label for="q32_b">yourself</label>
+                        </p>
+                        <h3>(33) My brother who is in grade 3 is very clever.</h3>
+                        <p>Select the relative pronoun.</p>
+                        <p>
+                            <input type="radio" id="q33_a" name="q33" ng-model="testResponse.q33" value="000">
+                            <label for="q33_a">my</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_b" name="q33" ng-model="testResponse.q33" value="0000">
+                            <label for="q33_b">brother</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_c" name="q33" ng-model="testResponse.q33" value="1">
+                            <label for="q33_c">who</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_d" name="q33" ng-model="testResponse.q33" value="00000">
+                            <label for="q33_d">grade</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_e" name="q33" ng-model="testResponse.q33" value="0">
+                            <label for="q33_e">is</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_f" name="q33" ng-model="testResponse.q33" value="00">
+                            <label for="q33_f">very</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_g" name="q33" ng-model="testResponse.q33" value="000">
+                            <label for="q33_g">clever</label>
+                        </p>
+                        <h3>(34) My sister is _________ better student than my brother.</h3>
+                        <p>Choose the correct word to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q34_a" name="q34" ng-model="testResponse.q34" value="1">
+                            <label for="q34_a">a</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_b" name="q34" ng-model="testResponse.q34" value="0000">
+                            <label for="q34_b">an</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_c" name="q34" ng-model="testResponse.q34" value="00000">
+                            <label for="q34_c">the</label>
+                        </p>
+                        <h3>(35) We stayed (inside) and played games.</h3>
+                        <p>Does the word in brackets tell you how, when or where?</p>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="0">
+                            <label for="q35_a">how</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="00">
+                            <label for="q35_b">when</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="1">
+                            <label for="q35_c">where</label>
+                        </p>
+                        <h3>(36) Is this the neighbourhood _________ you saw that famous actor?</h3>
+                        <p>Choose the correct relative adverb to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q36_a" name="q36" ng-model="testResponse.q36" value="000">
+                            <label for="q36_a">when</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_b" name="q36" ng-model="testResponse.q36" value="0000">
+                            <label for="q36_b">why</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_c" name="q36" ng-model="testResponse.q36" value="1">
+                            <label for="q36_c">where</label>
+                        </p>
+                        <h3>(37) The clever girl ________(answered) all the questions in the test.</h3>
+                        <p>Choose the word that best completes the sentence.</p>
+                        <p>
+                            <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="0000">
+                            <label for="q37_a">correct</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_b" name="q37" ng-model="testResponse.q37" value="1">
+                            <label for="q37_b">correctly</label>
+                        </p>
+                        <h3>(38) The (low) temperatures this week have forced me to put on my overcoat.</h3>
+                        <p>Is the word in brackets an adjective or an adverb?</p>
+                        <p>
+                            <input type="radio" id="q38_a" name="q38" ng-model="testResponse.q38" value="1">
+                            <label for="q38_a">adjective</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_b" name="q38" ng-model="testResponse.q38" value="00">
+                            <label for="q38_b">adverb</label>
+                        </p>
+                        <h3>(39) Your hair is ____(messy)____ than mine!</h3>
+                        <p>Complete the sentence with the correct comparative or superlative form of the adjective in brackets.</p>
+                        <p>
+                            <input type="radio" id="q39_a" name="q39" ng-model="testResponse.q39" value="000">
+                            <label for="q39_a">messiest</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_b" name="q39" ng-model="testResponse.q39" value="1">
+                            <label for="q39_b">messier</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_c" name="q39" ng-model="testResponse.q39" value="0000">
+                            <label for="q39_c">mercy</label>
+                        </p>
+                        <h3>(40) The new maths teacher for our class is ________ (helpful) than the old one.</h3>
+                        <p>Choose the correct form of the adjective to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q40_a" name="q40" ng-model="testResponse.q40" value="0">
+                            <label for="q40_a">most helpful</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_b" name="q40" ng-model="testResponse.q40" value="1">
+                            <label for="q40_b">more helpful</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_c" name="q40" ng-model="testResponse.q40" value="00">
+                            <label for="q40_c">better helpful</label>
+                        </p>
+                        <h3>(41) We can go to sleep _________ on the weekend than during the week.</h3>
+                        <p>Choose the correct form of the adverb to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q41_a" name="q41" ng-model="testResponse.q41" value="1">
+                            <label for="q41_a">later</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_b" name="q41" ng-model="testResponse.q41" value="000">
+                            <label for="q41_b">latest</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_c" name="q41" ng-model="testResponse.q41" value="0000">
+                            <label for="q41_c">cooling</label>
+                        </p>
+                        <h3>(42) She forgot to wash up the dishes, _________ she couldn't go to the cinema.</h3>
+                        <p>Select the correct coordinating conjunction to complete the sentence.</p>
+                        <p>
+                            <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="1">
+                            <label for="q42_a">so</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_b" name="q42" ng-model="testResponse.q42" value="0">
+                            <label for="q42_b">but</label>
+                        </p>
+                        <h3>(43) Sibongile played the drums better _________ she started taking lessons.</h3>
+                        <p>Select the correct subordinating conjunction to complete the sentence.
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_a" name="q43" ng-model="testResponse.q43" value="1">
+                            <label for="q43_a">after</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_b" name="q43" ng-model="testResponse.q43" value="0">
+                            <label for="q43_b">unless</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_c" name="q43" ng-model="testResponse.q43" value="00">
+                            <label for="q43_c">until</label>
+                        </p>
+                        <h3>(44) Select the correctly capitalised sentence.</h3>
+                        <p>
+                            <input type="radio" id="q44_a" name="q44" ng-model="testResponse.q44" value="1">
+                            <label for="q44_a">When my aunt visited Paris, she practised speaking French.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_b" name="q44" ng-model="testResponse.q44" value="000">
+                            <label for="q44_b">When my aunt visited paris, she practised speaking French.</label>
+                        </p>
+                        <h3>(45) Select the sentence that uses the correct commas.</h3>
+                        <p>
+                            <input type="radio" id="q45_a" name="q45" ng-model="testResponse.q45" value="0000">
+                            <label for="q45_a">Wow there is going to be a new airport, in Lusaka soon!</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_b" name="q45" ng-model="testResponse.q45" value="1">
+                            <label for="q45_b">Wow, there is going to be a new airport in Lusaka soon!</label>
+                        </p>
+                        <h3>(46) Which is the correct opening to a letter?</h3>
+                        <p>
+                            <input type="radio" id="q46_a" name="q46" ng-model="testResponse.q46" value="1">
+                            <label for="q46_a">Dear Dr Dean,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_b" name="q46" ng-model="testResponse.q46" value="00000">
+                            <label for="q46_b">Dear, Dr Dean</label>
+                        </p>
+                        <h3>(47) Which word is similar to quickly?</h3>
+                        <p>
+                            <input type="radio" id="q47_a" name="q47" ng-model="testResponse.q47" value="1">
+                            <label for="q47_a"> swiftly </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_b" name="q47" ng-model="testResponse.q47" value="0">
+                            <label for="q47_b"> race </label>
+                        </p>
+                        <h3>(48) Please don't (disturb) your friends while they are using their tablets.</h3>
+                        <p>Choose the sentence that has a similar meaning of the word in brackets.</p>
+                        <p>
+                            <input type="radio" id="q48_a" name="q48" ng-model="testResponse.q48" value="1">
+                            <label for="q48_a">Please don't bother your friends while they are using their tablets.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_b" name="q48" ng-model="testResponse.q48" value="00">
+                            <label for="q48_b">Please don't help your friends while they are using their tablets.</label>
+                        </p>
+                        <h3>(49) Which word is the antonym of common?</h3>
+                        <p>
+                            <input type="radio" id="q49_a" name="q49" ng-model="testResponse.q49" value="000">
+                            <label for="q49_a">together</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_b" name="q49" ng-model="testResponse.q49" value="1">
+                            <label for="q49_b">unusual</label>
+                        </p>
+                        <h3>(50) The scientist is fairly certain that her latest experiment will (succeed).</h3>
+                        <p>Choose the sentence that has the opposite meaning of the word in brackets.</p>
+                        <p>
+                            <input type="radio" id="q50_a" name="q50" ng-model="testResponse.q50" value="1">
+                            <label for="q50_a">The scientist is fairly certain that her latest experiment will fail.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_b" name="q50" ng-model="testResponse.q50" value="0000">
+                            <label for="q50_b">The scientist is fairly certain that her latest experiment will help.</label>
+                        </p>
+                        <h3>(51) Which phrase has a more positive meaning?</p>
+                            <p>
+                                <input type="radio" id="q51_a" name="q51" ng-model="testResponse.q51" value="00000">
+                                <label for="q51_a">feeling sad</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q51_b" name="q51" ng-model="testResponse.q51" value="1">
+                                <label for="q51_b">feeling glad</label>
+                            </p>
+                            <h3>(52) The Zambia athlete came _________ in the race.</h3>
+                            <p>Select the correct word to complete the sentence.</p>
+                            <p>
+                                <input type="radio" id="q52_a" name="q52" ng-model="testResponse.q52" value="0">
+                                <label for="q52_a">forth</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q52_b" name="q52" ng-model="testResponse.q52" value="1">
+                                <label for="q52_b">fourth</label>
+                            </p>
+                            <h3>(53) What is the base word in misrepresented?</h3>
+                            <p>
+                                <input type="radio" id="q53_a" name="q53" ng-model="testResponse.q53" value="0">
+                                <label for="q53_a">mis</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q53_b" name="q53" ng-model="testResponse.q53" value="1">
+                                <label for="q53_b">represented</label>
+                            </p>
+                            <h3>(54) Please _________ heat the oven before you put the food in to bake.</h3>
+                            <p>Select the correct prefix to complete the sentence.</p>
+                            <p>
+                                <input type="radio" id="q54_a" name="q54" ng-model="testResponse.q54" value="00">
+                                <label for="q54_a">mis</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q54_b" name="q54" ng-model="testResponse.q54" value="1">
+                                <label for="q54_b">pre</label>
+                            </p>
+                            <h3>(55) What does cloudless mean?</h3>
+                            <p>
+                                <input type="radio" id="q55_a" name="q55" ng-model="testResponse.q55" value="000">
+                                <label for="q55_a">the action of having clouds</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q55_b" name="q55" ng-model="testResponse.q55" value="1">
+                                <label for="q55_b">without clouds</label>
+                            </p>
+                            <h3>(56) Why might a certain task be stressful?</h3>
+                            <p>
+                                <input type="radio" id="q56_a" name="q56" ng-model="testResponse.q56" value="1">
+                                <label for="q56_a">because it's urgent</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q56_b" name="q56" ng-model="testResponse.q56" value="0000">
+                                <label for="q56_b">because it's relaxing</label>
+                            </p>
+                            <h3>(57) The root word PHOTO means light. What does the word photograph mean?</h3>
+                            <p>
+                                <input type="radio" id="q57_a" name="q57" ng-model="testResponse.q57" value="1">
+                                <label for="q57_a">a picture made using the light that enters a camera</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q57_b" name="q57" ng-model="testResponse.q57" value="00000">
+                                <label for="q57_b">a picture made by creating scratches on a metal surface</label>
+                            </p>
+                            <h3>(58) yell, yes, yeast.</h3>
+                            <p>Rewrite the words in alphabetical order.</p>
+                            <p>
+                                <input type="radio" id="q58_a" name="q58" ng-model="testResponse.q58" value="0">
+                                <label for="q58_a">yell, yes, yeast</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q58_b" name="q58" ng-model="testResponse.q58" value="00">
+                                <label for="q58_b">yes, yell, yes</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q58_c" name="q58" ng-model="testResponse.q58" value="1">
+                                <label for="q58_c">yeast, yell, yes</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q58_d" name="q58" ng-model="testResponse.q58" value="000">
+                                <label for="q58_d">yell, yeast, yes</label>
+                            </p>
+                            <h3>(59) The drops of water were like glass beads.</h3>
+                            <p>Select the meaning of the simile.</p>
+                            <p>
+                                <input type="radio" id="q59_a" name="q59" ng-model="testResponse.q59" value="00">
+                                <label for="q59_a">The drops of water were rolling off the glass.</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q59_b" name="q59" ng-model="testResponse.q59" value="1">
+                                <label for="q59_b">The drops of water were clear and round.</label>
+                            </p>
+                            <h3>(60) Maggie's smile is like the sun.</h3>
+                            <p>What does the simile above mean?</p>
+                            <p>
+                                <input type="radio" id="q60_a" name="q60" ng-model="testResponse.q60" value="1">
+                                <label for="q60_a">Maggie's smile is cheerful.</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q60_b" name="q60" ng-model="testResponse.q60" value="000">
+                                <label for="q60_b">Maggie's smile is far way.</label>
+                            </p>
+                            <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                            <!-- TODO: Add text input fields for user_id, coach_email -->
+                            <!-- Hidden fields for test,course and module -->
+                            <input type="hidden" name="test" ng-init="testResponse.test='alpha_d2'">
+                            <input type="hidden" name="course" ng-init="testResponse.course='alpha_d'">
+                            <input type="hidden" name="module" ng-init="testResponse.module='literacy'">
+                            <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="container-fluid">
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>

@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
 
-    <script src="pmodule/angular.min.js"></script>
-    <script src="js/coachDashboard/angular-filter.min.js"></script>
-    <script src="js/coachDashboard/smart-table.min.js"></script>
-    <script src="pmodule/angular-animate.js"></script>
-    <script src="pmodule/angular-sanitize.js"></script>
-    <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-filter.min.js"></script>
+    <script src="js/smart-table.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
@@ -157,7 +157,7 @@
                                       result.score_pct <= .69 && {'background-color': '#F5C216'} ||
                                       result.score_pct <= .84 && {'background-color': '#99CC33'} ||
                                       result.score_pct <=  1 && {'background-color': '#00B050'}">
-                                {{result.score_pct * 100}}%
+                                {{result.score_pct * 100 | number : 1}}%
                         </td>
                         <td st-ratio="10">{{result.test_date | date: 'mediumDate'}}</td>
                         <td st-ratio="10">{{result.coach_id}}</td>

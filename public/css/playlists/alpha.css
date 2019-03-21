@@ -1,0 +1,297 @@
+table, .playlist_title{
+	text-align: center;
+}
+
+table, .titlerow{
+	background-color: white;
+}
+
+body{
+	background-color: #CCFFCC;
+}
+
+.elogo{
+	margin-left: 20%;
+}
+
+.topic{
+	margin-left: 17.5%;
+	width:65%;
+	display: -moz-inline-stack !important;
+	text-align: center;
+	border: 1px solid green;
+	border-radius: 10px;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	background: white none repeat scroll 0% 0%;
+	padding-left: 7%;
+	box-shadow: 0 1px 1px;
+}
+
+
+a{
+	color: black;
+}
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.exercise_icon{
+	color: green;
+}
+
+.titlerow{
+	padding-bottom: 1%;
+}
+
+.assesment_name{
+	text-align: left;
+}
+
+.playlist_title{
+	margin-top: 6%;
+}
+
+.collapse{
+	margin-top: -0.7%;
+}
+
+
+#back_btn{
+	position: absolute;
+	padding: 1.5%;
+	border: 1px solid #3D8D54;
+	margin-top: 1%;
+	margin-left: 4%;
+	border-radius: 10px;
+	font-size: 18px;
+	color: white;
+	background-color: #3D8D54;
+	box-shadow: 0 1px 1px;
+}
+
+#back_btn a:hover{
+	color: white;
+	text-decoration: none;
+	
+}	
+
+#back_btn a:link{
+	color: white;
+}
+
+#back_btn a:visited{
+	color: white;
+	text-decoration: none;
+}
+
+#back_btn a:active{
+	color: white;
+	text-decoration: none;
+}
+
+
+[id$="tab"]{
+	width: 67%;
+	float: none;
+	margin: 0 auto;
+
+}
+
+[id$="tab"] table{
+	table-layout: fixed;
+	width: 100%;
+}
+
+[id$="tab"] table td:nth-child(1){
+	width: 30%;
+}
+
+[id$="tab"] table td:nth-child(2){
+	width: 70%;
+}
+
+/*Table containing exercise links*/
+[id$="_ex"]{
+	width: 64%;
+	float: none;
+	margin: 0 auto;
+
+}
+
+[id$="_ex"] table{
+	table-layout: fixed;
+	width: 100%;
+}
+
+[id$="_ex"] table td:nth-child(1){
+	width: 20%;
+}
+
+[id$="_ex"] table td:nth-child(2){
+	width: 80%;
+}
+
+
+/*Table containing video links*/
+[id$="_v"]{
+	width: 64%;
+	float: none;
+	margin: 0 auto;
+
+}
+
+[id$="_v"] table{
+	table-layout: fixed;
+	width: 100%;
+}
+
+[id$="_v"] table td:nth-child(1){
+	width: 20%;
+}
+
+[id$="_v"] table td:nth-child(2){
+	width: 80%;
+}
+
+
+
+
+@media screen and (max-width: 960px){
+	.titlerow{
+		display: flex;
+	}
+
+	#elogo-container{
+		width: 20%;
+	}
+
+	#playlist-name-container{
+		width: 60%;
+	}
+
+	#kalogo-container{
+		width: 20%;
+	}
+
+	.topic{
+		margin-left: 17.5%;
+		width:65%;
+		display: -moz-inline-stack !important;
+		text-align: center;
+	}
+
+
+
+	[id$="tab"]{
+		width: 68%;
+		float: none;
+		margin: 0 auto;
+
+	}
+
+	[id$="tab"] table{
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	[id$="tab"] table td:nth-child(1){
+		width: 30%;
+	}
+
+	[id$="tab"] table td:nth-child(2){
+		width: 70%;
+	}
+
+	/*Table containing exercise links*/
+	[id$="_ex"]{
+		width: 65%;
+		float: none;
+		margin: 0 auto;
+
+	}
+
+	[id$="_ex"] table{
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	[id$="_ex"] table td:nth-child(1){
+		width: 20%;
+	}
+
+	[id$="_ex"] table td:nth-child(2){
+		width: 80%;
+	}
+
+	
+	/*Table containing video links*/
+	[id$="_v"]{
+		width: 65%;
+		float: none;
+		margin: 0 auto;
+
+	}
+
+	[id$="_v"] table{
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	[id$="_v"] table td:nth-child(1){
+		width: 20%;
+	}
+
+	[id$="_v"] table td:nth-child(2){
+		width: 80%;
+	}
+
+	/*Back button*/
+	#back_btn{
+		position: absolute;
+		padding: 1.5%;
+		border: 1px solid #3D8D54;
+		margin-top: 1%;
+		margin-left: -4%;
+		border-radius: 10px;
+		font-size: 18px;
+		color: white;
+		background-color: #3D8D54;
+		box-shadow: 0 1px 1px;
+	}
+
+	#back_btn a:hover{
+		color: white;
+		text-decoration: none;
+		
+	}	
+
+	#back_btn a:link{
+		color: white;
+	}
+
+	#back_btn a:clicked{
+		color: black;
+		text-decoration: none;
+	}
+
+	#back_btn a:active{
+		color: black;
+		text-decoration: none;
+	}
+}
