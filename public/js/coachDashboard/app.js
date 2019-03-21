@@ -33,17 +33,17 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
 
   $http.get( "/get_users").then(function(response) {
          $scope.users = response.data;
-         console.log($scope.users);
+         /*console.log($scope.users);*/
     }); 
 
   $http.get( "/get_test_count").then(function(response) {
          $scope.tests_count = response.data;
-         console.log($scope.tests_count);
+         /*console.log($scope.tests_count);*/
     });
 
   $http.get( "/get_test_count").then(function(response) {
          $scope.tests_count = response.data;
-         console.log($scope.tests_count);
+         /*console.log($scope.tests_count);*/
     });
 
   $http.get( "/get_responses").then(function(response) {
@@ -53,7 +53,7 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
          };
 
          $scope.results = response.data;
-         console.log($scope.results);
+         /*console.log($scope.results);*/
     }); 
 })
 .controller('ModalInstanceCtrl', function ($scope,$uibModalInstance) {
@@ -77,6 +77,7 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
     }
   };
 })
+/*element directive for navigation bar*/
 .directive('navigation', function(){
     return {
       restrict: 'E',
@@ -100,38 +101,46 @@ angular.module('coachDashBoard',['ngAnimate', 'ngSanitize', 'ui.bootstrap','smar
       controllerAs: 'menu'
     };
   })
+/*element directive for learners tab*/
 .directive('learners', function(){
     return {
       restrict: 'E',
       templateUrl: 'learners.html',
       link: function(scope, element, attributes){
+        /*class for all elements in directive. used for scoped styling*/
               element.addClass('learners');
             }
     };
   })
+/*element directive for responses tab*/
 .directive('responses', function(){
     return {
       restrict: 'E',
       templateUrl: 'responses.html',
       link: function(scope, element, attributes){
+        /*class for all elements in directive. used for scoped styling*/
               element.addClass('responses');
             }
     };
   })
+/*element directive for responses by question tab(development only)*/
 .directive('questresponses', function(){
     return {
       restrict: 'E',
       templateUrl: 'responses_q.html',
       link: function(scope, element, attributes){
+        /*class for all elements in directive. used for scoped styling*/
               element.addClass('questresponses');
             }
     };
   })
+/*element directive for tests count tab*/
 .directive('testscount', function(){
     return {
       restrict: 'E',
       templateUrl: 'testscount.html',
       link: function(scope, element, attributes){
+        /*class for all elements in directive. used for scoped styling*/
               element.addClass('testscount');
             }
     };
