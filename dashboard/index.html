@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="coachDashBoard">
+
 <head>
     <title>Coach Dashboard</title>
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
-
     <script src="js/angular.min.js"></script>
     <script src="js/angular-filter.min.js"></script>
     <script src="js/smart-table.min.js"></script>
@@ -14,12 +12,10 @@
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-
-    
     <script src="js/coachDashboard/app.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
-
 </head>
+
 <body ng-controller="MainCtrl as ctrl">
     <!-- password modal template -->
     <script type="text/ng-template" id="passwordModalContent.html">
@@ -37,7 +33,6 @@
             <button class="btn btn-danger" type="button">Cancel</button>
         </div>
     </script>
-
     <!-- navigation template -->
     <script type="text/ng-template" id="navigation.html">
         <nav id="topnav" class="navbar navbar-default">
@@ -75,7 +70,6 @@
           </div>
         </nav>
     </script>
-
     <!-- learners table template -->
     <script type="text/ng-template" id="learners.html">
         <div class="table-responsive row">
@@ -115,7 +109,6 @@
             </table>
         </div> <!-- table row -->
     </script>
-
     <!-- responses template -->
     <script type="text/ng-template" id="responses.html">
         <div class="table-responsive row">
@@ -174,7 +167,6 @@
             
         </div> <!-- table row -->
     </script>
-
     <!-- Test responses with questions -->
     <script type="text/ng-template" id="responses_q.html">
         <div class="table-responsive row">
@@ -336,7 +328,6 @@
             </table>
         </div> <!-- table row -->
     </script>
-
     <script type="text/ng-template" id="testscount.html">
         <table class="table">
             <tr>
@@ -349,10 +340,8 @@
             </tr>            
         </table>
     </script>
-    
     <!-- open password modal when page is loaded(prod only) -->
     <!-- <span ng-init=ctrl.openModal()></span> -->
-    
     <navigation></navigation>
     <div class="container-fluid">
         <learners ng-show="menu.isSelected(0)"></learners>
@@ -361,8 +350,6 @@
         <!-- <questresponses ng-show="menu.isSelected(2)"></questresponses> -->
         <testscount ng-show="menu.isSelected(3)"></testscount>
     </div>
-
-    
-
 </body>
+
 </html>
