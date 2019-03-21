@@ -51,7 +51,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     
 
     /*Open password modal when page loads*/
-    /*$ctrl.openPasswordModal();*/
+    $ctrl.openPasswordModal();
   }
 
   /*Function to open password modal*/
