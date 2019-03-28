@@ -197,3 +197,9 @@
     width: 100%;
     display: inline-block;
 }
+
+
+.result_section_block{
+    border: 1px solid white;
+    color: white;
+}
