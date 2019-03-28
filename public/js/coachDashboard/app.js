@@ -13,6 +13,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
+            /*empty object to initalize tests_marks*/
+            $scope.tests_marks = {};
+
             /*enable angular animations*/
             $ctrl.animationsEnabled = true;
 
@@ -24,30 +27,32 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             $http.get("/get_test_marks").then(function(response) {
                 $scope.tests_marks = response.data;
                 /*console.log($scope.tests_marks);*/
+
+                /*Get raw test responses*/
+                /*run inside the get test marks call because test marks must always be fetched before responses*/
+                $http.get("/get_responses").then(function(response) {
+                    /*Do some operations on the responses*/
+                    for (var i = response.data.length - 1; i >= 0; i--) {
+                        /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
+                        response.data[i]["test_date"] = new Date(response.data[i]["test_date"])
+
+                        /*Generate blocks of fifths for each response*/
+                        generate_blocks($scope.tests_marks, response.data[i])
+
+                        /*Get test name*/
+                        get_test_name($scope.tests_marks, response.data[i])
+
+                        /*Calculate the percent score*/
+                        calculate_score($scope.tests_marks, response.data[i])
+                    };
+
+                    /*store the processed file as a scope variable*/
+                    $scope.results = response.data;
+
+                });
             });
 
-            /*Get raw test responses*/
-            $http.get("/get_responses").then(function(response) {
-                /*Do some operations on the responses*/
-                for (var i = response.data.length - 1; i >= 0; i--) {
-                    /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
-                    response.data[i]["test_date"] = new Date(response.data[i]["test_date"])
-
-                    /*Generate blocks of fifths for each response*/
-                    generate_blocks($scope.tests_marks, response.data[i])
-
-                    /*Get test name*/
-                    get_test_name($scope.tests_marks, response.data[i])
-
-                    /*Calculate the percent score*/
-                    calculate_score($scope.tests_marks, response.data[i])
-                };
-
-                /*store the processed file as a scope variable*/
-                $scope.results = response.data;
-
-            });
-
+            
             /*Get the tests count by month*/
             $http.get("/get_test_count").then(function(response) {
                 $scope.tests_count = response.data;
