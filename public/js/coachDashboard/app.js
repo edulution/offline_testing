@@ -174,11 +174,11 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*the maxscore is always divisible by 5 with no remainder*/
 
             /*create blocks of fifths based on the number of questions in a test*/
-            var block_1_name = 'q1 to ' + 'q' + one_fifth
-            var block_2_name = 'q' + (one_fifth + 1) + ' to q' + (one_fifth * 2)
-            var block_3_name = 'q' + (one_fifth * 2 + 1) + ' to q' + (one_fifth * 3)
-            var block_4_name = 'q' + (one_fifth * 3 + 1) + ' to q' + (one_fifth * 4)
-            var block_5_name = 'q' + (one_fifth * 4 + 1) + ' to q' + (one_fifth * 5)
+            var block_1_name = 'Q1 to ' + 'Q' + one_fifth
+            var block_2_name = 'Q' + (one_fifth + 1) + ' to Q' + (one_fifth * 2)
+            var block_3_name = 'Q' + (one_fifth * 2 + 1) + ' to Q' + (one_fifth * 3)
+            var block_4_name = 'Q' + (one_fifth * 3 + 1) + ' to Q' + (one_fifth * 4)
+            var block_5_name = 'Q' + (one_fifth * 4 + 1) + ' to Q' + (one_fifth * 5)
 
             /*assign the result property on each block to true or false based on whether the value is equal to the value of one fifth*/
             testResponse.block_1 = { name: block_1_name, result: chunksArray[0] == one_fifth }
@@ -298,6 +298,16 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             link: function(scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('testscount');
+            }
+        };
+    })    
+    .directive('responsesections', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'responses_sections.html',
+            link: function(scope, element, attributes) {
+                /*class for all elements in directive. used for scoped styling*/
+                element.addClass('responsesections');
             }
         };
     });
