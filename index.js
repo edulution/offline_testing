@@ -280,7 +280,16 @@ app.get('/get_users',(req, res) => {
 /*modified responses query to join on course, test and module for new config*/
 app.get('/get_responses',(req, res) => {
         /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
-        var responses_query='select u.username,u.first_name,u.last_name,tm.test_name,((ifnull(q1,0.0)+ ifnull(q2,0.0)+ ifnull(q3,0.0)+ ifnull(q4,0.0)+ ifnull(q5,0.0)+ ifnull(q6,0.0)+ ifnull(q7,0.0)+ ifnull(q8,0.0)+ ifnull(q9,0.0)+ ifnull(q10,0.0)+ ifnull(q11,0.0)+ ifnull(q12,0.0)+ ifnull(q13,0.0)+ ifnull(q14,0.0)+ ifnull(q15,0.0)+ ifnull(q16,0.0)+ ifnull(q17,0.0)+ ifnull(q18,0.0)+ ifnull(q19,0.0)+ ifnull(q20,0.0)+ ifnull(q21,0.0)+ ifnull(q22,0.0)+ ifnull(q23,0.0)+ ifnull(q24,0.0)+ ifnull(q25,0.0)+ ifnull(q26,0.0)+ ifnull(q27,0.0)+ ifnull(q28,0.0)+ ifnull(q29,0.0)+ ifnull(q30,0.0)+ ifnull(q31,0.0)+ ifnull(q32,0.0)+ ifnull(q33,0.0)+ ifnull(q34,0.0)+ ifnull(q35,0.0)+ ifnull(q36,0.0)+ ifnull(q37,0.0)+ ifnull(q38,0.0)+ ifnull(q39,0.0)+ ifnull(q40,0.0)+ ifnull(q41,0.0)+ ifnull(q42,0.0)+ ifnull(q43,0.0)+ ifnull(q44,0.0)+ ifnull(q45,0.0)+ ifnull(q46,0.0)+ ifnull(q47,0.0)+ ifnull(q48,0.0)+ ifnull(q49,0.0)+ ifnull(q50,0.0)+ ifnull(q51,0.0)+ ifnull(q52,0.0)+ ifnull(q53,0.0)+ ifnull(q54,0.0)+ ifnull(q55,0.0)+ ifnull(q56,0.0)+ ifnull(q57,0.0)+ ifnull(q58,0.0)+ ifnull(q59,0.0)+ ifnull(q60,0.0)+ ifnull(q61,0.0)+ ifnull(q62,0.0)+ ifnull(q63,0.0)+ ifnull(q64,0.0)+ ifnull(q65,0.0)+ ifnull(q66,0.0)+ ifnull(q67,0.0)+ ifnull(q68,0.0)+ ifnull(q69,0.0)+ ifnull(q70,0.0))/testmaxscore) as score_pct, r.* from responses r  left join users u  on r.user_id = u.user_id left join test_marks tm  on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc';
+        var responses_query='select * from responses r  left join users u  on r.user_id = u.user_id order by test_date desc';
+        db.all(responses_query, (err,rows) => {
+        	/*console.log(rows);*/
+        	return res.json(rows);
+        });
+});
+
+app.get('/get_test_marks',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
+        var responses_query='select * from test_marks';
         db.all(responses_query, (err,rows) => {
         	/*console.log(rows);*/
         	return res.json(rows);
