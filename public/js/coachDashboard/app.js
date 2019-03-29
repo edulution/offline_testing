@@ -62,9 +62,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         }
 
+        /*Function to open a password modal*/
         $ctrl.openModal = function(parentSelector) {
             var parentElem = parentSelector ?
-                angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+                angular.element($document[0].querySelector('body' + parentSelector)) : undefined;
             var modalInstance = $uibModal.open({
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
@@ -179,6 +180,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*the maxscore is always divisible by 5 with no remainder*/
 
             /*create blocks of fifths based on the number of questions in a test*/
+            /*the names of the blocks may vary depending on the total number of questions in a test*/
             var block_1_name = 'Q1 to ' + 'Q' + one_fifth
             var block_2_name = 'Q' + (one_fifth + 1) + ' to Q' + (one_fifth * 2)
             var block_3_name = 'Q' + (one_fifth * 2 + 1) + ' to Q' + (one_fifth * 3)
@@ -186,6 +188,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             var block_5_name = 'Q' + (one_fifth * 4 + 1) + ' to Q' + (one_fifth * 5)
 
             /*assign the result property on each block to true or false based on whether the value is equal to the value of one fifth*/
+            /*This will modify the object passed in and returns nothing*/
             testResponse.block_1 = { name: block_1_name, result: chunksArray[0] == one_fifth }
             testResponse.block_2 = { name: block_2_name, result: chunksArray[1] == one_fifth }
             testResponse.block_3 = { name: block_3_name, result: chunksArray[2] == one_fifth }
@@ -197,43 +200,69 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         /*Main function which puts everything together*/
         /*Modifies testresponse object and adds properties block_1 to block_5*/
         var generate_blocks = function(testMarks, testResponse) {
+          /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
             var cuttoffPoint = get_test_max_score(testMarks, testResponse)
+
+          /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
             var one_fifth = cuttoffPoint / 5
 
+            /*Get the object values for q1 to q..*/
             var all_qvals = Object.values(get_all_qs(testResponse))
 
+            /*Slice only the values for the particular test*/
             var qvals_for_test = all_qvals.slice(0, cuttoffPoint)
 
+            /*Divide the values array evenly into chunks. Each chunk is one fifth of the total length*/
             var qvals_chunks = chunkArrayInGroups(qvals_for_test, one_fifth)
 
+            /*Empty array to store the sum of each chunk*/
             var qvals_chunk_totals = []
 
+            /*Loop through the chunks arrays and get the sum*/
+            /*Push the sum to the empty array declared above*/
             for (var i = 0; i < qvals_chunks.length; i++) {
                 qvals_chunk_totals.push(get_sum_of_array(qvals_chunks[i]))
             }
 
+            /*finally create the values and results for each chunk of questions*/
+            /*based on the maxscore for the test and totals for each chunk*/ 
+            /*This will modify the object passed in and returns nothing*/
             get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
 
         }
 
 
     })
+    /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
     .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
+        /*The password a coach is expected to enter*/
         $scope.coachPassword = "Ctrib3";
+
+        /*Variable which changes depending on whether the password submitted is correct or not*/
+        /*Used to either trigger displaying of errors on the html template or dismiss the modal*/
         $scope.wrongPassword = false;
 
+        /*Alias for the controller*/
         var $ctrl = this;
 
-
+        /*Function to dismiss the modal. Only invoked when the coach enters the correct password*/
         $ctrl.cancel = function() {
             $uibModalInstance.dismiss();
         };
 
+        /*Check if the password entered is equal to the password expected from the coach*/
         $ctrl.checkPassword = function(password) {
+          /*If the password is correct*/
             if (password == $scope.coachPassword) {
+              /*The wrongPassword variable remains false*/
+              /*The modal is dismissed*/
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
-            } else {
+            } 
+            /*If the password is wrong*/
+            else {
+              /*he wrongPassword variable is set to true*/
+              /*Errors are show on the html template based on this value*/
                 $scope.wrongPassword = true;
             }
         };
@@ -305,7 +334,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 element.addClass('testscount');
             }
         };
-    })    
+    })
+    /*element directive for results by section tab*/    
     .directive('responsesections', function() {
         return {
             restrict: 'E',
