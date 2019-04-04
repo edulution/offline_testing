@@ -43,6 +43,8 @@ schema_upgrade(){
 
 	# Do nothing if schema is up to date. Version 2 is the latest version
 	elif [[ $(get_database_version $1) == 2 ]]; then
+		echo "fixing error on Numeracy Alpha A test"
+		sqlite3 $1 "update responses set q22=0 where test='alpha_a1' and course='alpha_a' and module='numeracy' and q22='o'"
 		echo "Database schema up to date"
 	fi
 
