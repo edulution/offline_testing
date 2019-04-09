@@ -1,0 +1,23 @@
+body{
+	font-family: "Segoe UI",Arial,sans-serif;
+	font-size: 250%;
+	text-align: center;
+	background-color: #DCDCDC;
+	padding: 10%;
+	padding-bottom: 15%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-weight: 500;
+}
+
+a{
+	padding: 2% 6%;
+	border-radius: 10px;
+	font-size: 40px;
+	background-color: #3D8D54;
+	box-shadow: 3px 3px 3px 3px #3F3F3F;
+	color: white;
+	text-decoration: none;
+	boarder: #159B15;
+}
+
