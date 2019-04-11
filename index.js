@@ -381,7 +381,7 @@ app.post('/overwrite_test', [(req, res,next) => {
 	
 	db.serialize(() => {
 		/*Run delete statement on responses table using params gathered above*/
-        db.run(`DELETE FROM responses where user_id=(?) and test=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,test_done,course,module,test_date],function(err){
+        db.run(`DELETE FROM responses where user_id=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,course,module,test_date],function(err){
         	if(err){
         		console.error(err.message)
         		res.status(400).send('Could not delete row(s)')
