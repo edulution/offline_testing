@@ -663,9 +663,9 @@
                         <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
-                        <input type="hidden" name="test" value="bravo_a2">
-                        <input type="hidden" name="course" value="bravo_a">
-                        <input type="hidden" name="module" value="numeracy">
+                        <input type="hidden" name="test" ng-init="testResponse.test='bravo_a2'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='bravo_a'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
