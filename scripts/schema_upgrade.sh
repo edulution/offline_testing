@@ -45,6 +45,12 @@ schema_upgrade(){
 	elif [[ $(get_database_version $1) == 2 ]]; then
 		echo "fixing error on Numeracy Alpha A test"
 		sqlite3 $1 "update responses set q22=0 where test='alpha_a1' and course='alpha_a' and module='numeracy' and q22='o'"
+		
+		echo "fixing bravo a2 tests"
+		sqlite3 $1  "update responses set test='bravo_a2' where test is null;"
+		sqlite3 $1  "update responses set course='bravo_a' where course is null;"
+		sqlite3 $1  "update responses set module='numeracy' where module is null;"
+		
 		echo "Database schema up to date"
 	fi
 
