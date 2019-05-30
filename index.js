@@ -45,7 +45,7 @@ function get_datetime_string() {
 }
 
 /*portal homepage*/
-app.get('/', (req, res) => {
+app.get('/', function (req, res) {
  res.sendFile( __dirname + '/portal/index.html');
 });
 
