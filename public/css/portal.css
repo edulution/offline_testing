@@ -1,0 +1,168 @@
+/* Body  */
+
+body{
+    
+    text-align:center;
+    font-family:"Arial,Helvetica,sans-serif";
+
+}
+
+/* Navbar background-color */
+
+.Navbackground {
+    background-color: #fff;
+    
+}
+
+/* Main index background */
+.mainBackground {
+    background:-webkit-linear-gradient(#D3E8BF,#60713E);
+    background:-o-linear-gradient(#D3E8BF,#60713E);
+    background:-moz-linear-gradient(#D3E8BF,#60713E);
+    background:linear-gradient(#D3E8BF,#60713E) fixed;
+}
+
+/* Background Pre Alpha  */
+.prealpha {
+    background-color:#F4D19C;
+    /* background:-webkit-linear-gradient(#D3E8BF,#F4D19C);
+    background:-o-linear-gradient(#D3E8BF,#F4D19C);
+    background:-moz-linear-gradient(#D3E8BF,#F4D19C);
+    background:linear-gradient(#D3E8BF,#F4D19C) fixed; */
+}
+
+/* Background Alpha */
+.alpha {
+    background-color: #CCFFCC;
+    /* background:-webkit-linear-gradient(#D3E8BF,#CCFFCC);
+    background:-o-linear-gradient(#D3E8BF,#CCFFCC);
+    background:-moz-linear-gradient(#D3E8BF,#CCFFCC);
+    background:linear-gradient(#D3E8BF,#CCFFCC) fixed; */
+}
+
+
+/* Background Bravo */
+.bravo {
+    background-color:#C5D9F1;
+    /* background:-webkit-linear-gradient(#f5f5f5);
+    background:-o-linear-gradient(#f5f5f5);
+    background:-moz-linear-gradient(#f5f5f5);
+    background:linear-gradient(#f5f5f5) fixed; */
+}
+
+/* Background Charlie */
+.charlie {
+    background-color:#FDE9D9;
+    /* background:-webkit-linear-gradient(#D3E8BF,#FDE9D9);
+    background:-o-linear-gradient(#D3E8BF,#FDE9D9);
+    background:-moz-linear-gradient(#D3E8BF,#FDE9D9);
+    background:linear-gradient(#D3E8BF,#FDE9D9) fixed; */
+}
+
+
+/* Image Align */
+img {
+    align:left;
+}
+
+
+/* Headers  */
+.h2color{
+    color: #fff;
+}
+
+.mainBody {
+    text-align:center;
+}
+
+/* Clear */
+.clear {
+    padding-top:10px;
+}
+
+/* Clear */
+.clearfooter {
+    padding-top: 60px;
+}
+
+
+/* Curved Accordion */
+.panel-heading {
+     border-top-radius:5px;
+     border-bottom-radius:5px;
+  
+}
+
+/* PRE ALPHA HEADING */
+#prealpha-heading {
+    background-color: #F4D19C;
+    border: #F4D19C;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+}
+
+
+/* ALPHA HEADING */
+#alpha-heading {
+    background-color: #CCFFCC;
+    border: #CCFFCC;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+}
+
+/* BRAVO */
+#bravo-heading {
+    background-color: #C5D9F1;
+    border: #C5D9F1;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+}
+
+/* CHARLIE */
+#charlie{
+    background-color:#FDE9D9;
+    border:#FDE9D9;
+    box-shadow:2px 2px 2px 2px #3F3F3F
+}
+
+
+/* Added Green Buttons */
+.btn-button {
+    background-color: #3D8D54;
+}
+
+#index-of-topics-btn{
+    float: left;
+    margin-left: 20%;
+    padding: 3%;
+    /*background-color: #159B15;*/
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+    border: #159B15;
+}
+
+#literacy-assessments-btn{
+    float: right;
+    margin-right: 2%;
+    padding: 3%;
+    /*background-color: #159B15;*/
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+    border: #159B15;
+}
+
+img .images {
+    text-align: right;
+}
+
+/* Icons for each lesson */
+.icons{
+    margin-right:500px;
+}
+
+/* Header titles for each lessons */
+h3 {
+    /*padding-left: 300px;*/
+}
+
+/* Align Panel header */
+.panel-headers {
+    text-align: justify;
+    /* text-align:inherit; */
+    margin-top: -30px;
+}

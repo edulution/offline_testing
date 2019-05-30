@@ -44,6 +44,11 @@ function get_datetime_string() {
 
 }
 
+/*portal homepage*/
+app.get('/', function (req, res) {
+ res.sendFile( __dirname + '/portal/index.html');
+});
+
 
 /*Results dashboard page*/
 app.get('/results', function (req, res) {
