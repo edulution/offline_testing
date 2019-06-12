@@ -1,9 +1,9 @@
-var express = require('express');
-var app = express();
-var path = require('path');
+const express = require('express');
+const app = express();
+const path = require('path');
 
 /*Por the server will run on*/
-var port = 8888;
+const port = 8888;
 
 /*Use sqlite3 Database*/
 const sqlite3 = require('sqlite3').verbose();
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname,'public')))
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
-function get_datetime_string() {
+var get_datetime_string = () => {
 	var today = new Date();
 	var dd = today.getDate();
 	var mm = today.getMonth()+1; //January is 0!
