@@ -4,7 +4,7 @@
 <html ng-app="passProtect">
 
 <head>
-    <title>Test T2</title>
+    <title>Grade 7 Test 1</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -42,7 +42,7 @@
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
-			<div class="HeaderbannerLabel">REVISION TOPIC</div>
+										<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
                         <p class="test_name">Average (Mean)</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
@@ -108,8 +108,8 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="00000">
                             <label for="q3_d">50 grams</label>
                         </p>
-                        <h3>(4) Find the average of the following measures:</h3>
-                        <p>20g, 1 000g, 550g, 102g.</p>
+                        <h3>(4) Find the average of the following measures: 20g, 1 000g, 550g, 102g</h3>
+                        
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="000">
                             <label for="q4_a">98 g</label>
