@@ -92,7 +92,7 @@
                         </p>
                         <h3>(3) The average mass of three items is 60 grams. Given that the masses of two of these items are 80 grams and 60 grams, find the third item.</h3>
                         <p>
-                            <input type="radio" id="q5_a" name="q3" ng-model="testResponse.q3" value="0000">
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0000">
                             <label for="q3_a">20 grams</label>
                         </p>
                         <p>
@@ -148,7 +148,7 @@
                             <label for="q6_a">10.4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.6" value="000">
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_b">10.2</label>
                         </p>
                         <p>
@@ -399,7 +399,7 @@
                         </p>
                         <h3>(21) Find the average of 300 kg, 50 kg and 100 kg</h3>
                         <p>
-                            <input type="radio" id="q20_a" name="q21" ng-model="testResponse.q21" value="000">
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
                             <label for="q21_a">450 kg</label>
                         </p>
                         <p>
