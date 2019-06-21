@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
@@ -146,7 +147,7 @@
                             <label for="q6_a">1 : 800</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.6" value="000">
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_b">1 : 10</label>
                         </p>
                         <p>
@@ -176,7 +177,7 @@
                         </p>
                         <h3>(8) Mweemba, Tembo and Mubita shared K 1 200.00 in the ratio 5 to 4 to 3. Who got the largest share?</h3>
                         <p>
-                            <input type="radio" id="q8_a" name="q9" ng-model="testResponse.q9" value="0000">
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a">Mubita</label>
                         </p>
                         <p>
@@ -358,7 +359,7 @@
                             <label for="q18_c">450 : 300</label>
                         </p>
                         <p>
-                            <input type="radio" id="q18" name="q18" ng-model="testResponse.q18" value="00000">
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="00000">
                             <label for="q18_d">150 : 600</label>
                         </p>
                         <h3>(19) Find the ratio of 500 m to 2 500 m in its lowest terms.</h3>
@@ -541,7 +542,7 @@
                             <label for="q29_b">K 30 and K 210</label>
                         </p>
                         <p>
-                            <input type="radio" id="q29_c" name="q5" ng-model="testResponse.q29" value="1">
+                            <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="1">
                             <label for="q29_c">K 120 and K 210</label>
                         </p>
                         <p>
