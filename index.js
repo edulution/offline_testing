@@ -256,6 +256,24 @@ app.get('/lit_prealpha_2', (req, res) => {
 });
 
 
+/*Grade 7 revision*/
+
+app.get('/gr7_test1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7_revision/test1.html');
+});
+
+app.get('/gr7_test2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7_revision/test2.html');
+});
+
+app.get('/gr7_test3', (req, res) => {
+ res.sendFile( __dirname + '/grade_7_revision/test3.html');
+});
+
+
+
+
+
 app.get('/get_server_date', (req, res) => {
 	var current_date = get_datetime_string()
 	return res.json(current_date)
