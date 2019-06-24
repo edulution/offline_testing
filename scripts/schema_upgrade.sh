@@ -50,6 +50,9 @@ schema_upgrade(){
 		sqlite3 $1  "update responses set test='bravo_a2' where test is null;"
 		sqlite3 $1  "update responses set course='bravo_a' where course is null;"
 		sqlite3 $1  "update responses set module='numeracy' where module is null;"
+
+		# insert config for grade 7 revision into the test marks table
+		
 		
 		echo "Database schema up to date"
 	fi
