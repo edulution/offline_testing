@@ -61,6 +61,10 @@ app.get('/literacy_tests', (req, res) => {
  res.sendFile( __dirname + '/portal/literacy_tests.html');
 });
 
+app.get('/grade_7_revision', (req, res) => {
+ res.sendFile( __dirname + '/portal/grade_7_revision.html');
+});
+
 /*Alpha playlists*/
 app.get('/alpha_a', (req, res) => {
  res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_a.html');
