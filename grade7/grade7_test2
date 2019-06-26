@@ -328,7 +328,7 @@
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
                             <label for="q16_d">K 40 : K 60 : K 20</label>
                         </p>
-                        <h3>(17) If one Zimbabwean Dollar will buy K 120, what is the value in kwacha of 100 Zimbabwe Dollar?</h3>
+                        <h3>(17) If one Zimbabwean Dollar will buy K 120, what is the value in Kwacha of 100 Zimbabwe Dollar?</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0000">
                             <label for="q17_a">K 120</label>
@@ -610,18 +610,53 @@
                             <label for="q33_b">4 : 5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q33_c" name="q33" ng-model="testResponse.q33" value="0000">
+                            <input type="radio" id="q33_c" name="q33" ng-model="testResponse.q33" value="000">
                             <label for="q33_c"><span class="frac"><sup>4</sup><span>/</span><sub>7</sub></span></label>
                         </p>
                         <p>
                             <input type="radio" id="q33_d" name="q33" ng-model="testResponse.q33" value="00000">
                             <label for="q33_d"><span class="frac"><sup>5</sup><span>/</span><sub>4</sub></span></label>
                         </p>
+                        <h3>(34) Express the ratio 7 to 14 to 49 in its lowest terms.</h3>
+                        <p>
+                            <input type="radio" id="q34_a" name="q34" ng-model="testResponse.q34" value="00000">
+                            <label for="q34_a">7:1:2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_b" name="q34" ng-model="testResponse.q34" value="000">
+                            <label for="q34_b">2:7:1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_c" name="q34" ng-model="testResponse.q34" value="0000">
+                            <label for="q34_c">7:2:1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_d" name="q34" ng-model="testResponse.q34" value="1">
+                            <label for="q34_d">1:2:7</label>
+                        </p>
+                        <h3>(35) The ratio of boys to girls in a class is 1:2. If there are 48 pupils in the class, how many are girls?</h3>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="0000">
+                            <label for="q35_a">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="000">
+                            <label for="q35_b">22</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="1">
+                            <label for="q35_c">32</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="00000">
+                            <label for="q35_d">44</label>
+                        </p>
+
                         <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test2'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_test2'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
