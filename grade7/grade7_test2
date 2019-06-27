@@ -46,7 +46,8 @@
                         <p class="test_name">Proportions and Ratios</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                        <div class="ins">Time allowed: 45 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
+                        <h3>Time allowed: <b>45 Minutes</b></h3>
+                        <h3>Calculators are NOT allowed</h3>
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
@@ -195,7 +196,7 @@
                         <h3>(9) Divide K 100.00 in the ratio 3 to 7.</h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
-                            <label for="q9_a">3 : 7</label>
+                            <label for="q9_a">K 3.00 and K 7.00</label>
                         </p>
                         <p>
                             <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="000">
@@ -207,7 +208,7 @@
                         </p>
                         <p>
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="00000">
-                            <label for="q9_d">K 10.00</label>
+                            <label for="q9_d">K 10.00 and K 5.00</label>
                         </p>
                         <h3>(10) Share two hundred and forty kwacha among Eddie, James and Chipo in the ratio 3 to 2 to 1. How much does Chipo get?</h3>
                         <p>
