@@ -41,11 +41,12 @@
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
-										<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
+			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
                         <p class="test_name">Average (Mean)</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                        <div class="ins">Time allowed: 45 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
+                        <h3>Time allowed: <b>45 Minutes</b></h3>
+                        <h3>Calculators are NOT allowed</h3>
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
