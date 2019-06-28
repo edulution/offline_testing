@@ -1,9 +1,9 @@
-var express = require('express');
-var app = express();
-var path = require('path');
+const express = require('express');
+const app = express();
+const path = require('path');
 
 /*Por the server will run on*/
-var port = 8888;
+const port = 8888;
 
 /*Use sqlite3 Database*/
 const sqlite3 = require('sqlite3').verbose();
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname,'public')))
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
-function get_datetime_string() {
+var get_datetime_string = () => {
 	var today = new Date();
 	var dd = today.getDate();
 	var mm = today.getMonth()+1; //January is 0!
@@ -59,6 +59,10 @@ app.get('/topics', (req, res) => {
 
 app.get('/literacy_tests', (req, res) => {
  res.sendFile( __dirname + '/portal/literacy_tests.html');
+});
+
+app.get('/grade_7_revision', (req, res) => {
+ res.sendFile( __dirname + '/portal/grade_7_revision.html');
 });
 
 /*Alpha playlists*/
@@ -254,6 +258,24 @@ app.get('/lit_prealpha_1', (req, res) => {
 app.get('/lit_prealpha_2', (req, res) => {
  res.sendFile( __dirname + '/literacy/prealpha_2.html');
 });
+
+
+/*Grade 7 revision*/
+
+app.get('/gr7_test1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7_revision/test1.html');
+});
+
+app.get('/gr7_test2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7_revision/test2.html');
+});
+
+app.get('/gr7_test3', (req, res) => {
+ res.sendFile( __dirname + '/grade_7_revision/test3.html');
+});
+
+
+
 
 
 app.get('/get_server_date', (req, res) => {
