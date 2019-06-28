@@ -50,6 +50,12 @@ schema_upgrade(){
 		sqlite3 $1  "update responses set test='bravo_a2' where test is null;"
 		sqlite3 $1  "update responses set course='bravo_a' where course is null;"
 		sqlite3 $1  "update responses set module='numeracy' where module is null;"
+
+		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test1','Grade 7 - Average (mean)','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test2','Grade 7 - Proportions and Ratios','grade7_revision','numeracy',35);"
+		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test3','Grade 7 - Number Bases','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test4','Grade 7 - Profit and Loss & Notation','grade7_revision','numeracy',30);"
+
 		
 		echo "Database schema up to date"
 	fi
