@@ -263,15 +263,19 @@ app.get('/lit_prealpha_2', (req, res) => {
 /*Grade 7 revision*/
 
 app.get('/gr7_test1', (req, res) => {
- res.sendFile( __dirname + '/grade_7_revision/test1.html');
+ res.sendFile( __dirname + '/grade_7/grade7_test1.html');
 });
 
 app.get('/gr7_test2', (req, res) => {
- res.sendFile( __dirname + '/grade_7_revision/test2.html');
+ res.sendFile( __dirname + '/grade_7/grade7_test2.html');
 });
 
 app.get('/gr7_test3', (req, res) => {
- res.sendFile( __dirname + '/grade_7_revision/test3.html');
+ res.sendFile( __dirname + '/grade_7/grade7_test3.html');
+});
+
+app.get('/gr7_test4', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test4.html');
 });
 
 
