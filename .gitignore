@@ -1,7 +1,8 @@
 literacy_learners
 users.csv*
 device_name.csv*
-public/test_responses.sqlite
+public/test_responses.sqlite*
+index_postgres.js
 .env
 node_modules/
 .DS_Store
