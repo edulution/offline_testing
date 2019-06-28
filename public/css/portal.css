@@ -155,14 +155,15 @@ img .images {
     margin-right:500px;
 }
 
-/* Header titles for each lessons */
-h3 {
-    /*padding-left: 300px;*/
-}
+
 
 /* Align Panel header */
 .panel-headers {
     text-align: justify;
     /* text-align:inherit; */
     margin-top: -30px;
+}
+
+.gr7_test_panel a:hover{
+    text-decoration: none
 }
