@@ -52,10 +52,10 @@ schema_upgrade(){
 		# sqlite3 $1  "update responses set module='numeracy' where module is null;"
 
 		# insert config for grade 7 revision into the test marks table
-		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test1','Grade 7 - Average (mean)','grade7_revision','numeracy',30);"
-		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test2','Grade 7 - Proportions and Ratios','grade7_revision','numeracy',35);"
-		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test3','Grade 7 - Number Bases','grade7_revision','numeracy',30);"
-		sqlite3 $1 "insert into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test4','Grade 7 - Profit and Loss & Notation','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test1','Grade 7 - Average (mean)','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test2','Grade 7 - Proportions and Ratios','grade7_revision','numeracy',35);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test3','Grade 7 - Number Bases','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test4','Grade 7 - Profit and Loss & Notation','grade7_revision','numeracy',30);"
 
 		echo "Database schema up to date"
 	fi
