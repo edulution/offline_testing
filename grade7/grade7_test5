@@ -52,7 +52,7 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-                    <h3>(1) Tina bought items worth K 334 560 and later sold them at K 400 000. Calculate the profit she made.</h3>
+                    <h3>(1) Sekwila bought the following items: Sugar at K18.00, beef at K25.00 and a pair of shoes at K87.00. What was his total bill?</h3>
 
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -60,26 +60,26 @@
                             <!-- Wrong answers are 0, correct answer is 1 -->
                             <!-- Example below -->
                             <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
-                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="1">
-                            <label for="q1_a">K 65 440</label>
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_a">K 140.00</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="0">
-                            <label for="q1_b">K 465 440</label>
+                            <label for="q1_b">K 130.00</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="00">
-                            <label for="q1_c">K 334 560</label>
+                            <label for="q1_c">K 120.00</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="000">
-                            <label for="q1_d">K 269 120</label>
+                            <label for="q1_d">K 110.00</label>
                         </p>
-                        <h3>(2) Find simple interest on K 50 000 saved for 2 years at the rate of 10&percnt; per annum.</h3>
+                        <h3>(2) Find the sum of K469.32 and K321.03.</h3>
                         
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="000">
-                            <label for="q2_a">K 1 000</label>
+                            <label for="q2_a">K 790.35</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="0000">
@@ -93,7 +93,7 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_d">K 60 000</label>
                         </p>
-                        <h3>(3) Mr. Mapinga bought a cell phone at K 150 and sold it at K 190 . How much profit did he make?</h3>
+                        <h3>(3) Find the total cost of 2 packets of sugar at K8.00 per packet.</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
                             <label for="q3_a">K 40</label>
@@ -110,7 +110,7 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="00000">
                             <label for="q3_d">K 340</label>
                         </p>
-                        <h3>(4) A girl was given K 10 to buy a 2 kg of sugar at K 4.50 and a loaf at K 2. How much was her change?</h3>
+                        <h3>(4) K 2.50 + K 204.50 + K 45.00</h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_a">K 2.50</label>
@@ -127,7 +127,7 @@
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="00000">
                             <label for="q4_d">K 5.50</label>
                         </p>
-                        <h3>(5) Kasabi pays 25&percnt; deposit on a radio costing K 450. How much deposit does she pay?</h3>
+                        <h3>(5) K 5 002.00 - K 1 342.00 =</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_a">K 112.50</label>
@@ -144,7 +144,7 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="00000">
                             <label for="q5_d">K 12.50</label>
                         </p>
-                        <h3>(6) A bicycle was bought at K 350.00 and later sold at K 450.50. What was the profit?</h3>
+                        <h3>(6) What would be the cost of 15 litres of petrol, if 1 litre costs K 10.00?</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_a">K 100.00</label>
@@ -161,7 +161,7 @@
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
                             <label for="q6_d">K 800.50 </label>
                         </p>
-                        <h3>(7) Find the simple interest on K 1,200 for 5 years at 12&percnt; per annum.</h3>
+                        <h3>(7) K 150 240.00 + K 82 205.00 + K 13 250.00 =</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">K 600</label>
