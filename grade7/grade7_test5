@@ -318,55 +318,55 @@
                         </p>
                         <h3>(16) A grade seven learner got 16 marks out of 20 in Mathematics. Convert the marks to a percentage.</h3>
                          <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_a">80&percnt;</label>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="q16_a">80&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_b">8&percnt;</label>
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="0000">
+                            <label for="q16_b">8&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_c">0.80&percnt;</label>
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="0000">
+                            <label for="q16_c">0.80&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">0.08&percnt;</label>
+                            <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
+                            <label for="q16_d">0.08&percnt;</label>
 			 </p>
                         <h3>(17) Express <sup>3</sup>&frasl;<sub>4</sub> as a percentage.</h3>
                         <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">750&percnt;</label>
+                            <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
+                            <label for="q17_a">750&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_b">75&percnt;</label>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="q17_b">75&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_c">7.50&percnt;</label>
+                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="0000">
+                            <label for="q17_c">7.50&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">0.75&percnt;</label>
+                            <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
+                            <label for="q17_d">0.75&percnt;</label>
 		        </p>
                         <h3>(18) Convert 0.25 to a percentage. </h3>
                         
                         <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">0.25&percnt;</label>
+                            <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
+                            <label for="q18_a">0.25&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_b">2.50&percnt;</label>
+                            <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="0000">
+                            <label for="q18_b">2.50&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_c">25&percnt;</label>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="q18_c">25&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">250&percnt;</label>
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="00000">
+                            <label for="q18_d">250&percnt;</label>
 		        </p>
                          <h3>(19) Write 20&percnt; as a decimal.</h3>
                         
@@ -389,74 +389,74 @@
                          <h3>(20) Martha got <sup>30</sup>&frasl;<sub>40</sub> in a Mathematics test. Express this mark as a percentage.</h3>
                         
                           <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_a">75&percnt;</label>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="q20_a">75&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_b">50&percnt;</label>
+                            <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="000">
+                            <label for="q20_b">50&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_c">25&percnt;</label>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="0000">
+                            <label for="q20_c">25&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">20&percnt;</label>
+                            <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
+                            <label for="q20_d">20&percnt;</label>
 		        </p>
                          <h3>(21) <sup>4</sup>&frasl;<sub>5</sub> written as a percentage is …</h3>
                         
                           <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">10&percnt;</label>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
+                            <label for="q21_a">10&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_b">20&percnt;</label>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
+                            <label for="q21_b">20&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_c">40&percnt;</label>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_c">40&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_d">80&percnt;</label>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_d">80&percnt;</label>
 		        </p>
                          <h3>(22) Convert 0.25 to a percentage.</h3>
                         
                           <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_a">25&percnt;</label>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="q22_a">25&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_b">20&percnt;</label>
+                            <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="0000">
+                            <label for="q22_b">20&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_c">5&percnt;</label>
+                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
+                            <label for="q22_c">5&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">4&percnt;</label>
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="00000">
+                            <label for="q22_d">4&percnt;</label>
 		        </p>
                          <h3>(23) Mulenga got 40 marks out of 50 in a Mathematics test. Convert these marks to a percentage.</h3>
                         
                           <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">40&percnt;</label>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
+                            <label for="q23_a">40&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_b">50&percnt;</label>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="0000">
+                            <label for="q23_b">50&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_c">80&percnt;</label>
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="1">
+                            <label for="q23_c">80&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">100&percnt;</label>
+                            <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
+                            <label for="q23_d">100&percnt;</label>
 		        </p>
                          <h3>(24) 22&percnt; of 2 000 is …</h3>
                         
@@ -483,70 +483,70 @@
                             <label for="q8_a">35&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_b">45&percnt;</label>
+                            <input type="radio" id="q8_25" name="q25" ng-model="testResponse.q25" value="000">
+                            <label for="q8_25">45&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_c">55&percnt;</label>
+                            <input type="radio" id="q25_c" name="q25" ng-model="testResponse.q25" value="0000">
+                            <label for="q25_c">55&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">65&percnt;</label>
+                            <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
+                            <label for="q25_d">65&percnt;</label>
 		        </p>
                          <h3>(26) Change 0.4 to a percentage.</h3>
                         
                         <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">0.40&percnt;</label>
+                            <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="000">
+                            <label for="q26_a">0.40&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_b">4&percnt;</label>
+                            <input type="radio" id="q26_b" name="q26" ng-model="testResponse.q26" value="0000">
+                            <label for="q26_b">4&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_c">40&percnt;</label>
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="1">
+                            <label for="q26_c">40&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">100&percnt;</label>
+                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
+                            <label for="q26_d">100&percnt;</label>
 		        </p>
                          <h3>(27) Express 0.032 as a percentage.</h3>
                         
                         <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">320&percnt;</label>
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
+                            <label for="q27_a">320&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_b">32&percnt;</label>
+                            <input type="radio" id="q27_b" name="q27" ng-model="testResponse.q27" value="0000">
+                            <label for="q27_b">32&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_c">3.20&percnt;</label>
+                            <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="q27_c">3.20&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">0.32&percnt;</label>
+                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
+                            <label for="q27_d">0.32&percnt;</label>
 		        </p>
                          <h3>(28) Express 3/5 as a percentage.</h3>
                         
                         <p>
-                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_a">70&percnt;</label>
+                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
+                            <label for="q28_a">70&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_b">60&percnt;</label>
+                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="1">
+                            <label for="q28_b">60&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_c">50&percnt;</label>
+                            <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="0000">
+                            <label for="q28_c">50&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_d">30&percnt;</label>
+                            <input type="radio" id="q82_d" name="q28" ng-model="testResponse.q28" value="00000">
+                            <label for="q28_d">30&percnt;</label>
 		        </p>
                          <h3>(29) What is 15&percnt; of 200 000?</h3>
                         
