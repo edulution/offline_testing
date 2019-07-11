@@ -389,55 +389,55 @@
                         
                           <p>
                             <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
-                            <label for="q20_a">75&percnt;</label>
+                            <label for="q20_a">919 373</label>
                         </p>
                         <p>
                             <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="000">
-                            <label for="q20_b">50&percnt;</label>
+                            <label for="q20_b">919 363</label>
                         </p>
                         <p>
                             <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="0000">
-                            <label for="q20_c">25&percnt;</label>
+                            <label for="q20_c">918 373</label>
                         </p>
                         <p>
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
-                            <label for="q20_d">20&percnt;</label>
+                            <label for="q20_d">918 363</label>
 		        </p>
                          <h3>(21) In words, the number 909 099 can be written as... </h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
-                            <label for="q21_a">10&percnt;</label>
+                            <label for="q21_a">Nine hundred thousand ninety-nine</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
-                            <label for="q21_b">20&percnt;</label>
+                            <label for="q21_b">Nine thousand ninety-nine</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="0000">
-                            <label for="q21_c">40&percnt;</label>
+                            <label for="q21_c">Nine hundred ten thousand ninety-nine</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
-                            <label for="q21_d">80&percnt;</label>
+                            <label for="q21_d">Nine hundred nine thousand ninety-nine</label>
 		        </p>
                          <h3>(22) 513 428 - 422 519 =</h3>
                         
                           <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
-                            <label for="q22_a">25&percnt;</label>
+                            <label for="q22_a">10 101</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="0000">
-                            <label for="q22_b">20&percnt;</label>
+                            <label for="q22_b">90 909</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
-                            <label for="q22_c">5&percnt;</label>
+                            <label for="q22_c">91 909</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="00000">
-                            <label for="q22_d">4&percnt;</label>
+                            <label for="q22_d">91 919</label>
 		        </p>
 			<div class="HeaderbannerLabel">PLACE VALUES</div>
                          <h3>(23) The symbol ">" means ...</h3>
