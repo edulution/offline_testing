@@ -386,8 +386,8 @@
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
                             <label for="q19_d">200</label>
                         </p>
-			<div class="HeaderbannerLabel">FACTORS</div>
-                         <h3>(20) Martha got <sup>30</sup>&frasl;<sub>40</sub> in a Mathematics test. Express this mark as a percentage.</h3>
+			<div class="HeaderbannerLabel">NEGATIVE NUMBERS</div>
+                         <h3>(20) WLook at the number line . The number line shows... (image 2018.16)</h3>
                         
                           <p>
                             <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
@@ -405,7 +405,7 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">20&percnt;</label>
 		        </p>
-                         <h3>(21) <sup>4</sup>&frasl;<sub>5</sub> written as a percentage is …</h3>
+                         <h3>(21) Which of the integers -19, +3,-6, +1 is the biggest?</h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
@@ -423,7 +423,7 @@
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
                             <label for="q21_d">80&percnt;</label>
 		        </p>
-                         <h3>(22) Convert 0.25 to a percentage.</h3>
+                         <h3>(22) Which of the following statements is correct?</h3>
                         
                           <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
@@ -441,7 +441,7 @@
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="00000">
                             <label for="q22_d">4&percnt;</label>
 		        </p>
-                         <h3>(23) Mulenga got 40 marks out of 50 in a Mathematics test. Convert these marks to a percentage.</h3>
+                         <h3>(23) - 3 + (+12) = </h3>
                         
                           <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
@@ -459,7 +459,7 @@
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
                             <label for="q23_d">100&percnt;</label>
 		        </p>
-                         <h3>(24) 22&percnt; of 2 000 is …</h3>
+                         <h3>(24) The number line shows... (image 2015.33)</h3>
                         
                         <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
@@ -477,7 +477,7 @@
                             <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0000">
                             <label for="q24_d">40</label>
                         </p>
-                         <h3>(25) <sup>7</sup>&frasl;<sub>20</sub> as a percentage is …</h3>
+                         <h3>(25) The number line shows... (image 2014.7)</h3>
                         
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
@@ -495,7 +495,7 @@
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
                             <label for="q25_d">65&percnt;</label>
 		        </p>
-                         <h3>(26) Change 0.4 to a percentage.</h3>
+                         <h3>(26) Which of the following statements is true?</h3>
                         
                         <p>
                             <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="000">
@@ -513,7 +513,7 @@
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
                             <label for="q26_d">100&percnt;</label>
 		        </p>
-                         <h3>(27) Express 0.032 as a percentage.</h3>
+                         <h3>(27) What does the number line show? (image 2012.42)</h3>
                         
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
@@ -531,7 +531,7 @@
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">0.32&percnt;</label>
 		        </p>
-                         <h3>(28) Express 3/5 as a percentage.</h3>
+                         <h3>(28) Which number line shows -1 + (-2) = -3 (image 2009.15)</h3>
                         
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
@@ -549,7 +549,8 @@
                             <input type="radio" id="q82_d" name="q28" ng-model="testResponse.q28" value="00000">
                             <label for="q28_d">30&percnt;</label>
 		        </p>
-                         <h3>(29) What is 15&percnt; of 200 000?</h3>
+			<div class="HeaderbannerLabel">NUMBER SERIES</div>
+                         <h3>(29) What is the next number in the sequence? 23, 19, 15, 11,...</h3>
                         
                         <p>
                             <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0">
@@ -567,7 +568,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_d">300 000</label>
                         </p>
-                         <h3>(30) Find 20&percnt; of 360 000.</h3>
+                         <h3>(30) What is the next number in the sequence? 128, 64, 32, 16 ,... </h3>
                         
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
