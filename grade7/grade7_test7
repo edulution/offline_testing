@@ -52,8 +52,8 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeaderbannerLabel">MONEY</div>
-                    <h3>(1) Sekwila bought the following items: Sugar at K 18.00, beef at K 25.00 and a pair of shoes at K 87.00. What was his total bill?</h3>
+			<div class="HeaderbannerLabel">EQUATIONS</div>
+                    <h3>(1) Mapenzi bought 20 sweets. He gave out x sweets and remained with 5. How many sweets did he give out?</h3>
 
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -76,7 +76,7 @@
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="000">
                             <label for="q1_d">K 110.00</label>
                         </p>
-                        <h3>(2) Find the sum of K 469.32 and K 321.03.</h3>
+                        <h3>(2) Find y, given that y + 12 > 13</h3>
                         
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
@@ -94,7 +94,7 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_d">K 148.29</label>
                         </p>
-                        <h3>(3) Find the total cost of 2 packets of sugar at K 8.00 per packet.</h3>
+                        <h3>(3) If x + 15 = 20, then x equals?</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
                             <label for="q3_a">K 16.00</label>
@@ -111,7 +111,7 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="00000">
                             <label for="q3_d">K 4.00</label>
                         </p>
-                        <h3>(4) K 2.50 + K 204.50 + K 45.00</h3>
+                        <h3>(4) Solve the inequation 4x + 2 > 10. </h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_a">K 241.00</label>
@@ -128,7 +128,7 @@
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="1">
                             <label for="q4_d">K 252.00</label>
                         </p>
-                        <h3>(5) K 5 002.00 - K 1 342.00 =</h3>
+                        <h3>(5) If 45 + y = 52, then y equals...</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0000">
                             <label for="q5_a">K 4 660.00</label>
@@ -145,7 +145,7 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="00000">
                             <label for="q5_d">K 3 360.00</label>
                         </p>
-                        <h3>(6) What would be the cost of 15 litres of petrol, if 1 litre costs K 10.00?</h3>
+                        <h3>(6) When “a” is added to 13, the answer is 30. What is the value of “a”?</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_a">K 25.00</label>
@@ -162,7 +162,7 @@
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
                             <label for="q6_d">K 250.00</label>
                         </p>
-                        <h3>(7) K 150 240.00 + K 82 205.00 + K 13 250.00 =</h3>
+                        <h3>(7) If x + 12 = 35, then x is...</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">K 254 695.00</label>
@@ -179,7 +179,7 @@
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_d">K 245 695.00</label>
                         </p>
-                        <h3>(8) K 40 105 + K 3 050 + K 10 045 = </h3>
+                        <h3>(8) Joshua bought 18 pens. He gave t of them to her sister and remained with 11. Find the value of t.</h3>
                          <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a">K 13 095</label>
@@ -196,7 +196,7 @@
                             <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
                             <label for="q8_d">K 53 200</label>
                         </p>
-                        <h3>(9) Add K 34.05, K 23.89 and K 49.30.</h3>
+                        <h3>(9) Elina had 30 mangoes. If x mangoes were eaten by Elina and 18 mangoes remained, how many mangoes were eaten?</h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_a">K 10.724</label>
@@ -213,7 +213,7 @@
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="00000">
                             <label for="q9_d">K K107.24</label>
                         </p>
-                        <h3>(10) A man bought a T-shirt at K 35.50. How much change did he get from K 50.00?</h3>
+                        <h3>(10) If 12 - c = 7, then c equals... </h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0000">
                             <label for="q10_a">k 85.50</label>
@@ -230,7 +230,7 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_d">k 14.50</label>
                         </p>
-                        <h3>(11) K 10 859 × 12 = </h3>
+                        <h3>(11) If 30 - y = 18, the value of y is...</h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="00000">
                             <label for="q11_a">K 120 208</label>
@@ -247,7 +247,7 @@
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
                             <label for="q11_d">K 130 308</label>
                         </p>
-                        <h3>(12) K 67 250.00 - K 16 121.50 = </h3>
+                        <h3>(12) If x + 17 = 35, then x is... </h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_a">K 51 138.50</label>
@@ -264,8 +264,7 @@
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="00000">
                             <label for="q12_d">K 52 128.50</label>
                         </p>
-			<div class="HeaderbannerLabel">PERCENTAGE</div>
-                        <h3>(13) Find 15&percnt; of 600.</h3>
+                        <h3>(13) A man had 62 mangoes. He sold x of them and remained with 8. The value of x is</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
                             <label for="q13_a">600</label>
@@ -282,7 +281,8 @@
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="00000">
                             <label for="q13_d">18</label>
                         </p>
-                        <h3>(14) Express <sup>7</sup>&frasl;<sub>20</sub> as percentage.</h3>
+			<div class="HeaderbannerLabel">FACTORS</div>
+                        <h3>(14) Find the HCF of 6, 9 and 12.</h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
                             <label for="q14_a">27</label>
@@ -299,7 +299,7 @@
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="00000">
                             <label for="q14_d">5&percnt;</label>
                         </p>
-                        <h3>(15) A car was used to transport 200 eggs. If 5&percnt; of the eggs broke on the way, how many were broken?</h3>
+                        <h3>(15) Express 72 as a product of its prime factors.</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
                             <label for="q15_a">10</label>
@@ -316,7 +316,7 @@
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="00000">
                             <label for="q15_d">190</label>
                         </p>
-                        <h3>(16) A grade seven learner got 16 marks out of 20 in Mathematics. Convert the marks to a percentage.</h3>
+                        <h3>(16) The prime factors of 20 are...</h3>
                          <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="1">
                             <label for="q16_a">80&percnt;</label>
@@ -333,7 +333,7 @@
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
                             <label for="q16_d">0.08&percnt;</label>
 			 </p>
-                        <h3>(17) Express <sup>3</sup>&frasl;<sub>4</sub> as a percentage.</h3>
+                        <h3>(17) What are the prime factors of 15?</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
                             <label for="q17_a">750&percnt;</label>
@@ -350,7 +350,7 @@
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
                             <label for="q17_d">0.75&percnt;</label>
 		        </p>
-                        <h3>(18) Convert 0.25 to a percentage. </h3>
+                        <h3>(18) Which of the following numbers are factors of 12?</h3>
                         
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
@@ -368,7 +368,7 @@
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="00000">
                             <label for="q18_d">250&percnt;</label>
 		        </p>
-                         <h3>(19) Write 20&percnt; as a decimal.</h3>
+                         <h3>(19) Express 18 as a product of prime factors. </h3>
                         
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
@@ -386,6 +386,7 @@
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
                             <label for="q19_d">200</label>
                         </p>
+			<div class="HeaderbannerLabel">FACTORS</div>
                          <h3>(20) Martha got <sup>30</sup>&frasl;<sub>40</sub> in a Mathematics test. Express this mark as a percentage.</h3>
                         
                           <p>
