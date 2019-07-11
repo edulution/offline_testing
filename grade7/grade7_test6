@@ -233,158 +233,157 @@
                         <h3>(11) Multiply 284 by 128.</h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="00000">
-                            <label for="q11_a">K 120 208</label>
+                            <label for="q11_a">35 252</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="000">
-                            <label for="q11_b">K 120 308</label>
+                            <label for="q11_b">35 352</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="0000">
-                            <label for="q11_c">K 130 208</label>
+                            <label for="q11_c">36 252</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
-                            <label for="q11_d">K 130 308</label>
+                            <label for="q11_d">36 352</label>
                         </p>
                         <h3>(12) 1 000 000 - 328 746 = </h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0000">
-                            <label for="q12_a">K 51 138.50</label>
+                            <label for="q12_a">670 254</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="1">
-                            <label for="q12_b">K 51 128.50</label>
+                            <label for="q12_b">671 154</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
-                            <label for="q12_c">K 51 228.50</label>
+                            <label for="q12_c">671 254</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="00000">
-                            <label for="q12_d">K 52 128.50</label>
+                            <label for="q12_d">672 254</label>
                         </p>
-			<div class="HeaderbannerLabel">PERCENTAGE</div>
                         <h3>(13) Find the sum of 352.79km, 400km and 39.5km.</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
-                            <label for="q13_a">600</label>
+                            <label for="q13_a">792.29km</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="0000">
-                            <label for="q13_b">180</label>
+                            <label for="q13_b">360.74km</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
-                            <label for="q13_c">90</label>
+                            <label for="q13_c">79.229km</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="00000">
-                            <label for="q13_d">18</label>
+                            <label for="q13_d">36.074km</label>
                         </p>
                         <h3>(14) 35 900 ÷ 50 =</h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
-                            <label for="q14_a">27</label>
+                            <label for="q14_a">718</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="000">
-                            <label for="q14_b">35&percnt;</label>
+                            <label for="q14_b">720</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="0000">
-                            <label for="q14_c">28&percnt;</label>
+                            <label for="q14_c">35 805</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="00000">
-                            <label for="q14_d">5&percnt;</label>
+                            <label for="q14_d">35 850</label>
                         </p>
                         <h3>(15) Convert 8 500 grams to kilograms.</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
-                            <label for="q15_a">10</label>
+                            <label for="q15_a">85 kilograms</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
-                            <label for="q15_b">40</label>
+                            <label for="q15_b">8.5 kilograms</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="0000">
-                            <label for="q15_c">180</label>
+                            <label for="q15_c">0.85 kilograms</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="00000">
-                            <label for="q15_d">190</label>
+                            <label for="q15_d">0.085 kilograms</label>
                         </p>
                         <h3>(16) 214 x 42 =</h3>
                          <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="1">
-                            <label for="q16_a">80&percnt;</label>
+                            <label for="q16_a">8 988</label>
                         </p>
                         <p>
                             <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="0000">
-                            <label for="q16_b">8&percnt;</label>
+                            <label for="q16_b">8 986</label>
                         </p>
                         <p>
                             <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="0000">
-                            <label for="q16_c">0.80&percnt;</label>
+                            <label for="q16_c">8 888</label>
                         </p>
                         <p>
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
-                            <label for="q16_d">0.08&percnt;</label>
+                            <label for="q16_d">1 382</label>
 			 </p>
                         <h3>(17) The difference between 5 072 and 30 125 is ...</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
-                            <label for="q17_a">750&percnt;</label>
+                            <label for="q17_a">250 053</label>
                         </p>
                         <p>
                             <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="1">
-                            <label for="q17_b">75&percnt;</label>
+                            <label for="q17_b">35 197</label>
                         </p>
                         <p>
                             <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="0000">
-                            <label for="q17_c">7.50&percnt;</label>
+                            <label for="q17_c">25 053</label>
                         </p>
                         <p>
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
-                            <label for="q17_d">0.75&percnt;</label>
+                            <label for="q17_d">2 593</label>
 		        </p>
                         <h3>(18) Find the sum of 68 749 and 24 926.</h3>
                         
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
-                            <label for="q18_a">0.25&percnt;</label>
+                            <label for="q18_a">93 675</label>
                         </p>
                         <p>
                             <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="0000">
-                            <label for="q18_b">2.50&percnt;</label>
+                            <label for="q18_b">93 665</label>
                         </p>
                         <p>
                             <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="1">
-                            <label for="q18_c">25&percnt;</label>
+                            <label for="q18_c">43 823</label>
                         </p>
                         <p>
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="00000">
-                            <label for="q18_d">250&percnt;</label>
+                            <label for="q18_d">43 223</label>
 		        </p>
                          <h3>(19) 315 x 25 =</h3>
                         
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
-                            <label for="q19_a">0.02</label>
+                            <label for="q19_a">7 587</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="1">
-                            <label for="q19_b">0.2</label>
+                            <label for="q19_b">7 785</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="0000">
-                            <label for="q19_c">20</label>
+                            <label for="q19_c">7 875</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
-                            <label for="q19_d">200</label>
+                            <label for="q19_d">7 957</label>
                         </p>
                          <h3>(20) 236 457 + 682 916 =</h3>
                         
