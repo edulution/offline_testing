@@ -42,8 +42,7 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-                        <p class="test_name">A. NOTATION</p>
-			<p class="test_name">B. PLACE VALUES</p>
+                        <p class="test_name">Equation, Factors, Negative Numbers</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -52,8 +51,8 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeaderbannerLabel">EQUATIONS</div>
-                    <h3>(1) Mapenzi bought 20 sweets. He gave out x sweets and remained with 5. How many sweets did he give out?</h3>
+			<div class="HeadertopicLabel">Equations</div>
+                    <h3>(1) Mapenzi bought 20 sweets. He gave out &#8339; sweets and remained with 5. How many sweets did he give out?</h3>
 
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -62,331 +61,331 @@
                             <!-- Example below -->
                             <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
                             <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
-                            <label for="q1_a">K 140.00</label>
+                            <label for="q1_a">4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
-                            <label for="q1_b">K 130.00</label>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_b">5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="00">
-                            <label for="q1_c">K 120.00</label>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_c">15</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="000">
-                            <label for="q1_d">K 110.00</label>
+                            <label for="q1_d">16</label>
                         </p>
-                        <h3>(2) Find y, given that y + 12 > 13</h3>
+                        <h3>(2) Find y, given that y &plus; 12 &gt; 13</h3>
                         
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
-                            <label for="q2_a">K 790.35</label>
+                            <label for="q2_a">y &gt; 1</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="0000">
-                            <label for="q2_b">K 780.35</label>
+                            <label for="q2_b">y &lt; 25</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
-                            <label for="q2_c">K 148.39</label>
+                            <label for="q2_c">y &lt; 1</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
-                            <label for="q2_d">K 148.29</label>
+                            <label for="q2_d">y &gt; 25</label>
                         </p>
-                        <h3>(3) If x + 15 = 20, then x equals?</h3>
+                        <h3>(3) If &#8339; &plus; 15 &equal; 20, then &#8339; equals?</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
-                            <label for="q3_a">K 16.00</label>
+                            <label for="q3_a">5</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="000">
-                            <label for="q3_b">K 10.00</label>
+                            <label for="q3_b">10</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="0000">
-                            <label for="q3_c">K 6.00</label>
+                            <label for="q3_c">30</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="00000">
-                            <label for="q3_d">K 4.00</label>
+                            <label for="q3_d">35</label>
                         </p>
-                        <h3>(4) Solve the inequation 4x + 2 > 10. </h3>
+                        <h3>(4) Solve the inequation 4&#8339; &plus; 2 &equals; 10. </h3>
                         <p>
-                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0000">
-                            <label for="q4_a">K 241.00</label>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_a">&#8339; &gt; 2</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="000">
-                            <label for="q4_b">K 242.00</label>
+                            <label for="q4_b">&#8339; &lt; 2</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="00000">
-                            <label for="q4_c">K 251.00</label>
+                            <label for="q4_c">&#8339; &gt; 4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="1">
-                            <label for="q4_d">K 252.00</label>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">&#8339; &gt; 8</label>
                         </p>
-                        <h3>(5) If 45 + y = 52, then y equals...</h3>
+                        <h3>(5) If 45 &plus; y &equals; 52, then y equals ...</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0000">
-                            <label for="q5_a">K 4 660.00</label>
+                            <label for="q5_a">97</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="000">
-                            <label for="q5_b">K 4 360.00</label>
+                            <label for="q5_b">17</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
-                            <label for="q5_c">K 3 660.00</label>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="00000">
+                            <label for="q5_c">13</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="00000">
-                            <label for="q5_d">K 3 360.00</label>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_d">7</label>
                         </p>
                         <h3>(6) When “a” is added to 13, the answer is 30. What is the value of “a”?</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
-                            <label for="q6_a">K 25.00</label>
+                            <label for="q6_a">33</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="0000">
-                            <label for="q6_b">K 105.00</label>
+                            <label for="q6_b">30</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
-                            <label for="q6_c">K 150.00</label>
+                            <label for="q6_c">17</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
-                            <label for="q6_d">K 250.00</label>
+                            <label for="q6_d">13</label>
                         </p>
-                        <h3>(7) If x + 12 = 35, then x is...</h3>
+                        <h3>(7) If &#8339; &plus; 12 &equals; 35, then &#8339; is ...</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
-                            <label for="q7_a">K 254 695.00</label>
+                            <label for="q7_a">47</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="000">
-                            <label for="q7_b">K 254 596.00</label>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_b">23</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="00000">
-                            <label for="q7_c">K 245 956.00</label>
+                            <label for="q7_c">&minus;13</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="1">
-                            <label for="q7_d">K 245 695.00</label>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_d">&minus;47</label>
                         </p>
                         <h3>(8) Joshua bought 18 pens. He gave t of them to her sister and remained with 11. Find the value of t.</h3>
                          <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_a">K 13 095</label>
+                            <label for="q8_a">6</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_b">K 43 155</label>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_b">7</label>
                         </p>
                         <p>
                             <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="00000">
-                            <label for="q8_c">K 50 150</label>
+                            <label for="q8_c">28</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_d">K 53 200</label>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_d">29</label>
                         </p>
-                        <h3>(9) Elina had 30 mangoes. If x mangoes were eaten by Elina and 18 mangoes remained, how many mangoes were eaten?</h3>
+                        <h3>(9) Elina had 30 mangoes. If &#8339; mangoes were eaten by Elina and 18 mangoes remained, how many mangoes were eaten?</h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
-                            <label for="q9_a">K 10.724</label>
+                            <label for="q9_a">38</label>
                         </p>
                         <p>
                             <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="000">
-                            <label for="q9_b">K 106.14</label>
+                            <label for="q9_b">30</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="1">
-                            <label for="q9_c">K 107.14</label>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="00000">
+                            <label for="q9_c">18</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="00000">
-                            <label for="q9_d">K K107.24</label>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">12</label>
                         </p>
-                        <h3>(10) If 12 - c = 7, then c equals... </h3>
+                        <h3>(10) If 12 &minus; c &equals; 7, then c equals... </h3>
                         <p>
-                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0000">
-                            <label for="q10_a">k 85.50</label>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_a">5</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="000">
-                            <label for="q10_b">k 25.50</label>
+                            <label for="q10_b">9</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="00000">
-                            <label for="q10_c">k 15.50</label>
+                            <label for="q10_c">10</label>
                         </p>
                         <p>
-                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="1">
-                            <label for="q10_d">k 14.50</label>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">15</label>
                         </p>
-                        <h3>(11) If 30 - y = 18, the value of y is...</h3>
+                        <h3>(11) If 30 &miuns; y &equals; 18, the value of y is ...</h3>
                         <p>
-                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="00000">
-                            <label for="q11_a">K 120 208</label>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_a">12</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="000">
-                            <label for="q11_b">K 120 308</label>
+                            <label for="q11_b">28</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="0000">
-                            <label for="q11_c">K 130 208</label>
+                            <label for="q11_c">48</label>
                         </p>
                         <p>
-                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
-                            <label for="q11_d">K 130 308</label>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="00000">
+                            <label for="q11_d">22</label>
                         </p>
-                        <h3>(12) If x + 17 = 35, then x is... </h3>
+                        <h3>(12) If &#8339; &plus: 17 &minus; 35, then &#8339; is ... </h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0000">
-                            <label for="q12_a">K 51 138.50</label>
+                            <label for="q12_a">52</label>
                         </p>
                         <p>
-                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="1">
-                            <label for="q12_b">K 51 128.50</label>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_b">28</label>
                         </p>
                         <p>
-                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
-                            <label for="q12_c">K 51 228.50</label>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_c">18</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="00000">
-                            <label for="q12_d">K 52 128.50</label>
+                            <label for="q12_d">8</label>
                         </p>
-                        <h3>(13) A man had 62 mangoes. He sold x of them and remained with 8. The value of x is</h3>
+                        <h3>(13) A man had 62 mangoes. He sold &#8339; of them and remained with 8. The value of &#8339; is ...</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
-                            <label for="q13_a">600</label>
+                            <label for="q13_a">70</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="0000">
-                            <label for="q13_b">180</label>
+                            <label for="q13_b">68</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
-                            <label for="q13_c">90</label>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000000">
+                            <label for="q13_c">66</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="00000">
-                            <label for="q13_d">18</label>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d">54</label>
                         </p>
-			<div class="HeaderbannerLabel">FACTORS</div>
+			<div class="HeadertopicLabel">Factors</div>
                         <h3>(14) Find the HCF of 6, 9 and 12.</h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
-                            <label for="q14_a">27</label>
+                            <label for="q14_a">1</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="000">
-                            <label for="q14_b">35&percnt;</label>
+                            <label for="q14_b">2</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="0000">
-                            <label for="q14_c">28&percnt;</label>
+                            <label for="q14_c">3</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="00000">
-                            <label for="q14_d">5&percnt;</label>
+                            <label for="q14_d">4</label>
                         </p>
                         <h3>(15) Express 72 as a product of its prime factors.</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
-                            <label for="q15_a">10</label>
+                            <label for="q15_a">2 &#8339; 2 &#8339; 2 &#8339; 3 &#8339; 4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
-                            <label for="q15_b">40</label>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="0000">
+                            <label for="q15_b">2 &#8339; 2 &#8339; 3 ×&#8339; 3 &#8339; 3</label>
                         </p>
                         <p>
-                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="0000">
-                            <label for="q15_c">180</label>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_c">2 &#8339; 2 &#8339; 2 &#8339; 3 &#8339; 3</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="00000">
-                            <label for="q15_d">190</label>
+                            <label for="q15_d">2 &#8339; 3 &#8339; 3 &#8339; 3 &#8339; 3</label>
                         </p>
-                        <h3>(16) The prime factors of 20 are...</h3>
+                        <h3>(16) The prime factors of 20 are ...</h3>
                          <p>
-                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="1">
-                            <label for="q16_a">80&percnt;</label>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0000">
+                            <label for="q16_a">5 and 10</label>
                         </p>
                         <p>
                             <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="0000">
-                            <label for="q16_b">8&percnt;</label>
+                            <label for="q16_b">4 and 5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="0000">
-                            <label for="q16_c">0.80&percnt;</label>
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="q16_c">2 and 5</label>
                         </p>
                         <p>
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
-                            <label for="q16_d">0.08&percnt;</label>
+                            <label for="q16_d">1 and 2</label>
 			 </p>
                         <h3>(17) What are the prime factors of 15?</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
-                            <label for="q17_a">750&percnt;</label>
+                            <label for="q17_a">2 and 3</label>
                         </p>
                         <p>
-                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="1">
-                            <label for="q17_b">75&percnt;</label>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="0000">
+                            <label for="q17_b">2 and 5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="0000">
-                            <label for="q17_c">7.50&percnt;</label>
+                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="q17_c">3 and 5</label>
                         </p>
                         <p>
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
-                            <label for="q17_d">0.75&percnt;</label>
+                            <label for="q17_d">1 and 15 </label>
 		        </p>
                         <h3>(18) Which of the following numbers are factors of 12?</h3>
                         
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
-                            <label for="q18_a">0.25&percnt;</label>
+                            <label for="q18_a">12, 24, 36, 48, 50</label>
                         </p>
                         <p>
                             <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="0000">
-                            <label for="q18_b">2.50&percnt;</label>
+                            <label for="q18_b">12, 24, 36, 48</label>
                         </p>
                         <p>
-                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="1">
-                            <label for="q18_c">25&percnt;</label>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="00000">
+                            <label for="q18_c">1, 2, 3, 6, 12, 24 </label>
                         </p>
                         <p>
-                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="00000">
-                            <label for="q18_d">250&percnt;</label>
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="q18_d">1, 2, 3, 4, 6, 12</label>
 		        </p>
                          <h3>(19) Express 18 as a product of prime factors. </h3>
                         
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
-                            <label for="q19_a">0.02</label>
+                            <label for="q19_a">1 × 2 × 3 × 3</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="1">
-                            <label for="q19_b">0.2</label>
+                            <label for="q19_b">2 × 3 × 3</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="0000">
-                            <label for="q19_c">20</label>
+                            <label for="q19_c">2 × 9</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
-                            <label for="q19_d">200</label>
+                            <label for="q19_d">6 × 3</label>
                         </p>
-			<div class="HeaderbannerLabel">NEGATIVE NUMBERS</div>
+			<div class="HeadertopicLabel">Negative Numbers</div>
                          <h3>(20) WLook at the number line . The number line shows... (image 2018.16)</h3>
                         
                           <p>
