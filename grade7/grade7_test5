@@ -530,7 +530,7 @@
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">0.32&percnt;</label>
 		        </p>
-                         <h3>(28) Express 3/5 as a percentage.</h3>
+                         <h3>(28) Express <sup>3</sup>&frasl;<sub>5</sub> as a percentage.</h3>
                         
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
