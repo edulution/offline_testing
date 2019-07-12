@@ -405,7 +405,7 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">20&percnt;</label>
 		        </p>
-                         <h3>(21) Which of the integers -19, +3,-6, +1 is the biggest?</h3>
+                         <h3>(21) Which of the integers &minus;19, +3,-6, +1 is the biggest?</h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
@@ -459,7 +459,8 @@
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
                             <label for="q23_d">100&percnt;</label>
 		        </p>
-                         <h3>(24) The number line shows... (image 2015.33)</h3>
+                         <h3>(24) The number line shows ...</h3>
+			 <div><img src="public/images/grade7_test7/2015.33.jpg" alt="image missing" class="img-responsive" /></div>
                         
                         <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
@@ -478,7 +479,7 @@
                             <label for="q24_d">40</label>
                         </p>
                          <h3>(25) The number line shows... (image 2014.7)</h3>
-                        
+                        <div><img src="public/images/grade7_test7/2014.7.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
                             <label for="q8_a">35&percnt;</label>
@@ -514,7 +515,7 @@
                             <label for="q26_d">100&percnt;</label>
 		        </p>
                          <h3>(27) What does the number line show? (image 2012.42)</h3>
-                        
+                        <div><img src="public/images/grade7_test7/2012.42.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
                             <label for="q27_a">320&percnt;</label>
@@ -531,25 +532,24 @@
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">0.32&percnt;</label>
 		        </p>
-                         <h3>(28) Which number line shows -1 + (-2) = -3 (image 2009.15)</h3>
-                        
+                         <h3>(28) Which number line shows -1 + (-2) = -3?</h3>
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
-                            <label for="q28_a">70&percnt;</label>
+                            <label for="q28_a"><img src="public/images/grade7_test7/2009.15.1.jpg" alt="image missing" class="img-responsive" /></label>
                         </p>
                         <p>
                             <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="1">
-                            <label for="q28_b">60&percnt;</label>
+                            <label for="q28_b"><img src="public/images/grade7_test7/2009.15.2.jpg" alt="image missing" class="img-responsive" /></label>
                         </p>
                         <p>
                             <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="0000">
-                            <label for="q28_c">50&percnt;</label>
+                            <label for="q28_c"><img src="public/images/grade7_test7/2009.15.3.jpg" alt="image missing" class="img-responsive" /></label>
                         </p>
                         <p>
                             <input type="radio" id="q82_d" name="q28" ng-model="testResponse.q28" value="00000">
-                            <label for="q28_d">30&percnt;</label>
+                            <label for="q28_d"><img src="public/images/grade7_test7/2009.15.4.jpg" alt="image missing" class="img-responsive" /></label>
 		        </p>
-			<div class="HeaderbannerLabel">NUMBER SERIES</div>
+			<div class="HeaderbannerLabel">Number Series</div>
                          <h3>(29) What is the next number in the sequence? 23, 19, 15, 11,...</h3>
                         
                         <p>
