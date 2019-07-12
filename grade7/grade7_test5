@@ -111,7 +111,7 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="00000">
                             <label for="q3_d">K 4.00</label>
                         </p>
-                        <h3>(4) K 2.50 + K 204.50 + K 45.00</h3>
+                        <h3>(4) K 2.50 &plus; K 204.50 &plus; K 45.00</h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_a">K 241.00</label>
@@ -128,7 +128,7 @@
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="1">
                             <label for="q4_d">K 252.00</label>
                         </p>
-                        <h3>(5) K 5 002.00 - K 1 342.00 =</h3>
+                        <h3>(5) K 5 002.00 &minus; K 1 342.00 =</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0000">
                             <label for="q5_a">K 4 660.00</label>
@@ -162,7 +162,7 @@
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
                             <label for="q6_d">K 250.00</label>
                         </p>
-                        <h3>(7) K 150 240.00 + K 82 205.00 + K 13 250.00 =</h3>
+                        <h3>(7) K 150 240.00 &plus; K 82 205.00 &plus; K 13 250.00 =</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">K 254 695.00</label>
@@ -179,7 +179,7 @@
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_d">K 245 695.00</label>
                         </p>
-                        <h3>(8) K 40 105 + K 3 050 + K 10 045 = </h3>
+                        <h3>(8) K 40 105 &plus; K 3 050 &plus; K 10 045 = </h3>
                          <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a">K 13 095</label>
@@ -230,7 +230,7 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_d">k 14.50</label>
                         </p>
-                        <h3>(11) K 10 859 × 12 = </h3>
+                        <h3>(11) K 10 859 &times; 12 = </h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="00000">
                             <label for="q11_a">K 120 208</label>
@@ -247,7 +247,7 @@
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
                             <label for="q11_d">K 130 308</label>
                         </p>
-                        <h3>(12) K 67 250.00 - K 16 121.50 = </h3>
+                        <h3>(12) K 67 250.00 &minus; K 16 121.50 = </h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_a">K 51 138.50</label>
