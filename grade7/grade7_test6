@@ -145,7 +145,7 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="00000">
                             <label for="q5_d">60</label>
                         </p>
-                        <h3>(6) 85kg &divide; 6kg &divide; 27kg &equals;</h3>
+                        <h3>(6) 85kg &plus; 6kg &plus; 27kg &equals;</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_a">172kg</label>
@@ -213,7 +213,7 @@
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
                             <label for="q9_d">871 362</label>
                         </p>
-                        <h3>(10) In words, 169 729 can be written as...</h3>
+                        <h3>(10) In words, 169 729 can be written as ...</h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_a">one hundred sixty-nine seven hundred twenty-nine</label>
@@ -403,7 +403,7 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">918 363</label>
 		        </p>
-                         <h3>(21) In words, the number 909 099 can be written as... </h3>
+                         <h3>(21) In words, the number 909 099 can be written as ... </h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
@@ -440,7 +440,7 @@
                             <label for="q22_d">91 919</label>
 		        </p>
 			<div class="HeaderbannerLabel">PLACE VALUES</div>
-                         <h3>(23) The symbol "&gt;" means ...</h3>
+                         <h3>(23) The symbol &gt; means ...</h3>
                         
                           <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="1">
