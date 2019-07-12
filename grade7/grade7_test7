@@ -389,58 +389,58 @@
                          <h3>(20) WLook at the number line . The number line shows... (image 2018.16)</h3>
                         
                           <p>
-                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
-                            <label for="q20_a">75&percnt;</label>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="0000">
+                            <label for="q20_a">7 &minus; (&plus;5) &equals; &minus;2</label>
                         </p>
                         <p>
                             <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="000">
-                            <label for="q20_b">50&percnt;</label>
+                            <label for="q20_b">7 &plus; (&minus;5) &equals; &minus;2</label>
                         </p>
                         <p>
-                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="0000">
-                            <label for="q20_c">25&percnt;</label>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="q20_c">5 &plus; (&plus;7) &equals; &minus;2</label>
                         </p>
                         <p>
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
-                            <label for="q20_d">20&percnt;</label>
+                            <label for="q20_d">&minus; 5 &plus;7 &equals; &minus;2</label>
 		        </p>
-                         <h3>(21) Which of the integers &minus;19, +3,-6, +1 is the biggest?</h3>
+                         <h3>(21) Which of the integers &minus;19, &plus;3,&minus;6, &plus;1 is the biggest?</h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
-                            <label for="q21_a">10&percnt;</label>
+                            <label for="q21_a">&plus;1</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
-                            <label for="q21_b">20&percnt;</label>
+                            <label for="q21_b">&mminus;6</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="0000">
-                            <label for="q21_c">40&percnt;</label>
+                            <label for="q21_c">&minus;</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
-                            <label for="q21_d">80&percnt;</label>
+                            <label for="q21_d">&plus;3</label>
 		        </p>
                          <h3>(22) Which of the following statements is correct?</h3>
                         
                           <p>
-                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
-                            <label for="q22_a">25&percnt;</label>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="00000">
+                            <label for="q22_a">&plus;4 &lt; &minus;5</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="0000">
-                            <label for="q22_b">20&percnt;</label>
+                            <label for="q22_b">&minus;11 &gt; &plus21</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
-                            <label for="q22_c">5&percnt;</label>
+                            <label for="q22_c">&plus6 &lt; &minus;21</label>
                         </p>
                         <p>
-                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="00000">
-                            <label for="q22_d">4&percnt;</label>
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="q22_d">&plus;3 &gt; &minus;7</label>
 		        </p>
-                         <h3>(23) - 3 + (+12) = </h3>
+                         <h3>(23) &minus; 3 &plus; (&plus;12) &equals;</h3>
                         
                           <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
@@ -448,36 +448,37 @@
                         </p>
                         <p>
                             <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="0000">
-                            <label for="q23_b">50&percnt;</label>
+                            <label for="q23_b">&minus;15</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="1">
-                            <label for="q23_c">80&percnt;</label>
+                            <label for="q23_c">&plus;9</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
-                            <label for="q23_d">100&percnt;</label>
+                            <label for="q23_d">&plus;15</label>
 		        </p>
                          <h3>(24) The number line shows ...</h3>
 			 <div><img src="public/images/grade7_test7/2015.33.jpg" alt="image missing" class="img-responsive" /></div>
                         
                         <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
-                            <label for="q24_a">44 000</label>
+                            <label for="q24_a">&minus;4 &plus; (&minus;6) &plus; (&plus;3) &equals; &plus;1</label>
                         </p>
                         <p>
                             <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="0">
-                            <label for="q24_b">4 400</label>
+                            <label for="q24_b">&plus;4 &plus; (&minus;6) &plus; (&plus;3) &equals; &plus;1</label>
                         </p>
                         <p>
-                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="1">
-                            <label for="q24_c">440</label>
+                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="0000">
+                            <label for="q24_c">&plus;4 &plus; (&plus;6) &plus; (&minus;3) &equals; &plus;1
+			    </label>
                         </p>
                         <p>
-                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0000">
-                            <label for="q24_d">40</label>
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="1">
+                            <label for="q24_d">&minus;4 &plus; (&plus;6) &plus; (&minus;3) &equals; &plus;1</label>
                         </p>
-                         <h3>(25) The number line shows... (image 2014.7)</h3>
+                         <h3>(25) The number line shows ...</h3>
                         <div><img src="public/images/grade7_test7/2014.7.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
