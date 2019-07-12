@@ -440,7 +440,7 @@
                             <label for="q22_d">91 919</label>
 		        </p>
 			<div class="HeaderbannerLabel">PLACE VALUES</div>
-                         <h3>(23) The symbol &gt; means ...</h3>
+                         <h3>(23) The symbol '&gt;' means ...</h3>
                         
                           <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="1">
@@ -566,7 +566,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_d">&empty;</label>
                         </p>
-                         <h3>(30) The meaning of the symbol &ne; is ...</h3>
+                         <h3>(30) The meaning of the symbol '&ne;' is ...</h3>
                         
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="1">
