@@ -42,7 +42,7 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-                        <p class="test_name">Equation, Factors, Negative Numbers</p>
+                        <p class="test_name">Area, Perimeter, Symmetry and Volume</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -51,8 +51,8 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">Equations</div>
-                    <h3>(1) Mapenzi bought 20 sweets. He gave out &#8339; sweets and remained with 5. How many sweets did he give out?</h3>
+			<div class="HeadertopicLabel">Area</div>
+                    <h3>(1) Find the total surface area of the cube. (image 2018.58)</h3>
 
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -64,21 +64,21 @@
                             <label for="q1_a">4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
                             <label for="q1_b">5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="1">
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="00">
                             <label for="q1_c">15</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="000">
                             <label for="q1_d">16</label>
                         </p>
-                        <h3>(2) Find y, given that y &plus; 12 &gt; 13</h3>
+                        <h3>(2) Find the area of a rectangular piece of land which is 100m long and 49m wide.</h3>
                         
                         <p>
-                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_a">y &gt; 1</label>
                         </p>
                         <p>
@@ -90,10 +90,10 @@
                             <label for="q2_c">y &lt; 1</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="1">
                             <label for="q2_d">y &gt; 25</label>
                         </p>
-                        <h3>(3) If &#8339; &plus; 15 &equal; 20, then &#8339; equals?</h3>
+                        <h3>(3) Find the area of a rectangle measuring 25cm by 12cm.</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
                             <label for="q3_a">5</label>
@@ -110,9 +110,9 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="00000">
                             <label for="q3_d">35</label>
                         </p>
-                        <h3>(4) Solve the inequation 4&#8339; &plus; 2 &equals; 10. </h3>
+                        <h3>(4) Find the area of the rectangle. (image 2012.51)</h3>
                         <p>
-                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="1">
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_a">&#8339; &gt; 2</label>
                         </p>
                         <p>
@@ -124,10 +124,10 @@
                             <label for="q4_c">&#8339; &gt; 4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="1">
                             <label for="q4_d">&#8339; &gt; 8</label>
                         </p>
-                        <h3>(5) If 45 &plus; y &equals; 52, then y equals ...</h3>
+                        <h3>(5) The area of the shaded part in the diagram is... (image 2010.9)</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0000">
                             <label for="q5_a">97</label>
@@ -144,9 +144,9 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_d">7</label>
                         </p>
-                        <h3>(6) When “a” is added to 13, the answer is 30. What is the value of “a”?</h3>
+                        <h3>(6) If the area of a square is 64 cm2, what is its perimeter?</h3>
                         <p>
-                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="1">
                             <label for="q6_a">33</label>
                         </p>
                         <p>
@@ -154,37 +154,38 @@
                             <label for="q6_b">30</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_c">17</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
                             <label for="q6_d">13</label>
                         </p>
-                        <h3>(7) If &#8339; &plus; 12 &equals; 35, then &#8339; is ...</h3>
+                        <h3>(7) The area of a rectangle is 48 cm Find the length given that the width is 6 cm. </h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">47</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00000">
                             <label for="q7_b">23</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="00000">
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_c">&minus;13</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="000">
                             <label for="q7_d">&minus;47</label>
                         </p>
-                        <h3>(8) Joshua bought 18 pens. He gave t of them to her sister and remained with 11. Find the value of t.</h3>
+			    <div class="HeadertopicLabel">Perimeter</div>
+                        <h3>(8) The perimeter of the triangle below is ...(image 2018.6)</h3>
                          <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a">6</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="000">
                             <label for="q8_b">7</label>
                         </p>
                         <p>
@@ -192,16 +193,16 @@
                             <label for="q8_c">28</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="000">
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
                             <label for="q8_d">29</label>
                         </p>
-                        <h3>(9) Elina had 30 mangoes. If &#8339; mangoes were eaten by Elina and 18 mangoes remained, how many mangoes were eaten?</h3>
+                        <h3>(9) Find the perimeter of a triangular field measuring 125 metres by 100 metres by 75 metres.</h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_a">38</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="000">
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="1">
                             <label for="q9_b">30</label>
                         </p>
                         <p>
@@ -209,16 +210,16 @@
                             <label for="q9_c">18</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="000">
                             <label for="q9_d">12</label>
                         </p>
-                        <h3>(10) If 12 &minus; c &equals; 7, then c equals... </h3>
+                        <h3>(10) The diagram shows a plan of a house. Find the perimeter of the plan. (image 2015.3)</h3>
                         <p>
-                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="000">
                             <label for="q10_a">5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="000">
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_b">9</label>
                         </p>
                         <p>
@@ -229,9 +230,9 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
                             <label for="q10_d">15</label>
                         </p>
-                        <h3>(11) If 30 &miuns; y &equals; 18, the value of y is ...</h3>
+                        <h3>(11) Find the perimeter of the shape. (image 2014.1)</h3>
                         <p>
-                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="1">
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="00000">
                             <label for="q11_a">12</label>
                         </p>
                         <p>
@@ -243,33 +244,33 @@
                             <label for="q11_c">48</label>
                         </p>
                         <p>
-                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="00000">
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
                             <label for="q11_d">22</label>
                         </p>
-                        <h3>(12) If &#8339; &plus: 17 &minus; 35, then &#8339; is ... </h3>
+                        <h3>(12) Find the perimeter of the shape. (image 2012.5)</h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_a">52</label>
                         </p>
                         <p>
-                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="000">
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="1">
                             <label for="q12_b">28</label>
                         </p>
                         <p>
-                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="1">
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
                             <label for="q12_c">18</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="00000">
                             <label for="q12_d">8</label>
                         </p>
-                        <h3>(13) A man had 62 mangoes. He sold &#8339; of them and remained with 8. The value of &#8339; is ...</h3>
+                        <h3>(13) Find the perimeter of the shape. (image 2009.9)</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
                             <label for="q13_a">70</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="0000">
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="1">
                             <label for="q13_b">68</label>
                         </p>
                         <p>
@@ -277,17 +278,17 @@
                             <label for="q13_c">66</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
                             <label for="q13_d">54</label>
                         </p>
-			<div class="HeadertopicLabel">Factors</div>
-                        <h3>(14) Find the HCF of 6, 9 and 12.</h3>
+			<div class="HeadertopicLabel">Symmetry/div>
+                        <h3>(14) How many lines of symmetry has the shape? (image 2018.39)</h3>
                         <p>
-                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="000">
                             <label for="q14_a">1</label>
                         </p>
                         <p>
-                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="000">
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
                             <label for="q14_b">2</label>
                         </p>
                         <p>
@@ -298,7 +299,7 @@
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="00000">
                             <label for="q14_d">4</label>
                         </p>
-                        <h3>(15) Express 72 as a product of its prime factors.</h3>
+                        <h3>(15) Look at the shape. How many lines of symmetry has the shape? (image 13)</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
                             <label for="q15_a">2 &#8339; 2 &#8339; 2 &#8339; 3 &#8339; 4</label>
@@ -315,24 +316,24 @@
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="00000">
                             <label for="q15_d">2 &#8339; 3 &#8339; 3 &#8339; 3 &#8339; 3</label>
                         </p>
-                        <h3>(16) The prime factors of 20 are ...</h3>
+                        <h3>(16) In the diagram, the horizontal line is... (image 2015.31)</h3>
                          <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0000">
                             <label for="q16_a">5 and 10</label>
                         </p>
                         <p>
-                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="0000">
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="1">
                             <label for="q16_b">4 and 5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="1">
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="000">
                             <label for="q16_c">2 and 5</label>
                         </p>
                         <p>
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
                             <label for="q16_d">1 and 2</label>
 			 </p>
-                        <h3>(17) What are the prime factors of 15?</h3>
+                        <h3>(17) The dotted lines in the shape are called... (image 2015.40)</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
                             <label for="q17_a">2 and 3</label>
@@ -349,7 +350,7 @@
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
                             <label for="q17_d">1 and 15 </label>
 		        </p>
-                        <h3>(18) Which of the following numbers are factors of 12?</h3>
+                        <h3>(18) Look at the square. The lines of symmetry are... (image 2014.22)</h3>
                         
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
@@ -367,18 +368,18 @@
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="1">
                             <label for="q18_d">1, 2, 3, 4, 6, 12</label>
 		        </p>
-                         <h3>(19) Express 18 as a product of prime factors. </h3>
+                         <h3>(19) How many lines of symmetry does the shape have? (image 2014.52)</h3>
                         
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
                             <label for="q19_a">1 × 2 × 3 × 3</label>
                         </p>
                         <p>
-                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="1">
+                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="0000">
                             <label for="q19_b">2 × 3 × 3</label>
                         </p>
                         <p>
-                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="0000">
+                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="1">
                             <label for="q19_c">2 × 9</label>
                         </p>
                         <p>
@@ -386,7 +387,7 @@
                             <label for="q19_d">6 × 3</label>
                         </p>
 			<div class="HeadertopicLabel">Negative Numbers</div>
-                         <h3>(20) WLook at the number line . The number line shows... (image 2018.16)</h3>
+                         <h3>(20) Which of the diagrams shows a line of symmetry correctly drawn on a pentagon? (image 2012.4)</h3>
                         
                           <p>
                             <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="0000">
@@ -404,14 +405,14 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">&minus; 5 &plus;7 &equals; &minus;2</label>
 		        </p>
-                         <h3>(21) Which of the integers &minus;19, &plus;3,&minus;6, &plus;1 is the biggest?</h3>
+                         <h3>(21) How many lines of symmetry has the shape? (image 2012.35)</h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
                             <label for="q21_a">&plus;1</label>
                         </p>
                         <p>
-                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="1">
                             <label for="q21_b">&mminus;6</label>
                         </p>
                         <p>
@@ -419,13 +420,13 @@
                             <label for="q21_c">&minus;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="00000">
                             <label for="q21_d">&plus;3</label>
 		        </p>
-                         <h3>(22) Which of the following statements is correct?</h3>
+                         <h3>(22) How many lines of symmetry has a half circle?</h3>
                         
                           <p>
-                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="00000">
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
                             <label for="q22_a">&plus;4 &lt; &minus;5</label>
                         </p>
                         <p>
@@ -437,13 +438,13 @@
                             <label for="q22_c">&plus6 &lt; &minus;21</label>
                         </p>
                         <p>
-                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="1">
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="00000">
                             <label for="q22_d">&plus;3 &gt; &minus;7</label>
 		        </p>
-                         <h3>(23) &minus; 3 &plus; (&plus;12) &equals;</h3>
+                         <h3>(23) Which of the shapes have one line of symmetry? (image 2010.30)</h3>
                         
                           <p>
-                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="1">
                             <label for="q23_a">40&percnt;</label>
                         </p>
                         <p>
@@ -451,18 +452,19 @@
                             <label for="q23_b">&minus;15</label>
                         </p>
                         <p>
-                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="1">
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="000">
                             <label for="q23_c">&plus;9</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
                             <label for="q23_d">&plus;15</label>
 		        </p>
-                         <h3>(24) The number line shows ...</h3>
+			<div class="HeaderbannerLabel">Number Series</div>
+                         <h3>(24) A cuboid is of length 9 cm, width 7 cm and height 5 cm. Calculate its volume.</h3>
 			 <div><img src="public/images/grade7_test7/2015.33.jpg" alt="image missing" class="img-responsive" /></div>
                         
                         <p>
-                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="1">
                             <label for="q24_a">&minus;4 &plus; (&minus;6) &plus; (&plus;3) &equals; &plus;1</label>
                         </p>
                         <p>
@@ -475,10 +477,10 @@
 			    </label>
                         </p>
                         <p>
-                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="1">
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="000">
                             <label for="q24_d">&minus;4 &plus; (&plus;6) &plus; (&minus;3) &equals; &plus;1</label>
                         </p>
-                         <h3>(25) The number line shows ...</h3>
+                         <h3>(25) The shape of a water tank at Mrs Bupe's farm is that of a cuboid. If its length is 14 m, breadth 12 m and height 10 m, find the volume of the water tank.</h3>
                         <div><img src="public/images/grade7_test7/2014.7.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
@@ -496,7 +498,7 @@
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
                             <label for="q25_d">&plus;2 &plus; (&plus;7) &equals; &plus;5</label>
 		        </p>
-                         <h3>(26) Which of the following statements is true?</h3>
+                         <h3>(26) A boy drew 15.3 litres of water in the first trip and another 17.8 litres of water in a well. How many litres of water altogether did the boy draw?</h3>
                         
                         <p>
                             <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="000">
@@ -507,17 +509,17 @@
                             <label for="q26_b">&minus;1 &lt; 4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="1">
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="000000">
                             <label for="q26_c">&minus;2 &gt; &minus;5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
+                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="1">
                             <label for="q26_d">&minus;3 &gt; 0</label>
 		        </p>
-                         <h3>(27) What does the number line show?</h3>
+                         <h3>(27) Find the volume of a rectangular prism measuring 6 cm long, 4 cm wide and 2 cm high. (image 2015.53)</h3>
                         <div><img src="public/images/grade7_test7/2012.42.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
-                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="1">
                             <label for="q27_a">&minus;2 &minus; (&plus;3)</label>
                         </p>
                         <p>
@@ -529,10 +531,10 @@
                             <label for="q27_c">&plus;3 &plus; (&minus;2)</label>
                         </p>
                         <p>
-                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="1">
+                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="000">
                             <label for="q27_d">&plus;3 &plus; (&minus;5)</label>
 		        </p>
-                         <h3>(28) Which number line shows &minus;1 &plus; (&minus;2) = &minus;3?</h3>
+                         <h3>(28) A cuboid has a volume of 240 cm. If the length of the cuboid is 10 cm and the width is 6 cm, find the height.</h3>
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
                             <label for="q28_a"><div><img src="public/images/grade7_test7/2009.15.1.jpg" alt="image missing" class="img-responsive" /></div></label>
@@ -549,15 +551,14 @@
                             <input type="radio" id="q82_d" name="q28" ng-model="testResponse.q28" value="00000">
                             <label for="q28_d"><div><img src="public/images/grade7_test7/2009.15.4.jpg" alt="image missing" class="img-responsive" /></div></label>
 		        </p>
-			<div class="HeaderbannerLabel">Number Series</div>
-                         <h3>(29) What is the next number in the sequence? 23, 19, 15, 11,...</h3>
+                         <h3>(29) A container measures 4 m long, 2 m wide and 2 m high. How many small boxes each measuring 2 m long, 2 m wide and 1 m high can be packed in the container?</h3>
                         
                         <p>
-                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0">
+                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="1">
                             <label for="q29_a">9</label>
                         </p>
                         <p>
-                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="1">
+                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="0">
                             <label for="q29_b">7</label>
                         </p>
                         <p>
@@ -568,18 +569,18 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_d">5</label>
                         </p>
-                         <h3>(30) What is the next number in the sequence? 128, 64, 32, 16 , ... </h3>
+                         <h3>(30) A Bible is 16 cm wide, 20 cm long and 7 cm thick. What is the volume of this Bible?</h3>
                         
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
                             <label for="q30_a">10</label>
                         </p>
                         <p>
-                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="1">
+                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="0000">
                             <label for="q30_b">8</label>
                         </p>
                         <p>
-                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="0000">
+                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="1">
                             <label for="q30_c">4</label>
                         </p>
                         <p>
