@@ -42,7 +42,8 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-                        <p class="test_name">Money, Percentage</p>
+                        <p class="test_name">A. MONEY</p>
+			<p class="test_name">B. PERCENTAGE</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -51,7 +52,7 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">Money</div>
+			<div class="HeadertopicLabel">MONEY</div>
                     <h3>(1) Sekwila bought the following items: Sugar at K 18.00, beef at K 25.00 and a pair of shoes at K 87.00. What was his total bill?</h3>
 
                         <p>
@@ -205,29 +206,29 @@
                             <label for="q9_b">K 106.14</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="1">
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="0">
                             <label for="q9_c">K 107.14</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="00000">
-                            <label for="q9_d">K K107.24</label>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">K 107.24</label>
                         </p>
                         <h3>(10) A man bought a T-shirt at K 35.50. How much change did he get from K 50.00?</h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0000">
-                            <label for="q10_a">k 85.50</label>
+                            <label for="q10_a">K 85.50</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="000">
-                            <label for="q10_b">k 25.50</label>
+                            <label for="q10_b">K 25.50</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="00000">
-                            <label for="q10_c">k 15.50</label>
+                            <label for="q10_c">K 15.50</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="1">
-                            <label for="q10_d">k 14.50</label>
+                            <label for="q10_d">K 14.50</label>
                         </p>
                         <h3>(11) K 10 859 &times; 12 &equals;</h3>
                         <p>
@@ -263,7 +264,7 @@
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="00000">
                             <label for="q12_d">K 52 128.50</label>
                         </p>
-			<div class="HeadertopicLabel">Percentage</div>
+			<div class="HeadertopicLabel">PERCENTAGE</div>
                         <h3>(13) Find 15&percnt; of 600.</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
@@ -284,7 +285,7 @@
                         <h3>(14) Express <sup>7</sup>&frasl;<sub>20</sub> as percentage.</h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
-                            <label for="q14_a">27</label>
+                            <label for="q14_a">27&percnt;</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="000">
@@ -300,11 +301,11 @@
                         </p>
                         <h3>(15) A car was used to transport 200 eggs. If 5&percnt; of the eggs broke on the way, how many were broken?</h3>
                         <p>
-                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="1">
                             <label for="q15_a">10</label>
                         </p>
                         <p>
-                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="0">
                             <label for="q15_b">40</label>
                         </p>
                         <p>
@@ -403,7 +404,7 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">20&percnt;</label>
 		        </p>
-                         <h3>(21) <sup>4</sup>&frasl;<sub>5</sub> written as a percentage is …</h3>
+                         <h3>(21) <sup>4</sup>&frasl;<sub>5</sub> written as a percentage is...</h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
@@ -457,7 +458,7 @@
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
                             <label for="q23_d">100&percnt;</label>
 		        </p>
-                         <h3>(24) 22&percnt; of 2 000 is …</h3>
+                         <h3>(24) 22&percnt; of 2 000 is...</h3>
                         
                         <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
@@ -475,10 +476,10 @@
                             <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0000">
                             <label for="q24_d">40</label>
                         </p>
-                         <h3>(25) <sup>7</sup>&frasl;<sub>20</sub> as a percentage is …</h3>
+                         <h3>(25) <sup>7</sup>&frasl;<sub>20</sub> as a percentage is...</h3>
                         
                         <p>
-                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q8" value="1">
+                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="1">
                             <label for="q25_a">35&percnt;</label>
                         </p>
                         <p>
@@ -523,7 +524,7 @@
                         </p>
                         <p>
                             <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="1">
-                            <label for="q27_c">3.20&percnt;</label>
+                            <label for="q27_c">3.2&percnt;</label>
                         </p>
                         <p>
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
