@@ -18,10 +18,10 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     /*Empty usernames array used in whitelist for validation*/
     $scope.usernames = [];
 
-    $scope.existingResponses = []
+    $scope.existingResponses = [];
 
     /*properities used to check whether grade 7 test has already been written by the same learner on the same day*/
-    $scope.grade7_props = ["user_id","test","course","module","test_date"]
+    $scope.grade7_props = ["user_id","test","course","module","test_date"];
 
 
     /*Send get request to endpoint to return all user objects*/
@@ -124,12 +124,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
   /*function to concatenate the properities of the a single response object which we need to check for duplicates*/
   /*the default properites used are - user_id  course module test_date*/
   /*this can be overidden with an any array of properties that the testResponse object contains*/
-  function concat_props(response,response_props = ["user_id","course","module","test_date"]) {
+  function concat_props(response,response_props) {
+    response_props = (typeof response_props !== 'undefined') ?  response_props : ["user_id","course","module","test_date"];
     var response_concat = ""
     for (var i in response_props) {
       response_concat = response_concat.concat(response[response_props[i]])
     }
-    
+
     return response_concat
   };
 
