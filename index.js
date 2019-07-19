@@ -404,19 +404,38 @@ app.post('/overwrite_test', [(req, res,next) => {
 	var course = response['course'];
 	var module = response['module'];
 	var test_date = response['test_date'];
-	
-	db.serialize(() => {
-		/*Run delete statement on responses table using params gathered above*/
-        db.run(`DELETE FROM responses where user_id=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,course,module,test_date],function(err){
-        	if(err){
-        		console.error(err.message)
-        		res.status(400).send('Could not delete row(s)')
-        		res.end()
-        	}
 
-        })
-	});
+	/*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
+	/*not all tests on the same day in the same course*/
+	/*future work. use array instead of direct string comparison in case other courses need this functionality*/
+	if(course.indexOf("grade7") !== -1){
+		db.serialize(() => {
+				/*Run delete statement on responses table using params gathered above*/
+		        db.run(`DELETE FROM responses where user_id=(?) and test=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,test_done,course,module,test_date],function(err){
+		        	if(err){
+		        		console.error(err.message)
+		        		res.status(400).send('Could not delete row(s)')
+		        		res.end()
+		        	}
 
+		        })
+			});
+	}
+
+	/*For any other test, delete all tests in the same course done on the same day for that user*/
+	else{
+		db.serialize(() => {
+				/*Run delete statement on responses table using params gathered above*/
+		        db.run(`DELETE FROM responses where user_id=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,course,module,test_date],function(err){
+		        	if(err){
+		        		console.error(err.message)
+		        		res.status(400).send('Could not delete row(s)')
+		        		res.end()
+		        	}
+
+		        })
+			});
+	}
 	/*send a status of 200 and a success message back to the client*/
 	next();}
 	,(req,res) => {
