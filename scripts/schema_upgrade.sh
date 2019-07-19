@@ -56,6 +56,10 @@ schema_upgrade(){
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test2','Grade 7 - Proportions and Ratios','grade7_revision','numeracy',35);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test3','Grade 7 - Number Bases','grade7_revision','numeracy',30);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test4','Grade 7 - Profit and Loss & Notation','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test5','Grade 7 - Money and Percentage','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test6','Grade 7 - Notation & Place Values','grade7_revision','numeracy',35);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test7','Grade 7 - Equation, Factors, Negative Numbers','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test8','Grade 7 - Area, Perimeter, Symmetry and Volume','grade7_revision','numeracy',30);"
 
 		#fix tests with wrong topic
 		echo "Fixing config bug on tests with wrong topic"
