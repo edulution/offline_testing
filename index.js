@@ -278,6 +278,22 @@ app.get('/gr7_test4', (req, res) => {
  res.sendFile( __dirname + '/grade_7/grade7_test4.html');
 });
 
+app.get('/gr7_test5', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test5.html');
+});
+
+app.get('/gr7_test6', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test6.html');
+});
+
+app.get('/gr7_test7', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test7.html');
+});
+
+app.get('/gr7_test8', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test8.html');
+});
+
 
 
 
