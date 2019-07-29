@@ -42,9 +42,8 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-			<h3>A. NOTATIONS</h3>
-			<h3>B. LENGTH</h3>
-			<h3>C. SHAPES</h3>
+			<h3>SETS</h3>
+			<h3>SPEED</h3>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -52,8 +51,8 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">NOTATIONS</div>
-                    <h3>(1) The Venn diagram below shows sets A and B. List the set A &cap; B</h3>
+			<div class="HeadertopicLabel">SETS</div>
+                    <h3>(1) The Venn diagram below shows sets A and B. List the set A &cap; B.</h3>
 
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -69,21 +68,22 @@
                             <label for="q1_b">{Chipo, Anna}</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="1">
                             <label for="q1_c">{Lucy, Peggy}</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="1">
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0">
                             <label for="q1_d">{Lydia, Anna}</label>
                         </p>
                         <h3>(2) The diagram below shows sets A and B. List set A &cup; B.</h3>
+			    <div><img src="images/grade7_test10/2018.11.jpg" alt="image missing" class="img-responsive" /></div>
                         
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0000">
                             <label for="q2_a">{3, 10}</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="1">
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_b">{8, 12, 16}</label>
                         </p>
                         <p>
@@ -91,7 +91,7 @@
                             <label for="q2_c">{6, 14, 18}</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="1">
                             <label for="q2_d">{3, 6, 8, 10, 12, 14, 16, 18}</label>
                         </p>
                         <h3>(3) A set has 32 subsets. How many members does it have?</h3>
@@ -111,9 +111,9 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_d">4</label>
                         </p>
-                        <h3>(4) Given that A = {1, 2, 3, 4} and B = {1, 3, 5, 7, 9, 11}, list A ∩ B.</h3>
+                        <h3>(4) Given that A = {1, 2, 3, 4} and B = {1, 3, 5, 7, 9, 11}, list A &cap; B.</h3>
                         <p>
-                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="00000">
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="1">
                             <label for="q4_a">{1, 3}</label>
                         </p>
                         <p>
@@ -121,16 +121,17 @@
                             <label for="q4_b">{1, 3, 5}</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="1">
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="00000">
                             <label for="q4_c">{1, 2, 3}</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_d">{1, 2, 3, 4}</label>
                         </p>
-                        <h3>(5) List the set A U B in the Venn diagram.</h3>
+                        <h3>(5) List the set A &cup; B in the Venn diagram.</h3>
+			    <div><img src="images/grade7_test10/2017.18.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
-                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="1">
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="00000">
                             <label for="q5_a">{1, 2}</label>
                         </p>
                         <p>
@@ -138,7 +139,7 @@
                             <label for="q5_b">{1, 2, 3, 4}</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="00000">
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_c">{1, 2, 3, 4, 5, 6}</label>
                         </p>
                         <p>
@@ -147,11 +148,11 @@
                         </p>
                         <h3>(6) If set V = {1, 2, 3}, how many subsets does it have?</h3>
                         <p>
-                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="1">
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0000">
                             <label for="q6_a">9</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="0000">
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="1">
                             <label for="q6_b">8</label>
                         </p>
                         <p>
@@ -163,16 +164,17 @@
                             <label for="q6_d">3</label>
                         </p>
                         <h3>(7) Look at the diagram. How many members are in the intersection set?</h3>
+			    <div><img src="images/grade7_test10/2015.14.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">8</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00000">
                             <label for="q7_b">5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="00000">
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_c">3</label>
                         </p>
                         <p>
@@ -180,6 +182,7 @@
                             <label for="q7_d">2</label>
                         </p>
                         <h3>(8) In the Venn diagram, the number of elements in set P is…</h3>
+			    <div><img src="images/grade7_test10/2015.35.jpg" alt="image missing" class="img-responsive" /></div>
                          <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a">8</label>
