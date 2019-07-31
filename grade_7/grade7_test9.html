@@ -42,9 +42,9 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-			<h3>A. NOTATIONS</h3>
-			<h3>B. LENGTH</h3>
-			<h3>C. SHAPES</h3>
+			<p class="test_name">A. NOTATIONS</p>
+			<p class="test_name">B. LENGTH</p>
+			<p class="test_name">C. SHAPES</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -53,9 +53,8 @@
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
 			<div class="HeadertopicLabel">NOTATIONS</div>
-                    <h3>(1) The difference between 57 634 and 25 467 is…</h3>
-
-                        <p>
+                    <h3>(1) The difference between 57 634 and 25 467 is...</h3>
+                       <p>
                             <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
                             <!-- Wrong answers are 0, correct answer is 1 -->
@@ -230,7 +229,7 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
                             <label for="q10_d">6 192</label>
                         </p>
-                        <h3>(11) 3245 &plus; 2356 &equals;</h3>
+                        <h3>(11) 3 245 &plus; 2 356 &equals;</h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="000">
                             <label for="q11_a">6 501</label>
@@ -264,7 +263,7 @@
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="00000">
                             <label for="q12_d">739 403</label>
                         </p>
-                        <h3>(13) The largest number that can be written using the digits 0, 5, 1, 3 and 4 is…</h3>
+                        <h3>(13) The largest number that can be written using the digits 0, 5, 1, 3 and 4 is...</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="1">
                             <label for="q13_a">54 310</label>
@@ -349,7 +348,7 @@
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
                             <label for="q17_d">61 208</label>
 		        </p>
-                        <h3>(18) The total mass of 90.5 kg, 60 kg and 5.4 kg is…</h3>
+                        <h3>(18) The total mass of 90.5 kg, 60 kg and 5.4 kg is...</h3>
                         
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
@@ -368,23 +367,23 @@
                             <label for="q18_d">155.9 kg</label>
 		        </p>
                          <div class="HeadertopicLabel">LENGTH</div>
-                         <h3>(19) The diagram is a cube of side 3 cm. The total length of its edges is...</h3>
+                         <h3>(19) The diagram is a cube of side 9 cm. The total length of its edges is...</h3>
                         <div><img src="images/grade7_test9/2018.55.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
-                            <label for="q19_a">9 cm</label>
+                            <label for="q19_a">36 cm</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="0000">
-                            <label for="q19_b">27 cm</label>
+                            <label for="q19_b">81 cm</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="1">
-                            <label for="q19_c">36 cm</label>
+                            <label for="q19_c">108 cm</label>
                         </p>
                         <p>
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
-                            <label for="q19_d">54 cm</label>
+                            <label for="q19_d">9 cm</label>
                         </p>
                         <h3>(20) A string which is 22.5 m long is cut into smaller pieces each measuring 2.25 m. How many pieces of such length can be cut from the string?</h3>
                           <p>
@@ -403,23 +402,23 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">25 pieces</label>
 		        </p>
-                         <h3>(21) 110.42 meters &minus; 20.28 meters &equals;</h3>
+                         <h3>(21) 110.42 metres &minus; 20.28 metres &equals;</h3>
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
-                            <label for="q21_a">190.14 meters</label>
+                            <label for="q21_a">190.14 metres</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
-                            <label for="q21_b">130.70 meters</label>
+                            <label for="q21_b">130.70 metres</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="0000">
-                            <label for="q21_c">90.24 meters</label>
+                            <label for="q21_c">90.24 metres</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
-                            <label for="q21_d">90.14 meters</label>
+                            <label for="q21_d">90.14 metres</label>
 		        </p>
                          <h3>(22) The scale for a classroom plan is 1 cm to 2.5 m. If the length of the classroom is drawn as 4 cm on the plan, what is the actual length of the classroom?</h3>
                         
@@ -439,23 +438,23 @@
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="1">
                             <label for="q22_d">10 m</label>
 		        </p>
-                         <h3>(23) Convert 170 000 meters to kilometers.</h3>
+                         <h3>(23) Convert 170 000 metres to kilometres.</h3>
                         
                           <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
-                            <label for="q23_a">17 kilometers</label>
+                            <label for="q23_a">17 kilometres</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="0000">
-                            <label for="q23_b">107 kilometers</label>
+                            <label for="q23_b">107 kilometres</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="1">
-                            <label for="q23_c">170 kilometers</label>
+                            <label for="q23_c">170 kilometres</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
-                            <label for="q23_d">1 700 kilometers</label>
+                            <label for="q23_d">1 700 kilometres</label>
 		        </p>
                          <h3>(24) 1 500 m &equals;</h3>                
                         <p>
@@ -492,7 +491,7 @@
                             <label for="q25_d">5 m</label>
 		        </p>
 			 <div class="HeadertopicLabel">SHAPES</div>
-                         <h3>(26) The shape below is called a… </h3>
+                         <h3>(26) The shape below is called a... </h3>
 			<div><img src="images/grade7_test9/2018.30.jpg" alt="image missing" class="img-responsive" /></div>
                         
                         <p>
@@ -511,7 +510,7 @@
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
                             <label for="q26_d">Trapezium</label>
 		        </p>
-                         <h3>(27) How many faces does the cuboid have?</h3>
+                         <h3>(27) How many faces does the cube have?</h3>
                         <div><img src="images/grade7_test9/2018.32.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
@@ -523,7 +522,7 @@
                         </p>
                         <p>
                             <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="0000">
-                            <label for="q27_c">8</label>
+                            <label for="q27_c">4</label>
                         </p>
                         <p>
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
@@ -566,7 +565,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_d">Cuboid </label>
                         </p>
-                         <h3>(30) The diagram shown has…</h3>
+                         <h3>(30) The diagram shown has...</h3>
 			 <div><img src="images/grade7_test9/2015.51.jpg" alt="image missing" class="img-responsive" /></div>
                         
                         <p>
