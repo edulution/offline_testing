@@ -42,7 +42,8 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-			<h3>WORD PROBLEM: NOTATION</h3>
+			<p class="test_name">WORD PROBLEMS: NOTATION</p>
+
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -50,7 +51,7 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">WORD PROBLEM: NOTATION</div>
+			<div class="HeadertopicLabel">WORD PROBLEMS</div>
                     <h3>(1) A truck collected 2 450 bags of maize at one maize shed and 250 bags of maize at another maize shed. How many bags of maize were collected altogether?</h3>
 
                         <p>
@@ -103,7 +104,7 @@
                         </p>
                         <p>
                             <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="00000">
-                            <label for="q3_c">K62.00</label>
+                            <label for="q3_c">K63.00</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0">
@@ -160,7 +161,7 @@
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
                             <label for="q6_d">K1 933.00</label>
                         </p>
-                        <h3>(7) Given that $1 is equal to K6.00, what is the price in Zambian Kwacha of a car costing $2 125?</h3>
+                        <h3>(7) Given that &#xFF04;1 is equal to K6.00, what is the price in Zambian Kwacha of a car costing &#xFF04;2 125?</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">K2 125.00 </label>
@@ -183,11 +184,11 @@
                             <label for="q8_a">855 016</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0">
                             <label for="q8_b">855 916</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="00000">
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
                             <label for="q8_c">856 016</label>
                         </p>
                         <p>
@@ -319,7 +320,7 @@
                             <label for="q16_a">105</label>
                         </p>
                         <p>
-                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="">
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="1">
                             <label for="q16_b">35</label>
                         </p>
                         <p>
@@ -403,7 +404,7 @@
                         
                           <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="1">
-                            <label for="q21_a">90 798/label>
+                            <label for="q21_a">90 798</label>
                         </p>
                         <p>
                             <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
@@ -487,7 +488,7 @@
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
                             <label for="q25_d">37 678g</label>
 		        </p>
-                         <h3>(26) The product of two numbers is 5 1/4. One of the numbers is 1/4. Find the other number.11</h3>
+                         <h3>(26) The product of two numbers is 5<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>. One of the numbers is <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>. Find the other number</h3>
                         
                         <p>
                             <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="1">
@@ -499,11 +500,11 @@
                         </p>
                         <p>
                             <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="0000">
-                            <label for="q26_c">5 1/4</label>
+                            <label for="q26_c">5<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
                         </p>
                         <p>
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
-                            <label for="q26_d">1 1/4</label>
+                            <label for="q26_d">1<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
 		        </p>
                          <h3>(27) A man has a water bill of K64 000 and an electricity bill of K105 000. What is his total bill?</h3>
                         <p>
@@ -522,7 +523,7 @@
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">K41 000</label>
 		        </p>
-                         <h3>(28) In an election. The number of votes for three members of parliament were 5 464, 18 001 and 12 371. How many votes did they get altogether?</h3>
+                         <h3>(28) In an election. The number of votes for three members of parliament were 5 464, 18 601 and 12 371. How many votes did they get altogether?</h3>
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
                             <label for="q28_a">27 436</label>
@@ -557,7 +558,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_d">32 405</label>
                         </p>
-                         <h3>(30) A school bought 274 books 186 of these books were given to the pupils. How many books were not given out?</h3>
+                         <h3>(30) A school bought 274 books. 186 of these books were given to the pupils. How many books were not given out?</h3>
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
                             <label for="q30_a">128</label>
