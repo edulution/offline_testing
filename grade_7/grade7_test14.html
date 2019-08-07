@@ -42,6 +42,7 @@
                     </div>
                     <form name="testForm">
 			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
+			<p class="test_name">FRACTIONS</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -49,7 +50,7 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">Decimals</div>
+			<div class="HeadertopicLabel">DECIMALS</div>
                     <h3>(1) 52.98 &plus; 2.1 &equals;</h3>
 
                         <p>
@@ -91,7 +92,7 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="1">
                             <label for="q2_d">28.287</label>
                         </p>
-                        <h3>(3) As a decimal, 81&frasl;100 can be written as.</h3>
+                        <h3>(3) As a decimal, <span class="frac"><sup>81</sup><span>/</span><sub>100</sub></span> can be written as.</h3>
                         
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0000">
@@ -127,25 +128,25 @@
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_d">7.228</label>
                         </p>
-                        <h3>(5) Arrange the following decimals from the smallest to the biggest 1.5, 0.071, 0.0036, 0.075</h3>
+                        <h3>(5) Arrange the numbers from smallest to biggest 1.5,&nbsp 0.071,&nbsp 0.0036,&nbsp 0.075</h3>
                         
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0000">
-                            <label for="q5_a">0.075, 0.0036, 0.071, 1.5</label>
+                            <label for="q5_a">0.075,&nbsp; 0.0036,&nbsp; 0.071,&nbsp; 1.5</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="0">
-                            <label for="q5_b">0.0036, 0.075, 1.5, 0.071</label>
+                            <label for="q5_b">0.0036,&nbsp; 0.075,&nbsp; 1.5,&nbsp; 0.071</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
-                            <label for="q5_c">0.0036, 0.071, 0.075, 1.5</label>
+                            <label for="q5_c">0.0036,&nbsp; 0.071,&nbsp; 0.075,&nbsp; 1.5</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="000">
-                            <label for="q5_d">1.5, 0.071, 0.075, 0.0036</label>
+                            <label for="q5_d">1.5,&nbsp; 0.071,&nbsp; 0.075,&nbsp; 0.0036</label>
                         </p>
-                        <h3>(6) The mass of a piece of beef is 15.64kg. Express this mass to 1 decimal place</h3>
+                        <h3>(6) The mass of a piece of beef is 15.64kg. Express this mass to 1 decimal place.</h3>
                         
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0000">
@@ -217,7 +218,7 @@
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
                             <label for="q9_d">5.68</label>
                         </p>
-                        <h3>(10) Express 3&frasl;4 as a decimal.</h3>
+                        <h3>(10) Express <span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span> as a decimal.</h3>
                         
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0000">
@@ -433,7 +434,7 @@
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
                             <label for="q21_d">0.0045</label>
                         </p>
-                        <h3>(22) Change 3&frasl;20 to a decimal.</h3>
+                        <h3>(22) Change <span class="frac"><sup>3</sup><span>/</span><sub>20</sub></span> to a decimal.</h3>
                         
                         <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="0000">
