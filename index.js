@@ -294,6 +294,30 @@ app.get('/gr7_test8', (req, res) => {
  res.sendFile( __dirname + '/grade_7/grade7_test8.html');
 });
 
+app.get('/gr7_test9', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test9.html');
+});
+
+app.get('/gr7_test10', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test10.html');
+});
+
+app.get('/gr7_test11', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test11.html');
+});
+
+app.get('/gr7_test12', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test12.html');
+});
+
+app.get('/gr7_test13', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test13.html');
+});
+
+app.get('/gr7_test14', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test14.html');
+});
+
 
 
 
