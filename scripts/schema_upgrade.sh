@@ -60,6 +60,13 @@ schema_upgrade(){
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test6','Grade 7 - Notation & Place Values','grade7_revision','numeracy',35);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test7','Grade 7 - Equation, Factors, Negative Numbers','grade7_revision','numeracy',30);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test8','Grade 7 - Area, Perimeter, Symmetry and Volume','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test9','Grade 7 - Notation, Length and Shapes','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test10','Grade 7 - Sets and Speed ','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test11','Grade 7 - Word Problems: Notations','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test12','Grade 7 - Bases, Roman Numerals and Graphs','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test13','Grade 7 - Fractions','grade7_revision','numeracy',30);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test14','Grade 7 - Decimals','grade7_revision','numeracy',30);"
+
 
 		#fix tests with wrong topic
 		echo "Fixing config bug on tests with wrong topic"
