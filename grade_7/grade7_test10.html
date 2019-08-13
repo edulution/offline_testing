@@ -2,6 +2,7 @@
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
+
 <head>
     <title>Grade 7 Test 10</title>
     <meta charset="utf-8" />
@@ -27,6 +28,8 @@
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -41,9 +44,9 @@
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
-			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-			<p class="test_name">A. SETS</p>
-			<p class="test_name">B. AVERAGE SPEED</p>
+                        <div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
+                        <p class="test_name">A. SETS</p>
+                        <p class="test_name">B. AVERAGE SPEED</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -51,10 +54,9 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">SETS</div>
-                    
-			<h3>(1) The Venn diagram shows sets A and B. List the set A &#8745; B.</h3>
-			<div><img src="images/grade7_test10/2018.4.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="HeadertopicLabel">SETS</div>
+                        <h3>(1) The Venn diagram shows sets A and B. List the set A &#8745; B.</h3>
+                        <div class="img_answers"><img src="images/grade7_test10/2018.4.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
@@ -77,8 +79,7 @@
                             <label for="q1_d">{Lydia, Anna}</label>
                         </p>
                         <h3>(2) The diagram below shows sets A and B. List set A &#8746; B.</h3>
-			<div><img src="images/grade7_test10/2018.11.jpg" alt="image missing" class="img-responsive" /></div>
-                        
+                        <div class="img_answers"><img src="images/grade7_test10/2018.11.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0000">
                             <label for="q2_a">{3, 10}</label>
@@ -130,7 +131,7 @@
                             <label for="q4_d">{1, 2, 3, 4}</label>
                         </p>
                         <h3>(5) List the set A &#8746; B in the Venn diagram.</h3>
-			    <div><img src="images/grade7_test10/2017.18.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="images/grade7_test10/2017.18.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="00000">
                             <label for="q5_a">{1, 2}</label>
@@ -165,7 +166,7 @@
                             <label for="q6_d">3</label>
                         </p>
                         <h3>(7) Look at the diagram. How many members are in the intersection set?</h3>
-			    <div><img src="images/grade7_test10/2015.14.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="images/grade7_test10/2015.14.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">8</label>
@@ -183,8 +184,8 @@
                             <label for="q7_d">2</label>
                         </p>
                         <h3>(8) In the Venn diagram, the number of elements in set P is...</h3>
-			    <div><img src="images/grade7_test10/2015.32.jpg" alt="image missing" class="img-responsive" /></div>
-                         <p>
+                        <div class="img_answers"><img src="images/grade7_test10/2015.32.jpg" alt="image missing" class="img-responsive" /></div>
+                        <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a">8</label>
                         </p>
@@ -201,7 +202,7 @@
                             <label for="q8_d">3</label>
                         </p>
                         <h3>(9) The union set of set J and set K is...</h3>
-			 <div><img src="images/grade7_test10/2015.35.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="images/grade7_test10/2015.35.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_a">{1, 3, 7, 8}</label>
@@ -270,7 +271,7 @@
                             <label for="q12_d">{2, 4, 6, 8}</label>
                         </p>
                         <h3>(13) Look at the Venn diagram. Set A equals.</h3>
-			<div><img src="images/grade7_test10/2014.23.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="images/grade7_test10/2014.23.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="000">
                             <label for="q13_a">{a, b, c, d}</label>
@@ -288,7 +289,7 @@
                             <label for="q13_d">{a, c}</label>
                         </p>
                         <h3>(14) Look at the Venn diagram. How many members are in set B?</h3>
-			 <div><img src="images/grade7_test10/2014.33.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="images/grade7_test10/2014.33.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
                             <label for="q14_a">1</label>
@@ -306,7 +307,7 @@
                             <label for="q14_d">6</label>
                         </p>
                         <h3>(15) What is the union set in the diagram?</h3>
-			 <div><img src="images/grade7_test10/2012.18.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="images/grade7_test10/2012.18.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="1">
                             <label for="q15_a">{2, 4, 6, 8, 10, 12, 14, 16}</label>
@@ -324,8 +325,8 @@
                             <label for="q15_d">{ }</label>
                         </p>
                         <h3>(16) Look at sets A and B. How many members are in set A?</h3>
-			 <div><img src="images/grade7_test10/2012.20.jpg" alt="image missing" class="img-responsive" /></div>
-                         <p>
+                        <div class="img_answers"><img src="images/grade7_test10/2012.20.jpg" alt="image missing" class="img-responsive" /></div>
+                        <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0000">
                             <label for="q16_a">2</label>
                         </p>
@@ -340,7 +341,7 @@
                         <p>
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="00000">
                             <label for="q16_d">6</label>
-			 </p>
+                        </p>
                         <h3>(17) The symbol for "is a member of" is...</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0000">
@@ -357,9 +358,8 @@
                         <p>
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
                             <label for="q17_d">&gt;</label>
-		        </p>
+                        </p>
                         <h3>(18) If Set A = {1, 2, 3} and set B = {2, 4}, how many members are in the intersection set?</h3>
-                        
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="1">
                             <label for="q18_a">1</label>
@@ -375,9 +375,9 @@
                         <p>
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="000">
                             <label for="q18_d">5</label>
-		        </p>
-                         <h3>(19) Look at the diagram. The number of elements in A &#8745; B equals...</h3>
-                        <div><img src="images/grade7_test10/2010.10.jpg" alt="image missing" class="img-responsive" /></div>
+                        </p>
+                        <h3>(19) Look at the diagram. The number of elements in A &#8745; B equals...</h3>
+                        <div class="img_answers"><img src="images/grade7_test10/2010.10.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="1">
                             <label for="q19_a">2</label>
@@ -394,9 +394,9 @@
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
                             <label for="q19_d">5</label>
                         </p>
-			    <h3>(20) Look at the diagram. How many elements are in set A?</h3>
-			    <div><img src="images/grade7_test10/2010.28.jpeg" alt="image missing" class="img-responsive" /></div>
-			<p>
+                        <h3>(20) Look at the diagram. How many elements are in set A?</h3>
+                        <div class="img_answers"><img src="images/grade7_test10/2010.28.jpeg" alt="image missing" class="img-responsive" /></div>
+                        <p>
                             <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="000">
                             <label for="q20_a">2</label>
                         </p>
@@ -411,10 +411,10 @@
                         <p>
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_d">6</label>
-		        </p>
-                         <h3>(21) Look at the sets. X &#8746; Y equals.</h3>
-                        <div><img src="images/grade7_test10/2010.40.jpeg" alt="image missing" class="img-responsive" /></div>
-                          <p>
+                        </p>
+                        <h3>(21) Look at the sets. X &#8746; Y equals.</h3>
+                        <div class="img_answers"><img src="images/grade7_test10/2010.40.jpeg" alt="image missing" class="img-responsive" /></div>
+                        <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
                             <label for="q21_a">{a, c, d}</label>
                         </p>
@@ -429,10 +429,9 @@
                         <p>
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="00000">
                             <label for="q21_d">{a, b, c, d, f}</label>
-		        </p>
-                         <h3>(22) Which of the following symbols represent an empty set?</h3>
-                        
-                          <p>
+                        </p>
+                        <h3>(22) Which of the following symbols represent an empty set?</h3>
+                        <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="00000">
                             <label for="q22_a">&#8745;</label>
                         </p>
@@ -447,10 +446,9 @@
                         <p>
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="000">
                             <label for="q22_d">&#8713;</label>
-		        </p>
-                         <h3>(23) Given that P = {c, h, i, o, s} and Q = {a, c, i, s). Find P &#8745; Q.</h3>
-                        
-                          <p>
+                        </p>
+                        <h3>(23) Given that P = {c, h, i, o, s} and Q = {a, c, i, s). Find P &#8745; Q.</h3>
+                        <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
                             <label for="q23_a">{a, c, h, i, o}</label>
                         </p>
@@ -465,8 +463,8 @@
                         <p>
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
                             <label for="q23_d">{c, i, o}</label>
-		        </p>
-                         <h3>(24) The symbol for "is a member of" is...</h3>                
+                        </p>
+                        <h3>(24) The symbol for "is a member of" is...</h3>
                         <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="0000">
                             <label for="q24_a">&#8746;</label>
@@ -483,8 +481,8 @@
                             <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0">
                             <label for="q24_d">&#8959;</label>
                         </p>
-                         <h3>(25) The diagram shows the sets A and B. The number of elements in Set A &#8746; B is...</h3>
-			<div><img src="images/grade7_test10/2009.16.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(25) The diagram shows the sets A and B. The number of elements in Set A &#8746; B is...</h3>
+                        <div class="img_answers"><img src="images/grade7_test10/2009.16.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="1">
                             <label for="q25_a">6</label>
@@ -500,9 +498,8 @@
                         <p>
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
                             <label for="q25_d">3</label>
-		        </p>
-                         <h3>(26) Set A = {3, 6, 9, 12, 15, 18} and set B = {1, 3, 12, 21}, How many elements are in A &#8745; B? </h3>
-                        
+                        </p>
+                        <h3>(26) Set A = {3, 6, 9, 12, 15, 18} and set B = {1, 3, 12, 21}, How many elements are in A &#8745; B? </h3>
                         <p>
                             <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="000">
                             <label for="q26_a">8</label>
@@ -518,9 +515,9 @@
                         <p>
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="1">
                             <label for="q26_d">2</label>
-		        </p>
-	                 <div class="HeadertopicLabel">AVERAGE SPEED</div>
-                         <h3>(27) A car traveled for 3 hours at a speed of 100 km/h. Calculate the distance that it covered.</h3>
+                        </p>
+                        <div class="HeadertopicLabel">AVERAGE SPEED</div>
+                        <h3>(27) A car traveled for 3 hours at a speed of 100 km/h. Calculate the distance that it covered.</h3>
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="1">
                             <label for="q27_a">300 kilometers</label>
@@ -536,8 +533,8 @@
                         <p>
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">33.3 kilometers</label>
-		        </p>
-                         <h3>(28) John takes 6 hours to cover a distance of 240 km from his home to town. What is his average speed?</h3>
+                        </p>
+                        <h3>(28) John takes 6 hours to cover a distance of 240 km from his home to town. What is his average speed?</h3>
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
                             <label for="q28_a">34 km/h</label>
@@ -553,9 +550,8 @@
                         <p>
                             <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="00000">
                             <label for="q28_d">246 km/h</label>
-		        </p>
-                         <h3>(29) A car covered a distance of 180 km in 3 hours. Calculate its average speed.</h3>
-                        
+                        </p>
+                        <h3>(29) A car covered a distance of 180 km in 3 hours. Calculate its average speed.</h3>
                         <p>
                             <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_a">120 km/h</label>
@@ -572,7 +568,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="1">
                             <label for="q29_d">60 km/h</label>
                         </p>
-                         <h3>(30) Adam drove 250km in 3 hours. What is his average speed?</h3>
+                        <h3>(30) Adam drove 250km in 3 hours. What is his average speed?</h3>
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
                             <label for="q30_a">50 km/h</label>
@@ -593,7 +589,7 @@
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test10'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='grade_7_revision'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>

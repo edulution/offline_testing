@@ -2,6 +2,7 @@
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
+
 <head>
     <title>Grade 7 Test 13</title>
     <meta charset="utf-8" />
@@ -27,6 +28,8 @@
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -41,8 +44,8 @@
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
-			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
-			<p class="test_name">FRACTIONS</p>
+                        <div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
+                        <p class="test_name">FRACTIONS</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
@@ -50,9 +53,8 @@
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
-			<div class="HeadertopicLabel">FRACTIONS</div>
-                    <h3>(1) <span class="frac"><sup>4</sup><span>/</span><sub>9</sub></span> is equivalent to...</h3>
-               
+                        <div class="HeadertopicLabel">FRACTIONS</div>
+                        <h3>(1) <span class="frac"><sup>4</sup><span>/</span><sub>9</sub></span> is equivalent to...</h3>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
@@ -75,7 +77,6 @@
                             <label for="q1_d"><span class="frac"><sup>13</sup><span>/</span><sub>36</sub></span></label>
                         </p>
                         <h3>(2) <span class="frac"><sup>3</sup><span>/</span><sub>25</sub></span> &divide; 1 <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> </h3>
-                        
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0000">
                             <label for="q2_a"><span class="frac"><sup>1</sup><span>/</span><sub>35</sub></span></label>
@@ -92,7 +93,7 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="000">
                             <label for="q2_d"><span class="frac"><sup>4</sup><span>/</span><sub>35</sub></span></label>
                         </p>
-                        <h3>(3) 4 <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>  &times;  3</h3>
+                        <h3>(3) 4 <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &times; 3</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_a">4 <span class="frac"><sup>3</sup><span>/</span><sub>4</sub></label>
@@ -178,7 +179,7 @@
                             <label for="q7_d"><span class="frac"><sup>5</sup><span>/</span><sub>17</sub></span></label>
                         </p>
                         <h3>(8) What is <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> of <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></h3>
-                         <p>
+                        <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_a"><span class="frac"><sup>22</sup><span>/</span><sub>5</sub></span></label>
                         </p>
@@ -314,7 +315,7 @@
                             <label for="q15_d"><span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span></label>
                         </p>
                         <h3>(16) <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span> &times; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> &equals;</h3>
-                         <p>
+                        <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="00">
                             <label for="q16_a"><span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
                         </p>
@@ -329,7 +330,7 @@
                         <p>
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="1">
                             <label for="q16_d"><span class="frac"><sup>3</sup><span>/</span><sub>16</sub></span></label>
-			 </p>
+                        </p>
                         <h3>(17) Mrs. Chanda spent K20.00 out of K200.00. What fraction of the money did she spend?</h3>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
@@ -346,9 +347,8 @@
                         <p>
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
                             <label for="q17_d"><span class="frac"><sup>2</sup><span>/</span><sub>25</sub></span></label>
-		        </p>
+                        </p>
                         <h3>(18) If <span class="frac"><sup>x</sup><span>/</span><sub>24</sub></span> &equals; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span> then x equals ...</h3>
-                        
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
                             <label for="q18_a">3</label>
@@ -364,8 +364,8 @@
                         <p>
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="00000">
                             <label for="q18_d">192</label>
-		        </p>
-                         <h3>(19) <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> &minus; <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span> &equals;</h3>
+                        </p>
+                        <h3>(19) <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> &minus; <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span> &equals;</h3>
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
                             <label for="q19_a"><span class="frac"><sup>3</sup><span>/</span><sub>2</sub></span></label>
@@ -383,7 +383,7 @@
                             <label for="q19_d"><span class="frac"><sup>3</sup><span>/</span><sub>15</sub></span></label>
                         </p>
                         <h3>(20) <span class="frac"><sup>4</sup><span>/</span><sub>12</sub></span> &times; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span> &times; 3 <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> &equals;</h3>
-                          <p>
+                        <p>
                             <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="00000">
                             <label for="q20_a"><span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span></label>
                         </p>
@@ -398,10 +398,9 @@
                         <p>
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="0000">
                             <label for="q20_d"><span class="frac"><sup>1</sup><span>/</span><sub>28</sub></span></label>
-		        </p>
-                         <h3>(21) 2<span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> &times; (1 <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span> &divide; <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span>) &equals;</h3>
-                        
-                          <p>
+                        </p>
+                        <h3>(21) 2<span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> &times; (1 <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span> &divide; <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span>) &equals;</h3>
+                        <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="0000">
                             <label for="q21_a"><span class="frac"><sup>5</sup><span>/</span><sub>6</sub></span></label>
                         </p>
@@ -416,10 +415,9 @@
                         <p>
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="000">
                             <label for="q21_d">3 <span class="frac"><sup>5</sup><span>/</span><sub>6</sub></span></label>
-		        </p>
-                         <h3>(22) <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span> &plus; <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></h3>
-                        
-                          <p>
+                        </p>
+                        <h3>(22) <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span> &plus; <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></h3>
+                        <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="00000">
                             <label for="q22_a"><span class="frac"><sup>9</sup><span>/</span><sub>13</sub></span></label>
                         </p>
@@ -434,11 +432,10 @@
                         <p>
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="000">
                             <label for="q22_d">8 <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span></label>
-		        </p>
-                       <h3>(23) What fraction of the diagram is shaded? </h3>
-                           <div><img src="images/grade7_test13/2010.8.jpg" alt="image missing" class="img-responsive" /></div>
-
-                          <p>
+                        </p>
+                        <h3>(23) What fraction of the diagram is shaded? </h3>
+                        <div class="img_answers_lg"><img src="images/grade7_test13/2010.8.jpg" alt="image missing" class="img-responsive" /></div>
+                        <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
                             <label for="q23_a"><span class="frac"><sup>7</sup><span>/</span><sub>12</sub></span></label>
                         </p>
@@ -453,10 +450,10 @@
                         <p>
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="00000">
                             <label for="q23_d"><span class="frac"><sup>4</sup><span>/</span><sub>12</sub></span></label>
-		         </p>
-                         <h3>(24) A farmer has 17 <span class="frac"><sup>1</sup><span>/</span></sub>2</sub></span> m of wire and buys 10 <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>  more. How many meters of wire does she now have altogether?</h3> 
+                        </p>
+                        <h3>(24) A farmer has 17 <span class="frac"><sup>1</sup><span>/</span></sub>2</sub></span> m of wire and buys 10 <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> more. How many meters of wire does she now have altogether?</h3>
                         <p></p>
-			<p>
+                        <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
                             <label for="q24_a">1 <span class="frac"><sup>14</sup><span>/</span><sub>23</sub></span> m</label>
                         </p>
@@ -472,8 +469,8 @@
                             <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0">
                             <label for="q24_d">103 <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> m</label>
                         </p>
-                         <h3>(25) What fraction of the diagram is shaded?</h3>
-			 <div><img src="images/grade7_test13/2009.4.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(25) What fraction of the diagram is shaded?</h3>
+                        <div class="img_answers_lg"><img src="images/grade7_test13/2009.4.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="000">
                             <label for="q25_a"><span class="frac"><sup>2</sup><span>/</span><sub>8</sub></span></label>
@@ -489,8 +486,8 @@
                         <p>
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
                             <label for="q25_d"><span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span></label>
-		        </p>
-                         <h3>(26) <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> &times; (<span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span> &divide; <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span>) &equals;</h3>			  
+                        </p>
+                        <h3>(26) <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> &times; (<span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span> &divide; <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span>) &equals;</h3>
                         <p>
                             <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="1">
                             <label for="q26_a"><span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span></label>
@@ -506,8 +503,8 @@
                         <p>
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="000">
                             <label for="q26_d">2<span class="frac"><sup>1</sup><span>/</span><sub>25</sub></span></label>
-		        </p>
-                         <h3>(27) 1 <span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span> &minus; <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> &plus; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span> &equals;</h3>
+                        </p>
+                        <h3>(27) 1 <span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span> &minus; <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> &plus; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span> &equals;</h3>
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
                             <label for="q27_a"><span class="frac"><sup>17</sup><span>/</span><sub>24</sub></span></label>
@@ -523,9 +520,9 @@
                         <p>
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">11 <span class="frac"><sup>1</sup><span>/</span><sub>24</sub></span></label>
-		        </p>
-                         <h3>(28) The graph shows the vegetables grown on a school garden. What fraction of the garden is used for cabbages?</h3>
-			    <div><img src="images/grade7_test13/2009.56.jpg" alt="image missing" class="img-responsive" /></div>
+                        </p>
+                        <h3>(28) The graph shows the vegetables grown on a school garden. What fraction of the garden is used for cabbages?</h3>
+                        <div class="img_answers_lg"><img src="images/grade7_test13/2009.56.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
                             <label for="q28_a"><span class="frac"><sup>2</sup><span>/</span><sub>9</sub></span></label>
@@ -541,10 +538,9 @@
                         <p>
                             <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="00000">
                             <label for="q28_d"><span class="frac"><sup>4</sup><span>/</span><sub>9</sub></span></label>
-		        </p>
-                         <h3>(29) The pie chart shows the percent of livestock feed on a farm. What fraction of the feed is for sheep?</h3>
-			    <div><img src="images/grade7_test13/2007.45.jpg" alt="image missing" class="img-responsive" /></div>
-                        
+                        </p>
+                        <h3>(29) The pie chart shows the percent of livestock feed on a farm. What fraction of the feed is for sheep?</h3>
+                        <div class="img_answers_lg"><img src="images/grade7_test13/2007.45.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0000">
                             <label for="q29_a"><span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span></label>
@@ -561,7 +557,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0">
                             <label for="q29_d"><span class="frac"><sup>1</sup><span>/</span><sub>100</sub></span></label>
                         </p>
-                         <h3>(30) Express 5 <span class="frac"><sup>23</sup><span>/</span><sub>25</sub></span> as an improper fraction.</h3>
+                        <h3>(30) Express 5 <span class="frac"><sup>23</sup><span>/</span><sub>25</sub></span> as an improper fraction.</h3>
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
                             <label for="q30_a"><span class="frac"><sup>23</sup><span>/</span><sub>25</sub></span></label>
@@ -582,7 +578,7 @@
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test13'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='grade_7_revision'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
