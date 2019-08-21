@@ -1,0 +1,11 @@
+scss:
+  enabled: true
+
+sass-lint:
+  enabled: true
+
+shellcheck:
+  enabled: true
+
+jshint:
+  enabled: true
