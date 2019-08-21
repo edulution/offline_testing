@@ -384,6 +384,16 @@ app.get('/gr7_test14', (req, res) => {
 });
 
 
+app.get('/get_server_date', (req, res) => {
+	var current_date = get_datetime_string()
+	return res.json(current_date)
+});
+
+
+app.get('/sucessful_submit', (req, res) => {
+ res.sendFile( __dirname + '/submit/sucessful_submission.html');
+});
+
 /*Endpoints*/
 /*endpoint to get users list as json*/
 app.get('/get_users', (req, res, next) => {
