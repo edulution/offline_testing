@@ -1,6 +1,6 @@
-body{
-	font-family: 'Roboto', sans-serif;
-	background-color: #B3FFB3;
+body {
+    background-color: rgb(179, 255, 179);
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
 
 /*center an image within a div*/
@@ -8,54 +8,107 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
- }
+}
 
-.bg_img{
-	/*background-image: url('../images/bg-images.png');*/
-	height: 379px;
+.bg_img {
+    /*background-image: url('../images/bg-images.png');*/
+    height: 379px;
 }
-.page {
-    background-color: rgb(255, 255, 255);
-    /*border-top: 8px solid rgb(0, 255, 0);*/
-    display: table;
-    /*margin: -120px auto 0;*/
-    position: relative;
-    /*right: -64px;*/
-    width: 100%;
+
+
+.padd {
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
-.pd-lr{
-    padding-left: 34px;
-    padding-right: 34px;
-}
-.pd-tb {
-    color: rgba(0, 0, 0, 0.87);
-    padding: 34px 0;
-}
-/*.HeaderbannerLabel {
-    background-image: url("../images/title-bg.png");
-    background-repeat: no-repeat;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    height: 39px;
-    line-height: 39px;
-    margin-left: -34px;
-    margin-top: 15px;
-    padding-left: 34px;
-}*/
+
 .ins {
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 20px;
+    color: #212121;
+    font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    line-height: 135%;
+    margin-top: 22px;
+    white-space: pre-wrap;
 }
-.h3, h3 {
+
+
+h3 {
     font-size: 20px;
+    font-weight: normal;
 }
 
 li {
-	margin: 10px;
-	font-size: 15px;
-	margin-left: -20px;
-		
+    margin: 10px;
+    font-size: 15px;
+    margin-left: -20px;
+
+}
+
+/*Green background for headings including username,instructions, and coach credentials*/
+.HeaderbannerLabel {
+    background-color: rgb(0, 159, 21);
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-weight: 500;
+    /*padding-left: 34px;*/
+    /*margin-left: -30px;*/
+    font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    padding: 8px 8px 8px 34px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    width: 45%;
+}
+
+/*Excatly like HeaderbannerLabel but blue and slightly smaller*/
+/*Used in grade 7 revision tests when a test has multiple topics*/
+.HeadertopicLabel {
+    background-color: rgb(0, 0, 130);
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-weight: 500;
+    /*padding-left: 34px;*/
+    /*margin-left: -30px;*/
+    font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    padding: 8px 8px 8px 34px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    width: 30%;
+}
+
+/*Blue text used in some options in grade 7 test 4*/
+.blue_text{
+    color:blue;
+}
+
+.box {
+    display: inline-block;
+    background-color: none;
+    vertical-align: middle
+}
+
+span.frac {
+    display: inline-block;
+    font-size: 75%;
+    text-align: center;
+    vertical-align: middle
+}
+
+span.frac>sup {
+    display: block;
+    border-bottom: 1px solid;
+    font: inherit;
+}
+
+span.frac>span {
+    display: none;
+}
+
+span.icon>span {
+    display: inline-block;
+    font-size: 1.1em
+}
+
+span.frac>sub {
+    display: block;
+    font: inherit;
 }
 
 /*Radio button*/
@@ -64,9 +117,9 @@ li {
     position: absolute;
     left: -9999px;
 }
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
     color: #444;
     cursor: pointer;
     display: inline-block;
@@ -75,10 +128,11 @@ li {
     line-height: 20px;
     padding-left: 28px;
     position: relative;
-    
+
 }
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
     content: '';
     position: absolute;
     left: 1px;
@@ -89,8 +143,9 @@ li {
     border-radius: 100%;
     background: #fff;
 }
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
     content: '';
     width: 11px;
     height: 11px;
@@ -103,12 +158,14 @@ li {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-[type="radio"]:not(:checked) + label:after {
+
+[type="radio"]:not(:checked)+label:after {
     opacity: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
 }
-[type="radio"]:checked + label:after {
+
+[type="radio"]:checked+label:after {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -120,9 +177,9 @@ li {
     position: absolute;
     left: -9999px;
 }
-[type="checkbox"]:checked + label,
-[type="checkbox"]:not(:checked) + label
-{
+
+[type="checkbox"]:checked+label,
+[type="checkbox"]:not(:checked)+label {
     color: #151515;
     cursor: pointer;
     display: inline-block;
@@ -133,8 +190,8 @@ li {
     position: relative;
 }
 
-[type="checkbox"]:checked + label:after,
-[type="checkbox"]:not(:checked) + label:after {
+[type="checkbox"]:checked+label:after,
+[type="checkbox"]:not(:checked)+label:after {
     content: '';
     width: 11px;
     height: 11px;
@@ -148,8 +205,8 @@ li {
     transition: all 0.2s ease;
 }
 
-[type="checkbox"]:checked + label:before,
-[type="checkbox"]:not(:checked) + label:before {
+[type="checkbox"]:checked+label:before,
+[type="checkbox"]:not(:checked)+label:before {
     content: '';
     position: absolute;
     left: 1px;
@@ -161,20 +218,23 @@ li {
     background: #fff;
 }
 
-[type="checkbox"]:not(:checked) + label:after {
+[type="checkbox"]:not(:checked)+label:after {
     opacity: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
 }
-[type="checkbox"]:checked + label:after {
+
+[type="checkbox"]:checked+label:after {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
 
 .half {
     float: left;
     width: 50%;
 }
+
 .half div {
     border: 1px solid rgb(204, 204, 204);
     height: 210px;
@@ -183,19 +243,80 @@ li {
     padding-top: 77px;
     width: 89%;
 }
-/*span {
+
+/*Input fields such as username,coach_id, and password*/
+.user_input {
+    border: 0px;
+    border-bottom: 1px solid #c0c0c0;
+    width: 40%;
+    flex-shrink: 1;
+    background-color: transparent;
     display: block;
-    font-size: 12px;
-    margin-bottom: 28px;
-}*/
+    font: 400 16px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    height: 24px;
+    line-height: 24px;
+    margin: 0;
+    min-width: 0%;
+    outline: none;
+    padding: 0;
+    z-index: 0;
+}
+
+/*Test name that appears at the top of the page, below the logo e.g Alpha A1*/
+.test_name {
+    box-sizing: border-box;
+    font-size: 34px;
+    line-height: 135%;
+    max-width: 100%;
+    min-width: 0%;
+}
+
+
+/*Empty boxes on test questions*/
+.empty_square {
+    display: inline-block;
+    font-size: 1.1em
+}
+
+/*Questions in which the answer choices are images*/
+/*Behavior of flex will space images equally within div*/
+.img_answers,.img_answers_lg{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap:nowrap;
+
+}
+
+.img_answers > img{
+    height: 200px;
+}
+
+.img_answers_lg > img{
+    height: 400px;
+}
+
+/*Answers and their labels within img_answers div expected to be inside divs*/
+/*Small amount of margin to ensure the images don't touch each other*/ 
+.img_answers > div{
+    margin-right: 1.5%
+}
+
+.img_answers > div > div > img{
+    height: 176px;
+}
+
+/*Main section with a white background which contains all the content.*/
+/*Sits on top of the colored background of the page*/
+.main_content{
+    background:white;
+    padding-bottom: 5%;
+}
+
 /* Responsive */
 
 /* Responsive */
-@media (min-width: 992px) and (max-width: 1200px) {
-	
-}
-@media (min-width: 768px) and (max-width: 991px) {
-	
-}
-@media (min-width: 320px) and (max-width: 767px) {
-}
+@media (min-width: 992px) and (max-width: 1200px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 320px) and (max-width: 767px) {}

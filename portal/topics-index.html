@@ -2,56 +2,54 @@
 <html ng-app="topicsIndex">
 
 <head>
-  <title>Index of Topics</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
-  <!-- custom css -->
-  <link href="css/topic-index.css" rel="stylesheet">
-
-  <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/smart-table.min.js"></script>
-
-  <!-- angular app -->
-  <script type="text/javascript" src="js/portal/topic-index.js"></script>
+    <title>Index of Topics</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <!-- custom css -->
+    <link href="css/topic-index.css" rel="stylesheet">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/smart-table.min.js"></script>
+    <!-- angular app -->
+    <script type="text/javascript" src="js/portal/topic-index.js"></script>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
-<div class="container col-md-8 col-md-offset-2" ng-controller="mainCtrl">
-  <div class="container-fluid">
-    <div id="back_btn">
-      <a href="/">
-        <i class="fa fa-chevron-left"></i> Back
-      </a>
+    <div class="container col-md-8 col-md-offset-2" ng-controller="mainCtrl">
+        <div class="container-fluid">
+            <div id="back_btn">
+                <a href="/">
+                    <i class="fa fa-chevron-left"></i> Back
+                </a>
+            </div>
+            <h2 class="text-center">Index of Topics</h2>
+        </div>
+        <div>
+            <table st-table="topicCollection" class="table">
+                <tr>
+                    <th colspan="1">
+                        <input st-search type="search" placeholder="Search for a playlist or topic...." class="form-control">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h3><b>Topic</b></h3>
+                    </th>
+                    <th>
+                        <h3><b>Location</b></h3>
+                    </th>
+                </tr>
+                <tr ng-repeat="row in topicCollection">
+                    <td>
+                        <h4>{{row.topic}}</h4>
+                    </td>
+                    <td>
+                        <h4>{{row.location}}</h4>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-    
-      <h2 class="text-center">Index of Topics</h2>
-    
-  </div>
-  
-  <div>
-    <table st-table="topicCollection" class="table">
-      <tr>
-          <th colspan="1">
-            <input st-search type="search" placeholder="Search for a playlist or topic...." class="form-control">
-          </th>
-      </tr>
-    
-      <tr>
-        <th>
-          <h3><b>Topic</b></h3></th>
-        <th>
-          <h3><b>Location</b></h3></th>
-      </tr>
-      <tr ng-repeat="row in topicCollection">
-        <td><h4>{{row.topic}}</h4></td>
-        <td><h4>{{row.location}}</h4></td>
-      </tr>
-      
-    </table>
-  </div>
-</div>
-
-  
 </body>
 
 </html>

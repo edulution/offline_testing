@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Script runs on reboot as set by the cronjob
+
+# Can also be manually triggered by bash alias restartbl 
+
+# kill any processes on port 8888 (port taken by testing server)
+fuser -k 8888/tcp
+
+# get users and device name from KA Lite database
+chmod +x ~/.baseline_testing/scripts/start_users_extraction.sh
+~/.baseline_testing/scripts/start_users_extraction.sh
+
+# Stop any running forever processes and 
+chmod +x ~/.baseline_testing/scripts/start_testing_server.sh
+~/.baseline_testing/scripts/start_testing_server.sh

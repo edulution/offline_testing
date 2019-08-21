@@ -2,14 +2,14 @@
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
+
 <head>
-<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
     <title>Pre-Alpha 1</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!--Custom Css-->
@@ -18,1140 +18,933 @@
     <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
-    <script src="pmodule/angular.min.js"></script>
-    <script src="pmodule/angular-animate.js"></script>
-    <script src="pmodule/angular-sanitize.js"></script>
-    <script src="pmodule/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-ui.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
-    <style>
-    .HeaderbannerLabel {
-        background-color: rgb(0, 159, 21);
-        color: rgba(255, 255, 255, 1);
-        font-size: 1.1em;
-        font-weight: 500;
-        padding-left: 34px;
-        margin-left: -30px;
-        font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-        padding: 8px 8px 8px 34px;
-        margin-top: 30px;
-        margin-bottom: 25px;
-        width: 45%;
-    }
-    .ins {
-        color: #212121;
-        font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-        line-height: 135%;
-        margin-top: 22px;
-        white-space: pre-wrap;
-    }
-    h3 {
-        font-weight: normal;
-    }
-    .box {
-        display: inline-block;
-        background-color: none;
-        vertical-align: middle
-    }
-    span.frac {
-        display: inline-block;
-        font-size: 75%;
-        text-align: center;
-        vertical-align: middle
-    }
-    span.frac>sup {
-        display: block;
-        border-bottom: 1px solid;
-        font: inherit;
-    }
-    span.frac>span {
-        display: none;
-    }
-    span.icon > span {  display: inline-block; font-size: 1.1em}
-    span.frac>sub {
-        display: block;
-        font: inherit;
-    }
-    </style>
 </head>
 
-<body ng-controller="ModalDemoCtrl as ctrl" style="background-color: rgb(179, 255, 179); font-family: 
-
-Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+<body ng-controller="MainCtrl as ctrl">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
-    <script type="text/ng-template" id="testModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <label class="item item-input">
-                <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
-            </label>
-            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please 
-
-try again</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
-            <button class="btn btn-danger" type="button">Cancel</button>
-        </div>
-    </script>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
-    <span ng-init=ctrl.openModal()></span>
-    <section class="container-fluid" style="margin: auto; width: 640px !important; background-color: white;">
-        <div class="row">
-            <div class="container page">
-                <div class="row">
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
                     <div id="edulution_logo">
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
-                    <div class="pd-tb">
-                        <div class="pd-lr">
-				<form action="/submit_test" name="testForm1" method="post">
-                            <p style="box-sizing: border-box; font-size: 34px; line-height: 135%; max-width: 100%; 
-
-min-width: 0%;"> Pre Alpha 1</p>
-                          <div class="HeaderbannerLabel">USERNAME</div>
-                          
-
-                          
-                          <!-- Input fiels for user_id contains some js code for validation -->
-                          <label for="username" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%; font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;">Username</label>
-                          <input type="text" autocomplete="off" id="user_id" name="username" ng-model="test_response.username" whitelist style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                          <span class="password-error" ng-show="testForm1.$dirty && testForm1.username.$error.whitelist">Please enter a valid Student ID</span>
-                          <div style="color:rgb(219, 68, 55);font-size: 13px;margin-top: 22px;"></div>
-                            
-                          <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                            <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
-                          <div class="HeaderbannerLabel">SECTION A</div>
-                           <h3>(1)  1, 2, 3, <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> , 5</h3>
-                            <!-- TODO: Add form name,action and method -->
-                            <!-- <form name="testForm" action="/submit_test" method="post"> -->
-                                <p>
-                                    <!-- TODO: Add value attribute to each radio button -->
-                                    <!-- Each group of radio buttons with the same name corresponds to one question 
-
--->
-                                    <!-- Wrong answers are 0, correct answer is 1 -->
-                                    <!-- Example below -->
-                                    <!-- <input type="radio" id="test1" name="q1" value="0"> -->
-                                    <input type="radio" id="test1" name="q1" value="0">
-                                    <label for="test1">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test2" name="q1" value="1">
-                                    <label for="test2">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test3" name="q1" value="0">
-                                    <label for="test3">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test4" name="q1" value="0">
-                                    <label for="test4">8</label>
-                                </p>
-                                <h3>(2) 50, 55, <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> , 65, 70</h3>
-                                <p>
-                                    <input type="radio" id="test5" name="q2" value="0">
-                                    <label for="test5">50</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test6" name="q2" value="1">
-                                    <label for="test6">60</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test7" name="q2" value="0">
-                                    <label for="test7">70</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test8" name="q2" value="0">
-                                    <label for="test8">80</label>
-                                </p>
-                                <h3>(3) 20, 30, 40, <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span> , 60 </h3>
-                                <p>
-                                    <input type="radio" id="test9" name="q3" value="0">
-                                    <label for="test9">20</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test10" name="q3" value="1">
-                                    <label for="test10">50</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test11" name="q3" value="0">
-                                    <label for="test11">70</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test12" name="q3" value="0">
-                                    <label for="test12">90</label>
-                                </p>
-                                <h3>(4) Which one of the following is the biggest number?</span></h3>
-                                <p>
-                                    <input type="radio" id="test13" name="q4" value="0">
-                                    <label for="test13">3</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test14" name="q4" value="0">
-                                    <label for="test14">5</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test15" name="q4" value="0">
-                                    <label for="test15">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test16" name="q4" value="1">
-                                    <label for="test16">8</label>
-                                </p>
-                                <h3>(5) 1 + 3 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test17" name="q5" value="0">
-                                    <label for="test17">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test18" name="q5" value="1">
-                                    <label for="test18">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test19" name="q5" value="0">
-                                    <label for="test19">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test20" name="q5" value="0">
-                                    <label for="test20">8</label>
-                                </p>
-                                <h3>(6) 6 - 4 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test21" name="q6" value="1">
-                                    <label for="test21">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test22" name="q6" value="0">
-                                    <label for="test22">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test23" name="q6" value="0">
-                                    <label for="test23">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test24" name="q6" value="0">
-                                    <label for="test24">8</label>
-                                </p>
-                                <h3>(7) Which shape is a triangle?</h3>
-                                <div class="full" style="display:flex;">
-                                    <div class="half" style="width: 276px;">
-                                        <div><img src="images/prealpha_1/NameShapes2Test1Shape1.png" class="center-block" /></div>
-                                        <p>
-                                            <input type="radio" id="test25" name="q7" value="0">
-                                            <label for="test25">a</label>
-                                        </p>
-                                    </div>
-                                    <div class="half" style="width: 276px;">
-                                        <div><img src="images/prealpha_1/NameShapes2Test1Shape2.png" class="center-block" /></div>
-                                        <p>
-                                            <input type="radio" id="test26" name="q7" value="0">
-                                            <label for="test26">b</label>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="half" style="width: 276px;">
-                                    <div><img src="images/prealpha_1/NameShapes2Test1Shape3.png" class="center-block" /></div>
-                                    <p>
-                                        <input type="radio" id="test27" name="q7" value="1">
-                                        <label for="test27">c</label>
-                                    </p>
-                                </div>
-                                <div class="clearfix"></div>
-                                <h3>(8) 69 <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> 96</h3>
-                                <span>Fill in the blank with <, > or =.</span>
-                                <p>
-                                    <input type="radio" id="test28" name="q8" value="0">
-                                    <label for="test28">></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test29" name="q8" value="1">
-                                    <label for="test29">
-                                        <</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test30" name="q8" value="0">
-                                    <label for="test30">=</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test31" name="q8" value="0">
-                                    <label for="test31">None of the above</label>
-                                </p>
-                                <h3>(9) <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> - 5 = 7</h3>
-                                <p>
-                                    <input type="radio" id="test32" name="q9" value="0">
-                                    <label for="test32">1</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test33" name="q9" value="0">
-                                    <label for="test33">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test34" name="q9" value="0">
-                                    <label for="test34">10</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test35" name="q9" value="1">
-                                    <label for="test35">12</label>
-                                </p>
-                                <h3>(10) 21 + 51 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test36" name="q10" value="0">
-                                    <label for="test36">21</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test37" name="q10" value="0">
-                                    <label for="test37">51</sup>
-                                    </label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test38" name="q10" value="0">
-                                    <label for="test38">64</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test39" name="q10" value="1">
-                                    <label for="test39">72</sup>
-                                    </label>
-                                </p>
-              
-                                <h3>(11) 62 + 78 = <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="q11_a" name="q11" value="0">
-                                    <label for="q11_a">16</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q11_b" name="q11" value="0">
-                                    <label for="q11_b">104</sup>
-                                    </label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q11_c" name="q11" value="0">
-                                    <label for="q11_c">130</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q11_d" name="q11" value="1">
-                                    <label for="q11_d">140</sup>
-                                    </label>
-                                </p>
-
-                                <h3>(12) 87 + 4 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test40" name="q12" value="0">
-                                    <label for="test40">64</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test41" name="q12" value="0">
-                                    <label for="test41">81</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test42" name="q12" value="0">
-                                    <label for="test42">83</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test43" name="q12" value="1">
-                                    <label for="test43">91</label>
-                                </p>
-  
-                                <h3>(13) How many squares long is the pink line?</h3>
-                                <div><img src="images/prealpha_1/MeasureLengthsTest1.png" class="img-responsive" 
-
-/></div>
-                                <p>
-                                    <input type="radio" id="test44" name="q13" value="0">
-                                    <label for="test44">3</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test45" name="q13" value="0">
-                                    <label for="test45">6</label>
-                                    </label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test46" name="q13" value="1">
-                                    <label for="test46">9</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test47" name="q13" value="0">
-                                    <label for="test47">12</label>
-                                </p>
-                                <h3>(14) What time is it in the morning?</h3>
-                                <div><img src="images/prealpha_1/TellTimetoHourorHalfanHourTest1.png" 
-
-class="img-responsive" /></div>
-                                <p>
-                                    <input type="radio" id="test48" name="q14" value="0">
-                                    <label for="test48">30:00</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test49" name="q14" value="0">
-                                    <label for="test49">00:30</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test50" name="q14" value="0">
-                                    <label for="test50">00:03</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test51" name="q14" value="1">
-                                    <label for="test51">03:00</label>
-                                </p>
-                                <h3>(15) 56 - 5 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test52" name="q15" value="0">
-                                    <label for="test52">50</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test53" name="q15" value="1">
-                                    <label for="test53">51</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test54" name="q15" value="0">
-                                    <label for="test54">54</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test55" name="q15" value="0">
-                                    <label for="test55">61</label>
-                                </p>
-                                <h3>(16) 37 - 12 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test56" name="q16" value="0">
-                                    <label for="test56">21</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test57" name="q16" value="1">
-                                    <label for="test57">25</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test58" name="q16" value="0">
-                                    <label for="test58">37</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test59" name="q16" value="0">
-                                    <label for="test59">49</label>
-                                </p>
-                                <h3>(17) 53 - 6 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test60" name="q17" value="0">
-                                    <label for="test60">45</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test61" name="q17" value="1">
-                                    <label for="test61">47</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test62" name="q17" value="0">
-                                    <label for="test62">59</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test63" name="q17" value="0">
-                                    <label for="test63">60</label>
-                                </p>
-                                <h3>(18) 89 - 25 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test64" name="q18" value="1">
-                                    <label for="test64">64</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test65" name="q18" value="0">
-                                    <label for="test65">86</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test66" name="q18" value="0">
-                                    <label for="test66">114</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test67" name="q18" value="0">
-                                    <label for="test67">120</label>
-                                </p>
-                                <h3>(19) 999, 899, <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span> , 699, 599</h3>
-                                <span>Count backwards by 100s.</span>
-                                <p>
-                                    <input type="radio" id="test68" name="q19" value="0">
-                                    <label for="test68">699</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test69" name="q19" value="1">
-                                    <label for="test69">799</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test70" name="q19" value="0">
-                                    <label for="test70">996</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test71" name="q19" value="0">
-                                    <label for="test71">997</label>
-                                </p>
-                                <h3>(20) 87 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> + 76</h3>
-                                <p>
-                                    <input type="radio" id="test72" name="q20" value="0">
-                                    <label for="test72">1</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test73" name="q20" value="0">
-                                    <label for="test73">10</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test74" name="q20" value="1">
-                                    <label for="test74">11</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test75" name="q20" value="0">
-                                    <label for="test75">143</label>
-                                </p>
-                                <h3>(21) 91 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> + 83</h3>
-                                <p>
-                                    <input type="radio" id="q21_a" name="q21" value="1">
-                                    <label for="q21_a">8</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q21_b" name="q21" value="0">
-                                    <label for="q21_b">16</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q21_c" name="q21" value="0">
-                                    <label for="q21_c">24</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q21_d" name="q21" value="0">
-                                    <label for="q21_d">36</label>
-                                </p>
-                                <h3>(22) 24 + 135 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test76" name="q22" value="0">
-                                    <label for="test76">111</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test77" name="q22" value="0">
-                                    <label for="test77">135</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test78" name="q22" value="0">
-                                    <label for="test78">149</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test79" name="q22" value="1">
-                                    <label for="test79">159</label>
-                                </p>
-                                <h3>(23) 89 - 24 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test80" name="q23" value="0">
-                                    <label for="test80">55</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test81" name="q23" value="1">
-                                    <label for="test81">65</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test82" name="q23" value="0">
-                                    <label for="test82">103</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test83" name="q23" value="0">
-                                    <label for="test83">113</label>
-                                </p>
-                                <h3>(24) 346 - 34 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="q24_a" name="q24" value="1">
-                                    <label for="q24_a">312</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q24_b" name="q24" value="0">
-                                    <label for="q24_b">346</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q24_c" name="q24" value="0">
-                                    <label for="q24_c">370</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q24_d" name="q24" value="0">
-                                    <label for="q24_d">380</label>
-                                </p>
-                                <h3>(25) How long is the rectangle in cm?</h3>
-                                <div><img src="images/prealpha_1/MeasureLength2Test1.png" class="img-responsive" 
-
-/></div>
-                                <p>
-                                    <input type="radio" id="test84" name="q25" value="0">
-                                    <label for="test84">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test85" name="q25" value="1">
-                                    <label for="test85">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test86" name="q25" value="0">
-                                    <label for="test86">5</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test87" name="q25" value="0">
-                                    <label for="test87">8</label>
-                                </p>
-                                <h3>(26) What time is it in the morning?</h3>
-                                <div><img src="images/prealpha_1/TellTimewithLabelledClockTest1.png" 
-
-class="img-responsive" /></div>
-                                <p>
-                                    <input type="radio" id="test88" name="q26" value="0">
-                                    <label for="test88">90:10</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test89" name="q26" value="1">
-                                    <label for="test89">09:10</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test90" name="q26" value="0">
-                                    <label for="test90">10:09</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test91" name="q26" value="0">
-                                    <label for="test91">09:01</label>
-                                </p>
-                                <h3>(27) 418 + 418 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test92" name="q27" value="0">
-                                    <label for="test92">418</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test93" name="q27" value="0">
-                                    <label for="test93">780</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test94" name="q27" value="1">
-                                    <label for="test94">836</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test95" name="q27" value="0">
-                                    <label for="test95">840</label>
-                                </p>
-                                <h3>(28) 889 - 250 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test96" name="q28" value="0">
-                                    <label for="test96">250</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test97" name="q28" value="1">
-                                    <label for="test97">639</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test98" name="q28" value="0">
-                                    <label for="test98">680</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test99" name="q28" value="0">
-                                    <label for="test99">889</label>
-                                </p>
-            <div class="HeaderbannerLabel">SECTION B</div>
-                                <h3>(29) Which one is the same as 4 × 9?</h3>
-                                <p>
-                                    <input type="radio" id="test100" name="q29" value="0">
-                                    <label for="test100">9 + 9 + 4 + 4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test101" name="q29" value="0">
-                                    <label for="test101">4 + 4 + 4 + 4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test102" name="q29" value="1">
-                                    <label for="test102">9 + 9 + 9 + 9</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test103" name="q29" value="0">
-                                    <label for="test103">4 + 9 + 4 + 9</label>
-                                </p>
-                                <h3>(30) 3 × 9 = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test104" name="q30" value="0">
-                                    <label for="test104">11</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test105" name="q30" value="0">
-                                    <label for="test105">12</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test106" name="q30" value="0">
-                                    <label for="test106">18</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test107" name="q30" value="1">
-                                    <label for="test107">27</label>
-                                </p>
-                                <h3>(31) 12 ÷ 4 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test108" name="q31" value="1">
-                                    <label for="test108">3</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test109" name="q31" value="0">
-                                    <label for="test109">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test110" name="q31" value="0">
-                                    <label for="test110">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test111" name="q31" value="0">
-                                    <label for="test111">8</label>
-                                </p>
-                                <h3>(32) 15 ÷ 5 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test112" name="q32" value="1">
-                                    <label for="test112">3</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test113" name="q32" value="0">
-                                    <label for="test113">5</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test114" name="q32" value="0">
-                                    <label for="test114">10</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test115" name="q32" value="0">
-                                    <label for="test115">15</label>
-                                </p>
-                                <h3>(33) 16 ÷ <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span>= 8</h3>
-                                <p>
-                                    <input type="radio" id="test116" name="q33" value="1">
-                                    <label for="test116">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test117" name="q33" value="0">
-                                    <label for="test117">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test118" name="q33" value="0">
-                                    <label for="test118">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test119" name="q33" value="0">
-                                    <label for="test119">8</label>
-                                </p>
-                                <h3>(34)  3 × 2 = 1 × <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test120" name="q34" value="0">
-                                    <label for="test120">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test121" name="q34" value="0">
-                                    <label for="test121">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test122" name="q34" value="1">
-                                    <label for="test122">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test123" name="q34" value="0">
-                                    <label for="test123">8</label>
-                                </p>
-                                <h3>(35)  2 × 4 = 4 × <span style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="q35_a" name="q35" value="1">
-                                    <label for="q35_a">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q35_b" name="q35" value="0">
-                                    <label for="q35_b">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q35_c" name="q35" value="0">
-                                    <label for="q35_c">6</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q35_d" name="q35" value="0">
-                                    <label for="q35_d">8</label>
-                                </p>
-                                <h3>(36) <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> <span 
-
-style="display: inline-block;font-size: 1.1em"><i class="far fa-square"></i></span> <span 
-
-class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></h3>
-                                <span>Fill in the blank with <, > or =.</span>
-                                <p>
-                                    <input type="radio" id="test128" name="q36" value="1">
-                                    <label for="test128">></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test129" name="q36" value="0">
-                                    <label for="test129"><</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test130" name="q36" value="0">
-                                    <label for="test130">=</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test131" name="q36" value="0">
-                                    <label for="test131">None of the above</label>
-                                </p>
-                                <h3>(37) 1 631 <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> 3 161 </h3>
-                                <span>Fill in the blank with <, > or =.</span>
-                                <p>
-                                    <input type="radio" id="test132" name="q37" value="0">
-                                    <label for="test132">></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test133" name="q37" value="1">
-                                    <label for="test133">
-                                        <</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test134" name="q37" value="0">
-                                    <label for="test134">=</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test135" name="q37" value="0">
-                                    <label for="test135">None of the above</label>
-                                </p>
-                                <h3>(38) 24 344 + 18 342 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test136" name="q38" value="0">
-                                    <label for="test136">43 786</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test137" name="q38" value="0">
-                                    <label for="test137">42 786</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test138" name="q38" value="1">
-                                    <label for="test138">42 686</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test139" name="q38" value="0">
-                                    <label for="test139">43 686</label>
-                                </p>
-                                <h3>(39) 259 006 + 641 454 = <span style="display: inline-block;font-size: 
-
-1.1em"><i class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test140" name="q39" value="0">
-                                    <label for="test140">100 460</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test141" name="q39" value="0">
-                                    <label for="test141">705 460</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test142" name="q39" value="0">
-                                    <label for="test142">900 000</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test143" name="q39" value="1">
-                                    <label for="test143">900 460</label>
-                                </p>
-                                <h3>(40)  389 002 - 76 151 = <span style="display: inline-block;font-size: 
-
-1.1em"><i class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test144" name="q40" value="0">
-                                    <label for="test144">312 000</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test145" name="q40" value="1">
-                                    <label for="test145">312 851</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test146" name="q40" value="0">
-                                    <label for="test146">405 851</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test147" name="q40" value="0">
-                                    <label for="test147">100 851</label>
-                                </p>
-
-                                <h3>(41) 13 x 8 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test148" name="q41" value="0">
-                                    <label for="test148">21</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test149" name="q41" value="0">
-                                    <label for="test149">42</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test150" name="q41" value="0">
-                                    <label for="test150">95</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test151" name="q41" value="1">
-                                    <label for="test151">104</label>
-                                </p>
-                                <h3>(42) 60 x 6 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="q42_a" name="q42" value="0">
-                                    <label for="q42_a">36</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q42_b" name="q42" value="1">
-                                    <label for="q42_b">360</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q42_c" name="q42" value="0">
-                                    <label for="q42_c">3 000</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q42_d" name="q42" value="0">
-                                    <label for="q42_d">3 600</label>
-                                </p>
-                                <h3>(43) 4 × 820 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test152" name="q43" value="0">
-                                    <label for="test152">1 800</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test153" name="q43" value="0">
-                                    <label for="test153">3 200</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test154" name="q43" value="1">
-                                    <label for="test154">3 280</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test155" name="q43" value="0">
-                                    <label for="test155">8 200</label>
-                                </p>
-                                <h3>(44) 125 ÷ 5 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test156" name="q44" value="0">
-                                    <label for="test156">20</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test157" name="q44" value="1">
-                                    <label for="test157">25</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test158" name="q44" value="0">
-                                    <label for="test158">55</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test159" name="q44" value="0">
-                                    <label for="test159">120</label>
-                                </p>
-                                <h3>(45) 444 ÷ 2 = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="q45_a" name="q45" value="0">
-                                    <label for="q45_a">111</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q45_b" name="q45" value="1">
-                                    <label for="q45_b">222</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q45_c" name="q45" value="0">
-                                    <label for="q45_c">442</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="q45_d" name="q45" value="0">
-                                    <label for="q45_d">888</label>
-                                </p>
-                                <h3>(46) <span class="frac"><sup>2</sup><span>/</span><sub>8</sub></span> + <span 
-
-class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> = <span class="frac"> <sup><span class="icon"><i 
-
-class="far fa-square"></i></span></sup><span>/</span><sub>8</sub></span>
-</h3>
-                                <p>
-                                    <input type="radio" id="test160" name="q46" value="1">
-                                    <label for="test160"><span 
-
-class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test161" name="q46" value="0">
-                                    <label for="test161"><span 
-
-class="frac"><sup>7</sup><span>/</span><sub>16</sub></span></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test162" name="q46" value="0">
-                                    <label for="test162"><span 
-
-class="frac"><sup>10</sup><span>/</span><sub>18</sub></span></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test163" name="q46" value="0">
-                                    <label for="test163"><span 
-
-class="frac"><sup>10</sup><span>/</span><sub>64</sub></span></label>
-                                </p>
-                                <h3>(47)  <span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span> &minus;
- <span 
-
-class="frac"><sup>2</sup><span>/</span><sub>6</sub></span> = <span style="display: inline-block;font-size: 
-
-1.1em"><i class="far fa-square"></i></span></h3>
-                                <p>
-                                    <input type="radio" id="test164" name="q47" value="0">
-                                    <label for="test164">1</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test165" name="q47" value="1">
-                                    <label for="test165"><span 
-
-class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test166" name="q47" value="0">
-                                    <label for="test166"><span 
-
-class="frac"><sup>5</sup><span>/</span><sub>36</sub></span></label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test167" name="q47" value="0">
-                                    <label for="test167"><span 
-
-class="frac"><sup>12</sup><span>/</span><sub>18</sub></span></label>
-                                </p>
-                                <h3>(48)  4 kg = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span > g</h3>
-				<span>1kg = 1 000g</span>
-                                <p>
-                                    <input type="radio" id="test168" name="q48" value="0">
-                                    <label for="test168">4</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test169" name="q48" value="0">
-                                    <label for="test169">40</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test170" name="q48" value="0">
-                                    <label for="test170">400</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test171" name="q48" value="1">
-                                    <label for="test171">4 000</label>
-                                </p>
-                                <h3>(49) 1m = <span style="display: inline-block;font-size: 1.1em"><i class="far 
-
-fa-square"></i></span> cm</h3>
-                                <p>
-                                    <input type="radio" id="test172" name="q49" value="0">
-                                    <label for="test172">1</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test173" name="q49" value="0">
-                                    <label for="test173">10</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test174" name="q49" value="1">
-                                    <label for="test174">100</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test175" name="q49" value="0">
-                                    <label for="test175">1 000</label>
-                                </p>
-                                <h3>(50)  2 hours = <span style="display: inline-block;font-size: 1.1em"><i 
-
-class="far fa-square"></i></span> minutes</h3>
-                                <p>
-                                    <input type="radio" id="test176" name="q50" value="0">
-                                    <label for="test176">2</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test177" name="q50" value="1">
-                                    <label for="test177">120</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test178" name="q50" value="0">
-                                    <label for="test178">200</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test179" name="q50" value="0">
-                                    <label for="test179">2000</label>
-                                </p>
-                                <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
-                                <!-- TODO: Add text input fields for user_id, coach_email -->
-                                <!-- Hidden fields for test,course and module -->
-                                <input type="hidden" name="test" value="prealpha_1">
-                                <input type="hidden" name="course" value="prealpha">
-                                <input type="hidden" name="module" value="numeracy">
-                                <label for="coach_id" style="color: #000;font-size: 1.1em;line-height: 135%;width: 100%;">Coach ID</label>
-                                <input type="text" name="coach_id" ng-model="test_response.coach_id" ng-maxlength="5" placeholder="e.g MM003" style="border:0px; border-bottom:1px solid #c0c0c0; width:40%; flex-shrink: 1;background-color: transparent; display: block; font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif; height: 24px; line-height: 24px; margin: 0; min-width: 0%; outline: none; padding: 0; z-index: 0;">
-                                <span class="password-error" ng-show="testForm1.coach_id.$error.maxlength">Please enter a valid Coach ID</span>
-                                <!-- Submit button disabled if form is invalid -->
-                                <!-- <input type="submit" value="submit" ng-disabled="testForm1.$invalid"> -->
-                                <button type="submit" value="Submit" ng-disabled="testForm1.$invalid" style="color: white; background-color: #4285f4; font-weight: bold; font-size: 14px; border: 0; border-radius: 3px; cursor: pointer; line-height: 30px; min-width: 88px; text-transform: uppercase; margin-top: 50px;">Submit</button>
-                            </form>
+                    <form name="testForm">
+                        <p class="test_name"> Pre Alpha 1</p>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
+                        <div class="HeaderbannerLabel">SECTION A</div>
+                        <h3>(1) 1, 2, 3, <span class="empty_square"><i class="far fa-square"></i></span> , 5</h3>
+                        <!-- TODO: Add form name,action and method -->
+                        <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="test1">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test2" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="test2">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test3" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="test3">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test4" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="test4">8</label>
+                        </p>
+                        <h3>(2) 50, 55, <span class="empty_square"><i class="far fa-square"></i></span> , 65, 70</h3>
+                        <p>
+                            <input type="radio" id="test5" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="test5">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test6" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="test6">60</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test7" name="q2" ng-model="testResponse.q2" value="0000">
+                            <label for="test7">70</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test8" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="test8">80</label>
+                        </p>
+                        <h3>(3) 20, 30, 40, <span class="empty_square"><i class="far fa-square"></i></span> , 60 </h3>
+                        <p>
+                            <input type="radio" id="test9" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="test9">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test10" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="test10">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test11" name="q3" ng-model="testResponse.q3" value="000">
+                            <label for="test11">70</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test12" name="q3" ng-model="testResponse.q3" value="0000">
+                            <label for="test12">90</label>
+                        </p>
+                        <h3>(4) Which one of the following is the biggest number?</span></h3>
+                        <p>
+                            <input type="radio" id="test13" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="test13">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test14" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="test14">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test15" name="q4" ng-model="testResponse.q4" value="00">
+                            <label for="test15">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test16" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="test16">8</label>
+                        </p>
+                        <h3>(5) 1 &plus; 3 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test17" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="test17">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test18" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="test18">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test19" name="q5" ng-model="testResponse.q5" value="0000">
+                            <label for="test19">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test20" name="q5" ng-model="testResponse.q5" value="00000">
+                            <label for="test20">8</label>
+                        </p>
+                        <h3>(6) 6 &minus; 4 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test21" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="test21">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test22" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="test22">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test23" name="q6" ng-model="testResponse.q6" value="00">
+                            <label for="test23">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test24" name="q6" ng-model="testResponse.q6" value="000">
+                            <label for="test24">8</label>
+                        </p>
+                        <h3>(7) Which shape is a triangle?</h3>
+                        <div class="img_answers">
+                            <div>
+                                <div><img src="images/prealpha_1/NameShapes2Test1Shape1.png" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="test25" name="q7" ng-model="testResponse.q7" value="0000">
+                                    <label for="test25">a</label>
+                                </p>
+                            </div>
+                            <div>
+                                <div><img src="images/prealpha_1/NameShapes2Test1Shape2.png" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="test26" name="q7" ng-model="testResponse.q7" value="00000">
+                                    <label for="test26">b</label>
+                                </p>
+                            </div>
+                            <div>
+                                <div><img src="images/prealpha_1/NameShapes2Test1Shape3.png" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="test27" name="q7" ng-model="testResponse.q7" value="1">
+                                    <label for="test27">c</label>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                        <h3>(8) 69 <span class="empty_square"><i class="far fa-square"></i></span> 96</h3>
+                        <span>Fill in the blank with <,> or =.</span>
+                        <p>
+                            <input type="radio" id="test28" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="test28">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test29" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="test29">
+                                &lt;</label> </p>
+                        <p>
+                            <input type="radio" id="test30" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="test30">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test31" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="test31">None of the above</label>
+                        </p>
+                        <h3>(9) <span class="empty_square"><i class="far fa-square"></i></span> &minus; 5 &equals; 7</h3>
+                        <p>
+                            <input type="radio" id="test32" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="test32">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test33" name="q9" ng-model="testResponse.q9" value="0000">
+                            <label for="test33">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test34" name="q9" ng-model="testResponse.q9" value="00000">
+                            <label for="test34">10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test35" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="test35">12</label>
+                        </p>
+                        <h3>(10) 21 &plus; 51 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test36" name="q10" ng-model="testResponse.q10" value="0">
+                            <label for="test36">21</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test37" name="q10" ng-model="testResponse.q10" value="00">
+                            <label for="test37">51</sup>
+                            </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test38" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="test38">64</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test39" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="test39">72</sup>
+                            </label>
+                        </p>
+                        <h3>(11) 62 &plus; 78 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_a">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00000">
+                            <label for="q11_b">104</sup>
+                            </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_c">130</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_d">140</sup>
+                            </label>
+                        </p>
+                        <h3>(12) 87 &plus; 4 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test40" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="test40">64</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test41" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="test41">81</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test42" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="test42">83</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test43" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="test43">91</label>
+                        </p>
+                        <h3>(13) How many squares long is the pink line?</h3>
+                        <div class="img_answers"><img src="images/prealpha_1/MeasureLengthsTest1.png" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="test44" name="q13" ng-model="testResponse.q13" value="00000">
+                            <label for="test44">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test45" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="test45">6</label>
+                            </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test46" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="test46">9</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test47" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="test47">12</label>
+                        </p>
+                        <h3>(14) What time is it in the morning?</h3>
+                        <div class="img_answers"><img src="images/prealpha_1/TellTimetoHourorHalfanHourTest1.png" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="test48" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="test48">30:00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test49" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="test49">00:30</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test50" name="q14" ng-model="testResponse.q14" value="00000">
+                            <label for="test50">00:03</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test51" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="test51">03:00</label>
+                        </p>
+                        <h3>(15) 56 &minus; 5 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test52" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="test52">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test53" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="test53">51</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test54" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="test54">54</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test55" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="test55">61</label>
+                        </p>
+                        <h3>(16) 37 &minus; 12 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test56" name="q16" ng-model="testResponse.q16" value="0000">
+                            <label for="test56">21</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test57" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="test57">25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test58" name="q16" ng-model="testResponse.q16" value="00000">
+                            <label for="test58">37</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test59" name="q16" ng-model="testResponse.q16" value="0">
+                            <label for="test59">49</label>
+                        </p>
+                        <h3>(17) 53 &minus; 6 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test60" name="q17" ng-model="testResponse.q17" value="00">
+                            <label for="test60">45</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test61" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="test61">47</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test62" name="q17" ng-model="testResponse.q17" value="000">
+                            <label for="test62">59</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test63" name="q17" ng-model="testResponse.q17" value="0000">
+                            <label for="test63">60</label>
+                        </p>
+                        <h3>(18) 89 &minus; 25 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test64" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="test64">64</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test65" name="q18" ng-model="testResponse.q18" value="00000">
+                            <label for="test65">86</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test66" name="q18" ng-model="testResponse.q18" value="0">
+                            <label for="test66">114</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test67" name="q18" ng-model="testResponse.q18" value="00">
+                            <label for="test67">120</label>
+                        </p>
+                        <h3>(19) 999, 899, <span class="empty_square"><i class="far fa-square"></i></span> , 699, 599</h3>
+                        <span>Count backwards by 100s.</span>
+                        <p>
+                            <input type="radio" id="test68" name="q19" ng-model="testResponse.q19" value="000">
+                            <label for="test68">699</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test69" name="q19" ng-model="testResponse.q19" value="1">
+                            <label for="test69">799</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test70" name="q19" ng-model="testResponse.q19" value="0000">
+                            <label for="test70">996</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test71" name="q19" ng-model="testResponse.q19" value="00000">
+                            <label for="test71">997</label>
+                        </p>
+                        <h3>(20) 87 &equals; <span class="empty_square"><i class="far fa-square"></i></span> &plus; 76</h3>
+                        <p>
+                            <input type="radio" id="test72" name="q20" ng-model="testResponse.q20" value="0">
+                            <label for="test72">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test73" name="q20" ng-model="testResponse.q20" value="00">
+                            <label for="test73">10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test74" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="test74">11</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test75" name="q20" ng-model="testResponse.q20" value="000">
+                            <label for="test75">143</label>
+                        </p>
+                        <h3>(21) 91 &equals; <span class="empty_square"><i class="far fa-square"></i></span> &plus; 83</h3>
+                        <p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_a">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_b">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="00000">
+                            <label for="q21_c">24</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="0">
+                            <label for="q21_d">36</label>
+                        </p>
+                        <h3>(22) 24 &plus; 135 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test76" name="q22" ng-model="testResponse.q22" value="00">
+                            <label for="test76">111</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test77" name="q22" ng-model="testResponse.q22" value="000">
+                            <label for="test77">135</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test78" name="q22" ng-model="testResponse.q22" value="0000">
+                            <label for="test78">149</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test79" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="test79">159</label>
+                        </p>
+                        <h3>(23) 89 &minus; 24 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test80" name="q23" ng-model="testResponse.q23" value="00000">
+                            <label for="test80">55</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test81" name="q23" ng-model="testResponse.q23" value="1">
+                            <label for="test81">65</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test82" name="q23" ng-model="testResponse.q23" value="0">
+                            <label for="test82">103</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test83" name="q23" ng-model="testResponse.q23" value="00">
+                            <label for="test83">113</label>
+                        </p>
+                        <h3>(24) 346 &minus; 34 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="1">
+                            <label for="q24_a">312</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="000">
+                            <label for="q24_b">346</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="0000">
+                            <label for="q24_c">370</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="00000">
+                            <label for="q24_d">380</label>
+                        </p>
+                        <h3>(25) How long is the rectangle in cm?</h3>
+                        <div class="img_answers"><img src="images/prealpha_1/MeasureLength2Test1.png" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="test84" name="q25" ng-model="testResponse.q25" value="0">
+                            <label for="test84">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test85" name="q25" ng-model="testResponse.q25" value="1">
+                            <label for="test85">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test86" name="q25" ng-model="testResponse.q25" value="00">
+                            <label for="test86">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test87" name="q25" ng-model="testResponse.q25" value="000">
+                            <label for="test87">8</label>
+                        </p>
+                        <h3>(26) What time is it in the morning?</h3>
+                        <div class="img_answers"><img src="images/prealpha_1/TellTimewithLabelledClockTest1.png" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="test88" name="q26" ng-model="testResponse.q26" value="0">
+                            <label for="test88">90:10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test89" name="q26" ng-model="testResponse.q26" value="1">
+                            <label for="test89">09:10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test90" name="q26" ng-model="testResponse.q26" value="0000">
+                            <label for="test90">10:09</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test91" name="q26" ng-model="testResponse.q26" value="00">
+                            <label for="test91">09:01</label>
+                        </p>
+                        <h3>(27) 418 &plus; 418 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test92" name="q27" ng-model="testResponse.q27" value="000">
+                            <label for="test92">418</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test93" name="q27" ng-model="testResponse.q27" value="0000">
+                            <label for="test93">780</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test94" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="test94">836</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test95" name="q27" ng-model="testResponse.q27" value="0">
+                            <label for="test95">840</label>
+                        </p>
+                        <h3>(28) 889 &minus; 250 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test96" name="q28" ng-model="testResponse.q28" value="00">
+                            <label for="test96">250</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test97" name="q28" ng-model="testResponse.q28" value="1">
+                            <label for="test97">639</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test98" name="q28" ng-model="testResponse.q28" value="000">
+                            <label for="test98">680</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test99" name="q28" ng-model="testResponse.q28" value="0000">
+                            <label for="test99">889</label>
+                        </p>
+                        <div class="HeaderbannerLabel">SECTION B</div>
+                        <h3>(29) Which one is the same as 4 &times; 9?</h3>
+                        <p>
+                            <input type="radio" id="test100" name="q29" ng-model="testResponse.q29" value="0">
+                            <label for="test100">9 &plus; 9 &plus; 4 &plus; 4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test101" name="q29" ng-model="testResponse.q29" value="0">
+                            <label for="test101">4 &plus; 4 &plus; 4 &plus; 4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test102" name="q29" ng-model="testResponse.q29" value="1">
+                            <label for="test102">9 &plus; 9 &plus; 9 &plus; 9</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test103" name="q29" ng-model="testResponse.q29" value="00">
+                            <label for="test103">4 &plus; 9 &plus; 4 &plus; 9</label>
+                        </p>
+                        <h3>(30) 3 &times; 9 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test104" name="q30" ng-model="testResponse.q30" value="000">
+                            <label for="test104">11</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test105" name="q30" ng-model="testResponse.q30" value="0000">
+                            <label for="test105">12</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test106" name="q30" ng-model="testResponse.q30" value="00000">
+                            <label for="test106">18</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test107" name="q30" ng-model="testResponse.q30" value="1">
+                            <label for="test107">27</label>
+                        </p>
+                        <h3>(31) 12 &divide; 4 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test108" name="q31" ng-model="testResponse.q31" value="1">
+                            <label for="test108">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test109" name="q31" ng-model="testResponse.q31" value="0">
+                            <label for="test109">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test110" name="q31" ng-model="testResponse.q31" value="00">
+                            <label for="test110">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test111" name="q31" ng-model="testResponse.q31" value="000">
+                            <label for="test111">8</label>
+                        </p>
+                        <h3>(32) 15 &divide; 5 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test112" name="q32" ng-model="testResponse.q32" value="1">
+                            <label for="test112">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test113" name="q32" ng-model="testResponse.q32" value="0000">
+                            <label for="test113">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test114" name="q32" ng-model="testResponse.q32" value="00000">
+                            <label for="test114">10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test115" name="q32" ng-model="testResponse.q32" value="0">
+                            <label for="test115">15</label>
+                        </p>
+                        <h3>(33) 16 &divide; <span class="empty_square"><i class="far fa-square"></i></span>= 8</h3>
+                        <p>
+                            <input type="radio" id="test116" name="q33" ng-model="testResponse.q33" value="1">
+                            <label for="test116">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test117" name="q33" ng-model="testResponse.q33" value="0">
+                            <label for="test117">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test118" name="q33" ng-model="testResponse.q33" value="00">
+                            <label for="test118">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test119" name="q33" ng-model="testResponse.q33" value="000">
+                            <label for="test119">8</label>
+                        </p>
+                        <h3>(34) 3 &times; 2 &equals; 1 &times; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test120" name="q34" ng-model="testResponse.q34" value="0000">
+                            <label for="test120">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test121" name="q34" ng-model="testResponse.q34" value="00000">
+                            <label for="test121">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test122" name="q34" ng-model="testResponse.q34" value="1">
+                            <label for="test122">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test123" name="q34" ng-model="testResponse.q34" value="0">
+                            <label for="test123">8</label>
+                        </p>
+                        <h3>(35) 2 &times; 4 &equals; 4 &times; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="1">
+                            <label for="q35_a">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="00">
+                            <label for="q35_b">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="000">
+                            <label for="q35_c">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="0000">
+                            <label for="q35_d">8</label>
+                        </p>
+                        <h3>(36) <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> <span class="empty_square"><i class="far fa-square"></i></span> <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></h3>
+                        <span>Fill in the blank with <,> or =.</span>
+                        <p>
+                            <input type="radio" id="test128" name="q36" ng-model="testResponse.q36" value="1">
+                            <label for="test128">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test129" name="q36" ng-model="testResponse.q36" value="00000">
+                            <label for="test129">
+                                &lt;</label> </p>
+                        <p>
+                            <input type="radio" id="test130" name="q36" ng-model="testResponse.q36" value="0">
+                            <label for="test130">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test131" name="q36" ng-model="testResponse.q36" value="00">
+                            <label for="test131">None of the above</label>
+                        </p>
+                        <h3>(37) 1 631 <span class="empty_square"><i class="far fa-square"></i></span> 3 161 </h3>
+                        <span>Fill in the blank with <,> or =.</span>
+                        <p>
+                            <input type="radio" id="test132" name="q37" ng-model="testResponse.q37" value="000">
+                            <label for="test132">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test133" name="q37" ng-model="testResponse.q37" value="1">
+                            <label for="test133">
+                                &lt;</label> </p>
+                        <p>
+                            <input type="radio" id="test134" name="q37" ng-model="testResponse.q37" value="0000">
+                            <label for="test134">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test135" name="q37" ng-model="testResponse.q37" value="00000">
+                            <label for="test135">None of the above</label>
+                        </p>
+                        <h3>(38) 24 344 &plus; 18 342 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test136" name="q38" ng-model="testResponse.q38" value="0">
+                            <label for="test136">43 786</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test137" name="q38" ng-model="testResponse.q38" value="00">
+                            <label for="test137">42 786</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test138" name="q38" ng-model="testResponse.q38" value="1">
+                            <label for="test138">42 686</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test139" name="q38" ng-model="testResponse.q38" value="000">
+                            <label for="test139">43 686</label>
+                        </p>
+                        <h3>(39) 259 006 &plus; 641 454 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test140" name="q39" ng-model="testResponse.q39" value="0000">
+                            <label for="test140">100 460</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test141" name="q39" ng-model="testResponse.q39" value="00000">
+                            <label for="test141">705 460</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test142" name="q39" ng-model="testResponse.q39" value="0">
+                            <label for="test142">900 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test143" name="q39" ng-model="testResponse.q39" value="1">
+                            <label for="test143">900 460</label>
+                        </p>
+                        <h3>(40) 389 002 &minus; 76 151 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test144" name="q40" ng-model="testResponse.q40" value="00">
+                            <label for="test144">312 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test145" name="q40" ng-model="testResponse.q40" value="1">
+                            <label for="test145">312 851</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test146" name="q40" ng-model="testResponse.q40" value="000">
+                            <label for="test146">405 851</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test147" name="q40" ng-model="testResponse.q40" value="0000">
+                            <label for="test147">100 851</label>
+                        </p>
+                        <h3>(41) 13 &times; 8 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test148" name="q41" ng-model="testResponse.q41" value="00000">
+                            <label for="test148">21</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test149" name="q41" ng-model="testResponse.q41" value="0">
+                            <label for="test149">42</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test150" name="q41" ng-model="testResponse.q41" value="00">
+                            <label for="test150">95</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test151" name="q41" ng-model="testResponse.q41" value="1">
+                            <label for="test151">104</label>
+                        </p>
+                        <h3>(42) 60 &times; 6 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="000">
+                            <label for="q42_a">36</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_b" name="q42" ng-model="testResponse.q42" value="1">
+                            <label for="q42_b">360</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_c" name="q42" ng-model="testResponse.q42" value="0000">
+                            <label for="q42_c">3 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_d" name="q42" ng-model="testResponse.q42" value="00000">
+                            <label for="q42_d">3 600</label>
+                        </p>
+                        <h3>(43) 4 &times; 820 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test152" name="q43" ng-model="testResponse.q43" value="0">
+                            <label for="test152">1 800</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test153" name="q43" ng-model="testResponse.q43" value="00">
+                            <label for="test153">3 200</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test154" name="q43" ng-model="testResponse.q43" value="1">
+                            <label for="test154">3 280</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test155" name="q43" ng-model="testResponse.q43" value="000">
+                            <label for="test155">8 200</label>
+                        </p>
+                        <h3>(44) 125 &divide; 5 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test156" name="q44" ng-model="testResponse.q44" value="0000">
+                            <label for="test156">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test157" name="q44" ng-model="testResponse.q44" value="1">
+                            <label for="test157">25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test158" name="q44" ng-model="testResponse.q44" value="00000">
+                            <label for="test158">55</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test159" name="q44" ng-model="testResponse.q44" value="0">
+                            <label for="test159">120</label>
+                        </p>
+                        <h3>(45) 444 &divide; 2 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q45_a" name="q45" ng-model="testResponse.q45" value="00">
+                            <label for="q45_a">111</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_b" name="q45" ng-model="testResponse.q45" value="1">
+                            <label for="q45_b">222</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_c" name="q45" ng-model="testResponse.q45" value="000">
+                            <label for="q45_c">442</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_d" name="q45" ng-model="testResponse.q45" value="0000">
+                            <label for="q45_d">888</label>
+                        </p>
+                        <h3>(46) <span class="frac"><sup>2</sup><span>/</span><sub>8</sub></span> &plus; <span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> &equals; <span class="frac"> <sup><span class="icon"><i class="far fa-square"></i></span></sup><span>/</span><sub>8</sub></span>
+                        </h3>
+                        <p>
+                            <input type="radio" id="test160" name="q46" ng-model="testResponse.q46" value="1">
+                            <label for="test160"><span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test161" name="q46" ng-model="testResponse.q46" value="00000">
+                            <label for="test161"><span class="frac"><sup>7</sup><span>/</span><sub>16</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test162" name="q46" ng-model="testResponse.q46" value="0">
+                            <label for="test162"><span class="frac"><sup>10</sup><span>/</span><sub>18</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test163" name="q46" ng-model="testResponse.q46" value="00">
+                            <label for="test163"><span class="frac"><sup>10</sup><span>/</span><sub>64</sub></span></label>
+                        </p>
+                        <h3>(47) <span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span> &minus;
+                            <span class="frac"><sup>2</sup><span>/</span><sub>6</sub></span> &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test164" name="q47" ng-model="testResponse.q47" value="000">
+                            <label for="test164">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test165" name="q47" ng-model="testResponse.q47" value="1">
+                            <label for="test165"><span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test166" name="q47" ng-model="testResponse.q47" value="0000">
+                            <label for="test166"><span class="frac"><sup>5</sup><span>/</span><sub>36</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test167" name="q47" ng-model="testResponse.q47" value="00000">
+                            <label for="test167"><span class="frac"><sup>12</sup><span>/</span><sub>18</sub></span></label>
+                        </p>
+                        <h3>(48) 4 kg &equals; <span class="empty_square"><i class="far fa-square"></i></span> g</h3>
+                        <span>1kg &equals; 1 000g</span>
+                        <p>
+                            <input type="radio" id="test168" name="q48" ng-model="testResponse.q48" value="0">
+                            <label for="test168">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test169" name="q48" ng-model="testResponse.q48" value="00">
+                            <label for="test169">40</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test170" name="q48" ng-model="testResponse.q48" value="000">
+                            <label for="test170">400</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test171" name="q48" ng-model="testResponse.q48" value="1">
+                            <label for="test171">4 000</label>
+                        </p>
+                        <h3>(49) 1m &equals; <span class="empty_square"><i class="far fa-square"></i></span> cm</h3>
+                        <p>
+                            <input type="radio" id="test172" name="q49" ng-model="testResponse.q49" value="0000">
+                            <label for="test172">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test173" name="q49" ng-model="testResponse.q49" value="00000">
+                            <label for="test173">10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test174" name="q49" ng-model="testResponse.q49" value="1">
+                            <label for="test174">100</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test175" name="q49" ng-model="testResponse.q49" value="0">
+                            <label for="test175">1 000</label>
+                        </p>
+                        <h3>(50) 2 hours &equals; <span class="empty_square"><i class="far fa-square"></i></span> minutes</h3>
+                        <p>
+                            <input type="radio" id="test176" name="q50" ng-model="testResponse.q50" value="00">
+                            <label for="test176">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test177" name="q50" ng-model="testResponse.q50" value="1">
+                            <label for="test177">120</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test178" name="q50" ng-model="testResponse.q50" value="000">
+                            <label for="test178">200</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test179" name="q50" ng-model="testResponse.q50" value="0">
+                            <label for="test179">2000</label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='prealpha_1'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='prealpha'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="container-fluid">
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>
