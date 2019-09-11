@@ -57,6 +57,8 @@ li {
     width: 45%;
 }
 
+/*Excatly like HeaderbannerLabel but blue and slightly smaller*/
+/*Used in grade 7 revision tests when a test has multiple topics*/
 .HeadertopicLabel {
     background-color: rgb(0, 0, 130);
     color: rgba(255, 255, 255, 1);
@@ -69,6 +71,11 @@ li {
     margin-top: 30px;
     margin-bottom: 25px;
     width: 30%;
+}
+
+/*Blue text used in some options in grade 7 test 4*/
+.blue_text{
+    color:blue;
 }
 
 .box {

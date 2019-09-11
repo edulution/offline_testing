@@ -2,6 +2,7 @@
 <!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
+
 <head>
     <title>Grade 7 Test 1</title>
     <meta charset="utf-8" />
@@ -27,6 +28,8 @@
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -41,7 +44,7 @@
                         <img src="images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
-			<div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
+                        <div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
                         <p class="test_name">Average (Mean)</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
@@ -51,7 +54,6 @@
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
                         <h3>(1) The average of three numbers is 7. Two of these numbers are 7 and 9. Find the third number.</h3>
-
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
@@ -74,7 +76,6 @@
                             <label for="q1_d">22</label>
                         </p>
                         <h3>(2) Find the average mass of 13 kg and 15 kg.</h3>
-                        
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="000">
                             <label for="q2_a">2 kg</label>
@@ -109,7 +110,6 @@
                             <label for="q3_d">50 grams</label>
                         </p>
                         <h3>(4) Find the average of the following measures: 20g, 1 000g, 550g, 102g</h3>
-                        
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="000">
                             <label for="q4_a">98 g</label>
@@ -126,7 +126,7 @@
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="00000">
                             <label for="q4_d">1 672 g</label>
                         </p>
-                        <h3>(5) Find the average of 40 g, 0.57 kg, 1 kg,  1.25 kg, 96 g and 110 g in kilograms</h3>
+                        <h3>(5) Find the average of 40 g, 0.57 kg, 1 kg, 1.25 kg, 96 g and 110 g in kilograms</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="00000">
                             <label for="q5_a">1 418 kg</label>
@@ -415,7 +415,7 @@
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="00000">
                             <label for="q21_d">15 kg</label>
                         </p>
-                        <h3>(22) A bus takes 2 hours to cover a distance of 96km  What is its average speed?</h3>
+                        <h3>(22) A bus takes 2 hours to cover a distance of 96km What is its average speed?</h3>
                         <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="000">
                             <label for="q22_a">16 km/h</label>
@@ -500,7 +500,7 @@
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
                             <label for="q26_d">204 kg</label>
                         </p>
-                     	<h3>(27) The average of 250 g, 340 g and 85 g is...</h3>
+                        <h3>(27) The average of 250 g, 340 g and 85 g is...</h3>
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="1">
                             <label for="q27_a">225 kg</label>
@@ -516,65 +516,64 @@
                         <p>
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
                             <label for="q27_d">125 kg</label>
-	                <h3>(28) The average of three numbers is 13. If two of these numbers are 26 and 5, what is the third number?</h3>
-                        <p>
-                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
-                            <label for="q28_a">39</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="0000">
-                            <label for="q28_b">13</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="00000">
-                            <label for="q28_c">11</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="1">
-                            <label for="q28_d">8</label>
-                        </p>
-                        <h3>(29) The total mass of 5 people is 335 kg. Find their average mass.</h3>
-                        <p>
-                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="000">
-                            <label for="q29_a">65 kg</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="1">
-                            <label for="q29_b">67 kg</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="0000">
-                            <label for="q29_c">125 kg</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="00000">
-                            <label for="q29_d">330 kg</label>
-                        </p>
-                        <h3>(30) The average of 215 m, 87 m, 336 m and 606 m is... </h3>
-                        <p>
-                            <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
-                            <label for="q30_a">1 244 m</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="0000">
-                            <label for="q30_b">638 m</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="00000">
-                            <label for="q30_c">462 m</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="1">
-                            <label for="q30_d">311 m</label>
-                        </p>
-                        
-                        <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
-                        <!-- TODO: Add text input fields for user_id, coach_email -->
-                        <!-- Hidden fields for test,course and module -->
-                        <input type="hidden" name="test" ng-init="testResponse.test='grade7_test1'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
-                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
+                            <h3>(28) The average of three numbers is 13. If two of these numbers are 26 and 5, what is the third number?</h3>
+                            <p>
+                                <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
+                                <label for="q28_a">39</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="0000">
+                                <label for="q28_b">13</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="00000">
+                                <label for="q28_c">11</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="1">
+                                <label for="q28_d">8</label>
+                            </p>
+                            <h3>(29) The total mass of 5 people is 335 kg. Find their average mass.</h3>
+                            <p>
+                                <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="000">
+                                <label for="q29_a">65 kg</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="1">
+                                <label for="q29_b">67 kg</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="0000">
+                                <label for="q29_c">125 kg</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="00000">
+                                <label for="q29_d">330 kg</label>
+                            </p>
+                            <h3>(30) The average of 215 m, 87 m, 336 m and 606 m is... </h3>
+                            <p>
+                                <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
+                                <label for="q30_a">1 244 m</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="0000">
+                                <label for="q30_b">638 m</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="00000">
+                                <label for="q30_c">462 m</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="1">
+                                <label for="q30_d">311 m</label>
+                            </p>
+                            <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                            <!-- TODO: Add text input fields for user_id, coach_email -->
+                            <!-- Hidden fields for test,course and module -->
+                            <input type="hidden" name="test" ng-init="testResponse.test='grade7_test1'">
+                            <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
+                            <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                            <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
             </div>

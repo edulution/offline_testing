@@ -278,6 +278,46 @@ app.get('/gr7_test4', (req, res) => {
  res.sendFile( __dirname + '/grade_7/grade7_test4.html');
 });
 
+app.get('/gr7_test5', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test5.html');
+});
+
+app.get('/gr7_test6', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test6.html');
+});
+
+app.get('/gr7_test7', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test7.html');
+});
+
+app.get('/gr7_test8', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test8.html');
+});
+
+app.get('/gr7_test9', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test9.html');
+});
+
+app.get('/gr7_test10', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test10.html');
+});
+
+app.get('/gr7_test11', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test11.html');
+});
+
+app.get('/gr7_test12', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test12.html');
+});
+
+app.get('/gr7_test13', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test13.html');
+});
+
+app.get('/gr7_test14', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_test14.html');
+});
+
 
 
 
@@ -404,19 +444,38 @@ app.post('/overwrite_test', [(req, res,next) => {
 	var course = response['course'];
 	var module = response['module'];
 	var test_date = response['test_date'];
-	
-	db.serialize(() => {
-		/*Run delete statement on responses table using params gathered above*/
-        db.run(`DELETE FROM responses where user_id=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,course,module,test_date],function(err){
-        	if(err){
-        		console.error(err.message)
-        		res.status(400).send('Could not delete row(s)')
-        		res.end()
-        	}
 
-        })
-	});
+	/*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
+	/*not all tests on the same day in the same course*/
+	/*future work. use array instead of direct string comparison in case other courses need this functionality*/
+	if(course.indexOf("grade7") !== -1){
+		db.serialize(() => {
+				/*Run delete statement on responses table using params gathered above*/
+		        db.run(`DELETE FROM responses where user_id=(?) and test=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,test_done,course,module,test_date],function(err){
+		        	if(err){
+		        		console.error(err.message)
+		        		res.status(400).send('Could not delete row(s)')
+		        		res.end()
+		        	}
 
+		        })
+			});
+	}
+
+	/*For any other test, delete all tests in the same course done on the same day for that user*/
+	else{
+		db.serialize(() => {
+				/*Run delete statement on responses table using params gathered above*/
+		        db.run(`DELETE FROM responses where user_id=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,course,module,test_date],function(err){
+		        	if(err){
+		        		console.error(err.message)
+		        		res.status(400).send('Could not delete row(s)')
+		        		res.end()
+		        	}
+
+		        })
+			});
+	}
 	/*send a status of 200 and a success message back to the client*/
 	next();}
 	,(req,res) => {
