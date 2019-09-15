@@ -34,7 +34,7 @@ done
 
 #pull latest changes from master branch in repo
 cd ~/.baseline_testing
-git reset --hard origin/master > /dev/null
+git reset --hard origin/kolibri > /dev/null
 git pull > /dev/null
 
 #check if database file exists before extracting reports
