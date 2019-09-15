@@ -1,29 +1,31 @@
-var express = require('express');
-var app = express();
-var path = require('path');
+const express = require('express');
+const app = express();
+const path = require('path');
 
 /*Por the server will run on*/
-var port = 5000;
+const port = 8888;
 
-/*Demo only - use postgres*/
-const { Pool, Client } = require('pg')
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
+/*Use sqlite3 Database*/
+const sqlite3 = require('sqlite3').verbose();
 
 /*Use bodyParser to parse form data*/ 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+/*Open the database connection and declare it as a constant*/
+const db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'), (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+})
+
 /*Serve static assets from the public folder*/
-app.use(express.static(path.join(__dirname,'public'))); 
+app.use(express.static(path.join(__dirname,'public')))
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
-function get_datetime_string() {
+var get_datetime_string = () => {
 	var today = new Date();
 	var dd = today.getDate();
 	var mm = today.getMonth()+1; //January is 0!
@@ -39,77 +41,10 @@ function get_datetime_string() {
 	    mm = '0'+mm
 	}
 	/*return today's date as string*/
-	today = "'"+ yyyy + '-' + mm + '-' + dd +"'";
+	today = yyyy + '-' + mm + '-' + dd;
 	return today;
 
 }
-
-/*portal homepage*/
-app.get('/', function (req, res) {
- res.sendFile( __dirname + '/portal/index.html');
-});
-
-/*index of topics*/
-app.get('/topics', function (req, res) {
- res.sendFile( __dirname + '/portal/topics-index.html');
-});
-
-app.get('/literacy_tests', function (req, res) {
- res.sendFile( __dirname + '/portal/literacy_tests.html');
-});
-
-/*Alpha playlists*/
-app.get('/alpha_a', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_a.html');
-});
-
-app.get('/alpha_b', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_b.html');
-});
-
-app.get('/alpha_c', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_c.html');
-});
-
-app.get('/alpha_d', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/alpha/alpha_d.html');
-});
-
-
-/*Bravo Playlists*/
-app.get('/bravo_a', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_a.html');
-});
-
-app.get('/bravo_b', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_b.html');
-});
-
-app.get('/bravo_c', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_c.html');
-});
-
-app.get('/bravo_d', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/bravo/bravo_d.html');
-});
-
-/*Pre-Alpha playlists*/
-app.get('/prealpha_a', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_a.html');
-});
-
-app.get('/prealpha_b', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_b.html');
-});
-
-app.get('/prealpha_c', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_c.html');
-});
-
-app.get('/prealpha_d', function (req, res) {
- res.sendFile( __dirname + '/portal/playlists/numeracy/prealpha/prealpha_d.html');
-});
-
 
 
 /*portal homepage*/
@@ -124,6 +59,10 @@ app.get('/topics', (req, res) => {
 
 app.get('/literacy_tests', (req, res) => {
  res.sendFile( __dirname + '/portal/literacy_tests.html');
+});
+
+app.get('/numeracy_assessments', (req, res) => {
+ res.sendFile( __dirname + '/portal/numeracy_assessments.html');
 });
 
 app.get('/grade_7_revision', (req, res) => {
@@ -384,6 +323,9 @@ app.get('/gr7_test14', (req, res) => {
 });
 
 
+
+
+
 app.get('/get_server_date', (req, res) => {
 	var current_date = get_datetime_string()
 	return res.json(current_date)
@@ -394,83 +336,48 @@ app.get('/sucessful_submit', (req, res) => {
  res.sendFile( __dirname + '/submit/sucessful_submission.html');
 });
 
-/*Endpoints*/
 /*endpoint to get users list as json*/
-app.get('/get_users', (req, res, next) => {
-  const users_query = {
-    // give the query a unique name
-    name: 'fetch-users',
-    text: 'SELECT * FROM users'
-  }
-
-  // callback
-  pool.query(users_query, (err, result) => {
-    if (err) {
-      console.log(err.stack)
-    } else {
-    	res.status(200).send(result.rows)
-    }
-  })
-
-  // promise
-  pool.query(users_query)
-    .then(result => res.rows)
-    .catch(e => console.error(e.stack))
-  });
-
-
-/*endpoint to test count stats list as json*/
-app.get('/get_test_count', (req, res, next) => {
-  const test_counts_query = {
-    // give the query a unique name
-    name: 'fetch-test-counts',
-    text: 'SELECT last_day(test_date::date) as test_month, count(*) as number_of_tests from responses group by last_day(test_date::date) order by last_day(test_date::date) desc'
-  }
-
-  // callback
-  pool.query(test_counts_query, (err, result) => {
-    if (err) {
-      console.log(err.stack)
-    } else {
-    	res.status(200).send(result.rows)
-    }
-  })
-
-  // promise
-  pool.query(test_counts_query)
-    .then(result => res.rows)
-    .catch(e => console.error(e.stack))
-  });
+app.get('/get_users',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
+        var responses_query='select * from users';
+        db.all(responses_query,(err,rows) => {
+        	console.log('Retrieved '+rows.length+' users from the database');
+        	return res.json(rows);
+        });
+});
 
 /*endpoint to get all test_responses as json*/
-app.get('/get_responses',function(req, res){
+/*modified responses query to join on course, test and module for new config*/
+app.get('/get_responses',(req, res) => {
         /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
-        const responses_query = {
-          // give the query a unique name
-          name: 'fetch-responses',
-          text: 'select u.username,u.first_name,u.last_name,tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0)+ coalesce(q20::integer,0.0)+ coalesce(q21::integer,0.0)+ coalesce(q22::integer,0.0)+ coalesce(q23::integer,0.0)+ coalesce(q24::integer,0.0)+ coalesce(q25::integer,0.0)+ coalesce(q26::integer,0.0)+ coalesce(q27::integer,0.0)+ coalesce(q28::integer,0.0)+ coalesce(q29::integer,0.0)+ coalesce(q30::integer,0.0)+ coalesce(q31::integer,0.0)+ coalesce(q32::integer,0.0)+ coalesce(q33::integer,0.0)+ coalesce(q34::integer,0.0)+ coalesce(q35::integer,0.0)+ coalesce(q36::integer,0.0)+ coalesce(q37::integer,0.0)+ coalesce(q38::integer,0.0)+ coalesce(q39::integer,0.0)+ coalesce(q40::integer,0.0)+ coalesce(q41::integer,0.0)+ coalesce(q42::integer,0.0)+ coalesce(q43::integer,0.0)+ coalesce(q44::integer,0.0)+ coalesce(q45::integer,0.0)+ coalesce(q46::integer,0.0)+ coalesce(q47::integer,0.0)+ coalesce(q48::integer,0.0)+ coalesce(q49::integer,0.0)+ coalesce(q50::integer,0.0)+ coalesce(q51::integer,0.0)+ coalesce(q52::integer,0.0)+ coalesce(q53::integer,0.0)+ coalesce(q54::integer,0.0)+ coalesce(q55::integer,0.0)+ coalesce(q56::integer,0.0)+ coalesce(q57::integer,0.0)+ coalesce(q58::integer,0.0)+ coalesce(q59::integer,0.0)+ coalesce(q60::integer,0.0)+ coalesce(q61::integer,0.0)+ coalesce(q62::integer,0.0)+ coalesce(q63::integer,0.0)+ coalesce(q64::integer,0.0)+ coalesce(q65::integer,0.0)+ coalesce(q66::integer,0.0)+ coalesce(q67::integer,0.0)+ coalesce(q68::integer,0.0)+ coalesce(q69::integer,0.0)+ coalesce(q70::integer,0.0))/testmaxscore,2) as score_pct from responses r left join users u on r.user_id = u.user_id left join test_marks tm on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc'
-        }
+        var responses_query='select * from responses r  left join users u  on r.user_id = u.user_id order by test_date desc';
+        db.all(responses_query, (err,rows) => {
+        	/*console.log(rows);*/
+        	return res.json(rows);
+        });
+});
 
-        // callback
-        pool.query(responses_query, (err, result) => {
-          if (err) {
-            console.log(err.stack)
-          } else {
-            res.status(200).send(result.rows)
-          }
-        })
+app.get('/get_test_marks',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
+        var responses_query='select * from test_marks';
+        db.all(responses_query, (err,rows) => {
+        	/*console.log(rows);*/
+        	return res.json(rows);
+        });
+});
 
-        // promise
-        pool.query(responses_query)
-          .then(result => res.rows)
-          .catch(e => console.error(e.stack))
-
-
+/*endpoint to get a count of all test_responses as json*/
+app.get('/get_test_count',(req, res) => {
+        /*let db = new sqlite3.Database(path.join(__dirname,'public/test_responses.sqlite'));*/
+        var count_query="SELECT date(test_date,'start of month','+1 month','-1 day') as test_month, count(*) as number_of_tests from responses group by date(test_date,'start of month','+1 month','-1 day') order by date(test_date,'start of month','+1 month','-1 day') desc";
+        db.all(count_query,(err,rows) => {
+        	/*console.log(rows);*/
+        	return res.json(rows);
+        });
 });
 
 
-app.post('/submit_test', [function(req, res,next){
-
+app.post('/submit_test', [(req, res,next) => {
 	/*simple function to sum values in an array*/
 	const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 		
@@ -483,7 +390,9 @@ app.post('/submit_test', [function(req, res,next){
 		/*if the reponse is of type object(array). Questions with a single response will be of type string*/
 	  if (typeof(response[v]) == "object"){
 	  	/*use reducer method to get sum of elements*/
-	   total = response[v].reduce(reducer,0)
+	  	/*create array from values of responses with checkboxes*/
+	  	var dataArray = Object.keys(response[v]).map((k) => {return response[v][k]})
+	   total = dataArray.reduce(reducer,0)
 	   /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
 	   if(total <= 0){
 	    response[v] = '0'
@@ -501,31 +410,85 @@ app.post('/submit_test', [function(req, res,next){
 	  }
 	}
 
-	/*Get questions answered as array*/
-	var questions = Object.keys(response);
 
-	/*Get answers for questions above as array. Preserve quotes for insertion into database*/
-	var answers = questions.map(function(v) { return response[v]; });
-	var answers_quoted = "'" + answers.join("','") + "'";
+	/*properties of response object - user_id,username,q1,q2..*/
+	var response_props = Object.keys(response);
 
-	/*query to get user_id(will be used as subquery on insert)*/
-	var get_user_id_query = "(select user_id from users where username ="+"'"+response['username']+"')";
+	/*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
+	var uresponses = response_props.map((v) => { return response[v]; });
+	var uresponses_quoted = "'" + uresponses.join("','") + "'";
 
-	/*Insert statement to run on database. test date added as current date from server*/
 
-	var insert_statement = 'INSERT INTO responses('+questions.toString()+',user_id,test_date) values ('+answers_quoted+','+get_user_id_query+','+get_datetime_string()+')';
-	console.log(insert_statement);
+	/*put quotes around user_id*/
 	
-	// promise
-	pool.query(insert_statement)
-	  .then(result => {
-	    console.log("Promise returned: Test submited sucessfully!")
-	  })
-	  .catch(e => console.error(e.stack))
+	db.serialize(() => {
+        /*var insert_statement = 'INSERT INTO responses('+response_props.toString()+',test_date) values ('+uresponses_quoted+','+get_datetime_string()+')';*/
+        var insert_statement = 'INSERT INTO responses('+response_props.toString()+') values ('+uresponses_quoted+')';
+        console.log(insert_statement);
+
+        db.run(insert_statement);
+	});
+
+	/*Redirect to sucessful submission page if sucessful*/
 	next();}
-	, function(req,res){
+	,(req,res) => {
 		/*Display successful submission page after request sucessful*/
-		res.sendFile( __dirname + '/sucessful_submission.html');
+		res.sendFile( __dirname + '/submit/sucessful_submission.html');
 }]);
 
-app.listen(process.env.PORT || 5000);
+/*An endpoint to delete a test based on user_id, test, course, module, and test date*/
+app.post('/overwrite_test', [(req, res,next) => {
+	/*get the test response from the request body*/
+	response = req.body;
+
+	/*Get the props which we will use as our criteria for deleting the existing test*/
+	/*Before inserting the one which has just been submitted*/
+	var user_id = response['user_id'];
+	var test_done = response['test'];
+	var course = response['course'];
+	var module = response['module'];
+	var test_date = response['test_date'];
+
+	/*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
+	/*not all tests on the same day in the same course*/
+	/*future work. use array instead of direct string comparison in case other courses need this functionality*/
+	if(course.indexOf("grade7") !== -1){
+		db.serialize(() => {
+				/*Run delete statement on responses table using params gathered above*/
+		        db.run(`DELETE FROM responses where user_id=(?) and test=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,test_done,course,module,test_date],function(err){
+		        	if(err){
+		        		console.error(err.message)
+		        		res.status(400).send('Could not delete row(s)')
+		        		res.end()
+		        	}
+
+		        })
+			});
+	}
+
+	/*For any other test, delete all tests in the same course done on the same day for that user*/
+	else{
+		db.serialize(() => {
+				/*Run delete statement on responses table using params gathered above*/
+		        db.run(`DELETE FROM responses where user_id=(?) and course=(?) and module=(?) and test_date=(?)`,[user_id,course,module,test_date],function(err){
+		        	if(err){
+		        		console.error(err.message)
+		        		res.status(400).send('Could not delete row(s)')
+		        		res.end()
+		        	}
+
+		        })
+			});
+	}
+	/*send a status of 200 and a success message back to the client*/
+	next();}
+	,(req,res) => {
+		let success_message = "Sucessfully deleted row(s)"
+		res.status(200)
+		res.send(success_message)
+        console.log(success_message)
+}]);
+
+app.listen(port, '0.0.0.0', () => {
+ console.log('Server running on port ' + port);
+});

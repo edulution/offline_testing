@@ -21,13 +21,35 @@
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
     <!-- Navbar -->
     <div ng-include="'include/navbar.html'"></div>
-    <h3 class="mainBody">Welcome, please select your course</h3>
+    <h3 class="mainBody">Welcome. What would you like to do?</h3>
     <!-- Body -->
     <!-- <div ng-include="'include/body.html'"> -->
     <!-- </div> -->
-    <div ng-include="'include/mainindex.html'"></div>
-    <!-- Footer -->
-    <div ng-include="'include/footer.html'"></div>
+    <div class="container">
+        <!-- Images  -->
+        <div class="row img_btns_row">
+            <div class="col-md-5  col-md-offset-1 img_btn_container">
+                <a href="#" onclick="window.open('http://192.168.8.200:8008','_self')">
+                    <div class="icon_background">
+                        <img src="images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
+                        <p class="texts">KOLIBRI</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-5 img_btn_container">
+                <a href="#" onclick="window.open('/numeracy_assessments','_self')">
+                    <div class="icon_background">
+                        <img src="images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
+                        <p class="texts">
+                            NUMERACY
+                            <br>
+                            ASSESSMENTS
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div id="extra_btns">
@@ -56,6 +78,8 @@
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <div ng-include="'include/footer.html'"></div>
 </body>
 
 </html>
