@@ -67,12 +67,23 @@ schema_upgrade(){
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test13','Grade 7 - Fractions','grade7_revision','numeracy',30);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test14','Grade 7 - Decimals','grade7_revision','numeracy',30);"
 
-
 		#fix tests with wrong topic
 		echo "Fixing config bug on tests with wrong topic"
 		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade_7_revision'"
 
+		# add column for full name. kolibri no longer has first_name last_name
+		sqlite3 $1 "alter table users add column full_name varchar"
+
+		# add column for full name. kolibri no longer has first_name last_name
+		sqlite3 $1 "update users set full_name = first_name||' '||last_name"
+
+		sqlite3 $1 "pragma user_version = 3"
+
+		schema_upgrade $1
+
+	elif [[ $(get_database_version $1) == 3 ]]; then
 		echo "Database schema up to date"
+
 	fi
 
 }
