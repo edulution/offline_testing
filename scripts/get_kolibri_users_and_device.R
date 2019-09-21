@@ -12,6 +12,7 @@ suppressMessages(library(gsubfn))
 suppressMessages(library(DBI))
 suppressMessages(library(RSQLite))
 suppressMessages(library(RPostgreSQL))
+suppressMessages(library(stringr))
 
 
 # helper functions
@@ -99,7 +100,9 @@ users$first_name <- sapply(users$full_name,get_first_name)
 users$last_name <- sapply(users$full_name,get_last_name)
 
 # drop the full name column
-users <- users %>% rename(user_id = id) %>% select(-c(full_name))
+# change the user_id to a plain character string
+users <- users %>% select(-c(full_name)) %>% rename(user_id = id) %>% mutate(user_id = str_replace_all(user_id,'-',''))
+
 
 
 # connect to test responses database
