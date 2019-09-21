@@ -54,7 +54,6 @@ db_passwd = Sys.getenv("KOLIBRI_DATABASE_PASSWORD")
 db_port = Sys.getenv("KOLIBRI_DATABASE_PORT")
 
 kolibri_conn <-  dbConnect(pg, dbname=db_name, host = db_host, port = db_port, user=db_user, password=db_passwd)
-kolibri_conn <-  dbConnect(pg, dbname="kolibri", host = "localhost", port = 5432, user="kolibri", password="kolibri")
 
 #facilityysers
 facilityusers <- dbGetQuery(kolibri_conn,"SELECT * FROM kolibriauth_facilityuser")
