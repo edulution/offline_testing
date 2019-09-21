@@ -4,17 +4,9 @@
 
 # directories and files
 # =====================
-# path to kalite database
-export ka_database=~/.kalite/database/data.sqlite
 
 # path to test_responses database
 export baseline_testing_directory=~/.baseline_testing/
-
-#placeholder values for device name and users files
-export device_name_file=~/.baseline_testing/device_name.csv
-
-# file into which details for kalite users are written before being added to test_responses db
-export users_file=~/.baseline_testing/users.csv
 
 # database for test responses
 export responses_database=~/.baseline_testing/public/test_responses.sqlite

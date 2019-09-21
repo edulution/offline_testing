@@ -71,14 +71,19 @@ schema_upgrade(){
 		echo "Fixing config bug on tests with wrong topic"
 		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade_7_revision'"
 
+
 		# add column for full name. kolibri no longer has first_name last_name
+		echo "Add full name column to users table"
 		sqlite3 $1 "alter table users add column full_name varchar"
 
 		# add column for full name. kolibri no longer has first_name last_name
+		echo "Concatenate first name and last name to get full name"
 		sqlite3 $1 "update users set full_name = first_name||' '||last_name"
 
+		echo "Upgrade the database version"
 		sqlite3 $1 "pragma user_version = 3"
 
+		echo "Run the function again in order to reach the bottom of the loop"
 		schema_upgrade $1
 
 	elif [[ $(get_database_version $1) == 3 ]]; then
