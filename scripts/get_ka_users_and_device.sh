@@ -26,7 +26,7 @@ fi
 # get device name and store it in csv file
 echo "extracting users and device name from kolibri"
 # run R script to get users and device from kolibri
-Rscript get_kolibri_users_and_device.R
+Rscript ~/.baseline_testing/scripts/get_kolibri_users_and_device.R
 
 if [ "$?" = "0" ]; then
 	echo "${green}Done!${reset}"
