@@ -169,8 +169,10 @@ img .images {
 
 /*kolibri logo image btn on landing page*/
 .kolibri_logo_btn{
-    width: 352px;
+    /* width: 352px; */
+    width:312px;
     height:285px;
+   
 }
 
 .numeracy_assessments_btn{
@@ -180,8 +182,11 @@ img .images {
 
 /*background for image buttons on landing page*/
 .icon_background {
+   
+    width:352px;
+    
     background: whitesmoke;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 6px 6px 2.5px grey;
 }
 
@@ -198,3 +203,45 @@ img .images {
 .img_btns_row{
     margin-bottom: 2%;
 }
+
+h2 {
+    font-weight: bold;
+}
+
+
+/* @media screen and (max-width: 1024px)  */
+@media screen and (max-width: 1024px) and (min-width: 911px)
+{
+
+    .image_space{
+        margin-left:45px;
+    }
+
+    .icon_background {
+        
+        width: 352px;
+        height:322px;
+        background: whitesmoke;
+        border-radius: 20px;
+        box-shadow: 6px 6px 2.5px grey;
+    }
+
+    .kolibri_logo_btn{
+        width: 325px;
+        height:285px;
+       
+    }
+
+    .numeracy_assessments_btn{
+        width: 250px;
+        height:250px;
+    }
+
+
+
+  
+  }
+  
+
+
+/* 683 x 911 */
