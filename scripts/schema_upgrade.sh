@@ -67,6 +67,10 @@ schema_upgrade(){
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test13','Grade 7 - Fractions','grade7_revision','numeracy',30);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test14','Grade 7 - Decimals','grade7_revision','numeracy',30);"
 
+		# config for grade 7 mock tests
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_mock1','Grade 7 - Mock 1','grade7_revision','numeracy',60);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_mock2','Grade 7 - Mock 2','grade7_revision','numeracy',60);"
+
 
 		#fix tests with wrong topic
 		echo "Fixing config bug on tests with wrong topic"
