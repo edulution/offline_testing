@@ -262,6 +262,14 @@ app.get('/lit_prealpha_2', (req, res) => {
 
 /*Grade 7 revision*/
 
+/*grade 7 mock tests*/
+app.get('/gr7_mock1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_mock1.html');
+});
+app.get('/gr7_mock2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_mock2.html');
+});
+
 app.get('/gr7_test1', (req, res) => {
  res.sendFile( __dirname + '/grade_7/grade7_test1.html');
 });
