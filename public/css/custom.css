@@ -84,6 +84,12 @@ li {
     vertical-align: middle
 }
 
+/*Roman numerals font*/
+span.rm {
+    font-family: "Times New Roman";
+    font-size: 18px;
+}
+
 span.frac {
     display: inline-block;
     font-size: 90%;
