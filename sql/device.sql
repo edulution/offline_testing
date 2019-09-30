@@ -1,3 +1,3 @@
-CREATE TABLE device (
-	name text primary key
-)
+CREATE TABLE public.device (
+    name varchar(3) PRIMARY KEY
+);

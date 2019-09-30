@@ -1,150 +1,79 @@
-CREATE TABLE "responses" (
-	test TEXT,
-	module TEXT
-	username TEXT,
-	coach_email text,
-	q1 text,
-	q2 text,
-	q3 text,
-	q4 text,
-	q5 text,
-	q6 text,
-	q7 text,
-	q8 text,
-	q9 text,
-	q10 text,
-	q11 text,
-	q12 text,
-	q13 text,
-	q14 text,
-	q15 text,
-	q16 text,
-	q17 text,
-	q18 text,
-	q19 text,
-	q20 text,
-	q21 text,
-	q22 text,
-	q23 text,
-	q24 text,
-	q25 text,
-	q26 text,
-	q27 text,
-	q28 text,
-	q29 text,
-	q30 text,
-	q31 text,
-	q32 text,
-	q33 text,
-	q34 text,
-	q35 text,
-	q36 text,
-	q37 text,
-	q38 text,
-	q39 text,
-	q40 text,
-	q41 text,
-	q42 text,
-	q43 text,
-	q44 text,
-	q45 text,
-	q46 text,
-	q47 text,
-	q48 text,
-	q49 text,
-	q50 text,
-	q51 text,
-	q52 text,
-	q53 text,
-	q54 text,
-	q55 text,
-	q56 text,
-	q57 text,
-	q58 text,
-	q59 text,
-	q60 text,
-	q61 text,
-	q62 text,
-	q63 text,
-	q64 text,
-	q65 text,
-	q66 text,
-	q67 text,
-	q68 text,
-	q69 text,
-	q70 text
-
+CREATE TABLE public.responses (
+    test varchar,
+    module varchar,
+    username varchar,
+    coach_id varchar,
+    test_date varchar,
+    q1 varchar,
+    q2 varchar,
+    q3 varchar,
+    q4 varchar,
+    q5 varchar,
+    q6 varchar,
+    q7 varchar,
+    q8 varchar,
+    q9 varchar,
+    q10 varchar,
+    q11 varchar,
+    q12 varchar,
+    q13 varchar,
+    q14 varchar,
+    q15 varchar,
+    q16 varchar,
+    q17 varchar,
+    q18 varchar,
+    q19 varchar,
+    q20 varchar,
+    q21 varchar,
+    q22 varchar,
+    q23 varchar,
+    q24 varchar,
+    q25 varchar,
+    q26 varchar,
+    q27 varchar,
+    q28 varchar,
+    q29 varchar,
+    q30 varchar,
+    q31 varchar,
+    q32 varchar,
+    q33 varchar,
+    q34 varchar,
+    q35 varchar,
+    q36 varchar,
+    q37 varchar,
+    q38 varchar,
+    q39 varchar,
+    q40 varchar,
+    q41 varchar,
+    q42 varchar,
+    q43 varchar,
+    q44 varchar,
+    q45 varchar,
+    q46 varchar,
+    q47 varchar,
+    q48 varchar,
+    q49 varchar,
+    q50 varchar,
+    q51 varchar,
+    q52 varchar,
+    q53 varchar,
+    q54 varchar,
+    q55 varchar,
+    q56 varchar,
+    q57 varchar,
+    q58 varchar,
+    q59 varchar,
+    q60 varchar,
+    q61 varchar,
+    q62 varchar,
+    q63 varchar,
+    q64 varchar,
+    q65 varchar,
+    q66 varchar,
+    q67 varchar,
+    q68 varchar,
+    q69 varchar,
+    q70 varchar,
+    course varchar,
+    user_id varchar references users(user_id)
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

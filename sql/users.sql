@@ -1,7 +1,7 @@
 CREATE TABLE users (
-	user_id text primary key,
-	username text,
-	group_name text,
-	first_name text,
-	last_name text
-)
+    user_id varchar PRIMARY KEY,
+    username varchar,
+    group_name varchar,
+    first_name varchar,
+    last_name varchar
+);
