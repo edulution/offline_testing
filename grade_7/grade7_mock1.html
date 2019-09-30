@@ -29,7 +29,6 @@
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -45,7 +44,7 @@
                     </div>
                     <form name="testForm">
                         <div class="HeaderbannerLabel">GRADE 7 MOCK 1</div>
-                        <p class="test_name">Mock 1</p>
+                        <p class="test_name">MOCK 1</p>
                         <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>1 Hour 30 Minutes</b></h3>
@@ -54,7 +53,6 @@
                         <!-- TODO: Add form name,action and method -->
                         <!-- <form name="testForm" action="/submit_test" method="post"> -->
                         <h3>(1) 731 479 &plus; 145 832 &equals;</h3>
-
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
@@ -77,7 +75,6 @@
                             <label for="q1_d">877 311</label>
                         </p>
                         <h3>(2) Mapenzi bought 20 sweets. He gave out x sweets and remained with 5. How many sweets did he give out?</h3>
-                        
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="000">
                             <label for="q2_a">4</label>
@@ -95,7 +92,7 @@
                             <label for="q2_d">16</label>
                         </p>
                         <h3>(3) The graph shows the number of bags of beans sold by a man in five days. On which day did the men sell the highest number of bags of beans?</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2017/2017.3.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div><img src="images/grade7_2017/2017.3.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="000">
                             <label for="q3_a">Monday</label>
@@ -112,8 +109,8 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_d">Friday</label>
                         </p>
-                        <h3>(4) The Venn diagram shows sets A and B. List the set A &Intersection; B.</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2018/2018.4.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(4) The Venn diagram shows sets A and B. List the set A &#8745; B.</h3>
+                        <div><img src="images/grade7_2018/2018.4.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="000">
                             <label for="q4_a">{Mary, Lydia}</label>
@@ -131,7 +128,6 @@
                             <label for="q4_d">{Lydia, Anna}</label>
                         </p>
                         <h3>(5) 787 056 &minus; 451 828 &equals;</h3>
-                        
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="000">
                             <label for="q5_a">336 238</label>
@@ -148,8 +144,8 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_d">335 228</label>
                         </p>
-                        <h3>(6) The perimeter of the triangle is.</h3>
-                        <div class="img_answers"><img src="images/grade7_2018/2018.6.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(6) The perimeter of the triangle is...</h3>
+                        <div><img src="images/grade7_2018/2018.6.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_a">22cm</label>
@@ -167,7 +163,6 @@
                             <label for="q6_d">42cm</label>
                         </p>
                         <h3>(7) What is the next number in the sequence 23, 19, 15, 11, <span class="icon"><i class="far fa-square"></i></span>.</h3>
-                        
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="000">
                             <label for="q7_a">9</label>
@@ -185,7 +180,7 @@
                             <label for="q7_d">5</label>
                         </p>
                         <h3>(8) Look at the diagram. The mapping shown is a...</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2017/2017.8.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div><img src="images/grade7_2017/2017.8.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="000">
                             <label for="q8_a">one to one</label>
@@ -203,7 +198,6 @@
                             <label for="q8_d">many to one</label>
                         </p>
                         <h3>(9) Mr. Thokozani bought a small radio at K100.00 and later sold it at K80.00. Find the loss Mr. Thokozani made.</h3>
-                        
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="1">
                             <label for="q9_a">K20.00</label>
@@ -221,7 +215,6 @@
                             <label for="q9_d">K180.00</label>
                         </p>
                         <h3>(10) What are the prime factors of 15?</h3>
-                        
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="000">
                             <label for="q10_a">2 and 3</label>
@@ -238,8 +231,8 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0">
                             <label for="q10_d">1 and 15</label>
                         </p>
-                        <h3>(11) The diagram shows sets A and B. List set A &Union; B</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2018/2018.11.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(11) The diagram shows sets A and B. List set A &#8746; B</h3>
+                        <div><img src="images/grade7_2018/2018.11.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="000">
                             <label for="q11_a">{3, 10}</label>
@@ -257,7 +250,6 @@
                             <label for="q11_d">{3, 6, 8, 10, 12, 14, 16, 18}</label>
                         </p>
                         <h3>(12) A car travelled for 3 hours at a speed of 100 km/h. Calculate the distance that it covered.</h3>
-                        
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
                             <label for="q12_a">300 kilometers</label>
@@ -275,7 +267,7 @@
                             <label for="q12_d">33.3 kilometers</label>
                         </p>
                         <h3>(13) Look at the shape. How many lines of symmetry has the shape?</h3>
-                        <div class="img_answers"><img src="images/grade7_2017/2017.13.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div><img src="images/grade7_2017/2017.13.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="000">
                             <label for="q13_a">0</label>
@@ -293,7 +285,6 @@
                             <label for="q13_d">3</label>
                         </p>
                         <h3>(14) 73.681 &minus; 45.394 &equals;</h3>
-                        
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="000">
                             <label for="q14_a">32.313</label>
@@ -310,8 +301,7 @@
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="1">
                             <label for="q14_d">28.287</label>
                         </p>
-                        <h3>(15) In Hindu-Arabic numerals, the Roman numeral &#8556;&#8553;&#8553;&#8544;&#8548; can be written as...</h3>
-                        
+                        <h3>(15) In Hindu-Arabic numerals, the Roman numeral <span class="rm"><span>LXXIV</span> can be written as...</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
                             <label for="q15_a">54</label>
@@ -329,7 +319,6 @@
                             <label for="q15_d">84</label>
                         </p>
                         <h3>(16) Find the mode of 5, 8, 6, 5, 7, 6, 5 and 7.</h3>
-                        
                         <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="000">
                             <label for="q16_a">8</label>
@@ -347,7 +336,7 @@
                             <label for="q16_d">5</label>
                         </p>
                         <h3>(17) Which of the marked angles is a right angle?</h3>
-                        <div class="img_answers"><img src="images/grade7_2018/2018.17.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div><img src="images/grade7_2018/2018.17.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
                             <label for="q17_a">&#8544;</label>
@@ -364,8 +353,8 @@
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="0">
                             <label for="q17_d">&#8547;</label>
                         </p>
-                         <h3>(18) List the set A &Union; B in the Venn diagram.</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2017/2017.18.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(18) List the set A &#8746; B in the Venn diagram.</h3>
+                        <div><img src="images/grade7_2017/2017.18.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
                             <label for="q18_a">{1, 2}</label>
@@ -382,8 +371,7 @@
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="0">
                             <label for="q18_d">{1, 2, 3, 4, 5, 6, 7}</label>
                         </p>
-                         <h3>(19) Change <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> to a decimal fraction.</h3>
-                        
+                        <h3>(19) Change <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> to a decimal fraction.</h3>
                         <p>
                             <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="1">
                             <label for="q19_a">0.8</label>
@@ -400,8 +388,7 @@
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0">
                             <label for="q19_d">0.4</label>
                         </p>
-                         <h3>(20) Find the value of 3<sup>2<sup></h3>
-                        
+                        <h3>(20) Find the value of 3<sup>2<sup></h3>
                         <p>
                             <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="000">
                             <label for="q20_a">5</label>
@@ -418,8 +405,7 @@
                             <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="1">
                             <label for="q20_d">9</label>
                         </p>
-                         <h3>(21) Express the ratio 8 metres to 800 metres in its lowest terms.</h3>
-                        
+                        <h3>(21) Express the ratio 8 metres to 800 metres in its lowest terms.</h3>
                         <p>
                             <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="000">
                             <label for="q21_a">100 to 1</label>
@@ -436,8 +422,7 @@
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="0">
                             <label for="q21_d">1 to 10</label>
                         </p>
-                         <h3>(22) As a decimal, <span class="frac"><sup>81</sup><span>/</span><sub>100</sub></span> can be written as...</h3>
-                        
+                        <h3>(22) As a decimal, <span class="frac"><sup>81</sup><span>/</span><sub>100</sub></span> can be written as...</h3>
                         <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="000">
                             <label for="q22_a">0.8</label>
@@ -454,8 +439,7 @@
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="0">
                             <label for="q22_d">80.1</label>
                         </p>
-                         <h3>(23) Which of the following numbers are factors of 12?</h3>
-                        
+                        <h3>(23) Which of the following numbers are factors of 12?</h3>
                         <p>
                             <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
                             <label for="q23_a">12, 24, 36, 48, 50</label>
@@ -472,8 +456,7 @@
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="1">
                             <label for="q23_d">1, 2, 3, 4, 6, 12</label>
                         </p>
-                         <h3>(24) Divide 175 by 25.</h3>
-                        
+                        <h3>(24) Divide 175 by 25.</h3>
                         <p>
                             <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="000">
                             <label for="q24_a">5</label>
@@ -490,8 +473,7 @@
                             <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0">
                             <label for="q24_d">200</label>
                         </p>
-                         <h3>(25) Which of the following statements is correct?</h3>
-                        
+                        <h3>(25) Which of the following statements is correct?</h3>
                         <p>
                             <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="000">
                             <label for="q25_a">&plus;4 &lt; &minus;5</label>
@@ -508,8 +490,7 @@
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="1">
                             <label for="q25_d">&plus;3 &gt; &minus;7</label>
                         </p>
-                         <h3>(26) Find 59&percnt; of 600.</h3>
-                        
+                        <h3>(26) Find 59&percnt; of 600.</h3>
                         <p>
                             <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="000">
                             <label for="q26_a">600</label>
@@ -526,8 +507,7 @@
                             <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="0">
                             <label for="q26_d">18</label>
                         </p>
-                         <h3>(27) 879 &times; 23 &equals;</h3>
-                        
+                        <h3>(27) 879 &times; 23 &equals;</h3>
                         <p>
                             <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="000">
                             <label for="q27_a">10 097</label>
@@ -544,8 +524,8 @@
                             <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="1">
                             <label for="q27_d">20 217</label>
                         </p>
-                         <h3>(28) What type of mapping is shown in the diagram?</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2018/2018.28.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(28) What type of mapping is shown in the diagram?</h3>
+                        <div><img src="images/grade7_2018/2018.28.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
                             <label for="q28_a">many-to-one</label>
@@ -562,8 +542,8 @@
                             <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="0">
                             <label for="q28_d">one-to-one</label>
                         </p>
-                         <h3>(29) The marked angle on the clock face is called...</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2017/2017.29.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(29) The marked angle on the clock face is called...</h3>
+                        <div><img src="images/grade7_2017/2017.29.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="000">
                             <label for="q29_a">a right angle.</label>
@@ -580,8 +560,7 @@
                             <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0">
                             <label for="q29_d">a straight angle.</label>
                         </p>
-                         <h3>(30) A bus takes 2 hours to cover a distance of 96km. What is its average speed?</h3>
-                        
+                        <h3>(30) A bus takes 2 hours to cover a distance of 96km. What is its average speed?</h3>
                         <p>
                             <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
                             <label for="q30_a">16km/h</label>
@@ -598,8 +577,7 @@
                             <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="0">
                             <label for="q30_d">98km/h</label>
                         </p>
-                         <h3>(31) A dining table which was bought at K2 250.00 was later sold at a discount of 10&percnt;. How much was the discount?</h3>
-                        
+                        <h3>(31) A dining table which was bought at K2 250.00 was later sold at a discount of 10&percnt;. How much was the discount?</h3>
                         <p>
                             <input type="radio" id="q31_a" name="q31" ng-model="testResponse.q31" value="000">
                             <label for="q31_a">K2 000.00</label>
@@ -616,8 +594,7 @@
                             <input type="radio" id="q31_d" name="q31" ng-model="testResponse.q31" value="1">
                             <label for="q31_d">K225.00</label>
                         </p>
-                         <h3>(32) If 7 packets of salt cost K49.00, what will be the cost of 13 packets of the same type?</h3>
-                        
+                        <h3>(32) If 7 packets of salt cost K49.00, what will be the cost of 13 packets of the same type?</h3>
                         <p>
                             <input type="radio" id="q32_a" name="q32" ng-model="testResponse.q32" value="1">
                             <label for="q32_a">K91.00</label>
@@ -634,8 +611,7 @@
                             <input type="radio" id="q32_d" name="q32" ng-model="testResponse.q32" value="0">
                             <label for="q32_d">K29.00</label>
                         </p>
-                         <h3>(33) Find the difference between 4.326 and 2.24.</h3>
-                        
+                        <h3>(33) Find the difference between 4.326 and 2.24.</h3>
                         <p>
                             <input type="radio" id="q33_a" name="q33" ng-model="testResponse.q33" value="000">
                             <label for="q33_a">6.566</label>
@@ -652,8 +628,7 @@
                             <input type="radio" id="q33_d" name="q33" ng-model="testResponse.q33" value="1">
                             <label for="q33_d">2.086</label>
                         </p>
-                         <h3>(34) Change 43 to a number in base 5.</h3>
-                        
+                        <h3>(34) Change 43 to a number in base 5.</h3>
                         <p>
                             <input type="radio" id="q34_a" name="q34" ng-model="testResponse.q34" value="000">
                             <label for="q34_a">233 five</label>
@@ -670,8 +645,7 @@
                             <input type="radio" id="q34_d" name="q34" ng-model="testResponse.q34" value="1">
                             <label for="q34_d">133 five</label>
                         </p>
-                         <h3>(35) Convert 242 five to base ten.</h3>
-                        
+                        <h3>(35) Convert 242 five to base ten.</h3>
                         <p>
                             <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="000">
                             <label for="q35_a">70</label>
@@ -688,8 +662,7 @@
                             <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="0">
                             <label for="q35_d">2 420</label>
                         </p>
-                         <h3>(36) Express 2 &times; 2 &times; 2 &times; 2 &times; 2 in index form.</h3>
-                        
+                        <h3>(36) Express 2 &times; 2 &times; 2 &times; 2 &times; 2 in index form.</h3>
                         <p>
                             <input type="radio" id="q36_a" name="q36" ng-model="testResponse.q36" value="000">
                             <label for="q36_a">10</label>
@@ -706,8 +679,7 @@
                             <input type="radio" id="q36_d" name="q36" ng-model="testResponse.q36" value="1">
                             <label for="q36_d">2<sup>5</sup></label>
                         </p>
-                         <h3>(37) <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> &plus; <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span> &equals;</h3>
-                        
+                        <h3>(37) <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> &plus; <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span> &equals;</h3>
                         <p>
                             <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="1">
                             <label for="q37_a">1 <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span></label>
@@ -724,8 +696,7 @@
                             <input type="radio" id="q37_d" name="q37" ng-model="testResponse.q37" value="0">
                             <label for="q37_d"><span class="frac"><sup>4</sup><span>/</span><sub>7</sub></span></label>
                         </p>
-                         <h3>(38) The mass of a piece of beef is 15.64kg. Express this mass to 1 decimal place.</h3>
-                        
+                        <h3>(38) The mass of a piece of beef is 15.64kg. Express this mass to 1 decimal place.</h3>
                         <p>
                             <input type="radio" id="q38_a" name="q38" ng-model="testResponse.q38" value="000">
                             <label for="q38_a">14.7kg</label>
@@ -742,8 +713,8 @@
                             <input type="radio" id="q38_d" name="q38" ng-model="testResponse.q38" value="0">
                             <label for="q38_d">15.7kg</label>
                         </p>
-                         <h3>(39) How many lines of symmetry has the shape?</h3>
-                        <div class="img_answers"><img src="images/grade7_2018/2018.39.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(39) How many lines of symmetry has the shape?</h3>
+                        <div><img src="images/grade7_2018/2018.39.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q39_a" name="q39" ng-model="testResponse.q39" value="000">
                             <label for="q39_a">1</label>
@@ -760,8 +731,8 @@
                             <input type="radio" id="q39_d" name="q39" ng-model="testResponse.q39" value="0">
                             <label for="q39_d">4</label>
                         </p>
-                         <h3>(40) The shape is a...</h3>
-                        <div class="img_answers"><img src="images/grade7_2017/2017.40.jpg" alt="image missing" class="img-responsive" /></div>
+                        <h3>(40) The shape is a...</h3>
+                        <div><img src="images/grade7_2017/2017.40.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q40_a" name="q40" ng-model="testResponse.q40" value="000">
                             <label for="q40_a">Square</label>
@@ -779,7 +750,6 @@
                             <label for="q40_d">Hexagon</label>
                         </p>
                         <h3>(41) If 3 pairs of shoes cost K180.00, what will be the cost of 9 pairs of shoestrings of the same type?</h3>
-                        
                         <p>
                             <input type="radio" id="q41_a" name="q41" ng-model="testResponse.q41" value="1">
                             <label for="q41_a">K540.00</label>
@@ -797,7 +767,6 @@
                             <label for="q41_d">K20.00</label>
                         </p>
                         <h3>(42) 8 boys can paint a hall in 6 hours. How many hours can 12 boys take to paint the same hall, if they work at the same rate?</h3>
-                        
                         <p>
                             <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="1">
                             <label for="q42_a">4</label>
@@ -815,7 +784,6 @@
                             <label for="q42_d">18</label>
                         </p>
                         <h3>(43) Find the value of 12 &times; (15 &plus; 5).</h3>
-                        
                         <p>
                             <input type="radio" id="q43_a" name="q43" ng-model="testResponse.q43" value="1">
                             <label for="q43_a">240</label>
@@ -833,7 +801,6 @@
                             <label for="q43_d">60</label>
                         </p>
                         <h3>(44) 105 people used a bus for a trip. If the bus carried 35 people only at a time, how many trips did it make?</h3>
-                        
                         <p>
                             <input type="radio" id="q44_a" name="q44" ng-model="testResponse.q44" value="000">
                             <label for="q44_a">140</label>
@@ -850,8 +817,7 @@
                             <input type="radio" id="q44_d" name="q44" ng-model="testResponse.q44" value="1">
                             <label for="q44_d">3</label>
                         </p>
-                        <h3>(45) Arrange the following decimals from the smallest to the biggest 1.5, 0071, 0.0036, 0.075</h3>
-                        
+                        <h3>(45) Arrange the following decimals from the smallest to the biggest 1.5, 0.071, 0.0036, 0.075</h3>
                         <p>
                             <input type="radio" id="q45_a" name="q45" ng-model="testResponse.q45" value="000">
                             <label for="q45_a">0.075, 0.0036, 0.071, 1.5</label>
@@ -866,10 +832,9 @@
                         </p>
                         <p>
                             <input type="radio" id="q45_d" name="q45" ng-model="testResponse.q45" value="0">
-                            <label for="q45_d">1.5, 0 071, 0075, 00036</label>
+                            <label for="q45_d">1.5, 0.071, 0.075, 0.0036</label>
                         </p>
                         <h3>(46) Mumbi bought a dress at K400.00. She later sold it at K500.00. Calculate her percentage profit.</h3>
-                        
                         <p>
                             <input type="radio" id="q46_a" name="q46" ng-model="testResponse.q46" value="000">
                             <label for="q46_a">20&percnt;</label>
@@ -887,7 +852,6 @@
                             <label for="q46_d">35&percnt;</label>
                         </p>
                         <h3>(47) Round off 3.174 to 2 decimal places.</h3>
-                        
                         <p>
                             <input type="radio" id="q47_a" name="q47" ng-model="testResponse.q47" value="000">
                             <label for="q47_a">0.17</label>
@@ -905,7 +869,6 @@
                             <label for="q47_d">3.18</label>
                         </p>
                         <h3>(48) A string which is 22.5m long is cut into smaller pieces each measuring 2.25m. How many pieces of such length can be cut from the string?</h3>
-                        
                         <p>
                             <input type="radio" id="q48_a" name="q48" ng-model="testResponse.q48" value="1">
                             <label for="q48_a">10 pieces</label>
@@ -923,7 +886,6 @@
                             <label for="q48_d">25 pieces</label>
                         </p>
                         <h3>(49) A cuboid is of length 9cm, width 7 cm and height 5 cm. Calculate its volume.</h3>
-                        
                         <p>
                             <input type="radio" id="q49_a" name="q49" ng-model="testResponse.q49" value="1">
                             <label for="q49_a">315cm<sup>3</sup></label>
@@ -941,7 +903,6 @@
                             <label for="q49_d">45cm<sup>3</sup></label>
                         </p>
                         <h3>(50) 454 eight &plus; 224 eight &equals;</h3>
-                        
                         <p>
                             <input type="radio" id="q50_a" name="q50" ng-model="testResponse.q50" value="000">
                             <label for="q50_a">230 eight</label>
@@ -959,7 +920,6 @@
                             <label for="q50_d">678 eight</label>
                         </p>
                         <h3>(51) Round off 865 886 to the nearest hundred.</h3>
-                        
                         <p>
                             <input type="radio" id="q51_a" name="q51" ng-model="testResponse.q51" value="1">
                             <label for="q51_a">865 900</label>
@@ -977,7 +937,6 @@
                             <label for="q51_d">900 000</label>
                         </p>
                         <h3>(52) 4 <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &times; 3</h3>
-                        
                         <p>
                             <input type="radio" id="q52_a" name="q52" ng-model="testResponse.q52" value="000">
                             <label for="q52_a">4.75</label>
@@ -995,7 +954,6 @@
                             <label for="q52_d">12.75</label>
                         </p>
                         <h3>(53) Express 18 as a product of prime factors.</h3>
-                        
                         <p>
                             <input type="radio" id="q53_a" name="q53" ng-model="testResponse.q53" value="000">
                             <label for="q53_a">1 &times; 2 &times; 3 &times; 3</label>
@@ -1013,7 +971,6 @@
                             <label for="q53_d">6 &times; 3</label>
                         </p>
                         <h3>(54) &minus;3 &plus; (&plus;12) &equals;</h3>
-                        
                         <p>
                             <input type="radio" id="q54_a" name="q54" ng-model="testResponse.q54" value="000">
                             <label for="q54_a">&minus;15</label>
@@ -1031,25 +988,24 @@
                             <label for="q54_d">&plus;15</label>
                         </p>
                         <h3>(55) The diagram is a cube of side 9 cm. The total length of its edges is...</h3>
-                        <div class="img_answers_lg"><img src="images/grade7_2018/2018.55.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div><img src="images/grade7_2018/2018.55.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q55_a" name="q55" ng-model="testResponse.q55" value="000">
-                            <label for="q55_a">9cm</label>
+                            <label for="q55_a">27cm</label>
                         </p>
                         <p>
                             <input type="radio" id="q55_b" name="q55" ng-model="testResponse.q55" value="0000">
-                            <label for="q55_b">27cm</label>
+                            <label for="q55_b">81cm</label>
                         </p>
                         <p>
                             <input type="radio" id="q55_c" name="q55" ng-model="testResponse.q55" value="1">
-                            <label for="q55_c">36cm</label>
+                            <label for="q55_c">108cm</label>
                         </p>
                         <p>
                             <input type="radio" id="q55_d" name="q55" ng-model="testResponse.q55" value="0">
-                            <label for="q55_d">54cm</label>
+                            <label for="q55_d">112cm</label>
                         </p>
                         <h3>(56) Given that &dollar;1 is equal to K6.00, what is the price in Zambian Kwacha of a car costing &dollar;2 125?</h3>
-                        
                         <p>
                             <input type="radio" id="q56_a" name="q56" ng-model="testResponse.q56" value="000">
                             <label for="q56_a">K2 125.00</label>
@@ -1067,7 +1023,6 @@
                             <label for="q56_d">K12 750.00</label>
                         </p>
                         <h3>(57) A set has 32 subsets. How many members has it?</h3>
-                        
                         <p>
                             <input type="radio" id="q57_a" name="q57" ng-model="testResponse.q57" value="000">
                             <label for="q57_a">7</label>
@@ -1085,7 +1040,6 @@
                             <label for="q57_d">4</label>
                         </p>
                         <h3>(58) Solve the inequation 4x &plus; 2 &gt; 10.</h3>
-                        
                         <p>
                             <input type="radio" id="q58_a" name="q58" ng-model="testResponse.q58" value="1">
                             <label for="q58_a">x &gt; 2</label>
@@ -1103,7 +1057,6 @@
                             <label for="q58_d">x &lt; 8</label>
                         </p>
                         <h3>(59) 101 two &plus; 11 two &equals;</h3>
-                        
                         <p>
                             <input type="radio" id="q59_a" name="q59" ng-model="testResponse.q59" value="1">
                             <label for="q59_a">1000 two</label>
@@ -1121,7 +1074,6 @@
                             <label for="q59_d">1110 two</label>
                         </p>
                         <h3>(60) If set V = {1, 2, 3}, how many subsets does it have?</h3>
-                        
                         <p>
                             <input type="radio" id="q60_a" name="q60" ng-model="testResponse.q60" value="000">
                             <label for="q60_a">9</label>
@@ -1138,12 +1090,11 @@
                             <input type="radio" id="q60_d" name="q60" ng-model="testResponse.q60" value="1">
                             <label for="q60_d">3</label>
                         </p>
-                        
                         <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_mock1'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='grade7_mock1'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
