@@ -75,6 +75,11 @@ schema_upgrade(){
 		echo "Fixing config bug on tests with wrong topic"
 		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade_7_revision'"
 
+		echo "Fixing config bug on grade 7 mock tests with the wrong course"
+		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade7_mock1'"
+		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade7_mock2'"
+
+
 		echo "Database schema up to date"
 	fi
 
