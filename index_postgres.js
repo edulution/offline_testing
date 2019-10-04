@@ -41,7 +41,7 @@ function get_datetime_string() {
 	    mm = '0'+mm
 	}
 	/*return today's date as string*/
-	today = "'" + yyyy + '-' + mm + '-' + dd + "'";
+	today = yyyy + '-' + mm + '-' + dd;
 	return today;
 
 }
@@ -523,8 +523,6 @@ app.post('/submit_test', [(req, res,next) => {
 	var uresponses_quoted = "'" + uresponses.join("','") + "'";
 
 	/*Insert statement to run on database. test date added as current date from server*/
-
-	/*var insert_statement = 'INSERT INTO responses('+response_props.toString()+') values ('+uresponses_quoted+','+get_datetime_string()+')';*/
 
 	var insert_statement = 'INSERT INTO responses('+response_props.toString()+') values ('+uresponses_quoted+')';
 	console.log(insert_statement);
