@@ -227,14 +227,19 @@ h2 {
     }
 
     .kolibri_logo_btn{
-        width: 325px;
-        height:285px;
+        /* width: 325px; */
+        /* height:285px; */
+        width: 80%;
+        height:80%;
        
     }
 
     .numeracy_assessments_btn{
-        width: 250px;
-        height:250px;
+        /* width: 250px;
+        height:250px; */
+
+        width: 80%;
+        height:80%;
     }
 
 
