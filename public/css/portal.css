@@ -129,22 +129,22 @@ img {
 }
 
 #index-of-topics-btn{
-    float: left;
+    /* float: left;
     margin-left: 20%;
-    padding: 3%;
+    padding: 3%; */
     /*background-color: #159B15;*/
     box-shadow: 2px 2px 2px 2px #3F3F3F;
     border: #159B15;
 }
-
+/* 
 #literacy-assessments-btn{
     float: right;
     margin-right: 2%;
-    padding: 3%;
+    padding: 3%; */
     /*background-color: #159B15;*/
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
+    /* box-shadow: 2px 2px 2px 2px #3F3F3F;
     border: #159B15;
-}
+} */
 
 img .images {
     text-align: right;
@@ -201,7 +201,7 @@ img .images {
 }
 
 .img_btns_row{
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 h2 {
@@ -214,7 +214,7 @@ h2 {
 {
 
     .image_space{
-        margin-left:45px;
+        margin-right:16%;
     }
 
     .icon_background {
@@ -244,4 +244,3 @@ h2 {
   
 
 
-/* 683 x 911 */
