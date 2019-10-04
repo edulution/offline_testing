@@ -170,8 +170,11 @@ img .images {
 /*kolibri logo image btn on landing page*/
 .kolibri_logo_btn{
     /* width: 352px; */
-    width:312px;
-    height:285px;
+    /* width:312px;
+    height:285px; */
+
+    width:80%;
+    height:80%;
    
 }
 
@@ -182,13 +185,14 @@ img .images {
 
 /*background for image buttons on landing page*/
 .icon_background {
-   
-    width:352px;
-    
+        
+    width: 352px;
+    height:322px;
     background: whitesmoke;
     border-radius: 20px;
     box-shadow: 6px 6px 2.5px grey;
 }
+
 
 /*remove text decoration on text inside img button*/
 .img_btn_container a{
