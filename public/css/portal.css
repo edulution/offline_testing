@@ -170,12 +170,8 @@ img .images {
 /*kolibri logo image btn on landing page*/
 .kolibri_logo_btn{
     /* width: 352px; */
-    /* width:312px;
-    height:285px; */
-
-    width:80%;
-    height:80%;
-   
+    width:312px;
+    height:285px;
 }
 
 .numeracy_assessments_btn{
