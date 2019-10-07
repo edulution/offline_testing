@@ -66,8 +66,8 @@ img {
 }
 
 
-/* Headers  */
-.h2color{
+/* Headers H3 Color */
+.h3_color{
     color: #fff;
 }
 
@@ -126,6 +126,7 @@ img {
 /* Added Green Buttons */
 .btn-button {
     background-color: #3D8D54;
+   
 }
 
 #index-of-topics-btn{
@@ -136,15 +137,7 @@ img {
     box-shadow: 2px 2px 2px 2px #3F3F3F;
     border: #159B15;
 }
-/* 
-#literacy-assessments-btn{
-    float: right;
-    margin-right: 2%;
-    padding: 3%; */
-    /*background-color: #159B15;*/
-    /* box-shadow: 2px 2px 2px 2px #3F3F3F;
-    border: #159B15;
-} */
+
 
 img .images {
     text-align: right;
@@ -187,6 +180,7 @@ img .images {
     background: whitesmoke;
     border-radius: 20px;
     box-shadow: 6px 6px 2.5px grey;
+    padding-bottom: 10px;
 }
 
 
@@ -208,6 +202,11 @@ h2 {
     font-weight: bold;
 }
 
+.button_spacing{
+    padding-bottom: 10px; 
+}
+
+
 
 /* @media screen and (max-width: 1024px)  */
 @media screen and (max-width: 1024px) and (min-width: 911px)
@@ -224,6 +223,7 @@ h2 {
         background: whitesmoke;
         border-radius: 20px;
         box-shadow: 6px 6px 2.5px grey;
+        padding-bottom: 10px;
     }
 
     .kolibri_logo_btn{
@@ -242,6 +242,11 @@ h2 {
         height:80%;
     }
 
+  
+    
+.button_spacing{
+    padding-bottom: 10px; 
+}
 
 
   
@@ -249,3 +254,12 @@ h2 {
   
 
 
+/* 
+#literacy-assessments-btn{
+    float: right;
+    margin-right: 2%;
+    padding: 3%; */
+    /*background-color: #159B15;*/
+    /* box-shadow: 2px 2px 2px 2px #3F3F3F;
+    border: #159B15;
+} */
