@@ -15,7 +15,10 @@ body{
 }
 
 .edulution_portal {
+    padding-top:12.5%;
     text-align: center;
+    font-size: 26.5px;
+    font-weight: bold;
     padding-left: 30%;
 }
 
