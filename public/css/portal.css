@@ -14,6 +14,14 @@ body{
     
 }
 
+.edulution_portal {
+    padding-top:6%;
+    text-align: center;
+    font-size: 2.2em;
+    padding-left: 24%;
+    font-family: Roboto;
+}
+
 /* Main index background */
 .mainBackground {
     background:-webkit-linear-gradient(#D3E8BF,#60713E);
@@ -66,8 +74,8 @@ img {
 }
 
 
-/* Headers  */
-.h2color{
+/* Headers H3 Color */
+.h3_color{
     color: #fff;
 }
 
@@ -126,25 +134,18 @@ img {
 /* Added Green Buttons */
 .btn-button {
     background-color: #3D8D54;
+   
 }
 
 #index-of-topics-btn{
-    float: left;
+    /* float: left;
     margin-left: 20%;
-    padding: 3%;
+    padding: 3%; */
     /*background-color: #159B15;*/
     box-shadow: 2px 2px 2px 2px #3F3F3F;
     border: #159B15;
 }
 
-#literacy-assessments-btn{
-    float: right;
-    margin-right: 2%;
-    padding: 3%;
-    /*background-color: #159B15;*/
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
-    border: #159B15;
-}
 
 img .images {
     text-align: right;
@@ -172,7 +173,6 @@ img .images {
     /* width: 352px; */
     width:312px;
     height:285px;
-   
 }
 
 .numeracy_assessments_btn{
@@ -182,13 +182,15 @@ img .images {
 
 /*background for image buttons on landing page*/
 .icon_background {
-   
-    width:352px;
-    
+        
+    width: 352px;
+    height:322px;
     background: whitesmoke;
     border-radius: 20px;
     box-shadow: 6px 6px 2.5px grey;
+    padding-bottom: 10px;
 }
+
 
 /*remove text decoration on text inside img button*/
 .img_btn_container a{
@@ -201,7 +203,12 @@ img .images {
 }
 
 .img_btns_row{
-    margin-bottom: 2%;
+    margin-bottom: 3%;
+}
+
+
+.button_spacing{
+    padding-bottom: 10px; 
 }
 
 
@@ -210,7 +217,7 @@ img .images {
 {
 
     .image_space{
-        margin-left:45px;
+        margin-right:20%;
     }
 
     .icon_background {
@@ -220,24 +227,50 @@ img .images {
         background: whitesmoke;
         border-radius: 20px;
         box-shadow: 6px 6px 2.5px grey;
+        padding-bottom: 10px;
     }
 
     .kolibri_logo_btn{
-        width: 325px;
-        height:285px;
+        /* width: 325px; */
+        /* height:285px; */
+        width: 80%;
+        height:80%;
        
     }
 
     .numeracy_assessments_btn{
-        width: 250px;
-        height:250px;
+        /* width: 250px;
+        height:250px; */
+
+        width: 80%;
+        height:80%;
     }
 
+  
+    
+.button_spacing{
+    padding-bottom: 10px; 
+}
 
+.edulution_portal {
+    padding-top:5%;
+    text-align: center;
+    font-size: 2.2em;
+    font-family: Roboto;
+    padding-left: 24%;
+}
 
   
   }
   
 
 
-/* 683 x 911 */
+/* 
+#literacy-assessments-btn{
+    float: right;
+    margin-right: 2%;
+    padding: 3%; */
+    /*background-color: #159B15;*/
+    /* box-shadow: 2px 2px 2px 2px #3F3F3F;
+    border: #159B15;
+} */
