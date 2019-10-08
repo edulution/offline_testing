@@ -17,9 +17,9 @@ body{
 .edulution_portal {
     padding-top:6%;
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 2.2em;
     padding-left: 24%;
+    font-family: Roboto;
 }
 
 /* Main index background */
@@ -206,14 +206,10 @@ img .images {
     margin-bottom: 3%;
 }
 
-h2 {
-    font-weight: bold;
-}
 
 .button_spacing{
     padding-bottom: 10px; 
 }
-
 
 
 /* @media screen and (max-width: 1024px)  */
@@ -259,8 +255,8 @@ h2 {
 .edulution_portal {
     padding-top:5%;
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 2.2em;
+    font-family: Roboto;
     padding-left: 24%;
 }
 
