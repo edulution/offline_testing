@@ -29,7 +29,6 @@
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -585,6 +584,7 @@
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test9'">
                         <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'pmodule/templates/gr7_exam_number.html'"></div>
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
