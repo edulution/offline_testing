@@ -24,7 +24,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     $scope.grade7_props = ["user_id","test","course","module","test_date"];
 
     /*learner grades*/
-    $scope.learner_grades = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+    $scope.learner_grades = ['0','1','2','3','4','5','6','7','8','9','10','11','12'];
 
     /*learner sexes used on selection*/
     $scope.learner_sexes = [{label:'Male',value:'M'},{label:'Female',value:'F'}]
