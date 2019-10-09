@@ -23,6 +23,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     /*properities used to check whether grade 7 test has already been written by the same learner on the same day*/
     $scope.grade7_props = ["user_id","test","course","module","test_date"];
 
+    /*learner grades*/
+    $scope.learner_grades = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+
+    /*learner sexes used on selection*/
+    $scope.learner_sexes = [{label:'Male',value:'M'},{label:'Female',value:'F'}]
 
     /*Send get request to endpoint to return all user objects*/
     $http.get( "/get_users").then(function( response) {
@@ -287,6 +292,31 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
             }
         });
     };
+})
+/*Directive to check if user input is an integer. Used to validate grade 7 examination numbers*/
+.directive('integer', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$validators.integer = function(modelValue, viewValue) {
+        /*regular expression used to check if a grade 7 examination number is an integer*/
+        var INTEGER_REGEXP = /^-?\d+$/;
+
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty models to be valid
+          return true;
+        }
+
+        if (INTEGER_REGEXP.test(viewValue)) {
+          // it is valid
+          return true;
+        }
+
+        // it is invalid
+        return false;
+      };
+    }
+  };
 });
 
 
