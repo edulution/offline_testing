@@ -78,7 +78,7 @@ schema_upgrade(){
 	elif [[ $(get_database_version $1) == 3 ]]; then
 		echo "Add columns for Sex, Grade and Exam number"
 		sqlite3 $1 "alter table responses add column sex varchar(1) check (sex == 'M' or sex == 'F');"
-		sqlite3 $1 "alter table responses add column grade varchar(3);"
+		sqlite3 $1 "alter table responses add column grade varchar(2);"
 		sqlite3 $1 "alter table responses add column gr7_exam_number varchar(12);"
 
 		sqlite3 $1 "pragma user_version = 4"
