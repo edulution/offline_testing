@@ -29,7 +29,6 @@
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -66,7 +65,7 @@
                         </p>
                         <p>
                             <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
-                            <label for="q1_b"><span class="frac"><sup>12</sup><span>/</span><sub>36</sub></span> </label>
+                            <label for="q1_b"><span class="frac"><sup>16</sup><span>/</span><sub>36</sub></span> </label>
                         </p>
                         <p>
                             <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
@@ -574,12 +573,13 @@
                             <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="1">
                             <label for="q30_d"><span class="frac"><sup>148</sup><span>/</span><sub>25</sub></span></label>
                         </p>
-                        <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test13'">
                         <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'pmodule/templates/gr7_exam_number.html'"></div>
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
