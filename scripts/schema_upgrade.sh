@@ -43,14 +43,6 @@ schema_upgrade(){
 
 	# Do nothing if schema is up to date. Version 2 is the latest version
 	elif [[ $(get_database_version $1) == 2 ]]; then
-		# echo "fixing error on Numeracy Alpha A test"
-		# sqlite3 $1 "update responses set q22=0 where test='alpha_a1' and course='alpha_a' and module='numeracy' and q22='o'"
-		
-		# echo "fixing bravo a2 tests"
-		# sqlite3 $1  "update responses set test='bravo_a2' where test is null;"
-		# sqlite3 $1  "update responses set course='bravo_a' where course is null;"
-		# sqlite3 $1  "update responses set module='numeracy' where module is null;"
-
 		# insert config for grade 7 revision into the test marks table
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test1','Grade 7 - Average (mean)','grade7_revision','numeracy',30);"
 		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_test2','Grade 7 - Proportions and Ratios','grade7_revision','numeracy',35);"
@@ -71,7 +63,6 @@ schema_upgrade(){
 		echo "Fixing config bug on tests with wrong topic"
 		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade_7_revision'"
 
-
 		# add column for full name. kolibri no longer has first_name last_name
 		echo "Add full name column to users table"
 		sqlite3 $1 "alter table users add column full_name varchar"
@@ -80,15 +71,35 @@ schema_upgrade(){
 		echo "Concatenate first name and last name to get full name"
 		sqlite3 $1 "update users set full_name = first_name||' '||last_name"
 
-		echo "Upgrade the database version"
+		# Bump schema version to 3
 		sqlite3 $1 "pragma user_version = 3"
 
-		echo "Run the function again in order to reach the bottom of the loop"
+		# Run the function again in order to reach the bottom of the loop
 		schema_upgrade $1
 
 	elif [[ $(get_database_version $1) == 3 ]]; then
-		echo "Database schema up to date"
+		# config for grade 7 mock tests
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_mock1','Grade 7 - Mock 1','grade7_revision','numeracy',60);"
+		sqlite3 $1 "insert or ignore into test_marks(test_id,test_name,course,module,testmaxscore) values('grade7_mock2','Grade 7 - Mock 2','grade7_revision','numeracy',60);"
 
+
+		echo "Fixing config bug on grade 7 mock tests with the wrong course"
+		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade7_mock1'"
+		sqlite3 $1 "update responses set course = 'grade7_revision' where course = 'grade7_mock2'"
+
+		echo "Add columns for Sex, Grade and Exam number"
+		sqlite3 $1 "alter table responses add column sex varchar(1) check (sex == 'M' or sex == 'F');"
+		sqlite3 $1 "alter table responses add column grade varchar(2);"
+		sqlite3 $1 "alter table responses add column gr7_exam_number varchar(12);"
+
+		# Bump schema version to 3
+		sqlite3 $1 "pragma user_version = 4"
+
+		# run the function again to ensure that schema upgraded
+		schema_upgrade $1
+			
+	elif [[ $(get_database_version $1) == 4 ]]; then
+		echo "Database schema up to date"
 	fi
 
 }

@@ -29,7 +29,6 @@
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -78,11 +77,11 @@
                         </p>
                         <h3>(2) In a certain year, Mrs Chongo produced 10 000 bags of rice while Mrs Mubita produced 9 874 bags of rice. Calculate the difference between the number of bags of rice produced.</h3>
                         <p>
-                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0000">
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
                             <label for="q2_a">126</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="1">
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
                             <label for="q2_b">226</label>
                         </p>
                         <p>
@@ -569,12 +568,13 @@
                             <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="1">
                             <label for="q30_d">88</label>
                         </p>
-                        <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test11'">
                         <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'pmodule/templates/gr7_exam_number.html'"></div>
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
