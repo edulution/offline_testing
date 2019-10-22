@@ -468,6 +468,28 @@ app.get('/get_responses',function(req, res){
 
 });
 
+app.get('/get_test_marks', (req, res, next) => {
+  const test_marks_query = {
+    // give the query a unique name
+    name: 'fetch-test-marks',
+    text: 'SELECT * FROM test_marks'
+  }
+
+  // callback
+  pool.query(test_marks_query, (err, result) => {
+    if (err) {
+      console.log(err.stack)
+    } else {
+    	res.status(200).send(result.rows)
+    }
+  })
+
+  // promise
+  pool.query(test_marks_query)
+    .then(result => res.rows)
+    .catch(e => console.error(e.stack))
+  });
+
 
 app.post('/submit_test', [function(req, res,next){
 
