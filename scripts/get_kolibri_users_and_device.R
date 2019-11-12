@@ -43,7 +43,8 @@ get_first_name <- function(full_name) {
 }
 
 
-
+#----------------
+# Kolibri database
 
 # connect to Kolibri database 
 pg <- dbDriver("PostgreSQL")
@@ -104,12 +105,18 @@ users$last_name <- sapply(users$full_name,get_last_name)
 users <- users %>% select(-c(full_name)) %>% rename(user_id = id) %>% mutate(user_id = str_replace_all(user_id,'-',''))
 
 
+#---------------------
+# Baseline database
+
+# get database credentials for baseline database from environment variables
+bl_db_name = Sys.getenv("BASELINE_DATABASE_NAME")
+bl_db_host = Sys.getenv("BASELINE_DATABASE_HOST")
+bl_db_user = Sys.getenv("BASELINE_DATABASE_USER")
+bl_db_passwd = Sys.getenv("BASELINE_DATABASE_PASSWORD")
+bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
 
 # connect to test responses database
-sqlite <- dbDriver("SQLite")
-tresponses_db <- "~/.baseline_testing/public/test_responses.sqlite"
-#tresponses_db <- "~/.baseline_testing/public/test_responses.sqlite"
-tresponses_conn <- dbConnect(sqlite,tresponses_db)
+tresponses_conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
 
 # clear out the users table
 remove_users_query <- dbSendQuery(tresponses_conn,"delete from users;")
