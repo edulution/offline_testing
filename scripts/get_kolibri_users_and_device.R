@@ -102,7 +102,7 @@ users$last_name <- sapply(users$full_name,get_last_name)
 
 # drop the full name column
 # change the user_id to a plain character string
-users <- users %>% select(-c(full_name)) %>% rename(user_id = id) %>% mutate(user_id = str_replace_all(user_id,'-',''))
+users <- users %>% select(-c(full_name)) %>% rename(user_id = id)
 
 
 #---------------------
