@@ -12,9 +12,15 @@ library(RSQLite)
 
 
 # connect to responses database 
-sqlite <- dbDriver("SQLite")
-dbfile <- "~/.baseline_testing/public/test_responses.sqlite"
-conn <- dbConnect(sqlite, dbfile)
+bl_db_name = Sys.getenv("BASELINE_DATABASE_NAME")
+bl_db_host = Sys.getenv("BASELINE_DATABASE_HOST")
+bl_db_user = Sys.getenv("BASELINE_DATABASE_USER")
+bl_db_passwd = Sys.getenv("BASELINE_DATABASE_PASSWORD")
+bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
+
+# connect to test responses database
+conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
+
 
 #get test responses, join with user_id
 tresponses_query<-dbSendQuery(conn,"select r.*, tm.testmaxscore from responses r left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
@@ -34,8 +40,9 @@ dbDisconnect(conn)
 drop_cols<-c("coach_id","username")
 tresponses<- tresponses %>% select(-one_of(drop_cols))
 
+#remove hyphens from user_id(uuid)
 #rename user_id column to header(for load with load_answers function)
-tresponses<- rename(tresponses, HEADER = user_id)
+tresponses<- tresponses %>% mutate(user_id = str_replace_all(user_id,'-','')) %>% rename(HEADER = user_id)
 
 #add centre column
 tresponses<-tresponses %>% mutate(centre=rep(device_name))
