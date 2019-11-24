@@ -29,7 +29,6 @@
     <script src="pmodule/app.js"></script>
     <link rel="stylesheet" href="pmodule/password_modal.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
@@ -418,22 +417,22 @@
                             <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="1">
                             <label for="q21_d">80&percnt;</label>
                         </p>
-                        <h3>(22) Convert 0.25 to a percentage.</h3>
+                        <h3>(22) Convert 0.05 to a percentage.</h3>
                         <p>
-                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="000">
                             <label for="q22_a">25&percnt;</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="0000">
-                            <label for="q22_b">20&percnt;</label>
+                            <label for="q22_b">50&percnt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
+                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="1">
                             <label for="q22_c">5&percnt;</label>
                         </p>
                         <p>
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="00000">
-                            <label for="q22_d">4&percnt;</label>
+                            <label for="q22_d">0&percnt;</label>
                         </p>
                         <h3>(23) Mulenga got 40 marks out of 50 in a Mathematics test. Convert these marks to a percentage.</h3>
                         <p>
@@ -571,12 +570,13 @@
                             <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="1">
                             <label for="q30_d">72 000</label>
                         </p>
-                        <div class="HeaderbannerLabel">COACH CREDENTIALS</div>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test5'">
                         <input type="hidden" name="course" ng-init="testResponse.course='grade7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'pmodule/templates/gr7_exam_number.html'"></div>
                         <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>

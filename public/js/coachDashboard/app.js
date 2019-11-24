@@ -189,11 +189,14 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*assign the result property on each block to true or false based on whether the value is equal to the value of one fifth*/
             /*This will modify the object passed in and returns nothing*/
-            testResponse.block_1 = { name: block_1_name, result: chunksArray[0] == one_fifth }
-            testResponse.block_2 = { name: block_2_name, result: chunksArray[1] == one_fifth }
-            testResponse.block_3 = { name: block_3_name, result: chunksArray[2] == one_fifth }
-            testResponse.block_4 = { name: block_4_name, result: chunksArray[3] == one_fifth }
-            testResponse.block_5 = { name: block_5_name, result: chunksArray[4] == one_fifth }
+            testResponse.block_1 = { name: block_1_name, result: chunksArray[0] / one_fifth }
+            testResponse.block_2 = { name: block_2_name, result: chunksArray[1] / one_fifth }
+            testResponse.block_3 = { name: block_3_name, result: chunksArray[2] / one_fifth }
+            testResponse.block_4 = { name: block_4_name, result: chunksArray[3] / one_fifth }
+            testResponse.block_5 = { name: block_5_name, result: chunksArray[4] / one_fifth }
+
+            console.log(testResponse)
+
         }
 
 

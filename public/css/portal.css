@@ -162,6 +162,21 @@ img .images {
     margin-top: -30px;
 }
 
-.gr7_test_panel a:hover{
+
+.gr7_test_panel_container a:hover{
     text-decoration: none
+}
+
+/*green grade 7 test panel*/
+.gr7_test_panel_green{
+    background-color: #CCFFCC !important;
+    border: #CCFFCC;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+}
+
+/*white grade 7 test panel*/
+.gr7_test_panel_white{
+    background-color: white !important;
+    border: #CCFFCC;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
