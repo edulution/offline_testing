@@ -8,16 +8,9 @@ var port = 5000;
 /*Demo only - use postgres*/
 const { Pool, Client } = require('pg')
 
-/*const pool = new Pool({
+const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
-});*/
-const pool = new Pool({
-  user: process.env.BASELINE_DATABASE_USER,
-  host: process.env.BASELINE_DATABASE_HOST,
-  database: process.env.BASELINE_DATABASE_NAME,
-  password: process.env.BASELINE_DATABASE_PASSWORD,
-  port: process.env.BASELINE_DATABASE_PORT,
 });
 
 /*Use bodyParser to parse form data*/
@@ -594,8 +587,4 @@ app.post('/overwrite_test', [(req, res, next) => {
     console.log(success_message)
 }]);
 
-/*app.listen(process.env.PORT || 5000);*/
-
-app.listen(port, '0.0.0.0', () => {
- console.log('Server running on port ' + port);
-});
+app.listen(process.env.PORT || 5000);
