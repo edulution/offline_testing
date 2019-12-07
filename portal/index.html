@@ -23,55 +23,62 @@
     <div ng-include="'include/navbar.html'"></div>
     <h3 class="mainBody">Welcome. What would you like to do?</h3>
     <!-- Body -->
-    <!-- <div ng-include="'include/body.html'"> -->
-    <!-- </div> -->
-    <div class="container">
+    <div class="container-fluid">
         <!-- Images  -->
         <div class="row img_btns_row">
-            <div class="col-md-5  col-md-offset-1 img_btn_container">
-                <a href="#" onclick="window.open('http://192.168.8.200:8008','_self')">
-                    <div class="icon_background">
-                        <img src="images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
-                        <p class="texts">KOLIBRI</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-5 img_btn_container">
-                <a href="#" onclick="window.open('/numeracy_assessments','_self')">
-                    <div class="icon_background">
-                        <img src="images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
-                        <p class="texts">
-                            NUMERACY
-                            <br>
-                            ASSESSMENTS
-                        </p>
-                    </div>
-                </a>
+            <div class=" image_space">
+                <!-- Kolibri -->
+                <div class="col-md-4 col-md-offset-2  col-sm-4  col-sm-offset-1   img_btn_container">
+                    <a href="#" onclick="window.open('http://192.168.8.200:8080','_self')">
+                        <div class="button_spacing">
+                            <div class="icon_background">
+                                <img src="images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
+                                <p class="texts">KOLIBRI</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Numeracy Assessments -->
+                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-3  img_btn_container">
+                    <a href="#" onclick="window.open('/numeracy_assessments','_self')">
+                        <div class="icon_background">
+                            <img src="images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
+                            <p class="texts">
+                                NUMERACY
+                                <br>
+                                ASSESSMENTS
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div id="extra_btns">
-                <div class="col-md-3 col-sm-10">
+            <div class="col-md-4 col-sm-4 ">
+                <div class="button_spacing">
                     <a href="#" onclick="window.open('/topics','_self')">
                         <button type="button" class="btn btn-button" id="index-of-topics-btn">
-                            <h2 class="h2color">Index of Topics</h2>
+                            <h3 class="h3_color">Index of Topics</h3>
                         </button>
                     </a>
                 </div>
-                <!-- <div class="col-md-5 col-md-offset-1 " ></div> -->
-                <div class="col-md-3 col-md-offset-1 col-sm-10">
-                    <a href="#" onclick="window.open('/grade_7_revision','_self')">
-                        <button type="button" class="btn btn-button" id="literacy-assessments-btn">
-                            <h2 class="h2color">Grade 7 revision</h2>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="button_spacing">
+                    <a href="#" onclick="window.open('/grade_7_revisio','_self')">
+                        <button type="button" class="btn btn-button" id="index-of-topics-btn">
+                            <h3 class="h3_color">Grade 7 revision</h3>
                         </button>
                     </a>
                 </div>
-                <div class="col-md-3 col-md-offset-1 col-sm-10">
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="button_spacing">
                     <a href="#" onclick="window.open('/literacy_tests','_self')">
-                        <button type="button" class="btn btn-button" id="literacy-assessments-btn">
-                            <h2 class="h2color">Literacy Assessments</h2>
+                        <button type="button" class="btn btn-button" id="index-of-topics-btn">
+                            <h3 class="h3_color">Literacy Assessments</h3>
                         </button>
                     </a>
                 </div>

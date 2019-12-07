@@ -51,7 +51,7 @@ tresponses<-tresponses %>% mutate(centre=rep(device_name))
 tresponses<-tresponses %>% mutate(valid=rep(1))
 
 #arrange columns, let all columns appear on the left, then all cols from q1...q70 appear on the right
-tresponses<- tresponses %>% select(HEADER,test_date,centre,module ,course,test,valid,testmaxscore,everything())
+tresponses<- tresponses %>% select(HEADER,sex, grade, gr7_exam_number, test_date,centre,module ,course,test,valid,testmaxscore,everything())
 
 #helper function to set empty strings to 0 and otherwise return the actual string
 empty_as_zero<- function(x){
