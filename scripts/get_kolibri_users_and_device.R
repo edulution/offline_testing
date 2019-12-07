@@ -130,10 +130,10 @@ remove_device_name_query <- dbSendQuery(tresponses_conn,"delete from device;")
 dbClearResult(remove_device_name_query)
 
 #write the users to the users table
-dbWriteTable(tresponses_conn,"users",users,append = TRUE)
+dbWriteTable(tresponses_conn,"users",users,append = TRUE, row.names = FALSE)
 
 #write the facility name to the device table
-dbWriteTable(tresponses_conn,"device",facility_name, append = TRUE)
+dbWriteTable(tresponses_conn,"device",facility_name, append = TRUE, row.names = FALSE)
 
 # disconnect the connection
 dbDisconnect(tresponses_conn)
