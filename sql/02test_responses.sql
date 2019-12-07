@@ -75,5 +75,8 @@ CREATE TABLE public.responses (
     q69 varchar,
     q70 varchar,
     course varchar,
-    user_id varchar references users(user_id)
+    user_id varchar references users(user_id),
+    sex varchar(1) check(sex = 'M' or sex = 'F'),
+    grade varchar(2),
+    gr7_exam_number varchar(12)
 );
