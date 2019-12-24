@@ -14,7 +14,6 @@ npm link express > /dev/null
 chmod +x ~/.baseline_testing/scripts/reporting/baseline.sh
 chmod +x ~/.baseline_testing/scripts/reporting/send_baseline.sh
 chmod +x ~/.baseline_testing/scripts/setup_cronjob.sh
-chmod +x ~/.baseline_testing/scripts/schema_upgrade.sh
 chmod +x ~/.baseline_testing/scripts/start_users_extraction.sh
 chmod +x ~/.baseline_testing/scripts/start_testing_server.sh
 chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
