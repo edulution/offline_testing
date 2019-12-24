@@ -5,7 +5,7 @@
 cd ~/.baseline_testing/
 
 # Link npm packages
-npm link sqlite3 > /dev/null
+npm link pg > /dev/null
 npm link csv > /dev/null
 npm link body-parser > /dev/null
 npm link express > /dev/null
