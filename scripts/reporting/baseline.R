@@ -19,6 +19,7 @@ bl_db_passwd = Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
 
 # connect to test responses database
+pg <- dbDriver("PostgreSQL")
 conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
 
 
