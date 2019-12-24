@@ -137,8 +137,3 @@ dbWriteTable(tresponses_conn,"device",facility_name, append = TRUE, row.names = 
 
 # disconnect the connection
 dbDisconnect(tresponses_conn)
-
-
-
-
-
