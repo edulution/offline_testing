@@ -44,12 +44,14 @@ export exit_bold_mode=`tput rmso`
 
 # get kalite users and device name
 chmod +x ~/.baseline_testing/scripts/get_ka_users_and_device.sh
-~/.baseline_testing/scripts/get_ka_users_and_device.sh
+~/.baseline_testing/scripts/get_kolibri_users_and_device.sh
 
-# get details for literacy learners
-chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
-~/.baseline_testing/scripts/get_literacy_usernames.sh
+# check if a centre is a literacy centre before fetching details for literacy learners
+if [[ "$IS_LITERACY_CENTRE" == "TRUE" ]]; then
+	chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
+	~/.baseline_testing/scripts/get_literacy_usernames.sh
+fi
 
 # check if any upgrades need to be done to the schema
-chmod +x ~/.baseline_testing/scripts/schema_upgrade.sh
-~/.baseline_testing/scripts/schema_upgrade.sh
+# chmod +x ~/.baseline_testing/scripts/schema_upgrade.sh
+# ~/.baseline_testing/scripts/schema_upgrade.sh
