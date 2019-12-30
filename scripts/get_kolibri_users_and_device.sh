@@ -16,16 +16,13 @@ export reset=`tput sgr0`
 # make actual text bold
 export bold=`tput bold`
 
-# check if test responses db exists. If not, create it
-db_exists=$( check_db_exists $BASELINE_DATABASE_NAME )
-
 scripts_dir=~/.baseline_testing/sql/
 
-if [[ "$dbexists" == "Database Exists" ]]; then
+if db_exists $BASELINE_DATABASE_NAME ; then
 	# Let the user know that the database already exists and skip
 	echo "${blue}Database already exists.Skipping...${reset}"
-elif [[ "$dbexists" == "Database does not exist!" ]]; then
-	echo "${red}Database does not exist. Creating now...${reset}"
+else
+	echo "${red}Database does not exist. Please contact support...${reset}"
 	exit 1
 	# # create database for baseline testing
 	# sudo -u postgres bash -c "createdb baseline_testing"
