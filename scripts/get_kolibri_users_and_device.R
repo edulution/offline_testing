@@ -1,5 +1,10 @@
+# suppress warning messages
+options(warn = -1)
+
+# suppress messages when loading packages
 suppressMessages(library(timeDate))
 
+# data manipulation libraries
 suppressMessages(library(tidyr))
 suppressMessages(library(plyr))
 suppressMessages(library(dplyr))
@@ -7,12 +12,13 @@ suppressMessages(library(dplyr))
 # load new packages for kolibri data extraction
 suppressMessages(library(tools))
 suppressMessages(library(gsubfn))
-
-# load postgresql library
-suppressMessages(library(DBI))
-suppressMessages(library(RSQLite))
-suppressMessages(library(RPostgreSQL))
 suppressMessages(library(stringr))
+
+
+# load postgresql library and dependency
+suppressMessages(library(DBI))
+suppressMessages(library(RPostgreSQL))
+
 
 
 # helper functions
