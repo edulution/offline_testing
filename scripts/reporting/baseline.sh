@@ -31,7 +31,7 @@ for DIRECTORY in ${DIRECTORIES[@]}; do
   if [ ! -d "$DIRECTORY" ]; then
     mkdir "$DIRECTORY"
   else
-    echo "${blue}$DIRECTORY already exists. Skipping this step${reset}"
+    echo "${blue}Reports directory already exists. Skipping this step${reset}"
   fi
 done
 
