@@ -8,8 +8,8 @@ suppressMessages(library(timeDate))
 library(plyr)
 #suppress messages when loading package
 suppressMessages(library(dplyr))
-library(RSQLite)
-
+suppressMessages(library(RPostgreSQL))
+suppressMessages(library(stringr))
 
 # connect to responses database 
 bl_db_name = Sys.getenv("BASELINE_DATABASE_NAME")
@@ -18,14 +18,42 @@ bl_db_user = Sys.getenv("BASELINE_DATABASE_USER")
 bl_db_passwd = Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
 
+
 # connect to test responses database
 pg <- dbDriver("PostgreSQL")
 conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
 
+# Simple function to generate filename of csv report in desired format
+input<- commandArgs(TRUE)
+
+# helper function to check if test responses exist for the requested month
+check_tests_in_curr_month <- function(year_month,tresponses){
+  upper_limit <- paste("01-",year_month,sep="")
+  #regular expression to check if the user input is a valid month and year, and in the form mm-yy
+  regexp <-'((?:(?:[0-2]?\\d{1})|(?:[3][01]{1}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:\\d{1}\\d{1})))(?![\\d])'
+  #check if its a valid date and correct number of characters. stops the program if input not fit
+  if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)) stop("Please enter a valid month and year mm-yy e.g 02-17")
+  # with variable from above date, parse into date and get last day in month then convert into proper date format
+  upper_limit <- as.Date(timeLastDayInMonth(strftime(upper_limit,"%d-%m-%y"),format = "%y-%m-%d"))
+  # Need to get end of month in standard format before chopping it up for grepping. Need it for monthend column in final csv file
+  
+  upper_limit <- substring(upper_limit,1,7)
+  tests_for_chosen_month <- tresponses %>% filter(grepl(upper_limit, test_date))
+
+  # if no tests are found for the requested month, disconnect from the database and stop the program
+  if(nrow(tests_for_chosen_month)==0){
+    dbDisconnect(conn)
+    stop('No tests found for the requested month. Nothing to extract')
+  }
+}
 
 #get test responses, join with user_id
 tresponses_query<-dbSendQuery(conn,"select r.*, tm.testmaxscore from responses r left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
-tresponses<-dbFetch(tresponses_query) 
+tresponses<-dbFetch(tresponses_query)
+
+# check if tests exist for the requested month or stop the program if they do not
+check_tests_in_curr_month(input,tresponses)
+
 
 #get device name
 device_name_query<-dbSendQuery(conn,"select * from device")
@@ -217,10 +245,10 @@ tresponses<- tresponses %>% rename(res070 = q70)
 #remove testmaxscore column
 tresponses<- tresponses %>% select(-testmaxscore)
 
-# Simple function to generate filename of csv report in desired format
+
 generate_filename <- function(report,date){
   # put generated file in a folder called reports/baseline in home directory, and generate filename based on name of report and user input
-  filename <- paste("~/reports/baseline/",report,device_name,"_",date,".csv",sep = "")
+  filename <- paste("~/.reports/baseline/",report,device_name,"_",date,".csv",sep = "")
 }
 
 # Function to get data extract only for month that user inputs
@@ -241,9 +269,5 @@ baseline <- function(year_month) {
   system("echo Baseline extracted successfully!")
   quit(save="no")
 }
-
-
-
-input<- commandArgs(TRUE)
 
 baseline(input)
