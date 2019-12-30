@@ -16,7 +16,7 @@ export bold=`tput bold`
 cd ~/reports/baseline
 
 #check reports folder for most recent baseline report and send to google server
-sshpass -p $SSHPASS scp `ls ~/reports/baseline -t | head -n1` edulution@130.211.93.74:/home/edulution/reports/baseline
+sshpass -p $SSHPASS scp `ls ~/.reports/baseline -t | head -n1` edulution@130.211.93.74:/home/edulution/reports/baseline
 # if connection lost the script will exit with status 1 and output error message
 if [ "$?" = "0" ]; then
 	echo "${green}${bold}Baseline submitted successfully!${bold}"
