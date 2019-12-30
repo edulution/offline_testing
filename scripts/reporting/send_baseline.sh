@@ -13,7 +13,7 @@ export reset=`tput sgr0`
 export bold=`tput bold`
 
 # Go into reports folder
-cd ~/reports/baseline
+cd ~/.reports/baseline
 
 #check reports folder for most recent baseline report and send to google server
 sshpass -p $SSHPASS scp `ls ~/.reports/baseline -t | head -n1` edulution@130.211.93.74:/home/edulution/reports/baseline
