@@ -41,8 +41,6 @@ BEGIN
 *) Assign learners to either all available 'learnergroups' or Zarchive
 *) Assign all live learners to class "On Program"
 
-
-
 *********************************************************/
 
 sPos := '00';
@@ -54,11 +52,18 @@ sPos := '00';
 /****
 Loop through all learners that have logged in the last NN days
 *****/
-FOR learnerRow IN SELECT id as user_id
-from ext.kolibriauth_facilityuser WHERE
-last_login >  zarchive_breakoffdate
+FOR learnerRow IN SELECT user_id FROM live_learners
 LOOP
 	sPos := '10';
+
+	INSERT INTO ext.kolibriauth_membership(
+				"id", _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
+			(SELECT uuid_generate_v4()	, true, (SELECT REPLACE (id::text, '-', '')), (SELECT REPLACE (DataSet_id::text, '-', '')),  id ,  DataSet_id , learnerRow.user_id
+			FROM ext.kolibriauth_collection
+			WHERE kind = 'classroom'
+			AND upper(name)  IN ('LIVE LEARNERS'));
+			sPos := '2020';
+
 
 	/*** Loop through all modules, once per learner */
 	FOR moduleRow IN 	SELECT  distinct module 
@@ -138,7 +143,7 @@ LOOP
 				INSERT INTO ext.kolibriauth_membership  (
 					id, _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
 				VALUES
-					(uuid_generate_v4()	, true, uuid_generate_v4()	, uuid_generate_v4(), 
+					(uuid_generate_v4()	, true, (SELECT REPLACE (newCollectionId::text, '-', '')), (SELECT REPLACE (newDataSet_id::text, '-', '')), 
 					newCollectionId  ,  newDataSet_id ,	learnerRow.user_id);
 
 				sPos := '430';
@@ -156,6 +161,9 @@ sPos := '1000';
 Loop through all learners
 ***/
 FOR learnerRow IN SELECT id as user_id, last_login FROM ext.kolibriauth_facilityuser 
+where id not in
+(select user_id from ext.kolibriauth_role
+where kind in ('coach','admin'))
 LOOP
 	sPos := '1020';
 	IF learnerRow.last_login <  zarchive_breakoffdate THEN
@@ -164,7 +172,7 @@ LOOP
 		/***** Insert into membership ***/
 		INSERT INTO ext.kolibriauth_membership(
 			id, _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
-		(SELECT uuid_generate_v4()	, true, uuid_generate_v4()	, uuid_generate_v4(),  id ,  DataSet_id , learnerRow.user_id
+		(SELECT uuid_generate_v4()	, true, (SELECT REPLACE (id::text, '-', '')), (SELECT REPLACE (DataSet_id::text, '-', '')),  id ,  DataSet_id , learnerRow.user_id
 		FROM ext.kolibriauth_collection
 		WHERE kind = 'classroom'
 		AND upper(name) like 'ZARCHIVE');
@@ -175,7 +183,7 @@ LOOP
 		sPos := '1050';
 		INSERT INTO ext.kolibriauth_membership(
 			"id", _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
-		(SELECT uuid_generate_v4()	, true, uuid_generate_v4()	, uuid_generate_v4(),  id ,  DataSet_id , learnerRow.user_id
+		(SELECT uuid_generate_v4()	, true, (SELECT REPLACE (id::text, '-', '')), (SELECT REPLACE (DataSet_id::text, '-', '')),  id ,  DataSet_id , learnerRow.user_id
 		FROM ext.kolibriauth_collection
 		WHERE kind = 'classroom'
 		AND upper(name) NOT IN ('ZARCHIVE','LIVE LEARNERS'));
@@ -190,22 +198,6 @@ sPos := '1080';
 Assign classes to "Live Learners"
 ******/ 
 sPos := '2000';
-	
-FOR learnerRow IN SELECT user_id FROM live_learners
-LOOP
-	
-	sPos := '2010';
-	/***** Insert into membership ***/
-INSERT INTO ext.kolibriauth_membership(
-			"id", _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
-		(SELECT uuid_generate_v4()	, true, uuid_generate_v4()	, uuid_generate_v4(),  id ,  DataSet_id , learnerRow.user_id
-		FROM ext.kolibriauth_collection
-		WHERE kind = 'classroom'
-		AND upper(name)  IN ('LIVE LEARNERS'));
-		sPos := '2020';
-END Loop;	
-
-sPos := '2100';	
 	
 
 RAISE NOTICE  'Procedure Sucessful' ;
