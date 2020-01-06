@@ -53,6 +53,9 @@ sPos := '00';
 Loop through all learners that have logged in the last NN days
 *****/
 FOR learnerRow IN SELECT user_id FROM live_learners
+where user_id not in
+(select user_id from ext.kolibriauth_role
+where kind in ('coach','admin'))
 LOOP
 	sPos := '10';
 
