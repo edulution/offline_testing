@@ -51,6 +51,11 @@ app.get('/',(req, res) => {
  res.sendFile( __dirname + '/portal/index.html');
 });
 
+/*numeracy assessments page*/
+app.get('/numeracy_assessments', (req, res) => {
+ res.sendFile( __dirname + '/portal/numeracy_assessments.html');
+});
+
 /*index of topics*/
 app.get('/topics',(req, res) => {
  res.sendFile( __dirname + '/portal/topics-index.html');
