@@ -7,9 +7,9 @@ CREATE SERVER kolibri_server
   OPTIONS (host 'localhost',  port '5432' , dbname 'kolibri');
 
 /*User mapping credentials not exposed in this file. replace <user> and <password> appropriately */
-CREATE USER MAPPING FOR CURRENT_USER
+CREATE USER MAPPING FOR baseline_testing
   SERVER kolibri_server
-  OPTIONS (user '<user>', password '<user>');
+  OPTIONS (user '<user>', password '<password>');
 
 
 /*create a schema*/
