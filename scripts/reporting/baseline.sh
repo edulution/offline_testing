@@ -37,8 +37,8 @@ done
 
 #pull latest changes from master branch in repo
 cd ~/.baseline_testing
-git reset --hard origin/zambia > /dev/null
-git pull origin zambia > /dev/null
+git reset --hard origin/namibia > /dev/null
+git pull origin namibia > /dev/null
 
 #check if database file exists before extracting reports
 if db_exists $BASELINE_DATABASE_NAME ; then
