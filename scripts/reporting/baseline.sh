@@ -1,4 +1,7 @@
 #!/bin/bash
+
+source ~/.baseline_testing/scripts/check_db_exists.sh
+
 #colors
 #=======
 export black=`tput setaf 0`
@@ -23,24 +26,25 @@ export bold_mode=`tput smso`
 export exit_bold_mode=`tput rmso`
 
 # check if directories exist
-DIRECTORIES=( ~/reports/baseline )
+DIRECTORIES=( ~/.reports/baseline )
 for DIRECTORY in ${DIRECTORIES[@]}; do
   if [ ! -d "$DIRECTORY" ]; then
     mkdir "$DIRECTORY"
   else
-    echo "${blue}$DIRECTORY already exists. Skipping this step${reset}"
+    echo "${blue}Reports directory already exists. Skipping this step${reset}"
   fi
 done
 
 #pull latest changes from master branch in repo
 cd ~/.baseline_testing
-git reset --hard origin/master > /dev/null
-git pull > /dev/null
+git reset --hard origin/zambia > /dev/null
+git pull origin zambia > /dev/null
 
 #check if database file exists before extracting reports
-test -f ~/.baseline_testing/public/test_responses.sqlite
-#if db file exists then extraction and submission begin. If not, will output error message to contact support
-if [ "$?" = "0" ]; then
+if db_exists $BASELINE_DATABASE_NAME ; then
+  # Let the user know that the database already exists and skip
+  echo "${blue}Database already exists.Skipping...${reset}"
+  #if db file exists then extraction and submission begin. If not, will output error message to contact support
 	if (echo $1 |\
     egrep '^(1[0-2]|0[0-9])[-/][0-9]{2}' > /dev/null
 	); then
