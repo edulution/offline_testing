@@ -25,19 +25,16 @@ if [[ $? -eq 0 ]]; then
     sshpass -p $SSHPASS rsync --progress -e ssh edulution@130.211.93.74:/home/edulution/baseline/literacy_learners ~/.baseline_testing/
     
     # Add literacy users to database
-    sqlite3 $responses_database <<!
-.mode csv
-.import $literacy_users_file users
-!
+    Rscript ~/.baseline_testing/scripts/insert_literacy_users_into_baseline.R $literacy_users_file
+
     if [ "$?" = "0" ]; then
         echo "${green}Adding details for literacy learners...${reset}"
         echo "${green}${bold}Done!${reset}"
     else
-        echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again"
-        echo "Please Ignore this message if your centre does not give literacy lessons${reset}"
+        echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again${reset}"
     fi
 else
     echo "${yellow}Device is Offline"
     echo "Could not fetch details for Literacy learners"
-    echo "Please Ignore this message if your centre does not give literacy lessons${reset}"
+    echo "Please check your internet connection and try again. If the problem persists, contact support ${reset}"
 fi

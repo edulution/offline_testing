@@ -2,10 +2,10 @@
 
 # First time setup script
 # Go into directory for baseline testing
-cd ~/.baseline_testing/
+cd ~/.baseline_testing
 
 # Link npm packages
-npm link sqlite3 > /dev/null
+npm link pg > /dev/null
 npm link csv > /dev/null
 npm link body-parser > /dev/null
 npm link express > /dev/null
@@ -14,11 +14,10 @@ npm link express > /dev/null
 chmod +x ~/.baseline_testing/scripts/reporting/baseline.sh
 chmod +x ~/.baseline_testing/scripts/reporting/send_baseline.sh
 chmod +x ~/.baseline_testing/scripts/setup_cronjob.sh
-chmod +x ~/.baseline_testing/scripts/schema_upgrade.sh
 chmod +x ~/.baseline_testing/scripts/start_users_extraction.sh
 chmod +x ~/.baseline_testing/scripts/start_testing_server.sh
 chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
-chmod +x ~/.baseline_testing/scripts/get_ka_users_and_device.sh
+chmod +x ~/.baseline_testing/scripts/get_kolibri_users_and_device.sh
 
 # open up port for server
 sudo ufw allow 8888 > /dev/null
