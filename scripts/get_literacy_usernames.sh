@@ -34,7 +34,16 @@ if [[ $? -eq 0 ]]; then
         echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again${reset}"
     fi
 else
-    echo "${yellow}Device is Offline"
-    echo "Could not fetch details for Literacy learners"
-    echo "Please check your internet connection and try again. If the problem persists, contact support ${reset}"
+    # if device is offline, insert the most recently
+    echo "${yellow}Device is Offline${reset}"
+    
+    test -f $literacy_users_file
+    if [ "$?" = "0" ]; then
+        echo "${yellow}Could not fetch latest details for Literacy learners. Inserting previously downloaded details..${reset}"
+        Rscript ~/.baseline_testing/scripts/insert_literacy_users_into_baseline.R $literacy_users_file > /dev/null
+    else
+        echo "${red} Could not fetch latest details for Literacy learners and no previous list was found.."
+        echo "Please check your internet connection and try again. If the problem persists, contact support ${reset}"
+    fi
+
 fi
