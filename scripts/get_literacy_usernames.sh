@@ -38,12 +38,11 @@ else
     # inform the user that the device is offline
     echo "${yellow}Device is Offline${reset}"
     
-    # test if the most recent list exists
-    test -f $literacy_users_file
-    if [ "$?" = "0" ]; then
+    # test if the most recent list exists 
+    if test -f "$literacy_users_file"; then
         # if the file exists, insert it into the database
         echo "${yellow}Could not fetch latest details for Literacy learners. Inserting previously downloaded details..${reset}"
-        Rscript ~/.baseline_testing/scripts/insert_literacy_users_into_baseline.R $literacy_users_file > /dev/null
+        Rscript ~/.baseline_testing/scripts/insert_literacy_users_into_baseline.R "$literacy_users_file" > /dev/null
     else
         # if no recent file exists and the device is offline. print out an error message in red
         echo "${red} Could not fetch latest details for Literacy learners and no previous list was found.."
