@@ -136,6 +136,7 @@ LOOP
 				FROM  	ext.kolibriauth_collection
 				where   subscriptions LIKE playListID
 				and kind = 'learnergroup'
+				-- TODO : use channel name instead of length of channel subscriptions to select the next channel id
 				AND  length (subscriptions) = (SELECT min( length (subscriptions) )FROM  ext.kolibriauth_collection
 				where    subscriptions LIKE  playListID
 				and kind = 'learnergroup' );
