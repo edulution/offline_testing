@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # source a helper function to check if a database exists
+# shellcheck source=/dev/null
 source ~/.baseline_testing/scripts/check_db_exists.sh
 
 # check if directories exist
 DIRECTORIES=( ~/.reports/baseline )
-for DIRECTORY in ${DIRECTORIES[@]}; do
+for DIRECTORY in "${DIRECTORIES[@]}"; do
   if [ ! -d "$DIRECTORY" ]; then
     mkdir "$DIRECTORY"
   else
@@ -14,17 +15,17 @@ for DIRECTORY in ${DIRECTORIES[@]}; do
 done
 
 # pull latest changes from master branch in repo
-cd ~/.baseline_testing
+cd ~/.baseline_testing || exit
 git reset --hard origin/zambia > /dev/null
 git pull origin zambia > /dev/null
 
 # check if database file exists before extracting reports
-if db_exists $BASELINE_DATABASE_NAME ; then
+if db_exists "$BASELINE_DATABASE_NAME" ; then
   # Let the user know that the database already exists and skip
   echo "${blue}Database already exists.Skipping...${reset}"
   # if db file exists then extraction and submission begin. If not, will output error message to contact support
-	if (echo $1 |\
-    egrep '^(1[0-2]|0[0-9])[-/][0-9]{2}' > /dev/null
+	if (echo "$1" |\
+    grep -E '^(1[0-2]|0[0-9])[-/][0-9]{2}' > /dev/null
 	); then
        echo "${green}Extracting baseline tests for month $1${reset}"
        # fetch the first argument given(the month_year) on the command line and use it as an argument to the Rscript

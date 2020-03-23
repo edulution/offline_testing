@@ -1,19 +1,5 @@
 #!/bin/bash
 
-# get config vars
-#colors
-#=======
-export red=`tput setaf 1`
-export green=`tput setaf 2`
-export yellow=`tput setaf 3`
-export blue=`tput setaf 4`
-
-# reset to default bash text style
-export reset=`tput sgr0`
-
-# make actual text bold
-export bold=`tput bold`
-
 # check if device is online or offline
 if timeout 10 wget -q --spider http://google.com; then
     # inform the user that the device is online and attempt to fetch the details of literacy learners from the server
@@ -21,7 +7,7 @@ if timeout 10 wget -q --spider http://google.com; then
     echo "Fetching details for Literacy learners...."
     
     # if device is online, download file from server with literacy learners then add to db on local server
-    if sshpass -p $SSHPASS rsync --progress -e ssh edulution@130.211.93.74:/home/edulution/baseline/literacy_learners ~/.baseline_testing/ > /dev/null; then
+    if sshpass -p "$SSHPASS" rsync --progress -e ssh edulution@130.211.93.74:/home/edulution/baseline/literacy_learners ~/.baseline_testing/ > /dev/null; then
         echo "${green}Successfully fetched details for literacy learners...${reset}"
     else
         echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again${reset}"
