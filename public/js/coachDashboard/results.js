@@ -4,27 +4,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         $scope.init = function() {
 
-            $scope.selUser = '';
-
-            /*placeholder value used in smart-table because users are loaded asynchorously*/
-            $scope.users_placeholder = [];
-
-            $scope.selresults = []
-
-            $scope.selresults_placeholder = [];            
-
-            /*placeholder value used in smart-table because results are loaded asynchorously*/
-            $scope.results_placeholder = [];
-
-            /*pagination - items to display on each page*/
-            $scope.itemsByPage = 15;
-
-            /*empty object to initalize tests_marks*/
-            $scope.tests_marks = {};
-
-            /*enable angular animations*/
-            $ctrl.animationsEnabled = true;
-
             $http.get("/get_users").then(function(response) {
                 $scope.users = response.data;
                 /*console.log($scope.users);*/
@@ -60,11 +39,32 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 });
             });
 
-            
             /*Get the tests count by month*/
             $http.get("/get_test_count").then(function(response) {
                 $scope.tests_count = response.data;
             });
+
+            $scope.selUser = '';
+
+            /*placeholder value used in smart-table because users are loaded asynchorously*/
+            $scope.users_placeholder = [];
+
+            $scope.selresults = []
+
+            $scope.selresults_placeholder = [];            
+
+            /*placeholder value used in smart-table because results are loaded asynchorously*/
+            $scope.results_placeholder = [];
+
+            /*pagination - items to display on each page*/
+            $scope.itemsByPage = 15;
+
+            /*empty object to initalize tests_marks*/
+            $scope.tests_marks = {};
+
+            /*enable angular animations*/
+            $ctrl.animationsEnabled = true;
+
         }
 
         $scope.get_results = function(){
