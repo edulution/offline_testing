@@ -5,9 +5,18 @@ const path = require('path');
 /*Port the server will run on*/
 const { Pool, Client } = require('pg')
 
-const pool = new Pool({
+/*const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
+});
+*/
+
+const pool = new Pool({
+	user: process.env.BASELINE_DATABASE_USER,
+	host: process.env.BASELINE_DATABASE_HOST,
+	database: process.env.BASELINE_DATABASE_NAME,
+	password: process.env.BASELINE_DATABASE_PASSWORD,
+	port: process.env.BASELINE_DATABASE_PORT,
 });
 
 /*Use bodyParser to parse form data*/
@@ -187,10 +196,13 @@ app.get('/prealpha_d', (req, res) => {
 
 
 /*Results dashboard page*/
-app.get('/coach', (req, res) => {
+/*app.get('/coach', (req, res) => {
     res.sendFile(__dirname + '/dashboard/index.html');
-});
+});*/
 
+app.get('/results', (req, res) => {
+    res.sendFile(__dirname + '/dashboard/results.html');
+});
 
 
 /*Numeracy prealpha tests*/
