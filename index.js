@@ -503,7 +503,7 @@ app.post('/submit_test', [(req, res,next) => {
 		/*if the reponse is of type object(array). Questions with a single response will be of type string*/
 	  if (typeof(response[v]) == "object"){
 	  	/*use reducer method to get sum of elements*/
-	   total = response[v].reduce(reducer,0)
+	   total = Object.values(response[v]).reduce(reducer,0)
 	   /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
 	   if(total <= 0){
 	    response[v] = '0'
