@@ -36,6 +36,11 @@
             <ul class="nav nav-tabs">
               <li ng-class="{ active: menu.isSelected(1) }">
                 <a href="#" ng-click="menu.selectTab(1)"><h3>Test Results</h3></a>
+              </li>              
+              <li ng-class="{ active: menu.isSelected(2) }">
+                <a href="#" onclick="window.open('https://stats1.edulution.org/coach_stats/','_self')" ng-click="menu.selectTab(2)">
+                    <h3>Activity</h3>
+                </a>
               </li>
             </ul>
           </div>
@@ -108,7 +113,7 @@
             
         </div> <!-- table row -->
     </script>
-    <!-- open password modal when page is loaded(prod only) -->
+
     <span ng-init=init()></span>
     <navigation></navigation>
     <div class="container-fluid">
