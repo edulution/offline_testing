@@ -5,20 +5,20 @@ const path = require('path');
 /*Port the server will run on*/
 const { Pool, Client } = require('pg')
 
-const pool = new Pool({
+/*const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
 });
+*/
 
-
-/*const pool = new Pool({
+const pool = new Pool({
 	user: process.env.BASELINE_DATABASE_USER,
 	host: process.env.BASELINE_DATABASE_HOST,
 	database: process.env.BASELINE_DATABASE_NAME,
 	password: process.env.BASELINE_DATABASE_PASSWORD,
 	port: process.env.BASELINE_DATABASE_PORT,
 });
-*/
+
 /*Use bodyParser to parse form data*/
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -340,6 +340,15 @@ app.get('/lit_prealpha_2', (req, res) => {
 
 
 /*Grade 7 revision*/
+
+/*grade 7 mock tests*/
+app.get('/gr7_mock1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_mock1.html');
+});
+
+app.get('/gr7_mock2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/grade7_mock2.html');
+});
 
 app.get('/gr7_test1', (req, res) => {
     res.sendFile(__dirname + '/grade_7/grade7_test1.html');
