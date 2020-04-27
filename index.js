@@ -5,20 +5,20 @@ const path = require('path');
 /*Port the server will run on*/
 const { Pool, Client } = require('pg')
 
-/*const pool = new Pool({
+const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
 });
-*/
 
-const pool = new Pool({
+
+/*const pool = new Pool({
 	user: process.env.BASELINE_DATABASE_USER,
 	host: process.env.BASELINE_DATABASE_HOST,
 	database: process.env.BASELINE_DATABASE_NAME,
 	password: process.env.BASELINE_DATABASE_PASSWORD,
 	port: process.env.BASELINE_DATABASE_PORT,
 });
-
+*/
 /*Use bodyParser to parse form data*/
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
