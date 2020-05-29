@@ -1,4 +1,4 @@
-const express = require('express');
+/grade_7/literacy/const express = require('express');
 const app = express();
 const path = require('path');
 
@@ -15,13 +15,13 @@ const pool = new Pool({
 	port: process.env.BASELINE_DATABASE_PORT,
 });
 
-/*Use bodyParser to parse form data*/ 
+/*Use bodyParser to parse form data*/
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 /*Serve static assets from the public folder*/
-app.use(express.static(path.join(__dirname,'public'))); 
+app.use(express.static(path.join(__dirname,'public')));
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
@@ -34,7 +34,7 @@ function get_datetime_string() {
 	/*prefix date with 0 if less than 10(for consisitency with central db)*/
 	if(dd<10) {
 	    dd = '0'+dd
-	} 
+	}
 
 	/*prefix month with 0 if less than 10(for consisitency with central db)*/
 	if(mm<10) {
@@ -335,69 +335,161 @@ app.get('/lit_prealpha_2', (req, res) => {
 /*Grade 7 revision*/
 
 /*grade 7 mock tests*/
-app.get('/gr7_mock1', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_mock1.html');
+app.get('/gr7_num_mock1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_mock1.html');
 });
-app.get('/gr7_mock2', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_mock2.html');
-});
-
-app.get('/gr7_test1', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test1.html');
+app.get('/gr7_num_mock2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_mock2.html');
 });
 
-app.get('/gr7_test2', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test2.html');
+app.get('/gr7_num_test1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test1.html');
 });
 
-app.get('/gr7_test3', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test3.html');
+app.get('/gr7_num_test2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test2.html');
 });
 
-app.get('/gr7_test4', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test4.html');
+app.get('/gr7_num_test3', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test3.html');
 });
 
-app.get('/gr7_test5', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test5.html');
+app.get('/gr7_num_test4', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test4.html');
 });
 
-app.get('/gr7_test6', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test6.html');
+app.get('/gr7_num_test5', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test5.html');
 });
 
-app.get('/gr7_test7', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test7.html');
+app.get('/gr7_num_test6', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test6.html');
 });
 
-app.get('/gr7_test8', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test8.html');
+app.get('/gr7_num_test7', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test7.html');
 });
 
-app.get('/gr7_test9', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test9.html');
+app.get('/gr7_num_test8', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test8.html');
 });
 
-app.get('/gr7_test10', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test10.html');
+app.get('/gr7_num_test9', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test9.html');
 });
 
-app.get('/gr7_test11', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test11.html');
+app.get('/gr7_num_test10', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test10.html');
 });
 
-app.get('/gr7_test12', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test12.html');
+app.get('/gr7_num_test11', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test11.html');
 });
 
-app.get('/gr7_test13', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test13.html');
+app.get('/gr7_num_test12', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test12.html');
 });
 
-app.get('/gr7_test14', (req, res) => {
- res.sendFile( __dirname + '/grade_7/grade7_test14.html');
+app.get('/gr7_num_test13', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test13.html');
 });
 
+app.get('/gr7_num_test14', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/numeracy/grade7_test14.html');
+});
+
+/*Grade 7 mock revision*/
+app.get('/gr7_lit_mock1', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/literacy/grade7_lit_mock1.html');
+});
+app.get('/gr7_lit_mock2', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/literacy/grade7_lit_mock2.html');
+});
+app.get('/gr7_lit_mock3', (req, res) => {
+ res.sendFile( __dirname + '/grade_7/literacy/grade7_lit_mock3.html');
+});
+
+
+/*Grade 7 literacy revision*/
+app.get('/gr7_lit_test1', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test1.html');
+});
+
+app.get('/gr7_lit_test2', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test2.html');
+});
+
+app.get('/gr7_lit_test3', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test3.html');
+});
+
+app.get('/gr7_lit_test3', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test3.html');
+});
+
+app.get('/gr7_lit_test4', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test4.html');
+});
+
+app.get('/gr7_lit_test4', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test4.html');
+});
+
+app.get('/gr7_lit_test5', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test5.html');
+});
+
+app.get('/gr7_lit_test5', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test5.html');
+});
+
+app.get('/gr7_lit_test5', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test5.html');
+});
+
+app.get('/gr7_lit_test5', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test5.html');
+});
+
+app.get('/gr7_lit_test6', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test6.html');
+});
+
+app.get('/gr7_lit_test7', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test7.html');
+});
+
+app.get('/gr7_lit_test8', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test8.html');
+});
+
+app.get('/gr7_lit_test9', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test9.html');
+});
+
+app.get('/gr7_lit_test10', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test10.html');
+});
+
+app.get('/gr7_lit_test11', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test11.html');
+});
+
+app.get('/gr7_lit_test12', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test12.html');
+});
+
+app.get('/gr7_lit_test13', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test13.html');
+});
+
+app.get('/gr7_lit_test14', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test14.html');
+});
+
+app.get('/gr7_lit_test15', (req, res) => {
+	res.sendFile( __dirname + '/grade_7/literacy/grade7_literacy_test15.html');
+});
 
 /*Endpoints*/
 
@@ -493,7 +585,7 @@ app.post('/submit_test', [(req, res,next) => {
 
 	/*simple function to sum values in an array*/
 	const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
-		
+
 	response = req.body;
 	/*check if response was checkboxes
 	will appear as array in response*/
@@ -538,7 +630,7 @@ app.post('/submit_test', [(req, res,next) => {
 
 	var insert_statement = 'INSERT INTO responses('+response_props.toString()+') values ('+uresponses_quoted+')';
 	console.log(insert_statement);
-	
+
 	// promise
 	pool.query(insert_statement)
 	  .then(result => {
