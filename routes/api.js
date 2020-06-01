@@ -17,10 +17,10 @@ router.use(express.static(path.resolve('public')));
 /*Return today as string*/
 /*Used for timestamping of responses*/
 function get_datetime_string() {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
 
     /*prefix date with 0 if less than 10(for consisitency with central db)*/
     if (dd < 10) {
@@ -38,7 +38,7 @@ function get_datetime_string() {
 
 
 router.get('/get_server_date', (req, res) => {
-    var current_date = get_datetime_string()
+    let current_date = get_datetime_string()
     return res.json(current_date)
 });
 
@@ -51,7 +51,7 @@ router.get('/sucessful_submit', (req, res) => {
 
 /*endpoint to get users list as json*/
 router.get('/get_users', (req, res, next) => {
-    const users_query = {
+    let users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
         text: 'SELECT * FROM users'
@@ -72,7 +72,7 @@ router.get('/get_users', (req, res, next) => {
 
 /*endpoint to test count stats list as json*/
 router.get('/get_test_count', (req, res, next) => {
-    const test_counts_query = {
+    let test_counts_query = {
         /*Query to count the number of tests and group by month end (last day(test date))*/
         name: 'fetch-test-counts',
         text: 'SELECT last_day(test_date::date) as test_month, count(*) as number_of_tests from responses group by last_day(test_date::date) order by last_day(test_date::date) desc'
@@ -92,7 +92,7 @@ router.get('/get_test_count', (req, res, next) => {
 
 /*endpoint to get all test_responses as json*/
 router.get('/get_responses', function(req, res) {
-    const responses_query = {
+    let responses_query = {
         /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
         name: 'fetch-responses',
         text: 'select u.username,u.first_name,u.last_name,tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0)+ coalesce(q20::integer,0.0)+ coalesce(q21::integer,0.0)+ coalesce(q22::integer,0.0)+ coalesce(q23::integer,0.0)+ coalesce(q24::integer,0.0)+ coalesce(q25::integer,0.0)+ coalesce(q26::integer,0.0)+ coalesce(q27::integer,0.0)+ coalesce(q28::integer,0.0)+ coalesce(q29::integer,0.0)+ coalesce(q30::integer,0.0)+ coalesce(q31::integer,0.0)+ coalesce(q32::integer,0.0)+ coalesce(q33::integer,0.0)+ coalesce(q34::integer,0.0)+ coalesce(q35::integer,0.0)+ coalesce(q36::integer,0.0)+ coalesce(q37::integer,0.0)+ coalesce(q38::integer,0.0)+ coalesce(q39::integer,0.0)+ coalesce(q40::integer,0.0)+ coalesce(q41::integer,0.0)+ coalesce(q42::integer,0.0)+ coalesce(q43::integer,0.0)+ coalesce(q44::integer,0.0)+ coalesce(q45::integer,0.0)+ coalesce(q46::integer,0.0)+ coalesce(q47::integer,0.0)+ coalesce(q48::integer,0.0)+ coalesce(q49::integer,0.0)+ coalesce(q50::integer,0.0)+ coalesce(q51::integer,0.0)+ coalesce(q52::integer,0.0)+ coalesce(q53::integer,0.0)+ coalesce(q54::integer,0.0)+ coalesce(q55::integer,0.0)+ coalesce(q56::integer,0.0)+ coalesce(q57::integer,0.0)+ coalesce(q58::integer,0.0)+ coalesce(q59::integer,0.0)+ coalesce(q60::integer,0.0)+ coalesce(q61::integer,0.0)+ coalesce(q62::integer,0.0)+ coalesce(q63::integer,0.0)+ coalesce(q64::integer,0.0)+ coalesce(q65::integer,0.0)+ coalesce(q66::integer,0.0)+ coalesce(q67::integer,0.0)+ coalesce(q68::integer,0.0)+ coalesce(q69::integer,0.0)+ coalesce(q70::integer,0.0))/testmaxscore,2) as score_pct from responses r left join users u on r.user_id = u.user_id left join test_marks tm on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc'
@@ -110,7 +110,7 @@ router.get('/get_responses', function(req, res) {
 });
 
 router.get('/get_test_marks', (req, res) => {
-    const test_marks_query = {
+    let test_marks_query = {
         name: 'fetch-test-marks',
         text: 'SELECT * from test_marks'
     }
@@ -131,7 +131,7 @@ router.get('/get_test_marks', (req, res) => {
 router.post('/submit_test', [(req, res, next) => {
 
     /*simple function to sum values in an array*/
-    const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
+    let reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
     response = req.body;
     /*check if response was checkboxes
@@ -159,21 +159,21 @@ router.post('/submit_test', [(req, res, next) => {
     }
 
     /*properties of response object - user_id,username,q1,q2..*/
-    var response_props = Object.keys(response);
+    let response_props = Object.keys(response);
 
     console.log(response);
 
     /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
-    var uresponses = response_props.map((v) => { return response[v]; });
+    let uresponses = response_props.map((v) => { return response[v]; });
 
     /*remove the test date from the reponse props*/
-    /*var utest_date = uresponses.pop();*/
+    /*let utest_date = uresponses.pop();*/
 
-    var uresponses_quoted = "'" + uresponses.join("','") + "'";
+    let uresponses_quoted = "'" + uresponses.join("','") + "'";
 
     /*Insert statement to run on database. test date added as current date from server*/
 
-    var insert_statement = 'INSERT INTO responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')';
+    let insert_statement = 'INSERT INTO responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')';
     console.log(insert_statement);
 
     // promise
@@ -195,18 +195,18 @@ router.post('/overwrite_test', [(req, res, next) => {
 
     /*Get the props which we will use as our criteria for deleting the existing test*/
     /*Before inserting the one which has just been submitted*/
-    var user_id = response['user_id'];
-    var test_done = response['test'];
-    var course = response['course'];
-    var test_module = response['module'];
-    var test_date = response['test_date'];
+    let user_id = response['user_id'];
+    let test_done = response['test'];
+    let course = response['course'];
+    let test_module = response['module'];
+    let test_date = response['test_date'];
 
     /*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
     /*not all tests on the same day in the same course*/
     /*future work. use array instead of direct string comparison in case other courses need this functionality*/
     if (course.indexOf("grade7") !== -1) {
-        const query_gr7 = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
-        const values_gr7 = [user_id, test_done, course, test_module, test_date]
+        let query_gr7 = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
+        let values_gr7 = [user_id, test_done, course, test_module, test_date]
 
         // callback
         pool.query(query_gr7, values_gr7, (err, res) => {
@@ -220,8 +220,8 @@ router.post('/overwrite_test', [(req, res, next) => {
 
     /*For any other test, delete all tests in the same course done on the same day for that user*/
     else {
-        const query_other = 'DELETE FROM responses where user_id=($1) and course=($2) and module=($3) and test_date=($4)'
-        const values_other = [user_id, course, test_module, test_date]
+        let query_other = 'DELETE FROM responses where user_id=($1) and course=($2) and module=($3) and test_date=($4)'
+        let values_other = [user_id, course, test_module, test_date]
 
         // callback
         pool.query(query_other, values_other, (err, res) => {
