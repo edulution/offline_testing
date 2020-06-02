@@ -3,7 +3,10 @@ const router = express.Router()
 const path = require('path');
 
 /*Use the public directory to serve static assets*/
-router.use(express.static(path.resolve('public')));
+router.use(express.static(path.resolve(
+	path.join(__basedir,'public')
+	)))
+
 
 /*Get the selected test as a param of the request*/
 /*then construct the path to the html file*/
