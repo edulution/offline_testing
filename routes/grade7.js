@@ -4,14 +4,15 @@ const path = require('path');
 
 /*Use the public directory to serve static assets*/
 router.use(express.static(path.resolve('public')));
+/*router.use('/static', express.static(path.resolve('public')))*/
 
 /*Get the selected test as a param of the request*/
 /*then construct the path to the html file*/
 /*It is assumed that the name of the html file is the same as the requested test*/
-router.get('/:test', (req, res) => {
-    selected_test = req.params.test
-    /* Construct path to Grade 7 revision numeracy */
-    res.sendFile(path.resolve('grade7/numeracy/' + selected_test + '.html'));
+router.get('/:module/:test', (req, res) => {
+	let selected_module = req.params.module
+    let selected_test = req.params.test
+    res.sendFile(path.resolve(path.join('grade7', selected_module, selected_test + '.html')));
 });
 
 module.exports = router;
