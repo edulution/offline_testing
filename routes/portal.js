@@ -26,8 +26,8 @@ router.get('/literacy_tests', (req, res) => {
 });
 
 /*grade7_revision page*/
-router.get('/grade_7_revision', (req, res) => {
-    res.sendFile(path.resolve('portal/grade_7_revision.html'));
+router.get('/grade7_revision', (req, res) => {
+    res.sendFile(path.resolve('portal/grade7_revision.html'));
 });
 
 module.exports = router
