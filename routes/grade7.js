@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const path = require('path');
+const path = require('path')
 
 /*Use the public directory to serve static assets*/
 router.use(express.static(path.resolve(
@@ -13,7 +13,9 @@ router.use(express.static(path.resolve(
 router.get('/:module/:test', (req, res) => {
 	let selected_module = req.params.module
     let selected_test = req.params.test
-    res.sendFile(path.resolve(path.join('grade7', selected_module, selected_test + '.html')));
-});
+    res.sendFile(path.resolve(
+    	path.join('grade7', selected_module, selected_test + '.html')
+    	))
+})
 
-module.exports = router;
+module.exports = router

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const path = require('path');
+const path = require('path')
 
 const { Pool, Client } = require('pg')
 
@@ -10,17 +10,17 @@ const pool = new Pool({
     database: process.env.BASELINE_DATABASE_NAME,
     password: process.env.BASELINE_DATABASE_PASSWORD,
     port: process.env.BASELINE_DATABASE_PORT,
-});
+})
 
 router.use(express.static(path.resolve('public')));
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
 function get_datetime_string() {
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
+    let today = new Date()
+    let dd = today.getDate()
+    let mm = today.getMonth() + 1 //January is 0!
+    let yyyy = today.getFullYear()
 
     /*prefix date with 0 if less than 10(for consisitency with central db)*/
     if (dd < 10) {
@@ -32,8 +32,8 @@ function get_datetime_string() {
         mm = '0' + mm
     }
     /*return today's date as string*/
-    today = yyyy + '-' + mm + '-' + dd;
-    return today;
+    today = yyyy + '-' + mm + '-' + dd
+    return today
 }
 
 
@@ -133,7 +133,7 @@ router.post('/submit_test', [(req, res, next) => {
     /*simple function to sum values in an array*/
     let reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
-    response = req.body;
+    response = req.body
     /*check if response was checkboxes
     will appear as array in response*/
 
@@ -159,21 +159,21 @@ router.post('/submit_test', [(req, res, next) => {
     }
 
     /*properties of response object - user_id,username,q1,q2..*/
-    let response_props = Object.keys(response);
+    let response_props = Object.keys(response)
 
-    console.log(response);
+    console.log(response)
 
     /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
-    let uresponses = response_props.map((v) => { return response[v]; });
+    let uresponses = response_props.map((v) => { return response[v]; })
 
     /*remove the test date from the reponse props*/
     /*let utest_date = uresponses.pop();*/
 
-    let uresponses_quoted = "'" + uresponses.join("','") + "'";
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
 
     /*Insert statement to run on database. test date added as current date from server*/
 
-    let insert_statement = 'INSERT INTO responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')';
+    let insert_statement = 'INSERT INTO responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')'
     console.log(insert_statement);
 
     // promise
@@ -195,11 +195,11 @@ router.post('/overwrite_test', [(req, res, next) => {
 
     /*Get the props which we will use as our criteria for deleting the existing test*/
     /*Before inserting the one which has just been submitted*/
-    let user_id = response['user_id'];
-    let test_done = response['test'];
-    let course = response['course'];
-    let test_module = response['module'];
-    let test_date = response['test_date'];
+    let user_id = response['user_id']
+    let test_done = response['test']
+    let course = response['course']
+    let test_module = response['module']
+    let test_date = response['test_date']
 
     /*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
     /*not all tests on the same day in the same course*/
