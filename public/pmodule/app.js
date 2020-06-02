@@ -31,7 +31,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     $scope.learner_sexes = [{label:'Male',value:'M'},{label:'Female',value:'F'}]
 
     /*Send get request to endpoint to return all user objects*/
-    $http.get( "/get_users").then(function( response) {
+    $http.get( "/api/get_users").then(function( response) {
       $scope.users = response.data; 
       /*Loop through objects in list and add to usernames list*/
       for (var i=0, item; item = $scope.users[i]; i++) {
@@ -41,13 +41,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     })
 
     /*get server date from enpoint*/
-    $http.get("/get_server_date").then(function(response){
+    $http.get("/api/get_server_date").then(function(response){
       /*set to scope variable serverDate*/
       $scope.serverDate = response.data;
     })    
 
     /*get server date from enpoint*/
-    $http.get("/get_responses").then(function(response){
+    $http.get("/api/get_responses").then(function(response){
       /*get list of concatenated props for all existing test responses*/
       $scope.existingResponses = get_responses_concat_list(response.data)
     })
