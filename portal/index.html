@@ -5,22 +5,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link href="css/portal.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link href="/css/portal.css" rel="stylesheet" />
     <!-- your app's js -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-animate.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
     <!-- Added new jquery -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <!-- Added native js  -->
-    <script type="text/javascript" src="js/portal/app.js"></script>
+    <script type="text/javascript" src="/js/portal/app.js"></script>
 </head>
 
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
     <!-- Navbar -->
-    <div ng-include="'include/navbar.html'"></div>
+    <div ng-include="'/include/navbar.html'"></div>
     <h3 class="mainBody">Welcome. What would you like to do?</h3>
     <!-- Body -->
     <div class="container-fluid">
@@ -32,7 +32,7 @@
                     <a href="#" onclick="window.open('http://192.168.8.200:8080','_self')">
                         <div class="button_spacing">
                             <div class="icon_background">
-                                <img src="images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
+                                <img src="/images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
                                 <p class="texts">KOLIBRI</p>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-3  img_btn_container">
                     <a href="#" onclick="window.open('/numeracy_assessments','_self')">
                         <div class="icon_background">
-                            <img src="images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
+                            <img src="/images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
                             <p class="texts">
                                 NUMERACY
                                 <br>
@@ -86,7 +86,7 @@
         </div>
     </div>
     <!-- Footer -->
-    <div ng-include="'include/footer.html'"></div>
+    <div ng-include="'/include/footer.html'"></div>
 </body>
 
 </html>
