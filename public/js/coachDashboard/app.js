@@ -52,7 +52,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 });
             });
 
-            
+
             /*Get the tests count by month*/
             $http.get("/api/get_test_count").then(function(response) {
                 $scope.tests_count = response.data;
@@ -203,10 +203,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         /*Main function which puts everything together*/
         /*Modifies testresponse object and adds properties block_1 to block_5*/
         var generate_blocks = function(testMarks, testResponse) {
-          /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
+            /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
             let cuttoffPoint = get_test_max_score(testMarks, testResponse)
 
-          /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
+            /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
             let one_fifth = cuttoffPoint / 5
 
             /*Get the object values for q1 to q..*/
@@ -228,7 +228,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
 
             /*finally create the values and results for each chunk of questions*/
-            /*based on the maxscore for the test and totals for each chunk*/ 
+            /*based on the maxscore for the test and totals for each chunk*/
             /*This will modify the object passed in and returns nothing*/
             get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
 
@@ -255,17 +255,17 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Check if the password entered is equal to the password expected from the coach*/
         $ctrl.checkPassword = function(password) {
-          /*If the password is correct*/
+            /*If the password is correct*/
             if (password == $scope.coachPassword) {
-              /*The wrongPassword variable remains false*/
-              /*The modal is dismissed*/
+                /*The wrongPassword variable remains false*/
+                /*The modal is dismissed*/
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
-            } 
+            }
             /*If the password is wrong*/
             else {
-              /*he wrongPassword variable is set to true*/
-              /*Errors are show on the html template based on this value*/
+                /*he wrongPassword variable is set to true*/
+                /*Errors are show on the html template based on this value*/
                 $scope.wrongPassword = true;
             }
         };
@@ -338,7 +338,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
         };
     })
-    /*element directive for results by section tab*/    
+    /*element directive for results by section tab*/
     .directive('responsesections', function() {
         return {
             restrict: 'E',
