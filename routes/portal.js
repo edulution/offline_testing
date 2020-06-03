@@ -4,8 +4,8 @@ const path = require('path');
 
 /*Use the public directory to serve static assets*/
 router.use(express.static(path.resolve(
-	path.join(__basedir,'public')
-	)))
+    path.join(__basedir, 'public')
+)))
 
 /*portal homepage*/
 router.get('/', (req, res) => {
