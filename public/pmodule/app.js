@@ -31,7 +31,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     $scope.learner_sexes = [{label:'Male',value:'M'},{label:'Female',value:'F'}]
 
     /*Send get request to endpoint to return all user objects*/
-    $http.get( "/get_users").then(function( response) {
+    $http.get( "/api/get_users").then(function( response) {
       $scope.users = response.data; 
       /*Loop through objects in list and add to usernames list*/
       for (var i=0, item; item = $scope.users[i]; i++) {
@@ -41,13 +41,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
     })
 
     /*get server date from enpoint*/
-    $http.get("/get_server_date").then(function(response){
+    $http.get("/api/get_server_date").then(function(response){
       /*set to scope variable serverDate*/
       $scope.serverDate = response.data;
     })    
 
     /*get server date from enpoint*/
-    $http.get("/get_responses").then(function(response){
+    $http.get("/api/get_responses").then(function(response){
       /*get list of concatenated props for all existing test responses*/
       $scope.existingResponses = get_responses_concat_list(response.data)
     })
@@ -71,7 +71,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
-      templateUrl: 'pmodule/templates/pmodal_content.html',
+      templateUrl: '/pmodule/templates/pmodal_content.html',
       controller: 'ModalInstanceCtrl',
       controllerAs: '$password_modal_ctrl',
       backdrop: 'static',
@@ -92,7 +92,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
-      templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
+      templateUrl: '/pmodule/templates/confirm_overwrite_test.html',
       controller: 'MainCtrl',
       scope: $scope,
       backdrop: 'static',
@@ -205,15 +205,15 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui', '
 
 /*Test submission function*/
   $scope.submit = function() {
-    $http.post("/submit_test", $scope.testResponse).then(function(success) {
+    $http.post("/api/submit_test", $scope.testResponse).then(function(success) {
       /*redirect to sucessful submission page*/
-      window.location = '/sucessful_submit'
+      window.location = '/api/sucessful_submit'
     });
   }
 
   /*Test submission function*/
   $scope.overwrite_test = function() {
-    $http.post("/overwrite_test", $scope.testResponse).then(function(res) {
+    $http.post("/api/overwrite_test", $scope.testResponse).then(function(res) {
       /*redirect to sucessful submission page*/
       if (res.status == 200) {
         console.log('Recieved status of 200')

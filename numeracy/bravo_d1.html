@@ -7,32 +7,32 @@
     <title>Bravo D1</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <!--Custom Css-->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
     <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link href="css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="css/angular-ui.min.css" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-animate.js"></script>
-    <script src="js/angular-sanitize.js"></script>
-    <script src="js/angular-ui.min.js"></script>
-    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <script src="pmodule/app.js"></script>
-    <link rel="stylesheet" href="pmodule/password_modal.css">
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -40,11 +40,11 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 main_content">
                     <div id="edulution_logo">
-                        <img src="images/edulution_logo.png" width="400px" height="300px" class="img-responsive center-block">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
                         <p class="test_name"> Bravo D1</p>
-                        <div ng-include="'pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Time allowed: 1 Hour <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
@@ -53,7 +53,7 @@
                         <h3>(1) Given the formula for a piecewise function, evaluate it for specific input.</h3>
                         <p>h(&minus;3) &equals; ?</p>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q1.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q1.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -169,7 +169,7 @@
                         <h3>(7) Find the arc length shaded in blue of BC.</h3>
                         <p>Use &pi; &equals; 3.14</p>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q7.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q7.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="1">
@@ -231,7 +231,7 @@
                         </p>
                         <h3>(9) Find the value of x.</h3>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q9.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q9.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
@@ -276,7 +276,7 @@
                         <h3>(10) In the diagram below, CD is perpendicular to AB.</h3>
                         <p>Find the length AQ.</p>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q10.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q10.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="00">
@@ -296,7 +296,7 @@
                         </p>
                         <h3>(11) Find the value of Sin (B).</h3>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q11.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q11.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="00000">
@@ -341,7 +341,7 @@
                         <h3>(12) What is the volume of the cylinder below?</h3>
                         <p>Use &pi; &equals; 3.14</p>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q12.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q12.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="000">
@@ -463,7 +463,7 @@
                         </p>
                         <h3>(16) In the fiqure below, BD and EC are diameters of circle P. What is the arc measure of AE in degrees?</h3>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q16.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q16.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="00000">
@@ -484,7 +484,7 @@
                         <h3>(17) What is the area of the shaded sector?</h3>
                         <p>Use &pi; &equals; 3.14</p>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q17.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q17.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
@@ -504,7 +504,7 @@
                         </p>
                         <h3>(18) Is the discriminant of f positive, zero or negative?</h3>
                         <div class="img_answers">
-                            <img src="images/bravo_d1/d1q18.jpg" class="img-responsive" />
+                            <img src="/images/bravo_d1/d1q18.jpg" class="img-responsive" />
                         </div>
                         <p>
                             <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="1">
@@ -565,7 +565,7 @@
                         <input type="hidden" name="test" ng-init="testResponse.test='bravo_d1'">
                         <input type="hidden" name="course" ng-init="testResponse.course='bravo_d'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
             </div>

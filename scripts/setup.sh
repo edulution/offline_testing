@@ -2,7 +2,7 @@
 
 # First time setup script
 # Go into directory for baseline testing
-cd ~/.baseline_testing
+cd ~/.baseline_testing || exit
 
 # Link npm packages
 npm link pg > /dev/null
