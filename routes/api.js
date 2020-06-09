@@ -186,7 +186,7 @@ router.post('/submit_test', [(req, res, next) => {
     next();
 }, (req, res) => {
     /*Display successful submission page after request sucessful*/
-    res.sendFile(path.resolve('/submit/sucessful_submission.html'));
+    res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 }]);
 
 /*An endpoint to delete a test based on user_id, test, course, module, and test date*/
