@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 global.__basedir = __dirname;
 app.use(express.static(path.join(__dirname, 'public')))
 
+/*Import all of the route modules*/
 const portal = require('./routes/portal')
 const api = require('./routes/api')
 const playlists = require('./routes/playlists')
