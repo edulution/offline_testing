@@ -43,7 +43,8 @@ router.get('/get_server_date', (req, res) => {
 });
 
 router.get('/sucessful_submit', (req, res) => {
-    res.sendFile(__dirname + '/submit/sucessful_submission.html');
+    path.join(__basedir, 'public')
+    res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 });
 
 
