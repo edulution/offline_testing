@@ -1,40 +1,47 @@
 #!/bin/bash
 
-# get config vars
 #colors
 #=======
-export red=`tput setaf 1`
-export green=`tput setaf 2`
-export yellow=`tput setaf 3`
-export blue=`tput setaf 4`
+export red
+red=$(tput setaf 1)
+export green
+green=$(tput setaf) 2
+export yellow
+yellow=$(tput setaf) 3
+export blue
+blue=$(tput setaf) 4
 
 # reset to default bash text style
-export reset=`tput sgr0`
+export reset
+reset=$(tput sgr0)
 
 # make actual text bold
-export bold=`tput bold`
+export bold
+bold=$(tput bold)
 
 # check if device is online or offline
-timeout 10 wget -q --spider http://google.com
-
-if [[ $? -eq 0 ]]; then
-    #statements
+if timeout 10 wget -q --spider http://google.com; then
+    # inform the user that the device is online and attempt to fetch the details of literacy learners from the server
     echo "${green}Device is Online${reset}"
     echo "Fetching details for Literacy learners...."
-    # if device is online, download file from server with literacy learners then add to db on local server
-    sshpass -p $SSHPASS rsync --progress -e ssh edulution@130.211.93.74:/home/edulution/baseline/literacy_learners ~/.baseline_testing/
     
-    # Add literacy users to database
-    Rscript ~/.baseline_testing/scripts/insert_literacy_users_into_baseline.R $literacy_users_file
+    # if device is online, download file from server with literacy learners then add to db on local server
+    if sshpass -p "$SSHPASS" rsync --progress -e ssh edulution@130.211.93.74:/home/edulution/baseline/literacy_learners ~/.baseline_testing/ > /dev/null; then
+        echo "${green}Successfully fetched details for literacy learners...${reset}"
+    else
+        echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again${reset}"
+    fi
 
-    if [ "$?" = "0" ]; then
+    # Add literacy users to database
+    if Rscript ~/.baseline_testing/scripts/insert_literacy_users_into_baseline.R "$literacy_users_file" > /dev/null; then
         echo "${green}Adding details for literacy learners...${reset}"
         echo "${green}${bold}Done!${reset}"
     else
         echo "${red}There was a problem fetching details for literacy learners. Please check your internet connection or try again${reset}"
     fi
+
+# if device is offline, insert the most recently downloaded list
 else
-    # if device is offline, insert the most recently downloaded list
     # inform the user that the device is offline
     echo "${yellow}Device is Offline${reset}"
     

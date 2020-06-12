@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Grade 7 Literacy Mock 3</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- include partial for password modal -->
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="testForm">
+                        <div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC - LITERACY</div>
+                        <p class="test_name">MOCK 3</p>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <h3>Time allowed: <b>1 Hour 30 Minutes</b></h3>
+                        <h3></h3>
+                        <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
+                        <!-- TODO: Add form name,action and method -->
+                        <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                        <h4>Each question contains a sentence from which a word or a group of words is missing in the space shown. Below each sentence are four words or groups of words. Only one of the words or groups of words will make the sentence right. Choose it.</h4>
+                        <h3>(1) I have given this book to you. Therefore, it is ________</h3>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_a">mine.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_b">ours.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
+                            <label for="q1_c">theirs.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_d">yours.</label>
+                        </p>
+                        <h3>(2) Many people agree that health is ________ than wealth.</h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="q2_a">best</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_b">better</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="q2_c">more good</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
+                            <label for="q2_d">most good</label>
+                        </p>
+                        <h3>(3) Natasha did well in her examination because she ________ attended all the lessons.</h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_a">always</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="q3_b">never</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="000">
+                            <label for="q3_c">rarely</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
+                            <label for="q3_d">sometimes</label>
+                        </p>
+                        <h3>(4) He checked his punctured tube by ________ it into a basin of water.</h3>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="q4_a">put</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_b">putting</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_c">has put</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">had put</label>
+                        </p>
+                        <h3>(5) Ruth walked ________ along the footbridge to avoid falling.</h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
+                            <label for="q5_a">careful</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_b">carefully</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="q5_c">more carefully</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
+                            <label for="q5_d">most carefully</label>
+                        </p>
+                        <h3>(6) We should blame ________ for failing to qualify to the World Cup.</h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="q6_a">themselves</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_b">ourselves</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="000">
+                            <label for="q6_c">myself</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0000">
+                            <label for="q6_d">itself</label>
+                        </p>
+                        <h3>(7) Namwinga smiled ________ at the visitors.</h3>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="q7_a">cheerful</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_b">cheerfully</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_c">more cheerful</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
+                            <label for="q7_d">most cheerful</label>
+                        </p>
+                        <h3>(8) The dog ________ was shot died instantly.</h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="q8_a">whose</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="q8_b">whom</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_c">who</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_d">which</label>
+                        </p>
+                        <h3>(9) ________ car is parked outside there?</h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
+                            <label for="q9_a">Who</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
+                            <label for="q9_b">Whom</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_c">Who's</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">Whose</label>
+                        </p>
+                        <h3>(10) I have to clean the house now, ________ , I cannot go with you.</h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_a">therefore</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="00">
+                            <label for="q10_b">unless</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_c">when</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">while</label>
+                        </p>
+                        <h3>(11) ________men and women over there are waiting for a bus.</h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a">That</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
+                            <label for="q11_b">These</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="000">
+                            <label for="q11_c">This</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_d">Those</label>
+                        </p>
+                        <h3>(12) They were talking ________ the others were eating.</h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
+                            <label for="q12_a">despite</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="q12_b">even</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_c">in spite</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_d">while</label>
+                        </p>
+                        <h3>(13) Tom's father ________ a picture of Tom wearing boots and a helmet.</h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a">take</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="q13_b">taken</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
+                            <label for="q13_c">taking</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d">took</label>
+                        </p>
+                        <h3>(14) How ________ does the dispensary open?</h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
+                            <label for="q14_a">always</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_b">often</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_c">sometimes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="q14_d">usually</label>
+                        </p>
+                        <h3>(15) AIDS cases ________ to be common in the 1980s.</h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="q15_a">was started</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="q15_b">starts</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="q15_c">starting</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_d">started</label>
+                        </p>
+                        <h3>(16) The boy hit himself ________ the wall.</h3>
+                        <p>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="q16_a">against</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="00">
+                            <label for="q16_b">at</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="000">
+                            <label for="q16_c">on</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="0000">
+                            <label for="q16_d">through</label>
+                        </p>
+                        <h3>(17) She spoke so ________ at the meeting.</h3>
+                        <p>
+                            <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0">
+                            <label for="q17_a">best</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="00">
+                            <label for="q17_b">good</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="000">
+                            <label for="q17_c">nice</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="q17_d">well</label>
+                        </p>
+                        <h3>(18) When I reached home, the dog had already ________ the food.</h3>
+                        <p>
+                            <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="0">
+                            <label for="q18_a">ate</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="00">
+                            <label for="q18_b">eat</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="000">
+                            <label for="q18_c">eating</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="q18_d">eaten</label>
+                        </p>
+                        <h3>(19) "Do your work ________ I will punish you," shouted the teacher.</h3>
+                        <p>
+                            <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="0">
+                            <label for="q19_a">before</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="00">
+                            <label for="q19_b">nor</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="1">
+                            <label for="q19_c">or</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0000">
+                            <label for="q19_d">unless</label>
+                        </p>
+                        <h3>(20) The time I visited Mpulungu Harbour, I saw a ________ of ships.</h3>
+                        <p>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="0">
+                            <label for="q20_a">bunch</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="q20_b">fleet</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="000">
+                            <label for="q20_c">group</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="0000">
+                            <label for="q20_d">heap</label>
+                        </p>
+                        <div class="HeadertopicLabel">SPELLING</div>
+                        <h4>Each question has a sentence with one word missing. Below each sentence are four words. Choose the word that is correctly spelt.</h4>
+                        <h3>(21) Mathematics requires a lot of ________</h3>
+                        <p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_a">calculations.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00">
+                            <label for="q21_b">caculations.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="000">
+                            <label for="q21_c">calculacions.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_d">caculacions.</label>
+                        </p>
+                        <h3>(22) Mrs Banda is a ________ because she gives advice to people with problems.</h3>
+                        <p>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="0">
+                            <label for="q22_a">councelor</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="00">
+                            <label for="q22_b">couselor</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
+                            <label for="q22_c">cousellor</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="q22_d">counsellor</label>
+                        </p>
+                        <h3>(23) The new pupils expressed ________ about the school rules.</h3>
+                        <p>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="0">
+                            <label for="q23_a">ignoranse</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="00">
+                            <label for="q23_b">ignorrance</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="000">
+                            <label for="q23_c">ignoranse</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="1">
+                            <label for="q23_d">ignorance</label>
+                        </p>
+                        <h3>(24) Katiba was ________ to go back to school by her elder brother because she was too young to get married.</h3>
+                        <p>
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="0">
+                            <label for="q24_a">pesuaded</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="00">
+                            <label for="q24_b">persueded</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="000">
+                            <label for="q24_c">pursuaded</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="1">
+                            <label for="q24_d">persuaded</label>
+                        </p>
+                        <h3>(25) We should ________ adults who do not respect the privacy of boys and girls.</h3>
+                        <p>
+                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="0">
+                            <label for="q25_a">dout</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_b" name="q25" ng-model="testResponse.q25" value="00">
+                            <label for="q25_b">doubt</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_c" name="q25" ng-model="testResponse.q25" value="1">
+                            <label for="q25_c">doubt</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="0000">
+                            <label for="q25_d">dout</label>
+                        </p>
+                        <div class="HeadertopicLabel">PUNCTUATION</div>
+                        <h3>(26) Choose the sentence which is correctly punctuated.</h3>
+                        <p>
+                            <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="0">
+                            <label for="q26_a">I would like you to stay in a more comfortable place Anna said to Sara,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_b" name="q26" ng-model="testResponse.q26" value="00">
+                            <label for="q26_b">I would like you to stay in a more comfortable place. Anna said to Sara,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="000">
+                            <label for="q26_c">I would like you to stay in a more comfortable place, "Anna said to Sara."</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="1">
+                            <label for="q26_d">"I would like you to stay in a more comfortable place," Anna said to Sara.</label>
+                        </p>
+                        <h3>(27) Choose the sentence which is correctly punctuated.</h3>
+                        <p>
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="0">
+                            <label for="q27_a">Musas', story, is heart—breaking.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_b" name="q27" ng-model="testResponse.q27" value="00">
+                            <label for="q27_b">Musa's story, is heart—breaking.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="000">
+                            <label for="q27_c">Musas' story is heart—breaking.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="q27_d">Musa's story is heart—breaking.</label>
+                        </p>
+                        <h3>(28) Choose the sentence which is correctly punctuated.</h3>
+                        <p>
+                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="0">
+                            <label for="q28_a">"On your marks, get set, go?"</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="00">
+                            <label for="q28_b">"On your marks, get set. go!"</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="1">
+                            <label for="q28_c">"On your marks, get set, go!"</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="0000">
+                            <label for="q28_d">"On your marks get set go?"</label>
+                        </p>
+                        <h3>(29) Choose the sentence which is correctly punctuated.</h3>
+                        <p>
+                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0">
+                            <label for="q29_a">Sililo likes eating cassava, sweet potatoes, and apples.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="00">
+                            <label for="q29_b">Sililo likes eating cassava, sweet potatoes and apples</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="000">
+                            <label for="q29_c">Sililo likes eating cassava? Sweet potatoes and apples,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="1">
+                            <label for="q29_d">Sililo likes eating cassava, sweet potatoes and apples.</label>
+                        </p>
+                        <h3>(30) Choose the sentence which is correctly punctuated.</h3>
+                        <p>
+                            <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="0">
+                            <label for="q30_a">Chisha, mother said angrily. " It will not help if you lose your temper."</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="1">
+                            <label for="q30_b">"Chisha!" Mother said angrily, " It will not help if you lose your temper."</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="000">
+                            <label for="q30_c">"Chisha, mother said angrily, it will not help if you lose your temper."</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="0000">
+                            <label for="q30_d">"Chisha, mother said" angrily, it will not help if you lose your temper."</label>
+                        </p>
+                        <div class="HeadertopicLabel">MEANING</div>
+                        <h3>(31) Brushing our teeth <u>regularly</u> is very important. The word regularly means …</h3>
+                        <p>
+                            <input type="radio" id="q31_a" name="q31" ng-model="testResponse.q31" value="1">
+                            <label for="q31_a">always.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_b" name="q31" ng-model="testResponse.q31" value="00">
+                            <label for="q31_b">at times.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_c" name="q31" ng-model="testResponse.q31" value="000">
+                            <label for="q31_c">rarely.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_d" name="q31" ng-model="testResponse.q31" value="0000">
+                            <label for="q31_d">sometimes.</label>
+                        </p>
+                        <h3>(32) If <u>Esther Phiri wins the heavy weight boxing title this weekend, she will have a party</u>. The sentence tells us that Esther Phiri …</h3>
+                        <p>
+                            <input type="radio" id="q32_a" name="q32" ng-model="testResponse.q32" value="0">
+                            <label for="q32_a">has already won the title.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_b" name="q32" ng-model="testResponse.q32" value="00">
+                            <label for="q32_b">has never had a party.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_c" name="q32" ng-model="testResponse.q32" value="1">
+                            <label for="q32_c">might have a party.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_d" name="q32" ng-model="testResponse.q32" value="0000">
+                            <label for="q32_d">will win the title.</label>
+                        </p>
+                        <h3>(33) <u>The leaners reported for lessons just in time</u>. The sentence means … </h3>
+                        <p>
+                            <input type="radio" id="q33_a" name="q33" ng-model="testResponse.q33" value="1">
+                            <label for="q33_a">there was enough time before the lessons,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_b" name="q33" ng-model="testResponse.q33" value="00">
+                            <label for="q33_b">there was no time before the lessons.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_c" name="q33" ng-model="testResponse.q33" value="000">
+                            <label for="q33_c">learners were late for the lessons.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_d" name="q33" ng-model="testResponse.q33" value="0000">
+                            <label for="q33_d">learners did not report for lessons.</label>
+                        </p>
+                        <h3>(34) <u>When John got up, mother had prepared breakfast</u>. This sentence means that …</h3>
+                        <p>
+                            <input type="radio" id="q34_a" name="q34" ng-model="testResponse.q34" value="0">
+                            <label for="q34_a">mother prepared breakfast after John got up.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_b" name="q34" ng-model="testResponse.q34" value="00">
+                            <label for="q34_b">breakfast was not prepared by mother,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_c" name="q34" ng-model="testResponse.q34" value="1">
+                            <label for="q34_c">mother prepared breakfast before John got up.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_d" name="q34" ng-model="testResponse.q34" value="0000">
+                            <label for="q34_d">John did not get up until breakfast was prepared.</label>
+                        </p>
+                        <h3>(35) <u>Neither Kabwita nor Likomba had their shirts stolen</u>. This sentence means that …</h3>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="0">
+                            <label for="q35_a">both of them had their shirts stolen.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="00">
+                            <label for="q35_b">Kabwita's shirt was stolen.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="000">
+                            <label for="q35_c">Likomba's shirt was stolen.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="1">
+                            <label for="q35_d">none of them had their shirts stolen.</label>
+                        </p>
+                        <h3>(36) The cattle return home at <u>dusk</u>, the word dusk in the sentence means the time when …</h3>
+                        <p>
+                            <input type="radio" id="q36_a" name="q36" ng-model="testResponse.q36" value="0">
+                            <label for="q36_a">light first appears.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_b" name="q36" ng-model="testResponse.q36" value="00">
+                            <label for="q36_b">the sun is hottest.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_c" name="q36" ng-model="testResponse.q36" value="000">
+                            <label for="q36_c">we can see the moon.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_d" name="q36" ng-model="testResponse.q36" value="1">
+                            <label for="q36_d">daylight is fading.</label>
+                        </p>
+                        <h3>(37) <u>Mwansa's school bag is as light as a feather</u>. This sentence means that Mwansa's school bag is …</h3>
+                        <p>
+                            <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="0">
+                            <label for="q37_a">a feather.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_b" name="q37" ng-model="testResponse.q37" value="00">
+                            <label for="q37_b">like a feather.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_c" name="q37" ng-model="testResponse.q37" value="000">
+                            <label for="q37_c">not very light.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_d" name="q37" ng-model="testResponse.q37" value="1">
+                            <label for="q37_d">very light.</label>
+                        </p>
+                        <h3>(38) He was <u>forced to move on his hand and knees</u>. This sentence means he was forced to …</h3>
+                        <p>
+                            <input type="radio" id="q38_a" name="q38" ng-model="testResponse.q38" value="0">
+                            <label for="q38_a">walk.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_b" name="q38" ng-model="testResponse.q38" value="00">
+                            <label for="q38_b">jump.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_c" name="q38" ng-model="testResponse.q38" value="1">
+                            <label for="q38_c">crawl.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_d" name="q38" ng-model="testResponse.q38" value="0000">
+                            <label for="q38_d">bend.</label>
+                        </p>
+                        <div class="HeadertopicLabel">SENTENCE ORDER</div>
+                        <h3>(39) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q39_a" name="q39" ng-model="testResponse.q39" value="1">
+                            <label for="q39_a">Liswani grew up in a Christian family. He never missed Sunday school. He has been a humble boy since his childhood. No wonder he is now a pastor.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_b" name="q39" ng-model="testResponse.q39" value="00">
+                            <label for="q39_b">Liswani grew up in a Christian family. No wonder he is now a pastor, He never missed Sunday school. He has been a humble boy since his childhood.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_c" name="q39" ng-model="testResponse.q39" value="000">
+                            <label for="q39_c">He has been a humble boy since his childhood. Liswani grew up in a Christian family* He never missed Sunday school. No wonder he is now a pastor.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_d" name="q39" ng-model="testResponse.q39" value="0000">
+                            <label for="q39_d">He has been a humble boy since his childhood. No wonder he is now a pastor, He never missed Sunday school. Liswani grew up in a Christian family.</label>
+                        </p>
+                        <h3>(40) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q40_a" name="q40" ng-model="testResponse.q40" value="0">
+                            <label for="q40_a">Both have big game parks. Zambia has Luangwa and Kafue game parks while Malawi has Kasungu and Nyika game parks. Zambia and Malawi are neighbouring countries. These famous game parks attract many tourists both local and international.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_b" name="q40" ng-model="testResponse.q40" value="1">
+                            <label for="q40_b">Zambia and Malawi are neighbouring countries. Both have big game parks. Zambia has Luangwa and Kafue game parks while Malawi has Kasungu and Nyika game parks. These famous game parks attract many tourists both local and international.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_c" name="q40" ng-model="testResponse.q40" value="000">
+                            <label for="q40_c">Both have big game parks. Zambia and Malawi are neighbouring countries. Zambia has Luangwa and Kafue game parks while Malawi has Kasungu and Nyika game parks. These famous game parks attract many tourists both local and international.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_d" name="q40" ng-model="testResponse.q40" value="0000">
+                            <label for="q40_d">Zambia and Malawi are neighbouring countries. Both have big game parks. These famous game parks attract many tourists both local and international. Zambia has Luangwa and Kafue game parks while Malawi has Kasungu and Nyika game parks.</label>
+                        </p>
+                        <h3>(41) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q41_a" name="q41" ng-model="testResponse.q41" value="1">
+                            <label for="q41_a">Your teacher will read a passage to you. Listen carefully as you write it down. Be sure to use the correct spellings and punctuation marks.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_b" name="q41" ng-model="testResponse.q41" value="00">
+                            <label for="q41_b">Listen carefully as you write it down. Your teacher will read a passage to you. Be sure to use the correct spellings and punctuation marks.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_c" name="q41" ng-model="testResponse.q41" value="000">
+                            <label for="q41_c">Be sure to use the correct spellings and punctuation marks. Listen carefully as you write it down. Your teacher will read a passage to you.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_d" name="q41" ng-model="testResponse.q41" value="0000">
+                            <label for="q41_d">Listen carefully as you write it down. Be sure to use the correct spellings and punctuation marks. Your teacher will read a passage to you.</label>
+                        </p>
+                        <h3>(42) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="0">
+                            <label for="q42_a">He could not believe it! As a result, his wife and children deserted him. Mr Tembo had a happy family. However, after losing his employment, he could not provide for his family.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_b" name="q42" ng-model="testResponse.q42" value="1">
+                            <label for="q42_b">Mr Tembo had a happy family. However, after losing his employment, he could not provide for his family. As a result, his wife and children deserted him. He could not believe it!</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_c" name="q42" ng-model="testResponse.q42" value="000">
+                            <label for="q42_c">Mr Tembo had a happy family. As a result, his wife and children deserted him. He could not believe it! However, after losing his employment, he could not provide for his family,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_d" name="q42" ng-model="testResponse.q42" value="0000">
+                            <label for="q42_d">As a result, his wife and children deserted him. Mr Tembo had a happy family. However, after losing his employment, he could not provide for his family, He could not believe it!</label>
+                        </p>
+                        <h3>(43) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q43_a" name="q43" ng-model="testResponse.q43" value="1">
+                            <label for="q43_a">Mutale was unwell. He was taken to the hospital by his mother. The doctor diagnosed him with malaria. The doctor also advised him to sleep under a treated mosquito net. He was given assorted medicines.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_b" name="q43" ng-model="testResponse.q43" value="00">
+                            <label for="q43_b">The doctor diagnosed him with malaria. He was given assorted medicines. Mutale was unwell. The doctor also advised him to sleep under a treated mosquito net. He was taken to the hospital by his mother.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_c" name="q43" ng-model="testResponse.q43" value="000">
+                            <label for="q43_c">Mutale was unwell. He was taken to the hospital by his mother. The doctor diagnosed him with malaria. He was given assorted medicines. The doctor also advised him to sleep under a treated mosquito net.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_d" name="q43" ng-model="testResponse.q43" value="0000">
+                            <label for="q43_d">The doctor diagnosed him with malaria. He was given assorted medicines. The doctor also advised him to sleep under a treated mosquito net. Mutale was unwell. He was taken to the hospital by his mother.</label>
+                        </p>
+                        <h3>(44) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q44_a" name="q44" ng-model="testResponse.q44" value="1">
+                            <label for="q44_a">Mr. Daka was proud of his sons. They were always good boys. When they grew up they did not forget about their parents.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_b" name="q44" ng-model="testResponse.q44" value="00">
+                            <label for="q44_b">Mr. Daka was proud of his sons. When they grew up they did not forget about their parents. They were always good boys.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_c" name="q44" ng-model="testResponse.q44" value="000">
+                            <label for="q44_c">They were always good boys. Mr. Daka was proud of his sons. When they grew up they did not forget about their parents.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_d" name="q44" ng-model="testResponse.q44" value="0000">
+                            <label for="q44_d">When they grew up, they did not forget about their parents. Mr. Daka was proud of his sons. They were always good boys.</label>
+                        </p>
+                        <h3>(45) Choose the paragraph which has the sentences in the BEST order.</h3>
+                        <p>
+                            <input type="radio" id="q45_a" name="q45" ng-model="testResponse.q45" value="0">
+                            <label for="q45_a">At our home, we take supper early. After that, we all retire to bed. We then hold a family devotion to thank God for the day and pray for protection in the night. After eating, we watch television up to 20:00 hours.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_b" name="q45" ng-model="testResponse.q45" value="00">
+                            <label for="q45_b">At our home, we take supper early. We then hold a family devotion to thank God for the day and pray for protection in the night. After eating, we watch television up to 20:00 hours. After that, we all retire to bed.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_c" name="q45" ng-model="testResponse.q45" value="1">
+                            <label for="q45_c">At our home, we take supper early. After eating, we watch television up to 20:00 hours. We then hold a family devotion to thank God for the day and pray for protection in the night. After that, we all retire to bed.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_d" name="q45" ng-model="testResponse.q45" value="0000">
+                            <label for="q45_d">At our home, we take supper early. After eating, we watch television up to 20:00 hours. After that, we all retire to bed. We then hold a family devotion to thank God for the day and pray for protection in the night.</label>
+                        </p>
+                        <div class="HeadertopicLabel">READING COMPREHENSION</div>
+                        <h4>TEXT 1</h4>
+                        <p>Below is a budget for a family of six for the month of May, 2017. Study it carefully and answer the questions that follow. </p>
+                        <div class="img_answers"><img src="/images/grade7_literacy_mock3/g7_lit_m3_46.jpg" alt="image missing" width="300px" height="200px" class="img-responsive" /></div>
+                        <h3>(46) How much did the family spend on health services? They used ________ hundred kwacha.</h3>
+                        <p>
+                            <input type="radio" id="q46_a" name="q46" ng-model="testResponse.q46" value="0">
+                            <label for="q46_a">eight</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_b" name="q46" ng-model="testResponse.q46" value="00">
+                            <label for="q46_b">five</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_c" name="q46" ng-model="testResponse.q46" value="000">
+                            <label for="q46_c">one</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_d" name="q46" ng-model="testResponse.q46" value="0000">
+                            <label for="q46_d">two</label>
+                        </p>
+                        <h3>(47) What is the difference between the money used on rent and transport? It is ________ kwacha.</h3>
+                        <p>
+                            <input type="radio" id="q47_a" name="q47" ng-model="testResponse.q47" value="0">
+                            <label for="q47_a">A four hundred</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_b" name="q47" ng-model="testResponse.q47" value="00">
+                            <label for="q47_b">one thousand</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_c" name="q47" ng-model="testResponse.q47" value="000">
+                            <label for="q47_c">seven hundred</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_d" name="q47" ng-model="testResponse.q47" value="0000">
+                            <label for="q47_d">three hundred</label>
+                        </p>
+                        <h3>(48) What is the importance of a budget to a family? It helps the family to ________</h3>
+                        <p>
+                            <input type="radio" id="q48_a" name="q48" ng-model="testResponse.q48" value="1">
+                            <label for="q48_a">plan well.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_b" name="q48" ng-model="testResponse.q48" value="00">
+                            <label for="q48_b">plan the income.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_c" name="q48" ng-model="testResponse.q48" value="000">
+                            <label for="q48_c">know the expenditure.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_d" name="q48" ng-model="testResponse.q48" value="0000">
+                            <label for="q48_d">know the savings.</label>
+                        </p>
+                        <h3>(49) According to the passage, it is true that the money which the family received came from ________</h3>
+                        <p>
+                            <input type="radio" id="q49_a" name="q49" ng-model="testResponse.q49" value="0">
+                            <label for="q49_a">eight sources.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_b" name="q49" ng-model="testResponse.q49" value="00">
+                            <label for="q49_b">one sources.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_c" name="q49" ng-model="testResponse.q49" value="000">
+                            <label for="q49_c">three sources.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_d" name="q49" ng-model="testResponse.q49" value="1">
+                            <label for="q49_d">two sources.</label>
+                        </p>
+                        <h3>(50) The word 'expenditure' in the text means money ________</h3>
+                        <p>
+                            <input type="radio" id="q50_a" name="q50" ng-model="testResponse.q50" value="0">
+                            <label for="q50_a">received.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_b" name="q50" ng-model="testResponse.q50" value="00">
+                            <label for="q50_b">saved.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_c" name="q50" ng-model="testResponse.q50" value="1">
+                            <label for="q50_c">spent.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_d" name="q50" ng-model="testResponse.q50" value="0000">
+                            <label for="q50_d">Used.</label>
+                        </p>
+                        <h4>TEXT 2</h4>
+                        <p>Below is a timetable for the route from Lusaka to Chipata. Study it carefully and answer the questions that follow it.</p>
+                        <h4>Route Bus Timetable</h4>
+                        <div class="img_answers"><img src="/images/grade7_literacy_mock3/g7_lit_m3_51.jpg" alt="image missing" width="300px" height="200px" class="img-responsive" /></div>
+                        <h3>(51) Apart from the bus station, where else would you find such a timetable? At a ________</h3>
+                        <p>
+                            <input type="radio" id="q51_a" name="q51" ng-model="testResponse.q51" value="0">
+                            <label for="q51_a">hospital.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q51_b" name="q51" ng-model="testResponse.q51" value="00">
+                            <label for="q51_b">police station.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q51_c" name="q51" ng-model="testResponse.q51" value="1">
+                            <label for="q51_c">railway station.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q51_d" name="q51" ng-model="testResponse.q51" value="0000">
+                            <label for="q51_d">school.</label>
+                        </p>
+                        <h3>(52) The word departure means ________</h3>
+                        <p>
+                            <input type="radio" id="q52_a" name="q52" ng-model="testResponse.q52" value="1">
+                            <label for="q52_a">coming.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q52_b" name="q52" ng-model="testResponse.q52" value="00">
+                            <label for="q52_b">leaving,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q52_c" name="q52" ng-model="testResponse.q52" value="000">
+                            <label for="q52_c">reaching.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q52_d" name="q52" ng-model="testResponse.q52" value="0000">
+                            <label for="q52_d">waiting.</label>
+                        </p>
+                        <h3>(53) Why is the route timetable of a bus important? It ________</h3>
+                        <p>
+                            <input type="radio" id="q53_a" name="q53" ng-model="testResponse.q53" value="1">
+                            <label for="q53_a">guides travellers on the timing of a bus to various destinations,</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q53_b" name="q53" ng-model="testResponse.q53" value="00">
+                            <label for="q53_b">provides information about bus fares to various destinations.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q53_c" name="q53" ng-model="testResponse.q53" value="000">
+                            <label for="q53_c">shows the departure time from Lusaka.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q53_d" name="q53" ng-model="testResponse.q53" value="0000">
+                            <label for="q53_d">shows the arrival time in Chipata.</label>
+                        </p>
+                        <h3>(54) From the table, which route takes the longest time to travel?</h3>
+                        <p>
+                            <input type="radio" id="q54_a" name="q54" ng-model="testResponse.q54" value="0">
+                            <label for="q54_a">Katete to Chipata</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q54_b" name="q54" ng-model="testResponse.q54" value="1">
+                            <label for="q54_b">Lusaka to Nyimba</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q54_c" name="q54" ng-model="testResponse.q54" value="000">
+                            <label for="q54_c">Nyimba to Petauke</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q54_d" name="q54" ng-model="testResponse.q54" value="0000">
+                            <label for="q54_d">Sinda to Katete</label>
+                        </p>
+                        <h3>(55) How long does the bus take to move from Sinda to Katete?</h3>
+                        <p>
+                            <input type="radio" id="q55_a" name="q55" ng-model="testResponse.q55" value="0">
+                            <label for="q55_a">30 minutes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q55_b" name="q55" ng-model="testResponse.q55" value="1">
+                            <label for="q55_b">40 minutes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q55_c" name="q55" ng-model="testResponse.q55" value="000">
+                            <label for="q55_c">50 minutes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q55_d" name="q55" ng-model="testResponse.q55" value="0000">
+                            <label for="q55_d">60 minutes</label>
+                        </p>
+                        <h4>TEXT 3</h4>
+                        <p>Moths are not liked by many people because they look ugly. When people light their rooms up at night, moths become a great <u>nuisance</u> as they happily swarm around the roof. If one catches them, they leave a Powderly substance on the person's palms. This substance comes from their wings,
+                            if a family uses a candle, a lamp or any other homemade lighting system, moths usually put them out, leaving the family in darkness. To some people, moths are supposed to be killed at once, even to the extent of using insecticide. Early in the morning, moths are so weakened by the cold that they cannot move.
+                        </p>
+                        <p>People who keep chickens invite them in to feed on the moths. But how many people know that moths are useful to them?</p>
+                        <p>When moths lay their eggs on tree branches and twigs, they hatch into caterpillars. Caterpillars are protein-giving food and are widely eaten in many parts of Zambia. Caterpillars are of different types. People should learn to like and preserve moths as they are a source of food.</p>
+                        <h3>(56) When people light their rooms at night, moths ________</h3>
+                        <p>
+                            <input type="radio" id="q56_a" name="q56" ng-model="testResponse.q56" value="0">
+                            <label for="q56_a">are killed by the coide.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q56_b" name="q56" ng-model="testResponse.q56" value="1">
+                            <label for="q56_b">become a nuisance.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q56_c" name="q56" ng-model="testResponse.q56" value="000">
+                            <label for="q56_c">knock off their roofs.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q56_d" name="q56" ng-model="testResponse.q56" value="0000">
+                            <label for="q56_d">light candles and lamps.</label>
+                        </p>
+                        <h3>(57) Why are moths not liked by most people? They look ________</h3>
+                        <p>
+                            <input type="radio" id="q57_a" name="q57" ng-model="testResponse.q57" value="0">
+                            <label for="q57_a">beautiful.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q57_b" name="q57" ng-model="testResponse.q57" value="00">
+                            <label for="q57_b">colourful.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q57_c" name="q57" ng-model="testResponse.q57" value="000">
+                            <label for="q57_c">Powderly.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q57_d" name="q57" ng-model="testResponse.q57" value="1">
+                            <label for="q57_d">ugly.</label>
+                        </p>
+                        <h3>(58) From the passage, we can tell that caterpillars are a source of ________ food.</h3>
+                        <p>
+                            <input type="radio" id="q58_a" name="q58" ng-model="testResponse.q58" value="1">
+                            <label for="q58_a">body building</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q58_b" name="q58" ng-model="testResponse.q58" value="00">
+                            <label for="q58_b">energy giving</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q58_c" name="q58" ng-model="testResponse.q58" value="000">
+                            <label for="q58_c">mineral rich</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q58_d" name="q58" ng-model="testResponse.q58" value="0000">
+                            <label for="q58_d">vitamin</label>
+                        </p>
+                        <h3>(59) The word ‘nuisance’ in the passage has the same meaning as ________</h3>
+                        <p>
+                            <input type="radio" id="q59_a" name="q59" ng-model="testResponse.q59" value="1">
+                            <label for="q59_a">annoying.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q59_b" name="q59" ng-model="testResponse.q59" value="00">
+                            <label for="q59_b">colourful.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q59_c" name="q59" ng-model="testResponse.q59" value="000">
+                            <label for="q59_c">dangerous.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q59_d" name="q59" ng-model="testResponse.q59" value="0000">
+                            <label for="q59_d">joyful.</label>
+                        </p>
+                        <h3>(60) "People who keep chickens invite them in. to feed on the moths", In this sentence, the word ‘them’ refers to ________</h3>
+                        <p>
+                            <input type="radio" id="q60_a" name="q60" ng-model="testResponse.q60" value="0">
+                            <label for="q60_a">caterpillars.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q60_b" name="q60" ng-model="testResponse.q60" value="1">
+                            <label for="q60_b">chickens.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q60_c" name="q60" ng-model="testResponse.q60" value="000">
+                            <label for="q60_c">moths.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q60_d" name="q60" ng-model="testResponse.q60" value="0000">
+                            <label for="q60_d">people.</label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='grade7_mock1'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='zm_gr7_revision'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='literacy'">
+                        <div ng-include="'/pmodule/templates/gr7_exam_number.html'"></div>
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
