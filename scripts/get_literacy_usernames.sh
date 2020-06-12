@@ -1,5 +1,24 @@
 #!/bin/bash
 
+#colors
+#=======
+export red
+red=$(tput setaf 1)
+export green
+green=$(tput setaf) 2
+export yellow
+yellow=$(tput setaf) 3
+export blue
+blue=$(tput setaf) 4
+
+# reset to default bash text style
+export reset
+reset=$(tput sgr0)
+
+# make actual text bold
+export bold
+bold=$(tput bold)
+
 # check if device is online or offline
 if timeout 10 wget -q --spider http://google.com; then
     # inform the user that the device is online and attempt to fetch the details of literacy learners from the server

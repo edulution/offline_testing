@@ -1,5 +1,18 @@
 #!/bin/bash
 
+#colors
+#=======
+export red=`tput setaf 1`
+export green=`tput setaf 2`
+export yellow=`tput setaf 3`
+export blue=`tput setaf 4`
+
+# reset to default bash text style
+export reset=`tput sgr0`
+
+# make actual text bold
+export bold=`tput bold`
+
 # source a helper function to check if a database exists
 # shellcheck source=/dev/null
 source ~/.baseline_testing/scripts/check_db_exists.sh
