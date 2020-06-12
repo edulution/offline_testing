@@ -42,6 +42,11 @@ li {
 
 }
 
+#edulution_logo {
+    width: 80%;
+    padding-left: 20%;
+}
+
 /*Green background for headings including username,instructions, and coach credentials*/
 .HeaderbannerLabel {
     background-color: rgb(0, 159, 21);
@@ -74,8 +79,8 @@ li {
 }
 
 /*Blue text used in some options in grade 7 test 4*/
-.blue_text{
-    color:blue;
+.blue_text {
+    color: blue;
 }
 
 .box {
@@ -288,35 +293,36 @@ span.frac>sub {
 
 /*Questions in which the answer choices are images*/
 /*Behavior of flex will space images equally within div*/
-.img_answers,.img_answers_lg{
+.img_answers,
+.img_answers_lg {
     display: flex;
-    justify-content:space-around;
-    flex-wrap:nowrap;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 
 }
 
-.img_answers > img{
+.img_answers>img {
     height: 200px;
 }
 
-.img_answers_lg > img{
+.img_answers_lg>img {
     height: 400px;
 }
 
 /*Answers and their labels within img_answers div expected to be inside divs*/
-/*Small amount of margin to ensure the images don't touch each other*/ 
-.img_answers > div{
+/*Small amount of margin to ensure the images don't touch each other*/
+.img_answers>div {
     margin-right: 1.5%
 }
 
-.img_answers > div > div > img{
+.img_answers>div>div>img {
     height: 176px;
 }
 
 /*Main section with a white background which contains all the content.*/
 /*Sits on top of the colored background of the page*/
-.main_content{
-    background:white;
+.main_content {
+    background: white;
     padding-bottom: 5%;
 }
 
