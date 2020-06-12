@@ -7,33 +7,33 @@
     <title>Alpha A2</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <!--Custom Css-->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
     <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link href="css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="css/angular-ui.min.css" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-animate.js"></script>
-    <script src="js/angular-sanitize.js"></script>
-    <script src="js/angular-ui.min.js"></script>
-    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <script src="pmodule/app.js"></script>
-    <link rel="stylesheet" href="pmodule/password_modal.css">
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens-->
     <span ng-init=init()></span>
     <section>
@@ -41,11 +41,11 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 main_content">
                     <div id="edulution_logo">
-                        <img src="images/edulution_logo.png" class="img-responsive center-block">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
                         <p class="test_name">Alpha A2</p>
-                        <div ng-include="'pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Time allowed: 60 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel">ASSESSMENT</div>
@@ -120,7 +120,7 @@
                             <label for="q6_b">and Levy.</label>
                         </p>
                         <h3>(7) Which word matches the picture?</h3>
-                        <div class="img_answers"><img src="images/literacy/alp_a2/q7.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="/images/literacy/alp_a2/q7.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_a">man</label>
@@ -490,14 +490,14 @@
                         <h3>(35) Which one is darker?</h3>
                         <div class="img_answers">
                             <div>
-                                <div><img src="images/literacy/alp_a2/q35a.jpg" alt="image missing" class="img-responsive" /></div>
+                                <div><img src="/images/literacy/alp_a2/q35a.jpg" alt="image missing" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="0">
                                     <label for="q35_a">A</label>
                                 </p>
                             </div>
                             <div>
-                                <div><img src="images/literacy/alp_a2/q35b.jpg" alt="image missing" class="img-responsive" /></div>
+                                <div><img src="/images/literacy/alp_a2/q35b.jpg" alt="image missing" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="1">
                                     <label for="q35_b">B</label>
@@ -507,21 +507,21 @@
                         <h3>(36) Which one is the warmest?</h3>
                         <div class="img_answers">
                             <div>
-                                <div><img src="images/literacy/alp_a2/q36a.jpg" alt="image missing" class="img-responsive" /></div>
+                                <div><img src="/images/literacy/alp_a2/q36a.jpg" alt="image missing" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="q36_a" name="q36" ng-model="testResponse.q36" value="00">
                                     <label for="q36_a">A</label>
                                 </p>
                             </div>
                             <div>
-                                <div><img src="images/literacy/alp_a2/q36b.jpg" alt="image missing" class="img-responsive" /></div>
+                                <div><img src="/images/literacy/alp_a2/q36b.jpg" alt="image missing" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="q36_b" name="q36" ng-model="testResponse.q36" value="000">
                                     <label for="q36_b">B</label>
                                 </p>
                             </div>
                             <div>
-                                <div><img src="images/literacy/alp_a2/q36c.jpg" alt="image missing" class="img-responsive" /></div>
+                                <div><img src="/images/literacy/alp_a2/q36c.jpg" alt="image missing" class="img-responsive" /></div>
                                 <p>
                                     <input type="radio" id="q36_c" name="q36" ng-model="testResponse.q36" value="1">
                                     <label for="q36_c">C</label>
@@ -531,7 +531,7 @@
                         <p>
                             <h3>(37) The cow sleeps __________ the grass.</h3>
                             <p>Complete the sentence to suit the picture.</p>
-                            <div class="img_answers"><img src="images/literacy/alp_a2/q37.jpg" alt="image missing" class="img-responsive" /></div>
+                            <div class="img_answers"><img src="/images/literacy/alp_a2/q37.jpg" alt="image missing" class="img-responsive" /></div>
                             <p>
                                 <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="1">
                                 <label for="q37_a">in</label>
@@ -759,7 +759,7 @@
                             <input type="hidden" name="test" ng-model="testResponse.test='alpha_a2'">
                             <input type="hidden" name="course" ng-model="testResponse.course='alpha_a'">
                             <input type="hidden" name="module" ng-model="testResponse.module='literacy'">
-                            <div ng-include="'pmodule/templates/validate_coach_id_and_password.html'"></div>
+                            <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
             </div>

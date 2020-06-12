@@ -19,18 +19,18 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*enable angular animations*/
             $ctrl.animationsEnabled = true;
 
-            $http.get("/get_users").then(function(response) {
+            $http.get("/api/get_users").then(function(response) {
                 $scope.users = response.data;
                 /*console.log($scope.users);*/
             });
 
-            $http.get("/get_test_marks").then(function(response) {
+            $http.get("/api/get_test_marks").then(function(response) {
                 $scope.tests_marks = response.data;
                 /*console.log($scope.tests_marks);*/
 
                 /*Get raw test responses*/
                 /*run inside the get test marks call because test marks must always be fetched before responses*/
-                $http.get("/get_responses").then(function(response) {
+                $http.get("/api/get_responses").then(function(response) {
                     /*Do some operations on the responses*/
                     for (var i = response.data.length - 1; i >= 0; i--) {
                         /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
@@ -52,9 +52,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 });
             });
 
-            
+
             /*Get the tests count by month*/
-            $http.get("/get_test_count").then(function(response) {
+            $http.get("/api/get_test_count").then(function(response) {
                 $scope.tests_count = response.data;
             });
 
@@ -128,7 +128,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Get the max score of a test by finding it in the testMarks config array based on test,course, and module*/
         var get_test_max_score = function(testMarks, testResponse) {
-            var testDetails = testMarks.find(testMark => { return testMark.test_id == testResponse.test && testMark.course == testResponse.course && testMark.module == testResponse.module })
+            let testDetails = testMarks.find(testMark => { return testMark.test_id == testResponse.test && testMark.course == testResponse.course && testMark.module == testResponse.module })
             /*if the testDetails are found get the maxscore*/
             if (testDetails) {
                 /*return the testmaxscore property of the testDetails object*/
@@ -142,7 +142,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Get the test name of a user's test from config*/
         var get_test_name = function(testMarks, testResponse) {
-            var testDetails = testMarks.find(testMark => { return testMark.test_id == testResponse.test && testMark.course == testResponse.course && testMark.module == testResponse.module })
+            let testDetails = testMarks.find(testMark => { return testMark.test_id == testResponse.test && testMark.course == testResponse.course && testMark.module == testResponse.module })
             /*if the testDetails are found get the maxscore*/
             if (testDetails) {
                 /*return the testmaxscore property of the testDetails object*/
@@ -157,7 +157,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Get all answers for each question i.e q1 to q... as key,value pairs*/
         var get_all_qs = function(testResponse) {
-            var all_qs = Object.keys(testResponse).filter(function(k) {
+            let all_qs = Object.keys(testResponse).filter(function(k) {
                 /*get index of all object properties that begin with 'q'*/
                 return k.indexOf('q') == 0;
             }).reduce(function(newObj, k) {
@@ -173,7 +173,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Create obeject properties for fifths of each response*/
         var get_block_values = function(testResponse, testMaxScore, chunksArray) {
-            var one_fifth = testMaxScore / 5
+            let one_fifth = testMaxScore / 5
             /*assumptions*/
             /*each question has a maxscore of 1*/
             /*the number of questions in a tests = maxscore*/
@@ -181,11 +181,11 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*create blocks of fifths based on the number of questions in a test*/
             /*the names of the blocks may vary depending on the total number of questions in a test*/
-            var block_1_name = 'Q1 to ' + 'Q' + one_fifth
-            var block_2_name = 'Q' + (one_fifth + 1) + ' to Q' + (one_fifth * 2)
-            var block_3_name = 'Q' + (one_fifth * 2 + 1) + ' to Q' + (one_fifth * 3)
-            var block_4_name = 'Q' + (one_fifth * 3 + 1) + ' to Q' + (one_fifth * 4)
-            var block_5_name = 'Q' + (one_fifth * 4 + 1) + ' to Q' + (one_fifth * 5)
+            let block_1_name = 'Q1 to ' + 'Q' + one_fifth
+            let block_2_name = 'Q' + (one_fifth + 1) + ' to Q' + (one_fifth * 2)
+            let block_3_name = 'Q' + (one_fifth * 2 + 1) + ' to Q' + (one_fifth * 3)
+            let block_4_name = 'Q' + (one_fifth * 3 + 1) + ' to Q' + (one_fifth * 4)
+            let block_5_name = 'Q' + (one_fifth * 4 + 1) + ' to Q' + (one_fifth * 5)
 
             /*assign the result property on each block to true or false based on whether the value is equal to the value of one fifth*/
             /*This will modify the object passed in and returns nothing*/
@@ -203,23 +203,23 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         /*Main function which puts everything together*/
         /*Modifies testresponse object and adds properties block_1 to block_5*/
         var generate_blocks = function(testMarks, testResponse) {
-          /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
-            var cuttoffPoint = get_test_max_score(testMarks, testResponse)
+            /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
+            let cuttoffPoint = get_test_max_score(testMarks, testResponse)
 
-          /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
-            var one_fifth = cuttoffPoint / 5
+            /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
+            let one_fifth = cuttoffPoint / 5
 
             /*Get the object values for q1 to q..*/
-            var all_qvals = Object.values(get_all_qs(testResponse))
+            let all_qvals = Object.values(get_all_qs(testResponse))
 
             /*Slice only the values for the particular test*/
-            var qvals_for_test = all_qvals.slice(0, cuttoffPoint)
+            let qvals_for_test = all_qvals.slice(0, cuttoffPoint)
 
             /*Divide the values array evenly into chunks. Each chunk is one fifth of the total length*/
-            var qvals_chunks = chunkArrayInGroups(qvals_for_test, one_fifth)
+            let qvals_chunks = chunkArrayInGroups(qvals_for_test, one_fifth)
 
             /*Empty array to store the sum of each chunk*/
-            var qvals_chunk_totals = []
+            let qvals_chunk_totals = []
 
             /*Loop through the chunks arrays and get the sum*/
             /*Push the sum to the empty array declared above*/
@@ -228,7 +228,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
 
             /*finally create the values and results for each chunk of questions*/
-            /*based on the maxscore for the test and totals for each chunk*/ 
+            /*based on the maxscore for the test and totals for each chunk*/
             /*This will modify the object passed in and returns nothing*/
             get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
 
@@ -246,7 +246,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         $scope.wrongPassword = false;
 
         /*Alias for the controller*/
-        var $ctrl = this;
+        let $ctrl = this;
 
         /*Function to dismiss the modal. Only invoked when the coach enters the correct password*/
         $ctrl.cancel = function() {
@@ -255,17 +255,17 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Check if the password entered is equal to the password expected from the coach*/
         $ctrl.checkPassword = function(password) {
-          /*If the password is correct*/
+            /*If the password is correct*/
             if (password == $scope.coachPassword) {
-              /*The wrongPassword variable remains false*/
-              /*The modal is dismissed*/
+                /*The wrongPassword variable remains false*/
+                /*The modal is dismissed*/
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
-            } 
+            }
             /*If the password is wrong*/
             else {
-              /*he wrongPassword variable is set to true*/
-              /*Errors are show on the html template based on this value*/
+                /*he wrongPassword variable is set to true*/
+                /*Errors are show on the html template based on this value*/
                 $scope.wrongPassword = true;
             }
         };
@@ -338,7 +338,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
         };
     })
-    /*element directive for results by section tab*/    
+    /*element directive for results by section tab*/
     .directive('responsesections', function() {
         return {
             restrict: 'E',
