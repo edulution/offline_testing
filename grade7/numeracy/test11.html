@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Grade 7 Test 11</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- include partial for password modal -->
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" width="400px" height="300px" class="img-responsive center-block">
+                    </div>
+                    <form name="testForm">
+                        <div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
+                        <p class="test_name">WORD PROBLEMS: NOTATION</p>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <h3>Time allowed: <b>45 Minutes</b></h3>
+                        <h3>Calculators are NOT allowed</h3>
+                        <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
+                        <!-- TODO: Add form name,action and method -->
+                        <!-- <form name="testForm" action="/submit_test" method="post"> -->
+                        <div class="HeadertopicLabel">WORD PROBLEMS</div>
+                        <h3>(1) A truck collected 2 450 bags of maize at one maize shed and 250 bags of maize at another maize shed. How many bags of maize were collected altogether?</h3>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_a">3 700</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_b">2 700</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
+                            <label for="q1_c">2 600</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_d">2 200</label>
+                        </p>
+                        <h3>(2) In a certain year, Mrs Chongo produced 10 000 bags of rice while Mrs Mubita produced 9 874 bags of rice. Calculate the difference between the number of bags of rice produced.</h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_a">126</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
+                            <label for="q2_b">226</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="q2_c">1 126</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="q2_d">19 874</label>
+                        </p>
+                        <h3>(3) If 7 packets of salt cost K49.00, what will be the cost of 13 packets of the same type?</h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_a">K91.00 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="000">
+                            <label for="q3_b">K69.00 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="00000">
+                            <label for="q3_c">K63.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0">
+                            <label for="q3_d">K29.00</label>
+                        </p>
+                        <h3>(4) 8 boys can paint a hall in 6 hours. How many hours can 12 boys take to paint the same hall, if they work at the same rate?</h3>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_a">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_b">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="00000">
+                            <label for="q4_c">14</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">18</label>
+                        </p>
+                        <h3>(5) 105 people used a bus for a trip. If the bus carried 35 people only at a time, how many trips did it make?</h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0000">
+                            <label for="q5_a">140</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="q5_b">70</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="00000">
+                            <label for="q5_c">35</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_d">3</label>
+                        </p>
+                        <h3>(6) Mutale had K3 000.00 to spend. She bought two dresses at K500.00, two belts at K90.00, a handbag at K250.00 and a pair of shoes at K499.00. How much money did she remain with?</h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="000">
+                            <label for="q6_a">K1 339.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="0000">
+                            <label for="q6_b">K1 616.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_c">K1 661.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="00000">
+                            <label for="q6_d">K1 933.00</label>
+                        </p>
+                        <h3>(7) Given that &#xFF04;1 is equal to K6.00, what is the price in Zambian Kwacha of a car costing &#xFF04;2 125?</h3>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0000">
+                            <label for="q7_a">K2 125.00 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_b">K12 650.00 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="00000">
+                            <label for="q7_c">K12 720.00 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_d">K12 750.00</label>
+                        </p>
+                        <h3>(8) Find the sum of 718 624 and 137 392.</h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0000">
+                            <label for="q8_a">855 016</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="q8_b">855 916</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_c">856 016</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_d">856 916</label>
+                        </p>
+                        <h3>(9) 340 textbooks were shared equally among 10 schools. How many textbooks did each school receive?</h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0000">
+                            <label for="q9_a">3 400</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_b">350</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="00000">
+                            <label for="q9_c">330</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">34</label>
+                        </p>
+                        <h3>(10) 6 boxes of wool cost K180.00. How much will 4 boxes of the same type of wool cost?</h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_a">K30.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="00000">
+                            <label for="q10_b">K45.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_c">K120.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">K270.00</label>
+                        </p>
+                        <h3>(11) Mary took 10 small stones every day and left them at school. How many stones did she take to school in 30 days?</h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="000">
+                            <label for="q11_a">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00000">
+                            <label for="q11_b">30</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_c">40</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_d">300</label>
+                        </p>
+                        <h3>(12) A group of boys had 23 guavas altogether. They ate Y guavas and remained with 18. How many guavas did they eat?</h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="00000">
+                            <label for="q12_a">41</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_b">25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_c">15</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_d">5</label>
+                        </p>
+                        <h3>(13) A man bought a packet of sugar at K11.00, a loaf of bread at K4.50 and a packet of milk at K3.75. How much did he spend altogether?</h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a">K8.35</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="0000">
+                            <label for="q13_b">K9.25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000000">
+                            <label for="q13_c">K18.25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d">K19.25</label>
+                        </p>
+                        <h3>(14) 8 men can do a piece of work in 12 days. How long will it take 12 men to do the same work?</h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
+                            <label for="q14_a">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_b">18</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_c">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="00000">
+                            <label for="q14_d">4</label>
+                        </p>
+                        <h3>(15) There are two boxes of oranges. One of the boxes contains 144 oranges while the other contains 156 oranges. How many oranges are packed in the boxes altogether?</h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="q15_a">312</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_b">300</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="0000">
+                            <label for="q15_c">288</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="00000">
+                            <label for="q15_d">150</label>
+                        </p>
+                        <h3>(16) A school has 1 575 pupils. If there are 45 pupils in every class, how many classes are there in the school?</h3>
+                        <p>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0000">
+                            <label for="q16_a">105</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="q16_b">35</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="00000">
+                            <label for="q16_c">15</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="000">
+                            <label for="q16_d">5</label>
+                        </p>
+                        <h3>(17) Joyce and Jane bought 20 100 pockets of cement altogether. If Jane got 9 001 pockets of cement, how many pockets of cement did Joyce get?</h3>
+                        <p>
+                            <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="000">
+                            <label for="q17_a">29 101</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="0000">
+                            <label for="q17_b">11 199</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="q17_c">11 099</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="00000">
+                            <label for="q17_d">11 009</label>
+                        </p>
+                        <h3>(18) A wholesaler delivered 204 crates of bottles of soft drinks to a shop. If one crate had 24 bottles of soft drinks, how many bottles of soft drinks were delivered?</h3>
+                        <p>
+                            <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="000">
+                            <label for="q18_a">228</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="0000">
+                            <label for="q18_b">756</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="00000">
+                            <label for="q18_c">1 224</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="q18_d">4 896</label>
+                        </p>
+                        <h3>(19) Mwale has K80.00 and buys 4 loaves of bread at K4.00 each, 2 packets of sugar at K12.00 each and fish for K35.00. What is Mwale's change?</h3>
+                        <p>
+                            <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="000">
+                            <label for="q19_a">K320.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="0000">
+                            <label for="q19_b">K127.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="0">
+                            <label for="q19_c">K29.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="1">
+                            <label for="q19_d">K5.00</label>
+                        </p>
+                        <h3>(20) Tithandizane Women's group received 2 247 bags of rice. If the club used 176 bags, how many bags of rice remained?</h3>
+                        <p>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="q20_a">2 071</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="000">
+                            <label for="q20_b">2 131</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="0000">
+                            <label for="q20_c">2 141</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="00000">
+                            <label for="q20_d">2 223</label>
+                        </p>
+                        <h3>(21) Two co-operatives in a province produced 28 321 and 62 477 bags of maize. What was the total number of bags produced altogether?</h3>
+                        <p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_a">90 798</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00000">
+                            <label for="q21_b">90 978</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_c">90 879</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="000">
+                            <label for="q21_d">89 798</label>
+                        </p>
+                        <h3>(22) Mr Kalenga harvested 1 500 bags of maize from his farm. Mr Phiri harvested three times as much as Mr Kalenga. How many bags did Mr Phiri harvest?</h3>
+                        <p>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="00000">
+                            <label for="q22_a">500</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="0000">
+                            <label for="q22_b">1 200</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
+                            <label for="q22_c">1 800</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="q22_d">4 500</label>
+                        </p>
+                        <h3>(23) A room has 15 shelves each, the shelf can hold 345 books of the same type. How many books of the same type can be put in this room altogether?</h3>
+                        <p>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="000">
+                            <label for="q23_a">23</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="0000">
+                            <label for="q23_b">330</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="00000">
+                            <label for="q23_c">360</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="1">
+                            <label for="q23_d">5 175</label>
+                        </p>
+                        <h3>(24) A lady bought 2 dresses at K35 000 each and 3 books at K5 000 each. How much change did she get after paying K100 000?</h3>
+                        <p>
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="1">
+                            <label for="q24_a">K15 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="000">
+                            <label for="q24_b">K20 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="0000">
+                            <label for="q24_c">K55 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0">
+                            <label for="q24_d">K70 000</label>
+                        </p>
+                        <h3>(25) A brick has a mass of 3 149g What is the total mass of 12 such bricks?</h3>
+                        <p>
+                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="1">
+                            <label for="q25_a">37 788g</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_b" name="q25" ng-model="testResponse.q25" value="000">
+                            <label for="q25_b">37 778g</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_c" name="q25" ng-model="testResponse.q25" value="0000">
+                            <label for="q25_c">7 688g</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="00000">
+                            <label for="q25_d">37 678g</label>
+                        </p>
+                        <h3>(26) The product of two numbers is 5<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>. One of the numbers is <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>. Find the other number</h3>
+                        <p>
+                            <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="1">
+                            <label for="q26_a">21</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_b" name="q26" ng-model="testResponse.q26" value="000">
+                            <label for="q26_b">11</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="0000">
+                            <label for="q26_c">5<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="00000">
+                            <label for="q26_d">1<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <h3>(27) A man has a water bill of K64 000 and an electricity bill of K105 000. What is his total bill?</h3>
+                        <p>
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="q27_a">K169 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_b" name="q27" ng-model="testResponse.q27" value="000">
+                            <label for="q27_b">K141 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="0000">
+                            <label for="q27_c">K69 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="00000">
+                            <label for="q27_d">K41 000</label>
+                        </p>
+                        <h3>(28) In an election. The number of votes for three members of parliament were 5 464, 18 601 and 12 371. How many votes did they get altogether?</h3>
+                        <p>
+                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="000">
+                            <label for="q28_a">27 436</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="00000">
+                            <label for="q28_b">27 336</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="0000">
+                            <label for="q28_c">26 336</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="1">
+                            <label for="q28_d">36 436</label>
+                        </p>
+                        <h3>(29) If a passenger train carries 2 143 passengers in a day, how many passengers can it carry in 15 days if it carries the same number of passengers?</h3>
+                        <p>
+                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0">
+                            <label for="q29_a">31 405</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="1">
+                            <label for="q29_b">32 145</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="000">
+                            <label for="q29_c">32 035</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="0000">
+                            <label for="q29_d">32 405</label>
+                        </p>
+                        <h3>(30) A school bought 274 books. 186 of these books were given to the pupils. How many books were not given out?</h3>
+                        <p>
+                            <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="000">
+                            <label for="q30_a">128</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="0">
+                            <label for="q30_b">118</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="0000">
+                            <label for="q30_c">112</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="1">
+                            <label for="q30_d">88</label>
+                        </p>
+                        
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='grade7_test11'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='zm_gr7_revision'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'/pmodule/templates/gr7_exam_number.html'"></div>
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

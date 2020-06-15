@@ -1,33 +1,34 @@
 #!/bin/bash
 
-source ~/.baseline_testing/scripts/check_db_exists.sh
-
 #colors
 #=======
-export black=`tput setaf 0`
-export red=`tput setaf 1`
-export green=`tput setaf 2`
-export yellow=`tput setaf 3`
-export blue=`tput setaf 4`
-export magenta=`tput setaf 5`
-export cyan=`tput setaf 6`
-export white=`tput setaf 7`
+export red
+red=$(tput setaf 1)
+
+export green
+green=$(tput setaf 2)
+
+export yellow
+yellow=$(tput setaf 3)
+
+export blue
+blue=$(tput setaf 4)
 
 # reset to default bash text style
-export reset=`tput sgr0`
+export reset
+reset=$(tput sgr0)
 
 # make actual text bold
-export bold=`tput bold`
+export bold
+bold=$(tput bold)
 
-# make background color on text
-export bold_mode=`tput smso`
-
-# remove background color on text
-export exit_bold_mode=`tput rmso`
+# source a helper function to check if a database exists
+# shellcheck source=/dev/null
+source ~/.baseline_testing/scripts/check_db_exists.sh
 
 # check if directories exist
 DIRECTORIES=( ~/.reports/baseline )
-for DIRECTORY in ${DIRECTORIES[@]}; do
+for DIRECTORY in "${DIRECTORIES[@]}"; do
   if [ ! -d "$DIRECTORY" ]; then
     mkdir "$DIRECTORY"
   else
@@ -35,18 +36,19 @@ for DIRECTORY in ${DIRECTORIES[@]}; do
   fi
 done
 
-#pull latest changes from master branch in repo
-cd ~/.baseline_testing
-git reset --hard origin/zambia > /dev/null
-git pull origin zambia > /dev/null
 
-#check if database file exists before extracting reports
-if db_exists $BASELINE_DATABASE_NAME ; then
+#pull latest changes from master branch in repo
+cd ~/.baseline_testing || return
+git reset --hard origin/namibia > /dev/null
+git pull origin namibia > /dev/null
+
+# check if database file exists before extracting reports
+if db_exists "$BASELINE_DATABASE_NAME" ; then
   # Let the user know that the database already exists and skip
   echo "${blue}Database already exists.Skipping...${reset}"
-  #if db file exists then extraction and submission begin. If not, will output error message to contact support
-	if (echo $1 |\
-    egrep '^(1[0-2]|0[0-9])[-/][0-9]{2}' > /dev/null
+  # if db file exists then extraction and submission begin. If not, will output error message to contact support
+	if (echo "$1" |\
+    grep -E '^(1[0-2]|0[0-9])[-/][0-9]{2}' > /dev/null
 	); then
        echo "${green}Extracting baseline tests for month $1${reset}"
        # fetch the first argument given(the month_year) on the command line and use it as an argument to the Rscript
