@@ -1,75 +1,65 @@
 <!DOCTYPE html>
 <html ng-app="offlineTests">
+
 <head>
-	<title>Alpha B</title>
-	<link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/playlists/alpha.css">
-	<!-- <link rel="stylesheet" type="text/css" href="css/password_modal.css"> -->
-	<!--  -->
-	
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script src="js/portal/playlists.js"></script>
-
-
+    <title>Alpha B</title>
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/playlists/alpha.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/css/password_modal.css"> -->
+    <!--  -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script src="/js/portal/playlists.js"></script>
 </head>
+
 <body>
-
-	<!-- Playlist title and edulution logo -->
-	<div class="row titlerow">
-		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('/','_self')"><img src="images/portal/edulution_logo-small.png" class="elogo"></a>
-		</div>
-		<div class="col-md-6" id="playlist-name-container">
-			<h2 class="playlist_title">Alpha B Playlist</h2>
-		</div>
-		<div class="col-md-3" id="elogo-container">
-			<a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="images/portal/kalitelogo.jpg" class="elogo"></a>
-		</div>		
-	</div>
-	<div class="container" id="menu" class="panel-group">
-		<div id="back_btn">
-			<a href="#" onclick="window.open('/','_self')">
-				<i class="fa fa-chevron-left"></i> Back
-			</a>
-		</div>
-		
-
-		<!-- Assessments -->
-		<div  >
-			<div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
-				<h3 class="topic"><img src="images/portal/exam.png">   Assessments</h3>	
-			</div>
-			<div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
-				<table class="table">					
-					
-					<tr onclick="window.open('num_alpha_b1')">
-						<td>
-							<i class="fas fa-pencil-alt fa-2x exercise_icon" aria-hidden="true"></i>
-						</td>
-						<td>
-							<h4 class="assesment_name">Test 1</h4>
-						</td>
-					</tr>						
-
-					<tr onclick="window.open('num_alpha_b2')">
-						<td>
-							<i class="fas fa-pencil-alt fa-2x exercise_icon" aria-hidden="true"></i>
-						</td>
-						<td>
-							<h4 class="assesment_name">Test 2</h4>
-						</td>
-					</tr>										
-				</table>				
-					
-			
-			</div>
-		</div> 
-		<!-- End Assessments -->	
-
-		
-	</div>
-
+    <!-- Playlist title and edulution logo -->
+    <div class="row titlerow">
+        <div class="col-md-3" id="elogo-container">
+            <a href="#" onclick="window.open('/','_self')"><img src="/images/portal/edulution_logo-small.png" class="elogo"></a>
+        </div>
+        <div class="col-md-6" id="playlist-name-container">
+            <h2 class="playlist_title">Alpha B Playlist</h2>
+        </div>
+        <div class="col-md-3" id="elogo-container">
+            <a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="/images/portal/kalitelogo.jpg" class="elogo"></a>
+        </div>
+    </div>
+    <div class="container" id="menu" class="panel-group">
+        <div id="back_btn">
+            <a href="#" onclick="window.open('/','_self')">
+                <i class="fa fa-chevron-left"></i> Back
+            </a>
+        </div>
+        <!-- Assessments -->
+        <div>
+            <div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
+                <h3 class="topic"><img src="/images/portal/exam.png"> Assessments</h3>
+            </div>
+            <div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
+                <table class="table">
+                    <tr onclick="window.open('/numeracy/alpha_b1')">
+                        <td>
+                            <i class="fas fa-pencil-alt fa-2x exercise_icon" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                            <h4 class="assesment_name">Test 1</h4>
+                        </td>
+                    </tr>
+                    <tr onclick="window.open('/numeracy/alpha_b2')">
+                        <td>
+                            <i class="fas fa-pencil-alt fa-2x exercise_icon" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                            <h4 class="assesment_name">Test 2</h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- End Assessments -->
+    </div>
 </body>
+
 </html>

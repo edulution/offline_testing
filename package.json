@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techZM/offline_testing.git"
+    "url": "git+https://github.com/edulution/offline_testing.git"
   },
   "engines": {
     "node": "v8.11.1"
   },
-  "author": "techzm",
+  "author": "Kapya Sakala",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/techZM/offline_testing/issues"
+    "url": "https://github.com/edulution/offline_testing/issues"
   },
-  "homepage": "https://github.com/techZM/offline_testing#readme"
+  "homepage": "https://github.com/edulution/offline_testing#readme"
 }
