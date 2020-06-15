@@ -2,16 +2,25 @@
 
 #colors
 #=======
-export red=`tput setaf 1`
-export green=`tput setaf 2`
-export yellow=`tput setaf 3`
-export blue=`tput setaf 4`
+export red
+red=$(tput setaf 1)
+
+export green
+green=$(tput setaf 2)
+
+export yellow
+yellow=$(tput setaf 3)
+
+export blue
+blue=$(tput setaf 4)
 
 # reset to default bash text style
-export reset=`tput sgr0`
+export reset
+reset=$(tput sgr0)
 
 # make actual text bold
-export bold=`tput bold`
+export bold
+bold=$(tput bold)
 
 # source a helper function to check if a database exists
 # shellcheck source=/dev/null
@@ -27,10 +36,11 @@ for DIRECTORY in "${DIRECTORIES[@]}"; do
   fi
 done
 
-# pull latest changes from master branch in repo
-cd ~/.baseline_testing || exit
-git reset --hard origin/zambia > /dev/null
-git pull origin zambia > /dev/null
+
+#pull latest changes from master branch in repo
+cd ~/.baseline_testing || return
+git reset --hard origin/namibia > /dev/null
+git pull origin namibia > /dev/null
 
 # check if database file exists before extracting reports
 if db_exists "$BASELINE_DATABASE_NAME" ; then
