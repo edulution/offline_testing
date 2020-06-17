@@ -4,12 +4,16 @@
 #=======
 export red
 red=$(tput setaf 1)
+
 export green
-green=$(tput setaf) 2
+green=$(tput setaf 2)
+
 export yellow
-yellow=$(tput setaf) 3
+yellow=$(tput setaf 3)
+
 export blue
-blue=$(tput setaf) 4
+blue=$(tput setaf 4)
+
 
 # reset to default bash text style
 export reset
