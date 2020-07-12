@@ -21,7 +21,13 @@ bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
 
 # connect to test responses database
 pg <- dbDriver("PostgreSQL")
-conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
+conn <-  dbConnect(
+  pg,
+  dbname= bl_db_name,
+  host= bl_db_host,
+  port= bl_db_port,
+  user= bl_db_user,
+  password= bl_db_passwd)
 
 # Simple function to generate filename of csv report in desired format
 input<- commandArgs(TRUE)
@@ -48,39 +54,53 @@ check_tests_in_curr_month <- function(year_month,tresponses){
 }
 
 #get test responses, join with user_id
-tresponses_query<-dbSendQuery(conn,"select r.*, tm.testmaxscore from responses r left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
-tresponses<-dbFetch(tresponses_query)
+tresponses_query <- dbSendQuery(
+  conn,
+  "select r.*, tm.testmaxscore from responses r left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
+tresponses <- dbFetch(tresponses_query)
 
 # check if tests exist for the requested month or stop the program if they do not
 check_tests_in_curr_month(input,tresponses)
 
 
 #get device name
-device_name_query<-dbSendQuery(conn,"select * from device")
-device_name<-dbFetch(device_name_query)
+device_name_query <- dbSendQuery(conn,"select * from device")
+device_name <- dbFetch(device_name_query)
 device_name <- substring(device_name$name,1,3)
 
 
 #clean up and close database connection
 dbDisconnect(conn)
 
+# columns we wish to drop when submitting the report
+drop_cols <-c("coach_id","username")
 
-#remove unecessary columns
-drop_cols<-c("coach_id","username")
-tresponses<- tresponses %>% select(-one_of(drop_cols))
-
-#remove hyphens from user_id(uuid)
 #rename user_id column to header(for load with load_answers function)
-tresponses<- tresponses %>% mutate(user_id = str_replace_all(user_id,'-','')) %>% rename(HEADER = user_id)
-
-#add centre column
-tresponses<-tresponses %>% mutate(centre=rep(device_name))
-
-#add valid column(default to true)
-tresponses<-tresponses %>% mutate(valid=rep(1))
-
-#arrange columns, let all columns appear on the left, then all cols from q1...q70 appear on the right
-tresponses<- tresponses %>% select(HEADER,sex, grade, gr7_exam_number, test_date,centre,module ,course,test,valid,testmaxscore,everything())
+tresponses <- tresponses %>%
+  # remove unecessary columns
+  select(-one_of(drop_cols)) %>%
+  mutate(
+    # remove hyphens from user_id(uuid)
+    user_id = str_replace_all(user_id,'-',''),
+    # add centre column
+    centre=rep(device_name),
+    # add valid column(default to true)
+    valid=rep(1)) %>%
+  rename(HEADER = user_id) %>%
+  #arrange columns, let all columns appear on the left, then all cols from q1...q70 appear on the right
+  select(
+    HEADER,
+    sex,
+    grade,
+    gr7_exam_number,
+    test_date,
+    centre,
+    module ,
+    course,
+    test,
+    valid,
+    testmaxscore,
+    everything())
 
 #helper function to set empty strings to 0 and otherwise return the actual string
 empty_as_zero<- function(x){
@@ -265,7 +285,14 @@ baseline <- function(year_month) {
   
   upper_limit <- substring(upper_limit,1,7)
   tests_for_chosen_month <- tresponses %>% filter(grepl(upper_limit, test_date))
-  write.csv(tests_for_chosen_month ,file = generate_filename("baseline_",year_month),quote=FALSE, col.names = TRUE, row.names = FALSE,na="")
+  write.csv(
+    tests_for_chosen_month,
+    file = generate_filename("baseline_",year_month),
+    quote=FALSE,
+    col.names = TRUE,
+    row.names = FALSE,
+    na="")
+
   system("echo Baseline extracted successfully!")
   quit(save="no")
 }
