@@ -61,7 +61,13 @@ db_user = Sys.getenv("KOLIBRI_DATABASE_USER")
 db_passwd = Sys.getenv("KOLIBRI_DATABASE_PASSWORD")
 db_port = Sys.getenv("KOLIBRI_DATABASE_PORT")
 
-kolibri_conn <-  dbConnect(pg, dbname=db_name, host = db_host, port = db_port, user=db_user, password=db_passwd)
+kolibri_conn <-  dbConnect(
+  pg,
+  dbname=db_name,
+  host = db_host,
+  port = db_port,
+  user=db_user,
+  password=db_passwd)
 
 #facilityysers
 facilityusers <- dbGetQuery(kolibri_conn,"SELECT * FROM kolibriauth_facilityuser")
@@ -88,19 +94,39 @@ users <- facilityusers %>% filter(!id %in% roles$user_id)
 
 # get the device name (name of the default facility id)
 default_facility_id <- default_facility_id$default_facility_id
-facility_name <- collections %>% filter(id == default_facility_id) %>% select(name)
+
+facility_name <- collections %>%
+  filter(id == default_facility_id) %>%
+  select(name)
 
 #join collections to memberships. (used for getting user groups)
-memberships <- memberships %>% left_join(collections,by=c("collection_id"= "id"))
+memberships <- memberships %>%
+  left_join(
+    collections,
+    by=c("collection_id"= "id"))
 
 # get dataframe containing learners and groups they belong to
-learners_and_groups <- memberships %>% filter(kind == 'learnergroup') %>% distinct(user_id,.keep_all = TRUE) %>% select(c(name,user_id))
+learners_and_groups <- memberships %>%
+  filter(kind == 'learnergroup') %>%
+  distinct(user_id,.keep_all = TRUE) %>%
+  select(name,user_id)
 
 # select only the name of the group and the user_id
-learners_and_groups <- learners_and_groups %>% select(c(name,user_id)) %>% rename(group_name = name)
+learners_and_groups <- learners_and_groups %>%
+  select(
+    "group_name" = name,
+    user_id)
 
 # join the users table to the groups table by user_id
-users <- users %>% left_join(learners_and_groups, by=c("id"="user_id"))  %>% select(c(id,username,full_name,group_name))
+users <- users %>%
+  left_join(
+    learners_and_groups,
+    by=c("id"="user_id")) %>%
+  select(
+    id,
+    username,
+    full_name,
+    group_name)
 
 # derive the first name and last name columns
 users$first_name <- sapply(users$full_name,get_first_name)
@@ -108,7 +134,9 @@ users$last_name <- sapply(users$full_name,get_last_name)
 
 # drop the full name column
 # change the user_id to a plain character string
-users <- users %>% select(-c(full_name)) %>% rename(user_id = id)
+users <- users %>%
+  select(-full_name) %>%
+  rename(user_id = id)
 
 
 #---------------------
@@ -122,7 +150,13 @@ bl_db_passwd = Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
 
 # connect to test responses database
-tresponses_conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
+tresponses_conn <-  dbConnect(
+  pg,
+  dbname= bl_db_name,
+  host= bl_db_host,
+  port= bl_db_port,
+  user= bl_db_user,
+  password= bl_db_passwd)
 
 # clear out the users table
 remove_users_query <- dbSendQuery(tresponses_conn,"delete from users;")
@@ -136,10 +170,20 @@ remove_device_name_query <- dbSendQuery(tresponses_conn,"delete from device;")
 dbClearResult(remove_device_name_query)
 
 #write the users to the users table
-dbWriteTable(tresponses_conn,"users",users,append = TRUE, row.names = FALSE)
+dbWriteTable(
+  tresponses_conn,
+  "users",
+  users,
+  append = TRUE,
+  row.names = FALSE)
 
 #write the facility name to the device table
-dbWriteTable(tresponses_conn,"device",facility_name, append = TRUE, row.names = FALSE)
+dbWriteTable(
+  tresponses_conn,
+  "device",
+  facility_name,
+  append = TRUE,
+  row.names = FALSE)
 
 # disconnect the connection
 dbDisconnect(tresponses_conn)

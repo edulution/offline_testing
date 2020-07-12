@@ -1,10 +1,4 @@
 options(warn=-1)
-#suppress messages when loading package
-suppressMessages(library(timeDate))
-library(plyr)
-library(readr)
-#suppress messages when loading package
-suppressMessages(library(dplyr))
 library(DBI)
 library(RPostgreSQL)
 
