@@ -1,4 +1,5 @@
-from kolibri.core.auth.models import FacilityUser, Classroom, LearnerGroup, Membership
+from kolibri.core.auth.models import FacilityUser, Facility, Classroom, \
+	LearnerGroup, Membership, Role
 
 
 def get_all_users():
