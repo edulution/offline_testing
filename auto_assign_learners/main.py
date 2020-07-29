@@ -3,6 +3,14 @@ import django
 django.setup()
 
 import sys
+import os
+
+from sqlalchemy import create_engine, MetaData, Table
+from sqlalchemy.orm import sessionmaker, mapper, aliased, clear_mappers
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.engine.url import URL, make_url
+from classes import TestResult, Course, ChannelMeta
+
 # Import functions from assignment helpers and database connection scripts
 from assignment_helpers import get_all_users, is_admin, get_user_info, enroll_into_class
 from database_conn import connect_to_db, create_dbsession, \
@@ -35,7 +43,7 @@ channelmeta = Table('content_channelmetadata',metadata, autoload = True,schema='
 mapper(ChannelMeta, channelmeta, primary_key=channelmeta.c.id)
 
 
-def assign_learner(username,facility_id, module):
+def assign_learner(username,facility_id, module='numeracy'):
 	"""
 	Main assign learner function
 	Enrolls a user into the live learners class in their facility 
@@ -58,10 +66,12 @@ def assign_learner(username,facility_id, module):
 		print("user_id: {}".format(user.id))
 		
 		highest_test_passed = get_highest_passed_test(session, user.id, module)
-		print("Higest test passed: {}". format(highest_test_passed.test))
+		if highest_test_passed != None:
+			print("Higest test passed: {}". format(highest_test_passed.test))
 
-		next_course = get_next_course(session, highest_test_passed)
-		print("Next course: {}".format(next_course.course))
+			next_course = get_next_course(session, highest_test_passed)
+
+			print("Next course: {}".format(next_course.course))
 
 		gr7_course = session.query(Course).filter_by(course = 'zm_gr7_revision').limit(1).one()
 
@@ -71,4 +81,4 @@ def assign_learner(username,facility_id, module):
 
 if __name__ == "__main__":
 	# Run assign learner for the learner passed in and numeracy module
-	assign_learner(sys.argv[1], sys.argv[2], 'numeracy')
+	assign_learner(sys.argv[1], sys.argv[2])
