@@ -156,7 +156,7 @@ def has_written_test_in_course(isession, iuser_id, icourse):
     Returns:
       Boolean : True if the user has written a test in the course, False if not
   """
-  test_exists_query = session.query(TestResult) \
+  test_exists_query = isession.query(TestResult) \
     .filter_by(
       user_id = iuser_id,
       course = icourse.course,
