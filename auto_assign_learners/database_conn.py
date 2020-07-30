@@ -97,7 +97,7 @@ def get_highest_passed_test(isession, iuser_id, imodule):
     return tests_passed_query.one()
 
 
-def get_next_course(isession, itestresult):
+def get_next_course(isession, itestresult, imodule='numeracy'):
   """
   Get the next course a user should do based on their testresult
     Args:
@@ -107,6 +107,16 @@ def get_next_course(isession, itestresult):
     Returns:
       A Course object of the next course recommended to the user
   """
+
+  # If the learner has never writeen a test,
+  # get the lowest course in the module
+  if itestresult == None:
+    lowest_course_query = isession.query(Course) \
+      .filter_by(
+        module = imodule) \
+      .order_by(Course.sort_order) \
+      .limit(1)
+    return lowest_course_query.one()
 
   # If the testresult has no sort order, return None
   if itestresult.sort_order == None:

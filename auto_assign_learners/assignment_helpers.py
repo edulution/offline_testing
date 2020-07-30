@@ -138,7 +138,7 @@ def get_group_with_keyword(keyword, classroom):
 		groups = LearnerGroup.objects.filter(name = keyword)
 		return groups
 	else:
-		raise ValueError("Unable to find grop with name containing {} in classroom {}".format(keyword, classroom.name))
+		raise ValueError("Unable to find group with name containing {} in classroom {}".format(keyword, classroom.name))
 
 
 def auth_hieracrhy_check(facility, user, classroom, learnergroup):
