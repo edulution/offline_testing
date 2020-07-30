@@ -73,39 +73,67 @@ def assign_learner(username, facility_id, active_class = 'Live Learners', module
 		print("user_id: {}".format(user.id))
 		
 		highest_test_passed = get_highest_passed_test(session, user.id, module)
-		if highest_test_passed != None:
+		if highest_test_passed == None:
+			print("""Learner has either never passed a test or written a test. 
+				Attempting to assign to first course in module""")
+		else:
 			print("Higest test passed: {}". format(highest_test_passed.test))
 
-			next_course = get_next_course(session, highest_test_passed)
+		next_course = get_next_course(session, highest_test_passed)
 
-			print("Next course: {}".format(next_course.course))
+		print("Next course: {}".format(next_course.course))
 
-			# Get a list of all classrooms in the facility that contain the active class keyword
-			live_learners_classes = Collection.objects.filter(
-				name__contains=active_class,
-				parent_id = facility.id)
+		# Get a list of all classrooms in the facility that contain the active class keyword
+		live_learners_classes = Collection.objects.filter(
+			name__contains=active_class,
+			parent_id = facility.id)
 
-			group_name = str(session.query(ChannelMeta).filter_by(id = next_course.channel_id).one().name)
-			
-			print('Suggested group: {}'.format(group_name))
+		group_name = str(session.query(ChannelMeta).filter_by(id = next_course.channel_id).one().name)
+		
+		print('Suggested group: {}'.format(group_name))
 
-			for class_obj in list(live_learners_classes):
-				suggested_groups = get_group_with_keyword(group_name, class_obj)
+		for class_obj in list(live_learners_classes):
+			suggested_groups = get_group_with_keyword(group_name, class_obj)
 
-				for group in suggested_groups:
-					if auth_hieracrhy_check(facility,user,class_obj, group):
-						remove_all_memberships(user)
-						enroll_into_class(user, class_obj)
-						enroll_into_group(user, group)
-					else:
-						raise ValueError("Unable to assign learner. Kindly check the errors above")
+			for group in suggested_groups:
+				if auth_hieracrhy_check(facility,user,class_obj, group):
+					remove_all_memberships(user)
+					enroll_into_class(user, class_obj)
+					enroll_into_group(user, group)
+
+				else:
+					raise ValueError("Unable to assign learner. Kindly check the errors above")
+
+			# # Separate assignment for Grade 7
+			# gr7_course = session.query(Course).filter_by(course = 'zm_gr7_revision').limit(1).one()
+			# has_written_gr7_test = has_written_test_in_course(session, user.id, gr7_course)
+			# if has_written_gr7_test:
+			# 	print("Has written gr7 test: {}".format(has_written_gr7_test))
+			# 	assign_specific_course(user, gr7_course, class_obj, facility)
 
 
-		gr7_course = session.query(Course).filter_by(course = 'zm_gr7_revision').limit(1).one()
+def assign_specific_course(user, course, classroom, facility):
+	"""
+	Assign a learner to a specific course
+	Uses the course name from the course object
+	Enrolls the learner into the group in the classroom containing the course name
+		Args:
+			user (FacilityUser): The user to enroll
+			course (Course): The course to lookup the suggested group
+			classroom (Classroom): The classroom that the group belongs to
 
-		has_written_gr7_test = has_written_test_in_course(session, user.id, gr7_course)
-		print("Has written gr7 test: {}".format(has_written_gr7_test))
+		Returns:
+			None
+	"""
+	group_name = str(session.query(ChannelMeta).filter_by(id = course.channel_id).one().name)
 
+	suggested_groups = get_group_with_keyword(group_name, classroom)
+
+	for group in suggested_groups:
+		if auth_hieracrhy_check(facility,user,classroom, group):
+			enroll_into_group(user, group)
+		else:
+			raise ValueError("Unable to assign learner by specifc course. Kindly check the errors above")
 
 if __name__ == "__main__":
 	# Run assign learner for the learner passed in and numeracy module
