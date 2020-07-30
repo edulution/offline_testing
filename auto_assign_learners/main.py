@@ -11,8 +11,13 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.engine.url import URL, make_url
 from classes import TestResult, Course, ChannelMeta
 
+from kolibri.core.auth.models import Collection
+
 # Import functions from assignment helpers and database connection scripts
-from assignment_helpers import get_all_users, is_admin, get_user_info, enroll_into_class
+from assignment_helpers import get_all_users, is_admin, get_user_info, enroll_into_class, \
+	get_group_with_keyword, auth_hieracrhy_check, remove_all_memberships, \
+	enroll_into_group
+
 from database_conn import connect_to_db, create_dbsession, \
 	get_highest_passed_test, get_next_course, has_written_test_in_course
 
@@ -43,7 +48,7 @@ channelmeta = Table('content_channelmetadata',metadata, autoload = True,schema='
 mapper(ChannelMeta, channelmeta, primary_key=channelmeta.c.id)
 
 
-def assign_learner(username,facility_id, module='numeracy'):
+def assign_learner(username, facility_id, active_class = 'Live Learners', module = 'numeracy'):
 	"""
 	Main assign learner function
 	Enrolls a user into the live learners class in their facility 
@@ -52,6 +57,8 @@ def assign_learner(username,facility_id, module='numeracy'):
 		Args:
 			username (String): username of the user
 			facility_id (String): facility_id the user belongs to
+			active_class (String): Keyword in of class in which to assign learners logged in.
+				Default is Live Learners
 			module (String): The module to be considered for this user e.g numeracy,literacy
 
 		Returns:
@@ -72,6 +79,27 @@ def assign_learner(username,facility_id, module='numeracy'):
 			next_course = get_next_course(session, highest_test_passed)
 
 			print("Next course: {}".format(next_course.course))
+
+			# Get a list of all classrooms in the facility that contain the active class keyword
+			live_learners_classes = Collection.objects.filter(
+				name__contains=active_class,
+				parent_id = facility.id)
+
+			group_name = str(session.query(ChannelMeta).filter_by(id = next_course.channel_id).one().name)
+			
+			print('Suggested group: {}'.format(group_name))
+
+			for class_obj in list(live_learners_classes):
+				suggested_groups = get_group_with_keyword(group_name, class_obj)
+
+				for group in suggested_groups:
+					if auth_hieracrhy_check(facility,user,class_obj, group):
+						remove_all_memberships(user)
+						enroll_into_class(user, class_obj)
+						enroll_into_group(user, group)
+					else:
+						raise ValueError("Unable to assign learner. Kindly check the errors above")
+
 
 		gr7_course = session.query(Course).filter_by(course = 'zm_gr7_revision').limit(1).one()
 
