@@ -5,54 +5,52 @@ from sqlalchemy.engine.url import URL, make_url
 from classes import TestResult, Course, ChannelMeta
 
 
-def connect_to_db(user,password,host,port,name):
-  """
-  Create a SQLAlchemy connection to a postgresql database
-    Args:
-      user (string): Database user
-      password (string): Database Password
-      host (string): Database host
-      port (integer): Database port
-      name (string): Database name
+def connect_to_db(user, password, host, port, name):
+    """
+    Create a SQLAlchemy connection to a postgresql database
+        Args:
+          user (string): Database user
+          password (string): Database Password
+          host (string): Database host
+          port (integer): Database port
+          name (string): Database name
 
-    Returns:
-      sqlalchemy.Engine: a connection object to the database and its DBAPI
-  """
+        Returns:
+          sqlalchemy.Engine: a connection object to the database and its DBAPI
+    """
+    # Create a database url object with a postgresql driver
+    database_url = URL(
+        drivername='postgresql',
+        username=user,
+        password=password,
+        host=host,
+        port=port,
+        database=name)
 
-  # Create a database url object with a postgresql driver
-  database_url = URL(
-    drivername='postgresql',
-    username = user,
-    password = password,
-    host = host,
-    port = port,
-    database = name)
+    # Create the engine
+    engine = create_engine(make_url(database_url))
 
-  # Create the engine
-  engine = create_engine(make_url(database_url))
+    # Connect the engine - lazy connection that doesnt do anything until data requested
+    try:
+        engine.connect()
+        # Get the metadata of the engine(used when mapping classes to tables)
+        metadata = MetaData(engine)
 
-  # Connect the engine - lazy connection that doesnt do anything until data requested
-  try:
-    engine.connect()
-    # Get the metadata of the engine(used when mapping classes to tables)
-    metadata = MetaData(engine)
+    except (Exception, SQLAlchemyError) as e:
+        print ("Error while connecting to the database", e)
 
-  except (Exception,SQLAlchemyError) as e:
-    print ("Error while connecting to the database", e)
-
-  return engine,metadata
+    return engine, metadata
 
 
 def create_dbsession(engine):
-  """
-  Create a session object bound to a database engine. Enables us to use sqlalchemy ORM
-    Args:
-      engine (sqlalchemy.Engine): a database connection object
-    Returns:
-      Session: a session object to interact with the database
-  """
-  
-  # Create the session for any time we need to have a conversation with the database
+    """
+    Create a session object bound to a database engine. Enables us to use sqlalchemy ORM
+        Args:
+          engine (sqlalchemy.Engine): a database connection object
+        Returns:
+          Session: a session object to interact with the database
+    """
+    # Create the session for any time we need to have a conversation with the database
   try:
     Session = sessionmaker(bind=engine)
   except (Exception,SQLAlchemyError) as e:
