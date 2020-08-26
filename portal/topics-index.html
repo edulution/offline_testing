@@ -14,42 +14,96 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 
-<body>
-    <div class="container col-md-8 col-md-offset-2" ng-controller="mainCtrl">
-        <div class="container-fluid">
-            <div id="back_btn">
-                <a href="/">
-                    <i class="fa fa-chevron-left"></i> Back
-                </a>
+<body class="mainBackground">
+    <div class="row">
+        <div ng-include="'include/navbar.html'"></div>
+    </div>
+    <div class="container-fluid">
+        
+        <div class="row">
+        <div  ng-controller="mainCtrl">
+
+        <!-- Back Button -->
+        <div class="index_of_topics_button">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="button_spacing">
+                    <a class="anchor_color" href="/">
+                        <button type="button" class="index_of_topics_btn btn btn-button " id="index-of-topics-btn">
+                            <h3 class="h3_color"> <i class="fa fa-chevron-left"></i> Back</h3>
+                        </button>
+                    </a>
+                </div>
             </div>
-            <h2 class="text-center">Index of Topics</h2>
         </div>
-        <div>
-            <table st-table="topicCollection" class="table">
-                <tr>
-                    <th colspan="1">
-                        <input st-search type="search" placeholder="Search for a playlist or topic...." class="form-control">
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <h3><b>Topic</b></h3>
-                    </th>
-                    <th>
-                        <h3><b>Location</b></h3>
-                    </th>
-                </tr>
-                <tr ng-repeat="row in topicCollection">
-                    <td>
-                        <h4>{{row.topic}}</h4>
-                    </td>
-                    <td>
-                        <h4>{{row.location}}</h4>
-                    </td>
-                </tr>
-            </table>
+        <!-- End Back Button -->
+
+        <!-- Index Topics  -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" st-table="topicCollection" >
+        
+            <!-- search field -->
+            <form class="index_topics_search">
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-4 ">
+                        <form method="GET">
+                            <input st-search type="search" name="search" placeholder="Search for a playlist or topic...."  class="form-control" id="search" />
+                        </form>
+                    </div>
+                    <!-- <div class="form-group col-md-3 col-sm-4 ">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-search" aria-hidden="true"></i>Search
+                        </button>
+                    </div> -->
+                </div>
+                <br>
+            </form>
+     
+            <!-- End of search field -->
+
+
+            <!-- Table   -->
+            <div class="card">
+                <div class="card-body">
+                    <nav class="navbar  navBackground-color table-curved">
+                        <span class="navbar-brand mb-0 h1 card-title">Index Topics</span>
+                    </nav>
+
+                    
+                    <div id="my_unapproved_table table-responsive">
+                        <table class="table table-bordered table-hover table-condensed" st-table="topicCollection" class="table">
+                            
+                            <thead>
+                                <tr class="table-success " >
+                                    <th scope="col"><h4 class="topic_title">Topic</h4></th>
+                                    <th scope="col"><h4 class="topic_title">Location</h4></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in topicCollection">
+                                    <td class="topics">{{row.topic}}</td>
+                                    <td class="topics">{{row.location}}</td>
+                                </tr>
+            
+                            </tbody>
+                        
+                    </div>
+                </div>
+
+
+        </div>
+        <td colspan="4" class="text-center">
+            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+        </td>
+
+    <!-- end of testing table  -->
+
+        </div>
         </div>
     </div>
+
+    </div>
+
+
+    
 </body>
 
 </html>
