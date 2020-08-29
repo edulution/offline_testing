@@ -251,6 +251,7 @@ a {
   
 
   .topics{
+	  text-align: justify;
 	  font-size:18px;
 	  font-weight: bold;
   }
