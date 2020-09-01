@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/js/smart-table.min.js"></script>
     <!-- angular app -->
     <script type="text/javascript" src="/js/portal/topic-index.js"></script>
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
 </head>
 
 <body class="mainBackground" ng-controller="mainCtrl">
@@ -51,6 +51,7 @@
                 <form class="index_topics_search">
                     <div class="row">
                         <div class="form-group ">
+                            <h2 class="header_topics">Index of Topics</h2>
                             <form method="GET">
                                 <input st-search type="search" name="search" placeholder="Search for a playlist or topic...."  class="form-control" id="search" />
                             </form>
@@ -67,17 +68,12 @@
             
             <!-- Index Topics Table   -->
             <div class="card">
-                <div class="card-body">
-                    <nav class="navbar  navBackground-color table-curved">
-                        <span class="navbar-brand mb-0 h1 card-title">Index Topics</span>
-                    </nav>
-
-                    
+                <div class="card-body"> 
                     <div id="my_unapproved_table table-responsive">
                         <table class="table table-bordered table-hover table-condensed" st-table="topicCollection" class="table">
                             
                             <thead>
-                                <tr class="table-success " >
+                                <tr class=" navBackground-color" >
                                     <th scope="col"><h4 class="topic_title">Topic</h4></th>
                                     <th scope="col"><h4 class="topic_title">Location</h4></th>
                                 </tr>
