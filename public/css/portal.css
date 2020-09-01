@@ -16,24 +16,25 @@ body{
 }
 
 .edulution_portal_logo {
-  height: 100%;
-  width: auto;
-  text-align: center;
-  margin-top:-25%;
-  margin-bottom:-25%;
-  /* margin:-100px;  */
-}
+	height: 100%;
+	width: auto;
+	text-align: center;
+	margin-top:-25%;
+	margin-bottom:-25%;
+	/* margin:-100px;  */
+  }
+  
+  .edulution_portal_logo_img {
+		  /* height:360px; */
+		  height:280px;
+		  margin-left:-5%;
+		  margin-right:-5%;
+		  /* margin-top:-25%; 
+		  margin-bottom:-25%; */
+	  /* height:360px; */
+	  /* margin:-100px; */
+  }
 
-.edulution_portal_logo_img {
-        /* height:360px; */
-        height:260px;
-        margin-left:-5%;
-        margin-right:-5%;
-        /* margin-top:-25%; 
-        margin-bottom:-25%; */
-    /* height:360px; */
-    /* margin:-100px; */
-}
 
 /* testing image *
 
