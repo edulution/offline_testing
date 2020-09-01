@@ -19,16 +19,47 @@ body{
 	height: 100%;
 	width: auto;
 	text-align: center;
-	margin-top:-25%;
-	margin-bottom:-25%;
+
 	/* margin:-100px;  */
+  }
+
+  .edulution_portal_title{
+      margin-left:-5%;
+      margin-right:-5%;
+      margin-top:-2%;
+      margin-bottom:-2%;
+	
+  }
+
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:28px;
+    /* padding-left:280px; */
+    padding-left:145%;
+    text-align: left;
+    margin-top:56.8px;
+    
+  }
+
+  .titleclear{
+    padding-top:-100.8%;
+    padding-bottom:-2%;
+  }
+
+
+  .edulution_portal_logos {
+    margin-top:-15%;
+      margin-bottom:-15%;
   }
   
   .edulution_portal_logo_img {
 		  /* height:360px; */
 		  height:280px;
 		  margin-left:-5%;
-		  margin-right:-5%;
+      margin-right:-5%;
+      margin-top:-2%;
+      margin-bottom:-2%;
+     
 		  /* margin-top:-25%; 
 		  margin-bottom:-25%; */
 	  /* height:360px; */
@@ -44,6 +75,9 @@ body{
 
 
 /* end testing */
+
+
+
 
 /*background for image buttons on landing page*/
 .icon_background {
