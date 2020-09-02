@@ -6,8 +6,11 @@ body{
     overflow-x: hidden;
 }
 
-/* Navbar background-color */
+.navbar {
+  height:120px;
+}
 
+/* Navbar background-color */
 .navbar_background {
     /* background-color: #fff; */
     background-color: rgb(7, 29, 73);
@@ -15,35 +18,7 @@ body{
 
 }
 
-.edulution_portal_logo {
-	height: 100%;
-	width: auto;
-	text-align: center;
-	margin-top:-25%;
-	margin-bottom:-25%;
-	/* margin:-100px;  */
-  }
-  
-  .edulution_portal_logo_img {
-		  /* height:360px; */
-		  height:280px;
-		  margin-left:-5%;
-		  margin-right:-5%;
-		  /* margin-top:-25%; 
-		  margin-bottom:-25%; */
-	  /* height:360px; */
-	  /* margin:-100px; */
-  }
 
-
-/* testing image *
-
-
-
-
-
-
-/* end testing */
 
 /*background for image buttons on landing page*/
 .icon_background {
@@ -278,6 +253,8 @@ img .images {
     height:80%;
 }
 
+
+
   
     
 
@@ -485,3 +462,204 @@ img .images {
   }
 
 
+/* Navbar  New*/
+
+/* Edulution Logo */
+/* Logos  */
+.nav-logos .navbar-brand {
+  /* transform: translateX(-50%); */
+  /* left: 30%; */
+  left:50%;
+  margin-left:-30%;
+  position:absolute;
+}
+
+/* Edulution Logo */
+.nav-logo img{
+  /* margin:10px 0 0 15px; */
+  
+  margin-top:-80px;
+  width: 320px;
+  
+}
+
+/* Media Query HD Screen  */
+@media (max-width : 1905px){
+
+  .nav-logos .navbar-brand {
+    left:35%;
+    /* margin-left:-30%; */
+    position:absolute;
+  }
+
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+
+   
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1301px){
+
+  .nav-logos .navbar-brand {
+    
+    left:30.5%;
+    position:absolute;
+  }
+
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+  
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1020px){
+
+  .nav-logos .navbar-brand {
+    
+    left:25.5%;
+    position:absolute;
+  }
+
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+  
+}
+/*  End Media Query */
+
+
+
+
+/* Media Query for Iplay 8 Coach Tablet & Learners Tablet */
+@media (max-width : 911px){
+
+  .nav-logos .navbar-brand {
+    left:25%;
+    position:absolute;
+  }
+
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+  
+}
+
+/*  End Media Query for Iplay 8 */
+
+
+/* Media Query  Small Tablets  */
+@media (max-width : 786px){
+  .nav-logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 43%;
+    position:absolute;
+  }
+  
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-135px;
+    width: 320px;
+    
+  } 
+
+  /* Media Query  Small Tablets  */
+@media (max-width : 750px){
+  .nav-logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 43%;
+    position:absolute;
+  }
+  
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-135px;
+    width: 320px;
+    
+  } 
+  
+  
+ 
+  
+  }
+/* End of Media Query Small Tablets  */
+
+/* Media Query  */
+@media (max-width : 685px){
+  .nav-logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 42.5%;
+    position:absolute;
+  }
+  
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+
+  
+  }
+/* End of Media Query  */
+
+/* Media Query Mobile Device */
+@media (max-width : 420px){
+  .nav-logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 30%;
+    position:absolute;
+  }
+  
+  .nav-logos img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+  
+  }
+/* End of Media Query  */
+
+/* Media Query Mobile Device  */
+@media (max-width : 375px){
+  .nav-logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 30%;
+    position:absolute;
+  }
+  
+  .nav-logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-130px;
+    width: 320px;
+    
+  } 
+  
+  }
+/* End of Media Query  */
