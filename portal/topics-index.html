@@ -18,17 +18,36 @@
 <body  ng-controller="mainCtrl" class="mainBackground">
  
 
-<div ng-include="'include/navbar.html'"></div>
-
-    
-    <div >
+ <!-- Navbar -->
+    <!-- <div class="row"> -->
+        <div ng-include="'include/navbar.html'"></div>
+    <!-- </div> -->
+     <!-- Index of topics button -->
+    <div class="container" st-table="topicCollection">
         <div class="row">
+     
+           
+            <!-- Search Field -->
+            <div class="col-lg-5 col-md-5 col-sm-5 ">
+                <form class="index_topics_search">
+                    <div class="row">
+                        <div class="form-group ">
+                            <h2 class="header_topics">Index of Topics</h2>
+                            <form method="GET">
+                                <input st-search type="search" name="search" placeholder="Search for a Playlist or Topic Title...."  class="form-control" id="search" />
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <!-- End of Search Field -->
 
-        <!-- Back Button -->
-            <div >
+               <!-- Back Button -->
+               <div >
                 <div class="back_section">
                     <div class="button_spacing">
-                        <a class="anchor_color" href="/" style="color:#f1f1f1f1">
+                        <a class="anchor_color" href="/" >
                             <button type="button" class="index_of_topics_btn btn btn-button " id="index-of-topics-btn">
                                 <h3 class="back_btn"> <i class="fa fa-chevron-left"></i> Back</h3>
                             </button>
@@ -39,29 +58,6 @@
             </div>
         <!-- End Back Button -->
         
-        </div>
-    </div>
-
-
-    <div class="container" st-table="topicCollection">
-        <div class="row">
-     
-           
-            <!-- Search Field -->
-            <div class="col-lg-4 col-md-4 col-sm-4 ">
-                <form class="index_topics_search">
-                    <div class="row">
-                        <div class="form-group ">
-                            <h2 class="header_topics">Index of Topics</h2>
-                            <form method="GET">
-                                <input st-search type="search" name="search" placeholder="Search for a playlist or topic...."  class="form-control" id="search" />
-                            </form>
-                        </div>
-                    </div>
-                    <br>
-                </form>
-            </div>
-            <!-- End of Search Field -->
            
 
 
