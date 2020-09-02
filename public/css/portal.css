@@ -19,224 +19,6 @@ body{
 
 }
 
-/* Edulution Logo */
-/* Logos  */
-.logos .navbar-brand {
-  /* transform: translateX(-50%); */
-  left: 15%;
-  position:absolute;
-}
-
-/* Edulution Logo */
-.logo img{
-  /* margin:10px 0 0 15px; */
-  padding-left:10px;
-  margin-top:-80px;
-  width: 320px;
-  
-}
-
-/* Title Header  */
-.title_header{
-  color:#f1f1f1f1;
-  font-size:28px;
-  /* margin-top:2.5%; */
-  padding-left:85%;
-  
-}
-
-/* Media Query HD Screen  */
-@media (max-width : 1905px){
-
-  .logos .navbar-brand {
-    transform: translateX(-50%);
-    left: 8%;
-    position:absolute;
-  }
-
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-80px;
-    width: 320px;
-    
-  } 
-
-/* Title header */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:28px;
-    margin-top:1%;
-    margin-left:30%;
-  }
-   
-}
-/*  End Media Query */
-
-/* Media Query Center Laptop   */
-@media (max-width : 1301px){
-
-  .logos .navbar-brand {
-    transform: translateX(-50%);
-    left: 12.5%;
-    position:absolute;
-  }
-
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-80px;
-    width: 320px;
-    
-  } 
-
-/* Title header  */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:28px;
-    margin-top:1%;
-  }
-   
-}
-/*  End Media Query */
-
-
-
-/* Media Query for Iplay 8 Coach Tablet & Learners Tablet */
-@media (max-width : 911px){
-
-  .logos .navbar-brand {
-    transform: translateX(-50%);
-    left: 15%;
-    position:absolute;
-  }
-
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-80px;
-    width: 320px;
-    
-  } 
-
-/* Title header for Iplay 8 */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:26px;
-    margin-top:1%;
-    margin-left:3%;
-  }
-   
-}
-
-/*  End Media Query for Iplay 8 */
-
-
-/* Media Query  Small Tablets  */
-@media (max-width : 786px){
-  .logos .navbar-brand {
-    /* transform: translateX(-50%); */
-    left: 20%;
-    position:absolute;
-  }
-  
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-80px;
-    width: 320px;
-    
-  } 
-  
-  /* Title header */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:22px;
-    margin-top:1%;
-    margin-left:-10%;
-  }
-  
-  }
-/* End of Media Query Small Tablets  */
-
-/* Media Query  */
-@media (max-width : 685px){
-  .logos .navbar-brand {
-    /* transform: translateX(-50%); */
-    left: 20%;
-    position:absolute;
-  }
-  
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-80px;
-    width: 320px;
-    
-  } 
-  
-  /* Title header */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:22px;
-    margin-top:1.5%;
-    margin-left:-10%;
-  }
-  
-  }
-/* End of Media Query  */
-
-/* Media Query Mobile Device */
-@media (max-width : 420px){
-  .logos .navbar-brand {
-    /* transform: translateX(-50%); */
-    left: 25%;
-    position:absolute;
-  }
-  
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-60px;
-    width: 320px;
-    
-  } 
-  
-  /* Title header */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:21px;
-    margin-top:5%;
-    margin-left:-20%;
-  }
-  }
-/* End of Media Query  */
-
-/* Media Query Mobile Device  */
-@media (max-width : 375px){
-  .logos .navbar-brand {
-    /* transform: translateX(-50%); */
-    left: 25%;
-    position:absolute;
-  }
-  
-  .logo img{
-    /* margin:10px 0 0 15px; */
-    padding-left:10px;
-    margin-top:-60px;
-    width: 320px;
-    
-  } 
-  
-  /* Title header for Iplay 8 */
-  .title_header{
-    color:#f1f1f1f1;
-    font-size:21px;
-    margin-top:5%;
-    margin-left:-20%;
-  }
-  }
-/* End of Media Query  */
 
 
 
@@ -721,3 +503,221 @@ img .images {
   }
 
 
+/* Edulution Logo */
+/* Logos  */
+.logos .navbar-brand {
+  /* transform: translateX(-50%); */
+  left: 15%;
+  position:absolute;
+}
+
+/* Edulution Logo */
+.logo img{
+  /* margin:10px 0 0 15px; */
+  padding-left:10px;
+  margin-top:-80px;
+  width: 320px;
+  
+}
+
+/* Title Header  */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:28px;
+  /* margin-top:2.5%; */
+  padding-left:85%;
+  
+}
+
+/* Media Query HD Screen  */
+@media (max-width : 1905px){
+
+  .logos .navbar-brand {
+    transform: translateX(-50%);
+    left: 8%;
+    position:absolute;
+  }
+
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-80px;
+    width: 320px;
+    
+  } 
+
+/* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:28px;
+    margin-top:1%;
+    margin-left:30%;
+  }
+   
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1301px){
+
+  .logos .navbar-brand {
+    transform: translateX(-50%);
+    left: 12.5%;
+    position:absolute;
+  }
+
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-80px;
+    width: 320px;
+    
+  } 
+
+/* Title header  */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:28px;
+    margin-top:1%;
+  }
+   
+}
+/*  End Media Query */
+
+
+
+/* Media Query for Iplay 8 Coach Tablet & Learners Tablet */
+@media (max-width : 911px){
+
+  .logos .navbar-brand {
+    transform: translateX(-50%);
+    left: 15%;
+    position:absolute;
+  }
+
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-80px;
+    width: 320px;
+    
+  } 
+
+/* Title header for Iplay 8 */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:26px;
+    margin-top:1%;
+    margin-left:3%;
+  }
+   
+}
+
+/*  End Media Query for Iplay 8 */
+
+
+/* Media Query  Small Tablets  */
+@media (max-width : 786px){
+  .logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 20%;
+    position:absolute;
+  }
+  
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-80px;
+    width: 320px;
+    
+  } 
+  
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:22px;
+    margin-top:1%;
+    margin-left:-10%;
+  }
+  
+  }
+/* End of Media Query Small Tablets  */
+
+/* Media Query  */
+@media (max-width : 685px){
+  .logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 20%;
+    position:absolute;
+  }
+  
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-80px;
+    width: 320px;
+    
+  } 
+  
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:22px;
+    margin-top:1.5%;
+    margin-left:-10%;
+  }
+  
+  }
+/* End of Media Query  */
+
+/* Media Query Mobile Device */
+@media (max-width : 420px){
+  .logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 25%;
+    position:absolute;
+  }
+  
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-60px;
+    width: 320px;
+    
+  } 
+  
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:21px;
+    margin-top:5%;
+    margin-left:-20%;
+  }
+  }
+/* End of Media Query  */
+
+/* Media Query Mobile Device  */
+@media (max-width : 375px){
+  .logos .navbar-brand {
+    /* transform: translateX(-50%); */
+    left: 25%;
+    position:absolute;
+  }
+  
+  .logo img{
+    /* margin:10px 0 0 15px; */
+    padding-left:10px;
+    margin-top:-60px;
+    width: 320px;
+    
+  } 
+  
+  /* Title header for Iplay 8 */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:21px;
+    margin-top:5%;
+    margin-left:-20%;
+  }
+  }
+/* End of Media Query  */
