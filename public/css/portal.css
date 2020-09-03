@@ -886,6 +886,27 @@ padding-left:85%;
   }
   /*  End Media Query */
 
+/* Media Query Center Laptop   */
+@media (max-width : 1440px){
+  
+  .nav-logos >  .navbar-brand {
+    
+    left:35.5%;
+    position:absolute;
+  }
+  
+  .nav-logo img{
+     /* margin:10px 0 0 15px; */
+     margin-top: -22.5%;
+     width: 360px;
+     
+    
+  } 
+  
+  }
+  /*  End Media Query */
+
+
   /* Media Query Center Laptop   */
   @media (max-width : 1366px){
   
