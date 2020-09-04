@@ -14,41 +14,37 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <script src="/js/coachDashboard/app.js"></script>
     <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- Added new jquery -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- Added native js  -->
+
 </head>
 
-<body ng-controller="MainCtrl as ctrl">
-    <!-- password modal template -->
-    <script type="text/ng-template" id="passwordModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">The Coach should enter the password</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <label class="item item-input">
-                <input ng-model="password" type="password" class="form-control" id="passwordInput" required>
-            </label>
-            <p class="password-error" ng-show="wrongPassword==true">Sorry, that is not the correct password. Please try again</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-success" type="button" ng-click="$ctrl.checkPassword(password)">OK</button>
-            <button class="btn btn-danger" type="button">Cancel</button>
-        </div>
-    </script>
-    <!-- navigation template -->
-    <script type="text/ng-template" id="navigation.html">
-        <nav id="topnav" class="navbar navbar-default">
-          <div class="container-fluid" id="topnav_container">
-            <div id="navlogo" class="navbar-header" >
-              <a class="navbar-brand" href="#"></a>
-            </div>
-            <div id="navtitle">
-                <h1>Coach Dashboard</h1>
-            </div>
-            <div id="navbuttons" ng-click="menu.refresh()">
-                <button class="btn btn-primary btn-lg">Refresh</button>
-            </div>
+<body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
 
-          </div>
-        </nav>  
+<!-- Navigation Bar -->
+    <nav class="navbar navbar_background">
+        <div class="container">
+          <div class="navbar-header logos">
+           <a class="navbar-brand logo" href="/"> 
+            <img class="img-responsive" src="images/portal/edulution_logo/edulution_logo_white.svg" width="460" height="345">               
+          </a>
+        </div>
+        
+          <p class="title_header">Coach Dashboard</p>
+                    <div class="index_button">
+                        <button class="btn btn-button index_btn" ng-click="menu.refresh()">
+                            <h4>Refresh</h4>
+                        </button>
+                    </a>
+            </div>
+        </div> 
+    </nav>
+
+    
+    <script type="text/ng-template" id="navigation.html">
         <nav id="bottomnav" class="navbar navbar-default">
           <div class="container-fluid">
             <ul class="nav nav-tabs">
@@ -74,6 +70,7 @@
           </div>
         </nav>
     </script>
+    
     <!-- learners table template -->
     <script type="text/ng-template" id="learners.html">
         <div class="table-responsive row">
