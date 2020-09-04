@@ -6,9 +6,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Grade 7 Revision</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="/images/portal/edu_favicon.png" type="image/x-icon">
     <link href="/css/portal.css" rel="stylesheet" />
     <link href="/css/topic-index.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <!-- your app's js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -20,29 +20,22 @@
 </head>
 
 <body class="mainBackground">
-    <div>
-        <div class="Navbackground">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="/images/portal/edulution_logo-small.png" />
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Data binding of different titles -->
-                        <h1 class="padding-top" id="foundationalMaths">
-                            Grade 7 Revision
-                        </h1>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="/images/portal/kalitelogo.jpg" /></a>
-                    </div>
-                </div>
-            </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar_background">
+        <div class="container">
+          <div class="navbar-header logos">
+           <a class="navbar-brand logo" href="/"> 
+            <img class="img-responsive" src="images/portal/edulution_logo/edulution_logo_white.svg" width="460" height="345">               
+          </a>
+          </div>
+          <p class="title_header">Grade 7 Revision</p>
+          <!--/.nav-collapse -->
         </div>
-    </div>
-    <br>
-    <!-- List which holds all grade 7 test tabs -->
-    <!-- Begin container -->
+        <!--/.container-fluid -->
+    </nav>
+    <!-- Navigation Bar -->
+      
+    <!-- List which holds all course tabs -->
     <div class="container">
         <div>
             <!-- Panel Group of all Grade 7 tests -->
@@ -52,7 +45,7 @@
                 <div class="col-md-8 col-md-offset-2 gr7_test_panel_container">
                     <a href="#" onclick="window.open('/grade7/numeracy/grade_7_revision_numeracy','_self')">
                         <div class="panel panel-default">
-                            <div class="panel-heading gr7_test_panel_green">
+                            <div class="panel-heading " id="alpha_backgroundcolor">
                                 <h4 class="panel-title">
                                     NUMERACY
                                 </h4>
@@ -66,7 +59,7 @@
                 <div class="col-md-8 col-md-offset-2 gr7_test_panel_container">
                     <a href="#" onclick="window.open('/grade7/literacy/grade_7_revision_literacy','_self')">
                         <div class="panel panel-default">
-                            <div class="panel-heading gr7_test_panel_green">
+                            <div class="panel-heading " id="alpha_backgroundcolor">
                                 <h4 class="panel-title">
                                     LITERACY
                                 </h4>
