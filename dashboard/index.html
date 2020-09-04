@@ -11,9 +11,10 @@
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
     <script src="/js/coachDashboard/app.js"></script>
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="/css/navbar.css" rel="stylesheet" />
 
     <!-- Added new jquery -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -25,14 +26,13 @@
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
 
 <!-- Navigation Bar -->
-    <nav class="navbar navbar_background">
+    <nav class="navbar navbar_background navbar-static-top">
         <div class="container">
-          <div class="navbar-header logos">
-           <a class="navbar-brand logo" href="/"> 
-            <img class="img-responsive" src="images/portal/edulution_logo/edulution_logo_white.svg" width="460" height="345">               
-          </a>
+        <div class="navbar-header logos">
+            <a class="navbar-brand logo" href="/"> 
+                <img class="img-responsive" src="/images/edulution_logo_white.png">                
+            </a>
         </div>
-        
           <p class="title_header">Coach Dashboard</p>
                     <div class="index_button">
                         <button class="btn btn-button index_btn" ng-click="menu.refresh()">
@@ -42,7 +42,6 @@
             </div>
         </div> 
     </nav>
-
     
     <script type="text/ng-template" id="navigation.html">
         <nav id="bottomnav" class="navbar navbar-default">
