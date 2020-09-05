@@ -69,7 +69,10 @@ body{
      
   }
 
-
+.refesh_btn {
+    padding-bottom:10%;
+    margin-left: 69%;
+}
 
   /* .index_button{
     margin-left: 69%;
