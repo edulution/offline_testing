@@ -8,6 +8,10 @@ a {
   text-decoration: none !important;
 }
 
+.panel-title{
+  font-weight: bold;
+}
+
 .edulution_portal_logo {
 height: 100%;
 width: auto;
