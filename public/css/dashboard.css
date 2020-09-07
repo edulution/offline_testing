@@ -153,6 +153,10 @@ body{
 
 }
 
+.nav-tabs{
+    margin-top:-0.5%;
+    border-bottom:none;
+}
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
     color: #555;
@@ -164,6 +168,8 @@ body{
     margin-top: 1%;
     border-bottom-color: transparent;
     }
+
+.na
 
 .nav > li > a{
     color: white
