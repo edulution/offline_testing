@@ -70,8 +70,10 @@ body{
   }
 
 .refesh_btn {
-    padding-bottom:10%;
-    margin-left: 69%;
+    color: #f1f1f1f1;
+    background-color:#00A546;
+    margin-left: 92%;
+    margin-top: -12%;;
 }
 
   /* .index_button{
