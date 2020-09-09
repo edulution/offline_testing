@@ -21,7 +21,7 @@
     
 /* Edulution Logo */
   .logo img{
-  margin-left:10%;
+  margin-left:-10%;
   margin-top: 2%;
   width: 30%;
 }
@@ -32,6 +32,50 @@
   font-size:28px;
   padding-left:85%;
 }
+
+/* Media Query HD Screen 1980px  */
+@media (max-width : 1980px){
+  .logos > .navbar-brand {
+    left: 8%;
+    position:absolute;
+  }
+  .logo img{
+    margin-left:-20%;
+    margin-top: 2%;
+    width: 30%;
+  } 
+      
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:36px;
+    margin-top:2%;
+    margin-left:-100%;
+    }    
+  }
+  /*  End Media Query */
+
+/* Media Query HD Screen 1920px  */
+@media (max-width : 1920px){
+ .logos > .navbar-brand {
+    left: 8%;
+    position:absolute;
+  }
+  .logo img{
+    margin-left:-20%;
+    margin-top: 2%;
+    width: 30%;
+  } 
+      
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:36px;
+    margin-top:2%;
+    margin-left:-100%;
+    }    
+  }
+  /*  End Media Query */
     
 /* Media Query HD Screen 1905px  */
 @media (max-width : 1905px){
@@ -40,7 +84,7 @@
   position:absolute;
 }
 .logo img{
-  margin-left:10%;
+  margin-left:-20%;
   margin-top: 2%;
   width: 30%;
 } 
@@ -55,6 +99,29 @@
 }
 /*  End Media Query */
     
+/* Media Query HD Screen 1905px  */
+@media (max-width : 1845px){
+  .logos > .navbar-brand {
+    left: 8%;
+    position:absolute;
+  }
+  .logo img{
+    margin-left:1%;
+    margin-top: 2%;
+    width: 30%;
+  } 
+      
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:36px;
+    margin-top:2%;
+    margin-left:-80%;
+    }    
+  }
+  /*  End Media Query */
+      
+
 /* Media Query Center Laptop   1366px  */
 @media (max-width : 1366px){
 .logos > .navbar-brand {
@@ -295,6 +362,19 @@
 }
 
 /* Media Query HD Screen 1920px  */
+@media (max-width : 1980px){
+  .nav-logos > .navbar-brand {
+    left:40%;
+    position:absolute;
+  }
+  .nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+    } 
+  }
+  /*  End Media Query */
+
+/* Media Query HD Screen 1920px  */
 @media (max-width : 1920px){
 .nav-logos > .navbar-brand {
   left:40%;
@@ -345,6 +425,19 @@
   } 
 }
 /*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1080px){
+  .nav-logos > .navbar-brand {
+    left:32.5%;
+    position:absolute;
+  }
+  .nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+    } 
+  }
+  /*  End Media Query */
 
 /* Media Query Center Laptop   */
 @media (max-width : 1024px){

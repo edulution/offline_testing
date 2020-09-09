@@ -1,320 +1,905 @@
 /* Body  */
 body{
-    text-align:center;
-    overflow-x: hidden;
-  }
-  
-  /* Navbar Height */
-  .navbar {
-    height:100px;
-    margin-bottom: 0;
-    border: 0;
-    border-radius: 0;
-  }
-
-  .navbar-default{
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
-  }
-  
-  /* Navbar background-color */
-  .navbar_background {
-    /* background-color: #fff; */
-    color:#f1f1f1f1;
-    background-color: rgb(7, 29, 73);
-  }
-  
-  .titleclear{
-    padding-top:-100.8%;
-    padding-bottom:-2%;
-  }
-  
-.refesh_btn {
-    color: #f1f1f1f1;
-    background-color:#00A546;
-    margin-left: 92%;
-    margin-top: -12%;;
+    
+  text-align:left;
+  overflow-x: hidden;
 }
 
-.index_button{
-    padding-bottom:10%;
-    margin-left: 69%;
+/* Navbar Height */
+.navbar {
+  height:100px;
+  margin-bottom: 0;
+  border-bottom:none;
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar-default{
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+
+/* Navbar background-color */
+.navbar_background {
+  /* background-color: #fff; */
+  color:#f1f1f1f1;
+  background-color: rgb(7, 29, 73);
+  
 
 }
-.index_btn {
-    color: #f1f1f1f1;
-    background-color:#00A546;
-    border: rgb(7, 29, 73);
-    margin-left:100%;
-    margin-top: -30%;
+
+
+.edulution_portal_logo {
+height: 100%;
+width: auto;
+text-align: center;
+
+/* margin:-100px;  */
 }
+
+.edulution_portal_title{
+    margin-left:-5%;
+    margin-right:-5%;
+    margin-top:-2%;
+    margin-bottom:-2%;
+
+}
+
+
+
+.titleclear{
+  padding-top:-100.8%;
+  padding-bottom:-2%;
+}
+
+
+.edulution_portal_logos {
+  margin-top:-15%;
+    margin-bottom:-15%;
+}
+
+.edulution_portal_logo_img {
+    /* height:360px; */
+    height:280px;
+    margin-left:-5%;
+    margin-right:-5%;
+    margin-top:-2%;
+    margin-bottom:-2%;
    
+   
+}
+
+
+
+/* .index_button{
+  margin-left: 69%;
+  } */
+  
+  .index_button{
+  padding-bottom:10%;
+  margin-left: 69%;
+  
+  }
+  .index_btn {
+  color: #f1f1f1f1;
+  background-color:#00A546;
+  border: rgb(7, 29, 73);
+  margin-left:100%;
+  margin-top: -30%;
+
+  }
+  
+
+
+
+
+  
 /* Title header */
 .title_header{
-    color:#f1f1f1f1;
-    font-size:36px;
-    margin-top:2%;
-    margin-left:-80%;
-  }
-   
+  color:#f1f1f1f1;
+  font-size:36px;
+  margin-top:2%;
+  margin-left:-80%;
+  text-align: center;
+}
+ 
 /*  End Media Query */
 
 /* Media Query Center Laptop   */
 @media (max-width : 1366px){
 
-.logos > .navbar-brand {
+  .logos > .navbar-brand {
     left: -2%;
     position:absolute;
-}
-
-.logo img{
+  }
+  
+  .logo img{
     /* margin:10px 0 0 15px; */
     margin-left:2%;
     margin-top:-20%;
     width: 260px;
-      
-} 
     
-/* Title header  */
-.title_header{
+  } 
+  
+  /* Title header  */
+  .title_header{
     color:#f1f1f1f1;
     font-size:37px;
     margin-top:2%;
     margin-left:-90%;
-}
-    
-}
-/*  End Media Query */
+  }
+   
+  }
+  /*  End Media Query */
 
 
 /*Container div for topnav elements*/
-#bottomnav{
-    
-    background-color: rgb(7, 29, 73);
-    padding-top: 1.6%;
-    padding-bottom: -5%;
-    margin-top: -1%;
-    margin-bottom: 1%;
-}
+
+/* #bottomnav,#navbar{
+  
+  background-color: rgb(7, 29, 73);
+  padding-top: 1.6%;
+  padding-bottom: -5%;
+  margin-top: -1%;
+  margin-bottom: 1%;
+} */
 
 .navbar{
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-
+  padding-left: 0;
+  margin-bottom: 1%;
+  list-style: none;
 }
 
-.nav-tabs{
-    margin-top:0.7%;
-    border-bottom:none;
+ol, ul {
+margin-top: 0;
+margin-bottom: 10px;
 }
+
+.tabs{
+  background-color: rgb(7, 29, 73);
+  margin-top:-1.5%;
+  border-top:none;
+}
+
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-    color: #555;
-    cursor: default;
-    background-color: #fff;
-    border: 100% solid #ddd;
-    border-bottom-color: rgb(221, 221, 221);
-    border-bottom-color: transparent;
-    margin-top: 1%;
-    border-bottom-color: transparent;
-    }
-
-.na
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  /* border: 100% solid #ddd;
+  border-bottom-color: rgb(221, 221, 221);
+  border-bottom-color: transparent; */
+  margin-top: 1%;
+  border-bottom-color: transparent;
+  }
 
 .nav > li > a{
-    color: white
+  color: white
 }
 
 /*pagination styles*/
 .pagination > .active > a, .pagination > .active > a:hover{
-    background-color:#00A546;
-    border-color:#00A546; 
+  background-color: rgb(7, 29, 73);
+  border-color:rgb(7, 29, 73);
 }
 .pagination > li > a{
-    color:#00A546;
+  color:rgb(7, 29, 73);
 }
+
 
 /*scoped styles for the learners tab only*/
 .learners table {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    height: 800px; /* this can vary */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 800px; /* this can vary */
 }
 
 .learners .table>thead>tr>th {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-    }
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  }
 
 .learners table * {
-    box-sizing: inherit;
-    -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
 }
 
 .learners thead {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background-color: #F0F0F0;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #F0F0F0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 .learners tbody {
-    overflow-y: scroll;
-    display: inline-block;
+  overflow-y: scroll;
+  display: inline-block;
 }
 
 .learners thead > tr, .learners tbody > tr, .learners tfoot > tr {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .learners thead, tfoot {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .learners th, .learners tbody td {
-    width: 25%; /* this can vary */
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
+  width: 25%; /* this can vary */
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .learners tfoot {
-    display: inline-block;
+  display: inline-block;
 }
 
 .learners tfoot td {
-    width: 100%;
-    display: inline-block;
+  width: 100%;
+  display: inline-block;
 }
 
 
 /*scoped styles for responses tab only*/
 #responses_search {
-    width: 40%;
+  width: 40%;
 }
 .responses table {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    height: 800px; /* this can vary */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 800px; /* this can vary */
 }
 
 .responses .table>thead>tr>th {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-    }
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  }
 
 .responses table * {
-    box-sizing: inherit;
-    -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
 }
 
 .responses thead {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background-color: #F0F0F0;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #F0F0F0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 .responses tbody {
-    overflow-y: scroll;
-    display: inline-block;
+  overflow-y: scroll;
+  display: inline-block;
 }
 
 .responses thead > tr, .responses tbody > tr, .responses tfoot > tr {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .responses thead, tfoot {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .responses th, .responses tbody td {
-    width: 14.3%; /* this can vary */
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
+  width: 14.3%; /* this can vary */
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .responses tfoot {
-    display: inline-block;
+  display: inline-block;
 }
 
 .responses tfoot td {
-    width: 100%;
-    display: inline-block;
+  width: 100%;
+  display: inline-block;
 }
 
 
 .result_section_block{
-    border: 1px solid white;
-    color: white;
-    text-align: center;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
 }
 
 
 /*TODO: New colors for test results and results by section tabs*/
 .score_background_{
-    background-color:#D9D9D9
+  background-color:#D9D9D9
 }
 .score_background{
-    background-color:#FF412A
+  background-color:#FF412A
 }
 .score_background{
-    background-color:#EC9090
+  background-color:#EC9090
 }
 .score_background{
-    background-color:#F5C216
+  background-color:#F5C216
 }
 .score_background{
-    background-color:#99CC33
+  background-color:#99CC33
 }
 .score_background{
-    background-color:#00B050
-    }
+  background-color:#00B050
+  }
 
 
 /* RESPONSIVE QUERIES FOR NAV-BAR */
 
 div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 100px;
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 100px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
   }
-  
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
   }
-  
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  }
+}
 
 
-  @media (max-width : 911px){
-    .nav-tabs{
-        margin-top:5%;
-        border-bottom:none;
-    }
+/* Navbar Logos  */
+.logos .navbar-brand {  
+  left: 15%;
+  position:absolute;
+}
+    
+/* Edulution Logo */
+  .logo img{
+  margin-left:-10%;
+  margin-top: 2%;
+  width: 30%;
+}
+  
+/* Title Header  */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:28px;
+  padding-left:85%;
+}
+
+/* Media Query HD Screen 1980px  */
+@media (max-width : 1980px){
+  .logos > .navbar-brand {
+    left: 8%;
+    position:absolute;
   }
+  .logo img{
+    margin-left:-20%;
+    margin-top: 2%;
+    width: 30%;
+  } 
+      
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:36px;
+    margin-top:2%;
+    margin-left:-100%;
+    }    
+  }
+  /*  End Media Query */
+
+/* Media Query HD Screen 1920px  */
+@media (max-width : 1920px){
+ .logos > .navbar-brand {
+    left: 8%;
+    position:absolute;
+  }
+  .logo img{
+    margin-left:-20%;
+    margin-top: 2%;
+    width: 30%;
+  } 
+      
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:36px;
+    margin-top:2%;
+    margin-left:-100%;
+    }    
+  }
+  /*  End Media Query */
+    
+/* Media Query HD Screen 1905px  */
+@media (max-width : 1905px){
+.logos > .navbar-brand {
+  left: 8%;
+  position:absolute;
+}
+.logo img{
+  margin-left:-20%;
+  margin-top: 2%;
+  width: 30%;
+} 
+    
+/* Title header */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:36px;
+  margin-top:2%;
+  margin-left:-80%;
+  }
+  
+  /* .nav-tabs{
+    margin-top:-0.5%;
+  }  */
+}
+/*  End Media Query */
+    
+/* Media Query HD Screen 1905px  */
+@media (max-width : 1845px){
+  .logos > .navbar-brand {
+    left: 8%;
+    position:absolute;
+  }
+  .logo img{
+    margin-left:1%;
+    margin-top: 2%;
+    width: 30%;
+  } 
+      
+  /* Title header */
+  .title_header{
+    color:#f1f1f1f1;
+    font-size:36px;
+    margin-top:2%;
+    margin-left:-80%;
+    }    
+  }
+  /*  End Media Query */
+      
+
+/* Media Query Center Laptop   1366px  */
+@media (max-width : 1366px){
+.logos > .navbar-brand {
+  left: -2%;
+  position:absolute;
+}
+
+.logo img{
+  margin-left:8%;
+  margin-top: 2%;
+  width: 30%;
+} 
+    
+/* Title header  */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:40px;
+  margin-top:2%;
+  margin-left:-90%;
+  }
+  .nav-tabs{
+    margin-top:0.5;
+  } 
+ 
+  
+}
+/*  End Media Query */
+     
+/* Media Query Center Laptop 1024px  */
+@media (max-width : 1024px){
+.logos > .navbar-brand {
+  left: -2%;
+  position:absolute;
+}
+.logo img{
+  margin-left:8%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header  */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:37px;
+  margin-top:2%;
+  margin-left:-80%;
+  }
+}
+/*  End Media Query */
+    
+/* Media Query for Iplay-8 911px Coach Tablet & Learners Tablet */
+@media (max-width : 911px){
+.logos > .navbar-brand {
+  left: -3%;
+  position:absolute;
+}
+.logo img{
+  margin-left:8%;
+  margin-top: 2%;
+  width: 30%;
+} 
+/* Title header for Iplay 8 */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:38px;
+  margin-top:2.5%;
+  margin-left:-70%;
+  }
+  .nav-tabs{
+    margin-top:0.5%;
+  } 
+ 
+}
+/*  End Media Query for Iplay 8 */
+     
+/* Media Query 850px */
+@media (max-width : 850px){
+.logos > .navbar-brand {
+  left: -3%;
+  position:absolute;
+}
+.logo img{
+  margin-left:8%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header  */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:32px;
+  margin-top:3%;
+  margin-left:-80%;
+ } 
+}
+/*  End Media  */
+      
+/* Media Query  Small Tablets  */
+@media (max-width : 786px){
+.logos .navbar-brand {
+  left: 20%;
+  position:absolute;
+}
+
+.logo img{
+  margin-left:5%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:22px;
+  margin-top:1%;
+  margin-left:-10%;
+ }
+}
+/* End of Media Query Small Tablets  */
+       
+/* Media Query  Small Tablets  */
+@media (max-width : 770px){
+.logos > .navbar-brand {
+  left: -5%;
+  position:absolute;
+}
+
+.logo img{
+  margin-left:10%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:36px;
+  margin-top:3%;
+  margin-left:-50%;
+ }
+}
+/* End of Media Query Small Tablets  */
+
+/* Media Query  */
+@media (max-width : 685px){
+.logos > .navbar-brand {
+  left: -5%;
+  position:absolute;
+}
+
+.logo img{
+  margin-left:5%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:30px;
+  margin-top:4%;
+  margin-left:-50%;
+ }
+}
+/* End of Media Query  */
+
+/* Media Query Mobile Device */
+@media (max-width : 450px){
+.logos > .navbar-brand {
+  left: -10%;
+  position:absolute;
+}
+.logo img{
+  margin-left:10%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:20px;
+  margin-top:6%;
+  margin-left:-50%;
+  }
+}
+/* End of Media Query  */
+
+/* Media Query Mobile Device  */
+@media (max-width : 375px){
+.logos > .navbar-brand {
+  left: -10%;
+  position:absolute;
+}
+
+.logo img{
+  margin-left:10%;
+  margin-top: 2%;
+  width: 30%;
+} 
+
+/* Title header  */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:15px;
+  margin-top:5%;
+  margin-left:-80%;
+  }
+}
+/* End of Media Query  */
+
+/* Media Query Mobile Device  */
+@media (max-width : 360px){
+.logos > .navbar-brand {
+  left: -10%;
+  position:absolute;
+}
+
+.logo img{
+  margin-left:8%;
+  margin-top: 5%;
+  width: 30%;
+} 
+
+/* Title header */
+.title_header{
+  color:#f1f1f1f1;
+  font-size:14px;
+  margin-top:10%;
+  margin-left:-60%;
+  }
+}
+/* End of Media Query  */
+/* End Numeracy and Literacy Assessments */
+
+
+/* Navbar CSS  */
+/* Navbar Media Queries  */
+.nav-logos > .navbar-brand {
+  left:50%;
+  position:absolute;
+}
+/* Edulution Logo */
+.nav-logo img{
+  margin-top: 2%;
+  width: 320px;
+}
+
+/* Media Query HD Screen 1920px  */
+@media (max-width : 1980px){
+  .nav-logos > .navbar-brand {
+    left:40%;
+    position:absolute;
+  }
+  .nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+    } 
+  }
+  /*  End Media Query */
+
+/* Media Query HD Screen 1920px  */
+@media (max-width : 1920px){
+.nav-logos > .navbar-brand {
+  left:40%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1440px){
+.nav-logos >  .navbar-brand {
+  left:35.5%;
+  position:absolute;
+}
+.nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+  } 
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1366px){
+.nav-logos >  .navbar-brand {
+  left:34%;
+  position:absolute;
+}
+.nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+  }   
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1301px){
+.nav-logos >  .navbar-brand {
+  left:35%;
+  position:absolute;
+}
+.nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+  } 
+}
+/*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1080px){
+  .nav-logos > .navbar-brand {
+    left:32.5%;
+    position:absolute;
+  }
+  .nav-logo img{
+    margin-top: 2%;
+    width: 360px;
+    } 
+  }
+  /*  End Media Query */
+
+/* Media Query Center Laptop   */
+@media (max-width : 1024px){
+.nav-logos > .navbar-brand {
+  left:32.5%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
+/*  End Media Query */
+
+/* Media Query for Iplay 8 Coach Tablet & Learners Tablet */
+@media (max-width : 911px){
+.nav-logos >  .navbar-brand {
+  left:32.5%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
+/*  End Media Query for Iplay 8 */
+
+/* Media Query  Small Tablets  */
+@media (max-width : 786px){
+.nav-logos > .navbar-brand {
+  left:30%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+} 
+
+/* Media Query  Small Tablets  */
+@media (max-width : 750px){
+.nav-logos .navbar-brand {
+  left: 25%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
+/* End of Media Query Small Tablets  */
+
+/* Media Query  */
+@media (max-width : 685px){
+.nav-logos > .navbar-brand {
+  left: 20%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
+/* End of Media Query  */
+
+/* Media Query Mobile Device */
+@media (max-width : 450px){
+  .nav-logos > .navbar-brand {
+    left: 7.5%;
+    position:absolute;
+  }
+  .nav-logos img{
+    margin-top: 2%;
+    width: 360px;
+    } 
+  }
+
+/* Media Query Mobile Device */
+@media (max-width : 420px){
+.nav-logos > .navbar-brand {
+  left: 5%;
+  position:absolute;
+}
+.nav-logos img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
+/* End of Media Query  */
+
+/* Media Query Mobile Device  */
+@media (max-width : 375px){
+.nav-logos  > .navbar-brand {
+  left: 5%;
+  position:absolute;
+}
+.nav-logo img{
+  margin-top: 2%;
+  width: 360px;
+  } 
+}
