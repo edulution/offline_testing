@@ -1,278 +1,373 @@
 /* Body  */
-
 body{
-    
-    text-align:center;
-    font-family:"Arial,Helvetica,sans-serif";
-
+  text-align:center;
+  overflow-x: hidden;
 }
 
-/* Navbar background-color */
-
-.Navbackground {
-    background-color: #fff;
-    
+a {
+  text-decoration: none !important;
 }
 
-.edulution_portal {
-    padding-top:6%;
-    text-align: center;
-    font-size: 2.2em;
-    padding-left: 24%;
-    font-family: Roboto;
+.panel-title{
+  font-weight: bold;
+}
+
+.titleclear{
+  padding-top:-100.8%;
+  padding-bottom:-2%;
+}
+
+/*background for image buttons on landing page*/
+.icon_background {
+  width:280px;
+  height:280px;
+  background: whitesmoke;
+  border-radius: 20px;
+  box-shadow: 6px 6px 2.5px grey;
+  padding-bottom: 10px;
 }
 
 /* Main index background */
 .mainBackground {
-    background:-webkit-linear-gradient(#D3E8BF,#60713E);
-    background:-o-linear-gradient(#D3E8BF,#60713E);
-    background:-moz-linear-gradient(#D3E8BF,#60713E);
-    background:linear-gradient(#D3E8BF,#60713E) fixed;
+  background-color:#fff;
 }
 
 /* Background Pre Alpha  */
 .prealpha {
-    background-color:#F4D19C;
-    /* background:-webkit-linear-gradient(#D3E8BF,#F4D19C);
-    background:-o-linear-gradient(#D3E8BF,#F4D19C);
-    background:-moz-linear-gradient(#D3E8BF,#F4D19C);
-    background:linear-gradient(#D3E8BF,#F4D19C) fixed; */
+  background-color:#F4D19C;
 }
 
 /* Background Alpha */
 .alpha {
-    background-color: #CCFFCC;
-    /* background:-webkit-linear-gradient(#D3E8BF,#CCFFCC);
-    background:-o-linear-gradient(#D3E8BF,#CCFFCC);
-    background:-moz-linear-gradient(#D3E8BF,#CCFFCC);
-    background:linear-gradient(#D3E8BF,#CCFFCC) fixed; */
+  background-color: #CCFFCC;
 }
 
 
 /* Background Bravo */
 .bravo {
-    background-color:#C5D9F1;
-    /* background:-webkit-linear-gradient(#f5f5f5);
-    background:-o-linear-gradient(#f5f5f5);
-    background:-moz-linear-gradient(#f5f5f5);
-    background:linear-gradient(#f5f5f5) fixed; */
+  background-color:#C5D9F1;
 }
 
 /* Background Charlie */
 .charlie {
-    background-color:#FDE9D9;
-    /* background:-webkit-linear-gradient(#D3E8BF,#FDE9D9);
-    background:-o-linear-gradient(#D3E8BF,#FDE9D9);
-    background:-moz-linear-gradient(#D3E8BF,#FDE9D9);
-    background:linear-gradient(#D3E8BF,#FDE9D9) fixed; */
+  background-color:#FDE9D9;
 }
-
 
 /* Image Align */
 img {
-    align:left;
-}
-
-
-/* Headers H3 Color */
-.h3_color{
-    color: #fff;
+  text-align:left;
 }
 
 .mainBody {
-    text-align:center;
+  text-align:center;
 }
 
 /* Clear */
 .clear {
-    padding-top:10px;
+  padding-top:10px;
 }
 
 /* Clear */
 .clearfooter {
-    padding-top: 60px;
-}
-
-
-/* Curved Accordion */
-.panel-heading {
-     border-top-radius:5px;
-     border-bottom-radius:5px;
-  
+  padding-top: 60px;
 }
 
 /* PRE ALPHA HEADING */
 #prealpha-heading {
-    background-color: #F4D19C;
-    border: #F4D19C;
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
+  background-color: #F4D19C;
+  border: #F4D19C;
+  box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 
 /* ALPHA HEADING */
 #alpha-heading {
-    background-color: #CCFFCC;
-    border: #CCFFCC;
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
+  background-color: #CCFFCC;
+  border: #CCFFCC;
+  box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /* BRAVO */
 #bravo-heading {
-    background-color: #C5D9F1;
-    border: #C5D9F1;
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
+  background-color: #C5D9F1;
+  border: #C5D9F1;
+  box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /* CHARLIE */
 #charlie{
-    background-color:#FDE9D9;
-    border:#FDE9D9;
-    box-shadow:2px 2px 2px 2px #3F3F3F
+  background-color:#FDE9D9;
+  border:#FDE9D9;
+  box-shadow:2px 2px 2px 2px #3F3F3F
 }
 
-
-/* Added Green Buttons */
-.btn-button {
-    background-color: #3D8D54;
-   
+.back_btn_assessment{
+  /* margin-top:-5%;  */
+  margin-bottom:-10%;
 }
 
-#index-of-topics-btn{
-    /* float: left;
-    margin-left: 20%;
-    padding: 3%; */
-    /*background-color: #159B15;*/
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
-    border: #159B15;
+.index_section{
+margin-left: 69%;
 }
 
+.index_button{
+padding-bottom:20px;
+
+}
+.index_btn {
+color: #f1f1f1f1;
+background-color:rgb(7, 29, 73);
+box-shadow: 2px 2px 2px 2px #3F3F3F; 
+border: rgb(7, 29, 73);
+/* margin-left:300px; */
+ margin-right:200px; 
+
+}
+
+.index-of-topics-btn{
+  margin: 10px;
+  color: #f1f1f1f1;
+}
 
 img .images {
-    text-align: right;
+  text-align: right;
 }
-
 /* Icons for each lesson */
 .icons{
-    margin-right:500px;
+  margin-right:500px;
 }
-
 /* Align Panel header */
 .panel-headers {
-    text-align: justify;
-    /* text-align:inherit; */
-    margin-top: -30px;
+  text-align: justify;
+  /* text-align:inherit; */
+  margin-top: -30px;
 }
 
-
 .gr7_test_panel_container a:hover{
-    text-decoration: none
+  text-decoration: none
 }
 
 /*kolibri logo image btn on landing page*/
 .kolibri_logo_btn{
-    /* width: 352px; */
-    width:312px;
-    height:285px;
+  width:312px;
+  height:285px;
 }
 
 .numeracy_assessments_btn{
-    width: 250px;
-    height:250px;
+  width: 250px;
+  height:250px;
 }
-
-/*background for image buttons on landing page*/
-.icon_background {
-        
-    width: 352px;
-    height:322px;
-    background: whitesmoke;
-    border-radius: 20px;
-    box-shadow: 6px 6px 2.5px grey;
-    padding-bottom: 10px;
-}
-
 
 /*remove text decoration on text inside img button*/
 .img_btn_container a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.texts {
-    font-size: 25px;
-    font-weight: bold;
+.icon_texts {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .img_btns_row{
-    margin-bottom: 3%;
+  margin-right:5%;
+  margin-bottom: 3%;
 }
 
-
 .button_spacing{
-    padding-bottom: 10px; 
+  padding-bottom: 10px; 
 }
 
+.kolibri_logo_btn{
+  margin-top:4%;
+  width: 78%;
+  height:78%;
+}
 
-/* @media screen and (max-width: 1024px)  */
-@media screen and (max-width: 1024px) and (min-width: 911px)
-{
-
-    .image_space{
-        margin-right:20%;
-    }
-
-    .icon_background {
-        
-        width: 352px;
-        height:322px;
-        background: whitesmoke;
-        border-radius: 20px;
-        box-shadow: 6px 6px 2.5px grey;
-        padding-bottom: 10px;
-    }
-
-    .kolibri_logo_btn{
-        /* width: 325px; */
-        /* height:285px; */
-        width: 80%;
-        height:80%;
-       
-    }
-
-    .numeracy_assessments_btn{
-        /* width: 250px;
-        height:250px; */
-
-        width: 80%;
-        height:80%;
-    }
-
-  
-    
-.button_spacing{
-    padding-bottom: 10px; 
+.numeracy_assessments_btn{
+  margin-top:4%;
+  width: 78%;
+  height:78%;
 }
 
 .edulution_portal {
-    padding-top:5%;
-    text-align: center;
-    font-size: 2.2em;
-    font-family: Roboto;
-    padding-left: 24%;
+  padding-top:5%;
+  text-align: center;
+  font-size: 2.2em;
+  font-family: Roboto;
+  padding-left: 24%;
 }
 
-  
-  }
-  
 /*green grade 7 test panel*/
 .gr7_test_panel_green{
-    background-color: #CCFFCC !important;
-    border: #CCFFCC;
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
+  background-color: #CCFFCC !important;
+  border: #CCFFCC;
+  box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /*white grade 7 test panel*/
 .gr7_test_panel_white{
-    background-color: white !important;
-    border: #CCFFCC;
-    box-shadow: 2px 2px 2px 2px #3F3F3F;
+  background-color: white !important;
+  border: #CCFFCC;
+  box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
+
+/* Index of Topics Button */
+.index_of_topics_button {
+  
+  margin-left : 68.5%;
+
+}
+/* course content text */
+.course_content_text{
+    padding-left:10%;
+    text-align:justify;
+}
+
+.archor_color {
+    color: #fff;
+}
+
+#home_backgroundcolor {
+  background: #ccc;
+}
+
+#prealpha_backgroundcolor {
+  background: #6CACE4;
+}
+
+#alpha_backgroundcolor {
+  background:#84BD00;;
+}
+
+#bravo_backgroundcolor {
+  background: #7474C1;
+}
+
+/* Button Text for all the Playlist  */
+.button_prealpha_text {
+    
+  font-size: 24px;
+  color:#6CACE4;
+}
+
+.button_alpha_text {
+  font-size: 24px;
+  color:#84BD00;
+}
+
+.button_bravo_text {
+  font-size: 24px;
+  color:#7474C1;
+}
+/* End  */
+
+/* Footer */
+.version_number{
+  margin-bottom: -130%;
+  margin-top: -3%;
+  
+}
+
+/* Sidebar */
+/* Style the tab */
+/* .tab {
+ 
+  border: 1px solid #ccc;
+  background-color: rgb(7, 29, 73); */
+  /* width: 30%;
+  height: 600px; */
+  /* margin: 0;
+  padding: 0;
+  width: 30%;
+  position: fixed;
+  height: 100%;
+  overflow-x: hidden;
+  color:#fff;
+} */
+
+/* Style the buttons inside the tab */
+/* .tab button {
+  display: block;
+  background-color: inherit;
+  color: #fff;
+  padding: 30px 56px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+} */
+
+/* Change background color of buttons on hover */
+/* .tab button:hover {
+  background-color: #ddd;
+} */
+
+/* Create an active/current "tab button" class */
+/* .tab button.active {
+  background-color: #ccc;
+} */
+
+/* Style the tab content */
+/* .tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 100%;
+} */
+
+/* Sidebar */
+/* .sidebar {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+} */
+
+/* .sidebar a {
+  display: block;
+  color: black;
+  padding: 50px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 100px;
+} */
+
+/* Sidebar to be added in the next Version */
+/* @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */
