@@ -195,7 +195,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             testResponse.block_4 = { name: block_4_name, result: chunksArray[3] / one_fifth }
             testResponse.block_5 = { name: block_5_name, result: chunksArray[4] / one_fifth }
 
-            console.log(testResponse)
+            /*console.log(testResponse)*/
 
         }
 
@@ -279,7 +279,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 this.tab = 0; /* initially set tab to 1*/
                 this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
                     this.tab = setTab;
-                    console.log(this.tab);
+                    /*console.log(this.tab);*/
                 };
                 this.isSelected = function(checkTab) { /* Check which tab is selected to trigger show of selected tab */
                     return this.tab === checkTab;

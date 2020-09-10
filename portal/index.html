@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
-    <title></title>
+    <title>Edulution Portal</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
     <link href="/css/portal.css" rel="stylesheet" />
+    <link href="/css/navbar.css" rel="stylesheet" />
     <!-- your app's js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -20,71 +20,102 @@
 
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
     <!-- Navbar -->
-    <div ng-include="'/include/navbar.html'"></div>
-    <h3 class="mainBody">Welcome. What would you like to do?</h3>
-    <!-- Body -->
-    <div class="container-fluid">
-        <!-- Images  -->
-        <div class="row img_btns_row">
-            <div class=" image_space">
-                <!-- Kolibri -->
-                <div class="col-md-4 col-md-offset-2  col-sm-4  col-sm-offset-1   img_btn_container">
+        <div ng-include="'include/navbar.html'"></div>
+
+     <!-- Index of topics button -->
+        <div class="container">
+            <div class="row">
+                <div class="index_section">
+                    <div class="index_button">
+                        <a href="#" class="index-of-topics-btn" onclick="window.open('/topics','_self')">
+                        <button class="btn btn-button index_btn">
+                            <h4>Index of Topics</h4>
+                        </button>
+                    </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--  End Index of topics button -->
+
+
+         <!-- Grid Body (Kolibri and Numeracy Assessments) 1 -->
+         <div class="container">
+             <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1  col-xs-offset-0 ">
                     <a href="#" onclick="window.open('http://192.168.8.200:8080','_self')">
                         <div class="button_spacing">
                             <div class="icon_background">
-                                <img src="/images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
-                                <p class="texts">KOLIBRI</p>
+                                <img src="images/portal/home_page_images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
+                                <p class="icon_texts">KOLIBRI 
+                                    </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <!-- Numeracy Assessments -->
-                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-3  img_btn_container">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                </div>
+
+                <div class="col-lg-4  col-md-4 col-lg-offset-1 col-md-offset-1 col-sm-4 col-sm-push-1 col-xs-4 col-xs-offset-2 ">
                     <a href="#" onclick="window.open('/numeracy_assessments','_self')">
-                        <div class="icon_background">
-                            <img src="/images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
-                            <p class="texts">
+                        <div class="button_spacing">
+                            <div class="icon_background">
+                                <img src="images/portal/home_page_images/numeracy_assessments_btn_img.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
+                            <p class="icon_texts">
                                 NUMERACY
                                 <br>
                                 ASSESSMENTS
                             </p>
+                            </div>
                         </div>
                     </a>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
+             </div>
+         </div>
+         <!-- End Grid (Kolibri and Numeracy Assessments) 1-->
+
+        <br>
+
+        <!-- Grid Body (Grade 7 Playlist and Literacy Assessments) 2 -->
+        <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-4 ">
-                <div class="button_spacing">
-                    <a href="#" onclick="window.open('/topics','_self')">
-                        <button type="button" class="btn btn-button" id="index-of-topics-btn">
-                            <h3 class="h3_color">Index of Topics</h3>
-                        </button>
-                    </a>
-                </div>
+
+          
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1  col-xs-offset-0 ">
+                <a href="#" onclick="window.open('/grade7_revision','_self')">
+                    <div class="button_spacing">
+                        <div class="icon_background">
+                            <img src="images/portal/home_page_images/number_7.png" class="img-rounded kolibri_logo_btn" alt="Grade 7 logo">
+                           <p class="icon_texts">
+                               GRADE 7
+                               <br>
+                               REVISION</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-4 col-sm-4">
-                <div class="button_spacing">
-                    <a href="#" onclick="window.open('/grade7_revision','_self')">
-                        <button type="button" class="btn btn-button" id="index-of-topics-btn">
-                            <h3 class="h3_color">Grade 7 revision</h3>
-                        </button>
-                    </a>
-                </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             </div>
-            <div class="col-md-4 col-sm-4">
-                <div class="button_spacing">
-                    <a href="#" onclick="window.open('/literacy_tests','_self')">
-                        <button type="button" class="btn btn-button" id="index-of-topics-btn">
-                            <h3 class="h3_color">Literacy Assessments</h3>
-                        </button>
-                    </a>
-                </div>
+
+            <div class="col-lg-4  col-md-4 col-lg-offset-1 col-md-offset-1 col-sm-4 col-sm-push-1 col-xs-4 col-xs-offset-2 ">
+                <a href="#" onclick="window.open('/literacy_tests','_self')">
+                    <div class="button_spacing">
+                        <div class="icon_background">
+                            <img src="images/portal/home_page_images/literacy_books.png" class="img-rounded numeracy_assessments_btn" alt="Numeracy Assessments">
+                            <p class="icon_texts">
+                               LITERACY 
+                               <br>
+                               ASSESSMENTS
+                            </p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+    <!-- End Grid (Grade 7 Playlist and Literacy Assessments) 2-->
     <!-- Footer -->
     <div ng-include="'/include/footer.html'"></div>
 </body>
