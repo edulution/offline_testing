@@ -4,18 +4,18 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         $scope.init = function() {
 
-            $http.get("/get_users").then(function(response) {
+            $http.get("/api/get_users").then(function(response) {
                 $scope.users = response.data;
                 /*console.log($scope.users);*/
             });
 
-            $http.get("/get_test_marks").then(function(response) {
+            $http.get("/api/get_test_marks").then(function(response) {
                 $scope.tests_marks = response.data;
                 /*console.log($scope.tests_marks);*/
 
                 /*Get raw test responses*/
                 /*run inside the get test marks call because test marks must always be fetched before responses*/
-                $http.get("/get_responses").then(function(response) {
+                $http.get("/api/get_responses").then(function(response) {
                     /*Do some operations on the responses*/
                     for (var i = response.data.length - 1; i >= 0; i--) {
                         /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
@@ -40,7 +40,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             });
 
             /*Get the tests count by month*/
-            $http.get("/get_test_count").then(function(response) {
+            $http.get("/api/get_test_count").then(function(response) {
                 $scope.tests_count = response.data;
             });
 
@@ -51,7 +51,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             $scope.selresults = []
 
-            $scope.selresults_placeholder = [];            
+            $scope.selresults_placeholder = [];
 
             /*placeholder value used in smart-table because results are loaded asynchorously*/
             $scope.results_placeholder = [];
@@ -67,8 +67,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         }
 
-        $scope.get_results = function(){
-            $scope.selresults = $scope.results.filter(function (resp){
+        $scope.get_results = function() {
+            $scope.selresults = $scope.results.filter(function(resp) {
                 return resp.username == $scope.selUser;
             });
         }
@@ -194,10 +194,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         /*Main function which puts everything together*/
         /*Modifies testresponse object and adds properties block_1 to block_5*/
         var generate_blocks = function(testMarks, testResponse) {
-          /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
+            /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
             var cuttoffPoint = get_test_max_score(testMarks, testResponse)
 
-          /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
+            /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
             var one_fifth = cuttoffPoint / 5
 
             /*Get the object values for q1 to q..*/
@@ -219,7 +219,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
 
             /*finally create the values and results for each chunk of questions*/
-            /*based on the maxscore for the test and totals for each chunk*/ 
+            /*based on the maxscore for the test and totals for each chunk*/
             /*This will modify the object passed in and returns nothing*/
             get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
 
@@ -233,7 +233,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             restrict: 'E',
             templateUrl: 'navigation.html',
             controller: function($window) {
-                this.tab = 1; /* initially set tab to 1*/
+                this.tab = 0; /* initially set tab to 0*/
                 this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
                     this.tab = setTab;
                     console.log(this.tab);

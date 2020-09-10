@@ -2,51 +2,53 @@
 <html ng-app="coachDashBoard">
 
 <head>
-    <title>Coach Dashboard</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-filter.min.js"></script>
-    <script src="js/smart-table.min.js"></script>
-    <script src="js/angular-animate.js"></script>
-    <script src="js/angular-sanitize.js"></script>
-    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <script src="js/coachDashboard/results.js"></script>
-    <link rel="stylesheet" href="css/results.css">
+    <title>Progress Dashboard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-filter.min.js"></script>
+    <script src="/js/smart-table.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
+    <script src="/js/coachDashboard/results.js"></script>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/results.css">
+    <!-- jquery and bootstrap js-->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 
-<body ng-controller="MainCtrl as ctrl">
-    <!-- navigation template -->
-    <script type="text/ng-template" id="navigation.html">
-        <nav id="topnav" class="navbar navbar-default">
-          <div class="container-fluid" id="topnav_container">
-            <div id="navlogo" class="navbar-header" >
-              <a class="navbar-brand" href="#">
-                  <img src="images/coachDashboard/edlogo_new_blue.svg" class="img-responsive">
-              </a>
-            </div>
-            <div id="navtitle">
-                <h1>Progress Dashboard</h1>
-            </div>
-            <div id="navbalancer"></div>
-          </div>
-        </nav>  
-        <nav id="bottomnav" class="navbar navbar-default">
-          <div class="container-fluid">
-            <ul class="nav nav-tabs">
-              <li ng-class="{ active: menu.isSelected(1) }">
-                <a href="#" ng-click="menu.selectTab(1)"><h3>Test Results</h3></a>
-              </li>              
-              <li ng-class="{ active: menu.isSelected(2) }">
-                <a href="#" onclick="window.open('https://stats1.edulution.org/coach_stats/','_self')" ng-click="menu.selectTab(2)">
-                    <h3>Activity</h3>
+<body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar_background">
+        <div class="container">
+            <div class="navbar-header logos">
+                <a class="navbar-brand logo" href="/">
+                    <img class="img-responsive" src="images/edulution_logo_white.svg">
                 </a>
+            </div>
+            <p class="title_header">Progress Dashboard</p>
+            <div class="index_button">
+                <button class="btn btn-button index_btn" ng-click="menu.refresh()">
+                    <h4>Refresh</h4>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <script type="text/ng-template" id="navigation.html">
+        <div class="container-fluid tabs">
+            <ul class="nav nav-tabs">
+              <li ng-class="{ active: menu.isSelected(0) }">
+                <a href="#" ng-click="menu.selectTab(0)"><h3>Test Results</h3></a>
+              </li>
+              <li ng-class="{ active: menu.isSelected(1) }">
+                <a href="#" onclick="window.open('https://stats1.edulution.org/coach_stats/','_self')" ng-click="menu.selectTab(1)"><h3>Activity</h3></a>
               </li>
             </ul>
           </div>
-        </nav>
     </script>
-    
     <!-- get results template -->
     <script type="text/ng-template" id="get_results.html">
         <div id="get_results_form">
@@ -113,11 +115,10 @@
             
         </div> <!-- table row -->
     </script>
-
     <span ng-init=init()></span>
     <navigation></navigation>
     <div class="container-fluid">
-        <getresults ng-show="menu.isSelected(1)"></getresults>
+        <getresults ng-show="menu.isSelected(0)"></getresults>
     </div>
 </body>
 
