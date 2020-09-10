@@ -29,8 +29,8 @@ app.use('/literacy', literacy)
 app.use('/grade7', grade7)
 
 /*Results dashboard page*/
-app.get('/coach', (req, res) => {
-    res.sendFile(__dirname + '/dashboard/index.html')
+app.get('/results', (req, res) => {
+    res.sendFile(__dirname + '/dashboard/results.html')
 })
 
 app.listen(port, '0.0.0.0', () => {
