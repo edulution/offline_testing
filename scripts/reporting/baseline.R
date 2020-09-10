@@ -5,23 +5,28 @@
 options(warn=-1)
 #suppress messages when loading package
 suppressMessages(library(timeDate))
-library(plyr)
+#library(plyr)
 #suppress messages when loading package
 suppressMessages(library(dplyr))
 suppressMessages(library(RPostgreSQL))
 suppressMessages(library(stringr))
 
-# connect to responses database 
+# Connect to responses database 
 bl_db_name = Sys.getenv("BASELINE_DATABASE_NAME")
 bl_db_host = Sys.getenv("BASELINE_DATABASE_HOST")
 bl_db_user = Sys.getenv("BASELINE_DATABASE_USER")
 bl_db_passwd = Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port = Sys.getenv("BASELINE_DATABASE_PORT")
 
-
-# connect to test responses database
+# Connect to test responses database
 pg <- dbDriver("PostgreSQL")
-conn <-  dbConnect(pg, dbname= bl_db_name, host= bl_db_host, port= bl_db_port, user= bl_db_user, password= bl_db_passwd)
+conn <-  dbConnect(
+  pg,
+  dbname= bl_db_name,
+  host= bl_db_host,
+  port= bl_db_port,
+  user= bl_db_user,
+  password= bl_db_passwd)
 
 # Simple function to generate filename of csv report in desired format
 input<- commandArgs(TRUE)
@@ -32,7 +37,9 @@ check_tests_in_curr_month <- function(year_month,tresponses){
   #regular expression to check if the user input is a valid month and year, and in the form mm-yy
   regexp <-'((?:(?:[0-2]?\\d{1})|(?:[3][01]{1}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:\\d{1}\\d{1})))(?![\\d])'
   #check if its a valid date and correct number of characters. stops the program if input not fit
-  if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)) stop("Please enter a valid month and year mm-yy e.g 02-17")
+  if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)){
+    stop("Please enter a valid month and year mm-yy e.g 02-17")
+  }
   # with variable from above date, parse into date and get last day in month then convert into proper date format
   upper_limit <- as.Date(timeLastDayInMonth(strftime(upper_limit,"%d-%m-%y"),format = "%y-%m-%d"))
   # Need to get end of month in standard format before chopping it up for grepping. Need it for monthend column in final csv file
@@ -48,41 +55,63 @@ check_tests_in_curr_month <- function(year_month,tresponses){
 }
 
 #get test responses, join with user_id
-tresponses_query<-dbSendQuery(conn,"select r.*, tm.testmaxscore from responses r left join test_marks tm on r.test = tm.test_id and r.module = tm.module and r.course = tm.course")
+tresponses_query<-dbSendQuery(
+  conn,
+  "select r.*, tm.testmaxscore from responses r 
+  left join test_marks tm
+  on r.test = tm.test_id
+  and r.module = tm.module
+  and r.course = tm.course")
+
 tresponses<-dbFetch(tresponses_query)
 
 # check if tests exist for the requested month or stop the program if they do not
 check_tests_in_curr_month(input,tresponses)
 
 
-#get device name
+# get device name
 device_name_query<-dbSendQuery(conn,"select * from device")
 device_name<-dbFetch(device_name_query)
 device_name <- substring(device_name$name,1,3)
 
 
-#clean up and close database connection
+# clean up and close database connection
 dbDisconnect(conn)
 
 
-#remove unecessary columns
 drop_cols<-c("coach_id","username")
-tresponses<- tresponses %>% select(-one_of(drop_cols))
 
-#remove hyphens from user_id(uuid)
-#rename user_id column to header(for load with load_answers function)
-tresponses<- tresponses %>% mutate(user_id = str_replace_all(user_id,'-','')) %>% rename(HEADER = user_id)
+tresponses<- tresponses %>%
+  # remove unecessary columns
+  select(-one_of(drop_cols)) %>% 
+  # remove hyphens from user_id(uuid)
+  # rename user_id column to header(for load with load_answers function)
+  mutate(user_id = str_replace_all(user_id,'-','')) %>%
+  rename(HEADER = user_id) %>%
+  # add centre column
+  mutate(centre=rep(device_name)) %>%
+  # add valid column(default to true)
+  mutate(valid=rep(1)) %>%
+  # Filer out tests that have no max score
+  filter(! is.na(testmaxscore)) %>%
+  # arrange columns, let all familiar columns appear on the left,
+  # then all cols from q1...q70 appear on the right
+  select(
+    HEADER,
+    sex,
+    grade,
+    gr7_exam_number,
+    test_date,
+    centre,
+    module,
+    course,
+    test,
+    valid,
+    testmaxscore,
+    everything())
 
-#add centre column
-tresponses<-tresponses %>% mutate(centre=rep(device_name))
 
-#add valid column(default to true)
-tresponses<-tresponses %>% mutate(valid=rep(1))
-
-#arrange columns, let all columns appear on the left, then all cols from q1...q70 appear on the right
-tresponses<- tresponses %>% select(HEADER,sex, grade, gr7_exam_number, test_date,centre,module ,course,test,valid,testmaxscore,everything())
-
-#helper function to set empty strings to 0 and otherwise return the actual string
+# Helper function to set empty strings to 0 and otherwise return the actual string
 empty_as_zero<- function(x){
   if(is.na(x)){
     return("0")
@@ -95,11 +124,11 @@ empty_as_zero<- function(x){
   }
 }
 
-#create empty dataframe identiical to tresponses for next step
+# Create empty dataframe identiical to tresponses for next step
 tresponses_tmp<-tresponses[FALSE,]
 
-#loop through each row in tresponses. set empty string to 0 on cols that are within a test's max score
-#leave all others as empty
+# Loop through each row in tresponses. set empty string to 0 on cols that are within a test's max score
+# Leave all others as empty
 for(i in 1:nrow(tresponses)) {
   row <- tresponses[i,]
   q1_index<-which(names(row)=='q1')
@@ -108,10 +137,10 @@ for(i in 1:nrow(tresponses)) {
   tresponses_tmp<- tresponses_tmp %>% rbind(row)
 }
 
-#set the tmp dataframe to the real thing
+# Set the tmp dataframe to the real thing
 tresponses<-tresponses_tmp
 
-#add missing cols
+# Add missing cols expected by the central database
 tresponses$res071=""
 tresponses$res072=""
 tresponses$res073=""
@@ -242,30 +271,39 @@ tresponses<- tresponses %>% rename(res068 = q68)
 tresponses<- tresponses %>% rename(res069 = q69)
 tresponses<- tresponses %>% rename(res070 = q70)
 
-#remove testmaxscore column
+# Remove testmaxscore column
 tresponses<- tresponses %>% select(-testmaxscore)
 
 
 generate_filename <- function(report,date){
-  # put generated file in a folder called reports/baseline in home directory, and generate filename based on name of report and user input
+  # Put generated file in a folder called reports/baseline in home directory
+  # Generate filename based on name of report and user input
   filename <- paste("~/.reports/baseline/",report,device_name,"_",date,".csv",sep = "")
 }
 
 # Function to get data extract only for month that user inputs
 baseline <- function(year_month) {
-  #with user input from command line, create complete date by prefixing with 01
+  # With user input from command line, create complete date by prefixing with 01
   upper_limit <- paste("01-",year_month,sep="")
-  #regular expression to check if the user input is a valid month and year, and in the form mm-yy
+  # Regular expression to check if the user input is a valid month and year, and in the form mm-yy
   regexp <-'((?:(?:[0-2]?\\d{1})|(?:[3][01]{1}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:\\d{1}\\d{1})))(?![\\d])'
-  #check if its a valid date and correct number of characters. stops the program if input not fit
-  if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)) stop("Please enter a valid month and year mm-yy e.g 02-17")
-  # with variable from above date, parse into date and get last day in month then convert into proper date format
+  # Check if its a valid date and correct number of characters. stops the program if input not fit
+  if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)){
+    stop("Please enter a valid month and year mm-yy e.g 02-17")
+  }
+  # With variable from above date, parse into date and get last day in month then convert into proper date format
   upper_limit <- as.Date(timeLastDayInMonth(strftime(upper_limit,"%d-%m-%y"),format = "%y-%m-%d"))
   # Need to get end of month in standard format before chopping it up for grepping. Need it for monthend column in final csv file
   
   upper_limit <- substring(upper_limit,1,7)
   tests_for_chosen_month <- tresponses %>% filter(grepl(upper_limit, test_date))
-  write.csv(tests_for_chosen_month ,file = generate_filename("baseline_",year_month),quote=FALSE, col.names = TRUE, row.names = FALSE,na="")
+  write.csv(
+    tests_for_chosen_month ,
+    file = generate_filename("baseline_",
+    year_month),
+    quote=FALSE,
+    col.names = TRUE,
+    row.names = FALSE,na="")
   system("echo Baseline extracted successfully!")
   quit(save="no")
 }

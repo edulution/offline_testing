@@ -1,15 +1,78 @@
+/* Body  */
+
+body{
+    
+    text-align:center;
+    overflow-x: hidden;
+}
+
+/* Navbar Height */
+.navbar {
+	height:100px;
+	}
+	
+.navbars {
+	height:120px;
+}
+/* Navbar background-color */
+.navbar_background {
+	/* background-color: #fff; */
+	color:#f1f1f1f1;
+	background-color: rgb(7, 29, 73);
+	
+
+}
+
+.index_button{
+padding-bottom:20px;
+
+}
+.index_btn {
+color: #f1f1f1f1;
+background-color:rgb(7, 29, 73);
+box-shadow: 2px 2px 2px 2px #3F3F3F; 
+border: rgb(7, 29, 73);
+/* margin-left:300px; */
+	margin-right:200px; 
+
+}
+
+  
+
 
 #extra_btns{
 	margin-bottom: 10%;
 }
-#index-of-topics-btn{
+/* #index-of-topics-btn{
 	float: left;
 	margin-left: 10%;
 	padding: 1%;
 	background-color: #159B15;
 	box-shadow: 2px 2px 2px 2px #3F3F3F;
 	border: #159B15;
+} */
+
+#index-of-topics-btn {
+	text-align: center;
+	padding:10px;
 }
+
+a {
+	color: #f1f1f1f1;
+}
+
+
+
+.index_of_topics_btn {
+	color: #f1f1f1f1;
+	background-color: rgb(7, 29, 73);
+}
+
+/* .btn-button {
+	color: #f1f1f1f1;
+	background-color: rgb(7, 29, 73);
+} */
+
 
 #literacy-assessments-btn{
 	float: right;
@@ -60,28 +123,140 @@
 }
 
 /*Back button*/
-#back_btn{
-	position: absolute;
-	padding: 1.2%;
-	border: 1px solid whitesmoke;
-	margin-top: 1.5%;
-	border-radius: 10px;
-	font-size: 18px;
-	color: black;
-	background-color: whitesmoke;
-	box-shadow: 0 1px 1px;
+
+.back_section{
+	/* margin-left:80%; */
+	margin-left:75%;
+	margin-bottom:20px;
 }
 
-#back_btn a:hover{
-	color: black;
-	text-decoration: none;
-}	
-
-#back_btn a:link{
-	color: black;
+.back_btn{
+	padding:2px;
+	color: #f1f1f1f1;
 }
 
-#back_btn a:active{
-	color: black;
-	text-decoration: none;
-}
+
+/* New Table and Card  */
+
+.bg-nav {
+	background-color:#111c24 !important;
+	color: #fff;
+  }
+  
+  .navs {
+	background-color:#111c24;
+	color:#fff;
+  }
+  
+  .text-color {
+	color: #fff;
+  }
+  
+  .panel {
+	padding: 0 12px;
+	display: none;
+	background-color: white;
+	color: #000000;
+	overflow: hidden;
+	font-size: 10px;
+  }
+  
+  
+  .tr-background-color{
+	padding-top:5%;
+	padding-bottom:5%;
+	background-color:#dcedc8;
+  
+  }
+  
+  .tr-paragraph{
+	text-align: center;
+	font-size:12px;
+  }
+  
+  
+  .centered_btns{
+	margin: auto;
+	display: table;
+  }
+  
+  /* invalid-feedback */
+  .invalid-feedback {
+	color:red;
+	font-size: 14px;
+	font-weight:bold;
+  }
+  
+  
+  /* Cards  */
+  .navBackground-color {
+	background-color:#e7e7e7;
+  }
+  .card-title{
+	font-weight: bold;
+	color:#000000;
+  }
+  
+
+
+  /* Style the counter cards */
+  .card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+	/* padding: 16px; */
+	margin-top:-1%;
+	padding-top: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-bottom: 16px;
+	background-color: #fff;
+	margin-bottom: -1%;
+  }
+  
+
+  /* Curved table */
+  
+  .card-title{
+	  font-size: 30px;
+	  text-align: center;
+	  padding-left: 40%;
+  }
+  
+  .table-curved {
+	border-collapse: separate;
+  }
+  .table-curved {
+	border: solid #ccc 1px;
+	border-radius: 2.5px;
+  }
+  .table-curved td, .table-curved th {
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+  }
+  .table-curved tr > *:first-child {
+	border-left: 0px;
+  }
+  .table-curved tr:first-child > * {
+	border-top: 0px;
+  }
+
+  .header_topics{
+	text-align: left;
+	font-weight: bold;
+  }
+
+  .topic_title {
+	font-size: 20px;
+	text-align: left;
+	font-weight: bold;
+  }
+  
+
+  .topics{
+	  text-align: left;
+	  font-size:15px;
+  }
+
+  .index_topics_search{
+	  margin-top:-5%;
+	  margin-left:20px;
+  }

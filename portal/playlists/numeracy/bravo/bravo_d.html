@@ -3,62 +3,84 @@
 
 <head>
     <title>Bravo D</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <link rel="stylesheet" type="text/css" href="/css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/playlists/bravo.css">
+    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
+    <link href="/css/portal.css" rel="stylesheet" />
+    <link href="/css/navbar.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" type="text/css" href="/css/playlists/alpha.css"> -->
+    
+    <!-- <link rel="stylesheet" type="text/css" href="/playlists/alpha.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/css/password_modal.css"> -->
     <!--  -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script src="/js/portal/playlists.js"></script>
 </head>
 
-<body>
+<body >
     <!-- Playlist title and edulution logo -->
-    <div class="row titlerow">
-        <div class="col-md-3" id="elogo-container">
-            <a href="#" onclick="window.open('/','_self')"><img src="/images/portal/edulution_logo-small.png" class="elogo"></a>
-        </div>
-        <div class="col-md-6" id="playlist-name-container">
-            <h2 class="playlist_title">Bravo D Playlist</h2>
-        </div>
-        <div class="col-md-3" id="elogo-container">
-            <a href="#" onclick="window.open('http://192.168.8.200:8008', '_self')"><img src="/images/portal/kalitelogo.jpg" class="elogo"></a>
-        </div>
-    </div>
-    <div class="container" id="menu" class="panel-group">
-        <div id="back_btn">
-            <a href="#" onclick="window.open('/','_self')">
-                <i class="fa fa-chevron-left"></i> Back
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar_background navbar-static-top">
+        <div class="container">
+          <div class="navbar-header logos">
+            <a class="navbar-brand logo" href="/"> 
+                <img class="img-responsive" src="/images/edulution_logo_white.svg">                     
             </a>
+          </div>
+          <p class="title_header">Numeracy - Bravo D</p>
+          <!--/.nav-collapse -->
         </div>
-        <div>
-            <!-- Assessments -->
-            <div>
-                <div data-toggle="collapse" data-target="#assessments" data-parent="#menu">
-                    <h3 class="topic"><img src="/images/portal/exam.png"> Assessments</h3>
+        <!--/.container-fluid -->
+    </nav>
+    <!-- Navigation Bar -->
+      
+    <!-- End Navbar -->
+
+
+    <div class="container">
+        
+        <div class="clear"></div>
+        
+        <!-- Body  -->
+         <!-- ASSESSMENTS -Bravo D -->
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4"></div>
+    
+                <div class="col-lg-3 col-md-4 col-sm-3 col-xs-3">
+                    <a href="#" onclick="window.open('/numeracy/bravo_d1','_self')" class="plylstlink">
+                     
+                        <img src="/images/portal/playlist_icons/bra_1.png" width="100px" height="100px"alt="" />
+                        <p>Test 1</p>
+                    </a>
                 </div>
-                <div class="col-md-6 col-md-offset-3 panel-collapse collapse" id="assessments">
-                    <table class="table">
-                        <tr onclick="window.open('/numeracy/bravo_d1','_self')">
-                            <td>
-                                <i class="fas fa-pencil-alt fa-2x exercise_icon" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <h4 class="assesment_name">Test 1</h4>
-                            </td>
-                        </tr>
-                        <tr onclick="window.open('/numeracy/bravo_d2','_self')">
-                            <td>
-                                <i class="fas fa-pencil-alt fa-2x exercise_icon" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <h4 class="assesment_name">Test 2</h4>
-                            </td>
-                        </tr>
-                    </table>
+                
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2">
+                    <a href="#" onclick="window.open('/numeracy/bravo_d2','_self')" class="plylstlink">
+                     
+                        <img src="/images/portal/playlist_icons/bra_2.png" width="100px" height="100px"alt="" />
+                        <p>Test 2</p>
+                    </a>
+                </div>
+
+            <!--  Back button to Numeracy Assessments -->
+            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-1">
+                <div class="back_btn_assessment">
+                    <a href="#" class="index-of-topics-btn" onclick="window.open('/numeracy_assessments','_self')">
+                        <button class="btn btn-button index_btn">
+                            <h4> <i class="fa fa-chevron-left"></i> Back</h4>
+                        </button>
+                    </a>
                 </div>
             </div>
-            <!-- End Assessments -->
+            <!--  End  Back button to Numeracy Assessments -->
+            </div>
+    <!-- END OF ASSESSMENTS -Bravo D -->
+    <!-- End of Body -->
         </div>
 </body>
 
