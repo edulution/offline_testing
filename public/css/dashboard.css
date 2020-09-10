@@ -70,30 +70,20 @@ text-align: center;
    
 }
 
-
-
-/* .index_button{
-  margin-left: 69%;
-  } */
   
-  .index_button{
-  padding-bottom:10%;
-  margin-left: 69%;
-  
-  }
-  .index_btn {
-  color: #f1f1f1f1;
-  background-color:#00A546;
-  border: rgb(7, 29, 73);
-  margin-left:100%;
-  margin-top: -30%;
+.index_button{
+padding-bottom:10%;
+margin-left: 69%;
 
-  }
-  
+}
+.index_btn {
+color: #f1f1f1f1;
+background-color:#00A546;
+border: rgb(7, 29, 73);
+margin-left:100%;
+margin-top: -30%;
 
-
-
-
+}
   
 /* Title header */
 .title_header{
