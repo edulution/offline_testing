@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- TODO : add attribute ng-app="passProtect" to html tag -->
-<!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
 
 <head>
@@ -12,14 +10,12 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
-    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -31,10 +27,9 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- TODO: Add inline script for passowrd modal -->
     <!-- Password modal -->
     <div ng-include="/pmodule/templates/pmodal_content.html"></div>
-    <!-- TODO: Add tag to instantiate modal when page opens -->
+    <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
         <div class="container">
@@ -49,8 +44,6 @@
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Time allowed: 45 minutes <br>Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel">ASSESSMENT</div>
-                        <!-- TODO: Add form name,action and method -->
-                        <!-- <form name="testForm" action="/submit_test" method="post"> -->
                         <!-- TODO: Add value attribute to each radio button -->
                         <!-- Each group of radio buttons with the same name corresponds to one question -->
                         <!-- Wrong answers are 0, correct answer is 1 -->
@@ -514,7 +507,6 @@
                             <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="000">
                             <label for="q25_d">32</label>
                             <div class="HeaderbannerLabel">COACH SECTION</div>
-                            <!-- TODO: Add text input fields for user_id, coach_email -->
                             <!-- Hidden fields for test,course and module -->
                             <input type="hidden" name="test" ng-init="testResponse.test='alpha_c2'">
                             <input type="hidden" name="course" ng-init="testResponse.course='alpha_c'">
