@@ -6,8 +6,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <title>Numeracy Assessments</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
     <link href="/css/portal.css" rel="stylesheet" />
+    <link href="/css/navbar.css" rel="stylesheet" />
     <!-- your app's js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -19,15 +20,25 @@
 </head>
 
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
-    <!-- Navbar -->
-    <div ng-include="'/include/navbar.html'"></div>
-    <h3 class="mainBody">Welcome, please select your course</h3>
+  
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar_background navbar-static-top">
+        <div class="container">
+          <div class="navbar-header logos">
+           <a class="navbar-brand logo" href="/"> 
+            <img class="img-responsive" src="/images/edulution_logo_white.svg">               
+          </a>
+          </div>
+          <p class="title_header">Numeracy Assessments</p>
+          <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <!-- Navigation Bar -->
+      
     <!-- Body -->
-    <!-- <div ng-include="'/include/body.html'"> -->
-    <!-- </div> -->
     <div ng-include="'/include/mainindex.html'"></div>
-    <!-- Footer -->
-    <div ng-include="'/include/footer.html'"></div>
+   
 </body>
 
 </html>

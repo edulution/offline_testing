@@ -279,7 +279,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 this.tab = 0; /* initially set tab to 1*/
                 this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
                     this.tab = setTab;
-                    console.log(this.tab);
+                    /*console.log(this.tab);*/
                 };
                 this.isSelected = function(checkTab) { /* Check which tab is selected to trigger show of selected tab */
                     return this.tab === checkTab;
