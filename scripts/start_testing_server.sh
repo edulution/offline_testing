@@ -9,6 +9,7 @@ node_path=/usr/local/bin/node
 # stop all forever nodes
 $forever_path -c $node_path stopall > /dev/null
 
+
 # Change to the baseline directory
 cd ~/.baseline_testing || exit
 

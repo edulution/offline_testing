@@ -78,7 +78,7 @@ device_name <- substring(device_name$name,1,3)
 # clean up and close database connection
 dbDisconnect(conn)
 
-
+# columns we wish to drop when submitting the report
 drop_cols<-c("coach_id","username")
 
 tresponses<- tresponses %>%
@@ -109,7 +109,6 @@ tresponses<- tresponses %>%
     valid,
     testmaxscore,
     everything())
-
 
 # Helper function to set empty strings to 0 and otherwise return the actual string
 empty_as_zero<- function(x){
@@ -303,7 +302,8 @@ baseline <- function(year_month) {
     year_month),
     quote=FALSE,
     col.names = TRUE,
-    row.names = FALSE,na="")
+    row.names = FALSE,
+    na="")
   system("echo Baseline extracted successfully!")
   quit(save="no")
 }
