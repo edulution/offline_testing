@@ -39,10 +39,9 @@
               </button> -->
       
               <div class="index_button">
-                  <button class="btn btn-button index_btn" ng-click="menu.refresh()">
-                      <h4>Refresh</h4>
-              </button>
-               
+                <button class="btn btn-button index_btn" ng-click="menu.refresh()">
+                    <h4>Refresh</h4>
+                </button>
               </div> 
               </div>
     </nav>
@@ -50,6 +49,8 @@
     <script type="text/ng-template" id="navigation.html">
         <!-- <nav id="bottomnav" class="navbar navbar-default"> -->
           <div class="container-fluid tabs">
+            <div class="clearfix">
+            </div>
             <ul class="nav nav-tabs">
               <li ng-class="{ active: menu.isSelected(0) }">
                 <a href="#" ng-click="menu.selectTab(0)"><h3>Learners</h3></a>
