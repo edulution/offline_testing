@@ -14,63 +14,46 @@
     <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
     <script src="/js/coachDashboard/app.js"></script>
     <link rel="stylesheet" href="/css/dashboard.css">
-    <!-- Added new jquery -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <!-- Added native js  -->
-
 </head>
 
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
-
-<!-- Navigation Bar -->
+    <script type="text/ng-template" id="navigation.html">
+        <!-- Navigation Bar -->
     <nav class="navbar navbar_background">
         <div class="container">
             <div class="navbar-header logos">
-             <a class="navbar-brand logo" href="/"> 
-                  <img class="img-responsive" src="images/edulution_logo_white.svg">               
+                <a class="navbar-brand logo" href="/">
+                    <img class="img-responsive" src="images/edulution_logo_white.svg">
                 </a>
-              </div>
-             
-              <p class="title_header">Coach Dashboard</p>
-      
-              <!-- <button  class="btn btn-button refesh_btn" ng-click="menu.refresh()">
-                   <h4>Refresh</h4>
-              </button> -->
-      
-              <div class="index_button">
-                  <button class="btn btn-button index_btn" ng-click="menu.refresh()">
-                      <h4>Refresh</h4>
-              </button>
-               
-              </div> 
-              </div>
+            </div>
+            <p class="title_header">Coach Dashboard</p>
+            <div class="index_button">
+                <button class="btn btn-button index_btn" ng-click="menu.refresh()">
+                    <h4>Refresh</h4>
+                </button>
+            </div>
+        </div>
     </nav>
-
-    <script type="text/ng-template" id="navigation.html">
-        <!-- <nav id="bottomnav" class="navbar navbar-default"> -->
-          <div class="container-fluid tabs">
-            <ul class="nav nav-tabs">
-              <li ng-class="{ active: menu.isSelected(0) }">
-                <a href="#" ng-click="menu.selectTab(0)"><h3>Learners</h3></a>
-              </li>
-              <li ng-class="{ active: menu.isSelected(1) }">
-                <a href="#" ng-click="menu.selectTab(1)"><h3>Test Results</h3></a>
-              </li>
-              <li ng-class="{ active: menu.isSelected(4) }">
-                <a href="#" ng-click="menu.selectTab(4)"><h3>Results by Section</h3></a>
-              </li>               
-                <!-- <li ng-class="{ active: menu.isSelected(2) }">
-                <a href="#" ng-click="menu.selectTab(2)"><h3>Results by Question</h3></a>
-              </li> -->
-              <li ng-class="{ active: menu.isSelected(3) }">
-                <a href="#" ng-click="menu.selectTab(3)"><h3>Tests Count</h3></a>
-              </li>               
-            </ul>
-          </div>
-        <!-- </nav> -->
+    <div class="container-fluid tabs">
+      <div class="clearfix"></div>
+      <ul class="nav nav-tabs">
+        <li ng-class="{ active: menu.isSelected(0) }">
+          <a href="#" ng-click="menu.selectTab(0)"><h3>Learners</h3></a>
+        </li>
+        <li ng-class="{ active: menu.isSelected(1) }">
+          <a href="#" ng-click="menu.selectTab(1)"><h3>Test Results</h3></a>
+        </li>
+        <li ng-class="{ active: menu.isSelected(4) }">
+          <a href="#" ng-click="menu.selectTab(4)"><h3>Results by Section</h3></a>
+        </li>               
+        <li ng-class="{ active: menu.isSelected(3) }">
+          <a href="#" ng-click="menu.selectTab(3)"><h3>Tests Count</h3></a>
+        </li>               
+      </ul>
+    </div>
     </script>
-    
     <!-- learners table template -->
     <script type="text/ng-template" id="learners.html">
         <div class="table-responsive row">

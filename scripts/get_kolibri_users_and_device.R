@@ -99,7 +99,10 @@ facility_name <- collections %>%
   select(name)
 
 #join collections to memberships. (used for getting user groups)
-memberships <- memberships %>% left_join(collections,by=c("collection_id"= "id"))
+memberships <- memberships %>%
+  left_join(
+    collections,
+    by=c("collection_id"= "id"))
 
 # get dataframe containing learners and groups they belong to
 learners_and_groups <- memberships %>%
@@ -109,8 +112,9 @@ learners_and_groups <- memberships %>%
 
 # select only the name of the group and the user_id
 learners_and_groups <- learners_and_groups %>%
-  select(name,user_id) %>%
-  rename(group_name = name)
+  select(
+    "group_name" = name,
+    user_id)
 
 # join the users table to the groups table by user_id
 users <- users %>%
@@ -130,7 +134,7 @@ users$last_name <- sapply(users$full_name,get_last_name)
 # drop the full name column
 # change the user_id to a plain character string
 users <- users %>%
-  select(-c(full_name)) %>%
+  select(-full_name) %>%
   rename(user_id = id)
 
 

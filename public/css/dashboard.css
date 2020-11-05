@@ -135,6 +135,10 @@ margin-top: -30%;
   margin-bottom: 1%;
 } */
 
+.clearfix {
+  padding-top:2%;
+}
+
 .navbar{
   padding-left: 0;
   margin-bottom: 1%;
