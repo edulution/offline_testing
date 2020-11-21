@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html ng-app="passProtect">
+
+<head>
+    <title>Pre-Alpha 1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- Password modal -->
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="testForm">
+                        <p class="test_name"> Pre Alpha 1</p>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Time allowed: 1 hour <br>Calculators are NOT allowed <br>Ask your coach if you are not sure how to answer the questions</div>
+                        <div class="HeaderbannerLabel">SECTION A</div>
+                        <h3>(1) 1, 2, 3, <span class="empty_square"><i class="far fa-square"></i></span> , 5</h3>
+                        <p>
+                            <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="test1">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test2" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="test2">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test3" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="test3">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test4" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="test4">8</label>
+                        </p>
+                        <h3>(2) 50, 55, <span class="empty_square"><i class="far fa-square"></i></span> , 65, 70</h3>
+                        <p>
+                            <input type="radio" id="test5" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="test5">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test6" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="test6">60</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test7" name="q2" ng-model="testResponse.q2" value="0000">
+                            <label for="test7">70</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test8" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="test8">80</label>
+                        </p>
+                        <h3>(3) 20, 30, 40, <span class="empty_square"><i class="far fa-square"></i></span> , 60 </h3>
+                        <p>
+                            <input type="radio" id="test9" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="test9">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test10" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="test10">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test11" name="q3" ng-model="testResponse.q3" value="000">
+                            <label for="test11">70</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test12" name="q3" ng-model="testResponse.q3" value="0000">
+                            <label for="test12">90</label>
+                        </p>
+                        <h3>(4) Which one of the following is the biggest number?</h3>
+                        <p>
+                            <input type="radio" id="test13" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="test13">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test14" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="test14">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test15" name="q4" ng-model="testResponse.q4" value="00">
+                            <label for="test15">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test16" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="test16">8</label>
+                        </p>
+                        <h3>(5) 6 &minus; 4 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test17" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="test17">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test18" name="q5" ng-model="testResponse.q5" value="0">
+                            <label for="test18">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test19" name="q5" ng-model="testResponse.q5" value="00">
+                            <label for="test19">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test20" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="test20">8</label>
+                        </p>
+                        <h3>(6) Which shape is a triangle?</h3>
+                        <div class="img_answers">
+                            <div>
+                                <div><img src="/images/prealpha_1/NameShapes2Test1Shape1.png" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="test21" name="q6" ng-model="testResponse.q6" value="0000">
+                                    <label for="test21">a</label>
+                                </p>
+                            </div>
+                            <div>
+                                <div><img src="/images/prealpha_1/NameShapes2Test1Shape2.png" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="test21" name="q6" ng-model="testResponse.q6" value="00000">
+                                    <label for="test21">b</label>
+                                </p>
+                            </div>
+                            <div>
+                                <div><img src="/images/prealpha_1/NameShapes2Test1Shape3.png" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="test21" name="q6" ng-model="testResponse.q6" value="1">
+                                    <label for="test21">c</label>
+                                </p>
+                            </div>
+                        </div>
+                        <h3>(7) 69 <span class="empty_square"><i class="far fa-square"></i></span> 96</h3>
+                        <span>Fill in the blank with <,> or =.</span>
+                        <p>
+                            <input type="radio" id="test22" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="test22">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test23" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="test23">
+                                &lt;</label> </p>
+                        <p>
+                            <input type="radio" id="test24" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="test24">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test25" name="q7" ng-model="testResponse.q7" value="00">
+                            <label for="test25">None of the above</label>
+                        </p>
+                        <h3>(8) 21 &plus; 51 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test26" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="test26">21</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test27" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="test27">51</sup>
+                            </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test28" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="test28">64</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test29" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="test29">72</sup>
+                            </label>
+                        </p>
+                        <h3>(11) 62 &plus; 78 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_a">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00000">
+                            <label for="q11_b">104</sup>
+                            </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_c">130</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_d">140</sup>
+                            </label>
+                        </p>
+                        <h3>(12) 87 &plus; 4 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test40" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="test40">64</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test41" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="test41">81</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test42" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="test42">83</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test43" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="test43">91</label>
+                        </p>
+                        <h3>(14) 14, 16, 18, 20, <span class="empty_square"><i class="far fa-square"></i></span>, 24</h3>
+                        <p>
+                            <input type="radio" id="test48" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="test48">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test49" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="test49">21</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test50" name="q14" ng-model="testResponse.q14" value="00000">
+                            <label for="test50">23</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test51" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="test51">22</label>
+                        </p>
+                        <h3>(15) 56 &minus; 5 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test52" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="test52">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test53" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="test53">51</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test54" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="test54">54</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test55" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="test55">61</label>
+                        </p>
+                        <h3>(21) 91 &equals; <span class="empty_square"><i class="far fa-square"></i></span> &plus; 83</h3>
+                        <p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_a">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_b">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="00000">
+                            <label for="q21_c">24</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="0">
+                            <label for="q21_d">36</label>
+                        </p>
+                        <h3>(22) 24 &plus; 135 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test76" name="q22" ng-model="testResponse.q22" value="00">
+                            <label for="test76">111</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test77" name="q22" ng-model="testResponse.q22" value="000">
+                            <label for="test77">135</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test78" name="q22" ng-model="testResponse.q22" value="0000">
+                            <label for="test78">149</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test79" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="test79">159</label>
+                        </p>
+                        <h3>(26) 45 &divide; 3 &equals;</h3>
+                        <p>
+                            <input type="radio" id="test88" name="q26" ng-model="testResponse.q26" value="0">
+                            <label for="test88">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test89" name="q26" ng-model="testResponse.q26" value="1">
+                            <label for="test89">15</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test90" name="q26" ng-model="testResponse.q26" value="0000">
+                            <label for="test90">17</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test91" name="q26" ng-model="testResponse.q26" value="00">
+                            <label for="test91">26</label>
+                        </p>
+                        <h3>(27) 418 &plus; 418 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test92" name="q27" ng-model="testResponse.q27" value="000">
+                            <label for="test92">418</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test93" name="q27" ng-model="testResponse.q27" value="0000">
+                            <label for="test93">780</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test94" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="test94">836</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test95" name="q27" ng-model="testResponse.q27" value="0">
+                            <label for="test95">840</label>
+                        </p>
+                        <h3>(30) 3 &times; 9 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test104" name="q30" ng-model="testResponse.q30" value="000">
+                            <label for="test104">11</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test105" name="q30" ng-model="testResponse.q30" value="0000">
+                            <label for="test105">12</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test106" name="q30" ng-model="testResponse.q30" value="00000">
+                            <label for="test106">18</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test107" name="q30" ng-model="testResponse.q30" value="1">
+                            <label for="test107">27</label>
+                        </p>
+                        <h3>(31) 12 &divide; 4 &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test108" name="q31" ng-model="testResponse.q31" value="1">
+                            <label for="test108">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test109" name="q31" ng-model="testResponse.q31" value="0">
+                            <label for="test109">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test110" name="q31" ng-model="testResponse.q31" value="00">
+                            <label for="test110">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test111" name="q31" ng-model="testResponse.q31" value="000">
+                            <label for="test111">8</label>
+                        </p>
+                        <h3>(34) 3 &times; 2 &equals; 1 &times; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test120" name="q34" ng-model="testResponse.q34" value="0000">
+                            <label for="test120">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test121" name="q34" ng-model="testResponse.q34" value="00000">
+                            <label for="test121">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test122" name="q34" ng-model="testResponse.q34" value="1">
+                            <label for="test122">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test123" name="q34" ng-model="testResponse.q34" value="0">
+                            <label for="test123">8</label>
+                        </p>
+                        <h3>(35) 2 &times; 4 &equals; 4 &times; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="1">
+                            <label for="q35_a">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="00">
+                            <label for="q35_b">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="000">
+                            <label for="q35_c">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="0000">
+                            <label for="q35_d">8</label>
+                        </p>
+                        <h3>(36) <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> <span class="empty_square"><i class="far fa-square"></i></span> <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></h3>
+                        <span>Fill in the blank with <,> or =.</span>
+                        <p>
+                            <input type="radio" id="test128" name="q36" ng-model="testResponse.q36" value="1">
+                            <label for="test128">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test129" name="q36" ng-model="testResponse.q36" value="00000">
+                            <label for="test129">
+                                &lt;</label> </p>
+                        <p>
+                            <input type="radio" id="test130" name="q36" ng-model="testResponse.q36" value="0">
+                            <label for="test130">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test131" name="q36" ng-model="testResponse.q36" value="00">
+                            <label for="test131">None of the above</label>
+                        </p>
+                        <h3>(37) 1 631 <span class="empty_square"><i class="far fa-square"></i></span> 3 161 </h3>
+                        <span>Fill in the blank with <,> or =.</span>
+                        <p>
+                            <input type="radio" id="test132" name="q37" ng-model="testResponse.q37" value="000">
+                            <label for="test132">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test133" name="q37" ng-model="testResponse.q37" value="1">
+                            <label for="test133">
+                                &lt;</label> </p>
+                        <p>
+                            <input type="radio" id="test134" name="q37" ng-model="testResponse.q37" value="0000">
+                            <label for="test134">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test135" name="q37" ng-model="testResponse.q37" value="00000">
+                            <label for="test135">None of the above</label>
+                        </p>
+                        <h3>(46) <span class="frac"><sup>2</sup><span>/</span><sub>8</sub></span> &plus; <span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> &equals; <span class="frac"> <sup><span class="icon"><i class="far fa-square"></i></span></sup><span>/</span><sub>8</sub></span>
+                        </h3>
+                        <p>
+                            <input type="radio" id="test160" name="q46" ng-model="testResponse.q46" value="1">
+                            <label for="test160"><span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test161" name="q46" ng-model="testResponse.q46" value="00000">
+                            <label for="test161"><span class="frac"><sup>7</sup><span>/</span><sub>16</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test162" name="q46" ng-model="testResponse.q46" value="0">
+                            <label for="test162"><span class="frac"><sup>10</sup><span>/</span><sub>18</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test163" name="q46" ng-model="testResponse.q46" value="00">
+                            <label for="test163"><span class="frac"><sup>10</sup><span>/</span><sub>64</sub></span></label>
+                        </p>
+                        <h3>(47) <span class="frac"><sup>3</sup><span>/</span><sub>6</sub></span> &minus; <span class="frac"><sup>2</sup><span>/</span><sub>6</sub></span> &equals; <span class="empty_square"><i class="far fa-square"></i></span></h3>
+                        <p>
+                            <input type="radio" id="test164" name="q47" ng-model="testResponse.q47" value="000">
+                            <label for="test164">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test165" name="q47" ng-model="testResponse.q47" value="1">
+                            <label for="test165"><span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test166" name="q47" ng-model="testResponse.q47" value="0000">
+                            <label for="test166"><span class="frac"><sup>5</sup><span>/</span><sub>36</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="test167" name="q47" ng-model="testResponse.q47" value="00000">
+                            <label for="test167"><span class="frac"><sup>12</sup><span>/</span><sub>18</sub></span></label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='prealpha_4'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='prealpha'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
