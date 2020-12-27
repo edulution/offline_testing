@@ -4,5 +4,7 @@ device_name.csv*
 public/test_responses.sqlite*
 index_postgres.js
 .env
+.flake8
 node_modules/
 .DS_Store
+*.pyc
