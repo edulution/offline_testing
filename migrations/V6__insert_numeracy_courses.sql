@@ -1,47 +1,4 @@
-CREATE TABLE public.course (
-	module character varying NOT NULL, 
-	course character varying NOT NULL, 
-	sort_order integer, channel_id uuid, 
-	PRIMARY KEY (module, course)) 
-
-WITH (OIDS = FALSE);
-
-/*config for courses*/
-INSERT INTO public.course(module, course, sort_order, channel_id)
-VALUES ('literacy' ,
-        'alpha_a',
-        NULL,
-        NULL);
-
-
-INSERT INTO public.course(module, course, sort_order, channel_id)
-VALUES ('literacy' ,
-        'alpha_b',
-        NULL,
-        NULL);
-
-
-INSERT INTO public.course(module, course, sort_order, channel_id)
-VALUES ('literacy',
-        'alpha_c',
-        NULL,
-        NULL);
-
-
-INSERT INTO public.course(module, course, sort_order, channel_id)
-VALUES ('literacy' ,
-        'alpha_d',
-        NULL,
-        NULL);
-
-
-INSERT INTO public.course(module, course, sort_order, channel_id)
-VALUES ('literacy',
-        'prealpha',
-        NULL,
-        NULL);
-
-
+/*Course config for numeracy courses*/
 INSERT INTO public.course(module, course, sort_order, channel_id)
 VALUES ('numeracy' ,
         'alpha_a',
@@ -107,19 +64,6 @@ VALUES ('numeracy',
 
 INSERT INTO public.course(module, course, sort_order, channel_id)
 VALUES ('numeracy',
-        'grade7_revision',
+        'zm_gr7_revision',
         NULL,
         NULL);
-
-
-/*add constraints linking course and test_marks*/
-ALTER TABLE public.test_marks ADD CONSTRAINT fk_course_test
-FOREIGN KEY (module,
-             course) REFERENCES public.course (module, course) MATCH SIMPLE ON
-UPDATE NO ACTION ON
-DELETE NO ACTION;
-
-
-ALTER TABLE public.course ADD CONSTRAINT uk_course_sort UNIQUE (module,
-                                                                course,
-                                                                sort_order) ;

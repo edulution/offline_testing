@@ -6,7 +6,7 @@ CREATE SERVER kolibri_server
   FOREIGN DATA WRAPPER postgres_fdw
   OPTIONS (host 'localhost',  port '5432' , dbname 'kolibri');
 
-/*User mapping credentials not exposed in this file. replace <user> and <password> appropriately */
+/*User mapping credentials not exposed in this file. replace baseline_testing and baseline_testing appropriately */
 CREATE USER MAPPING FOR baseline_testing
   SERVER kolibri_server
   OPTIONS (user '<user>', password '<password>');
