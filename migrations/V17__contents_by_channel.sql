@@ -1,3 +1,4 @@
+/*Get the total number of content items in each channel*/
 CREATE VIEW contents_by_channel AS
 SELECT channel_id,
        count(channel_id) AS total_items,
