@@ -51,15 +51,15 @@ def create_dbsession(engine):
           Session: a session object to interact with the database
     """
     # Create the session for any time we need to have a conversation with the database
-  try:
-    Session = sessionmaker(bind=engine)
-  except (Exception,SQLAlchemyError) as e:
-    print ("Error while creating session object", e)
+    try:
+        Session = sessionmaker(bind=engine)
+    except (Exception,SQLAlchemyError) as e:
+        print ("Error while creating session object", e)
   
   # Create instance of the Session object
-  session = Session()
+    session = Session()
 
-  return session
+    return session
 
 
 def get_highest_passed_test(isession, iuser_id, imodule):
