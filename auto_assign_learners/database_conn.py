@@ -88,7 +88,7 @@ def get_highest_passed_test(isession, iuser_id, imodule):
     )
 
     # If the query returns nothing, return None
-    if tests_passed_query.first() == None:
+    if tests_passed_query.first() is None:
         return None
     else:
         # If the query has output rows, get only one and return the TestResult object
@@ -118,7 +118,7 @@ def get_next_course(isession, itestresult, imodule="numeracy"):
         return lowest_course_query.one()
 
     # If the testresult has no sort order, return None
-    if itestresult.sort_order == None:
+    if itestresult.sort_order is None:
         return None
 
     # Initialize query to get the current course corresponding to the test
