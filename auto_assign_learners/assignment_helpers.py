@@ -1,13 +1,20 @@
-from kolibri.core.auth.models import FacilityUser, Facility, Classroom, \
-    LearnerGroup, Membership, Role, Collection
+from kolibri.core.auth.models import (
+    FacilityUser,
+    Facility,
+    Classroom,
+    LearnerGroup,
+    Membership,
+    Role,
+    Collection,
+)
 
 
 def get_all_users():
     """Function to get all of the users on the device that are not admins or coaches
-        Args:
-            None
-        Returns:
-            A django rawquery object of FacilityUsers
+    Args:
+        None
+    Returns:
+        A django rawquery object of FacilityUsers
     """
     # use raw SQL to get all the users that are not admin/coach
     all_users_query = """"select * from kolibriauth_facilityuser
@@ -21,10 +28,10 @@ def get_all_users():
 
 def is_admin(user):
     """Tells us whether a user is an admin or coach
-        Args:
-            user (FacilityUser): A reference to the FacilityUser object to interrogate
-        Returns:
-            Boolean: True if the user is an admin or coach. False if not
+    Args:
+        user (FacilityUser): A reference to the FacilityUser object to interrogate
+    Returns:
+        Boolean: True if the user is an admin or coach. False if not
     """
     # Get a list of all of the role objects of kind admin or coach
     admin_roles = Role.objects.filter(kind__in=["admin", "coach"])
@@ -44,12 +51,16 @@ def get_user_info(username, facility):
     # Get a reference to the facility the user belongs to
     facility_for_user = Facility.objects.get(id=facility)
 
-    print ("User logged in is: {}. Is admin/coach?: {}".format(user_logged_in, is_admin(user_logged_in)))
+    print(
+        "User logged in is: {}. Is admin/coach?: {}".format(
+            user_logged_in, is_admin(user_logged_in)
+        )
+    )
 
     if is_admin(user_logged_in):
         return None
     else:
-        print('user is not admin')
+        print("user is not admin")
         return user_logged_in, facility_for_user
 
 
@@ -66,16 +77,26 @@ def enroll_into_class(user, classroom):
             None
     """
 
-    membership_exists = Membership.objects.filter(user=user, collection=classroom).exists()
+    membership_exists = Membership.objects.filter(
+        user=user, collection=classroom
+    ).exists()
     # Check if a Membership for the FacilityUser already exists in the Classroom
     if membership_exists:
-        print ("Membership for user: {} in classroom {} already exists".format(user.username, classroom.name))
+        print(
+            "Membership for user: {} in classroom {} already exists".format(
+                user.username, classroom.name
+            )
+        )
 
     # If no membership already exists, create it
     else:
-        print('No memberships found for user')
+        print("No memberships found for user")
         Membership.objects.create(user=user, collection=classroom)
-        print("Creating Membership for user: {} in classroom {}".format(user.username, classroom.name))
+        print(
+            "Creating Membership for user: {} in classroom {}".format(
+                user.username, classroom.name
+            )
+        )
 
 
 def enroll_into_group(user, learnergroup):
@@ -92,13 +113,21 @@ def enroll_into_group(user, learnergroup):
 
     # Check if a Membership for the FacilityUser already exists in the Classroom
     if Membership.objects.filter(user=user, collection=learnergroup).exists():
-        print ("Membership for user: {} in learnergroup {} already exists".format(user.username, learnergroup.name))
+        print(
+            "Membership for user: {} in learnergroup {} already exists".format(
+                user.username, learnergroup.name
+            )
+        )
 
     # If no membership already exists, create it
     else:
-        print('No memberships found for user')
+        print("No memberships found for user")
         Membership.objects.create(user=user, collection=learnergroup)
-        print("Creating Membership for user: {} in learnergroup {}".format(user.username, learnergroup.name))
+        print(
+            "Creating Membership for user: {} in learnergroup {}".format(
+                user.username, learnergroup.name
+            )
+        )
 
 
 def remove_all_memberships(user):
@@ -114,13 +143,17 @@ def remove_all_memberships(user):
         membership_count = Membership.objects.filter(user=user).count()
 
         # Print out the count
-        print ("Found {} Membership(s) for user: {}".format(membership_count, user.username))
+        print(
+            "Found {} Membership(s) for user: {}".format(
+                membership_count, user.username
+            )
+        )
         # Delete all of the Memberships
         Membership.objects.filter(user=user).delete()
-        print ("Deleting all Memberships for user: {}".format(user))
+        print("Deleting all Memberships for user: {}".format(user))
 
     else:
-        print('No Memberships found for user')
+        print("No Memberships found for user")
 
 
 def get_group_with_keyword(keyword, classroom):
@@ -137,7 +170,11 @@ def get_group_with_keyword(keyword, classroom):
         groups = LearnerGroup.objects.filter(name=keyword)
         return groups
     else:
-        raise ValueError("Unable to find group with name containing {} in classroom {}".format(keyword, classroom.name))
+        raise ValueError(
+            "Unable to find group with name containing {} in classroom {}".format(
+                keyword, classroom.name
+            )
+        )
 
 
 def auth_hieracrhy_check(facility, user, classroom, learnergroup):
@@ -162,11 +199,11 @@ def auth_hieracrhy_check(facility, user, classroom, learnergroup):
     sanity_check = {}
 
     # Check facility and user agree
-    sanity_check['Facility and User'] = facility.id == user.facility_id
+    sanity_check["Facility and User"] = facility.id == user.facility_id
     # Chek Facility and Classroom agree
-    sanity_check['Facility and Classroom'] = facility.id == classroom.parent_id
+    sanity_check["Facility and Classroom"] = facility.id == classroom.parent_id
     # Check Classroom and LearnerGroup
-    sanity_check['Classroom and LearnerGroup'] = classroom.id == learnergroup.parent_id
+    sanity_check["Classroom and LearnerGroup"] = classroom.id == learnergroup.parent_id
 
     # Get keys from sanity check if value is False
     not_agreeing = [k for k, v in sanity_check.items() if not v]
@@ -174,7 +211,7 @@ def auth_hieracrhy_check(facility, user, classroom, learnergroup):
     # Any False values are found
     if not_agreeing:
         # Print out the keys not agreeing and return False
-        print("{} not agreeing".format(', '.join(not_agreeing)))
+        print("{} not agreeing".format(", ".join(not_agreeing)))
         return False
     else:
         print("Auth hieracrhy check passed")
