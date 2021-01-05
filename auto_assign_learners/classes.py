@@ -3,7 +3,9 @@ class TestResult(object):
     Results of baseline tests
     Representation of vresponsescore view
     """
-    def __init__(self,
+
+    def __init__(
+        self,
         user_id,  # noqa: E128
         module,
         course,
@@ -14,7 +16,8 @@ class TestResult(object):
         test_pass_score,
         passed,
         sort_order,
-        channel_id):
+        channel_id,
+    ):
 
         self.user_id = user_id
         self.module = module
@@ -29,12 +32,24 @@ class TestResult(object):
         self.channel_id = channel_id
 
     def __str__(self):
-        return 'TestResult: user_id:{}, course:{}, module:{}, test:{}, passed:{}, sort_order: {}' \
-            .format(self.user_id, self.course, self.module, self.test, self.passed, self.sort_order)
+        return "TestResult: user_id:{}, course:{}, module:{}, test:{}, passed:{}, sort_order: {}".format(
+            self.user_id,
+            self.course,
+            self.module,
+            self.test,
+            self.passed,
+            self.sort_order,
+        )
 
     def __repr__(self):
-        return 'TestResult: user_id:{}, course:{}, module:{}, test:{}, passed:{}, sort_order: {}' \
-            .format(self.user_id, self.course, self.module, self.test, self.passed, self.sort_order)
+        return "TestResult: user_id:{}, course:{}, module:{}, test:{}, passed:{}, sort_order: {}".format(
+            self.user_id,
+            self.course,
+            self.module,
+            self.test,
+            self.passed,
+            self.sort_order,
+        )
 
 
 class Course(object):
@@ -42,6 +57,7 @@ class Course(object):
     Configuration data for courses that have a baseline test.
     Representation of the course table
     """
+
     def __init__(self, module, course, sort_order, channel_id):
         self.module = module
         self.course = course
@@ -49,10 +65,14 @@ class Course(object):
         self.channel_id = channel_id
 
     def __str__(self):
-        return 'Course: name:{}, module:{}, sort_order:{}, channel_id:{}'.format(self.course, self.module, self.sort_order, self.channel_id)
+        return "Course: name:{}, module:{}, sort_order:{}, channel_id:{}".format(
+            self.course, self.module, self.sort_order, self.channel_id
+        )
 
     def __repr__(self):
-        return 'Course: name:{}, module:{}, sort_order:{}, channel_id:{}'.format(self.course, self.module, self.sort_order, self.channel_id)
+        return "Course: name:{}, module:{}, sort_order:{}, channel_id:{}".format(
+            self.course, self.module, self.sort_order, self.channel_id
+        )
 
 
 class ChannelMeta(object):
@@ -60,7 +80,9 @@ class ChannelMeta(object):
     Holds metadata about all existing Kolibri content databases that exist locally.
     Copied from kolibri.content.models.ChannelMetaData
     """
-    def __init__(self,
+
+    def __init__(
+        self,
         id,
         name,  # noqa: E128
         description,
@@ -73,7 +95,8 @@ class ChannelMeta(object):
         published_size,
         total_resource_count,
         included_languages,
-        order):
+        order,
+    ):
 
         self.id = id
         self.name = name
