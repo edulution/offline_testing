@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const path = require('path')
 
+const cors = require('cors')
+app.use(cors())
+
 /*Port the server will run on*/
 const port = 8888
 

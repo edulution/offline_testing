@@ -44,7 +44,7 @@
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Time allowed: 45 minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel">ASSESSMENT</div>
-                        <h3>(1) 2 &minus; 3 &minus; 4 &equals; <span class="icon"><i class="far fa-square"></i></span></h3>
+                        <h3>(1) 2 &plus; (&minus;3) &minus; 4 &equals; <span class="icon"><i class="far fa-square"></i></span></h3>
                         <p>
                             <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
                             <label for="q1_a">1</label>
@@ -61,7 +61,7 @@
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="000">
                             <label for="q1_d">&minus;6</label>
                         </p>
-                        <h3>(2) 1 &minus; 3 &plus; 9 &minus; 5 &equals; <span class="icon"><i class="far fa-square"></i></span></span>
+                        <h3>(2) 1 &minus; 3 &plus; (9) &minus; 5 &equals; <span class="icon"><i class="far fa-square"></i></span></span>
                         </h3>
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0000">
@@ -108,22 +108,23 @@
                                 2<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span>
                             </label>
                         </p>
-                        <h3>(4) |3 &minus; 5| &equals; <span class="icon"><i class="far fa-square"></i></span></h3>
+                        <h3>(4) 150 seconds <span class="icon"><i class="far fa-square"></i></span> 3 minutes</h3>
+                        <p>Fill in the blank with &gt;, &lt; or &equals; </p>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
-                            <label for="q4_a">1</label>
+                            <label for="q4_a">&gt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
-                            <label for="q4_b">2</label>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="00">
+                            <label for="q4_b">&lt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="00">
-                            <label for="q4_c">3</label>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_c">&equals;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="000">
-                            <label for="q4_d">5</label>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">None of the above</label>
                         </p>
                         <h3>(5) &minus;11 &equals; <span class="icon"><i class="far fa-square"></i></span> &plus; 6 </h3>
                         <span>Find the missing value.</span>
@@ -144,25 +145,25 @@
                             <label for="q5_d">&minus;17</label>
                         </p>
                         <h3>(6) <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> &times;
-                            (&minus;<span class="frac"><sup>7</sup><span>/</span><sub>6</sub></span>) =
+                            <span class="frac"><sup>7</sup><span>/</span><sub>6</sub></span> &equals;
                             <span class="icon"><i class="far fa-square"></i></span>
                         </h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="00">
                             <label for="q6_a">
-                                &minus;<span class="frac"><sup>1</sup><span>/</span><sub>14</sub></span>
+                                <span class="frac"><sup>1</sup><span>/</span><sub>14</sub></span>
                             </label>
                         </p>
                         <p>
                             <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="000">
                             <label for="q6_b">
-                                &minus;<span class="frac"><sup>1</sup><span>/</span><sub>15</sub></span>
+                                <span class="frac"><sup>1</sup><span>/</span><sub>15</sub></span>
                             </label>
                         </p>
                         <p>
                             <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
                             <label for="q6_c">
-                                &minus;<span class="frac"><sup>14</sup><span>/</span><sub>15</sub></span>
+                                <span class="frac"><sup>14</sup><span>/</span><sub>15</sub></span>
                             </label>
                         </p>
                         <p>
@@ -234,10 +235,7 @@
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="00">
                             <label for="q9_d">12</label>
                         </p>
-                        <h3>(10)
-                            <span class="frac"><sup><span class="icon"><i class="far fa-square"></i></span></sup><span>/</span><sub>5</sub></span> =
-                            <span class="frac"><sup>4</sup><span>/</span><sub>7</sub></span>
-                        </h3>
+                        <h3>(10) <span class="frac"><sup>x</sup><span>/</span><sub>5</sub></span> &equals; <span class="frac"><sup>4</sup><span>/</span><sub>7</sub></span> , find <b>x</b></h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="000">
                             <label for="q10_a">
@@ -480,7 +478,7 @@
                             </label>
                         </p>
                         <h3>(22) Name the angle below.</h3>
-                        <div class="img_answers"><img src="/images/alpha_a2/question9_1.jpg" alt="image missing" class="img-responsive" /></div>
+                        <div class="img_answers"><img src="/images/alpha_a2/question12.jpg" alt="image missing" class="img-responsive" /></div>
                         <p>
                             <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
                             <label for="q22_a">Right angle</label>
@@ -497,22 +495,22 @@
                             <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="0000">
                             <label for="q22_d">Reflex angle</label>
                         </p>
-                        <h3>(23) What is the place value of 1 in 98.61</h3>
+                        <h3>(23) Find the value of <b>x</b> in the following equation 2x &minus; 5 &equals; 5</h3>
                         <p>
-                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="00000">
-                            <label for="q23_a">Tenth</label>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="0">
+                            <label for="q23_a">&minus;5</label>
                         </p>
                         <p>
-                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="0">
-                            <label for="q23_b">Ones</label>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="00">
+                            <label for="q23_b">12</label>
                         </p>
                         <p>
-                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="00">
-                            <label for="q23_c">Tens</label>
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="000">
+                            <label for="q23_c">10</label>
                         </p>
                         <p>
                             <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="1">
-                            <label for="q23_d">Hundredths</label>
+                            <label for="q23_d">5</label>
                         </p>
                         <h3>(24) Find the radius of the circle below.</h3>
                         <div class="img_answers"><img src="/images/alpha_d2/question24.jpg" alt="image missing" class="img-responsive" /></div>

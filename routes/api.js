@@ -248,4 +248,28 @@ router.post('/overwrite_test', [(req, res, next) => {
     console.log(success_message)
 }]);
 
+/*Endpoint to assign learners when they log in to Kolibri*/
+router.post("/kolibri_login", (req, res) => {
+    /*Capture user details which arrive in the request body*/ 
+    let user_details = req.body;
+
+    /*Spawn a child process*/
+    let spawn = require("child_process").spawn;
+    /*Run the main file of the assign learners script*/
+    /*Supply the username and facility of the user as sysarg values*/
+    let process = spawn('python', ["./auto_assign_learners/main.py",
+        user_details.username,
+        user_details.facility
+    ]);
+
+    /*Log the output of the child process (print statements. errors not logged directly)*/
+    process.stdout.on('data', function(data) {
+        console.log(data.toString());
+    });
+
+    /*End the response. No need to send a response back to Kolibri*/
+    res.end()
+});
+
+
 module.exports = router
