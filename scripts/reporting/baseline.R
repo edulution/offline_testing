@@ -112,7 +112,7 @@ tresponses<- tresponses %>%
   # arrange columns, let all familiar columns appear on the left,
   # then all cols from q1...q70 appear on the right
   select(
-    HEADER,
+    user_id,
     sex,
     grade,
     gr7_exam_number,
