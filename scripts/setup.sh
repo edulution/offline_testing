@@ -5,10 +5,11 @@
 cd ~/.baseline_testing || exit
 
 # Link npm packages
-npm link pg > /dev/null
-npm link csv > /dev/null
-npm link body-parser > /dev/null
-npm link express > /dev/null
+sudo npm link pg > /dev/null
+sudo npm link csv > /dev/null
+sudo npm link body-parser > /dev/null
+sudo npm link express > /dev/null
+sudo npm link cors > /dev/null
 
 # open up port for server
 sudo ufw allow 8888 > /dev/null
