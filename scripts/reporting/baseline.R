@@ -10,6 +10,7 @@ suppressMessages(library(timeDate))
 suppressMessages(library(dplyr))
 suppressMessages(library(RPostgreSQL))
 suppressMessages(library(stringr))
+suppressMessages(library(rebus))
 
 # Connect to responses database 
 bl_db_name = Sys.getenv("BASELINE_DATABASE_NAME")
@@ -35,7 +36,23 @@ input<- commandArgs(TRUE)
 check_tests_in_curr_month <- function(year_month,tresponses){
   upper_limit <- paste("01-",year_month,sep="")
   #regular expression to check if the user input is a valid month and year, and in the form mm-yy
-  regexp <-'((?:(?:[0-2]?\\d{1})|(?:[3][01]{1}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:\\d{1}\\d{1})))(?![\\d])'
+  regexp <- START %R%
+    # starts with 01
+    "01" %R%
+    # followed by "-"
+    "-" %R%
+    # followed by 0 then 0-9
+    # or 1 then 0-2 (01-12 are the only valid months of the year)
+    or("0" %R% char_class("0-9"),
+       "1" %R% char_class("0-2")) %R%
+    # followed by "-"
+    "-" %R%
+    # followed by any two digits (year)
+    # it is assumed that the year is in the 21st century
+    repeated(DIGIT, 2, 2) %R%
+    # end of the string
+    END
+
   #check if its a valid date and correct number of characters. stops the program if input not fit
   if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)){
     stop("Please enter a valid month and year mm-yy e.g 02-17")
@@ -85,9 +102,7 @@ tresponses<- tresponses %>%
   # remove unecessary columns
   select(-one_of(drop_cols)) %>% 
   # remove hyphens from user_id(uuid)
-  # rename user_id column to header(for load with load_answers function)
   mutate(user_id = str_replace_all(user_id,'-','')) %>%
-  rename(HEADER = user_id) %>%
   # add centre column
   mutate(centre=rep(device_name)) %>%
   # add valid column(default to true)
@@ -97,7 +112,7 @@ tresponses<- tresponses %>%
   # arrange columns, let all familiar columns appear on the left,
   # then all cols from q1...q70 appear on the right
   select(
-    HEADER,
+    user_id,
     sex,
     grade,
     gr7_exam_number,
@@ -285,7 +300,23 @@ baseline <- function(year_month) {
   # With user input from command line, create complete date by prefixing with 01
   upper_limit <- paste("01-",year_month,sep="")
   # Regular expression to check if the user input is a valid month and year, and in the form mm-yy
-  regexp <-'((?:(?:[0-2]?\\d{1})|(?:[3][01]{1}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:\\d{1}\\d{1})))(?![\\d])'
+    regexp <- START %R%
+    # starts with 01
+    "01" %R%
+    # followed by "-"
+    "-" %R%
+    # followed by 0 then 0-9
+    # or 1 then 0-2 (01-12 are the only valid months of the year)
+    or("0" %R% char_class("0-9"),
+       "1" %R% char_class("0-2")) %R%
+    # followed by "-"
+    "-" %R%
+    # followed by any two digits (year)
+    # it is assumed that the year is in the 21st century
+    repeated(DIGIT, 2, 2) %R%
+    # end of the string
+    END
+    
   # Check if its a valid date and correct number of characters. stops the program if input not fit
   if(!(grepl(pattern = regexp,x=upper_limit,perl = TRUE)) | (nchar(upper_limit) > 8)){
     stop("Please enter a valid month and year mm-yy e.g 02-17")
