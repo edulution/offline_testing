@@ -15,10 +15,10 @@ for DIRECTORY in "${DIRECTORIES[@]}"; do
 done
 
 
-#pull latest changes from master branch in repo
-cd ~/.baseline_testing || return
-git reset --hard origin/zambia > /dev/null
-git pull origin zambia > /dev/null
+# #pull latest changes from master branch in repo
+# cd ~/.baseline_testing || return
+# git reset --hard origin/zambia > /dev/null
+# git pull origin zambia > /dev/null
 
 # check if database file exists before extracting reports
 if db_exists "$BASELINE_DATABASE_NAME" ; then
@@ -35,10 +35,10 @@ if db_exists "$BASELINE_DATABASE_NAME" ; then
        chmod +x ~/.baseline_testing/scripts/reporting/send_archive_baseline.sh
        ~/.baseline_testing/scripts/reporting/send_archive_baseline.sh
    else 
-       echo "${RED}${BOLD}Please enter a valid year and month e.g 02-17${RESET}"
+       echo "${RED}${BOLD}Please enter a valid year and month e.g 03-21${RESET}"
        exit 1 
    fi
 else
-	echo "${RED}${BOLD}Error. Baseline tests NOT extracted. Please contact tech support 1>&2 ${RESET}"
+	echo "${RED}${BOLD}Error. Archive Learner Baseline tests NOT extracted. Please contact tech support 1>&2 ${RESET}"
 	exit 1
 fi
