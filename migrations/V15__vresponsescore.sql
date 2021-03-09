@@ -1,6 +1,4 @@
--- View: public.vresponsescore
- -- DROP VIEW public.vresponsescore;
-
+/*This view calculates the test scores for all test responses*/
 CREATE OR REPLACE VIEW vresponsescore AS
 SELECT r.user_id,
        r.module,

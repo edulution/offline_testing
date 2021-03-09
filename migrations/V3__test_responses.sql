@@ -1,3 +1,4 @@
+/*Create responses table*/
 CREATE TABLE public.responses (
     test varchar,
     module varchar,
