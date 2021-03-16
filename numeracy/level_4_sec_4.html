@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Alpha C Section 4 test</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- include partial for password modal -->
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="testForm">
+                        <p class="test_name">Alpha C Section 4 test</p>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Time allowed: 1 Hour 30 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
+                        <div class="HeaderbannerLabel">ASSESSMENT</div>
+                        <h3>(1) How many faces does the triangular prism have?</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q1.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_a">2 faces</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_b">3 faces</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_c">5 faces</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="q1_d">6 faces</label>
+                        </p>
+                        <h3>(2) How many vertices does the rectangular prismhave?</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q2.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="q2_a">5 vertices</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_b">6 vertices</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="q2_c">9 vertices</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
+                            <label for="q2_d">12 vertices</label>
+                        </p>
+                        <h3>(3) Select all the acute angles.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q3.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
+                            <label for="q3_a">A, B and C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="q3_b">A and C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_c">A, B and D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
+                            <label for="q3_d">A, B, C and D</label>
+                        </p>
+                        <h3>(4) Order the angles from largestto smallest.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q4.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="q4_a">B, C, D, A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_b">C, B, D, A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_c">A, D, B, C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">D, A, B, C</label>
+                        </p>
+                        <h3>(5) What type ofangleis shown here?</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q5.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
+                            <label for="q5_a">Acute angle</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="00">
+                            <label for="q5_b">Right angle</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="q5_c">Obtuse angle</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_d">Straight angle</label>
+                        </p>
+                        <h3>(6) Calculate the area of the rectangle.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q6.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="q6_a">27 cm<sup>2</sup></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">
+                            <label for="q6_b">30 cm<sup>2</sup></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="000">
+                            <label for="q6_c">54 cm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_d">180 cm<sup>2</sup></label>
+                        </p>
+                        <h3>(7) If a square has an area of 121mm<sup>2</sup>, what is the length of each of its sides?</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q7.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="q7_a">10 mm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_b">11 mm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_c">12 mm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
+                            <label for="q7_d">20 mm</label>
+                        </p>
+                        <h3>(8) What is the volume of the rectangular prism?</h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="q8_a">10 unit cubes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_b">20 unit cubes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_c">25 unit cubes</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0000">
+                            <label for="q8_d">30 unit cubes</label>
+                        </p>
+                        <h3>(9) Calculate the volume of the cubewith edges 5cm.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q9.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
+                            <label for="q9_a">5 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
+                            <label for="q9_b">25 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_c">100 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">125 cm3</label>
+                        </p>
+                        <h3>(10) Calculate the volume of the triangular prism with a surface area of the triangle of 10 cm<sup>2</sup> and a length of 6 cm.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q10.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
+                            <label for="q10_a">20 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_b">60 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_c">120 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">200 cm3</label>
+                        </p>
+                        <h3>(11) Calculate the volume of the rectangular prism.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q11.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a">28 mm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
+                            <label for="q11_b">80 mm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_c">800 mm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_d">1000 mm3</label>
+                        </p>
+                        <h3>(12) Calculate the volume of the rectangular prism.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q12.jpg" class="img-responsive"/></div></h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
+                            <label for="q12_a">11<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="q12_b">24 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_c">30 cm3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_d">48 cm3</label>
+                        </p>
+                        <h3>(13) David counted the different colour Smarties in his box. The bar graph shows his results. </h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q13.jpg" class="img-responsive"/></div></h3>
+                        <h3>Which colour Smartie does he have the most of?</h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a">Blue</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="q13_b">Green</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
+                            <label for="q13_c">Red</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d">Orange</label>
+                        </p>
+                        <h3>(14) David counted the different colour Smarties in his box. The bar graph shows his results. </h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q14.jpg" class="img-responsive"/></div></h3>
+                        <h3>Estimate how many purple Smarties he has.</h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_a">15 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="00">
+                            <label for="q14_b">28 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_c">49 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="q14_d">65 Smarties</label>
+                        </p>
+                        <h3>(15) David counted the different colour Smarties in his box. The bar graph shows his results.</h3>
+                        <h3><div><img src="/images/level_4_sec_4/level_4_sec_4_q15.jpg" class="img-responsive"/></div></h3>
+                        <h3> Determine the approximate difference in the number of blue Smarties and the number of green Smarties.</h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="q15_a">less than 20 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_b">between 20 and 30 marties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="q15_c">between 30 and 40 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
+                            <label for="q15_d">more than 60 Smarties</label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='level_4_sec_4'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='level_4'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'/pmodule/templates/gr7_exam_number.html'"></div>
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
