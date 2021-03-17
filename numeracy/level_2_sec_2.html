@@ -4,7 +4,7 @@
 <html ng-app="passProtect">
 
 <head>
-    <title>Alpha A Section 2 test </title>
+    <title>Level 2 Section 2 Test </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -44,14 +44,16 @@
                         <img src="/images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="testForm">
-                        <p class="test_name">Alpha A Section 2 test</p>
+                        <p class="test_name">Level 2 Section 2 Test</p>
                         <div ng-include="'/pmodule/templates/username_input.html'"></div>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Time allowed: 1 Hour 30 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel">ASSESSMENT</div>
                         <h3>(1) Select the larger number.</h3>
-                        <h3><div><img src="/images/level_2_sec_2/level_2_sec_2_q1.jpg" class="img-responsive"/></div></h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q1.jpg" class="img-responsive" /></div>
+                        </h3>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
@@ -70,7 +72,9 @@
                             <label for="q1_c">They are equal</label>
                         </p>
                         <h3>(2) Select the larger number.</h3>
-                        <h3><div><img src="/images/level_2_sec_2/level_2_sec_2_q2.jpg" class="img-responsive"/></div></h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q2.jpg" class="img-responsive" /></div>
+                        </h3>
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
                             <label for="q2_a"><span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
@@ -96,9 +100,10 @@
                             <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="000">
                             <label for="q3_c">They are equal</label>
                         </p>
-
                         <h3>(4) Select the number that the arrow is pointing to.</h3>
-                        <h3><div><img src="/images/level_2_sec_2/level_2_sec_2_q4.jpg" class="img-responsive"/></div></h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q4.jpg" class="img-responsive" /></div>
+                        </h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_a">0</label>
@@ -116,7 +121,9 @@
                             <label for="q4_d">1<span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span></label>
                         </p>
                         <h3>(5) Select the number that the arrow is pointing to.</h3>
-                        <h3><div><img src="/images/level_2_sec_2/level_2_sec_2_q5.jpg" class="img-responsive"/></div></h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q5.jpg" class="img-responsive" /></div>
+                        </h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
                             <label for="q5_a">5<span class="frac"><sup>6</sup><span>/</span><sub>16</sub></span></label>
@@ -316,7 +323,6 @@
                         <input type="hidden" name="test" ng-init="testResponse.test='level_2_sec_2'">
                         <input type="hidden" name="course" ng-init="testResponse.course='level_2'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        
                         <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
