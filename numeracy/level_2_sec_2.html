@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Level 2 Section 2 Test </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- include partial for password modal -->
+    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="testForm">
+                        <p class="test_name">Level 2 Section 2 Test</p>
+                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
+                        <div class="HeaderbannerLabel">TEST</div>
+                        <h3>(1) Select the larger number.</h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q1.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_a"><span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_b"><span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
+                            <label for="q1_c">They are equal</label>
+                        </p>
+                        <h3>(2) Select the larger number.</h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q2.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_a"><span class="frac"><sup>7</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
+                            <label for="q2_b"><span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="q2_c">They are equal</label>
+                        </p>
+                        <h3>(3) Select the larger number.</h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_a"><span class="frac"><sup>5</sup><span>/</span><sub>6</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="q3_b"><span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="000">
+                            <label for="q3_c">They are equal</label>
+                        </p>
+                        <h3>(4) Select the number that the arrow is pointing to.</h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q4.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="q4_a">0</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_b"><span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_c">1<span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">1<span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <h3>(5) Select the number that the arrow is pointing to.</h3>
+                        <h3>
+                            <div><img src="/images/level_2_sec_2/level_2_sec_2_q5.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
+                            <label for="q5_a">5<span class="frac"><sup>6</sup><span>/</span><sub>16</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="00">
+                            <label for="q5_b">5<span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_c">5<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
+                            <label for="q5_d">5<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <h3>(6) Select the symbol that makes the statement true.</h3>
+                        <h3><span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span> [___] <span class="frac"><sup>1</sup><span>/</span><sub>100</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="q6_a">&lt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_b">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="000">
+                            <label for="q6_c">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0000">
+                            <label for="q6_d">None of these</label>
+                        </p>
+                        <h3>(7) Select the symbol that makes the statement true.</h3>
+                        <h3><span class="frac"><sup>25</sup><span>/</span><sub>100</sub></span> [___] <span class="frac"><sup>55</sup><span>/</span><sub>100</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_a">&lt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
+                            <label for="q7_b">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_c">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
+                            <label for="q7_d">None of these</label>
+                        </p>
+                        <h3>(8) Select the symbol that makes the statement true.</h3>
+                        <h3><span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span> [___] <span class="frac"><sup>9</sup><span>/</span><sub>12</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="q8_a">&lt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="q8_b">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_c">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0000">
+                            <label for="q8_d">None of these</label>
+                        </p>
+                        <h3>(9) Select the symbol that makes the statement true.</h3>
+                        <h3><span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span> [___] <span class="frac"><sup>8</sup><span>/</span><sub>9</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_a">&lt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
+                            <label for="q9_b">&gt;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_c">&equals;</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
+                            <label for="q9_d">None of these</label>
+                        </p>
+                        <h3>(10) Select a fraction that is equivalent to <span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span>.</h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
+                            <label for="q10_a"><span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_b"><span class="frac"><sup>3</sup><span>/</span><sub>9</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_c"><span class="frac"><sup>2</sup><span>/</span><sub>9</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d"><span class="frac"><sup>2</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <h3>(11) Select a fraction that is equivalent to <span class="frac"><sup>6</sup><span>/</span><sub>8</sub></span>.</h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a"><span class="frac"><sup>1</sup><span>/</span><sub>6</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
+                            <label for="q11_b"><span class="frac"><sup>7</sup><span>/</span><sub>9</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="000">
+                            <label for="q11_c"><span class="frac"><sup>5</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_d"><span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <h3>(12) Select a fraction that is equivalent to <span class="frac"><sup>25</sup><span>/</span><sub>100</sub></span>.</h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
+                            <label for="q12_a"><span class="frac"><sup>1</sup><span>/</span><sub>25</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_b"><span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_c"><span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_d"><span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <h3>(13) Order the fractions from smallest to largest.</h3>
+                        <h3><span class="frac"><sup>4</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a"><span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>4</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="q13_b"><span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>4</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
+                            <label for="q13_c"><span class="frac"><sup>4</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d"><span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>4</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>7</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span></label>
+                        </p>
+                        <h3>(14) Order the fractions from smallest to largest.</h3>
+                        <h3><span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
+                            <label for="q14_a"><span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_b"><span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_c"><span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="q14_d"><span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>10</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <h3>(15) Order the fractions from smallest to largest.</h3>
+                        <h3><span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="q15_a"><span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_b"><span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="q15_c"><span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
+                            <label for="q15_d"><span class="frac"><sup>3</sup><span>/</span><sub>8</sub></span>; <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span>; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='level_2_sec_2'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='level_2'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
