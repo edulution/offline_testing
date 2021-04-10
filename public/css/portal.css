@@ -1,226 +1,230 @@
 /* Body  */
-body{
-  text-align:center;
-  overflow-x: hidden;
+body {
+    text-align: center;
+    overflow-x: hidden;
 }
 
 a {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
-.panel-title{
-  font-weight: bold;
+.panel-title {
+    font-weight: bold;
 }
 
-.titleclear{
-  padding-top:-100.8%;
-  padding-bottom:-2%;
+.titleclear {
+    padding-top: -100.8%;
+    padding-bottom: -2%;
 }
 
 /*background for image buttons on landing page*/
 .icon_background {
-  width:280px;
-  height:280px;
-  background: whitesmoke;
-  border-radius: 20px;
-  box-shadow: 6px 6px 2.5px grey;
-  padding-bottom: 10px;
+    width: 280px;
+    height: 280px;
+    background: whitesmoke;
+    border-radius: 20px;
+    box-shadow: 6px 6px 2.5px grey;
+    padding-bottom: 10px;
 }
 
 /* Main index background */
 .mainBackground {
-  background-color:#fff;
+    background-color: #fff;
 }
 
 /* Background Pre Alpha  */
 .prealpha {
-  background-color:#F4D19C;
+    background-color: #F4D19C;
 }
 
 /* Background Alpha */
 .alpha {
-  background-color: #CCFFCC;
+    background-color: #CCFFCC;
 }
 
 
 /* Background Bravo */
 .bravo {
-  background-color:#C5D9F1;
+    background-color: #C5D9F1;
 }
 
 /* Background Charlie */
 .charlie {
-  background-color:#FDE9D9;
+    background-color: #FDE9D9;
 }
 
 /* Image Align */
 img {
-  text-align:left;
+    text-align: left;
 }
 
 .mainBody {
-  text-align:center;
+    text-align: center;
 }
 
 /* Clear */
 .clear {
-  padding-top:10px;
+    padding-top: 10px;
 }
 
 /* Clear */
 .clearfooter {
-  padding-top: 60px;
+    padding-top: 60px;
 }
 
 /* PRE ALPHA HEADING */
 #prealpha-heading {
-  background-color: #F4D19C;
-  border: #F4D19C;
-  box-shadow: 2px 2px 2px 2px #3F3F3F;
+    background-color: #F4D19C;
+    border: #F4D19C;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 
 /* ALPHA HEADING */
 #alpha-heading {
-  background-color: #CCFFCC;
-  border: #CCFFCC;
-  box-shadow: 2px 2px 2px 2px #3F3F3F;
+    background-color: #CCFFCC;
+    border: #CCFFCC;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /* BRAVO */
 #bravo-heading {
-  background-color: #C5D9F1;
-  border: #C5D9F1;
-  box-shadow: 2px 2px 2px 2px #3F3F3F;
+    background-color: #C5D9F1;
+    border: #C5D9F1;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /* CHARLIE */
-#charlie{
-  background-color:#FDE9D9;
-  border:#FDE9D9;
-  box-shadow:2px 2px 2px 2px #3F3F3F
+#charlie {
+    background-color: #FDE9D9;
+    border: #FDE9D9;
+    box-shadow: 2px 2px 2px 2px #3F3F3F
 }
 
-.back_btn_assessment{
-  /* margin-top:-5%;  */
-  margin-bottom:-10%;
+.back_btn_assessment {
+    /* margin-top:-5%;  */
+    margin-bottom: -10%;
 }
 
-.index_section{
-margin-left: 69%;
+.index_section {
+    margin-left: 69%;
 }
 
-.index_button{
-padding-bottom:20px;
+.index_button {
+    padding-bottom: 20px;
 
 }
+
 .index_btn {
-color: #f1f1f1f1;
-background-color:rgb(7, 29, 73);
-box-shadow: 2px 2px 2px 2px #3F3F3F; 
-border: rgb(7, 29, 73);
-/* margin-left:300px; */
- margin-right:200px; 
+    color: #f1f1f1f1;
+    background-color: rgb(7, 29, 73);
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
+    border: rgb(7, 29, 73);
+    /* margin-left:300px; */
+    margin-right: 200px;
 
 }
 
-.index-of-topics-btn{
-  margin: 10px;
-  color: #f1f1f1f1;
+.index-of-topics-btn {
+    margin: 10px;
+    color: #f1f1f1f1;
 }
 
 img .images {
-  text-align: right;
-}
-/* Icons for each lesson */
-.icons{
-  margin-right:500px;
-}
-/* Align Panel header */
-.panel-headers {
-  text-align: justify;
-  /* text-align:inherit; */
-  margin-top: -30px;
+    text-align: right;
 }
 
-.gr7_test_panel_container a:hover{
-  text-decoration: none
+/* Icons for each lesson */
+.icons {
+    margin-right: 500px;
+}
+
+/* Align Panel header */
+.panel-headers {
+    text-align: justify;
+    /* text-align:inherit; */
+    margin-top: -30px;
+}
+
+.gr7_test_panel_container a:hover {
+    text-decoration: none
 }
 
 /*kolibri logo image btn on landing page*/
-.kolibri_logo_btn{
-  width:312px;
-  height:285px;
+.kolibri_logo_btn {
+    width: 312px;
+    height: 285px;
 }
 
-.numeracy_assessments_btn{
-  width: 250px;
-  height:250px;
+.numeracy_assessments_btn {
+    width: 250px;
+    height: 250px;
 }
 
 /*remove text decoration on text inside img button*/
-.img_btn_container a{
-  text-decoration: none;
+.img_btn_container a {
+    text-decoration: none;
 }
 
 .icon_texts {
-  font-size: 20px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.img_btns_row{
-  margin-right:5%;
-  margin-bottom: 3%;
+.img_btns_row {
+    margin-right: 5%;
+    margin-bottom: 3%;
 }
 
-.button_spacing{
-  padding-bottom: 10px; 
+.button_spacing {
+    padding-bottom: 10px;
 }
 
-.kolibri_logo_btn{
-  margin-top:4%;
-  width: 78%;
-  height:78%;
+.kolibri_logo_btn {
+    margin-top: 4%;
+    width: 78%;
+    height: 78%;
 }
 
-.numeracy_assessments_btn{
-  margin-top:4%;
-  width: 78%;
-  height:78%;
+.numeracy_assessments_btn {
+    margin-top: 4%;
+    width: 78%;
+    height: 78%;
 }
 
 .edulution_portal {
-  padding-top:5%;
-  text-align: center;
-  font-size: 2.2em;
-  font-family: Roboto;
-  padding-left: 24%;
+    padding-top: 5%;
+    text-align: center;
+    font-size: 2.2em;
+    font-family: Roboto;
+    padding-left: 24%;
 }
 
 /*green grade 7 test panel*/
-.gr7_test_panel_green{
-  background-color: #CCFFCC !important;
-  border: #CCFFCC;
-  box-shadow: 2px 2px 2px 2px #3F3F3F;
+.gr7_test_panel_green {
+    background-color: #CCFFCC !important;
+    border: #CCFFCC;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /*white grade 7 test panel*/
-.gr7_test_panel_white{
-  background-color: white !important;
-  border: #CCFFCC;
-  box-shadow: 2px 2px 2px 2px #3F3F3F;
+.gr7_test_panel_white {
+    background-color: white !important;
+    border: #CCFFCC;
+    box-shadow: 2px 2px 2px 2px #3F3F3F;
 }
 
 /* Index of Topics Button */
 .index_of_topics_button {
-  
-  margin-left : 68.5%;
+
+    margin-left: 68.5%;
 
 }
+
 /* course content text */
-.course_content_text{
-    padding-left:10%;
-    text-align:justify;
+.course_content_text {
+    padding-left: 10%;
+    text-align: justify;
 }
 
 .archor_color {
@@ -228,44 +232,54 @@ img .images {
 }
 
 #home_backgroundcolor {
-  background: #ccc;
+    background: #ccc;
 }
 
-#prealpha_backgroundcolor {
-  background: #6CACE4;
+#level1_backgroundcolor {
+    background: #6CACE4;
 }
 
-#alpha_backgroundcolor {
-  background:#84BD00;;
+#level2_backgroundcolor {
+    background: #84BD00;
+    ;
 }
 
-#bravo_backgroundcolor {
-  background: #7474C1;
+#level3_backgroundcolor {
+    background: #7474C1;
+}
+
+#level4_backgroundcolor {
+    background: #005EB8;
+}
+
+#level5_backgroundcolor {
+    background: #FFC72C;
 }
 
 /* Button Text for all the Playlist  */
 .button_prealpha_text {
-    
-  font-size: 24px;
-  color:#6CACE4;
+
+    font-size: 24px;
+    color: #6CACE4;
 }
 
 .button_alpha_text {
-  font-size: 24px;
-  color:#84BD00;
+    font-size: 24px;
+    color: #84BD00;
 }
 
 .button_bravo_text {
-  font-size: 24px;
-  color:#7474C1;
+    font-size: 24px;
+    color: #7474C1;
 }
+
 /* End  */
 
 /* Footer */
-.version_number{
-  margin-bottom: -130%;
-  margin-top: -3%;
-  
+.version_number {
+    margin-bottom: -130%;
+    margin-top: -3%;
+
 }
 
 /* Sidebar */
@@ -274,9 +288,9 @@ img .images {
  
   border: 1px solid #ccc;
   background-color: rgb(7, 29, 73); */
-  /* width: 30%;
+/* width: 30%;
   height: 600px; */
-  /* margin: 0;
+/* margin: 0;
   padding: 0;
   width: 30%;
   position: fixed;

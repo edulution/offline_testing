@@ -19,9 +19,13 @@ conn <-  dbConnect(
  	user= bl_db_user,
  	password= bl_db_passwd)
 
+
 # Helper function to insert the contents of the users csv file into the users table on baseline
 insert_responses <- function(input_file){
+	# Read the contents of the file supplied into a dataframe
 	users_df <- read.csv(input_file,stringsAsFactors = FALSE)
+
+	# Set the group name = "Lteracy"
 	users_df$group_name <- rep('Literacy',nrow(users_df))
 	dbWriteTable(
 		conn,
@@ -33,6 +37,8 @@ insert_responses <- function(input_file){
 	dbDisconnect(conn)
 }
 
-input<- commandArgs(TRUE)
+# Capure arguments supplied in the command line
+input <- commandArgs(TRUE)
 
+# Call insert responses with the file path supplied in the command line
 insert_responses(input)

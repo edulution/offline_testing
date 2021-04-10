@@ -16,7 +16,6 @@ export literacy_users_file=~/.baseline_testing/literacy_learners
 
 # check if a centre is a literacy centre before fetching details for literacy learners
 if [[ "$IS_LITERACY_CENTRE" == "TRUE" ]]; then
-	chmod +x ~/.baseline_testing/scripts/get_literacy_usernames.sh
 	~/.baseline_testing/scripts/get_literacy_usernames.sh
 fi
 
