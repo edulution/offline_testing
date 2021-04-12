@@ -32,4 +32,9 @@ router.get('/grade7_revision', (req, res) => {
     res.sendFile(path.resolve('portal/grade7_revision.html'));
 });
 
+/*external evaluations page*/
+router.get('/external_assessments', (req, res) => {
+    res.sendFile(path.resolve('portal/external_assessments.html'));
+});
+
 module.exports = router
