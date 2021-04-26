@@ -18,7 +18,7 @@
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
-<script src="/js/prevent_user_leaving_page.js"></script>
+    <!-- <script src="/js/no_back_please.js"></script> -->
     <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
@@ -26,6 +26,7 @@
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
@@ -34,7 +35,7 @@
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
