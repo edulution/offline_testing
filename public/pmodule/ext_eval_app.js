@@ -197,6 +197,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             check_response_already_exists($scope.testResponse)
         }
 
+        /*function to return the first name and last name of a user when they have entered their username on the test*/
+        $scope.display_username = function() {
+            if ($scope.testResponse.username) {
+                var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                return currentUser.first_name + ' ' + currentUser.last_name
+            }
+        }
+
         /*Test submission function*/
         $scope.submit = function() {
             $http.post("/api/submit_test", $scope.testResponse).then(function(success) {
