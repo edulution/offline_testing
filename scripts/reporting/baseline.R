@@ -78,7 +78,13 @@ tresponses_query<-dbSendQuery(
   left join test_marks tm
   on r.test = tm.test_id
   and r.module = tm.module
-  and r.course = tm.course")
+  and r.course = tm.course
+  union all
+select e.*, tm.testmaxscore from ext_eval_responses e
+  left join test_marks tm
+  on e.test = tm.test_id
+  and e.module = tm.module
+  and e.course = tm.course")
 
 tresponses<-dbFetch(tresponses_query)
 
