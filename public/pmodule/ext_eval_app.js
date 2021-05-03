@@ -207,7 +207,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*Test submission function*/
         $scope.submit = function() {
-            $http.post("/api/submit_test", $scope.testResponse).then(function(success) {
+            $http.post("/api/submit_ext_eval", $scope.testResponse).then(function(success) {
                 /*redirect to sucessful submission page*/
                 window.location = '/api/sucessful_submit'
             });
