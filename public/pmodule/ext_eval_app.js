@@ -53,7 +53,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             })
 
             /*variables for validating coach_id*/
-            $scope.testSubmitPassword = "fe7e7cb10928b7b15327c4457123474e";
+            $scope.testSubmitPassword = "e3f2eb3d904e93a424a490f049c3d44e";
             $scope.wrongPassword = false;
             $scope.wrongCoachID = false;
 
@@ -231,7 +231,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
     })
     /*Controller for password modal*/
     .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5) {
-        $scope.coachPassword = "fe7e7cb10928b7b15327c4457123474e";
+        $scope.coachPassword = "e3f2eb3d904e93a424a490f049c3d44e";
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
