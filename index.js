@@ -33,7 +33,7 @@ app.use('/grade7', grade7)
 
 /*Results dashboard page*/
 app.get('/results', (req, res) => {
-    res.sendFile(__dirname + '/dashboard/results.html')
+    res.redirect('https://stats1.edulution.org/coach_stats/')
 })
 
 app.listen(port, '0.0.0.0', () => {
