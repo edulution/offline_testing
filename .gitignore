@@ -8,3 +8,5 @@ index_postgres.js
 node_modules/
 .DS_Store
 *.pyc
+dev_migrations/
+md5_gen.js

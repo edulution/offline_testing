@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
 });
 
 /*numeracy assessments page*/
-router.get('/numeracy_assessments', (req, res) => {
-    res.sendFile(path.resolve('portal/numeracy_assessments.html'));
+router.get('/numeracy_tests', (req, res) => {
+    res.sendFile(path.resolve('portal/numeracy_tests.html'));
 });
 
 /*index of topics*/
@@ -30,6 +30,11 @@ router.get('/literacy_tests', (req, res) => {
 /*grade7_revision page*/
 router.get('/grade7_revision', (req, res) => {
     res.sendFile(path.resolve('portal/grade7_revision.html'));
+});
+
+/*external evaluations page*/
+router.get('/external_evaluations', (req, res) => {
+    res.sendFile(path.resolve('portal/external_evaluations.html'));
 });
 
 module.exports = router
