@@ -1,3 +1,9 @@
+/*Get all Kolibri Classrooms a user is enrolled in
+  Args:
+    user_id uuid
+  Returns:
+    complete rows from kolibriauth_collection
+*/
 CREATE OR REPLACE FUNCTION get_user_classrooms(
 	i_userid uuid)
 	RETURNS SETOF ext.kolibriauth_collection

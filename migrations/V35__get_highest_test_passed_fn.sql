@@ -1,3 +1,10 @@
+/*Get the test with the highest(numerically largest) sort_order, of type TST which a user has passed
+  Args:
+    user_id uuid
+    module string
+  Returns:
+    Complete row from vresponsescore*/
+
 CREATE OR REPLACE FUNCTION get_highest_passed_test(
 	i_userid uuid,
 	i_module character varying)

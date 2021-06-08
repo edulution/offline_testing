@@ -1,4 +1,6 @@
-/*Create a column for test sequence*/
+/*Create a column for test sequence in test_marks table
+Numeric representation of the sequence the tests should be taken
+*/
 ALTER TABLE test_marks ADD COLUMN test_seq integer;
 
 /*Update test sequence for each test*/

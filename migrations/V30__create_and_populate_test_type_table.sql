@@ -1,3 +1,4 @@
+/*Create a config table for test types*/
 CREATE TABLE IF NOT EXISTS test_type
 (
     test_type character varying(5) COLLATE pg_catalog."default" NOT NULL,
@@ -5,7 +6,7 @@ CREATE TABLE IF NOT EXISTS test_type
     CONSTRAINT bltest_type_pkey PRIMARY KEY (test_type)
 );
 
-
+/*Populate the table with the current test types available*/
 INSERT INTO test_type( test_type, description)
 VALUES ('TST',
         'Pre/Post test');
