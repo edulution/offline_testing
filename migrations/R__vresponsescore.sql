@@ -1,9 +1,9 @@
--- Refactored vresponsescore
--- Use explicit joins to assist query planner
--- Add test_type column from test_marks
-
+/*View to show the test scores for each test
+Joined with config tables to get all details of the test, test_seq, course_family etc*/
 CREATE OR REPLACE VIEW vresponsescore AS
-  with scores as (SELECT responses.user_id,
+  WITH scores AS
+  /*CTE to calculate score for each test and join all the details from config tables*/
+  (SELECT responses.user_id,
           responses.module,
           responses.course,
           c.course_family,
@@ -22,8 +22,8 @@ CREATE OR REPLACE VIEW vresponsescore AS
    AND responses.module::text = t.module::text
    LEFT JOIN course c ON responses.course::text = c.course::text
    AND responses.module::text = c.module::text)
-   
-   SELECT user_id,
+/*Select the releant fields from the CTE above*/
+SELECT user_id,
        module,
        course,
        course_family,
@@ -34,6 +34,7 @@ CREATE OR REPLACE VIEW vresponsescore AS
        score,
        testmaxscore,
        test_pass_score,
+       /*Boolean field representing whether or not the test was passed*/
        CASE
            WHEN score >= (testmaxscore::numeric * test_pass_score) THEN TRUE
            ELSE FALSE
