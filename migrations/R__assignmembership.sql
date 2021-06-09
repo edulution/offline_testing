@@ -1,6 +1,6 @@
 -- PROCEDURE: public.spassignmembership()
 
-DROP PROCEDURE public.spassignmembership();
+DROP PROCEDURE public.spassignmembership;
 
 CREATE OR REPLACE PROCEDURE public.spassignmembership(
 	i_module character varying
@@ -53,8 +53,8 @@ BEGIN
 	sPos := '10';
 	/*Loop through all learners that are in the live learners table*/
 
-	FOR learnerRow IN SELECT user_id FROM live_learners
-	where user_id not in
+	FOR learnerRow IN SELECT id as user_id FROM ext.kolibriauth_facilityuser
+	where id not in
 	(select user_id from ext.kolibriauth_role
 	where kind in ('coach','admin'))
 	LOOP
