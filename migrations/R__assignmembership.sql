@@ -1,6 +1,6 @@
 -- PROCEDURE: public.spassignmembership()
 
--- DROP PROCEDURE public.spassignmembership();
+DROP PROCEDURE public.spassignmembership();
 
 CREATE OR REPLACE PROCEDURE public.spassignmembership(
 	i_module character varying
@@ -9,30 +9,25 @@ LANGUAGE 'plpgsql'
 
 AS $BODY$
 DECLARE
+
 sPos varchar(10);
 learnerRow RECORD;
+classroomRow RECORD;
 
-
-zarchive_breakoffdate timestamp := now() - INTERVAL '90 DAYS';
 
 currChannelId uuid;
-nextChannelId uuid;
-newCollectionId uuid;
-newDataSet_id uuid;
-
-nextCourse text;
-nextCourseFamily text;
-nextSortOrder integer;
-
 currCourse text;
 currCourseFamily text;
 currSortOrder integer;
 
-classroomRow RECORD;
+nextChannelId uuid;
+nextCourse text;
+nextCourseFamily text;
+nextSortOrder integer;
+newCollectionId uuid;
 
-playListID varchar(50);
+newDataSet_id uuid;
 
-sDataSet varchar(100);
 
 BEGIN
 /********************************************************
@@ -45,96 +40,135 @@ BEGIN
 *) Create a membership in the learnergroup
 *********************************************************/
 
-sPos := '00';
-	/*** Delete all existing memberships and repopulate them in Stored proc **/
-	DELETE FROM ext.kolibriauth_membership 
-	WHERE collection_id IN (SELECT id FROM  ext.kolibriauth_collection WHERE kind IN ('learnergroup'));
+	sPos := '00';
+	/*Delete all existing memberships and repopulate them in Stored proc*/
+	DELETE
+	FROM ext.kolibriauth_membership
+	WHERE collection_id IN
+	    (SELECT id
+	     FROM ext.kolibriauth_collection
+	     WHERE kind IN ('learnergroup'));
 
-sPos := '00';
-/****
-Loop through all learners that have logged in the last NN days
-*****/
-FOR learnerRow IN SELECT user_id FROM live_learners
-where user_id not in
-(select user_id from ext.kolibriauth_role
-where kind in ('coach','admin'))
-LOOP
+
 	sPos := '10';
+	/*Loop through all learners that are in the live learners table*/
 
-		sPos := '100';
+	FOR learnerRow IN SELECT user_id FROM live_learners
+	where user_id not in
+	(select user_id from ext.kolibriauth_role
+	where kind in ('coach','admin'))
+	LOOP
 
-			currCourse := Null;
-			currCourseFamily := Null;
-			currSortOrder := Null;
-			
-			nextCourse := Null;
-			nextCourseFamily := Null;
-			nextSortOrder := Null;
+		sPos := '20';
+
+		/*Set all variables to NULL*/
+
+		currCourse := NULL;
+
+		currCourseFamily := NULL;
+
+		currSortOrder := NULL;
+
+		nextCourse := NULL;
+
+		nextCourseFamily := NULL;
+
+		nextSortOrder := NULL;
+
+		sPos := '30';
+
+		/*Get the course, course_family and sort order of the highest test passed for each learner*/
+		SELECT course,
+		       course_family,
+		       sort_order INTO currCourse,
+		                       currCourseFamily,
+		                       currSortOrder
+		FROM get_highest_passed_test(learnerRow.user_id, i_module);
+
+		sPos := '40';
+
+		 /*If no test has been passed, get the course with the lowest sort order in the module*/
+		IF currCourse IS NULL THEN 
+
+			sPos := '50';
+
+			SELECT course_family INTO nextCourseFamily
+			FROM course
+			WHERE module = i_module
+			  AND sort_order =
+			    (SELECT min(sort_order)
+			     FROM course
+			     WHERE module = i_module);
+
+		ELSE
+			/*If a test has been passed, get the next course in the same module*/
+			SELECT course_family
+			FROM get_next_course(currSortOrder, i_module) INTO nextCourseFamily;
+
+			sPos := '60';
+
+		END IF;
+
+		 sPos := '70';
+
+		/*Loop through all of the classrooms the user is currently enrolled in*/
+		FOR classroomRow IN
+		SELECT *
+		FROM get_user_classrooms(learnerRow.user_id)
+		LOOP
+		/*Get the dataset_id and collection_id for all the learnergroups in the classroom
+		where the name of the group is the same as the name of the course family the learner should be in
+		*/
+			SELECT id,
+			       dataset_id INTO newCollectionId,
+			                       newDataSet_id
+			FROM ext.kolibriauth_collection
+			WHERE name = nextCourseFamily
+			  AND kind = 'learnergroup'
+			  AND parent_id = classroomRow.id;
+
+			 sPos := '80';
+
+			/*Create a membership for the learner in that learnergroup*/
+			INSERT INTO ext.kolibriauth_membership (id, _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
+			VALUES (uuid_generate_v4() , TRUE,
+			          (SELECT REPLACE (newCollectionId::text,
+			                           '-',
+			                           '')),
+			          (SELECT REPLACE (newDataSet_id::text,
+			                           '-',
+			                           '')), newCollectionId ,
+			                                 newDataSet_id ,
+			                                 learnerRow.user_id);
+
+		END LOOP; /*classroomRow*/
+
+		sPos := '90';
 
 
-		sPos := '105';
+	END Loop;   /*learnerRow*/
 
-			SELECT course, course_family, sort_order
-			INTO  currCourse, currCourseFamily, currSortOrder
+	sPos := '100';
+		
 
-			from
-				get_highest_passed_test(learnerRow.user_id, i_module);
+	RAISE NOTICE 'Procedure Sucessful' ;
 
-			sPos := '110';
-			/****** No test has been passed. Set them up at first channel **/
-			IF currCourse IS NULL THEN
+	EXCEPTION WHEN OTHERS THEN ROLLBACK;
 
-					sPos := '200';
-					SELECT course_family 
-					INTO nextCourseFamily
-					FROM  course
-					WHERE module = i_module
-					AND  sort_order = (SELECT min(sort_order) FROM course WHERE module = i_module);
-			ELSE
+	RAISE NOTICE 'Procedure Failed' ;
 
-					select course_family from get_next_course(currSortOrder, i_module)
-					into nextCourseFamily;
-			END IF;
+	RAISE NOTICE 'Transaction Rolled Back' ;
 
-			sPos := '410';
+	RAISE INFO 'Failed after Position= %',
+	            sPos;
 
-			FOR classroomRow IN SELECT * FROM get_user_classrooms(learnerRow.user_id)
-			LOOP
-				SELECT 	id, dataset_id
-				INTO 	newCollectionId, newDataSet_id
-				FROM  	ext.kolibriauth_collection
-				where   name = nextCourseFamily
-				and kind = 'learnergroup'
-				and parent_id = classroomRow.id;
+	RAISE INFO 'SQL STATE= %',
+	            SQLSTATE;
 
-				sPos := '420';
-
-				/***** Insert into membership ***/
-				INSERT INTO ext.kolibriauth_membership  (
-					id, _morango_dirty_bit, _morango_source_id, _morango_partition, collection_id, dataset_id, user_id)
-				VALUES
-					(uuid_generate_v4()	, true, (SELECT REPLACE (newCollectionId::text, '-', '')), (SELECT REPLACE (newDataSet_id::text, '-', '')), 
-					newCollectionId  ,  newDataSet_id ,	learnerRow.user_id);
-			END LOOP;
-
-			sPos := '430';
-
-			END IF;*/
-END Loop;   /*learnerRow*/
-
-sPos := '2000';
-	
-
-RAISE NOTICE  'Procedure Sucessful' ;
-
-EXCEPTION WHEN OTHERS THEN
-	ROLLBACK;
-	RAISE NOTICE  'Procedure Failed' ;
-	RAISE NOTICE  'Transaction Rolled Back' ;
-	RAISE INFO 'Failed after Position= %',sPos;
-	RAISE INFO 'SQL STATE= %', sqlstate;
-	RAISE INFO 'SQL ERRM= %', SQLERRM;
+	RAISE INFO 'SQL ERRM= %',
+	            SQLERRM;
 
 END;
+
 
 $BODY$;

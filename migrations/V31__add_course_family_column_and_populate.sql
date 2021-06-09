@@ -1,7 +1,10 @@
--- Add course family to course
-
+/*Add the column course course_family to the course table
+Course family is a higher abstraction than course 
+i.e many courses can be grouped into one course family
+*/
 ALTER TABLE course ADD COLUMN course_family text;
 
+/*Update the course course_family for the existing courses*/
 
 UPDATE course
 SET course_family = 'Alpha'

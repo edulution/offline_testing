@@ -1,9 +1,10 @@
--- Refactored vresponsescore
--- Use explicit joins to assist query planner
--- Add test_type column from test_marks
-
+/*View to show the test scores for each test
+Joined with config tables to get all details of the test, test_seq, course_family etc*/
+DROP VIEW vresponsescore CASCADE;
 CREATE OR REPLACE VIEW vresponsescore AS
-  with scores as (SELECT responses.user_id,
+  WITH scores AS
+  /*CTE to calculate score for each test and join all the details from config tables*/
+  (SELECT responses.user_id,
           responses.module,
           responses.course,
           c.course_family,
@@ -22,8 +23,8 @@ CREATE OR REPLACE VIEW vresponsescore AS
    AND responses.module::text = t.module::text
    LEFT JOIN course c ON responses.course::text = c.course::text
    AND responses.module::text = c.module::text)
-   
-   SELECT user_id,
+/*Select the releant fields from the CTE above*/
+SELECT user_id,
        module,
        course,
        course_family,
@@ -34,10 +35,46 @@ CREATE OR REPLACE VIEW vresponsescore AS
        score,
        testmaxscore,
        test_pass_score,
+       /*Boolean field representing whether or not the test was passed*/
        CASE
            WHEN score >= (testmaxscore::numeric * test_pass_score) THEN TRUE
            ELSE FALSE
        END AS passed,
        sort_order,
        channel_id
-FROM scores
+FROM scores;
+
+
+-- Placed in the same migration because it depends on vresponsescore and will get dropped everytime this migration is ran
+/* Function to Get the test with the highest(numerically largest) sort_order, of type TST which a user has passed
+  Args:
+    user_id uuid
+    module string
+  Returns:
+    Complete row from vresponsescore*/
+
+CREATE OR REPLACE FUNCTION get_highest_passed_test(
+  i_userid uuid,
+  i_module character varying)
+  RETURNS SETOF vresponsescore
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+BEGIN
+RETURN QUERY
+  SELECT *
+  FROM vresponsescore vr
+  WHERE passed IS TRUE
+    AND test_type = 'TST'
+    AND vr.user_id = i_userid
+    AND vr.module = i_module
+    AND sort_order =
+      (SELECT max(sort_order)
+       FROM vresponsescore resp
+       WHERE resp.user_id = vr.user_id
+         AND resp.module = vr.module
+         AND passed IS TRUE)
+  ORDER BY test_date LIMIT 1;
+END;
+$BODY$;

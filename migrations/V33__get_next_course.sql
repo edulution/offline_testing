@@ -1,6 +1,10 @@
--- Create get_next course function
--- Get the next course given sort order and module
-
+/*Get the next course in a module based on sort order
+  Args:
+    sort_order integer
+    module string
+  Returns:
+    complete row from course*/
+    
 CREATE OR REPLACE FUNCTION get_next_course(
 	i_sortorder integer,
 	i_module character varying)
