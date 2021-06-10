@@ -36,6 +36,11 @@ app.get('/results', (req, res) => {
     res.redirect('https://stats1.edulution.org/coach_stats/')
 })
 
+/*Redirect /admin_stats to admin stats external application*/
+app.get('/results', (req, res) => {
+    res.redirect('https://stats1.edulution.org/admin_stats/')
+})
+
 app.listen(port, '0.0.0.0', () => {
     console.log('Server running on port ' + port)
 })
