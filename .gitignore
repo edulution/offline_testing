@@ -11,3 +11,4 @@ node_modules/
 dev_migrations/
 md5_gen.js
 *.sublime-project
+*.sublime-workspace
