@@ -7,6 +7,7 @@ options(warn = -1)
 suppressMessages(library(timeDate))
 # library(plyr)
 # suppress messages when loading package
+suppressMessages(library(plyr))
 suppressMessages(library(dplyr))
 suppressMessages(library(RPostgreSQL))
 suppressMessages(library(stringr))
@@ -93,13 +94,8 @@ tresponses <- dbGetQuery(conn, tresponses_query)
 
 ext_eval <- dbGetQuery(conn, ext_eval_query)
 
-# If there are no test responses, get the external evaluations instead
-if (nrow(tresponses == 0)) {
-  tresponses <- ext_eval
-} else {
-  # If there are testresponses, bind them to external evaluations
-  tresponses <- tresponses %>% rbind(ext_eval)
-}
+# Bind tresponses and ext_eval
+tresponses <- tresponses %>% plyr::rbind.fill(ext_eval)
 
 
 # check if tests exist for the requested month or stop the program if they do not
