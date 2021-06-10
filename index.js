@@ -37,7 +37,7 @@ app.get('/results', (req, res) => {
 })
 
 /*Redirect /admin_stats to admin stats external application*/
-app.get('/results', (req, res) => {
+app.get('/admin_stats', (req, res) => {
     res.redirect('https://stats1.edulution.org/admin_stats/')
 })
 
