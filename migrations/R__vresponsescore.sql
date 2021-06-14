@@ -74,6 +74,7 @@ RETURN QUERY
        FROM vresponsescore resp
        WHERE resp.user_id = vr.user_id
          AND resp.module = vr.module
+         AND test_type = 'TST'
          AND passed IS TRUE)
   ORDER BY test_date LIMIT 1;
 END;
