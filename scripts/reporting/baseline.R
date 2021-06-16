@@ -1,12 +1,7 @@
-# Import tables and generate filename script
-# source('get_dbtables.R',chdir = T)
-# source('generate_filename.R',chdir = T)
 # prevent displaying warning messages from script on console(errors will still show)
 options(warn = -1)
 # suppress messages when loading package
 suppressMessages(library(timeDate))
-# library(plyr)
-# suppress messages when loading package
 suppressMessages(library(plyr))
 suppressMessages(library(dplyr))
 suppressMessages(library(RPostgreSQL))
@@ -15,6 +10,7 @@ suppressMessages(library(rebus))
 
 
 # Connect to baseline database and fetch data -------------------------------------------
+
 bl_db_name <- Sys.getenv("BASELINE_DATABASE_NAME")
 bl_db_host <- Sys.getenv("BASELINE_DATABASE_HOST")
 bl_db_user <- Sys.getenv("BASELINE_DATABASE_USER")
@@ -167,9 +163,6 @@ preproc_tresponses <- function(tresponses_raw) {
     TRUE ~ names(tr_proc)
   )
 
-  # Columns we want to drop in the final report
-  # drop_cols <- c("coach_id", "username")
-
   # Final touches and column selection
   tr_proc <- tr_proc %>%
     # remove hyphens from user_id(uuid)
@@ -203,9 +196,6 @@ preproc_tresponses <- function(tresponses_raw) {
 }
 
 
-# Function to get data extract only for month that user inputs ------------
-
-
 # Simple function to generate filename of csv report in desired  --------
 
 
@@ -215,6 +205,8 @@ generate_filename <- function(report, date) {
   filename <- paste("~/.reports/baseline/", report, device_name, "_", date, ".csv", sep = "")
 }
 
+
+# Function to get data extract only for month that user inputs ------------
 
 baseline <- function(year_month, tresponses) {
   # With user input from command line, create complete date by prefixing with 01
@@ -265,11 +257,14 @@ baseline <- function(year_month, tresponses) {
 }
 
 
+# Get user input from the command line
 input <- commandArgs(TRUE)
 
-# check if tests exist for the requested month or stop the program if they do not
+# Check if tests exist for the requested month or stop the program if they do not
 check_tests_in_curr_month(input, tresponses)
 
+# Preprocess the testresponses using the function declared above
 tresponses_processed <- preproc_tresponses(tresponses)
 
+# Get the data extract for the inputed month
 baseline(input, tresponses_processed)
