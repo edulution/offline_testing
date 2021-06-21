@@ -20,9 +20,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             $scope.existingResponses = [];
 
-            /*properities used to check whether grade 7 test has already been written by the same learner on the same day*/
-            $scope.grade7_props = ["user_id", "test", "course", "module", "test_date"];
-
             /*learner grades*/
             /*grade 0 = unknown grade*/
             $scope.learner_grades = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -128,7 +125,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         /*the default properites used are - user_id  course module test_date*/
         /*this can be overidden with an any array of properties that the testResponse object contains*/
         function concat_props(response, response_props) {
-            response_props = (typeof response_props !== 'undefined') ? response_props : ["user_id", "course", "module", "test_date"];
+            response_props = (typeof response_props !== 'undefined') ? response_props : ["user_id", "test", "course", "module", "test_date"];
             var response_concat = ""
             for (var i in response_props) {
                 response_concat = response_concat.concat(response[response_props[i]])
@@ -141,23 +138,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         function get_responses_concat_list(responses) {
             /*initialize empty array to hold list of concatenated props for each already existing response*/
             responses_list = []
-            /*future work. use array instead of direct string comparison in case other courses need this functionality*/
-            if ($scope.testResponse.course.indexOf("grade7") !== -1) {
-                /*console.log("Grade 7 test. Not overwriting")*/
-                /*Grade 7 test should be overwritten only if the same test is written on the same day*/
-                for (var i in responses) {
-                    /*Get the responses concat list with only the props needed for grade 7 tests*/
-                    var response_cat = concat_props(responses[i], $scope.grade7_props)
-                    /*push string of concatenated props into the array defined at the beginning of the function*/
-                    responses_list.push(response_cat)
-                }
-            } else {
-                /*For any other test, get the response props with the default value*/
-                /*(no need to pass in second argument to concat_props)*/
-                for (var i in responses) {
-                    var response_cat = concat_props(responses[i])
-                    responses_list.push(response_cat)
-                }
+            /*TODO: Use array instead of direct string comparison in case other courses need this functionality*/
+            /*For each response, get the response props*/
+            for (var i in responses) {
+                /*Get the responses concat list with only the props needed for the tests*/
+                var response_cat = concat_props(responses[i])
+                /*push string of concatenated props into the array defined at the beginning of the function*/
+                responses_list.push(response_cat)
             }
             /*return the list of concatenated props for all existing tests*/
             return responses_list
@@ -166,12 +153,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         function check_response_already_exists(testResponse) {
             /*Same logic as get_responses_concat_list, but applied to the current test being submitted*/
             /*The concatenated props of the current test are compared to the list of concatenated props for all existing tests*/
-            if ($scope.testResponse.course.indexOf("grade7") !== -1) {
-                var testResponse_concat = concat_props(testResponse, $scope.grade7_props)
-            } else {
-                var testResponse_concat = concat_props(testResponse)
-            }
 
+            var testResponse_concat = concat_props(testResponse)
 
             /*check if the response submitted exists in list of existing responses*/
             if ($scope.existingResponses.indexOf(testResponse_concat) >= 0) {
