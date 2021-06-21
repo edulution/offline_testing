@@ -208,37 +208,18 @@ router.post('/overwrite_test', [(req, res, next) => {
     let test_module = response['module']
     let test_date = response['test_date']
 
-    /*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
-    /*not all tests on the same day in the same course*/
-    /*future work. use array instead of direct string comparison in case other courses need this functionality*/
-    if (course.indexOf("grade7") !== -1) {
-        let query_gr7 = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
-        let values_gr7 = [user_id, test_done, course, test_module, test_date]
+    /*Delete tests done by the same user in the same test, course, and module done on the same day*/
+    let query_other = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
+    let values_other = [user_id, test_done, course, test_module, test_date]
 
-        // callback
-        pool.query(query_gr7, values_gr7, (err, res) => {
-            if (err) {
-                console.log(err.stack)
-                res.status(400).send('Could not delete row(s)')
-                res.end()
-            }
-        })
-    }
-
-    /*For any other test, delete all tests in the same course done on the same day for that user*/
-    else {
-        let query_other = 'DELETE FROM responses where user_id=($1) and course=($2) and module=($3) and test_date=($4)'
-        let values_other = [user_id, course, test_module, test_date]
-
-        // callback
-        pool.query(query_other, values_other, (err, res) => {
-            if (err) {
-                console.log(err.stack)
-                res.status(400).send('Could not delete row(s)')
-                res.end()
-            }
-        })
-    }
+    // callback
+    pool.query(query_other, values_other, (err, res) => {
+        if (err) {
+            console.log(err.stack)
+            res.status(400).send('Could not delete row(s)')
+            res.end()
+        }
+    })
     /*send a status of 200 and a success message back to the client*/
     next();
 }, (req, res) => {
