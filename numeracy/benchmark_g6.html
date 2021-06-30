@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Evaluation 3</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <!-- <script src="/js/prevent_user_leaving_page.js"></script> -->
+    <script type="text/javascript" src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/ext_eval_app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- include partial for password modal -->
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="testForm">
+                        <p class="test_name">Mathematics Evaluation for Grade 6</p>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Welcome to this Mathematics Evaluation.<br>Evaluation is for 48 marks.<br>You have 1 hour to complete this Evaluation.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you</div>
+                        <div class="HeaderbannerLabel">EVALUATION</div>
+                        <h3>(1) How many Rand and cents?</h3>
+                        <div><img src="/images/grade_6/grade_6_q1.jpg" class="img-responsive" /></div>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="A">
+                            <label for="q1_a">R3 and 65c</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="B">
+                            <label for="q1_b">R3 and 75c</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="C">
+                            <label for="q1_c">R3 and 85c</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="D">
+                            <label for="q1_d">R3 and 95c</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_e" name="q1" ng-model="testResponse.q1" value="E">
+                            <label for="q1_e">R4 and 5c</label>
+                        </p>
+                        <h3>(2) How many Rands?</h3>
+                        <div><img src="/images/grade_6/grade_6_q2.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="A">
+                            <label for="q2_a">R7 610</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="B">
+                            <label for="q2_b">R8 110</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="C">
+                            <label for="q2_c">R8 500</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="D">
+                            <label for="q2_d">R8 610</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_e" name="q2" ng-model="testResponse.q2" value="E">
+                            <label for="q2_e">R9 610</label>
+                        </p>
+                        <h3>(3) What number belongs on the number line at the position that the arrow is pointing to?</h3>
+                        <h3>
+                            <div><img src="/images/grade_6/grade_6_q3.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="A">
+                            <label for="q3_a">525</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="B">
+                            <label for="q3_b">555</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="C">
+                            <label for="q3_c">570</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="D">
+                            <label for="q3_d">575</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_e" name="q3" ng-model="testResponse.q3" value="E">
+                            <label for="q3_e">600</label>
+                        </p>
+                        <h3>(4) What number belongs on the number line at the position that the arrow is pointing to?</h3>
+                        <div><img src="/images/grade_6/grade_6_q4.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="A">
+                            <label for="q4_a"><span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="B">
+                            <label for="q4_b">15</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="C">
+                            <label for="q4_c">15<span class="frac"><sup>5</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="D">
+                            <label for="q4_d">15<span class="frac"><sup>6</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_e" name="q4" ng-model="testResponse.q4" value="E">
+                            <label for="q4_e">16</label>
+                        </p>
+                        <h3>(5) Select the number that makes the sides equal.</h3>
+                        <h3> 6 358 = 6000 &plus; 300 &plus; [___] &plus; 8</h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="A">
+                            <label for="q5_a">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="B">
+                            <label for="q5_b">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="C">
+                            <label for="q5_c">58</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="D">
+                            <label for="q5_d">500</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_e" name="q5" ng-model="testResponse.q5" value="E">
+                            <label for="q5_e">6 308</label>
+                        </p>
+                        <h3>(6) Which number is double 355?</h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="A">
+                            <label for="q6_a">410</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="B">
+                            <label for="q6_b">610</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="C">
+                            <label for="q6_c">620</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="D">
+                            <label for="q6_d">705</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_e" name="q6" ng-model="testResponse.q6" value="E">
+                            <label for="q6_e">710</label>
+                        </p>
+                        <h3>(7) Which number is half of 3476?</h3>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="A">
+                            <label for="q7_a">1 233</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="B">
+                            <label for="q7_b">1 243</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="C">
+                            <label for="q7_c">1 738</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="D">
+                            <label for="q7_d">2 233</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_e" name="q7" ng-model="testResponse.q7" value="E">
+                            <label for="q7_e">2 243</label>
+                        </p>
+                        <h3>(8) Select the number that makes the sides equal.</h3>
+                        <h3>65 – [___] = 37</h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="A">
+                            <label for="q8_a">28</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="B">
+                            <label for="q8_b">32</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="C">
+                            <label for="q8_c">36</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="D">
+                            <label for="q8_d">38</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_e" name="q8" ng-model="testResponse.q8" value="E">
+                            <label for="q8_e">43</label>
+                        </p>
+                        <h3>(9) Select the number that makes the sides equal.</h3>
+                        <h3>400 = 186 &plus; [___]</h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="A">
+                            <label for="q9_a">214</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="B">
+                            <label for="q9_b">300</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="C">
+                            <label for="q9_c">314</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="D">
+                            <label for="q9_d">324</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_e" name="q9" ng-model="testResponse.q9" value="E">
+                            <label for="q9_e">586</label>
+                        </p>
+                        <h3>(10) Select the number that makes the sides equal.</h3>
+                        <h3>7 &times; 60 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="A">
+                            <label for="q10_a">13</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="B">
+                            <label for="q10_b">42</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="C">
+                            <label for="q10_c">48</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="D">
+                            <label for="q10_d">420</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_e" name="q10" ng-model="testResponse.q10" value="E">
+                            <label for="q10_e">460</label>
+                        </p>
+                        <h3>(11) Select the number that makes the sides equal. </h3>
+                        <h3>26 &times; 35 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="A">
+                            <label for="q11_a">90</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="B">
+                            <label for="q11_b">208</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="C">
+                            <label for="q11_c">630</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="D">
+                            <label for="q11_d">810</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_e" name="q11" ng-model="testResponse.q11" value="E">
+                            <label for="q11_e">910</label>
+                        </p>
+                        <h3>(12) Select the number that makes the sides equal.</h3>
+                        <h3>63 &divide; 7 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="A">
+                            <label for="q12_a">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="B">
+                            <label for="q12_b">7</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="C">
+                            <label for="q12_c">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="D">
+                            <label for="q12_d">9</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_e" name="q12" ng-model="testResponse.q12" value="E">
+                            <label for="q12_e">10</label>
+                        </p>
+                        <h3>(13) Select the number that makes the sides equal. </h3>
+                        <h3>392 &divide; 7 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="A">
+                            <label for="q13_a">35</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="B">
+                            <label for="q13_b">50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="C">
+                            <label for="q13_c">56</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="D">
+                            <label for="q13_d">57</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_e" name="q13" ng-model="testResponse.q13" value="E">
+                            <label for="q13_e">63</label>
+                        </p>
+                        <h3>(14) What fraction of the shape is shaded?</h3>
+                        <div><img src="/images/grade_6/grade_6_q14.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="A">
+                            <label for="q14_a"><span class="frac"><sup>1</sup><span>/</span><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="B">
+                            <label for="q14_b"><span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="C">
+                            <label for="q14_c">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="D">
+                            <label for="q14_d"><span class="frac"><sup>8</sup><span>/</span><sub>1</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_e" name="q14" ng-model="testResponse.q14" value="E">
+                            <label for="q14_e">8</label>
+                        </p>
+                        <h3>(15) Thato eats 2-fifths of a whole chocolate bar. How much of the chocolate bar is left over?</h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="A">
+                            <label for="q15_a">1-fifth</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="B">
+                            <label for="q15_b">2-fifths</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="C">
+                            <label for="q15_c">3-fifths</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="D">
+                            <label for="q15_d">4-fifths</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_e" name="q15" ng-model="testResponse.q15" value="E">
+                            <label for="q15_e">1-half</label>
+                        </p>
+                        <h3>(16) Select the number that makes the sides equal.</h3>
+                        <h3><span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span> &plus; <span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> = [___]</h3>
+                        <p>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="A">
+                            <label for="q16_a"><span class="frac"><sup>3</sup><span>/</span><sub>10</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="B">
+                            <label for="q16_b"><span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="C">
+                            <label for="q16_c">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="D">
+                            <label for="q16_d">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_e" name="q16" ng-model="testResponse.q16" value="E">
+                            <label for="q16_e">13</label>
+                        </p>
+                        <h3>(17) Select the missing number in the pattern.</h3>
+                        <div><img src="/images/grade_6/grade_6_q17.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="A">
+                            <label for="q17_a">third</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="B">
+                            <label for="q17_b">3-thirds</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="C">
+                            <label for="q17_c">1 and 1-third</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="D">
+                            <label for="q17_d">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_e" name="q17" ng-model="testResponse.q17" value="E">
+                            <label for="q17_e">3</label>
+                        </p>
+                        <h3>(18) There are 11 players in a hockey team</h3>
+                        <div><img src="/images/grade_6/grade_6_q18.jpg" class="img-responsive" /></div>
+                        <h3>What is the value of A in the table?</h3>
+                        <p>
+                            <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="A">
+                            <label for="q18_a">33</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="B">
+                            <label for="q18_b">44</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="C">
+                            <label for="q18_c">55</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="D">
+                            <label for="q18_d">77</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_e" name="q18" ng-model="testResponse.q18" value="E">
+                            <label for="q18_e">88</label>
+                        </p>
+                        <h3>(19) There are 11 players in a hockey team.</h3>
+                        <div><img src="/images/grade_6/grade_6_q19.jpg" class="img-responsive" /></div>
+                        <h3>What is the value of B in the table?</h3>
+                        <p>
+                            <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="A">
+                            <label for="q19_a">7</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="B">
+                            <label for="q19_b">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="C">
+                            <label for="q19_c">9</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="D">
+                            <label for="q19_d">10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_e" name="q19" ng-model="testResponse.q19" value="E">
+                            <label for="q19_e">11</label>
+                        </p>
+                        <h3>(20) Study the pattern made by the pictures. How many dots will there be in Picture 5?</h3>
+                        <div><img src="/images/grade_6/grade_6_q20.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="A">
+                            <label for="q20_a">13 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="B">
+                            <label for="q20_b">14 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="C">
+                            <label for="q20_c">15 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="D">
+                            <label for="q20_d">16 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_e" name="q20" ng-model="testResponse.q20" value="E">
+                            <label for="q20_e">17 dots</label>
+                        </p>
+                        <h3>(21) Study the pattern made by the pictures and the table. How many dots will there be in Picture 6? In other words, determine the value of A in the table.</h3>
+                        <div><img src="/images/grade_6/grade_6_q21.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="A">
+                            <label for="q21_a">13 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="B">
+                            <label for="q21_b">14 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="C">
+                            <label for="q21_c">15 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="D">
+                            <label for="q21_d">16 dots</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_e" name="q21" ng-model="testResponse.q21" value="E">
+                            <label for="q21_e">21 dots</label>
+                        </p>
+                        <h3>(22) The boy is looking at the blocks. Select the view that the boy sees.</h3>
+                        <div><img src="/images/grade_6/grade_6_q22.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="A">
+                            <label for="q22_a">A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="B">
+                            <label for="q22_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="C">
+                            <label for="q22_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="D">
+                            <label for="q22_d">D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_e" name="q22" ng-model="testResponse.q22" value="E">
+                            <label for="q22_e">E</label>
+                        </p>
+                        <h3>(23) Which shape is a pentagon?</h3>
+                        <div><img src="/images/grade_6/grade_6_q23.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="A">
+                            <label for="q23_a">A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="B">
+                            <label for="q23_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="C">
+                            <label for="q23_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="D">
+                            <label for="q23_d">D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_e" name="q23" ng-model="testResponse.q23" value="E">
+                            <label for="q23_e">E</label>
+                        </p>
+                        <h3>(24) Select the 2-D cutout that can be folded up into a complete cube.</h3>
+                        <div><img src="/images/grade_6/grade_6_q24.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="A">
+                            <label for="q24_a">A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="B">
+                            <label for="q24_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="C">
+                            <label for="q24_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="D">
+                            <label for="q24_d">D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_e" name="q24" ng-model="testResponse.q24" value="E">
+                            <label for="q24_e">E</label>
+                        </p>
+                        <h3>(25) Which is the next number in the pattern?</h3>
+                        <h3>10 007 ; 10 008 ; 10 009 ; ____</h3>
+                        <p>
+                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="A">
+                            <label for="q25_a">10 001</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_b" name="q25" ng-model="testResponse.q25" value="B">
+                            <label for="q25_b">10 010</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_c" name="q25" ng-model="testResponse.q25" value="C">
+                            <label for="q25_c">10 100</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="D">
+                            <label for="q25_d">11 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_e" name="q25" ng-model="testResponse.q25" value="E">
+                            <label for="q25_e">100 010</label>
+                        </p>
+                        <h3>(26) <div><img src="/images/grade_6/grade_6_q26.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <h3>What fraction of the shape is shaded?</h3>
+                        <p>
+                            <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="A">
+                            <label for="q26_a">1-half</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_b" name="q26" ng-model="testResponse.q26" value="B">
+                            <label for="q26_b">3-quarters</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="C">
+                            <label for="q26_c">5-ninths</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="D">
+                            <label for="q26_d">9-fifths</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_e" name="q26" ng-model="testResponse.q26" value="E">
+                            <label for="q26_e">None of these</label>
+                        </p>
+                        <h3>(27) <div><img src="/images/grade_6/grade_6_q27.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <h3>What percentage of the shape is shaded?</h3>
+                        <p>
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="A">
+                            <label for="q27_a">14</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_b" name="q27" ng-model="testResponse.q27" value="B">
+                            <label for="q27_b">15</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="C">
+                            <label for="q27_c">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="D">
+                            <label for="q27_d">25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_e" name="q27" ng-model="testResponse.q27" value="E">
+                            <label for="q27_e">30</label>
+                        </p>
+                        <h3>(28) Select the number that makes the sides equal.</h3>
+                        <h3>10 058 &minus; 6 265 = </h3>
+                        <p>
+                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="A">
+                            <label for="q28_a">3 783</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="B">
+                            <label for="q28_b">3 793</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="C">
+                            <label for="q28_c">3 813</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="D">
+                            <label for="q28_d">4 793</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_e" name="q28" ng-model="testResponse.q28" value="E">
+                            <label for="q28_e">16 213</label>
+                        </p>
+                        <h3>(29) Select the number that makes the sides equal.</h3>
+                        <h3>12 &minus; 6 &divide; 2 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="A">
+                            <label for="q29_a">0</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="B">
+                            <label for="q29_b">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="C">
+                            <label for="q29_c">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="D">
+                            <label for="q29_d">9</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_e" name="q29" ng-model="testResponse.q29" value="E">
+                            <label for="q29_e">12</label>
+                        </p>
+                        <h3>(30) Select the number that makes the sides equal.</h3>
+                        <h3>8,5 &plus; 12,8 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="A">
+                            <label for="q30_a">20,13</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="B">
+                            <label for="q30_b">20,3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="C">
+                            <label for="q30_c">21,3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="D">
+                            <label for="q30_d">33</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_e" name="q30" ng-model="testResponse.q30" value="E">
+                            <label for="q30_e">213</label>
+                        </p>
+                        <h3>(31) Select the number that makes the sides equal.</h3>
+                        <h3>236 &times; 45 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q31_a" name="q31" ng-model="testResponse.q31" value="A">
+                            <label for="q31_a">2124</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_b" name="q31" ng-model="testResponse.q31" value="B">
+                            <label for="q31_b">9620</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_c" name="q31" ng-model="testResponse.q31" value="C">
+                            <label for="q31_c">10420</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_d" name="q31" ng-model="testResponse.q31" value="D">
+                            <label for="q31_d">10520</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_e" name="q31" ng-model="testResponse.q31" value="E">
+                            <label for="q31_e">10620</label>
+                        </p>
+                        <h3>(32) Select the number that makes the sides equal.</h3>
+                        <h3>414 &divide; 18 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q32_a" name="q32" ng-model="testResponse.q32" value="A">
+                            <label for="q32_a">12</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_b" name="q32" ng-model="testResponse.q32" value="B">
+                            <label for="q32_b">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_c" name="q32" ng-model="testResponse.q32" value="C">
+                            <label for="q32_c">22</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_d" name="q32" ng-model="testResponse.q32" value="D">
+                            <label for="q32_d">23</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_e" name="q32" ng-model="testResponse.q32" value="E">
+                            <label for="q32_e">24</label>
+                        </p>
+                        <h3>(33) Select the number that makes the sides equal.</h3>
+                        <h3><span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> &plus; <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> = [___]</h3>
+                        <p>
+                            <input type="radio" id="q33_a" name="q33" ng-model="testResponse.q33" value="A">
+                            <label for="q33_a"><span class="frac"><sup>4</sup><span>/</span><sub>9</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_b" name="q33" ng-model="testResponse.q33" value="B">
+                            <label for="q33_b"><span class="frac"><sup>2</sup><span>/</span><sub>6</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_c" name="q33" ng-model="testResponse.q33" value="C">
+                            <label for="q33_c">1<span class="frac"><sup>1</sup><span>/</span><sub>3</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_d" name="q33" ng-model="testResponse.q33" value="D">
+                            <label for="q33_d">1<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_e" name="q33" ng-model="testResponse.q33" value="E">
+                            <label for="q33_e">None of these</label>
+                        </p>
+                        <h3>(34) Select the number that makes the sides equal.</h3>
+                        <h3>8<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &minus; 3<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q34_a" name="q34" ng-model="testResponse.q34" value="A">
+                            <label for="q34_a">4<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_b" name="q34" ng-model="testResponse.q34" value="B">
+                            <label for="q34_b">5<span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_c" name="q34" ng-model="testResponse.q34" value="C">
+                            <label for="q34_c">5<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_d" name="q34" ng-model="testResponse.q34" value="D">
+                            <label for="q34_d">5<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_e" name="q34" ng-model="testResponse.q34" value="E">
+                            <label for="q34_e">11<span class="frac"><sup>3</sup><span>/</span><sub>4</sub></span></label>
+                        </p>
+                        <h3>(35) Select the number that makes the sides equal.</h3>
+                        <h3><span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span> of 15 = [___]</h3>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="A">
+                            <label for="q35_a">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="B">
+                            <label for="q35_b">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="C">
+                            <label for="q35_c">10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="D">
+                            <label for="q35_d">15<span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_e" name="q35" ng-model="testResponse.q35" value="E">
+                            <label for="q35_e">47</label>
+                        </p>
+                        <h3>(36) Calculate.</h3>
+                        <h3>25% of R480</h3>
+                        <p>
+                            <input type="radio" id="q36_a" name="q36" ng-model="testResponse.q36" value="A">
+                            <label for="q36_a">R12</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_b" name="q36" ng-model="testResponse.q36" value="B">
+                            <label for="q36_b">R19</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_c" name="q36" ng-model="testResponse.q36" value="C">
+                            <label for="q36_c">R19,50</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_d" name="q36" ng-model="testResponse.q36" value="D">
+                            <label for="q36_d">R120</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_e" name="q36" ng-model="testResponse.q36" value="E">
+                            <label for="q36_e">R455</label>
+                        </p>
+                        <h3>(37) Sinead is making pictures with matches. Her pictures form a pattern.</h3>
+                        <div><img src="/images/grade_6/grade_6_q37.jpg" class="img-responsive" /></div>
+                        <h3>How many matches does Sinead add to a picture to make the next picture in the pattern? </h3>
+                        <p>
+                            <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="A">
+                            <label for="q37_a">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_b" name="q37" ng-model="testResponse.q37" value="B">
+                            <label for="q37_b">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_c" name="q37" ng-model="testResponse.q37" value="C">
+                            <label for="q37_c">16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_d" name="q37" ng-model="testResponse.q37" value="D">
+                            <label for="q37_d">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_e" name="q37" ng-model="testResponse.q37" value="E">
+                            <label for="q37_e">None of these</label>
+                        </p>
+                        <h3>(38) Study the pattern made by the pictures. Which picture will have exactly 22 dots?</h3>
+                        <div><img src="/images/grade_6/grade_6_q38.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q38_a" name="q38" ng-model="testResponse.q38" value="A">
+                            <label for="q38_a">Picture 5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_b" name="q38" ng-model="testResponse.q38" value="B">
+                            <label for="q38_b">Picture 6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_c" name="q38" ng-model="testResponse.q38" value="C">
+                            <label for="q38_c">Picture 7</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_d" name="q38" ng-model="testResponse.q38" value="D">
+                            <label for="q38_d">Picture 8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_e" name="q38" ng-model="testResponse.q38" value="E">
+                            <label for="q38_e">Picture 9</label>
+                        </p>
+                        <h3>(39) Use the flow diagram to determine the value of A in the table.</h3>
+                        <div><img src="/images/grade_6/grade_6_q39.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q39_a" name="q39" ng-model="testResponse.q39" value="A">
+                            <label for="q39_a">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_b" name="q39" ng-model="testResponse.q39" value="B">
+                            <label for="q39_b">35</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_c" name="q39" ng-model="testResponse.q39" value="C">
+                            <label for="q39_c">40</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_d" name="q39" ng-model="testResponse.q39" value="D">
+                            <label for="q39_d">60</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_e" name="q39" ng-model="testResponse.q39" value="E">
+                            <label for="q39_e">80</label>
+                        </p>
+                        <h3>(40) Use the flow diagram to determine the value of B in the table.</h3>
+                        <div><img src="/images/grade_6/grade_6_q40.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q40_a" name="q40" ng-model="testResponse.q40" value="A">
+                            <label for="q40_a">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_b" name="q40" ng-model="testResponse.q40" value="B">
+                            <label for="q40_b">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_c" name="q40" ng-model="testResponse.q40" value="C">
+                            <label for="q40_c">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_d" name="q40" ng-model="testResponse.q40" value="D">
+                            <label for="q40_d">15</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_e" name="q40" ng-model="testResponse.q40" value="E">
+                            <label for="q40_e">16</label>
+                        </p>
+                        <h3>(41) Use the flow diagram to calculate the output value when the input value is 50.</h3>
+                        <div><img src="/images/grade_6/grade_6_q41.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q41_a" name="q41" ng-model="testResponse.q41" value="A">
+                            <label for="q41_a">13</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_b" name="q41" ng-model="testResponse.q41" value="B">
+                            <label for="q41_b">19</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_c" name="q41" ng-model="testResponse.q41" value="C">
+                            <label for="q41_c">51</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_d" name="q41" ng-model="testResponse.q41" value="D">
+                            <label for="q41_d">132</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_e" name="q41" ng-model="testResponse.q41" value="E">
+                            <label for="q41_e">148</label>
+                        </p>
+                        <h3>(42) Use the table to determine the rule for A and B in the flow diagram.</h3>
+                        <div><img src="/images/grade_6/grade_6_q42.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="A">
+                            <label for="q42_a">A: &times; 2 and B: &plus; 3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_b" name="q42" ng-model="testResponse.q42" value="B">
+                            <label for="q42_b">A: &plus; 1 and B: &plus; 2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_c" name="q42" ng-model="testResponse.q42" value="C">
+                            <label for="q42_c">A: &plus; 5 and B: &plus; 2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_d" name="q42" ng-model="testResponse.q42" value="D">
+                            <label for="q42_d">A: &plus; 5 and B: &plus; 10</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_e" name="q42" ng-model="testResponse.q42" value="E">
+                            <label for="q42_e">A: &plus; 1 and B: &times; 2</label>
+                        </p>
+                        <h3>(43) Which of the rectangles are squares?</h3>
+                        <div><img src="/images/grade_6/grade_6_q43.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q43_a" name="q43" ng-model="testResponse.q43" value="A">
+                            <label for="q43_a">All of them</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_b" name="q43" ng-model="testResponse.q43" value="B">
+                            <label for="q43_b">A and B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_c" name="q43" ng-model="testResponse.q43" value="C">
+                            <label for="q43_c">B and D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_d" name="q43" ng-model="testResponse.q43" value="D">
+                            <label for="q43_d">A and C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_e" name="q43" ng-model="testResponse.q43" value="E">
+                            <label for="q43_e">B and E</label>
+                        </p>
+                        <h3>(44) William is asked to make a pattern with the grey shape by reflecting the shape. Which pattern is correct?</h3>
+                        <div><img src="/images/grade_6/grade_6_q44.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q44_a" name="q44" ng-model="testResponse.q44" value="A">
+                            <label for="q44_a">A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_b" name="q44" ng-model="testResponse.q44" value="B">
+                            <label for="q44_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_c" name="q44" ng-model="testResponse.q44" value="C">
+                            <label for="q44_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_d" name="q44" ng-model="testResponse.q44" value="D">
+                            <label for="q44_d">C and D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_e" name="q44" ng-model="testResponse.q44" value="E">
+                            <label for="q44_e">D</label>
+                        </p>
+                        <h3>(45) Which <u>two</u> pieces can be joined together to make the grey shape?</h3>
+                        <div><img src="/images/grade_6/grade_6_q45.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q45_a" name="q45" ng-model="testResponse.q45" value="A">
+                            <label for="q45_a">A and B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_b" name="q45" ng-model="testResponse.q45" value="B">
+                            <label for="q45_b">A and D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_c" name="q45" ng-model="testResponse.q45" value="C">
+                            <label for="q45_c">C and D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_d" name="q45" ng-model="testResponse.q45" value="D">
+                            <label for="q45_d">B and C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_e" name="q45" ng-model="testResponse.q45" value="E">
+                            <label for="q45_e">The grey shape cannot be made by joining two of these pieces</label>
+                        </p>
+                        <h3>(46) Which angles are obtuse angles?</h3>
+                        <div><img src="/images/grade_6/grade_6_q46.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q46_a" name="q46" ng-model="testResponse.q46" value="A">
+                            <label for="q46_a">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_b" name="q46" ng-model="testResponse.q46" value="B">
+                            <label for="q46_b">B and C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_c" name="q46" ng-model="testResponse.q46" value="C">
+                            <label for="q46_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_d" name="q46" ng-model="testResponse.q46" value="D">
+                            <label for="q46_d">A and D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_e" name="q46" ng-model="testResponse.q46" value="E">
+                            <label for="q46_e">B, C and D</label>
+                        </p>
+                        <h3>(47) Two sides of a parallelogram are given. Which point is the fourth vertex of the parallelogram? </h3>
+                        <div><img src="/images/grade_6/grade_6_q47.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q47_a" name="q47" ng-model="testResponse.q47" value="A">
+                            <label for="q47_a">A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_b" name="q47" ng-model="testResponse.q47" value="B">
+                            <label for="q47_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_c" name="q47" ng-model="testResponse.q47" value="C">
+                            <label for="q47_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_d" name="q47" ng-model="testResponse.q47" value="D">
+                            <label for="q47_d">D</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_e" name="q47" ng-model="testResponse.q47" value="E">
+                            <label for="q47_e">E</label>
+                        </p>
+                        <h3>(48) Select all the lines of symmetry in this rectangle.</h3>
+                        <div><img src="/images/grade_6/grade_6_q48.jpg" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q48_a" name="q48" ng-model="testResponse.q48" value="A">
+                            <label for="q48_a">A and C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_b" name="q48" ng-model="testResponse.q48" value="B">
+                            <label for="q48_b">B and E</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_c" name="q48" ng-model="testResponse.q48" value="C">
+                            <label for="q48_c">A, B, C and E</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_d" name="q48" ng-model="testResponse.q48" value="D">
+                            <label for="q48_d">A, B, C, D and E</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_e" name="q48" ng-model="testResponse.q48" value="E">
+                            <label for="q48_e">D and E</label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='brom_eval_3'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='ext_eval'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <!-- <div ng-include="'/pmodule/templates/gr7_exam_number.html'"></div> -->
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
