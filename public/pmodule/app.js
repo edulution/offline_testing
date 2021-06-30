@@ -1,6 +1,6 @@
 /*Angular module to display password modal and make sure correct password is entered*/
-angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters'])
-    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document) {
+angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
+    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
 
         /*Alias for controller*/
         var $ctrl = this;
@@ -53,7 +53,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             })
 
             /*variables for validating coach_id*/
-            $scope.testSubmitPassword = "Ctrib3";
+            $scope.testSubmitPassword = "fc49a594c8d54de357ad7b5f2addab9f";
             $scope.wrongPassword = false;
             $scope.wrongCoachID = false;
 
@@ -71,7 +71,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: '/pmodule/templates/pmodal_content.html',
+                templateUrl: 'pmodule/templates/pmodal_content.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$password_modal_ctrl',
                 backdrop: 'static',
@@ -92,7 +92,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: '/pmodule/templates/confirm_overwrite_test.html',
+                templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
                 controller: 'MainCtrl',
                 scope: $scope,
                 backdrop: 'static',
@@ -104,7 +104,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         $scope.validate_coach_id_and_password = function(coach_id, password) {
-            if (coach_id.length <= 5 && password == $scope.testSubmitPassword) {
+            if (coach_id.length <= 5 && md5.createHash(password) == $scope.testSubmitPassword) {
                 $scope.wrongPassword = false;
                 $scope.wrongCoachID = false;
 
@@ -113,7 +113,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             } else if (coach_id.length > 5) {
                 $scope.wrongCoachID = true;
                 console.log('Invalid coach ID');
-            } else if (password != $scope.testSubmitPassword) {
+            } else if (md5.createHash(password) != $scope.testSubmitPassword) {
                 $scope.wrongPassword = true;
                 console.log('Wrong password');
             } else {
@@ -197,6 +197,15 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             check_response_already_exists($scope.testResponse)
         }
 
+        /*function to return the first name and last name of a user when they have entered their username on the test*/
+        $scope.display_username = function() {
+            if ($scope.testResponse.username) {
+                var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                return currentUser.first_name + ' ' + currentUser.last_name
+            }
+        }
+
+
         /*Test submission function*/
         $scope.submit = function() {
             $http.post("/api/submit_test", $scope.testResponse).then(function(success) {
@@ -222,8 +231,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
-        $scope.coachPassword = "Ctrib3";
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5) {
+        $scope.coachPassword = "fc49a594c8d54de357ad7b5f2addab9f";
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
@@ -234,7 +243,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         $PasswordModalCtrl.checkPassword = function(password) {
-            if (password == $scope.coachPassword) {
+            if (md5.createHash(password) == $scope.coachPassword) {
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
             } else {
