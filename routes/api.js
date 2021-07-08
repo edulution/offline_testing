@@ -202,37 +202,18 @@ router.post('/overwrite_test', [(req, res, next) => {
     let test_module = response['module']
     let test_date = response['test_date']
 
-    /*If the course is a grade_7_revision then delete only the specific test done on the same day,*/
-    /*not all tests on the same day in the same course*/
-    /*future work. use array instead of direct string comparison in case other courses need this functionality*/
-    if (course.indexOf("grade7") !== -1) {
-        let query_gr7 = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
-        let values_gr7 = [user_id, test_done, course, test_module, test_date]
+    /*Delete tests done by the same user in the same test, course, and module done on the same day*/
+    let query_other = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
+    let values_other = [user_id, test_done, course, test_module, test_date]
 
-        // callback
-        pool.query(query_gr7, values_gr7, (err, res) => {
-            if (err) {
-                console.log(err.stack)
-                res.status(400).send('Could not delete row(s)')
-                res.end()
-            }
-        })
-    }
-
-    /*For any other test, delete all tests in the same course done on the same day for that user*/
-    else {
-        let query_other = 'DELETE FROM responses where user_id=($1) and course=($2) and module=($3) and test_date=($4)'
-        let values_other = [user_id, course, test_module, test_date]
-
-        // callback
-        pool.query(query_other, values_other, (err, res) => {
-            if (err) {
-                console.log(err.stack)
-                res.status(400).send('Could not delete row(s)')
-                res.end()
-            }
-        })
-    }
+    // callback
+    pool.query(query_other, values_other, (err, res) => {
+        if (err) {
+            console.log(err.stack)
+            res.status(400).send('Could not delete row(s)')
+            res.end()
+        }
+    })
     /*send a status of 200 and a success message back to the client*/
     next();
 }, (req, res) => {
@@ -244,26 +225,61 @@ router.post('/overwrite_test', [(req, res, next) => {
 
 /*Endpoint to assign learners when they log in to Kolibri*/
 router.post("/kolibri_login", (req, res) => {
-    /*Capture user details which arrive in the request body*/ 
+    /*Capture user details which arrive in the request body*/
     let user_details = req.body;
 
     /*Spawn a child process*/
-    let spawn = require("child_process").spawn;
+    /*let spawn = require("child_process").spawn;*/
     /*Run the main file of the assign learners script*/
     /*Supply the username and facility of the user as sysarg values*/
-    let process = spawn('python', ["./auto_assign_learners/main.py",
+    /*let process = spawn('python', ["./auto_assign_learners/main.py",
         user_details.username,
         user_details.facility
-    ]);
+    ]);*/
 
     /*Log the output of the child process (print statements. errors not logged directly)*/
-    process.stdout.on('data', function(data) {
+    /*process.stdout.on('data', function(data) {
         console.log(data.toString());
-    });
+    });*/
 
     /*End the response. No need to send a response back to Kolibri*/
     res.end()
 });
+
+router.post('/submit_ext_eval', [(req, res, next) => {
+
+    let response = req.body
+
+    /*properties of response object - user_id,username,q1,q2..*/
+    let response_props = Object.keys(response)
+
+    console.log(response)
+
+    /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = response_props.map((v) => { return response[v]; })
+
+    /*remove the test date from the reponse props*/
+    /*let utest_date = uresponses.pop();*/
+
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    /*Insert statement to run on database. test date added as current date from server*/
+
+    let insert_statement = 'INSERT INTO ext_eval_responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')'
+    console.log(insert_statement);
+
+    // promise
+    pool.query(insert_statement)
+        .then(result => {
+            console.log("Promise returned: Evaluation   submited sucessfully!")
+        })
+        .catch(e => console.error(e.stack))
+    next();
+}, (req, res) => {
+    /*Display successful submission page after request sucessful*/
+    res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+}]);
+
 
 
 module.exports = router

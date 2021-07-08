@@ -18,6 +18,7 @@
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
@@ -25,6 +26,7 @@
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
@@ -33,7 +35,7 @@
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -45,11 +47,11 @@
                     </div>
                     <form name="testForm">
                         <p class="test_name">Level 2 Section 3 Test</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                        <div class="ins">Time allowed: 1 Hour 30 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
-                        <div class="HeaderbannerLabel">ASSESSMENT</div>
+                        <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
+                        <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) calculate <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span></h3>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->

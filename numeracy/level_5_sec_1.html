@@ -18,6 +18,7 @@
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
@@ -25,6 +26,7 @@
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
@@ -33,7 +35,7 @@
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -45,11 +47,11 @@
                     </div>
                     <form name="testForm">
                         <p class="test_name">Level 5 Section 1 Test</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                        <div class="ins">Time allowed: 1 Hour 30 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
-                        <div class="HeaderbannerLabel">ASSESSMENT</div>
+                        <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
+                        <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) Calculate <span class="frac"><sup>1</sup><span>/</span><sub>4</sub></span> &times; <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span></h3>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -106,133 +108,133 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="1">
                             <label for="q3_d">6<span class="frac"><sup>8</sup><span>/</span><sub>21</sub></span></label>
                         </p>
-                        <h3>(4) Calculate 5.078 &plus; 16.54</h3>
+                        <h3>(4) Calculate 5,078 &plus; 16,54</h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
-                            <label for="q4_a">21.132</label>
+                            <label for="q4_a">21,132</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="00">
-                            <label for="q4_b">21.24</label>
+                            <label for="q4_b">21,24</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="1">
-                            <label for="q4_c">21.618</label>
+                            <label for="q4_c">21,618</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
-                            <label for="q4_d">22.32</label>
+                            <label for="q4_d">22,32</label>
                         </p>
-                        <h3>(5) Calculate 3.71 &plus; 5.2</h3>
+                        <h3>(5) Calculate 3,71 &plus; 5,2</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
-                            <label for="q5_a">8.73</label>
+                            <label for="q5_a">8,73</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
-                            <label for="q5_b">8.91</label>
+                            <label for="q5_b">8,91</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="000">
-                            <label for="q5_c">42.3.618</label>
+                            <label for="q5_c">42,3</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
                             <label for="q5_d">423</label>
                         </p>
-                        <h3>(6) Calculate 7.6 &minus; 0.192</h3>
+                        <h3>(6) Calculate 7,6 &minus; 0,192</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
-                            <label for="q6_a">6.814</label>
+                            <label for="q6_a">6,814</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">
-                            <label for="q6_b">7.132</label>
+                            <label for="q6_b">7,132</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
-                            <label for="q6_c">7.408</label>
+                            <label for="q6_c">7,408</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0000">
-                            <label for="q6_d">7.792</label>
+                            <label for="q6_d">7,792</label>
                         </p>
-                        <h3>(7) Calculate 20.009 &minus; 12.7</h3>
+                        <h3>(7) Calculate 20,009 &minus; 12,7</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="1">
-                            <label for="q7_a">7.309</label>
+                            <label for="q7_a">7,309</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
-                            <label for="q7_b">8.693</label>
+                            <label for="q7_b">8,693</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
-                            <label for="q7_c">8.2</label>
+                            <label for="q7_c">8,2</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
-                            <label for="q7_d">32.709</label>
+                            <label for="q7_d">32,709</label>
                         </p>
-                        <h3>(8) Calculate 5.61 &times; 100</h3>
+                        <h3>(8) Calculate 5,61 &times; 100</h3>
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
-                            <label for="q8_a">0.561</label>
+                            <label for="q8_a">0,561</label>
                         </p>
                         <p>
                             <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00">
-                            <label for="q8_b">5.061</label>
+                            <label for="q8_b">5,061</label>
                         </p>
                         <p>
                             <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
-                            <label for="q8_c">56.1</label>
+                            <label for="q8_c">56,1</label>
                         </p>
                         <p>
                             <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
                             <label for="q8_d">561</label>
                         </p>
-                        <h3>(9) Calculate 89.1 &divide; 10</h3>
+                        <h3>(9) Calculate 89,1 &divide; 10</h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
-                            <label for="q9_a">0.891</label>
+                            <label for="q9_a">0,891</label>
                         </p>
                         <p>
                             <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="1">
-                            <label for="q9_b">8.91</label>
+                            <label for="q9_b">8,91</label>
                         </p>
                         <p>
                             <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
-                            <label for="q9_c">89.1</label>
+                            <label for="q9_c">89,1</label>
                         </p>
                         <p>
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_d">891</label>
                         </p>
-                        <h3>(10) Calculate 0.2 &times; 0.9</h3>
+                        <h3>(10) Calculate 0,2 &times; 0,9</h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
-                            <label for="q10_a">0.11</label>
+                            <label for="q10_a">0,11</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
-                            <label for="q10_b">0.18</label>
+                            <label for="q10_b">0,18</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
-                            <label for="q10_c">1.8</label>
+                            <label for="q10_c">1,8</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
                             <label for="q10_d">18</label>
                         </p>
-                        <h3>(11) Calculate 0.24 &times; 5</h3>
+                        <h3>(11) Calculate 0,24 &times; 5</h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
-                            <label for="q11_a">0.120</label>
+                            <label for="q11_a">0,120</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="1">
-                            <label for="q11_b">1.2</label>
+                            <label for="q11_b">1,2</label>
                         </p>
                         <p>
                             <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="000">
@@ -242,73 +244,73 @@
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
                             <label for="q11_d">120</label>
                         </p>
-                        <h3>(12) Calculate 0.09 &times; 8</h3>
+                        <h3>(12) Calculate 0,09 &times; 8</h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
-                            <label for="q12_a">0.072</label>
+                            <label for="q12_a">0,072</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
-                            <label for="q12_b">0.17</label>
+                            <label for="q12_b">0,17</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="1">
-                            <label for="q12_c">0.72</label>
+                            <label for="q12_c">0,72</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_d">72</label>
                         </p>
-                        <h3>(13) Calculate 3.7 &times; 0.29</h3>
+                        <h3>(13) Calculate 3,7 &times; 0,29</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
-                            <label for="q13_a">0.1073</label>
+                            <label for="q13_a">0,1073</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
-                            <label for="q13_b">1.0173</label>
+                            <label for="q13_b">1,0173</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
-                            <label for="q13_c">1.073</label>
+                            <label for="q13_c">1,073</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
-                            <label for="q13_d">10.73</label>
+                            <label for="q13_d">10,73</label>
                         </p>
-                        <h3>(14) Calculate 4.56 &divide; 4</h3>
+                        <h3>(14) Calculate 4,56 &divide; 4</h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
-                            <label for="q14_a">1.14</label>
+                            <label for="q14_a">1,14</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="00">
-                            <label for="q14_b">4.16</label>
+                            <label for="q14_b">4,16</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
-                            <label for="q14_c">4.52</label>
+                            <label for="q14_c">4,52</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
-                            <label for="q14_d">4.6</label>
+                            <label for="q14_d">4,6</label>
                         </p>
-                        <h3>(15) Calculate 3.64 &divide; 7</h3>
+                        <h3>(15) Calculate 3,64 &divide; 7</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
-                            <label for="q15_a">0.052</label>
+                            <label for="q15_a">0,052</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="1">
-                            <label for="q15_b">0.52</label>
+                            <label for="q15_b">0,52</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
-                            <label for="q15_c">2.94</label>
+                            <label for="q15_c">2,94</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
-                            <label for="q15_d">3.57</label>
+                            <label for="q15_d">3,57</label>
                         </p>
                         <div class="HeaderbannerLabel">COACH SECTION</div>
                         <!-- TODO: Add text input fields for user_id, coach_email -->

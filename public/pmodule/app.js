@@ -1,6 +1,6 @@
 /*Angular module to display password modal and make sure correct password is entered*/
-angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters'])
-    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document) {
+angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
+    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
 
         /*Alias for controller*/
         var $ctrl = this;
@@ -19,9 +19,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             $scope.usernames = [];
 
             $scope.existingResponses = [];
-
-            /*properities used to check whether grade 7 test has already been written by the same learner on the same day*/
-            $scope.grade7_props = ["user_id", "test", "course", "module", "test_date"];
 
             /*learner grades*/
             /*grade 0 = unknown grade*/
@@ -53,7 +50,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             })
 
             /*variables for validating coach_id*/
-            $scope.testSubmitPassword = "Ctrib3";
+            $scope.testSubmitPassword = "fc49a594c8d54de357ad7b5f2addab9f";
             $scope.wrongPassword = false;
             $scope.wrongCoachID = false;
 
@@ -71,7 +68,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: '/pmodule/templates/pmodal_content.html',
+                templateUrl: 'pmodule/templates/pmodal_content.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$password_modal_ctrl',
                 backdrop: 'static',
@@ -92,7 +89,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: '/pmodule/templates/confirm_overwrite_test.html',
+                templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
                 controller: 'MainCtrl',
                 scope: $scope,
                 backdrop: 'static',
@@ -104,7 +101,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         $scope.validate_coach_id_and_password = function(coach_id, password) {
-            if (coach_id.length <= 5 && password == $scope.testSubmitPassword) {
+            if (coach_id.length <= 5 && md5.createHash(password) == $scope.testSubmitPassword) {
                 $scope.wrongPassword = false;
                 $scope.wrongCoachID = false;
 
@@ -113,7 +110,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             } else if (coach_id.length > 5) {
                 $scope.wrongCoachID = true;
                 console.log('Invalid coach ID');
-            } else if (password != $scope.testSubmitPassword) {
+            } else if (md5.createHash(password) != $scope.testSubmitPassword) {
                 $scope.wrongPassword = true;
                 console.log('Wrong password');
             } else {
@@ -128,7 +125,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         /*the default properites used are - user_id  course module test_date*/
         /*this can be overidden with an any array of properties that the testResponse object contains*/
         function concat_props(response, response_props) {
-            response_props = (typeof response_props !== 'undefined') ? response_props : ["user_id", "course", "module", "test_date"];
+            response_props = (typeof response_props !== 'undefined') ? response_props : ["user_id", "test", "course", "module", "test_date"];
             var response_concat = ""
             for (var i in response_props) {
                 response_concat = response_concat.concat(response[response_props[i]])
@@ -141,23 +138,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         function get_responses_concat_list(responses) {
             /*initialize empty array to hold list of concatenated props for each already existing response*/
             responses_list = []
-            /*future work. use array instead of direct string comparison in case other courses need this functionality*/
-            if ($scope.testResponse.course.indexOf("grade7") !== -1) {
-                /*console.log("Grade 7 test. Not overwriting")*/
-                /*Grade 7 test should be overwritten only if the same test is written on the same day*/
-                for (var i in responses) {
-                    /*Get the responses concat list with only the props needed for grade 7 tests*/
-                    var response_cat = concat_props(responses[i], $scope.grade7_props)
-                    /*push string of concatenated props into the array defined at the beginning of the function*/
-                    responses_list.push(response_cat)
-                }
-            } else {
-                /*For any other test, get the response props with the default value*/
-                /*(no need to pass in second argument to concat_props)*/
-                for (var i in responses) {
-                    var response_cat = concat_props(responses[i])
-                    responses_list.push(response_cat)
-                }
+            /*TODO: Use array instead of direct string comparison in case other courses need this functionality*/
+            /*For each response, get the response props*/
+            for (var i in responses) {
+                /*Get the responses concat list with only the props needed for the tests*/
+                var response_cat = concat_props(responses[i])
+                /*push string of concatenated props into the array defined at the beginning of the function*/
+                responses_list.push(response_cat)
             }
             /*return the list of concatenated props for all existing tests*/
             return responses_list
@@ -166,12 +153,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         function check_response_already_exists(testResponse) {
             /*Same logic as get_responses_concat_list, but applied to the current test being submitted*/
             /*The concatenated props of the current test are compared to the list of concatenated props for all existing tests*/
-            if ($scope.testResponse.course.indexOf("grade7") !== -1) {
-                var testResponse_concat = concat_props(testResponse, $scope.grade7_props)
-            } else {
-                var testResponse_concat = concat_props(testResponse)
-            }
 
+            var testResponse_concat = concat_props(testResponse)
 
             /*check if the response submitted exists in list of existing responses*/
             if ($scope.existingResponses.indexOf(testResponse_concat) >= 0) {
@@ -196,6 +179,15 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             /*check if the response already exists*/
             check_response_already_exists($scope.testResponse)
         }
+
+        /*function to return the first name and last name of a user when they have entered their username on the test*/
+        $scope.display_username = function() {
+            if ($scope.testResponse.username) {
+                var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                return currentUser.first_name + ' ' + currentUser.last_name
+            }
+        }
+
 
         /*Test submission function*/
         $scope.submit = function() {
@@ -222,8 +214,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
-        $scope.coachPassword = "Ctrib3";
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5) {
+        $scope.coachPassword = "fc49a594c8d54de357ad7b5f2addab9f";
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
@@ -234,7 +226,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         $PasswordModalCtrl.checkPassword = function(password) {
-            if (password == $scope.coachPassword) {
+            if (md5.createHash(password) == $scope.coachPassword) {
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
             } else {

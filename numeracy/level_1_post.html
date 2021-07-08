@@ -18,6 +18,7 @@
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
@@ -25,6 +26,7 @@
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
@@ -33,7 +35,7 @@
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -45,11 +47,11 @@
                     </div>
                     <form name="testForm">
                         <p class="test_name">Level 1 Post-Test</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                        <div class="ins">Time allowed: 1 Hour 30 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
-                        <div class="HeaderbannerLabel">ASSESSMENT</div>
+                        <div class="ins">Test is for 50 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 1 Hour 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
+                        <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) Select the number that the arrow points to.</h3>
                         <div><img src="/images/level_1_pre/level_1_pre_q1.jpg" class="img-responsive" /></div>
                         <p>
@@ -776,7 +778,7 @@
                             <input type="radio" id="q41_d" name="q41" ng-model="testResponse.q41" value="0000">
                             <label for="q41_d">None of these</label>
                         </p>
-                        <h3>(42) Calculate <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span></h3>
+                        <h3>(42) Calculate <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span> &plus; <span class="frac"><sup>1</sup><span>/</span><sub>7</sub></span></h3>
                         <p>
                             <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="0">
                             <label for="q42_a">4</label>
@@ -894,49 +896,58 @@
                             <input type="radio" id="q48_d" name="q48" ng-model="testResponse.q48" value="0000">
                             <label for="q48_d">Hexagon</label>
                         </p>
-                        <h3>(49) John recorded the colours of cars that drove past his house on a Saturday morning. He represented the information in a bar graph. How many grey cars drove past his house? </h3>
-                        <div><img src="/images/level_1_pre/level_1_pre_q49.jpg" class="img-responsive" /></div>
-                        <p>
-                            <input type="radio" id="q49_a" name="q49" ng-model="testResponse.q49" value="0">
-                            <label for="q49_a">5</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q49_b" name="q49" ng-model="testResponse.q49" value="1">
-                            <label for="q49_b">8</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q49_c" name="q49" ng-model="testResponse.q49" value="000">
-                            <label for="q49_c">3</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q49_d" name="q49" ng-model="testResponse.q49" value="0000">
-                            <label for="q49_d">12</label>
-                        </p>
-                        <h3>(50) John recorded the colours of cars that drove past his house on a Saturday morning. He represented the information in a bar graph. Which colour car drove past the most frequently?</h3>
-                        <div><img src="/images/level_1_pre/level_1_pre_q50.jpg" class="img-responsive" /></div>
-                        <p>
-                            <input type="radio" id="q50_a" name="q50" ng-model="testResponse.q50" value="0">
-                            <label for="q50_a">Red</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q50_b" name="q50" ng-model="testResponse.q50" value="00">
-                            <label for="q50_b">Grey</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q50_c" name="q50" ng-model="testResponse.q50" value="000">
-                            <label for="q50_c">Blue</label>
-                        </p>
-                        <p>
-                            <input type="radio" id="q50_d" name="q50" ng-model="testResponse.q50" value="1">
-                            <label for="q50_d">White</label>
-                        </p>
-                        <div class="HeaderbannerLabel">COACH SECTION</div>
-                        <!-- TODO: Add text input fields for user_id, coach_email -->
-                        <!-- Hidden fields for test,course and module -->
-                        <input type="hidden" name="test" ng-init="testResponse.test='level_1_post'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='level_1'">
-                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                        <<<<<<< HEAD <h3>(49) John recorded the colours of cars that drove past his house on a Saturday morning. He represented the information in a bar graph. How many grey cars drove past his house? </h3>
+                            =======
+                            <h3>(49) John recorded the colours of cars that drove past his house on a Saturday morning. He represented the information in a bar graph.</h3>
+                            <h3><strong>How many grey cars drove past his house?</strong></h3>
+                            >>>>>>> zambia
+                            <div><img src="/images/level_1_pre/level_1_pre_q49.jpg" class="img-responsive" /></div>
+                            <p>
+                                <input type="radio" id="q49_a" name="q49" ng-model="testResponse.q49" value="0">
+                                <label for="q49_a">5</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q49_b" name="q49" ng-model="testResponse.q49" value="1">
+                                <label for="q49_b">8</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q49_c" name="q49" ng-model="testResponse.q49" value="000">
+                                <label for="q49_c">3</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="q49_d" name="q49" ng-model="testResponse.q49" value="0000">
+                                <label for="q49_d">12</label>
+                            </p>
+                            <<<<<<< HEAD <h3>(50) John recorded the colours of cars that drove past his house on a Saturday morning. He represented the information in a bar graph. Which colour car drove past the most frequently?</h3>
+                                =======
+                                <br>
+                                <h3>(50) John recorded the colours of cars that drove past his house on a Saturday morning. He represented the information in a bar graph</h3>
+                                <h3><strong>Which colour car drove past the most?</strong></h3>
+                                >>>>>>> zambia
+                                <div><img src="/images/level_1_pre/level_1_pre_q50.jpg" class="img-responsive" /></div>
+                                <p>
+                                    <input type="radio" id="q50_a" name="q50" ng-model="testResponse.q50" value="0">
+                                    <label for="q50_a">Red</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q50_b" name="q50" ng-model="testResponse.q50" value="00">
+                                    <label for="q50_b">Grey</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q50_c" name="q50" ng-model="testResponse.q50" value="000">
+                                    <label for="q50_c">Blue</label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="q50_d" name="q50" ng-model="testResponse.q50" value="1">
+                                    <label for="q50_d">White</label>
+                                </p>
+                                <div class="HeaderbannerLabel">COACH SECTION</div>
+                                <!-- TODO: Add text input fields for user_id, coach_email -->
+                                <!-- Hidden fields for test,course and module -->
+                                <input type="hidden" name="test" ng-init="testResponse.test='level_1_post'">
+                                <input type="hidden" name="course" ng-init="testResponse.course='level_1'">
+                                <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                                <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
             </div>

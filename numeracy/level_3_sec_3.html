@@ -18,6 +18,7 @@
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
@@ -25,6 +26,7 @@
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
@@ -33,7 +35,7 @@
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -45,11 +47,11 @@
                     </div>
                     <form name="testForm">
                         <p class="test_name">Level 3 Section 3 Test</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
-                        <div class="ins">Time allowed: 1 Hour 30 Minutes <br>Calculators are NOT allowed<br>Ask your coach if you are not sure how to answer the questions</div>
-                        <div class="HeaderbannerLabel">ASSESSMENT</div>
+                        <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
+                        <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) Select the decimal fraction equivalent to <span class="frac"><sup>9</sup><span>/</span><sub>10</sub></span></h3>
                         <p>
                             <!-- TODO: Add value attribute to each radio button -->
@@ -58,38 +60,38 @@
                             <!-- Example below -->
                             <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
                             <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
-                            <label for="q1_a">0.1</label>
+                            <label for="q1_a">0,1</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
-                            <label for="q1_b">0.9</label>
+                            <label for="q1_b">0,9</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
-                            <label for="q1_c">1.9</label>
+                            <label for="q1_c">1,9</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
-                            <label for="q1_d">10.9</label>
+                            <label for="q1_d">10,9</label>
                         </p>
                         <h3>(2) Select the decimal fraction equivalent to <span class="frac"><sup>3</sup><span>/</span><sub>5</sub></span></h3>
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
-                            <label for="q2_a">0.3</label>
+                            <label for="q2_a">0,3</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
-                            <label for="q2_b">0.5</label>
+                            <label for="q2_b">0,5</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="1">
-                            <label for="q2_c">0.6</label>
+                            <label for="q2_c">0,6</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
-                            <label for="q2_d">3.5</label>
+                            <label for="q2_d">3,5</label>
                         </p>
-                        <h3>(3) Select the common fraction equivalent to 0.3.</h3>
+                        <h3>(3) Select the common fraction equivalent to 0,3.</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_a"><span class="frac"><sup>0</sup><span>/</span><sub>3</sub></span></label>
@@ -106,7 +108,7 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
                             <label for="q3_d"><span class="frac"><sup>10</sup><span>/</span><sub>3</sub></span></label>
                         </p>
-                        <h3>(4) Select the common fraction equivalent to 6.2.</h3>
+                        <h3>(4) Select the common fraction equivalent to 6,2.</h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_a"><span class="frac"><sup>2</sup><span>/</span><sub>6</sub></span></label>
@@ -124,7 +126,7 @@
                             <label for="q4_d">6<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
                         </p>
                         <h3>(5) Select the symbol that makes the statement true.</h3>
-                        <h3>0.3[___] 0.6</h3>
+                        <h3>0,3[___] 0,6</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_a">&lt;</label>
@@ -142,7 +144,7 @@
                             <label for="q5_d">None of these</label>
                         </p>
                         <h3>(6) Select the symbol that makes the statement true.</h3>
-                        <h3>7 <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> [___] 7.5</h3>
+                        <h3>7 <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> [___] 7,5</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
                             <label for="q6_a">&lt;</label>
@@ -160,7 +162,7 @@
                             <label for="q6_d">None of these</label>
                         </p>
                         <h3>(7) Select the symbol that makes the statement true.</h3>
-                        <h3>5 <span class="frac"><sup>21</sup><span>/</span><sub>30</sub></span> [___] 5.8</h3>
+                        <h3>5 <span class="frac"><sup>21</sup><span>/</span><sub>30</sub></span> [___] 5,8</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_a">&lt;</label>
@@ -195,151 +197,151 @@
                             <label for="q8_d">4:7</label>
                         </p>
                         <h3>(9) White and black paint is mixed in a ratio of 1:4 to make grey paint.</h3>
-                        <h3>If 20 litres of grey paint was made, how much whitepaint was used?
-                            <p>
-                                <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
-                                <label for="q9_a">1 litre</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
-                                <label for="q9_b">4 litres</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
-                                <label for="q9_c">5 litres</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
-                                <label for="q9_d">16 litres</label>
-                            </p>
-                            <h3>(10) Green paint is made by mixing yellow paint and blue paint. The quantities used are recorded in the table.</h3>
-                            <h3>
-                                <div><img src="/images/level_3_sec_3/level_3_sec_3_q10.jpg" class="img-responsive" /></div>
-                            </h3>
-                            <h3>What is the ratio of yellow paint to blue paint?</h3>
-                            <p>
-                                <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
-                                <label for="q10_a">1:2</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
-                                <label for="q10_b">2:5</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
-                                <label for="q10_c">2:7</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
-                                <label for="q10_d">5:7</label>
-                            </p>
-                            <h3>(11) Select the correct name of the 3-D object.</h3>
-                            <h3>
-                                <div><img src="/images/level_3_sec_3/level_3_sec_3_q11.jpg" class="img-responsive" /></div>
-                            </h3>
-                            <p>
-                                <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
-                                <label for="q11_a">Cone</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="1">
-                                <label for="q11_b">Cube</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="000">
-                                <label for="q11_c">Cylinder</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
-                                <label for="q11_d">Triangular prism</label>
-                            </p>
-                            <h3>(12) Select the correct name of the 3-D object.</h3>
-                            <h3>
-                                <div><img src="/images/level_3_sec_3/level_3_sec_3_q12.jpg" class="img-responsive" /></div>
-                            </h3>
-                            <p>
-                                <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
-                                <label for="q12_a">Cone</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
-                                <label for="q12_b">Cube</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
-                                <label for="q12_c">Cylinder</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
-                                <label for="q12_d">Rectangular prism</label>
-                            </p>
-                            <h3>(13) Which line is a ray of ∠𝐴𝐵𝐶?</h3>
-                            <h3>
-                                <div><img src="/images/level_3_sec_3/level_3_sec_3_q13.jpg" class="img-responsive" /></div>
-                            </h3>
-                            <p>
-                                <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
-                                <label for="q13_a">AC</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
-                                <label for="q13_b">B</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
-                                <label for="q13_c">BC</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
-                                <label for="q13_d">None of these</label>
-                            </p>
-                            <h3>(14) Which point is the vertex of ∠𝑌𝑊𝑆?</h3>
-                            <h3>
-                                <div><img src="/images/level_3_sec_3/level_3_sec_3_q14.jpg" class="img-responsive" /></div>
-                            </h3>
-                            <p>
-                                <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
-                                <label for="q14_a">Y</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
-                                <label for="q14_b">W</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
-                                <label for="q14_c">Z</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
-                                <label for="q14_d">S</label>
-                            </p>
-                            <h3>(15) Select the angle with the smallest measure.</h3>
-                            <h3>
-                                <div><img src="/images/level_3_sec_3/level_3_sec_3_q15.jpg" class="img-responsive" /></div>
-                            </h3>
-                            <p>
-                                <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="1">
-                                <label for="q15_a">A</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
-                                <label for="q15_b">B</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
-                                <label for="q15_c">C</label>
-                            </p>
-                            <p>
-                                <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
-                                <label for="q15_d">D</label>
-                            </p>
-                            <div class="HeaderbannerLabel">COACH SECTION</div>
-                            <!-- TODO: Add text input fields for user_id, coach_email -->
-                            <!-- Hidden fields for test,course and module -->
-                            <input type="hidden" name="test" ng-init="testResponse.test='level_3_sec_3'">
-                            <input type="hidden" name="course" ng-init="testResponse.course='level_3'">
-                            <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                            <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                        <h3>If 20 litres of grey paint was made, how much whitepaint was used?</h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
+                            <label for="q9_a">1 litre</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
+                            <label for="q9_b">4 litres</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_c">5 litres</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">16 litres</label>
+                        </p>
+                        <h3>(10) Green paint is made by mixing yellow paint and blue paint. The quantities used are recorded in the table.</h3>
+                        <h3>
+                            <div><img src="/images/level_3_sec_3/level_3_sec_3_q10.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <h3>What is the ratio of yellow paint to blue paint?</h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
+                            <label for="q10_a">1:2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_b">2:5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_c">2:7</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">5:7</label>
+                        </p>
+                        <h3>(11) Select the correct name of the 3-D object.</h3>
+                        <h3>
+                            <div><img src="/images/level_3_sec_3/level_3_sec_3_q11.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a">Cone</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_b">Cube</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="000">
+                            <label for="q11_c">Cylinder</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_d">Triangular prism</label>
+                        </p>
+                        <h3>(12) Select the correct name of the 3-D object.</h3>
+                        <h3>
+                            <div><img src="/images/level_3_sec_3/level_3_sec_3_q12.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_a">Cone</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="q12_b">Cube</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_c">Cylinder</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_d">Rectangular prism</label>
+                        </p>
+                        <h3>(13) Which line is a ray of ∠𝐴𝐵𝐶?</h3>
+                        <h3>
+                            <div><img src="/images/level_3_sec_3/level_3_sec_3_q13.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a">AC</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="q13_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_c">BC</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
+                            <label for="q13_d">None of these</label>
+                        </p>
+                        <h3>(14) Which point is the vertex of ∠𝑌𝑊𝑆?</h3>
+                        <h3>
+                            <div><img src="/images/level_3_sec_3/level_3_sec_3_q14.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
+                            <label for="q14_a">Y</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_b">W</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_c">Z</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="q14_d">S</label>
+                        </p>
+                        <h3>(15) Select the angle with the smallest measure.</h3>
+                        <h3>
+                            <div><img src="/images/level_3_sec_3/level_3_sec_3_q15.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_a">A</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="q15_b">B</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="q15_c">C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
+                            <label for="q15_d">D</label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='level_3_sec_3'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='level_3'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
                     </form>
                 </div>
             </div>
