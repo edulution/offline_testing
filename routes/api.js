@@ -71,6 +71,27 @@ router.get('/get_users', (req, res, next) => {
 });
 
 
+/*endpoint to get index_of_topics as json*/
+router.get('/index_of_topics', (req, res, next) => {
+    let topics_query = {
+        /*Query to fetch all topics*/
+        name: 'fetch-topics',
+        text: 'SELECT * FROM index_of_topics'
+    }
+
+    /*Callback returns status code and result of query*/
+    pool.query(topics_query, (err, result) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.status(200).send(result.rows)
+        }
+    })
+
+
+});
+
+
 /*endpoint to test count stats list as json*/
 router.get('/get_test_count', (req, res, next) => {
     let test_counts_query = {
