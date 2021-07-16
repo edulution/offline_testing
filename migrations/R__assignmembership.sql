@@ -83,7 +83,7 @@ BEGIN
 		       sort_order INTO currCourse,
 		                       currCourseFamily,
 		                       currSortOrder
-		FROM get_highest_passed_test(learnerRow.user_id, i_module);
+		FROM get_highest_passed_test(learnerRow.user_id, i_module, 'TST');
 
 		sPos := '40';
 
