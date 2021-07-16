@@ -55,7 +55,8 @@ FROM scores;
 
 CREATE OR REPLACE FUNCTION get_highest_passed_test(
   i_userid uuid,
-  i_module character varying)
+  i_module character varying,
+  i_test_type)
   RETURNS SETOF vresponsescore
     LANGUAGE 'plpgsql'
     COST 100
@@ -74,7 +75,7 @@ RETURN QUERY
        FROM vresponsescore resp
        WHERE resp.user_id = vr.user_id
          AND resp.module = vr.module
-         AND test_type = 'TST'
+         AND test_type = i_test_type
          AND passed IS TRUE)
   ORDER BY test_date LIMIT 1;
 END;
