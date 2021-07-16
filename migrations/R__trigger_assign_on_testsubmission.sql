@@ -74,7 +74,7 @@ BEGIN
 		       sort_order INTO currCourse,
 		                       currCourseFamily,
 		                       currSortOrder
-		FROM get_highest_passed_test(NEW.user_id, NEW.module);
+		FROM get_highest_passed_test(NEW.user_id, NEW.module,'TST');
 
 		sPos := '40';
 
