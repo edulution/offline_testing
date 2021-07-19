@@ -31,42 +31,43 @@
     </nav>
     <!-- Navigation Bar -->
     <!-- Index of topics button -->
-    <div class="container" st-table="topicCollection">
+    <div class="container" st-table="topicCollection" st-safe-src="topics">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <!-- Index Topics Table   -->
                 <div class="card">
                     <div class="card-body">
-                        <div id="my_unapproved_table table-responsive">
-                            <table class="table table-bordered table-hover table-condensed" st-table="topicCollection" st-safe-src="topics" class="table">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-condensed" class="table">
                                 <thead>
-                                    <!-- Search Area -->
                                     <tr>
-                                            <div class="col-lg-4 col-md-5 col-sm-5 ">
-                                                <div class="row">
-                                                    <br>
-                                                    <input st-search="topic_name" type="search" placeholder="Search for a Playlist or Topic Title...." class="form-control" />
+                                        <div class="col-lg-4 col-md-5 col-sm-5 ">
+                                            <div class="row">
+                                                <br>
+                                                <!-- Search Area -->
+                                                <input st-search type="search" placeholder="Search for a Playlist or Topic Title...." class="form-control" />
+                                            </div>
+                                        </div>
+                                        <!-- Back Button -->
+                                        <div>
+                                            <div class="back_section">
+                                                <div class="button_spacing">
+                                                    <a href="/" class="index-of-topics-btn">
+                                                        <button class="btn btn-button index_btn">
+                                                            <h4> <i class="fa fa-chevron-left"></i> Back</h4>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                             </div>
-                                            
-                                            <!-- Back Button -->
-                                            <div>
-                                                <div class="back_section">
-                                                    <div class="button_spacing">
-                                                        <a href="/" class="index-of-topics-btn">
-                                                            <button class="btn btn-button index_btn">
-                                                                <h4> <i class="fa fa-chevron-left"></i> Back</h4>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
                                         <!-- End of Back Button -->
-                                        <br>                                    <tr class=" navBackground-color">
-                                        <th scope="col">
+                                        <br>
+                                    </tr>
+                                    <tr class=" navBackground-color">
+                                        <th scope="col" st-sort="topic_name" st-ratio=50>
                                             <h4 class="topic_title">Topic</h4>
                                         </th>
-                                        <th scope="col">
+                                        <th scope="col" st-sort="channel_name" st-ratio=50>
                                             <h4 class="topic_title">Location</h4>
                                         </th>
                                     </tr>
@@ -85,6 +86,7 @@
                         <div st-pagination="" st-items-by-page="itemsByPage"></div>
                     </td>
                 </tfoot>
+                </table>
                 <!-- End Index Topics Table   -->
             </div>
         </div>
