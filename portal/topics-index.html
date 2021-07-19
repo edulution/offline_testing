@@ -16,8 +16,20 @@
 </head>
 
 <body ng-controller="mainCtrl" class="mainBackground">
-    <!-- Navbar -->
-    <div ng-include="'include/navbar.html'"></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar_background navbar-static-top">
+        <div class="container">
+            <div class="navbar-header logos">
+                <a class="navbar-brand logo" href="/">
+                    <img class="img-responsive" src="/images/edulution_logo_white.svg">
+                </a>
+            </div>
+            <p class="title_header">Index of Topics</p>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <!-- Navigation Bar -->
     <!-- Index of topics button -->
     <div class="container" st-table="topicCollection">
         <div class="row">
@@ -30,27 +42,27 @@
                                 <thead>
                                     <!-- Search Area -->
                                     <tr>
-                                        <th colspan="2">
-                                            <div class="col-lg-5 col-md-5 col-sm-5 ">
+                                            <div class="col-lg-4 col-md-5 col-sm-5 ">
                                                 <div class="row">
-                                                    <h2 class="header_topics">Index of Topics</h2>
+                                                    <br>
                                                     <input st-search="topic_name" type="search" placeholder="Search for a Playlist or Topic Title...." class="form-control" />
                                                 </div>
                                             </div>
-                                            <!-- End of Search Area -->
-                                            <br><br>
+                                            
                                             <!-- Back Button -->
-                                            <div class="back_section">
-                                                <div class="button_spacing">
-                                                    <a href="/" class="index-of-topics-btn">
-                                                        <button class="btn btn-button index_btn">
-                                                            <h4> <i class="fa fa-chevron-left"></i> Back</h4>
-                                                        </button>
-                                                    </a>
+                                            <div>
+                                                <div class="back_section">
+                                                    <div class="button_spacing">
+                                                        <a href="/" class="index-of-topics-btn">
+                                                            <button class="btn btn-button index_btn">
+                                                                <h4> <i class="fa fa-chevron-left"></i> Back</h4>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                        </th>
+                                            </div>
                                         <!-- End of Back Button -->
-                                    <tr class=" navBackground-color">
+                                        <br>                                    <tr class=" navBackground-color">
                                         <th scope="col">
                                             <h4 class="topic_title">Topic</h4>
                                         </th>
