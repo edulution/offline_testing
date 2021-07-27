@@ -5,6 +5,7 @@ CREATE OR REPLACE VIEW vresponsescore AS
   WITH scores AS
   /*CTE to calculate score for each test and join all the details from config tables*/
   (SELECT responses.user_id,
+          responses.response_id,
           responses.module,
           responses.course,
           c.course_family,
@@ -25,6 +26,7 @@ CREATE OR REPLACE VIEW vresponsescore AS
    AND responses.module::text = c.module::text)
 /*Select the releant fields from the CTE above*/
 SELECT user_id,
+       response_id,
        module,
        course,
        course_family,
