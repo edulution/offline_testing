@@ -156,6 +156,8 @@ router.post('/submit_test', [(req, res, next) => {
     let reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
     response = req.body
+
+    console.log(response)
     /*check if response was checkboxes
     will appear as array in response*/
 
@@ -188,10 +190,14 @@ router.post('/submit_test', [(req, res, next) => {
     /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
     let uresponses = response_props.map((v) => { return response[v]; })
 
+    console.log(uresponses)
+
     /*remove the test date from the reponse props*/
     /*let utest_date = uresponses.pop();*/
 
     let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    console.log(uresponses)
 
     /*Insert statement to run on database. test date added as current date from server*/
 
