@@ -1,6 +1,6 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
+    .controller('MainCtrl', function($scope, $timeout, $http, $uibModal, $location, $log, $document, md5) {
 
         /*Alias for controller*/
         var $ctrl = this;
@@ -9,9 +9,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*Initalize function when page is loaded*/
         $scope.init = function() {
-            /*Empty object for testResponse*/
-            $scope.testForm = {};
+            /*Empty object for form*/
+            /*Gives more flexibility and control over the form from the controller*/
+            $scope.form = {};
 
+            /*Empty object for testResponse*/
             $scope.testResponse = {};
 
             /*Empty users array*/
@@ -211,16 +213,29 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         }
 
 
-        /*Watch the username input until it is valid*/
-        $scope.$watch('testForm.username.$error.whitelist', function() {
+        /*Wait 1000 miliseconds before checking for changes to the username input*/
+        /*This is to allow the DOM to load and scope to be defined*/
+        $timeout(function() {
+            /*Watch the username input until it is valid*/
+            $scope.$watch('form.testForm.username.$error.whitelist', function() {
 
-            if (!$scope.testForm.username.$error.whitelist) {
-                console.log('username:', $scope.testForm.username)
-            } else {
-                console.log("Username is not valid")
-            }
+                if (!$scope.form.testForm.username.$error.whitelist) {
+                    /*console.log('username:', $scope.form.testForm.username)*/
+                    /*$scope.form.testForm.username.$setPristine()*/
+                    var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                    /*var currentTest = { $scope.testResponse.test, $scope.testResponse.course, $scope.testResponse.course }*/
+                    /*Get the test, course and module of the testResponse object as an object*/
+                    let currentTest = (({ test, course, module }) => ({ test, course, module }))($scope.testResponse)
+                    console.log("user_id:", currentUser)
+                    console.log("test:", currentTest)
+                } else {
+                    console.log("Username is not valid")
+                }
 
-        }, true);
+            }, true);
+
+        }, 1000)
+
 
 
 
