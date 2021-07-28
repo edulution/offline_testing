@@ -10,6 +10,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         /*Initalize function when page is loaded*/
         $scope.init = function() {
             /*Empty object for testResponse*/
+            $scope.testForm = {};
+
             $scope.testResponse = {};
 
             /*Empty users array*/
@@ -56,7 +58,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
 
             /*Open password modal when page loads*/
-            $ctrl.openPasswordModal();
+            /*$ctrl.openPasswordModal();*/
         }
 
         /*Function to open password modal*/
@@ -89,7 +91,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
+                templateUrl: '/pmodule/templates/confirm_overwrite_test.html',
                 controller: 'MainCtrl',
                 scope: $scope,
                 backdrop: 'static',
@@ -207,6 +209,21 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 }
             });
         }
+
+
+        /*Watch the username input until it is valid*/
+        $scope.$watch('testForm.username.$error.whitelist', function() {
+
+            if (!$scope.testForm.username.$error.whitelist) {
+                console.log('username:', $scope.testForm.username)
+            } else {
+                console.log("Username is not valid")
+            }
+
+        }, true);
+
+
+
 
 
         /*end MainCtrl*/
