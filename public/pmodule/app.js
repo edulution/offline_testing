@@ -216,6 +216,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         /*Wait 1000 miliseconds before checking for changes to the username input*/
         /*This is to allow the DOM to load and scope to be defined*/
         $timeout(function() {
+            console.log("form", $scope.form.testForm);
+
             /*Watch the username input until it is valid*/
             $scope.$watch('form.testForm.username.$error.whitelist', function() {
 
@@ -229,21 +231,39 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                     console.log("user_id:", currentUser)
                     console.log("test:", currentTest)
 
+                    console.log("testcheck result valid: ", $scope.form.testForm.testcheck_result.$valid)
 
-                    /*TODO: Add spinner*/
-                    /*vm.starting = true;*/
+
+                    /*Add spinner*/
+                    $scope.testcheck_loading = true;
                     /*Send request to api to check if the user is elligible to write the test that they are on
                      */
                     $http.get('/api/user_testcheck', {
+                        /*send the user_id, test , course and module as request params*/
                         params: { user_id: currentUser.user_id, test: currentTest.test, course: currentTest.course, module: currentTest.module }
                     }).then(function onSuccess(response) {
-                        $scope.testcheck = response.data;
+                        /*store the response in $scope.testcheck variable*/
+                        $scope.testcheck = response.data[0];
                         console.log(response.data[0])
+                        console.log("can write test: ", $scope.testcheck.can_write_test)
+                        if ($scope.testcheck.can_write_test) {
+                            /*If the user CAN write the test
+                            Make testcheck_result valid*/
+                            $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", true)
+                        } else {
+
+                            /*If the user CANNOT write the test
+                            Make testcheck_result invalid*/
+                            /*$scope.form.testForm.testcheck_result.$valid = false;*/
+                            $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", false)
+                        }
+
+                        console.log("testcheck result valid: ", $scope.form.testForm.testcheck_result.$valid)
+
                     }).catch(function onReject(errorResponse) {
                         console.log(errorResponse.status);
                     }).finally(function() {
-                        /*TODO: remove spinner*/
-                        /*vm.starting = false;*/
+                        $scope.testcheck_loading = false;
                     });
                 } else {
                     console.log("Username is not valid")
