@@ -314,11 +314,11 @@ router.get('/user_testcheck', (req, res, next) => {
     /*parse the query params into an object*/
     const queryObject = url.parse(req.url, true).query;
 
-    /*split the object params into variables for easier readability*/
-    /*these vars will be used as params in the query*/
+    /*create a list containing the object props of interest*/
+    /*these vars will be used as params in the query to the db*/
     const query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
 
-    /*declare the query variable with parametized query*/
+    /*declare a query variable containing a parametized call to the user_testcheck function*/
     const testcheck_query = {
         /*Query to call function for test check*/
         name: 'check-user-test',
