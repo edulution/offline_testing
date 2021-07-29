@@ -311,26 +311,27 @@ router.post('/submit_ext_eval', [(req, res, next) => {
 /*TODO Add api endpoint with get method which calls functions on db to check and recommend test to the user*/
 
 router.get('/user_testcheck', (req, res, next) => {
+    /*parse the query params into an object*/
     const queryObject = url.parse(req.url, true).query;
 
-    let user_id = queryObject.user_id
-    let test = queryObject.test
-    let course = queryObject.course
-    let testmodule = queryObject.module
+    /*split the object params into variables for easier readability*/
+    /*these vars will be used as params in the query*/
+    const query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
 
+    /*declare the query variable with parametized query*/
     const testcheck_query = {
         /*Query to call function for test check*/
         name: 'check-user-test',
-        text: 'select * from get_highest_passed_test($1,$2)'
+        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4)'
     }
 
-    const query_params = [user_id, testmodule]
-
-    /*Callback returns status code and result of query*/
+    /*Make the query using the query text and params*/
     pool.query(testcheck_query, query_params, (err, result) => {
         if (err) {
+            /*Log any errors to the console*/
             console.log(err.stack)
         } else {
+            /*When sucessful, return a status code of 200 and the result set*/
             res.status(200).send(result.rows)
         }
     })
