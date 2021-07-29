@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
+const url = require('url');
 
 const { Pool, Client } = require('pg')
 
@@ -307,6 +308,35 @@ router.post('/submit_ext_eval', [(req, res, next) => {
     res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 }]);
 
+/*TODO Add api endpoint with get method which calls functions on db to check and recommend test to the user*/
+
+router.get('/user_testcheck', (req, res, next) => {
+    const queryObject = url.parse(req.url, true).query;
+
+    let user_id = queryObject.user_id
+    let test = queryObject.test
+    let course = queryObject.course
+    let testmodule = queryObject.module
+
+    const testcheck_query = {
+        /*Query to call function for test check*/
+        name: 'check-user-test',
+        text: 'select * from get_highest_passed_test($1,$2)'
+    }
+
+    const query_params = [user_id, testmodule]
+
+    /*Callback returns status code and result of query*/
+    pool.query(testcheck_query, query_params, (err, result) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.status(200).send(result.rows)
+        }
+    })
+
+
+});
 
 
 module.exports = router
