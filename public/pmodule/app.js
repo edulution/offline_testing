@@ -228,6 +228,23 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                     let currentTest = (({ test, course, module }) => ({ test, course, module }))($scope.testResponse)
                     console.log("user_id:", currentUser)
                     console.log("test:", currentTest)
+
+
+                    /*TODO: Add spinner*/
+                    /*vm.starting = true;*/
+                    /*Send request to api to check if the user is elligible to write the test that they are on
+                     */
+                    $http.get('/api/user_testcheck', {
+                        params: { user_id: currentUser.user_id, test: currentTest.test, course: currentTest.course, module: currentTest.module }
+                    }).then(function onSuccess(response) {
+                        $scope.testcheck = response.data;
+                        console.log(response.data[0])
+                    }).catch(function onReject(errorResponse) {
+                        console.log(errorResponse.status);
+                    }).finally(function() {
+                        /*TODO: remove spinner*/
+                        /*vm.starting = false;*/
+                    });
                 } else {
                     console.log("Username is not valid")
                 }
