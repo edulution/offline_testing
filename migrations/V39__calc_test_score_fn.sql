@@ -44,3 +44,36 @@ WHERE TABLE_NAME = 'responses'
  END;
 $$
 LANGUAGE plpgsql VOLATILE
+
+
+/*Check if a user has passed a given test before*/
+CREATE OR REPLACE FUNCTION has_passed_test (
+	i_userid uuid,
+	i_test varchar,
+	i_course varchar,
+	i_module varchar
+	)
+RETURNS boolean as $$
+DECLARE
+
+arr_test_bools boolean[];
+has_passed_test boolean;
+
+BEGIN
+if exists(select 1 from responses where user_id = i_userid and test = i_test and course = i_course and module = i_module) then
+	for response_row in select * from responses where user_id = i_userid and test = i_test and course = i_course and module = i_module
+	loop
+		arr_test_bools := array_append(arr_test_bools, (select passed from calc_test_score(response_row.response_id)));
+	end loop;
+else
+	has_passed_test := 'f';
+
+end if;
+has_passed_test := arr_test_bools @> array['t'::boolean];
+
+return has_passed_test;
+
+	
+END;
+$$
+LANGUAGE plpgsql VOLATILE
