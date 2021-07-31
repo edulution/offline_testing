@@ -55,24 +55,32 @@ CREATE OR REPLACE FUNCTION has_passed_test (
 	)
 RETURNS boolean as $$
 DECLARE
-
+/*Array of booleans to store whether or not each test was passed*/
 arr_test_bools boolean[];
+
+/*Boolean return value*/
 has_passed_test boolean;
 
+response_row record;
+
 BEGIN
+/*Check if a row exists in responses for the inputted user_id, test course amd module*/
 if exists(select 1 from responses where user_id = i_userid and test = i_test and course = i_course and module = i_module) then
+	/*Loop through the rows in responses that the user has done in the test of interest*/
 	for response_row in select * from responses where user_id = i_userid and test = i_test and course = i_course and module = i_module
 	loop
+		/*Calculate the test score*/
+		/*Then append the boolean of whether the test was passed or not into the array of booleans*/
 		arr_test_bools := array_append(arr_test_bools, (select passed from calc_test_score(response_row.response_id)));
 	end loop;
-else
-	has_passed_test := 'f';
-
 end if;
+
+/*Check if arr_test_bools contains at least one TRUE value*/
+/*Assign the result to has_passed_test*/
 has_passed_test := arr_test_bools @> array['t'::boolean];
 
+/*Return the value above*/
 return has_passed_test;
-
 	
 END;
 $$
