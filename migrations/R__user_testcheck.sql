@@ -97,13 +97,13 @@ BEGIN
         AND module = recommended_test.module
         AND test_id NOT LIKE '%_pre' -- pre test cannot be rewritten
 
-        AND test_seq <= recommended_test.test_seq)possible_rewrites -- recommended test_seq
+        AND test_seq < recommended_test.test_seq)possible_rewrites -- recommended test_seq
 
    WHERE test_id = current_test.test_id
      AND course = current_test.course
      AND module = current_test.module) INTO possible_rewrite;
 
-  
+
   -- If the current test is a pre_test and the user has written it before
   -- The user cannot write the test
   if current_test.test_type = 'TST' and current_test.test_id like '%_pre' and has_written_currtest = 't' then
