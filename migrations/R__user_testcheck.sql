@@ -23,6 +23,8 @@ highest_test_passed RECORD;
 has_written_currtest boolean;
 has_passed_currtest boolean;
 
+possible_rewrite boolean;
+
 current_test RECORD;
 
 recommended_test RECORD;
@@ -84,8 +86,24 @@ BEGIN
  END IF;
 
 
+ /*Check if the current test is a possible rewrite relative to the recommended test*/
+ SELECT exists
+  (SELECT *
+   FROM
+     (SELECT *
+      FROM test_marks
+      WHERE course = recommended_test.course --recommended course
 
+        AND module = recommended_test.module
+        AND test_id NOT LIKE '%_pre' -- pre test cannot be rewritten
 
+        AND test_seq <= recommended_test.test_seq)possible_rewrites -- recommended test_seq
+
+   WHERE test_id = current_test.test_id
+     AND course = current_test.course
+     AND module = current_test.module) INTO possible_rewrite;
+
+  
   -- If the current test is a pre_test and the user has written it before
   -- The user cannot write the test
   if current_test.test_type = 'TST' and current_test.test_id like '%_pre' and has_written_currtest = 't' then
@@ -95,6 +113,16 @@ BEGIN
   elsif has_passed_currtest = 't' then
     can_write_test := 'f';
     output_message := 'This test has already been passed. The recommended test is: '|| recommended_test.test_name;
+  elsif possible_rewrite = 't' then
+    can_write_test := 't';
+    output_message := 'The recommended test is: '|| recommended_test.test_name || ' but this test can be rewritten';
+  elsif recommended_test.test_id = current_test.test_id and recommended_test.course = current_test.course and recommended_test.module = current_test.module then
+    can_write_test := 't';
+    output_message := 'Check completed. This is the recommended test';
+  else
+    /*None of the conditions above are satisfied.*/
+    can_write_test := 'f';
+    output_message := 'This is not an appropriate test. The recommended test is: ' || recommended_test.test_name;
   end if;
 
 
