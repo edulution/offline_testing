@@ -11,7 +11,7 @@
     Checking if this learner should write this test</p>
 <!-- Text shown when the username is valid and the test check is successful -->
 <P class="valid-field" ng-show="form.testForm.username.$valid && !form.testForm.$error.testcheck_result"><i class="fa fa-check" aria-hidden="true"></i>
-    Test Check Passed</p>
+    {{testcheck.output_message}}</p>
 <!-- Text shown when the username is valid but the test check is not successful -->
 <p class="password-error" ng-show="form.testForm.username.$valid && form.testForm.$error.testcheck_result"><i class="fa fa-times" aria-hidden="true"></i>
-    Test Check failed</p>
+    {{testcheck.output_message}}</p>
