@@ -60,7 +60,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
 
             /*Open password modal when page loads*/
-            /*$ctrl.openPasswordModal();*/
+            $ctrl.openPasswordModal();
         }
 
         /*Function to open password modal*/
@@ -216,8 +216,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         /*Wait 1000 miliseconds before checking for changes to the username input*/
         /*This is to allow the DOM to load and scope to be defined*/
         $timeout(function() {
-            console.log("form", $scope.form.testForm);
-
             /*Watch the username input until it is valid*/
             $scope.$watch('form.testForm.username.$error.whitelist', function() {
 
@@ -228,13 +226,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                     /*var currentTest = { $scope.testResponse.test, $scope.testResponse.course, $scope.testResponse.course }*/
                     /*Get the test, course and module of the testResponse object as an object*/
                     let currentTest = (({ test, course, module }) => ({ test, course, module }))($scope.testResponse)
-                    console.log("user_id:", currentUser)
-                    console.log("test:", currentTest)
 
-                    console.log("testcheck result valid: ", $scope.form.testForm.testcheck_result.$valid)
-
-
-                    /*Add spinner*/
+                    /*Variable that determines whether or not the loading spinner is visible on the front end*/
                     $scope.testcheck_loading = true;
                     /*Send request to api to check if the user is elligible to write the test that they are on
                      */
@@ -244,9 +237,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                     }).then(function onSuccess(response) {
                         /*store the response in $scope.testcheck variable*/
                         $scope.testcheck = response.data[0];
-                        console.log(response.data[0])
-                        console.log("can write test: ", $scope.testcheck.can_write_test)
                         if ($scope.testcheck.can_write_test) {
+
                             /*If the user CAN write the test
                             Make testcheck_result valid*/
                             $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", true)
@@ -258,15 +250,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                             $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", false)
                         }
 
-                        console.log("testcheck result valid: ", $scope.form.testForm.testcheck_result.$valid)
-
                     }).catch(function onReject(errorResponse) {
+                        /*Log any errors to the console*/
                         console.log(errorResponse.status);
                     }).finally(function() {
                         $scope.testcheck_loading = false;
                     });
                 } else {
-                    console.log("Username is not valid")
+                    console.log("Username is not valid.")
                 }
 
             }, true);
