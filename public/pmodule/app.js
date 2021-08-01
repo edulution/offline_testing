@@ -1,6 +1,6 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
+    .controller('MainCtrl', function($scope, $timeout, $http, $uibModal, $location, $log, $document, md5) {
 
         /*Alias for controller*/
         var $ctrl = this;
@@ -9,6 +9,10 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*Initalize function when page is loaded*/
         $scope.init = function() {
+            /*Empty object for form*/
+            /*Gives more flexibility and control over the form from the controller*/
+            $scope.form = {};
+
             /*Empty object for testResponse*/
             $scope.testResponse = {};
 
@@ -89,7 +93,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
+                templateUrl: '/pmodule/templates/confirm_overwrite_test.html',
                 controller: 'MainCtrl',
                 scope: $scope,
                 backdrop: 'static',
@@ -207,6 +211,62 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 }
             });
         }
+
+
+        /*Wait 1000 miliseconds before checking for changes to the username input*/
+        /*This is to allow the DOM to load and scope to be defined*/
+        $timeout(function() {
+            /*Watch the username input until it is valid*/
+            $scope.$watch('form.testForm.username.$error.whitelist', function() {
+
+                if (!$scope.form.testForm.username.$error.whitelist) {
+                    /*console.log('username:', $scope.form.testForm.username)*/
+                    /*$scope.form.testForm.username.$setPristine()*/
+                    var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                    /*var currentTest = { $scope.testResponse.test, $scope.testResponse.course, $scope.testResponse.course }*/
+                    /*Get the test, course and module of the testResponse object as an object*/
+                    let currentTest = (({ test, course, module }) => ({ test, course, module }))($scope.testResponse)
+
+                    /*Variable that determines whether or not the loading spinner is visible on the front end*/
+                    $scope.testcheck_loading = true;
+                    /*Send request to api to check if the user is elligible to write the test that they are on
+                     */
+                    $http.get('/api/user_testcheck', {
+                        /*send the user_id, test , course and module as request params*/
+                        params: { user_id: currentUser.user_id, test: currentTest.test, course: currentTest.course, module: currentTest.module }
+                    }).then(function onSuccess(response) {
+                        /*store the response in $scope.testcheck variable*/
+                        $scope.testcheck = response.data[0];
+                        if ($scope.testcheck.can_write_test) {
+
+                            /*If the user CAN write the test
+                            Make testcheck_result valid*/
+                            $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", true)
+                        } else {
+
+                            /*If the user CANNOT write the test
+                            Make testcheck_result invalid*/
+                            /*$scope.form.testForm.testcheck_result.$valid = false;*/
+                            $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", false)
+                        }
+
+                    }).catch(function onReject(errorResponse) {
+                        /*Log any errors to the console*/
+                        console.log(errorResponse.status);
+                    }).finally(function() {
+                        $scope.testcheck_loading = false;
+                    });
+                } else {
+                    console.log("Username is not valid.")
+                }
+
+            }, true);
+
+        }, 1000)
+
+
+
+
 
 
         /*end MainCtrl*/

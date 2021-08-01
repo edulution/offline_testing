@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
+const url = require('url');
 
 const { Pool, Client } = require('pg')
 
@@ -60,6 +61,27 @@ router.get('/get_users', (req, res, next) => {
 
     /*Callback returns status code and result of query*/
     pool.query(users_query, (err, result) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.status(200).send(result.rows)
+        }
+    })
+
+
+});
+
+
+/*endpoint to get index_of_topics as json*/
+router.get('/index_of_topics', (req, res, next) => {
+    let topics_query = {
+        /*Query to fetch all topics*/
+        name: 'fetch-topics',
+        text: 'SELECT * FROM index_of_topics'
+    }
+
+    /*Callback returns status code and result of query*/
+    pool.query(topics_query, (err, result) => {
         if (err) {
             console.log(err.stack)
         } else {
@@ -135,6 +157,8 @@ router.post('/submit_test', [(req, res, next) => {
     let reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
     response = req.body
+
+    console.log(response)
     /*check if response was checkboxes
     will appear as array in response*/
 
@@ -167,10 +191,14 @@ router.post('/submit_test', [(req, res, next) => {
     /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
     let uresponses = response_props.map((v) => { return response[v]; })
 
+    console.log(uresponses)
+
     /*remove the test date from the reponse props*/
     /*let utest_date = uresponses.pop();*/
 
     let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    console.log(uresponses)
 
     /*Insert statement to run on database. test date added as current date from server*/
 
@@ -280,6 +308,36 @@ router.post('/submit_ext_eval', [(req, res, next) => {
     res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 }]);
 
+/*TODO Add api endpoint with get method which calls functions on db to check and recommend test to the user*/
+
+router.get('/user_testcheck', (req, res, next) => {
+    /*parse the query params into an object*/
+    const queryObject = url.parse(req.url, true).query;
+
+    /*create a list containing the object props of interest*/
+    /*these vars will be used as params in the query to the db*/
+    const query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
+
+    /*declare a query variable containing a parametized call to the user_testcheck function*/
+    const testcheck_query = {
+        /*Query to call function for test check*/
+        name: 'check-user-test',
+        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4)'
+    }
+
+    /*Make the query using the query text and params*/
+    pool.query(testcheck_query, query_params, (err, result) => {
+        if (err) {
+            /*Log any errors to the console*/
+            console.log(err.stack)
+        } else {
+            /*When sucessful, return a status code of 200 and the result set*/
+            res.status(200).send(result.rows)
+        }
+    })
+
+
+});
 
 
 module.exports = router

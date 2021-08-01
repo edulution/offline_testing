@@ -2,7 +2,7 @@
 <html ng-app="passProtect">
 
 <head>
-    <title>Alpha A1</title>
+    <title>Alpha A1 </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -10,25 +10,30 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
     <!-- Password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
+    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- TODO: Add tag to instantiate modal when page opens-->
     <span ng-init=init()></span>
     <section>
@@ -38,9 +43,9 @@
                     <div id="edulution_logo">
                         <img src="/images/edulution_logo.png" class="img-responsive center-block">
                     </div>
-                    <form name="testForm">
+                    <form name="form.testForm">
                         <p class="test_name">Alpha A1</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <div ng-include="'pmodule/templates/username_input.html'"></div>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Time allowed: 60 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel">ASSESSMENT</div>

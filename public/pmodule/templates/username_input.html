@@ -1,6 +1,17 @@
 <div class="HeaderbannerLabel">USERNAME</div>
 <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist autocomplete="off" class="user_input" placeholder="Please fill in your username here">
-<span class="password-error" ng-show="testForm.username.$dirty && testForm.username.$error.whitelist"><i class="fa fa-times" aria-hidden="true"></i>
-    Please enter a valid Student ID</span>
-<span class="valid-field" ng-show="testForm.username.$dirty && !testForm.username.$error.whitelist"><i class="fa fa-check" aria-hidden="true"></i>
+<span class="password-error" ng-show="form.testForm.username.$dirty && form.testForm.username.$error.whitelist"><i class="fa fa-times" aria-hidden="true"></i>
+    Please enter a valid Username</span>
+<span class="valid-field" ng-show="form.testForm.username.$dirty && !form.testForm.username.$error.whitelist"><i class="fa fa-check" aria-hidden="true"></i>
     {{display_username()}}</span>
+<!-- Hidden field to track the results of the testcheck -->
+<input type="hidden" name="testcheck_result" ng-model="form.testForm.testcheck_result" required>
+<!-- TODO: Add spinner icon and text to show when the testcheck is in progress -->
+<p class="valid-field" ng-show="testcheck_loading"><i class="fa fa-check" aria-hidden="true"></i>
+    Checking if this learner should write this test</p>
+<!-- Text shown when the username is valid and the test check is successful -->
+<P class="valid-field" ng-show="form.testForm.username.$valid && !form.testForm.$error.testcheck_result"><i class="fa fa-check" aria-hidden="true"></i>
+    {{testcheck.output_message}}</p>
+<!-- Text shown when the username is valid but the test check is not successful -->
+<p class="password-error" ng-show="form.testForm.username.$valid && form.testForm.$error.testcheck_result"><i class="fa fa-times" aria-hidden="true"></i>
+    {{testcheck.output_message}}</p>
