@@ -6,9 +6,7 @@
     {{display_username()}}</span>
 <!-- Hidden field to track the results of the testcheck -->
 <input type="hidden" name="testcheck_result" ng-model="form.testForm.testcheck_result" required>
-<!-- TODO: Add spinner icon and text to show when the testcheck is in progress -->
-<p class="valid-field" ng-show="testcheck_loading"><i class="fa fa-check" aria-hidden="true"></i>
-    Checking if this learner should write this test</p>
+<p class="valid-field" ng-show="testcheck_loading"><span><img src="/images/loading.gif" class="img-responsive" id="loading_gif"></span>Checking if this learner should write this test</p>
 <!-- Text shown when the username is valid and the test check is successful -->
 <P class="valid-field" ng-show="form.testForm.username.$valid && !form.testForm.$error.testcheck_result"><i class="fa fa-check" aria-hidden="true"></i>
     {{testcheck.output_message}}</p>

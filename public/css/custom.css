@@ -47,6 +47,14 @@ li {
     padding-left: 20%;
 }
 
+/*Loading gif displayed when a test recommendation is being checked*/
+#loading_gif {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    padding: 5px;
+}
+
 /*Green background for headings including username,instructions, and coach credentials*/
 .HeaderbannerLabel {
     background-color: rgb(0, 159, 21);
