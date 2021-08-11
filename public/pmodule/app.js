@@ -72,7 +72,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'pmodule/templates/pmodal_content.html',
+                templateUrl: '/pmodule/templates/pmodal_content.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$password_modal_ctrl',
                 backdrop: 'static',
@@ -323,6 +323,12 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         /*end whitelist directive*/
+    })
+    .directive('usernameinput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/username_input.html"
+        };
     })
 
     /*directive to capture the keypress of the Enter key*/
