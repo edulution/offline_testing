@@ -38,12 +38,12 @@ function get_datetime_string() {
 }
 
 
-router.get('/get_server_date', (req, res) => {
+router.get('/get_server_date', (request, response) => {
     let current_date = get_datetime_string()
     return res.json(current_date)
 });
 
-router.get('/sucessful_submit', (req, res) => {
+router.get('/sucessful_submit', (request, response) => {
     path.join(__basedir, 'public')
     res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 });
@@ -52,7 +52,7 @@ router.get('/sucessful_submit', (req, res) => {
 
 
 /*endpoint to get users list as json*/
-router.get('/get_users', (req, res, next) => {
+router.get('/get_users', (request, response, next) => {
     let users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
@@ -60,61 +60,48 @@ router.get('/get_users', (req, res, next) => {
     }
 
     /*Callback returns status code and result of query*/
-    pool.query(users_query, (err, result) => {
-        if (err) {
-            console.log(err.stack)
-        } else {
-            res.status(200).send(result.rows)
-        }
-    })
-
+    pool.query(users_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(console.log(e.stack))
 
 });
 
 
 /*endpoint to get index_of_topics as json*/
-router.get('/index_of_topics', (req, res, next) => {
+router.get('/index_of_topics', (request, response, next) => {
     let topics_query = {
         /*Query to fetch all topics*/
         name: 'fetch-topics',
         text: 'SELECT * FROM index_of_topics'
     }
 
-    /*Callback returns status code and result of query*/
-    pool.query(topics_query, (err, result) => {
-        if (err) {
-            console.log(err.stack)
-        } else {
-            res.status(200).send(result.rows)
-        }
-    })
+
+    pool.query(topics_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(e => console.log(err.stack))
 
 
 });
 
 
 /*endpoint to test count stats list as json*/
-router.get('/get_test_count', (req, res, next) => {
+router.get('/get_test_count', (request, response, next) => {
     let test_counts_query = {
         /*Query to count the number of tests and group by month end (last day(test date))*/
         name: 'fetch-test-counts',
         text: 'SELECT last_day(test_date::date) as test_month, count(*) as number_of_tests from responses group by last_day(test_date::date) order by last_day(test_date::date) desc'
     }
 
-    /*Callback returns status code and result of query*/
-    pool.query(test_counts_query, (err, result) => {
-        if (err) {
-            console.log(err.stack)
-        } else {
-            res.status(200).send(result.rows)
-        }
-    })
-
+    /*Run query and send the response back if sucessful*/
+    pool.query(test_counts_query)
+        .then(res => response.status(200).send(res.rows))
+        /*Log any errors to the console if not successful*/
+        .catch(e => console.log(e.stack))
 
 });
 
 /*endpoint to get all test_responses as json*/
-router.get('/get_responses', function(req, res) {
+router.get('/get_responses', (request, response) => {
     let responses_query = {
         /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
         name: 'fetch-responses',
@@ -122,36 +109,27 @@ router.get('/get_responses', function(req, res) {
     }
 
     /*Callback returns status code and result of query*/
-    pool.query(responses_query, (err, result) => {
-        if (err) {
-            console.log(err.stack)
-        } else {
-            res.status(200).send(result.rows)
-        }
-    })
+    pool.query(responses_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(e => console.log(e.stack))
 
 });
 
-router.get('/get_test_marks', (req, res) => {
+router.get('/get_test_marks', (request, response) => {
     let test_marks_query = {
         name: 'fetch-test-marks',
         text: 'SELECT * from test_marks'
     }
 
     /*Callback returns status code and result of query*/
-    pool.query(test_marks_query, (err, result) => {
-        if (err) {
-            console.log(err.stack)
-        } else {
-            res.status(200).send(result.rows)
-        }
-    })
-
+    pool.query(test_marks_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(e => console.log(e.stack))
 
 });
 
 
-router.post('/submit_test', [(req, res, next) => {
+router.post('/submit_test', [(request, response, next) => {
 
     /*simple function to sum values in an array*/
     let reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
@@ -205,20 +183,20 @@ router.post('/submit_test', [(req, res, next) => {
     let insert_statement = 'INSERT INTO responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')'
     console.log(insert_statement);
 
-    // promise
+    // execute the query and return a promise
     pool.query(insert_statement)
         .then(result => {
             console.log("Promise returned: Test submited sucessfully!")
         })
         .catch(e => console.error(e.stack))
     next();
-}, (req, res) => {
+}, (request, response) => {
     /*Display successful submission page after request sucessful*/
-    res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+    response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 }]);
 
 /*An endpoint to delete a test based on user_id, test, course, module, and test date*/
-router.post('/overwrite_test', [(req, res, next) => {
+router.post('/overwrite_test', [(request, response, next) => {
     /*get the test response from the request body*/
     response = req.body;
 
@@ -238,21 +216,20 @@ router.post('/overwrite_test', [(req, res, next) => {
     pool.query(query_other, values_other, (err, res) => {
         if (err) {
             console.log(err.stack)
-            res.status(400).send('Could not delete row(s)')
+            response.status(400).send('Could not delete row(s)')
             res.end()
         }
     })
     /*send a status of 200 and a success message back to the client*/
     next();
-}, (req, res) => {
+}, (request, response) => {
     let success_message = "Sucessfully deleted row(s)"
-    res.status(200)
-    res.send(success_message)
+    response.status(200).send(success_message)
     console.log(success_message)
 }]);
 
 /*Endpoint to assign learners when they log in to Kolibri*/
-router.post("/kolibri_login", (req, res) => {
+router.post("/kolibri_login", (request, response) => {
     /*Capture user details which arrive in the request body*/
     let user_details = req.body;
 
@@ -274,7 +251,7 @@ router.post("/kolibri_login", (req, res) => {
     res.end()
 });
 
-router.post('/submit_ext_eval', [(req, res, next) => {
+router.post('/submit_ext_eval', (request, response, next) => {
 
     let response = req.body
 
@@ -298,19 +275,16 @@ router.post('/submit_ext_eval', [(req, res, next) => {
 
     // promise
     pool.query(insert_statement)
-        .then(result => {
+        .then(res => {
+            response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'))
             console.log("Promise returned: Evaluation   submited sucessfully!")
         })
         .catch(e => console.error(e.stack))
-    next();
-}, (req, res) => {
-    /*Display successful submission page after request sucessful*/
-    res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
-}]);
+});
 
-/*TODO Add api endpoint with get method which calls functions on db to check and recommend test to the user*/
 
-router.get('/user_testcheck', (req, res, next) => {
+/*Endpoint to check if a user is eligible to write a particular test*/
+router.get('/user_testcheck', (request, response, next) => {
     /*parse the query params into an object*/
     const queryObject = url.parse(req.url, true).query;
 
@@ -326,17 +300,11 @@ router.get('/user_testcheck', (req, res, next) => {
     }
 
     /*Make the query using the query text and params*/
-    pool.query(testcheck_query, query_params, (err, result) => {
-        if (err) {
-            /*Log any errors to the console*/
-            console.log(err.stack)
-        } else {
-            /*When sucessful, return a status code of 200 and the result set*/
-            res.status(200).send(result.rows)
-        }
-    })
-
-
+    pool.query(testcheck_query, query_params)
+        /*When sucessful, return a status code of 200 and the result set*/
+        .then(res => response.status(200).send(res.rows[0]))
+        /*Log any errors to the console*/
+        .catch(e => console.log(e.stack))
 });
 
 
