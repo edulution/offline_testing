@@ -236,7 +236,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                         params: { user_id: currentUser.user_id, test: currentTest.test, course: currentTest.course, module: currentTest.module }
                     }).then(function onSuccess(response) {
                         /*store the response in $scope.testcheck variable*/
-                        $scope.testcheck = response.data[0];
+                        $scope.testcheck = response.data;
                         if ($scope.testcheck.can_write_test) {
 
                             /*If the user CAN write the test
