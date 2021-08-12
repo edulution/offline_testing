@@ -37,7 +37,7 @@
                     </div>
                     <form name="form.testForm">
                         <p class="test_name">Pre Alpha 2</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <usernameinput></usernameinput>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">TIme allowed: 40 minutes <br>Ask your coach if you are not sure how to answer the questions</div>
                         <div class="HeaderbannerLabel">ASSESSMENT</div>
@@ -603,7 +603,7 @@
                         <input type="hidden" name="test" ng-init="testResponse.test='prealpha_2'">
                         <input type="hidden" name="course" ng-init="testResponse.course='prealpha'">
                         <input type="hidden" name="module" ng-init="testResponse.module='literacy'">
-                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                        <coachsection></coachsection>
                     </form>
                 </div>
             </div>
