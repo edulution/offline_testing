@@ -297,6 +297,24 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*end ModalInstanceCtrl*/
     })
+    /*Element directive for username input partial
+    Better than using ng-include because problems with relative paths are avoided
+    And can take advantage of other features of directives like isolated scope if needed*/
+    .directive('usernameinput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/username_input.html"
+        };
+    })
+    /*Element directive for coach section*/
+    .directive('coachsection', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/validate_coach_id_and_password.html"
+        };
+    })
+
+
 
     /*directive to invalidate the form based on student_id inputted*/
     .directive('whitelist', function() {
@@ -323,12 +341,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         /*end whitelist directive*/
-    })
-    .directive('usernameinput', function() {
-        return {
-            restrict: 'E',
-            templateUrl: "/pmodule/templates/username_input.html"
-        };
     })
 
     /*directive to capture the keypress of the Enter key*/
