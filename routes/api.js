@@ -141,7 +141,7 @@ router.post('/submit_test', [(request, response, next) => {
     will appear as array in response*/
 
     /*for each response recieved*/
-    for (v in response) {
+    for (var v in response) {
         /*if the reponse is of type object(array). Questions with a single response will be of type string*/
         if (typeof(response[v]) == "object") {
             /*use reducer method to get sum of elements*/
@@ -202,11 +202,11 @@ router.post('/overwrite_test', [(request, response, next) => {
 
     /*Get the props which we will use as our criteria for deleting the existing test*/
     /*Before inserting the one which has just been submitted*/
-    let user_id = response['user_id']
-    let test_done = response['test']
-    let course = response['course']
-    let test_module = response['module']
-    let test_date = response['test_date']
+    let user_id = response.user_id
+    let test_done = response.test
+    let course = response.course
+    let test_module = response.module
+    let test_date = response.test_date
 
     /*Delete tests done by the same user in the same test, course, and module done on the same day*/
     let query_other = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
@@ -253,15 +253,15 @@ router.post("/kolibri_login", (request, response) => {
 
 router.post('/submit_ext_eval', (request, response, next) => {
 
-    let response = req.body
+    let resp = request.body
 
     /*properties of response object - user_id,username,q1,q2..*/
-    let response_props = Object.keys(response)
+    let response_props = Object.keys(resp)
 
-    console.log(response)
+    console.log(resp)
 
     /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
-    let uresponses = response_props.map((v) => { return response[v]; })
+    let uresponses = response_props.map((v) => { return resp[v]; })
 
     /*remove the test date from the reponse props*/
     /*let utest_date = uresponses.pop();*/
