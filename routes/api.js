@@ -17,7 +17,7 @@ router.use(express.static(path.resolve('public')));
 
 /*Return today as string*/
 /*Used for timestamping of responses*/
-function get_datetime_string() {
+const get_datetime_string = () => {
     let today = new Date()
     let dd = today.getDate()
     let mm = today.getMonth() + 1 //January is 0!
@@ -53,7 +53,7 @@ router.get('/sucessful_submit', (request, response) => {
 
 /*endpoint to get users list as json*/
 router.get('/get_users', (request, response, next) => {
-    let users_query = {
+    const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
         text: 'SELECT * FROM users'
@@ -69,7 +69,7 @@ router.get('/get_users', (request, response, next) => {
 
 /*endpoint to get index_of_topics as json*/
 router.get('/index_of_topics', (request, response, next) => {
-    let topics_query = {
+    const topics_query = {
         /*Query to fetch all topics*/
         name: 'fetch-topics',
         text: 'SELECT * FROM index_of_topics'
@@ -86,7 +86,7 @@ router.get('/index_of_topics', (request, response, next) => {
 
 /*endpoint to test count stats list as json*/
 router.get('/get_test_count', (request, response, next) => {
-    let test_counts_query = {
+    const test_counts_query = {
         /*Query to count the number of tests and group by month end (last day(test date))*/
         name: 'fetch-test-counts',
         text: 'SELECT last_day(test_date::date) as test_month, count(*) as number_of_tests from responses group by last_day(test_date::date) order by last_day(test_date::date) desc'
@@ -102,21 +102,21 @@ router.get('/get_test_count', (request, response, next) => {
 
 /*endpoint to get all test_responses as json*/
 router.get('/get_responses', (request, response) => {
-    let responses_query = {
+    const get_responses_query = {
         /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
         name: 'fetch-responses',
         text: 'select u.username,u.first_name,u.last_name,tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0)+ coalesce(q20::integer,0.0)+ coalesce(q21::integer,0.0)+ coalesce(q22::integer,0.0)+ coalesce(q23::integer,0.0)+ coalesce(q24::integer,0.0)+ coalesce(q25::integer,0.0)+ coalesce(q26::integer,0.0)+ coalesce(q27::integer,0.0)+ coalesce(q28::integer,0.0)+ coalesce(q29::integer,0.0)+ coalesce(q30::integer,0.0)+ coalesce(q31::integer,0.0)+ coalesce(q32::integer,0.0)+ coalesce(q33::integer,0.0)+ coalesce(q34::integer,0.0)+ coalesce(q35::integer,0.0)+ coalesce(q36::integer,0.0)+ coalesce(q37::integer,0.0)+ coalesce(q38::integer,0.0)+ coalesce(q39::integer,0.0)+ coalesce(q40::integer,0.0)+ coalesce(q41::integer,0.0)+ coalesce(q42::integer,0.0)+ coalesce(q43::integer,0.0)+ coalesce(q44::integer,0.0)+ coalesce(q45::integer,0.0)+ coalesce(q46::integer,0.0)+ coalesce(q47::integer,0.0)+ coalesce(q48::integer,0.0)+ coalesce(q49::integer,0.0)+ coalesce(q50::integer,0.0)+ coalesce(q51::integer,0.0)+ coalesce(q52::integer,0.0)+ coalesce(q53::integer,0.0)+ coalesce(q54::integer,0.0)+ coalesce(q55::integer,0.0)+ coalesce(q56::integer,0.0)+ coalesce(q57::integer,0.0)+ coalesce(q58::integer,0.0)+ coalesce(q59::integer,0.0)+ coalesce(q60::integer,0.0)+ coalesce(q61::integer,0.0)+ coalesce(q62::integer,0.0)+ coalesce(q63::integer,0.0)+ coalesce(q64::integer,0.0)+ coalesce(q65::integer,0.0)+ coalesce(q66::integer,0.0)+ coalesce(q67::integer,0.0)+ coalesce(q68::integer,0.0)+ coalesce(q69::integer,0.0)+ coalesce(q70::integer,0.0))/testmaxscore,2) as score_pct from responses r left join users u on r.user_id = u.user_id left join test_marks tm on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc'
     }
 
     /*Callback returns status code and result of query*/
-    pool.query(responses_query)
+    pool.query(get_responses_query)
         .then(res => response.status(200).send(res.rows))
         .catch(e => console.log(e.stack))
 
 });
 
 router.get('/get_test_marks', (request, response) => {
-    let test_marks_query = {
+    const test_marks_query = {
         name: 'fetch-test-marks',
         text: 'SELECT * from test_marks'
     }
@@ -132,42 +132,43 @@ router.get('/get_test_marks', (request, response) => {
 router.post('/submit_test', [(request, response, next) => {
 
     /*simple function to sum values in an array*/
-    let reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
+    const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
-    response = req.body
+    /*Get the test response from the request body*/
+    let test_resp = request.body
 
-    console.log(response)
+    console.log(test_resp)
     /*check if response was checkboxes
     will appear as array in response*/
 
     /*for each response recieved*/
-    for (var v in response) {
+    for (let v in test_resp) {
         /*if the reponse is of type object(array). Questions with a single response will be of type string*/
-        if (typeof(response[v]) == "object") {
+        if (typeof(test_resp[v]) == "object") {
             /*use reducer method to get sum of elements*/
-            total = Object.values(response[v]).reduce(reducer, 0)
+            total = Object.values(test_resp[v]).reduce(reducer, 0)
             /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
             if (total <= 0) {
-                response[v] = '0'
+                test_resp[v] = '0'
             } else {
                 /*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
-                response[v] = '1'
+                test_resp[v] = '1'
             }
         } else {
             /*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
-            if (Number(response[v]) < 1) {
-                response[v] = '0'
+            if (Number(test_resp[v]) < 1) {
+                test_resp[v] = '0'
             }
         }
     }
 
     /*properties of response object - user_id,username,q1,q2..*/
-    let response_props = Object.keys(response)
+    let test_resp_props = Object.keys(test_resp)
 
-    console.log(response)
+    console.log(test_resp_props)
 
-    /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
-    let uresponses = response_props.map((v) => { return response[v]; })
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
 
     console.log(uresponses)
 
@@ -180,7 +181,7 @@ router.post('/submit_test', [(request, response, next) => {
 
     /*Insert statement to run on database. test date added as current date from server*/
 
-    let insert_statement = 'INSERT INTO responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')'
+    let insert_statement = 'INSERT INTO responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
     console.log(insert_statement);
 
     // execute the query and return a promise
@@ -198,15 +199,15 @@ router.post('/submit_test', [(request, response, next) => {
 /*An endpoint to delete a test based on user_id, test, course, module, and test date*/
 router.post('/overwrite_test', [(request, response, next) => {
     /*get the test response from the request body*/
-    response = req.body;
+    let test_resp = req.body;
 
     /*Get the props which we will use as our criteria for deleting the existing test*/
     /*Before inserting the one which has just been submitted*/
-    let user_id = response.user_id
-    let test_done = response.test
-    let course = response.course
-    let test_module = response.module
-    let test_date = response.test_date
+    let user_id = test_resp.user_id
+    let test_done = test_resp.test
+    let course = test_resp.course
+    let test_module = test_resp.module
+    let test_date = test_resp.test_date
 
     /*Delete tests done by the same user in the same test, course, and module done on the same day*/
     let query_other = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
@@ -253,15 +254,15 @@ router.post("/kolibri_login", (request, response) => {
 
 router.post('/submit_ext_eval', (request, response, next) => {
 
-    let resp = request.body
+    let test_resp = request.body
 
     /*properties of response object - user_id,username,q1,q2..*/
-    let response_props = Object.keys(resp)
+    let test_resp_props = Object.keys(test_resp)
 
-    console.log(resp)
+    console.log(test_resp)
 
-    /*Get user responses for response_props above as array. Preserve quotes for insertion into database*/
-    let uresponses = response_props.map((v) => { return resp[v]; })
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
 
     /*remove the test date from the reponse props*/
     /*let utest_date = uresponses.pop();*/
@@ -270,7 +271,7 @@ router.post('/submit_ext_eval', (request, response, next) => {
 
     /*Insert statement to run on database. test date added as current date from server*/
 
-    let insert_statement = 'INSERT INTO ext_eval_responses(' + response_props.toString() + ') values (' + uresponses_quoted + ')'
+    let insert_statement = 'INSERT INTO ext_eval_responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
     console.log(insert_statement);
 
     // promise
@@ -284,16 +285,16 @@ router.post('/submit_ext_eval', (request, response, next) => {
 
 
 /*Endpoint to check if a user is eligible to write a particular test*/
-router.get('/user_testcheck', (request, response, next) => {
+router.get('/user_testcheck', (request, response) => {
     /*parse the query params into an object*/
-    const queryObject = url.parse(req.url, true).query;
+    let queryObject = url.parse(request.url, true).query;
 
     /*create a list containing the object props of interest*/
     /*these vars will be used as params in the query to the db*/
-    const query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
+    let query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
 
     /*declare a query variable containing a parametized call to the user_testcheck function*/
-    const testcheck_query = {
+    let testcheck_query = {
         /*Query to call function for test check*/
         name: 'check-user-test',
         text: 'SELECT * FROM user_testcheck($1,$2,$3,$4)'
