@@ -1,14 +1,14 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .controller('MainCtrl', function($scope, $timeout, $http, $uibModal, $location, $log, $document, md5) {
+    .controller('MainCtrl', ($scope, $timeout, $http, $uibModal, $location, $log, $document, md5) => {
 
         /*Alias for controller*/
-        var $ctrl = this;
+        const $ctrl = this;
 
         $ctrl.animationsEnabled = true;
 
         /*Initalize function when page is loaded*/
-        $scope.init = function() {
+        $scope.init = () => {
             /*Empty object for form*/
             /*Gives more flexibility and control over the form from the controller*/
             $scope.form = {};
@@ -32,23 +32,23 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             $scope.learner_sexes = [{ label: 'Male', value: 'M' }, { label: 'Female', value: 'F' }]
 
             /*Send get request to endpoint to return all user objects*/
-            $http.get("/api/get_users").then(function(response) {
+            $http.get("/api/get_users").then((response) => {
                 $scope.users = response.data;
                 /*Loop through objects in list and add to usernames list*/
-                for (var i = 0, item; item = $scope.users[i]; i++) {
-                    $scope.usernames.push(item["username"].toString());
+                for (let i = 0, item; item = $scope.users[i]; i++) {
+                    $scope.usernames.push(item.username.toString());
                 }
 
             })
 
             /*get server date from enpoint*/
-            $http.get("/api/get_server_date").then(function(response) {
+            $http.get("/api/get_server_date").then((response) => {
                 /*set to scope variable serverDate*/
                 $scope.serverDate = response.data;
             })
 
             /*get server date from enpoint*/
-            $http.get("/api/get_responses").then(function(response) {
+            $http.get("/api/get_responses").then((response) => {
                 /*get list of concatenated props for all existing test responses*/
                 $scope.existingResponses = get_responses_concat_list(response.data)
             })
@@ -64,11 +64,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         }
 
         /*Function to open password modal*/
-        $ctrl.openPasswordModal = function(parentSelector) {
-            var parentElem = parentSelector ?
+        $ctrl.openPasswordModal = (parentSelector) => {
+            let parentElem = parentSelector ?
                 /*parent element of the modal set to body*/
                 angular.element($document[0].querySelector('body ' + parentSelector)) : undefined;
-            var modalInstance = $uibModal.open({
+            let modalInstance = $uibModal.open({
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -85,11 +85,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*Function to open confirm submission modal*/
         /*share scope with main scope*/
-        $ctrl.openConfirmSubmitModal = function(parentSelector) {
-            var parentElem = parentSelector ?
+        $ctrl.openConfirmSubmitModal = (parentSelector) => {
+            let parentElem = parentSelector ?
                 /*parent element of the modal set to body*/
                 angular.element($document[0].querySelector('body ' + parentSelector)) : undefined;
-            var modalInstance = $uibModal.open({
+            let modalInstance = $uibModal.open({
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -104,7 +104,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             /*console.log("modal loaded");*/
         };
 
-        $scope.validate_coach_id_and_password = function(coach_id, password) {
+        $scope.validate_coach_id_and_password = (coach_id, password) => {
             if (coach_id.length <= 5 && md5.createHash(password) == $scope.testSubmitPassword) {
                 $scope.wrongPassword = false;
                 $scope.wrongCoachID = false;
@@ -128,10 +128,10 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         /*function to concatenate the properities of the a single response object which we need to check for duplicates*/
         /*the default properites used are - user_id  course module test_date*/
         /*this can be overidden with an any array of properties that the testResponse object contains*/
-        function concat_props(response, response_props) {
+        const concat_props = (response, response_props) => {
             response_props = (typeof response_props !== 'undefined') ? response_props : ["user_id", "test", "course", "module", "test_date"];
-            var response_concat = ""
-            for (var i in response_props) {
+            let response_concat = ""
+            for (let i in response_props) {
                 response_concat = response_concat.concat(response[response_props[i]])
             }
 
@@ -139,14 +139,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
 
         /*turn the list of response objects into a list of strings of concatenated values*/
-        function get_responses_concat_list(responses) {
+        const get_responses_concat_list = (responses) => {
             /*initialize empty array to hold list of concatenated props for each already existing response*/
             responses_list = []
             /*TODO: Use array instead of direct string comparison in case other courses need this functionality*/
             /*For each response, get the response props*/
-            for (var i in responses) {
+            for (let i in responses) {
                 /*Get the responses concat list with only the props needed for the tests*/
-                var response_cat = concat_props(responses[i])
+                let response_cat = concat_props(responses[i])
                 /*push string of concatenated props into the array defined at the beginning of the function*/
                 responses_list.push(response_cat)
             }
@@ -154,11 +154,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             return responses_list
         };
 
-        function check_response_already_exists(testResponse) {
+        const check_response_already_exists = (testResponse) => {
             /*Same logic as get_responses_concat_list, but applied to the current test being submitted*/
             /*The concatenated props of the current test are compared to the list of concatenated props for all existing tests*/
 
-            var testResponse_concat = concat_props(testResponse)
+            let testResponse_concat = concat_props(testResponse)
 
             /*check if the response submitted exists in list of existing responses*/
             if ($scope.existingResponses.indexOf(testResponse_concat) >= 0) {
@@ -170,9 +170,9 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             }
         }
 
-        $scope.check_reponse_before_submit = function() {
+        $scope.check_reponse_before_submit = () => {
             /*Get user_id of user that filled in the test, from the users array*/
-            var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+            let currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
 
             /*add the user_id as an attribute to the testResponse object*/
             $scope.testResponse.user_id = currentUser.user_id
@@ -185,25 +185,24 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         }
 
         /*function to return the first name and last name of a user when they have entered their username on the test*/
-        $scope.display_username = function() {
+        $scope.display_username = () => {
             if ($scope.testResponse.username) {
-                var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                let currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
                 return currentUser.first_name + ' ' + currentUser.last_name
             }
         }
 
 
         /*Test submission function*/
-        $scope.submit = function() {
-            $http.post("/api/submit_test", $scope.testResponse).then(function(success) {
+        $scope.submit = () => {
+            $http.post("/api/submit_test", $scope.testResponse).then(success =>
                 /*redirect to sucessful submission page*/
-                window.location = '/api/sucessful_submit'
-            });
+                window.location = '/api/sucessful_submit')
         }
 
         /*Test submission function*/
-        $scope.overwrite_test = function() {
-            $http.post("/api/overwrite_test", $scope.testResponse).then(function(res) {
+        $scope.overwrite_test = () => {
+            $http.post("/api/overwrite_test", $scope.testResponse).then(res => {
                 /*redirect to sucessful submission page*/
                 if (res.status == 200) {
                     console.log('Recieved status of 200')
@@ -215,14 +214,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*Wait 1000 miliseconds before checking for changes to the username input*/
         /*This is to allow the DOM to load and scope to be defined*/
-        $timeout(function() {
+        $timeout(() => {
             /*Watch the username input until it is valid*/
-            $scope.$watch('form.testForm.username.$error.whitelist', function() {
+            $scope.$watch('form.testForm.username.$error.whitelist', () => {
 
                 if (!$scope.form.testForm.username.$error.whitelist) {
                     /*console.log('username:', $scope.form.testForm.username)*/
                     /*$scope.form.testForm.username.$setPristine()*/
-                    var currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
+                    let currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
                     /*var currentTest = { $scope.testResponse.test, $scope.testResponse.course, $scope.testResponse.course }*/
                     /*Get the test, course and module of the testResponse object as an object*/
                     let currentTest = (({ test, course, module }) => ({ test, course, module }))($scope.testResponse)
@@ -313,6 +312,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             templateUrl: "/pmodule/templates/validate_coach_id_and_password.html"
         };
     })
+    /*Element directive for gr7 exam number input */
+    .directive('coachsection', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/gr7_exam_number.html"
+        };
+    })
+
 
 
 
