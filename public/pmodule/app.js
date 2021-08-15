@@ -313,7 +313,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
     })
     /*Element directive for gr7 exam number input */
-    .directive('coachsection', function() {
+    .directive('gr7numberinput', function() {
         return {
             restrict: 'E',
             templateUrl: "/pmodule/templates/gr7_exam_number.html"
