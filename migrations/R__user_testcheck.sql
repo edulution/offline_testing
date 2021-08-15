@@ -107,7 +107,7 @@ BEGIN
   /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
   if (current_test.test_type = 'EPR' or current_test.module = 'literacy') and has_passed_currtest = 'f' then
     can_write_test := 't';
-    output_message := 'Check completed. The user can write this test';
+    output_message := 'Check completed. This test can be written';
   /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
   elsif (current_test.test_type = 'EPR' or current_test.module = 'literacy') and has_passed_currtest = 't' then
     can_write_test := 'f';
