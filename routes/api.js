@@ -40,12 +40,12 @@ const get_datetime_string = () => {
 
 router.get('/get_server_date', (request, response) => {
     let current_date = get_datetime_string()
-    return res.json(current_date)
+    return response.json(current_date)
 });
 
 router.get('/sucessful_submit', (request, response) => {
     path.join(__basedir, 'public')
-    res.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+    response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 });
 
 
@@ -62,7 +62,7 @@ router.get('/get_users', (request, response, next) => {
     /*Callback returns status code and result of query*/
     pool.query(users_query)
         .then(res => response.status(200).send(res.rows))
-        .catch(console.log(e.stack))
+        .catch(e => console.log(e.stack))
 
 });
 
@@ -199,7 +199,7 @@ router.post('/submit_test', [(request, response, next) => {
 /*An endpoint to delete a test based on user_id, test, course, module, and test date*/
 router.post('/overwrite_test', [(request, response, next) => {
     /*get the test response from the request body*/
-    let test_resp = req.body;
+    let test_resp = request.body;
 
     /*Get the props which we will use as our criteria for deleting the existing test*/
     /*Before inserting the one which has just been submitted*/
@@ -232,7 +232,7 @@ router.post('/overwrite_test', [(request, response, next) => {
 /*Endpoint to assign learners when they log in to Kolibri*/
 router.post("/kolibri_login", (request, response) => {
     /*Capture user details which arrive in the request body*/
-    let user_details = req.body;
+    let user_details = request.body;
 
     /*Spawn a child process*/
     /*let spawn = require("child_process").spawn;*/
