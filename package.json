@@ -28,7 +28,9 @@
   "scripts": {
     "start": "node index.js",
     "start-dev": "nodemon index.js",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "lint": "eslint",
+    "lintfix": "eslint --fix"
   },
   "repository": {
     "type": "git",
