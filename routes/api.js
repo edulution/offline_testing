@@ -45,7 +45,7 @@ router.get('/get_server_date', (request, response) => {
 
 router.get('/sucessful_submit', (request, response) => {
     path.join(__basedir, 'public');
-    response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+    response.status(200).sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 });
 
 
