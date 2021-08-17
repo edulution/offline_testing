@@ -17,7 +17,7 @@ router.use(express.static(path.resolve('public')));
 
 /* Return today as string*/
 /* Used for timestamping of responses*/
-const get_datetime_string = () => {
+const getDatetimeString = () => {
   let today = new Date();
   let dd = today.getDate();
   let mm = today.getMonth() + 1; // January is 0!
@@ -39,7 +39,7 @@ const get_datetime_string = () => {
 
 
 router.get('/get_server_date', (request, response) => {
-  const current_date = get_datetime_string();
+  const current_date = getDatetimeString();
   return response.json(current_date);
 });
 
