@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = new express.Router();
 const path = require('path');
 const url = require('url');
 
@@ -40,19 +40,21 @@ const getDatetimeString = () => {
 
 
 router.get('/get_server_date', (request, response) => {
-  const current_date = getDatetimeString();
-  return response.json(current_date);
+  const currentDate = getDatetimeString();
+  return response.json(currentDate);
 });
 
 router.get('/sucessful_submit', (request, response) => {
   path.join(__basedir, 'public');
-  response.status(200).sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+  response
+      .status(200)
+      .sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
 });
 
 
 /* endpoint to get users list as json*/
 router.get('/get_users', (request, response, next) => {
-  const users_query = {
+  const usersQuery = {
     /* TODO: Replace with knex query*/
     /* Query to fetch all users*/
     name: 'fetch-users',
@@ -60,7 +62,7 @@ router.get('/get_users', (request, response, next) => {
   };
 
   /* Callback returns status code and result of query*/
-  pool.query(users_query)
+  pool.query(usersQuery)
       .then((res) => response.status(200).send(res.rows))
       .catch((e) => console.log(e.stack));
 });
@@ -68,7 +70,7 @@ router.get('/get_users', (request, response, next) => {
 
 /* endpoint to get index_of_topics as json*/
 router.get('/index_of_topics', (request, response, next) => {
-  const topics_query = {
+  const topicsQuery = {
     /* TODO: Replace with knex query*/
     /* Query to fetch all topics*/
     name: 'fetch-topics',
@@ -76,7 +78,7 @@ router.get('/index_of_topics', (request, response, next) => {
   };
 
 
-  pool.query(topics_query)
+  pool.query(topicsQuery)
       .then((res) => response.status(200).send(res.rows))
       .catch((e) => console.log(err.stack));
 });
@@ -84,7 +86,7 @@ router.get('/index_of_topics', (request, response, next) => {
 
 /* endpoint to test count stats list as json*/
 router.get('/get_test_count', (request, response, next) => {
-  const test_counts_query = {
+  const testCountsQuery = {
     /* TODO: Create view in database*/
     /* TODO: Replace with knex query*/
     /* Query to count the number of tests and group by month end (last day(test date))*/
@@ -93,15 +95,15 @@ router.get('/get_test_count', (request, response, next) => {
   };
 
   /* Run query and send the response back if sucessful*/
-  pool.query(test_counts_query)
+  pool.query(testCountsQuery)
       .then((res) => response.status(200).send(res.rows))
   /* Log any errors to the console if not successful*/
       .catch((e) => console.log(e.stack));
 });
 
-/* endpoint to get all test_responses as json*/
+/* endpoint to get all testResponses as json*/
 router.get('/get_responses', (request, response) => {
-  const get_responses_query = {
+  const getResponsesQuery = {
     /* TODO: Create view in database*/
     /* TODO: Replace with knex query*/
     /* Query to fetch all the responses from the responses table and calculate the score percent for each one*/
@@ -110,20 +112,20 @@ router.get('/get_responses', (request, response) => {
   };
 
   /* Callback returns status code and result of query*/
-  pool.query(get_responses_query)
+  pool.query(getResponsesQuery)
       .then((res) => response.status(200).send(res.rows))
       .catch((e) => console.log(e.stack));
 });
 
 router.get('/get_test_marks', (request, response) => {
-  const test_marks_query = {
+  const testMarksQuery = {
     /* TODO: Replace with knex query*/
     name: 'fetch-test-marks',
     text: 'SELECT * from test_marks',
   };
 
   /* Callback returns status code and result of query*/
-  pool.query(test_marks_query)
+  pool.query(testMarksQuery)
       .then((res) => response.status(200).send(res.rows))
       .catch((e) => console.log(e.stack));
 });
@@ -134,41 +136,41 @@ router.post('/submit_test', [(request, response, next) => {
   const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
   /* Get the test response from the request body*/
-  const test_resp = request.body;
+  const testResp = request.body;
 
-  console.log(test_resp);
+  console.log(testResp);
   /* check if response was checkboxes
       will appear as array in response*/
 
   /* for each response recieved*/
-  for (const v in test_resp) {
+  for (const v in testResp) {
     /* if the reponse is of type object(array). Questions with a single response will be of type string*/
-    if (typeof(test_resp[v]) == 'object') {
+    if (typeof(testResp[v]) == 'object') {
       /* use reducer method to get sum of elements*/
-      total = Object.values(test_resp[v]).reduce(reducer, 0);
+      total = Object.values(testResp[v]).reduce(reducer, 0);
       /* if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
       if (total <= 0) {
-        test_resp[v] = '0';
+        testResp[v] = '0';
       } else {
         /* if the total is not 0, then only the correct responses were selected. Assign value to 1*/
-        test_resp[v] = '1';
+        testResp[v] = '1';
       }
     } else {
       /* if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
-      if (Number(test_resp[v]) < 1) {
-        test_resp[v] = '0';
+      if (Number(testResp[v]) < 1) {
+        testResp[v] = '0';
       }
     }
   }
 
   /* properties of response object - user_id,username,q1,q2..*/
-  const test_resp_props = Object.keys(test_resp);
+  const testRespProps = Object.keys(testResp);
 
-  console.log(test_resp_props);
+  console.log(testRespProps);
 
-  /* Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
-  const uresponses = test_resp_props.map((v) => {
-    return test_resp[v];
+  /* Get user responses for testRespProps above as array. Preserve quotes for insertion into database*/
+  const uresponses = testRespProps.map((v) => {
+    return testResp[v];
   });
 
   console.log(uresponses);
@@ -176,7 +178,7 @@ router.post('/submit_test', [(request, response, next) => {
   /* remove the test date from the reponse props*/
   /* let utest_date = uresponses.pop();*/
 
-  const uresponses_quoted = '\'' + uresponses.join('\',\'') + '\'';
+  const uresponsesQuoted = '\'' + uresponses.join('\',\'') + '\'';
 
   console.log(uresponses);
 
@@ -184,11 +186,11 @@ router.post('/submit_test', [(request, response, next) => {
   /* TODO: Change table structure to make response columns jsonb*/
   /* TODO: Check that jsonb can be inserted easily with knex*/
   /* TODO: Replace with knex query*/
-  const insert_statement = 'INSERT INTO responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')';
-  console.log(insert_statement);
+  const insertStatement = 'INSERT INTO responses(' + testRespProps.toString() + ') values (' + uresponsesQuoted + ')';
+  console.log(insertStatement);
 
   // execute the query and return a promise
-  pool.query(insert_statement)
+  pool.query(insertStatement)
       .then((result) => {
         console.log('Test submited sucessfully!');
       })
@@ -202,23 +204,23 @@ router.post('/submit_test', [(request, response, next) => {
 /* An endpoint to delete a test based on user_id, test, course, module, and test date*/
 router.post('/overwrite_test', [(request, response, next) => {
   /* get the test response from the request body*/
-  const test_resp = request.body;
+  const testResp = request.body;
 
   /* Get the props which we will use as our criteria for deleting the existing test*/
   /* Before inserting the one which has just been submitted*/
-  const user_id = test_resp.user_id;
-  const test_done = test_resp.test;
-  const course = test_resp.course;
-  const test_module = test_resp.module;
-  const test_date = test_resp.test_date;
+  const userID = testResp.user_id;
+  const testDone = testResp.test;
+  const course = testResp.course;
+  const testModule = testResp.module;
+  const testDate = testResp.test_date;
 
   /* TODO: Replace with knex query if possible*/
   /* Delete tests done by the same user in the same test, course, and module done on the same day*/
-  const query_other = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)';
-  const values_other = [user_id, test_done, course, test_module, test_date];
+  const queryOther = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)';
+  const valuesOther = [userID, testDone, course, testModule, testDate];
 
   // callback
-  pool.query(query_other, values_other, (err, res) => {
+  pool.query(queryOther, valuesOther, (err, res) => {
     if (err) {
       console.log(err.stack);
       response.status(400).send('Could not delete row(s)');
@@ -228,23 +230,23 @@ router.post('/overwrite_test', [(request, response, next) => {
   /* send a status of 200 and a success message back to the client*/
   next();
 }, (request, response) => {
-  const success_message = 'Sucessfully deleted row(s)';
-  response.status(200).send(success_message);
-  console.log(success_message);
+  const successMessage = 'Sucessfully deleted row(s)';
+  response.status(200).send(successMessage);
+  console.log(successMessage);
 }]);
 
 /* Endpoint to assign learners when they log in to Kolibri*/
 router.post('/kolibri_login', (request, response) => {
   /* Capture user details which arrive in the request body*/
-  const user_details = request.body;
+  const userDetails = request.body;
 
   /* Spawn a child process*/
   /* let spawn = require("child_process").spawn;*/
   /* Run the main file of the assign learners script*/
   /* Supply the username and facility of the user as sysarg values*/
   /* let process = spawn('python', ["./auto_assign_learners/main.py",
-          user_details.username,
-          user_details.facility
+          userDetails.username,
+          userDetails.facility
       ]);*/
 
   /* Log the output of the child process (print statements. errors not logged directly)*/
@@ -257,32 +259,32 @@ router.post('/kolibri_login', (request, response) => {
 });
 
 router.post('/submit_ext_eval', (request, response, next) => {
-  const test_resp = request.body;
+  const testResp = request.body;
 
   /* properties of response object - user_id,username,q1,q2..*/
-  const test_resp_props = Object.keys(test_resp);
+  const testRespProps = Object.keys(testResp);
 
-  console.log(test_resp);
+  console.log(testResp);
 
-  /* Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
-  const uresponses = test_resp_props.map((v) => {
-    return test_resp[v];
+  /* Get user responses for testRespProps above as array. Preserve quotes for insertion into database*/
+  const uresponses = testRespProps.map((v) => {
+    return testResp[v];
   });
 
   /* remove the test date from the reponse props*/
   /* let utest_date = uresponses.pop();*/
 
-  const uresponses_quoted = '\'' + uresponses.join('\',\'') + '\'';
+  const uresponsesQuoted = '\'' + uresponses.join('\',\'') + '\'';
 
   /* Insert statement to run on database. test date added as current date from server*/
   /* TODO: Change table structure to make response columns jsonb*/
   /* TODO: Check that jsonb can be inserted easily with knex*/
   /* TODO: Replace with knex query*/
-  const insert_statement = 'INSERT INTO ext_eval_responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')';
-  console.log(insert_statement);
+  const insertStatement = 'INSERT INTO ext_eval_responses(' + testRespProps.toString() + ') values (' + uresponsesQuoted + ')';
+  console.log(insertStatement);
 
   // promise
-  pool.query(insert_statement)
+  pool.query(insertStatement)
       .then((res) => {
         response.status(200).sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
         console.log('Evaluation submited sucessfully!');
@@ -298,10 +300,11 @@ router.get('/user_testcheck', (request, response) => {
 
   /* create a list containing the object props of interest*/
   /* these vars will be used as params in the query to the db*/
-  const query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
+  const queryParams = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
 
-  /* declare a query variable containing a parametized call to the user_testcheck function*/
-  const testcheck_query = {
+  /* declare a query variable
+  containing a parametized call to the user_testcheck function*/
+  const testcheckQuery = {
     /* TODO: Replace with knex query if possible*/
     /* Query to call function for test check*/
     name: 'check-user-test',
@@ -309,7 +312,7 @@ router.get('/user_testcheck', (request, response) => {
   };
 
   /* Make the query using the query text and params*/
-  pool.query(testcheck_query, query_params)
+  pool.query(testcheckQuery, queryParams)
   /* When sucessful, return a status code of 200 and the result set*/
       .then((res) => response.status(200).send(res.rows[0]))
   /* Log any errors to the console*/
