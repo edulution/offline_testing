@@ -180,7 +180,7 @@ router.post('/submit_test', [(request, response, next) => {
     // execute the query and return a promise
     pool.query(insert_statement)
         .then((result) => {
-            console.log('Promise returned: Test submited sucessfully!');
+            console.log('Test submited sucessfully!');
         })
         .catch((e) => console.error(e.stack));
     next();
