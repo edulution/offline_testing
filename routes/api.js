@@ -271,8 +271,8 @@ router.post('/submit_ext_eval', (request, response, next) => {
     // promise
     pool.query(insert_statement)
         .then((res) => {
-            response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
-            console.log('Promise returned: Evaluation   submited sucessfully!');
+            response.status(200).sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+            console.log('Evaluation submited sucessfully!');
         })
         .catch((e) => console.error(e.stack));
 });
