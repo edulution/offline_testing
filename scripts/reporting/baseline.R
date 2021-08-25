@@ -29,7 +29,7 @@ conn <- dbConnect(
 )
 
 # get test responses, join with user_id
-tresponses_query <-
+resp_query <-
   "select r.*, tm.testmaxscore from responses r 
   left join test_marks tm
   on r.test = tm.test_id
@@ -37,7 +37,7 @@ tresponses_query <-
   and r.course = tm.course"
 
 ext_eval_query <-
-  "select e.*, tm.testmaxscore from ext_eval_responses e
+  "select e.*, uuid_generate_v4() as response_id, tm.testmaxscore from ext_eval_responses e
   left join test_marks tm
   on e.test = tm.test_id
   and e.module = tm.module
@@ -47,13 +47,19 @@ ext_eval_query <-
 device_name_query <- "select * from device"
 
 # Fetch the test responses
-tresponses <- dbGetQuery(conn, tresponses_query)
+norm_responses <- dbGetQuery(conn, resp_query)
 
 # Fetch external evaluation responses
 ext_eval <- dbGetQuery(conn, ext_eval_query)
 
+# If there are no normal responses, set tresponses to ext eval responses
+if(plyr::empty(norm_responses)){
+  tresponses <<- ext_eval
+}else{
 # Bind the two together and fill any empty columns with NA
-tresponses <- tresponses %>% plyr::rbind.fill(ext_eval)
+  tresponses <<- norm_responses %>% plyr::rbind.fill(ext_eval)
+}
+
 
 # get device name
 device_name <- dbGetQuery(conn, device_name_query)
