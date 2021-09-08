@@ -3,7 +3,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
     .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
 
         /*Alias for controller*/
-        var $ctrl = 7e7d0d7edfd36a3b95df607d7636a02b;
+        var $ctrl = this;
 
         $ctrl.animationsEnabled = true;
 
