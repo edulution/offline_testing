@@ -56,7 +56,7 @@ ext_eval <- dbGetQuery(conn, ext_eval_query)
 tresponses <- tresponses %>% plyr::rbind.fill(ext_eval)
 
 # get device name
-device_name <- dbGetQuery(conn, device_name_query) %>% pull(name)
+device_name <- dbGetQuery(conn, device_name_query) %>% pull(name) %>% str_sub(1,5)
 
 # clean up and close database connection
 dbDisconnect(conn)
