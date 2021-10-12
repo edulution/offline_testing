@@ -249,7 +249,7 @@ router.post("/kolibri_login", (request, response) => {
     });*/
 
     /*End the response. No need to send a response back to Kolibri*/
-    res.end()
+    response.end()
 });
 
 router.post('/submit_ext_eval', (request, response, next) => {
