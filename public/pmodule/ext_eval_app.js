@@ -1,6 +1,15 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
+    .service('passwordService', function () {
+        var password = "d553a34c275612b6db8fa3535384ce2b";
+
+        return {
+            getPassword: function () {
+                return password;
+            }
+        };
+    })
+    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5, passwordService) {
 
         /*Alias for controller*/
         var $ctrl = this;
@@ -53,7 +62,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             })
 
             /*variables for validating coach_id*/
-            $scope.testSubmitPassword = "531d6870f7e438f7cf780112bd621dda";
+            $scope.testSubmitPassword = passwordService.getPassword();
             $scope.wrongPassword = false;
             $scope.wrongCoachID = false;
 
@@ -230,8 +239,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5) {
-        $scope.coachPassword = "531d6870f7e438f7cf780112bd621dda";
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5, passwordService) {
+        $scope.coachPassword = passwordService.getPassword();
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
