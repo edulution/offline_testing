@@ -104,15 +104,23 @@ BEGIN
      AND module = current_test.module) INTO possible_rewrite;
 
 
-  -- If the current test is a pre_test and the user has written it before
-  -- The user cannot write the test
-  if current_test.test_type = 'TST' and current_test.test_id like '%_pre' and has_written_currtest = 't' then
+  /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
+  if (current_test.test_type = 'EPR' or current_test.module = 'literacy') and has_passed_currtest = 'f' then
+    can_write_test := 't';
+    output_message := 'Check completed. This test can be written';
+  /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
+  elsif (current_test.test_type = 'EPR' or current_test.module = 'literacy') and has_passed_currtest = 't' then
     can_write_test := 'f';
-    output_message := 'A pre-test can only be written once. The recommended test is: ' || recommended_test.test_name;
+    output_message := 'This test has already been passed. Please write another test';
   /*If the user has already passed the current test, they cannot write it again*/
   elsif has_passed_currtest = 't' then
     can_write_test := 'f';
     output_message := 'This test has already been passed. The recommended test is: '|| recommended_test.test_name;
+  -- If the current test is a pre_test and the user has written it before
+  -- The user cannot write the test
+  elsif current_test.test_type = 'TST' and current_test.test_id like '%_pre' and has_written_currtest = 't' then
+    can_write_test := 'f';
+    output_message := 'A Pre-Test can only be written once. The recommended test is: ' || recommended_test.test_name;
   elsif possible_rewrite = 't' then
     can_write_test := 't';
     output_message := 'The recommended test is: '|| recommended_test.test_name || ' but this test can be rewritten';
