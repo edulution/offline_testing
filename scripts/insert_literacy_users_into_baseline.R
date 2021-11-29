@@ -23,7 +23,7 @@ conn <- dbConnect(
 
 
 # Helper function to insert the contents of the users csv file into the users table on baseline
-insert_responses <- function(input_file) {
+insert_literacy_users <- function(input_file) {
   # Read the contents of the file supplied into a data frame
   users_df <- read.csv(input_file, stringsAsFactors = FALSE)
 
@@ -51,5 +51,5 @@ insert_responses <- function(input_file) {
 # Capture arguments supplied in the command line
 input <- commandArgs(TRUE)
 
-# Call insert responses with the file path supplied in the command line
-insert_responses(input)
+# Call insert_literacy_users with the file path supplied in the command line
+insert_literacy_users(input)
