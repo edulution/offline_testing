@@ -13,6 +13,18 @@ const pool = new Pool({
     port: process.env.BASELINE_DATABASE_PORT,
 })
 
+
+const knex = require('knex')({
+    client: 'pg',
+    connection: {
+        user: process.env.BASELINE_DATABASE_USER,
+        host: process.env.BASELINE_DATABASE_HOST,
+        database: process.env.BASELINE_DATABASE_NAME,
+        password: process.env.BASELINE_DATABASE_PASSWORD,
+        port: process.env.BASELINE_DATABASE_PORT,
+    }
+});
+
 router.use(express.static(path.resolve('public')));
 
 /*Return today as string*/
@@ -53,15 +65,12 @@ router.get('/sucessful_submit', (request, response) => {
 
 /*endpoint to get users list as json*/
 router.get('/get_users', (request, response, next) => {
-    const users_query = {
-        /*Query to fetch all users*/
-        name: 'fetch-users',
-        text: 'SELECT * FROM users'
-    }
 
-    /*Callback returns status code and result of query*/
-    pool.query(users_query)
-        .then(res => response.status(200).send(res.rows))
+    knex.select()
+        /*Get all rows from the users table*/
+        .table('users')
+        /*Promise returns status code and result of query*/
+        .then(rows => response.status(200).send(rows))
         .catch(e => console.log(e.stack))
 
 });
@@ -69,16 +78,13 @@ router.get('/get_users', (request, response, next) => {
 
 /*endpoint to get index_of_topics as json*/
 router.get('/index_of_topics', (request, response, next) => {
-    const topics_query = {
-        /*Query to fetch all topics*/
-        name: 'fetch-topics',
-        text: 'SELECT * FROM index_of_topics'
-    }
-
-
-    pool.query(topics_query)
-        .then(res => response.status(200).send(res.rows))
-        .catch(e => console.log(err.stack))
+    
+    knex.select()
+        /*Get all rows from the Index of Topics view*/
+        .table('index_of_topics')
+        /*Promise returns status code and result of query*/
+        .then(rows => response.status(200).send(rows))
+        .catch(e => console.log(e.stack))
 
 
 });
@@ -116,14 +122,12 @@ router.get('/get_responses', (request, response) => {
 });
 
 router.get('/get_test_marks', (request, response) => {
-    const test_marks_query = {
-        name: 'fetch-test-marks',
-        text: 'SELECT * from test_marks'
-    }
-
-    /*Callback returns status code and result of query*/
-    pool.query(test_marks_query)
-        .then(res => response.status(200).send(res.rows))
+    
+    knex.select()
+        /*Get all rows from the test_marks table*/
+        .table('index_of_topics')
+        /*Promise returns status code and result of query*/
+        .then(rows => response.status(200).send(rows))
         .catch(e => console.log(e.stack))
 
 });
