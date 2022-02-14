@@ -1,3 +1,45 @@
+CREATE OR REPLACE FUNCTION get_tests_not_passed(
+  i_userid uuid,
+  i_module varchar
+  )
+  
+RETURNS TABLE(
+  user_id uuid,
+  test_id varchar,
+  test_name varchar,
+  course varchar,
+  module varchar,
+  testmaxscore integer,
+  test_pass_score numeric,
+  channel_id uuid,
+  test_type varchar,
+  test_seq integer
+  )
+language plpgsql
+AS $$
+BEGIN
+RETURN QUERY
+  SELECT *
+  FROM
+    (SELECT i_userid AS user_id)u
+  CROSS JOIN
+    (SELECT *
+     FROM test_marks
+     WHERE test_marks.test_seq IS NOT NULL
+       AND test_marks.module = i_module)tm
+  WHERE NOT EXISTS
+      (SELECT 1
+       FROM vresponsescore v
+       WHERE u.user_id = v.user_id
+         AND tm.test_id = v.test
+         AND tm.course = v.course
+         AND tm.module = v.module
+         AND passed = 't');
+END;$$
+
+
+
+
 /*Function that checks whether or not a user is eligible to write a given test*/
 /*Based on the following criteria:*/
 /*Learners must only be able to write a Pre Test once and once only
@@ -68,9 +110,10 @@ BEGIN
     SELECT
         *
     FROM
-        get_tests_not_written (i_userid, i_module)
+        get_tests_not_passed(i_userid, i_module)
     WHERE
         course = recommended_course.course
+        and test_id not in (select test_id from get_tests_already_written(i_userid, i_module) where test_type = 'TST')
     ORDER BY
         test_seq
     LIMIT 1 INTO recommended_test;
@@ -131,9 +174,9 @@ BEGIN
             AND has_written_currtest = 't' THEN
             can_write_test := 'f';
         output_message := 'A Pre-Test can only be written once. The recommended test is: ' || recommended_test.test_name;
-    elsif possible_rewrite = 't' THEN
-        can_write_test := 't';
-        output_message := 'The recommended test is: ' || recommended_test.test_name || ' but this test can be rewritten';
+    /*elsif possible_rewrite = 't' THEN
+        can_write_test := 'f';
+        output_message := 'The recommended test is: ' || recommended_test.test_name || ' but this test can be rewritten';*/
     elsif recommended_test.test_id = current_test.test_id
             AND recommended_test.course = current_test.course
             AND recommended_test.module = current_test.module THEN
