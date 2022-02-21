@@ -62,8 +62,7 @@ if(plyr::empty(norm_responses)){
 
 
 # get device name
-device_name <- dbGetQuery(conn, device_name_query)
-device_name <- substring(device_name$name, 1, 3)
+device_name <- dbGetQuery(conn, device_name_query) %>% pull(name) %>% str_sub(1,5)
 
 # clean up and close database connection
 dbDisconnect(conn)
