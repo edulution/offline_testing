@@ -48,7 +48,7 @@
                     </div>
                     <form name="form.testForm">
                         <p class="test_name">Mathematics Evaluation for Grade 4</p>
-                        <div ng-include="'pmodule/templates/username_input_ext_eval.html'"></div>
+                        <usernameinput></usernameinput>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Welcome to this Mathematics Evaluation.<br>Evaluation is for 48 marks.<br>You have 1 hour to complete this Evaluation.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you</div>
@@ -1166,7 +1166,7 @@
                         <input type="hidden" name="test" ng-init="testResponse.test='brom_eval_1'">
                         <input type="hidden" name="course" ng-init="testResponse.course='ext_eval'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                        <coachsection></coachsection>
                     </form>
                 </div>
             </div>

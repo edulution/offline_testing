@@ -94,8 +94,12 @@ users <- facilityusers %>% filter(!id %in% roles$user_id)
 
 # get the device name (name of the default facility id)
 default_facility_id <- default_facility_id$default_facility_id
+
 facility_name <- collections %>%
   filter(id == default_facility_id) %>%
+  # Get only the first 5 characters of the name
+  mutate(name = str_sub(name, 1,5)) %>%
+  # Select only the name column
   select(name)
 
 # join collections to memberships. (used for getting user groups)
