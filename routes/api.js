@@ -78,7 +78,7 @@ router.get('/index_of_topics', (request, response, next) => {
 
     pool.query(topics_query)
         .then(res => response.status(200).send(res.rows))
-        .catch(e => console.log(err.stack))
+        .catch(e => console.log(e.stack))
 
 
 });
