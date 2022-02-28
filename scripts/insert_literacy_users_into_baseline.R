@@ -1,5 +1,7 @@
 options(warn = -1)
 library(DBI)
+library(dplyr)
+library(stringr)
 library(RPostgreSQL)
 
 # Connect to baseline database --------------------------------------------
@@ -21,12 +23,20 @@ conn <- dbConnect(
 
 
 # Helper function to insert the contents of the users csv file into the users table on baseline
-insert_responses <- function(input_file) {
+insert_literacy_users <- function(input_file) {
   # Read the contents of the file supplied into a data frame
   users_df <- read.csv(input_file, stringsAsFactors = FALSE)
 
   # Set the group name = "Literacy"
   users_df$group_name <- rep("Literacy", nrow(users_df))
+
+  # Get existing users from the baseline db
+  existing_users <- dbGetQuery(conn, "SELECT * FROM users")
+
+  # Filter out exisiting users from the users to be inserted
+  # Remove all hyphens from existing user_ids to ensure string to string comparison
+  users_df <- users_df %>% filter(!user_id %in% str_remove_all(existing_users$user_id,"-"))
+
   dbWriteTable(
     conn,
     "users",
@@ -41,5 +51,5 @@ insert_responses <- function(input_file) {
 # Capture arguments supplied in the command line
 input <- commandArgs(TRUE)
 
-# Call insert responses with the file path supplied in the command line
-insert_responses(input)
+# Call insert_literacy_users with the file path supplied in the command line
+insert_literacy_users(input)

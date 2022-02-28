@@ -15,21 +15,21 @@
     <link href="/css/angular-ui.min.css" rel="stylesheet">
     <!--Js-->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
     <script src="/js/angular-sanitize.js"></script>
     <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="/pmodule/app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
-    <link rel="shortcut icon" href="/images/edu_favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
     <span ng-init=init()></span>
     <section>
         <div class="container">
@@ -38,10 +38,10 @@
                     <div id="edulution_logo">
                         <img src="/images/edulution_logo_white.svg" width="400px" height="300px" class="img-responsive center-block">
                     </div>
-                    <form name="testForm">
+                    <form name="form.testForm">
                         <div class="HeaderbannerLabel">GRADE 7 REVISION TOPIC</div>
                         <p class="test_name">DECIMALS</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <usernameinput></usernameinput>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>45 Minutes</b></h3>
                         <h3>Calculators are NOT allowed</h3>
@@ -562,8 +562,8 @@
                         <input type="hidden" name="test" ng-init="testResponse.test='grade7_test14'">
                         <input type="hidden" name="course" ng-init="testResponse.course='zm_gr7_revision'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        <div ng-include="'/pmodule/templates/gr7_exam_number.html'"></div>
-                        <div ng-include="'/pmodule/templates/validate_coach_id_and_password.html'"></div>
+                        <gr7numberinput></gr7numberinput>
+                        <coachsection></coachsection>
                     </form>
                 </div>
             </div>
