@@ -61,16 +61,20 @@
             <thead>
               <tr>
                   <th colspan="2">
-                    <input st-search type="search" placeholder="Username, First name, or Last name..." class="form-control">
+                    <input st-search type="search" placeholder="Search for Username, First name, or Last name..." class="form-control">
                   </th>
                   <th colspan="1">
-                    <input st-search="group_name" type="search" placeholder="Group...." class="form-control">
+                    <input st-search="class_name" type="search" placeholder="Search for Class...." class="form-control">
+                  </th>
+                  <th colspan="1">
+                    <input st-search="group_name" type="search" placeholder="Search for Group...." class="form-control">
                   </th>
               </tr>
               <tr>
                 <th st-ratio="20" st-sort="username">Username</th>
-                <th st-ratio="30" st-sort="first_name">First Name</th>
-                <th st-ratio="30" st-sort="last_name">Last Name</th>
+                <th st-ratio="20" st-sort="first_name">First Name</th>
+                <th st-ratio="20" st-sort="last_name">Last Name</th>
+                <th st-ratio="20" st-sort="class_name">Class</th>
                 <th st-ratio="20" st-sort="group_name">Group</th>
                   
               </tr>
@@ -78,8 +82,9 @@
             <tbody>
               <tr ng-repeat="row in users_placeholder">
                 <td st-ratio="20">{{row.username}}</td>
-                <td st-ratio="30">{{row.first_name}}</td>
-                <td st-ratio="30">{{row.last_name}}</td>
+                <td st-ratio="20">{{row.first_name}}</td>
+                <td st-ratio="20">{{row.last_name}}</td>
+                <td st-ratio="20">{{row.class_name}}</td>
                 <td st-ratio="20">{{row.group_name}}</td>
               </tr>
             </tbody>
