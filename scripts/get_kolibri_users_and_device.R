@@ -2,17 +2,9 @@
 options(warn = -1)
 
 # data manipulation libraries
-suppressMessages(library(tidyr))
-suppressMessages(library(plyr))
 suppressMessages(library(dplyr))
-suppressMessages(library(dbplyr))
 suppressMessages(library(dbhelpers))
-
-# load new packages for kolibri data extraction
 suppressMessages(library(stringr))
-
-
-# load postgresql library and dependency
 suppressMessages(library(DBI))
 suppressMessages(library(pool))
 suppressMessages(library(RPostgres))
@@ -40,48 +32,49 @@ kolibri_conn <- dbPool(
 
 # get facilityysers
 facilityusers <- kolibri_conn %>%
-  tbl("kolibriauth_facilityuser") %>%
-  collect()
+  dplyr::tbl("kolibriauth_facilityuser") %>%
+  dplyr::collect()
 
 # get collections
 collections <- kolibri_conn %>%
-  tbl("kolibriauth_collection") %>%
-  collect()
+  dplyr::tbl("kolibriauth_collection") %>%
+  dplyr::collect()
 
 # get memberships
 memberships <- kolibri_conn %>%
-  tbl("kolibriauth_membership") %>%
-  collect()
+  dplyr::tbl("kolibriauth_membership") %>%
+  dplyr::collect()
 
 # get roles
 roles <- kolibri_conn %>%
-  tbl("kolibriauth_role") %>%
-  collect()
+  dplyr::tbl("kolibriauth_role") %>%
+  dplyr::collect()
 
 
 # get the default facility id
 # will be used to get the device name(facility name)
 default_facility_id <- kolibri_conn %>%
-  tbl("device_devicesettings") %>%
-  pull(default_facility_id)
+  dplyr::tbl("device_devicesettings") %>%
+  dplyr::pull(default_facility_id)
+
 
 # close the connection
-poolClose(kolibri_conn)
+pool::poolClose(kolibri_conn)
 
 
 # Processing --------------------------------------------------------------
 
 # Get only the device name from the first 5 letters of the facility name
 facility_name <- collections %>%
-  filter(id == default_facility_id) %>%
+  dplyr::filter(id == default_facility_id) %>%
   # Get only the first 5 characters of the name
-  mutate(name = str_sub(name, 1, 5)) %>%
+  dplyr::mutate(name = str_sub(name, 1, 5)) %>%
   # Select only the name column
-  select(name)
+  dplyr::select(name)
 
 # join collections to memberships. (used for getting user groups)
 memberships <- memberships %>%
-  left_join(
+  dplyr::left_join(
     collections,
     by = c("collection_id" = "id")
   )
@@ -89,48 +82,48 @@ memberships <- memberships %>%
 # get dataframe containing learners and groups they belong to
 learners_and_groups <- memberships %>%
   # filter out memberships of type learnergroup
-  filter(kind == "learnergroup") %>%
-  group_by(user_id) %>%
+  dplyr::filter(kind == "learnergroup") %>%
+  dplyr::group_by(user_id) %>%
   # If a learner belongs to multiple classes, separate them with commas
-  mutate(name = paste(name, collapse = ",")) %>%
-  ungroup() %>%
+  dplyr::mutate(name = paste(name, collapse = ",")) %>%
+  dplyr::ungroup() %>%
   # Get only the first row if there are multiple rows for the same learner
-  distinct(user_id, .keep_all = TRUE) %>%
-  select("group_name" = name, user_id)
+  dplyr::distinct(user_id, .keep_all = TRUE) %>%
+  dplyr::select("group_name" = name, user_id)
 
 
 # get a data frame containing learners and the classes they belong to
 learners_and_grades <- memberships %>%
   # filter out memberships of type learnergroup
-  filter(kind == "classroom") %>%
-  group_by(user_id) %>%
+  dplyr::filter(kind == "classroom") %>%
+  dplyr::group_by(user_id) %>%
   # If a learner belongs to multiple classes, separate them with commas
-  mutate(name = paste(name, collapse = ",") %>% str_trim()) %>%
-  ungroup() %>%
-  distinct(user_id, .keep_all = T) %>%
-  select("class_name" = name, user_id)
+  dplyr::mutate(name = paste(name, collapse = ",") %>% stringr::str_trim()) %>%
+  dplyr::ungroup() %>%
+  dplyr::distinct(user_id, .keep_all = T) %>%
+  dplyr::select("class_name" = name, user_id)
 
 
 # Get final users df
 users <- facilityusers %>%
   # filter out admins and coaches to get list of users
-  filter(!id %in% roles$user_id) %>%
+  dplyr::filter(!id %in% roles$user_id) %>%
   # join the users df to the groups df by user_id
-  left_join(
+  dplyr::left_join(
     learners_and_groups,
     by = c("id" = "user_id")
   ) %>%
   # join the users df to the classrooms df by user_id
-  left_join(
+  dplyr::left_join(
     learners_and_grades,
     by = c("id" = "user_id")
   ) %>%
   # Get first name and last name using functions from dbhelpers
-  mutate(
+  dplyr::mutate(
     first_name = dbhelpers::get_first_name(full_name),
     last_name = dbhelpers::get_last_name(full_name)
   ) %>%
-  select(
+  dplyr::select(
     user_id = id,
     first_name,
     last_name,
@@ -150,7 +143,7 @@ bl_db_passwd <- Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port <- Sys.getenv("BASELINE_DATABASE_PORT")
 
 # connect to test responses database
-baseline_conn <- dbPool(
+baseline_conn <- pool::dbPool(
   pg,
   dbname = bl_db_name,
   host = bl_db_host,
@@ -160,13 +153,13 @@ baseline_conn <- dbPool(
 )
 
 # clear out the users table
-remove_users_query <- dbGetQuery(baseline_conn, "delete from users;")
+remove_users_query <- DBI::dbGetQuery(baseline_conn, "delete from users;")
 
 # clear out the device table (important if swapdb is used or device name changes)
-remove_device_name_query <- dbGetQuery(baseline_conn, "delete from device;")
+remove_device_name_query <- DBI::dbGetQuery(baseline_conn, "delete from device;")
 
 # write the users df to the users table
-dbWriteTable(
+DBI::dbWriteTable(
   baseline_conn,
   "users",
   users,
@@ -175,7 +168,7 @@ dbWriteTable(
 )
 
 # write the facility name to the device table
-dbWriteTable(
+DBI::dbWriteTable(
   baseline_conn,
   "device",
   facility_name,
@@ -184,4 +177,4 @@ dbWriteTable(
 )
 
 # Close the pool connection
-poolClose(baseline_conn)
+pool::poolClose(baseline_conn)
