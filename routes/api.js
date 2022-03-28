@@ -219,17 +219,22 @@ router.post('/overwrite_test', [(request, response, next) => {
     let test_date = test_resp.test_date
 
     /*Delete tests done by the same user in the same test, course, and module done on the same day*/
-    let query_other = 'DELETE FROM responses where user_id=($1) and test=($2) and course=($3) and module=($4) and test_date=($5)'
-    let values_other = [user_id, test_done, course, test_module, test_date]
+    knex.del()
+        .table('responses')
+        .where({
+            user_id: user_id,
+            test: test_done,
+            course: course,
+            module: test_module,
+            test_date: test_date
+        }).then((err, res) => {
+            if (err) {
+                console.log(err.stack)
+                response.status(400).send('Could not delete row(s)')
+                res.end()
+            }
+        })
 
-    // callback
-    pool.query(query_other, values_other, (err, res) => {
-        if (err) {
-            console.log(err.stack)
-            response.status(400).send('Could not delete row(s)')
-            res.end()
-        }
-    })
     /*send a status of 200 and a success message back to the client*/
     next();
 }, (request, response) => {
@@ -302,15 +307,8 @@ router.get('/user_testcheck', (request, response) => {
     /*these vars will be used as params in the query to the db*/
     let query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
 
-    /*declare a query variable containing a parametized call to the user_testcheck function*/
-    let testcheck_query = {
-        /*Query to call function for test check*/
-        name: 'check-user-test',
-        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4)'
-    }
-
-    /*Make the query using the query text and params*/
-    pool.query(testcheck_query, query_params)
+    /*Query to call function for test check*/
+    knex.raw('SELECT * FROM user_testcheck(?,?,?,?)', query_params)
         /*When sucessful, return a status code of 200 and the result set*/
         .then(res => response.status(200).send(res.rows[0]))
         /*Log any errors to the console*/
