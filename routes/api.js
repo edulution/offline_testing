@@ -105,6 +105,29 @@ router.get('/get_test_count', (request, response, next) => {
 
 });
 
+/*endpoint to get learner count by class*/
+router.get('/get_learners_count', (request, response) => {
+    /*Query to count learners by class*/
+    // const learner_count_query = {
+    //     name: 'fetch-learnercount',
+    //     text: "SELECT class_name, COUNT(class_name) AS learners_count FROM users WHERE class_name != 'null' GROUP BY class_name"
+    // }
+    // /*Callback returns status code and result of query*/
+    // pool.query(learner_count_query)
+    //     .then(res => response.status(200).send(res.rows))
+    //     .catch(e => console.log(e.stack))      
+
+    knex.select(knex.raw('class_name, count(class_name) as learners_count'))
+        .table('users')
+        .whereNot('class_name', 'null')
+        .groupBy('class_name')
+        /*Run query and send the response back if sucessful*/
+        .then(rows => response.status(200).send(rows))
+        /*Log any errors to the console if not successful*/
+        .catch(e => console.log(e.stack))
+
+});
+
 /*endpoint to get all test_responses as json*/
 router.get('/get_responses', (request, response) => {
 
