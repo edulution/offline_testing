@@ -24,13 +24,11 @@
     </thead>
     <tbody>
       <tr ng-repeat="row in users_placeholder">
-        <td st-ratio="20">{{row.username}}<span ng-if="row.class_name.includes(',')" class="bg-danger"> </span></td>
+        <td st-ratio="20">{{row.username}}</td>
         <td st-ratio="20">{{row.first_name}}</td>
         <td st-ratio="20">{{row.last_name}}</td>
-        <td st-ratio="20"><span ng-if="row.class_name===null" class="badge badge-danger">Not
-            enrolled</span>{{row.class_name}}</td>
-        <td st-ratio="20"><span ng-if="row.group_name===null" class="badge badge-danger">Not
-            grouped</span>{{row.group_name}}</td>
+        <td st-ratio="20">{{row.class_name}}</td>
+        <td st-ratio="20">{{row.group_name}}</td>
       </tr>
     </tbody>
     <tfoot>
