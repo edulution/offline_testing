@@ -76,7 +76,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*get learners count by class*/
             $http.get("/api/get_learners_count").then(function (response) {
-                //var my_data = restructure_obj(response.data);
                 $scope.learners_count = response.data;
             });
 
@@ -255,38 +254,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
 
         }
-
-        /*Function to restructure data for learners count */
-        var restructure_obj = function (array_of_objs) {
-            //variable to store restructured data
-            var my_new_data = []
-
-            //variable to store level for a particular grade
-            var my_temp_obj = {}
-
-            //get class name from first object
-            var class_name = array_of_objs[0].class_name;
-            my_new_data.push(array_of_objs[0]);
-
-            for (var i = 0; i < array_of_objs.length; i++) {
-                if (array_of_objs[i].class_name == class_name) {
-                    my_temp_obj.group_name = array_of_objs[i].group_name
-                    my_temp_obj.total_by_group = array_of_objs[i].total_by_group
-                    // my_key = arr[i].group_name;
-                    // my_value = arr[i].total_by_group;
-                    // my_temp_obj[arr[i].group_name] = arr[i].total_by_group;
-                    // my_temp_obj[arr[i].class_name] = arr[i].total_by_class;
-                    console.log(my_temp_obj)
-                    //my_new_data[i].levels = my_temp_obj;
-                } else {
-                    class_name = array_of_objs[i].class_name;
-                    my_new_data.push(array_of_objs[i]);
-                }
-            }
-            return my_new_data;
-        }
-
-
     })
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
     .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
