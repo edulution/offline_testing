@@ -37,21 +37,34 @@
         </div>
     </nav>
     <div class="container-fluid tabs">
-      <div class="clearfix"></div>
-      <ul class="nav nav-tabs">
-        <li ng-class="{ active: menu.isSelected(0) }">
-          <a href="#" ng-click="menu.selectTab(0)"><h3>Learners</h3></a>
-        </li>
-        <li ng-class="{ active: menu.isSelected(1) }">
-          <a href="#" ng-click="menu.selectTab(1)"><h3>Test Results</h3></a>
-        </li>
-        <li ng-class="{ active: menu.isSelected(4) }">
-          <a href="#" ng-click="menu.selectTab(4)"><h3>Results Breakdown</h3></a>
-        </li>               
-        <li ng-class="{ active: menu.isSelected(3) }">
-          <a href="#" ng-click="menu.selectTab(3)"><h3>Tests Count</h3></a>
-        </li>               
-      </ul>
+        <div class="clearfix"></div>
+        <ul class="nav nav-tabs">
+            <li ng-class="{ active: menu.isSelected(0) }">
+                <a href="#" ng-click="menu.selectTab(0)">
+                    <h3>Learners</h3>
+                </a>
+            </li>
+            <li ng-class="{ active: menu.isSelected(1) }">
+                <a href="#" ng-click="menu.selectTab(1)">
+                    <h3>Test Results</h3>
+                </a>
+            </li>
+            <li ng-class="{ active: menu.isSelected(4) }">
+                <a href="#" ng-click="menu.selectTab(4)">
+                    <h3>Results Breakdown</h3>
+                </a>
+            </li>
+            <li ng-class="{ active: menu.isSelected(3) }">
+                <a href="#" ng-click="menu.selectTab(3)">
+                    <h3>Tests Count</h3>
+                </a>
+            </li>
+            <li ng-class="{ active: menu.isSelected(5) }">
+                <a href="#" ng-click="menu.selectTab(5)">
+                    <h3>Learners Count</h3>
+                </a>
+            </li>
+        </ul>
     </div>
     </script>
     <!-- learners table template -->
@@ -96,7 +109,7 @@
                 </tr>
             </tfoot>
             </table>
-        </div> <!-- table row -->
+        </div> 
     </script>
     <!-- responses template -->
     <script type="text/ng-template" id="responses.html">
@@ -154,7 +167,7 @@
                 </tfoot>
             </table>
             
-        </div>
+        </div><!-- table row -->
     </script>
     <!-- Test responses with questions -->
     <script type="text/ng-template" id="responses_q.html">
@@ -416,6 +429,64 @@
             
         </div> <!-- table row -->
     </script>
+    <!--Leaners count template-->
+    <script type="text/ng-template" id="learners_count.html">
+        <div class="container" id="table-container"> 
+        <div class="table-responsive row">
+            <div id="total-learners"><span>Total Learners: {{ totalLearners() }}</span></div>
+            <table st-table="learners_count_placeholder" st-safe-src="learners_count" class="table detail" id="detail_table" >
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th st-ratio="20" st-sort="class_name">Class</th>
+                        <th st-ratio="20" st-sort="learners_count">Total</th>
+                    </tr>
+                </thead>
+
+                <tbody ng-repeat="data in learners_count_placeholder"> 
+                    <tr  id="collapse">
+                        <accordion-heading class="accordion">
+                            <td id="classes-container">
+                                <button type="button" ng-click="expanded = !expanded" class="btn btn-default" ng-hide="data.class=='Unenrolled'">
+                                    <span ng-bind="expanded ? '-' : '+'"></span>
+                                </button>
+                            </td>
+                            <td st-ratio="20" >
+                                <div class="class-info">
+                                    <span>{{ data.class }}</span>
+                                </div>
+                            </td>
+                            <td st-ratio="20"><div class="class-info"><span>{{ data.class_total }}</span></div></td>
+                        </accordion-heading> 
+                    </tr>
+                    <tr ng-show="expanded">
+                        <td></td>
+                        <td colspan="5">
+                            <table class="table table-responsive">
+                                <tr>
+                                    <th st-ratio="20" class="group_info">Group</th>
+                                    <th st-ratio="20">Total</th>
+                                </tr>
+                                <tr ng-repeat="level in data.levels">
+                                    <td st-ratio="20">{{ level.group_name }}</td>
+                                    <td st-ratio="20">{{ level.total_learners }}</td> 
+                                </tr>
+                            </table>
+                        </td>
+                        
+                    </tr>                      
+                </tbody>  
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                        </td>
+                    </tr>
+                </tfoot>        
+            </table>
+        </div>
+     </div>
+    </script>
     <!-- open password modal when page is loaded(prod only) -->
     <span ng-init=init()></span>
     <navigation></navigation>
@@ -426,6 +497,7 @@
         <!-- hide results by question tab for now -->
         <!-- <questresponses ng-show="menu.isSelected(2)"></questresponses> -->
         <testscount ng-show="menu.isSelected(3)"></testscount>
+        <learnerscount ng-show="menu.isSelected(5)"></learnerscount>
     </div>
 </body>
 
