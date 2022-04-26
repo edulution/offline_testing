@@ -100,6 +100,44 @@ router.get('/get_test_count', (request, response, next) => {
 
 });
 
+/*endpoint to get learner count by class*/
+router.get('/get_learners_count', async (request, response) => {
+    /*Query to fetch all grades and total learners in the grade*/
+    const classes = {
+        name: 'fetch-classes',
+        text: "select case when class_name is null then 'Unenrolled' else class_name end as class_name, class_total from (select class_name, count(*) class_total from users group by class_name) classes;"
+    }
+
+    /*return result query */
+    var result = await pool.query(classes);
+
+    /*store grades object in a variable*/
+    var learner_classes = result.rows;
+
+    /*array to store learner by count objects*/
+    var leaerner_count_data = []
+
+    /*get number of learners for each group in a given class */
+    for (var i = 0; i < learner_classes.length; i++) {
+
+        /**empty object to store details of groups for particular grade*/
+        var learner_count_obj = {}
+
+        /**return result query containing the number of learners for each group in a given class */
+        var levels_result = await pool.query('SELECT * FROM get_learner_count($1)', [learner_classes[i].class_name]);
+
+        /**store details of a group in an object*/
+        learner_count_obj.class_total = learner_classes[i].class_total;
+        learner_count_obj.class = learner_classes[i].class_name;
+        learner_count_obj.levels = levels_result.rows;
+
+        /**append the object to leaerner_count_data array */
+        leaerner_count_data.push(learner_count_obj);
+    }
+    response.status(200).send(leaerner_count_data)
+
+});
+
 /*endpoint to get all test_responses as json*/
 router.get('/get_responses', (request, response) => {
     const get_responses_query = {
@@ -144,7 +182,7 @@ router.post('/submit_test', [(request, response, next) => {
     /*for each response recieved*/
     for (let v in test_resp) {
         /*if the reponse is of type object(array). Questions with a single response will be of type string*/
-        if (typeof(test_resp[v]) == "object") {
+        if (typeof (test_resp[v]) == "object") {
             /*use reducer method to get sum of elements*/
             total = Object.values(test_resp[v]).reduce(reducer, 0)
             /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
