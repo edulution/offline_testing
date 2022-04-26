@@ -1,0 +1,10 @@
+<table class="table">
+    <tr>
+        <th>Month</th>
+        <th>Number of Tests</th>
+    </tr>
+    <tr ng-repeat="stat in tests_count">
+        <td>{{ stat.test_month | date:'MMMM yyyy'}}</td>
+        <td>{{ stat.number_of_tests }}</td>
+    </tr>
+</table>

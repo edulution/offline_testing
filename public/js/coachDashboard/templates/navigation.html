@@ -1,0 +1,46 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar_background">
+    <div class="container">
+        <div class="navbar-header logos">
+            <a class="navbar-brand logo" href="/">
+                <img class="img-responsive" src="images/edulution_logo_white.svg">
+            </a>
+        </div>
+        <p class="title_header">Coach Dashboard</p>
+        <div class="index_button">
+            <button class="btn btn-button index_btn" ng-click="menu.refresh()">
+                <h4>Refresh</h4>
+            </button>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid tabs">
+    <div class="clearfix"></div>
+    <ul class="nav nav-tabs">
+        <li ng-class="{ active: menu.isSelected(0) }">
+            <a href="#" ng-click="menu.selectTab(0)">
+                <h3>Learners</h3>
+            </a>
+        </li>
+        <li ng-class="{ active: menu.isSelected(1) }">
+            <a href="#" ng-click="menu.selectTab(1)">
+                <h3>Test Results</h3>
+            </a>
+        </li>
+        <li ng-class="{ active: menu.isSelected(4) }">
+            <a href="#" ng-click="menu.selectTab(4)">
+                <h3>Results Breakdown</h3>
+            </a>
+        </li>
+        <li ng-class="{ active: menu.isSelected(3) }">
+            <a href="#" ng-click="menu.selectTab(3)">
+                <h3>Tests Count</h3>
+            </a>
+        </li>
+        <li ng-class="{ active: menu.isSelected(5) }">
+            <a href="#" ng-click="menu.selectTab(5)">
+                <h3>Learners Count</h3>
+            </a>
+        </li>
+    </ul>
+</div>

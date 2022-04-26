@@ -293,7 +293,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('navigation', function () {
         return {
             restrict: 'E',
-            templateUrl: 'navigation.html',
+            templateUrl: '/js/coachDashboard/templates/navigation.html',
             controller: function ($window) {
                 this.tab = 0; /* initially set tab to 1*/
                 this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
@@ -317,7 +317,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('learners', function () {
         return {
             restrict: 'E',
-            templateUrl: "learners.html",
+            templateUrl: "/js/coachDashboard/templates/learners.html",
             link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('learners');
@@ -328,7 +328,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('responses', function () {
         return {
             restrict: 'E',
-            templateUrl: 'responses.html',
+            templateUrl: '/js/coachDashboard/templates/responses.html',
             link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('responses');
@@ -339,7 +339,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('questresponses', function () {
         return {
             restrict: 'E',
-            templateUrl: 'responses_q.html',
+            templateUrl: '/js/coachDashboard/templates/responses_q.html',
             link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('questresponses');
@@ -350,7 +350,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('testscount', function () {
         return {
             restrict: 'E',
-            templateUrl: 'testscount.html',
+            templateUrl: '/js/coachDashboard/templates/testcount.html',
             link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('testscount');
@@ -361,7 +361,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('responsesections', function () {
         return {
             restrict: 'E',
-            templateUrl: 'responses_sections.html',
+            templateUrl: '/js/coachDashboard/templates/responses_sections.html',
             link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('responsesections');
@@ -373,7 +373,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .directive('learnerscount', function () {
         return {
             restrict: 'E',
-            templateUrl: 'learners_count.html',
+            templateUrl: '/js/coachDashboard/templates/learner_count.html',
             link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('learnerscount');
