@@ -1,8 +1,8 @@
 angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'smart-table', 'angular.filter'])
-    .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
+    .controller('MainCtrl', function ($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
 
-        $scope.init = function() {
+        $scope.init = function () {
 
             /*placeholder value used in smart-table because users are loaded asynchorously*/
             $scope.users_placeholder = [];
@@ -10,27 +10,43 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because results are loaded asynchorously*/
             $scope.results_placeholder = [];
 
+            /*placeholder value used in smart-table because learners_count are loaded asynchorously*/
+            $scope.learners_count_placeholder = []
+
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
             /*empty object to initalize tests_marks*/
             $scope.tests_marks = {};
 
+            /*function to return the total number of learners */
+            $scope.totalLearners = function () {
+                /*initialize total to 0 */
+                var total = 0;
+
+                /*for every user in users increament total*/
+                for (var count = 0; count < $scope.users.length; count++) {
+                    total += 1;
+                }
+                return total;
+            };
+
+
             /*enable angular animations*/
             $ctrl.animationsEnabled = true;
 
-            $http.get("/api/get_users").then(function(response) {
+            $http.get("/api/get_users").then(function (response) {
                 $scope.users = response.data;
                 /*console.log($scope.users);*/
             });
 
-            $http.get("/api/get_test_marks").then(function(response) {
+            $http.get("/api/get_test_marks").then(function (response) {
                 $scope.tests_marks = response.data;
                 /*console.log($scope.tests_marks);*/
 
                 /*Get raw test responses*/
                 /*run inside the get test marks call because test marks must always be fetched before responses*/
-                $http.get("/api/get_responses").then(function(response) {
+                $http.get("/api/get_responses").then(function (response) {
                     /*Do some operations on the responses*/
                     for (var i = response.data.length - 1; i >= 0; i--) {
                         /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
@@ -54,8 +70,13 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
 
             /*Get the tests count by month*/
-            $http.get("/api/get_test_count").then(function(response) {
+            $http.get("/api/get_test_count").then(function (response) {
                 $scope.tests_count = response.data;
+            });
+
+            /*get learners count by class*/
+            $http.get("/api/get_learners_count").then(function (response) {
+                $scope.learners_count = response.data;
             });
 
 
@@ -63,7 +84,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         }
 
         /*Function to open a password modal*/
-        $ctrl.openModal = function(parentSelector) {
+        $ctrl.openModal = function (parentSelector) {
             var parentElem = parentSelector ?
                 angular.element($document[0].querySelector('body' + parentSelector)) : undefined;
             var modalInstance = $uibModal.open({
@@ -83,7 +104,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
 
         /*Calculate the score percent for a test*/
-        var calculate_score = function(testMarks, testResponse) {
+        var calculate_score = function (testMarks, testResponse) {
             /*get the maxscore from config*/
             var maxScore = get_test_max_score(testMarks, testResponse)
 
@@ -101,8 +122,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Test Results into blocks of fifths*/
         /*Split an array into chunks of specific length*/
-        var chunkArrayInGroups = function(arr, chunk_length) {
-            return arr.reduce(function(r, v, i) {
+        var chunkArrayInGroups = function (arr, chunk_length) {
+            return arr.reduce(function (r, v, i) {
                 if (i % chunk_length == 0) r.push(arr.slice(i, i + chunk_length));
                 return r;
             }, []);
@@ -113,9 +134,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
         /*get sum of members of array*/
         /*total of members of dataArray*/
-        var get_sum_of_array = function(dataArray) {
+        var get_sum_of_array = function (dataArray) {
             /*if the input is a dataArray(an object), then get the total of its memebers*/
-            if (typeof(dataArray) == "object") {
+            if (typeof (dataArray) == "object") {
                 total = dataArray.reduce(reducer, 0)
                 return total
             }
@@ -127,7 +148,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
 
         /*Get the max score of a test by finding it in the testMarks config array based on test,course, and module*/
-        var get_test_max_score = function(testMarks, testResponse) {
+        var get_test_max_score = function (testMarks, testResponse) {
             let testDetails = testMarks.find(testMark => { return testMark.test_id == testResponse.test && testMark.course == testResponse.course && testMark.module == testResponse.module })
             /*if the testDetails are found get the maxscore*/
             if (testDetails) {
@@ -141,7 +162,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         }
 
         /*Get the test name of a user's test from config*/
-        var get_test_name = function(testMarks, testResponse) {
+        var get_test_name = function (testMarks, testResponse) {
             let testDetails = testMarks.find(testMark => { return testMark.test_id == testResponse.test && testMark.course == testResponse.course && testMark.module == testResponse.module })
             /*if the testDetails are found get the maxscore*/
             if (testDetails) {
@@ -156,11 +177,11 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
 
         /*Get all answers for each question i.e q1 to q... as key,value pairs*/
-        var get_all_qs = function(testResponse) {
-            let all_qs = Object.keys(testResponse).filter(function(k) {
+        var get_all_qs = function (testResponse) {
+            let all_qs = Object.keys(testResponse).filter(function (k) {
                 /*get index of all object properties that begin with 'q'*/
                 return k.indexOf('q') == 0;
-            }).reduce(function(newObj, k) {
+            }).reduce(function (newObj, k) {
                 newObj[k] = testResponse[k];
                 /*place all these properites and their values into a new object*/
                 return newObj;
@@ -172,7 +193,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
 
         /*Create obeject properties for fifths of each response*/
-        var get_block_values = function(testResponse, testMaxScore, chunksArray) {
+        var get_block_values = function (testResponse, testMaxScore, chunksArray) {
             let one_fifth = testMaxScore / 5
             /*assumptions*/
             /*each question has a maxscore of 1*/
@@ -202,7 +223,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*Main function which puts everything together*/
         /*Modifies testresponse object and adds properties block_1 to block_5*/
-        var generate_blocks = function(testMarks, testResponse) {
+        var generate_blocks = function (testMarks, testResponse) {
             /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
             let cuttoffPoint = get_test_max_score(testMarks, testResponse)
 
@@ -233,11 +254,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
 
         }
-
-
     })
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
-    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
         /*The password a coach is expected to enter*/
         $scope.coachPassword = "Ctrib3";
 
@@ -249,12 +268,12 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         let $ctrl = this;
 
         /*Function to dismiss the modal. Only invoked when the coach enters the correct password*/
-        $ctrl.cancel = function() {
+        $ctrl.cancel = function () {
             $uibModalInstance.dismiss();
         };
 
         /*Check if the password entered is equal to the password expected from the coach*/
-        $ctrl.checkPassword = function(password) {
+        $ctrl.checkPassword = function (password) {
             /*If the password is correct*/
             if (password == $scope.coachPassword) {
                 /*The wrongPassword variable remains false*/
@@ -271,23 +290,23 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         };
     })
     /*element directive for navigation bar*/
-    .directive('navigation', function() {
+    .directive('navigation', function () {
         return {
             restrict: 'E',
-            templateUrl: 'navigation.html',
-            controller: function($window) {
+            templateUrl: '/js/coachDashboard/templates/navigation.html',
+            controller: function ($window) {
                 this.tab = 0; /* initially set tab to 1*/
-                this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
+                this.selectTab = function (setTab) { /* Set tab to whatever tab user clicks*/
                     this.tab = setTab;
                     /*console.log(this.tab);*/
                 };
-                this.isSelected = function(checkTab) { /* Check which tab is selected to trigger show of selected tab */
+                this.isSelected = function (checkTab) { /* Check which tab is selected to trigger show of selected tab */
                     return this.tab === checkTab;
 
                 };
 
                 /*function to refresh page when button clicked*/
-                this.refresh = function() {
+                this.refresh = function () {
                     $window.location.reload();
                 }
             },
@@ -295,57 +314,69 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         };
     })
     /*element directive for learners tab*/
-    .directive('learners', function() {
+    .directive('learners', function () {
         return {
             restrict: 'E',
-            templateUrl: 'learners.html',
-            link: function(scope, element, attributes) {
+            templateUrl: "/js/coachDashboard/templates/learners.html",
+            link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('learners');
             }
         };
     })
     /*element directive for responses tab*/
-    .directive('responses', function() {
+    .directive('responses', function () {
         return {
             restrict: 'E',
-            templateUrl: 'responses.html',
-            link: function(scope, element, attributes) {
+            templateUrl: '/js/coachDashboard/templates/responses.html',
+            link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('responses');
             }
         };
     })
     /*element directive for responses by question tab(development only)*/
-    .directive('questresponses', function() {
+    .directive('questresponses', function () {
         return {
             restrict: 'E',
-            templateUrl: 'responses_q.html',
-            link: function(scope, element, attributes) {
+            templateUrl: '/js/coachDashboard/templates/responses_q.html',
+            link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('questresponses');
             }
         };
     })
     /*element directive for tests count tab*/
-    .directive('testscount', function() {
+    .directive('testscount', function () {
         return {
             restrict: 'E',
-            templateUrl: 'testscount.html',
-            link: function(scope, element, attributes) {
+            templateUrl: '/js/coachDashboard/templates/testcount.html',
+            link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('testscount');
             }
         };
     })
     /*element directive for results by section tab*/
-    .directive('responsesections', function() {
+    .directive('responsesections', function () {
         return {
             restrict: 'E',
-            templateUrl: 'responses_sections.html',
-            link: function(scope, element, attributes) {
+            templateUrl: '/js/coachDashboard/templates/responses_sections.html',
+            link: function (scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('responsesections');
+            }
+        };
+    })
+
+    /*element directive for learners count by class tab*/
+    .directive('learnerscount', function () {
+        return {
+            restrict: 'E',
+            templateUrl: '/js/coachDashboard/templates/learner_count.html',
+            link: function (scope, element, attributes) {
+                /*class for all elements in directive. used for scoped styling*/
+                element.addClass('learnerscount');
             }
         };
     });
