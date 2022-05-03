@@ -1,14 +1,16 @@
-CREATE OR REPLACE FUNCTION get_recommended_test(i_user_id uuid, i_module varchar)
-     RETURNS varchar 
-     LANGUAGE plpgsql
-     AS 
-$$
+-- Function to get the recommended test
+-- Based on the same logic as user_testcheck
+CREATE OR REPLACE FUNCTION get_recommended_test (i_user_id uuid, i_module varchar)
+    RETURNS varchar
+    LANGUAGE plpgsql
+    AS $$
 DECLARE
-recommended_test varchar;
-recommended_course RECORD;
-highest_test_passed RECORD;
-BEGIN 
- SELECT
+    recommended_test varchar;
+    recommended_course RECORD;
+    highest_test_passed RECORD;
+BEGIN
+    -- Get the highest test passed and store it in highest_test_passed variable
+    SELECT
         *
     FROM
         get_highest_passed_test (i_user_id, i_module) INTO highest_test_passed;
@@ -36,10 +38,16 @@ BEGIN
     SELECT
         test_name
     FROM
-        get_tests_not_passed(i_user_id, i_module)
+        get_tests_not_passed (i_user_id, i_module)
     WHERE
         course = recommended_course.course
-        and test_id not in (select test_id from get_tests_already_written(i_user_id, i_module) where test_type = 'TST')
+        AND test_id NOT IN (
+            SELECT
+                test_id
+            FROM
+                get_tests_already_written (i_user_id, i_module)
+            WHERE
+                test_type = 'TST')
     ORDER BY
         test_seq
     LIMIT 1 INTO recommended_test;
@@ -56,9 +64,18 @@ BEGIN
             test_seq DESC
         LIMIT 1 INTO recommended_test;
     END IF;
-	RETURN recommended_test; 
+    RETURN recommended_test;
 END;
 $$;
 
+-- Drop the vrecommended test if it exists
+DROP VIEW IF EXISTS vrecommended_test;
 
+-- Create the vrecommended test view
+CREATE OR REPLACE VIEW vrecommended_test AS
+SELECT
+    user_id,
+    get_recommended_test (user_id, 'numeracy') AS recommended_test
+FROM
+    users;
 
