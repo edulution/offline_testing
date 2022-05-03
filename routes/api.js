@@ -56,7 +56,7 @@ router.get('/get_users', (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'SELECT * FROM users'
+        text: 'select * from users u full outer join vrecommended_test r on u.user_id = r.user_id;'
     }
 
     /*Callback returns status code and result of query*/
