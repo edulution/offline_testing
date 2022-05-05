@@ -166,6 +166,16 @@ router.get('/get_test_marks', (request, response) => {
 
 });
 
+router.get('/results_breakdown', (request, response) => {
+    const results_query = {
+        nam: 'fetch-results-breakdown',
+        text: "select rl.response_id, rl.user_id, tq.topic_id,max(tt.topic_name) as topic_name,avg(rl.answer::int) as answer from responseslong rl left join test_questions tq on tq.course = rl.course and tq.module = rl.module and tq.test = rl.test and tq.question_index::text = rl.question_number::text left join test_topics tt on tq.topic_id= tt.topic_id where tq.topic_id is not null group by rl.response_id, rl.user_id, tq.topic_id;"
+    }
+
+    pool.query(results_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(e => console.log(e.stack))
+});
 
 router.post('/submit_test', [(request, response, next) => {
 
@@ -329,13 +339,13 @@ router.get('/user_testcheck', (request, response) => {
 
     /*create a list containing the object props of interest*/
     /*these vars will be used as params in the query to the db*/
-    let query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
+    let query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module, queryObject.test_date];
 
     /*declare a query variable containing a parametized call to the user_testcheck function*/
     let testcheck_query = {
         /*Query to call function for test check*/
         name: 'check-user-test',
-        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4)'
+        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4,$5)'
     }
 
     /*Make the query using the query text and params*/
