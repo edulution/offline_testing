@@ -34,7 +34,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             /*learner grades*/
             /*grade 0 = unknown grade*/
-            $scope.learner_grades = ['3', '4', '5', '6', '7'];
+            $scope.learner_grades = ['4', '5', '6'];
 
             /*learner sexes used on selection*/
             $scope.learner_sexes = [{ label: 'Male', value: 'M' }, { label: 'Female', value: 'F' }]
