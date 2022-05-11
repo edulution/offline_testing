@@ -56,7 +56,7 @@ router.get('/get_users', (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'select * from users u full outer join vrecommended_test r on u.user_id = r.user_id;'
+        text: 'select * from users u left join vrecommended_test r on u.user_id = r.user_id;'
     }
 
     /*Callback returns status code and result of query*/
@@ -182,7 +182,7 @@ router.post('/submit_test', [(request, response, next) => {
     /*for each response recieved*/
     for (let v in test_resp) {
         /*if the reponse is of type object(array). Questions with a single response will be of type string*/
-        if (typeof (test_resp[v]) == "object") {
+        if (typeof(test_resp[v]) == "object") {
             /*use reducer method to get sum of elements*/
             total = Object.values(test_resp[v]).reduce(reducer, 0)
             /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
