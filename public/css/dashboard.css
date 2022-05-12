@@ -260,6 +260,10 @@ tfoot {
   width: 40%;
 }
 
+#response-module {
+  width: 15%;
+}
+
 #classes-container {
   width: 60px;
 }

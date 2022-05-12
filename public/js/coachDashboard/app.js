@@ -13,6 +13,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because learners_count are loaded asynchorously*/
             $scope.learners_count_placeholder = []
 
+            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
+            $scope.results_breakdown_placeholder = []
+
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
@@ -31,6 +34,24 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 return total;
             };
 
+            /**function to find score */
+            $scope.percentage_score = function (arr) {
+                var total = 0;
+
+                /*how many avgs */
+                var count = 0;
+                for (var i = 0; i < arr.length; i++) {
+                    total += parseFloat(arr[i].answer)
+                    count++;
+                }
+                var percerntage = total / count * 100;
+                return percerntage.toFixed(1);
+            }
+
+            $scope.calc_section_pct = function (num) {
+                var section_pct = parseFloat(num);
+                return section_pct.toFixed(1);
+            }
 
             /*enable angular animations*/
             $ctrl.animationsEnabled = true;
@@ -77,6 +98,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*get learners count by class*/
             $http.get("/api/get_learners_count").then(function (response) {
                 $scope.learners_count = response.data;
+            });
+
+            $http.get("/api/results_breakdown").then(function (response) {
+                $scope.results_breakdown = response.data;
             });
 
 

@@ -166,15 +166,54 @@ router.get('/get_test_marks', (request, response) => {
 
 });
 
-router.get('/results_breakdown', (request, response) => {
+router.get('/results_breakdown', async (request, response) => {
     const results_query = {
         nam: 'fetch-results-breakdown',
-        text: "select rl.response_id, rl.user_id, tq.topic_id,max(tt.topic_name) as topic_name,avg(rl.answer::int) as answer from responseslong rl left join test_questions tq on tq.course = rl.course and tq.module = rl.module and tq.test = rl.test and tq.question_index::text = rl.question_number::text left join test_topics tt on tq.topic_id= tt.topic_id where tq.topic_id is not null group by rl.response_id, rl.user_id, tq.topic_id;"
+        text: "select * from vtestscorebytopic;"
     }
+    const res = await pool.query(results_query);
+    const res_rows = res.rows;
 
-    pool.query(results_query)
-        .then(res => response.status(200).send(res.rows))
-        .catch(e => console.log(e.stack))
+    var result = res_rows.reduce((acc, curr) => {
+        let item = acc.find(
+            (item) =>
+                item.response_id === curr.response_id && item.user_id === curr.user_id && item.username === curr.username && item.test_name === curr.test_name && item.test_date === curr.test_date && item.module === curr.module && item.course == curr.course
+        );
+
+        if (item) {
+            item.topic_details.push({
+                topic_id: curr.topic_id,
+                topic_name: curr.topic_name,
+                answer: curr.answer,
+                channel_name: curr.channel_name,
+                channel_id: curr.channel_id
+            });
+        } else {
+            acc.push({
+                response_id: curr.response_id,
+                user_id: curr.user_id,
+                username: curr.username,
+                test_name: curr.test_name,
+                test_date: curr.test_date,
+                module: curr.module,
+                course: curr.course,
+                topic_details: [
+                    {
+                        topic_id: curr.topic_id,
+                        topic_name: curr.topic_name,
+                        answer: curr.answer,
+                        channel_name: curr.channel_name,
+                        channel_id: curr.channel_id
+                    },
+                ],
+            });
+        }
+
+        return acc;
+    }, []);
+
+    response.status(200).send(result)
+
 });
 
 router.post('/submit_test', [(request, response, next) => {

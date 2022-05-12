@@ -50,7 +50,7 @@ BEGIN
     SELECT
         *
     FROM
-        has_written_test_on_same_day (i_userid, i_test, i_course, i_module, i_date) INTO has_written_test_on_same_day;
+        has_written_test (i_userid, i_test, i_course, i_module, i_date) INTO has_written_test_on_same_day;
 
     /*If the user has never passed any test, recommend the course with the lowest sort order in the module*/
     IF highest_test_passed IS NULL THEN
