@@ -70,6 +70,27 @@ body {
 
 }
 
+/*exclamation icon in the learners tab*/
+.fa-exclamation-circle {
+  color: red;
+  margin: 10px;
+}
+
+
+.fa-exclamation-circle:hover:after {
+  background: #333;
+  background: rgba(0, 0, 0, .8);
+  border-radius: 5px;
+  color: #fff;
+  content: "This learner is enrolled in more than one class";
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  width: 220px;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
 
 .index_button {
   padding-bottom: 10%;

@@ -48,6 +48,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 return percerntage.toFixed(1);
             }
 
+            /**function to display scores in each topic */
             $scope.calc_section_pct = function (num) {
                 var section_pct = parseFloat(num);
                 return section_pct.toFixed(1);

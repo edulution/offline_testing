@@ -56,7 +56,7 @@ router.get('/get_users', (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'select * from users u full outer join vrecommended_test r on u.user_id = r.user_id;'
+        text: 'select * from users u left join vrecommended_test r on u.user_id = r.user_id left join user_membership_count mc on u.user_id = mc.user_id;'
     }
 
     /*Callback returns status code and result of query*/
@@ -174,6 +174,7 @@ router.get('/results_breakdown', async (request, response) => {
     const res = await pool.query(results_query);
     const res_rows = res.rows;
 
+    /**Restructure the results breakdown data */
     var result = res_rows.reduce((acc, curr) => {
         let item = acc.find(
             (item) =>
