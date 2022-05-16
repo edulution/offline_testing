@@ -1,6 +1,15 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .controller('MainCtrl', ($scope, $timeout, $http, $uibModal, $location, $log, $document, md5) => {
+    .service('passwordService', function() {
+        var password = "fc49a594c8d54de357ad7b5f2addab9f";
+
+        return {
+            getPassword: function() {
+                return password;
+            }
+        };
+    })
+    .controller('MainCtrl', ($scope, $timeout, $http, $uibModal, $location, $log, $document, md5, passwordService) => {
 
         /*Alias for controller*/
         const $ctrl = this;
@@ -25,6 +34,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             $scope.existingResponses = [];
 
             /*learner grades*/
+
             /*grade 0 = unknown grade*/
             $scope.learner_grades = ['3', '4', '5', '6', '7'];
 
@@ -54,9 +64,10 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             })
 
             /*variables for validating coach_id*/
-            $scope.testSubmitPassword = "fc49a594c8d54de357ad7b5f2addab9f";
+            $scope.testSubmitPassword = passwordService.getPassword();
             $scope.wrongPassword = false;
             $scope.wrongCoachID = false;
+
 
 
             /*Open password modal when page loads*/
