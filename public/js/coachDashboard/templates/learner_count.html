@@ -1,8 +1,7 @@
 <div class="container" id="table-container">
     <div class="table-responsive row">
-        <div id="total-learners"><span>Total Learners: {{ totalLearners() }}</span></div>
-        <table st-table="learners_count_placeholder" st-safe-src="learners_count" class="table detail"
-            id="detail_table">
+        <div id="total-learners"><span>Total Learners: {{ totalLearners }}</span></div>
+        <table st-table="learners_count_placeholder" st-safe-src="learners_count" class="table detail" id="detail_table">
             <thead>
                 <tr>
                     <th></th>
@@ -10,13 +9,11 @@
                     <th st-ratio="20" st-sort="learners_count">Total</th>
                 </tr>
             </thead>
-
             <tbody ng-repeat="data in learners_count_placeholder">
                 <tr id="collapse">
                     <accordion-heading class="accordion">
                         <td id="classes-container">
-                            <button type="button" ng-click="expanded = !expanded" class="btn btn-default"
-                                ng-hide="data.class=='Unenrolled'">
+                            <button type="button" ng-click="expanded = !expanded" class="btn btn-default" ng-hide="data.class=='Unenrolled'">
                                 <span ng-bind="expanded ? '-' : '+'"></span>
                             </button>
                         </td>
@@ -44,7 +41,6 @@
                             </tr>
                         </table>
                     </td>
-
                 </tr>
             </tbody>
             <tfoot>

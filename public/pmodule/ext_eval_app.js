@@ -1,10 +1,10 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .service('passwordService', function () {
-        var password = "820b2cd4ff8e0826c9b391f94b6762cb";
+    .service('passwordService', function() {
+        var password = "fc12c35c537e273a2c4ee79c0881fe53";
 
         return {
-            getPassword: function () {
+            getPassword: function() {
                 return password;
             }
         };
@@ -34,7 +34,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             /*learner grades*/
             /*grade 0 = unknown grade*/
-            $scope.learner_grades = ['3', '4', '5', '6', '7'];
+            $scope.learner_grades = ['4', '5', '6'];
 
             /*learner sexes used on selection*/
             $scope.learner_sexes = [{ label: 'Male', value: 'M' }, { label: 'Female', value: 'F' }]
@@ -261,6 +261,29 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
 
         /*end ModalInstanceCtrl*/
+    })
+    /*Element directive for username input partial
+    Better than using ng-include because problems with relative paths are avoided
+    And can take advantage of other features of directives like isolated scope if needed*/
+    .directive('usernameinput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/ext_eval_username_input.html"
+        };
+    })
+    /*Element directive for coach section*/
+    .directive('coachsection', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/validate_coach_id_and_password.html"
+        };
+    })
+    /*Element directive for gr7 exam number input */
+    .directive('gr7numberinput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/gr7_exam_number.html"
+        };
     })
 
     /*directive to invalidate the form based on student_id inputted*/
