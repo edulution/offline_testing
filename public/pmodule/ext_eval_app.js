@@ -1,7 +1,7 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
     .service('passwordService', function() {
-        var password = "6f48e6d91cfd6d7c7b3bf4b3d0de5bb9";
+        var password = "6644c52029270e52afcd429ab292d355";
 
         return {
             getPassword: function() {
@@ -34,7 +34,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             /*learner grades*/
             /*grade 0 = unknown grade*/
-            $scope.learner_grades = ['4', '5', '6'];
+            $scope.learner_grades = ['4', '5', '6', '7'];
 
             /*learner sexes used on selection*/
             $scope.learner_sexes = [{ label: 'Male', value: 'M' }, { label: 'Female', value: 'F' }]
