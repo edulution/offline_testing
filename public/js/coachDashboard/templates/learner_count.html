@@ -1,0 +1,55 @@
+<div class="container" id="table-container">
+    <div class="table-responsive row">
+        <div id="total-learners"><span>Total Learners: {{ totalLearners }}</span></div>
+        <table st-table="learners_count_placeholder" st-safe-src="learners_count" class="table detail" id="detail_table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th st-ratio="20" st-sort="class_name">Class</th>
+                    <th st-ratio="20" st-sort="learners_count">Total</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="data in learners_count_placeholder">
+                <tr id="collapse">
+                    <accordion-heading class="accordion">
+                        <td id="classes-container">
+                            <button type="button" ng-click="expanded = !expanded" class="btn btn-default" ng-hide="data.class=='Unenrolled'">
+                                <span ng-bind="expanded ? '-' : '+'"></span>
+                            </button>
+                        </td>
+                        <td st-ratio="20">
+                            <div class="class-info">
+                                <span>{{ data.class }}</span>
+                            </div>
+                        </td>
+                        <td st-ratio="20">
+                            <div class="class-info"><span>{{ data.class_total }}</span></div>
+                        </td>
+                    </accordion-heading>
+                </tr>
+                <tr ng-show="expanded">
+                    <td></td>
+                    <td colspan="5">
+                        <table class="table table-responsive">
+                            <tr>
+                                <th st-ratio="20" class="group_info">Group</th>
+                                <th st-ratio="20">Total</th>
+                            </tr>
+                            <tr ng-repeat="level in data.levels">
+                                <td st-ratio="20">{{ level.group_name }}</td>
+                                <td st-ratio="20">{{ level.total_learners }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

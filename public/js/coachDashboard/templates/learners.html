@@ -1,0 +1,44 @@
+<div class="table-responsive row">
+  <table st-table="users_placeholder" st-safe-src="users" class="table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <input st-search type="search" placeholder="Search for Username, First name, or Last name..."
+            class="form-control">
+        </th>
+        <th colspan="1">
+          <input st-search="class_name" type="search" placeholder="Search for Class...." class="form-control">
+        </th>
+        <th colspan="1">
+          <input st-search="group_name" type="search" placeholder="Search for Group...." class="form-control">
+        </th>
+      </tr>
+      <tr>
+        <th st-ratio="20" st-sort="username">Username</th>
+        <th st-ratio="20" st-sort="first_name">First Name</th>
+        <th st-ratio="20" st-sort="last_name">Last Name</th>
+        <th st-ratio="20" st-sort="class_name">Class</th>
+        <th st-ratio="20" st-sort="group_name">Group</th>
+        <!-- <th st-ratio="20" st-sort="group_name">Recommended Test</th> -->
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in users_placeholder">
+        <td st-ratio="20">{{row.username}}</td>
+        <td st-ratio="20">{{row.first_name}}</td>
+        <td st-ratio="20">{{row.last_name}}</td>
+        <td st-ratio="20">{{row.class_name}}</td>
+        <td st-ratio="20">{{row.group_name}}</td>
+        <!-- <td st-ratio="20">{{row.recommended_test}}</td> -->
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" class="text-center">
+          <div st-pagination="" st-items-by-page="itemsByPage"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div><!-- table row -->

@@ -32,8 +32,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="/pmodule/templates/pmodal_content.html"></div>
     <span ng-init=init()></span>
     <section>
         <div class="container">
@@ -42,10 +40,10 @@
                     <div id="edulution_logo">
                         <img src="/images/edulution_logo_white.svg" width="400px" height="300px" class="img-responsive center-block">
                     </div>
-                    <form name="testForm">
+                    <form name="form.testForm">
                         <div class="HeaderbannerLabel">GRADE 7 Mock 3</div>
                         <p class="test_name">Mock 3</p>
-                        <div ng-include="'/pmodule/templates/username_input.html'"></div>
+                        <usernameinput></usernameinput>
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <h3>Time allowed: <b>1 Hour 30 Minutes</b></h3>
                         <h3>Calculators are NOT allowed</h3>

@@ -1,0 +1,298 @@
+<div class="table-responsive row">
+    <table class="table table-bordered">
+        <tr>
+            <th>Username</th>
+            <th>Test</th>
+            <th>Module</th>
+            <th>Coach ID</th>
+            <th>Test Date</th>
+            <th>q1</th>
+            <th>q2</th>
+            <th>q3</th>
+            <th>q4</th>
+            <th>q5</th>
+            <th>q6</th>
+            <th>q7</th>
+            <th>q8</th>
+            <th>q9</th>
+            <th>q10</th>
+            <th>q11</th>
+            <th>q12</th>
+            <th>q13</th>
+            <th>q14</th>
+            <th>q15</th>
+            <th>q16</th>
+            <th>q17</th>
+            <th>q18</th>
+            <th>q19</th>
+            <th>q20</th>
+            <th>q21</th>
+            <th>q22</th>
+            <th>q23</th>
+            <th>q24</th>
+            <th>q25</th>
+            <th>q26</th>
+            <th>q27</th>
+            <th>q28</th>
+            <th>q29</th>
+            <th>q30</th>
+            <th>q31</th>
+            <th>q32</th>
+            <th>q33</th>
+            <th>q34</th>
+            <th>q35</th>
+            <th>q36</th>
+            <th>q37</th>
+            <th>q38</th>
+            <th>q39</th>
+            <th>q40</th>
+            <th>q41</th>
+            <th>q42</th>
+            <th>q43</th>
+            <th>q44</th>
+            <th>q45</th>
+            <th>q46</th>
+            <th>q47</th>
+            <th>q48</th>
+            <th>q49</th>
+            <th>q50</th>
+            <th>q51</th>
+            <th>q52</th>
+            <th>q53</th>
+            <th>q54</th>
+            <th>q55</th>
+            <th>q56</th>
+            <th>q57</th>
+            <th>q58</th>
+            <th>q59</th>
+            <th>q60</th>
+            <th>q61</th>
+            <th>q62</th>
+            <th>q63</th>
+            <th>q64</th>
+            <th>q65</th>
+            <th>q66</th>
+            <th>q67</th>
+            <th>q68</th>
+            <th>q69</th>
+            <th>q70</th>
+        </tr>
+        <tr ng-repeat="result in results">
+            <td>{{result.username}}</td>
+            <td>{{result.test}}</td>
+            <td>{{result.module}}</td>
+            <td>{{result.coach_id}}</td>
+            <td>{{result.test_date}}</td>
+            <td
+                ng-style="result.q1 == null && {'background-color': '#D9D9D9'} || result.q1 == 0 && {'background-color': '#FF412A'} || result.q1 == 1 && {'background-color': '#00B050'}">
+                {{result.q1}}</td>
+            <td
+                ng-style="result.q2 == null && {'background-color': '#D9D9D9'} || result.q2 == 0 && {'background-color': '#FF412A'} || result.q2 == 1 && {'background-color': '#00B050'}">
+                {{result.q2}}</td>
+            <td
+                ng-style="result.q3 == null && {'background-color': '#D9D9D9'} || result.q3 == 0 && {'background-color': '#FF412A'} || result.q3 == 1 && {'background-color': '#00B050'}">
+                {{result.q3}}</td>
+            <td
+                ng-style="result.q4 == null && {'background-color': '#D9D9D9'} || result.q4 == 0 && {'background-color': '#FF412A'} || result.q4 == 1 && {'background-color': '#00B050'}">
+                {{result.q4}}</td>
+            <td
+                ng-style="result.q5 == null && {'background-color': '#D9D9D9'} || result.q5 == 0 && {'background-color': '#FF412A'} || result.q5 == 1 && {'background-color': '#00B050'}">
+                {{result.q5}}</td>
+            <td
+                ng-style="result.q6 == null && {'background-color': '#D9D9D9'} || result.q6 == 0 && {'background-color': '#FF412A'} || result.q6 == 1 && {'background-color': '#00B050'}">
+                {{result.q6}}</td>
+            <td
+                ng-style="result.q7 == null && {'background-color': '#D9D9D9'} || result.q7 == 0 && {'background-color': '#FF412A'} || result.q7 == 1 && {'background-color': '#00B050'}">
+                {{result.q7}}</td>
+            <td
+                ng-style="result.q8 == null && {'background-color': '#D9D9D9'} || result.q8 == 0 && {'background-color': '#FF412A'} || result.q8 == 1 && {'background-color': '#00B050'}">
+                {{result.q8}}</td>
+            <td
+                ng-style="result.q9 == null && {'background-color': '#D9D9D9'} || result.q9 == 0 && {'background-color': '#FF412A'} || result.q9 == 1 && {'background-color': '#00B050'}">
+                {{result.q9}}</td>
+            <td
+                ng-style="result.q10 == null && {'background-color': '#D9D9D9'} || result.q10 == 0 && {'background-color': '#FF412A'} || result.q10 == 1 && {'background-color': '#00B050'}">
+                {{result.q10}}</td>
+            <td
+                ng-style="result.q11 == null && {'background-color': '#D9D9D9'} || result.q11 == 0 && {'background-color': '#FF412A'} || result.q11 == 1 && {'background-color': '#00B050'}">
+                {{result.q11}}</td>
+            <td
+                ng-style="result.q12 == null && {'background-color': '#D9D9D9'} || result.q12 == 0 && {'background-color': '#FF412A'} || result.q12 == 1 && {'background-color': '#00B050'}">
+                {{result.q12}}</td>
+            <td
+                ng-style="result.q13 == null && {'background-color': '#D9D9D9'} || result.q13 == 0 && {'background-color': '#FF412A'} || result.q13 == 1 && {'background-color': '#00B050'}">
+                {{result.q13}}</td>
+            <td
+                ng-style="result.q14 == null && {'background-color': '#D9D9D9'} || result.q14 == 0 && {'background-color': '#FF412A'} || result.q14 == 1 && {'background-color': '#00B050'}">
+                {{result.q14}}</td>
+            <td
+                ng-style="result.q15 == null && {'background-color': '#D9D9D9'} || result.q15 == 0 && {'background-color': '#FF412A'} || result.q15 == 1 && {'background-color': '#00B050'}">
+                {{result.q15}}</td>
+            <td
+                ng-style="result.q16 == null && {'background-color': '#D9D9D9'} || result.q16 == 0 && {'background-color': '#FF412A'} || result.q16 == 1 && {'background-color': '#00B050'}">
+                {{result.q16}}</td>
+            <td
+                ng-style="result.q17 == null && {'background-color': '#D9D9D9'} || result.q17 == 0 && {'background-color': '#FF412A'} || result.q17 == 1 && {'background-color': '#00B050'}">
+                {{result.q17}}</td>
+            <td
+                ng-style="result.q18 == null && {'background-color': '#D9D9D9'} || result.q18 == 0 && {'background-color': '#FF412A'} || result.q18 == 1 && {'background-color': '#00B050'}">
+                {{result.q18}}</td>
+            <td
+                ng-style="result.q19 == null && {'background-color': '#D9D9D9'} || result.q19 == 0 && {'background-color': '#FF412A'} || result.q19 == 1 && {'background-color': '#00B050'}">
+                {{result.q19}}</td>
+            <td
+                ng-style="result.q20 == null && {'background-color': '#D9D9D9'} || result.q20 == 0 && {'background-color': '#FF412A'} || result.q20 == 1 && {'background-color': '#00B050'}">
+                {{result.q20}}</td>
+            <td
+                ng-style="result.q21 == null && {'background-color': '#D9D9D9'} || result.q21 == 0 && {'background-color': '#FF412A'} || result.q21 == 1 && {'background-color': '#00B050'}">
+                {{result.q21}}</td>
+            <td
+                ng-style="result.q22 == null && {'background-color': '#D9D9D9'} || result.q22 == 0 && {'background-color': '#FF412A'} || result.q22 == 1 && {'background-color': '#00B050'}">
+                {{result.q22}}</td>
+            <td
+                ng-style="result.q23 == null && {'background-color': '#D9D9D9'} || result.q23 == 0 && {'background-color': '#FF412A'} || result.q23 == 1 && {'background-color': '#00B050'}">
+                {{result.q23}}</td>
+            <td
+                ng-style="result.q24 == null && {'background-color': '#D9D9D9'} || result.q24 == 0 && {'background-color': '#FF412A'} || result.q24 == 1 && {'background-color': '#00B050'}">
+                {{result.q24}}</td>
+            <td
+                ng-style="result.q25 == null && {'background-color': '#D9D9D9'} || result.q25 == 0 && {'background-color': '#FF412A'} || result.q25 == 1 && {'background-color': '#00B050'}">
+                {{result.q25}}</td>
+            <td
+                ng-style="result.q26 == null && {'background-color': '#D9D9D9'} || result.q26 == 0 && {'background-color': '#FF412A'} || result.q26 == 1 && {'background-color': '#00B050'}">
+                {{result.q26}}</td>
+            <td
+                ng-style="result.q27 == null && {'background-color': '#D9D9D9'} || result.q27 == 0 && {'background-color': '#FF412A'} || result.q27 == 1 && {'background-color': '#00B050'}">
+                {{result.q27}}</td>
+            <td
+                ng-style="result.q28 == null && {'background-color': '#D9D9D9'} || result.q28 == 0 && {'background-color': '#FF412A'} || result.q28 == 1 && {'background-color': '#00B050'}">
+                {{result.q28}}</td>
+            <td
+                ng-style="result.q29 == null && {'background-color': '#D9D9D9'} || result.q29 == 0 && {'background-color': '#FF412A'} || result.q29 == 1 && {'background-color': '#00B050'}">
+                {{result.q29}}</td>
+            <td
+                ng-style="result.q30 == null && {'background-color': '#D9D9D9'} || result.q30 == 0 && {'background-color': '#FF412A'} || result.q30 == 1 && {'background-color': '#00B050'}">
+                {{result.q30}}</td>
+            <td
+                ng-style="result.q31 == null && {'background-color': '#D9D9D9'} || result.q31 == 0 && {'background-color': '#FF412A'} || result.q31 == 1 && {'background-color': '#00B050'}">
+                {{result.q31}}</td>
+            <td
+                ng-style="result.q32 == null && {'background-color': '#D9D9D9'} || result.q32 == 0 && {'background-color': '#FF412A'} || result.q32 == 1 && {'background-color': '#00B050'}">
+                {{result.q32}}</td>
+            <td
+                ng-style="result.q33 == null && {'background-color': '#D9D9D9'} || result.q33 == 0 && {'background-color': '#FF412A'} || result.q33 == 1 && {'background-color': '#00B050'}">
+                {{result.q33}}</td>
+            <td
+                ng-style="result.q34 == null && {'background-color': '#D9D9D9'} || result.q34 == 0 && {'background-color': '#FF412A'} || result.q34 == 1 && {'background-color': '#00B050'}">
+                {{result.q34}}</td>
+            <td
+                ng-style="result.q35 == null && {'background-color': '#D9D9D9'} || result.q35 == 0 && {'background-color': '#FF412A'} || result.q35 == 1 && {'background-color': '#00B050'}">
+                {{result.q35}}</td>
+            <td
+                ng-style="result.q36 == null && {'background-color': '#D9D9D9'} || result.q36 == 0 && {'background-color': '#FF412A'} || result.q36 == 1 && {'background-color': '#00B050'}">
+                {{result.q36}}</td>
+            <td
+                ng-style="result.q37 == null && {'background-color': '#D9D9D9'} || result.q37 == 0 && {'background-color': '#FF412A'} || result.q37 == 1 && {'background-color': '#00B050'}">
+                {{result.q37}}</td>
+            <td
+                ng-style="result.q38 == null && {'background-color': '#D9D9D9'} || result.q38 == 0 && {'background-color': '#FF412A'} || result.q38 == 1 && {'background-color': '#00B050'}">
+                {{result.q38}}</td>
+            <td
+                ng-style="result.q39 == null && {'background-color': '#D9D9D9'} || result.q39 == 0 && {'background-color': '#FF412A'} || result.q39 == 1 && {'background-color': '#00B050'}">
+                {{result.q39}}</td>
+            <td
+                ng-style="result.q40 == null && {'background-color': '#D9D9D9'} || result.q40 == 0 && {'background-color': '#FF412A'} || result.q40 == 1 && {'background-color': '#00B050'}">
+                {{result.q40}}</td>
+            <td
+                ng-style="result.q41 == null && {'background-color': '#D9D9D9'} || result.q41 == 0 && {'background-color': '#FF412A'} || result.q41 == 1 && {'background-color': '#00B050'}">
+                {{result.q41}}</td>
+            <td
+                ng-style="result.q42 == null && {'background-color': '#D9D9D9'} || result.q42 == 0 && {'background-color': '#FF412A'} || result.q42 == 1 && {'background-color': '#00B050'}">
+                {{result.q42}}</td>
+            <td
+                ng-style="result.q43 == null && {'background-color': '#D9D9D9'} || result.q43 == 0 && {'background-color': '#FF412A'} || result.q43 == 1 && {'background-color': '#00B050'}">
+                {{result.q43}}</td>
+            <td
+                ng-style="result.q44 == null && {'background-color': '#D9D9D9'} || result.q44 == 0 && {'background-color': '#FF412A'} || result.q44 == 1 && {'background-color': '#00B050'}">
+                {{result.q44}}</td>
+            <td
+                ng-style="result.q45 == null && {'background-color': '#D9D9D9'} || result.q45 == 0 && {'background-color': '#FF412A'} || result.q45 == 1 && {'background-color': '#00B050'}">
+                {{result.q45}}</td>
+            <td
+                ng-style="result.q46 == null && {'background-color': '#D9D9D9'} || result.q46 == 0 && {'background-color': '#FF412A'} || result.q46 == 1 && {'background-color': '#00B050'}">
+                {{result.q46}}</td>
+            <td
+                ng-style="result.q47 == null && {'background-color': '#D9D9D9'} || result.q47 == 0 && {'background-color': '#FF412A'} || result.q47 == 1 && {'background-color': '#00B050'}">
+                {{result.q47}}</td>
+            <td
+                ng-style="result.q48 == null && {'background-color': '#D9D9D9'} || result.q48 == 0 && {'background-color': '#FF412A'} || result.q48 == 1 && {'background-color': '#00B050'}">
+                {{result.q48}}</td>
+            <td
+                ng-style="result.q49 == null && {'background-color': '#D9D9D9'} || result.q49 == 0 && {'background-color': '#FF412A'} || result.q49 == 1 && {'background-color': '#00B050'}">
+                {{result.q49}}</td>
+            <td
+                ng-style="result.q50 == null && {'background-color': '#D9D9D9'} || result.q50 == 0 && {'background-color': '#FF412A'} || result.q50 == 1 && {'background-color': '#00B050'}">
+                {{result.q50}}</td>
+            <td
+                ng-style="result.q51 == null && {'background-color': '#D9D9D9'} || result.q51 == 0 && {'background-color': '#FF412A'} || result.q51 == 1 && {'background-color': '#00B050'}">
+                {{result.q51}}</td>
+            <td
+                ng-style="result.q52 == null && {'background-color': '#D9D9D9'} || result.q52 == 0 && {'background-color': '#FF412A'} || result.q52 == 1 && {'background-color': '#00B050'}">
+                {{result.q52}}</td>
+            <td
+                ng-style="result.q53 == null && {'background-color': '#D9D9D9'} || result.q53 == 0 && {'background-color': '#FF412A'} || result.q53 == 1 && {'background-color': '#00B050'}">
+                {{result.q53}}</td>
+            <td
+                ng-style="result.q54 == null && {'background-color': '#D9D9D9'} || result.q54 == 0 && {'background-color': '#FF412A'} || result.q54 == 1 && {'background-color': '#00B050'}">
+                {{result.q54}}</td>
+            <td
+                ng-style="result.q55 == null && {'background-color': '#D9D9D9'} || result.q55 == 0 && {'background-color': '#FF412A'} || result.q55 == 1 && {'background-color': '#00B050'}">
+                {{result.q55}}</td>
+            <td
+                ng-style="result.q56 == null && {'background-color': '#D9D9D9'} || result.q56 == 0 && {'background-color': '#FF412A'} || result.q56 == 1 && {'background-color': '#00B050'}">
+                {{result.q56}}</td>
+            <td
+                ng-style="result.q57 == null && {'background-color': '#D9D9D9'} || result.q57 == 0 && {'background-color': '#FF412A'} || result.q57 == 1 && {'background-color': '#00B050'}">
+                {{result.q57}}</td>
+            <td
+                ng-style="result.q58 == null && {'background-color': '#D9D9D9'} || result.q58 == 0 && {'background-color': '#FF412A'} || result.q58 == 1 && {'background-color': '#00B050'}">
+                {{result.q58}}</td>
+            <td
+                ng-style="result.q59 == null && {'background-color': '#D9D9D9'} || result.q59 == 0 && {'background-color': '#FF412A'} || result.q59 == 1 && {'background-color': '#00B050'}">
+                {{result.q59}}</td>
+            <td
+                ng-style="result.q60 == null && {'background-color': '#D9D9D9'} || result.q60 == 0 && {'background-color': '#FF412A'} || result.q60 == 1 && {'background-color': '#00B050'}">
+                {{result.q60}}</td>
+            <td
+                ng-style="result.q61 == null && {'background-color': '#D9D9D9'} || result.q61 == 0 && {'background-color': '#FF412A'} || result.q61 == 1 && {'background-color': '#00B050'}">
+                {{result.q61}}</td>
+            <td
+                ng-style="result.q62 == null && {'background-color': '#D9D9D9'} || result.q62 == 0 && {'background-color': '#FF412A'} || result.q62 == 1 && {'background-color': '#00B050'}">
+                {{result.q62}}</td>
+            <td
+                ng-style="result.q63 == null && {'background-color': '#D9D9D9'} || result.q63 == 0 && {'background-color': '#FF412A'} || result.q63 == 1 && {'background-color': '#00B050'}">
+                {{result.q63}}</td>
+            <td
+                ng-style="result.q64 == null && {'background-color': '#D9D9D9'} || result.q64 == 0 && {'background-color': '#FF412A'} || result.q64 == 1 && {'background-color': '#00B050'}">
+                {{result.q64}}</td>
+            <td
+                ng-style="result.q65 == null && {'background-color': '#D9D9D9'} || result.q65 == 0 && {'background-color': '#FF412A'} || result.q65 == 1 && {'background-color': '#00B050'}">
+                {{result.q65}}</td>
+            <td
+                ng-style="result.q66 == null && {'background-color': '#D9D9D9'} || result.q66 == 0 && {'background-color': '#FF412A'} || result.q66 == 1 && {'background-color': '#00B050'}">
+                {{result.q66}}</td>
+            <td
+                ng-style="result.q67 == null && {'background-color': '#D9D9D9'} || result.q67 == 0 && {'background-color': '#FF412A'} || result.q67 == 1 && {'background-color': '#00B050'}">
+                {{result.q67}}</td>
+            <td
+                ng-style="result.q68 == null && {'background-color': '#D9D9D9'} || result.q68 == 0 && {'background-color': '#FF412A'} || result.q68 == 1 && {'background-color': '#00B050'}">
+                {{result.q68}}</td>
+            <td
+                ng-style="result.q69 == null && {'background-color': '#D9D9D9'} || result.q69 == 0 && {'background-color': '#FF412A'} || result.q69 == 1 && {'background-color': '#00B050'}">
+                {{result.q69}}</td>
+            <td
+                ng-style="result.q70 == null && {'background-color': '#D9D9D9'} || result.q70 == 0 && {'background-color': '#FF412A'} || result.q70 == 1 && {'background-color': '#00B050'}">
+                {{result.q70}}</td>
+        </tr>
+    </table>
+</div> <!-- table row -->

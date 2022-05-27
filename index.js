@@ -28,7 +28,7 @@ app.use('/', portal)
 app.use('/api', api)
 app.use('/playlists', playlists)
 app.use('/numeracy', numeracy)
-app.use('/literacy', literacy)
+/*app.use('/literacy', literacy)*/
 app.use('/grade7', grade7)
 
 /*Results dashboard page*/

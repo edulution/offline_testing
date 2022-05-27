@@ -4,8 +4,6 @@
 # shellcheck source=/dev/null
 source ~/.baseline_testing/scripts/check_db_exists.sh
 
-scripts_dir=~/.baseline_testing/sql/
-
 # use db_exists helper function to check if the baseline database exists
 if db_exists "$BASELINE_DATABASE_NAME" ; then
 	# Let the user know that the database already exists and skip

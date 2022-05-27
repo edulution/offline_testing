@@ -1,57 +1,19 @@
 # suppress warning messages
 options(warn = -1)
 
-# suppress messages when loading packages
-suppressMessages(library(timeDate))
-
 # data manipulation libraries
-suppressMessages(library(tidyr))
-suppressMessages(library(plyr))
 suppressMessages(library(dplyr))
-
-# load new packages for kolibri data extraction
-suppressMessages(library(tools))
-suppressMessages(library(gsubfn))
+suppressMessages(library(dbhelpers))
 suppressMessages(library(stringr))
-
-
-# load postgresql library and dependency
 suppressMessages(library(DBI))
-suppressMessages(library(RPostgreSQL))
+suppressMessages(library(pool))
+suppressMessages(library(RPostgres))
 
 
-
-# helper functions
-# ==================
-# helper function to get last name
-get_last_name <- function(full_name) {
-  # if the full name is blank or there is only one name
-  if (nchar(full_name) == 0 || length(strsplit(full_name, " ")[[1]]) == 1) {
-    last_name <- ""
-  }
-
-  else {
-    last_name <- paste(strsplit(full_name, " ")[[1]][-1], collapse = " ")
-  }
-  return(last_name)
-}
-
-# helper function to get first name
-get_first_name <- function(full_name) {
-  if (nchar(full_name) == 0 || length(strsplit(full_name, " ")[[1]]) == 1) {
-    first_name <- ""
-  }
-  else {
-    first_name <- paste(strsplit(full_name, " ")[[1]][1], collapse = " ")
-  }
-  return(toString(first_name))
-}
-
-
-# Kolibri database ---------------------------------------------
+# Extraction from Kolibri database ---------------------------------------------
 
 # connect to Kolibri database
-pg <- dbDriver("PostgreSQL")
+pg <- RPostgres::Postgres()
 # get database credentials from environment variables
 db_name <- Sys.getenv("KOLIBRI_DATABASE_NAME")
 db_host <- Sys.getenv("KOLIBRI_DATABASE_HOST")
@@ -59,8 +21,7 @@ db_user <- Sys.getenv("KOLIBRI_DATABASE_USER")
 db_passwd <- Sys.getenv("KOLIBRI_DATABASE_PASSWORD")
 db_port <- Sys.getenv("KOLIBRI_DATABASE_PORT")
 
-
-kolibri_conn <- dbConnect(
+kolibri_conn <- dbPool(
   pg,
   dbname = db_name,
   host = db_host,
@@ -69,80 +30,110 @@ kolibri_conn <- dbConnect(
   password = db_passwd
 )
 
-# facilityysers
-facilityusers <- dbGetQuery(kolibri_conn, "SELECT * FROM kolibriauth_facilityuser")
+# get facilityysers
+facilityusers <- kolibri_conn %>%
+  dplyr::tbl("kolibriauth_facilityuser") %>%
+  dplyr::collect()
 
-# collections
-collections <- dbGetQuery(kolibri_conn, "SELECT * FROM kolibriauth_collection")
+# get collections
+collections <- kolibri_conn %>%
+  dplyr::tbl("kolibriauth_collection") %>%
+  dplyr::collect()
 
-# memberships
-memberships <- dbGetQuery(kolibri_conn, "SELECT * FROM kolibriauth_membership")
+# get memberships
+memberships <- kolibri_conn %>%
+  dplyr::tbl("kolibriauth_membership") %>%
+  dplyr::collect()
 
-# roles
-roles <- dbGetQuery(kolibri_conn, "SELECT * FROM kolibriauth_role")
+# get roles
+roles <- kolibri_conn %>%
+  dplyr::tbl("kolibriauth_role") %>%
+  dplyr::collect()
 
 
-# get the default facility id and from it get the device name(facility name)
-default_facility_id <- dbGetQuery(kolibri_conn, "SELECT default_facility_id FROM device_devicesettings")
+# get the default facility id
+# will be used to get the device name(facility name)
+default_facility_id <- kolibri_conn %>%
+  dplyr::tbl("device_devicesettings") %>%
+  dplyr::pull(default_facility_id)
+
 
 # close the connection
-dbDisconnect(kolibri_conn)
+pool::poolClose(kolibri_conn)
 
 
-# filter out admins and coaches to get list of users
-users <- facilityusers %>% filter(!id %in% roles$user_id)
+# Processing --------------------------------------------------------------
 
-# get the device name (name of the default facility id)
-default_facility_id <- default_facility_id$default_facility_id
+# Get only the device name from the first 5 letters of the facility name
 facility_name <- collections %>%
-  filter(id == default_facility_id) %>%
-  select(name)
+  dplyr::filter(id == default_facility_id) %>%
+  # Get only the first 5 characters of the name
+  dplyr::mutate(name = str_sub(name, 1, 5)) %>%
+  # Select only the name column
+  dplyr::select(name)
 
 # join collections to memberships. (used for getting user groups)
 memberships <- memberships %>%
-  left_join(
+  dplyr::left_join(
     collections,
     by = c("collection_id" = "id")
   )
 
 # get dataframe containing learners and groups they belong to
 learners_and_groups <- memberships %>%
-  filter(kind == "learnergroup") %>%
-  distinct(user_id, .keep_all = TRUE) %>%
-  select(name, user_id)
+  # filter out memberships of type learnergroup
+  dplyr::filter(kind == "learnergroup") %>%
+  dplyr::group_by(user_id) %>%
+  # If a learner belongs to multiple classes, separate them with commas
+  dplyr::mutate(name = paste(name, collapse = ",")) %>%
+  dplyr::ungroup() %>%
+  # Get only the first row if there are multiple rows for the same learner
+  dplyr::distinct(user_id, .keep_all = TRUE) %>%
+  dplyr::select("group_name" = name, user_id)
 
-# select only the name of the group and the user_id
-learners_and_groups <- learners_and_groups %>%
-  select(
-    "group_name" = name,
-    user_id
-  )
 
-# join the users table to the groups table by user_id
-users <- users %>%
-  left_join(
+# get a data frame containing learners and the classes they belong to
+learners_and_grades <- memberships %>%
+  # filter out memberships of type learnergroup
+  dplyr::filter(kind == "classroom") %>%
+  dplyr::group_by(user_id) %>%
+  # If a learner belongs to multiple classes, separate them with commas
+  dplyr::mutate(name = paste(name, collapse = ",") %>% stringr::str_trim()) %>%
+  dplyr::ungroup() %>%
+  dplyr::distinct(user_id, .keep_all = T) %>%
+  dplyr::select("class_name" = name, user_id)
+
+
+# Get final users df
+users <- facilityusers %>%
+  # filter out admins and coaches to get list of users
+  dplyr::filter(!id %in% roles$user_id) %>%
+  # join the users df to the groups df by user_id
+  dplyr::left_join(
     learners_and_groups,
     by = c("id" = "user_id")
   ) %>%
-  select(
-    id,
+  # join the users df to the classrooms df by user_id
+  dplyr::left_join(
+    learners_and_grades,
+    by = c("id" = "user_id")
+  ) %>%
+  # Get first name and last name using functions from dbhelpers
+  dplyr::mutate(
+    first_name = dbhelpers::get_first_name(full_name),
+    last_name = dbhelpers::get_last_name(full_name)
+  ) %>%
+  dplyr::select(
+    user_id = id,
+    first_name,
+    last_name,
     username,
-    full_name,
+    class_name,
     group_name
   )
 
-# derive the first name and last name columns
-users$first_name <- sapply(users$full_name, get_first_name)
-users$last_name <- sapply(users$full_name, get_last_name)
 
-# drop the full name column
-# change the user_id to a plain character string
-users <- users %>%
-  select(-full_name) %>%
-  rename(user_id = id)
-
-
-# Baseline database ---------------------------------------------
+# Loading into Baseline database ---------------------------------------------
 
 # get database credentials for baseline database from environment variables
 bl_db_name <- Sys.getenv("BASELINE_DATABASE_NAME")
@@ -152,7 +143,7 @@ bl_db_passwd <- Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port <- Sys.getenv("BASELINE_DATABASE_PORT")
 
 # connect to test responses database
-tresponses_conn <- dbConnect(
+baseline_conn <- pool::dbPool(
   pg,
   dbname = bl_db_name,
   host = bl_db_host,
@@ -162,19 +153,14 @@ tresponses_conn <- dbConnect(
 )
 
 # clear out the users table
-remove_users_query <- dbSendQuery(tresponses_conn, "delete from users;")
-
-# clear the result of the query
-dbClearResult(remove_users_query)
+remove_users_query <- DBI::dbGetQuery(baseline_conn, "delete from users;")
 
 # clear out the device table (important if swapdb is used or device name changes)
-remove_device_name_query <- dbSendQuery(tresponses_conn, "delete from device;")
-# clear the result from the query above
-dbClearResult(remove_device_name_query)
+remove_device_name_query <- DBI::dbGetQuery(baseline_conn, "delete from device;")
 
-# write the users to the users table
-dbWriteTable(
-  tresponses_conn,
+# write the users df to the users table
+DBI::dbWriteTable(
+  baseline_conn,
   "users",
   users,
   append = TRUE,
@@ -182,13 +168,13 @@ dbWriteTable(
 )
 
 # write the facility name to the device table
-dbWriteTable(
-  tresponses_conn,
+DBI::dbWriteTable(
+  baseline_conn,
   "device",
   facility_name,
   append = TRUE,
   row.names = FALSE
 )
 
-# disconnect the connection
-dbDisconnect(tresponses_conn)
+# Close the pool connection
+pool::poolClose(baseline_conn)
