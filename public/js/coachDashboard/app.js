@@ -2,6 +2,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
 
+        /*enable angular animations*/
+        $ctrl.animationsEnabled = true;
+
         $scope.init = function() {
 
             /*placeholder value used in smart-table because users are loaded asynchorously*/
@@ -13,14 +16,14 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because learners_count are loaded asynchorously*/
             $scope.learners_count_placeholder = []
 
+            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
+            $scope.results_breakdown_placeholder = []
+
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
             /*empty object to initalize tests_marks*/
             $scope.tests_marks = {};
-
-            /*enable angular animations*/
-            $ctrl.animationsEnabled = true;
 
             $http.get("/api/get_users").then(function(response) {
                 $scope.users = response.data;
@@ -68,6 +71,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 $scope.learners_count = response.data;
             });
 
+            $http.get("/api/results_breakdown").then(function(response) {
+                $scope.results_breakdown = response.data;
+            });
+
 
 
         }
@@ -106,6 +113,27 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*get the sum of the values and calculate the percent score based on maxscore*/
             testResponse.score_pct = get_sum_of_array(qvals_for_test) / maxScore
 
+        }
+
+        /**function to find score */
+        $scope.percentage_score = function(arr) {
+            var total = 0;
+
+            /*how many avgs */
+            var count = 0;
+            for (var i = 0; i < arr.length; i++) {
+                total += parseFloat(arr[i].answer)
+                count++;
+            }
+            var percerntage = total / count * 100;
+            return percerntage.toFixed(1);
+        }
+
+
+        /**function to display scores in each topic */
+        $scope.calc_section_pct = function(num) {
+            var section_pct = parseFloat(num);
+            return section_pct.toFixed(1);
         }
 
 

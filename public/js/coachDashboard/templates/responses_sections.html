@@ -1,11 +1,12 @@
 <div class="table-responsive row">
-    <table st-table="results_placeholder" st-safe-src="results" class="table">
+    <!-- <table st-table="results_placeholder" st-safe-src="results" class="table"> -->
+    <table st-table="results_breakdown_placeholder" st-safe-src="results_breakdown" class="table" id="detail_table">
         <thead>
             <tr>
-                <th id="responses_search">
+                <th colspan="2">
                     <input st-search type="search" placeholder="Username,Test, Test Date..." class="form-control">
                 </th>
-                <th id="module_search">
+                <th id="response-module">
                     <select st-search="module" class=" form-control module_select_dropdown">
                         <option value="" class="module_initial_value">Module</option>
                         <option ng-repeat="row in results | unique: 'module'" value="{{row.module}}">{{row.module |
@@ -14,6 +15,7 @@
                 </th>
             </tr>
             <tr>
+                <th id="classes-container"></th>
                 <th st-ratio="10" st-sort="username">Username</th>
                 <th st-ratio="10" st-sort="test_name">Test</th>
                 <th st-ratio="10" st-sort="test_date">Test Date</th>
@@ -25,15 +27,63 @@
                 <th st-ratio="12"></th>
             </tr>
         </thead>
+        <tbody ng-repeat="data in results_breakdown_placeholder">
+            <tr id="collapse">
+                <accordion-heading class="accordion">
+                    <td>
+                        <button type="button" ng-click="expanded = !expanded" class="btn btn-default">
+                            <span ng-bind="expanded ? '-' : '+'"></span>
+                        </button>
+                    </td>
+                    <td st-ratio="20">
+                        <div class="class-info">
+                            <span>{{ data.username }}</span>
+                        </div>
+                    </td>
+                    <td st-ratio="20">
+                        <div class="class-info"><span>{{ data.test_name }}</span></div>
+                    </td>
+                    <td st-ratio="20">
+                        <div class="class-info"><span>{{ data.test_date }}</span></div>
+                    </td>
+                    <td st-ratio="20">
+                        <div class="class-info"><span>{{percentage_score(data.topic_details)}}%</span></div>
+                    </td>
+                </accordion-heading>
+            </tr>
+            <tr ng-show="expanded">
+                <td></td>
+                <td colspan="5">
+                    <table class="table table-responsive">
+                        <tr>
+                            <th st-ratio="20" class="group_info">Topic</th>
+                            <th st-ratio="20" class="group_info">Channel</th>
+                            <th st-ratio="20" class="group_info">Score</th>
+                        </tr>
+                        <tr ng-repeat="topic in data.topic_details">
+                            <td st-ratio="20" ng-style="topic.answer <= 0 && {'background-color': '#D9D9D9'} ||
+                            topic.answer <= .25 && {'background-color': '#FF412A'} ||
+                            topic.answer <= .50 && {'background-color': '#EC9090'} ||
+                            topic.answer <= .69 && {'background-color': '#F5C216'} ||
+                            topic.answer <= .74 && {'background-color': '#99CC33'} ||
+                            topic.answer <=  1 && {'background-color': '#00B050'}">{{ topic.topic_name }}</td>
+                            <td st-ratio="20">{{ topic.channel_name }}</td>
+                            <td st-ratio="20">{{ calc_section_pct(topic.answer) }}</td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+        </tbody>
 
 
-        <tbody>
+        <!-- <tbody>
             <tr ng-repeat="result in results_placeholder">
                 <td st-ratio="10">{{result.username}}</td>
                 <td st-ratio="10">{{result.test_name}}</td>
-                <td st-ratio="10">{{result.test_date | date: 'mediumDate'}}</td>
-                <!-- color the score percent cells using same color scheme from heat map -->
-                <td st-ratio="10" ng-style="result.score_pct <= 0 && {'background-color': '#D9D9D9'} ||
+                <td st-ratio="10">{{result.test_date | date: 'mediumDate'}}</td> -->
+        <!-- color the score percent cells using same color scheme from heat map -->
+        <!-- <td st-ratio="10" ng-style="result.score_pct <= 0 && {'background-color': '#D9D9D9'} ||
                                   result.score_pct <= .25 && {'background-color': '#FF412A'} ||
                                   result.score_pct <= .50 && {'background-color': '#EC9090'} ||
                                   result.score_pct <= .69 && {'background-color': '#F5C216'} ||
@@ -78,7 +128,7 @@
                     {{result.block_5.name}}</td>
 
             </tr>
-        </tbody>
+        </tbody> -->
         <tfoot>
             <tr>
                 <td colspan="5" class="text-center">
