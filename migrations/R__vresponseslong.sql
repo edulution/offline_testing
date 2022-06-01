@@ -17,6 +17,8 @@ FROM
     responses;
 
 CREATE OR REPLACE VIEW vresponses AS
+-- TODO: Join test marks here. Add wt(weight) column. Weight of each question in test  = 1/testmaxscore
+-- TODO: Find better name for this view. vresponses is too amibiguous
 SELECT
     *
 FROM (
@@ -33,9 +35,12 @@ FROM (
 WHERE
     topic_id IS NOT NULL;
 
+
 -- View: public.vtestscorebytopic
 -- DROP VIEW public.vtestscorebytopic;
 CREATE OR REPLACE VIEW public.vtestscorebytopic AS
+-- TODO: remove redundant join to test questions and test marks
+-- TODO: Add total weight column for each topic. Test score is weighted average of topic scores
 SELECT
     u.username::text AS username,
     tm.test_name::text AS test_name,
@@ -72,4 +77,3 @@ GROUP BY
     vr.course,
     vr.module,
     vr.test_date;
-
