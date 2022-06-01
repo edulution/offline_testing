@@ -16,3 +16,60 @@ SELECT
 FROM
     responses;
 
+CREATE OR REPLACE VIEW vresponses AS
+SELECT
+    *
+FROM (
+    SELECT
+        vr.*,
+        tq.topic_id
+    FROM
+        vresponseslong vr
+    LEFT JOIN test_questions tq ON tq.test = vr.test
+        AND split_part(vr.question_number::text, 'q', 2) = tq.question_index::text
+    ORDER BY
+        response_id,
+        question_number) AS n
+WHERE
+    topic_id IS NOT NULL;
+
+-- View: public.vtestscorebytopic
+-- DROP VIEW public.vtestscorebytopic;
+CREATE OR REPLACE VIEW public.vtestscorebytopic AS
+SELECT
+    u.username::text AS username,
+    tm.test_name::text AS test_name,
+    vr.response_id,
+    vr.user_id,
+    tq.topic_id,
+    tt.topic_name::text AS topic_name,
+    tt.channel_name::text AS channel_name,
+    tt.channel_id::text AS channel_id,
+    vr.course::text AS course,
+    vr.module::text AS module,
+    vr.test_date::text AS test_date,
+    avg(vr.answer::numeric) AS answer
+FROM
+    vresponses vr
+    LEFT JOIN test_questions tq ON tq.course::text = vr.course::text
+        AND tq.module::text = vr.module::text
+        AND tq.test::text = vr.test::text
+        AND tq.question_index::text = split_part(vr.question_number, 'q'::text, 2)
+    LEFT JOIN test_topics tt ON tq.topic_id = tt.topic_id
+    LEFT JOIN users u ON u.user_id = vr.user_id
+    LEFT JOIN test_marks tm ON tm.test_id::text = vr.test::text
+WHERE
+    tq.topic_id IS NOT NULL
+GROUP BY
+    u.username,
+    tm.test_name,
+    vr.response_id,
+    vr.user_id,
+    tq.topic_id,
+    tt.topic_name,
+    tt.channel_name,
+    tt.channel_id,
+    vr.course,
+    vr.module,
+    vr.test_date;
+
