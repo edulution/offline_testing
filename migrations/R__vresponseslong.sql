@@ -22,29 +22,29 @@ FROM responses;
  -- DROP VIEW public.vresponsesfull;
 
 CREATE OR REPLACE VIEW public.vresponsesfull AS
-SELECT responses_joined.username,
-       responses_joined.first_name,
-       responses_joined.last_name,
-       responses_joined.class_name,
-       responses_joined.group_name,
-       responses_joined.response_id,
-       responses_joined.user_id,
-       responses_joined.sex,
-       responses_joined.grade,
-       responses_joined.gr7_exam_number,
-       responses_joined.test,
-       responses_joined.course,
-       responses_joined.module,
-       responses_joined.test_date,
-       responses_joined.question_number,
-       responses_joined.answer,
-       responses_joined.topic_id,
-       responses_joined.topic_name,
-       responses_joined.channel_name,
-       responses_joined.channel_id,
-       responses_joined.test_name,
-       responses_joined.testmaxscore,
-       responses_joined.wt
+SELECT username,
+       first_name,
+       last_name,
+       class_name,
+       group_name,
+       response_id,
+       user_id,
+       sex,
+       grade,
+       gr7_exam_number,
+       test,
+       course,
+       module,
+       test_date,
+       question_number,
+       answer,
+       topic_id,
+       topic_name,
+       channel_name,
+       channel_id,
+       test_name,
+       testmaxscore,
+       wt
 FROM
   (SELECT u.username,
           u.first_name,
@@ -79,39 +79,39 @@ FROM
    LEFT JOIN test_marks tm ON vr.test::text = tm.test_id::text
    AND vr.course::text = tm.course::text
    AND vr.module::text = tm.module::text) responses_joined
-WHERE responses_joined.topic_id IS NOT NULL;
+WHERE topic_id IS NOT NULL;
 
  -- View: public.vtestscorebytopic
  -- DROP VIEW public.vtestscorebytopic;
 
 CREATE OR REPLACE VIEW public.vtestscorebytopic AS
-SELECT vresponsesfull.username,
-       vresponsesfull.first_name,
-       vresponsesfull.last_name,
-       vresponsesfull.test_name,
-       vresponsesfull.response_id,
-       vresponsesfull.user_id,
-       vresponsesfull.topic_id,
-       vresponsesfull.topic_name,
-       vresponsesfull.channel_name,
-       vresponsesfull.channel_id,
-       vresponsesfull.course,
-       vresponsesfull.module,
-       vresponsesfull.test_date,
-       COALESCE(avg(vresponsesfull.answer::numeric), 0::numeric) AS topic_score,
-       COALESCE(sum(vresponsesfull.wt), 0::numeric) AS total_wt
+SELECT username,
+       first_name,
+       last_name,
+       test_name,
+       response_id,
+       user_id,
+       topic_id,
+       topic_name,
+       channel_name,
+       channel_id,
+       course,
+       module,
+       test_date,
+       COALESCE(avg(answer::numeric), 0::numeric) AS topic_score,
+       COALESCE(sum(wt), 0::numeric) AS total_wt
 FROM vresponsesfull
-GROUP BY vresponsesfull.username,
-         vresponsesfull.first_name,
-         vresponsesfull.last_name,
-         vresponsesfull.test_name,
-         vresponsesfull.response_id,
-         vresponsesfull.user_id,
-         vresponsesfull.topic_id,
-         vresponsesfull.topic_name,
-         vresponsesfull.channel_name,
-         vresponsesfull.channel_id,
-         vresponsesfull.course,
-         vresponsesfull.module,
-         vresponsesfull.test_date
-ORDER BY vresponsesfull.test_date DESC, vresponsesfull.channel_name, vresponsesfull.topic_name, (COALESCE(avg(vresponsesfull.answer::numeric), 0::numeric));
+GROUP BY username,
+         first_name,
+         last_name,
+         test_name,
+         response_id,
+         user_id,
+         topic_id,
+         topic_name,
+         channel_name,
+         channel_id,
+         course,
+         module,
+         test_date
+ORDER BY test_date DESC, channel_name, topic_name, (COALESCE(avg(answer::numeric), 0::numeric));
