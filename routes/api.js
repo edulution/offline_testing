@@ -187,9 +187,10 @@ router.get('/results_breakdown', async (request, response) => {
             item.topic_details.push({
                 topic_id: curr.topic_id,
                 topic_name: curr.topic_name,
-                answer: curr.answer,
+                topic_score: curr.topic_score,
                 channel_name: curr.channel_name,
-                channel_id: curr.channel_id
+                channel_id: curr.channel_id,
+                total_wt: curr.total_wt
             });
         } else {
             acc.push({
@@ -203,9 +204,10 @@ router.get('/results_breakdown', async (request, response) => {
                 topic_details: [{
                     topic_id: curr.topic_id,
                     topic_name: curr.topic_name,
-                    answer: curr.answer,
+                    topic_score: curr.topic_score,
                     channel_name: curr.channel_name,
-                    channel_id: curr.channel_id
+                    channel_id: curr.channel_id,
+                    total_wt: curr.total_wt
                 }, ],
             });
         }
