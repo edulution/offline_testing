@@ -4,8 +4,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         /*enable angular animations*/
         $ctrl.animationsEnabled = true;
-
         $scope.init = function() {
+            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
+            $scope.results_breakdown_placeholder = []
+
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
 
@@ -14,9 +16,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*empty object to initalize tests_marks*/
             $scope.tests_marks = {};
-
-            /*enable angular animations*/
-            $ctrl.animationsEnabled = true;
 
             $http.get("/api/get_users").then(function(response) {
                 $scope.users = response.data;
@@ -87,6 +86,53 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*console.log("modal loaded");*/
         };
+
+        /*Calculate the score percent for a test*/
+        var calculate_score = function(testMarks, testResponse) {
+            /*get the maxscore from config*/
+            var maxScore = get_test_max_score(testMarks, testResponse)
+
+            /*get object values for all qs in the response*/
+            var all_qvals = Object.values(get_all_qs(testResponse))
+
+            /*get only the slice of the qvals for the test e.g get only the first 25 vals if the test is out of 25*/
+            var qvals_for_test = all_qvals.slice(0, maxScore)
+
+            /*get the sum of the values and calculate the percent score based on maxscore*/
+            testResponse.score_pct = get_sum_of_array(qvals_for_test) / maxScore
+
+        }
+
+        /**function to find score */
+        $scope.percentage_score = function(arr) {
+            var total = 0;
+
+            /*how many avgs */
+            var count = 0;
+            for (var i = 0; i < arr.length; i++) {
+                total += parseFloat(arr[i].answer)
+                count++;
+            }
+            var percerntage = total / count * 100;
+            return percerntage.toFixed(1);
+        }
+
+
+        /**function to display scores in each topic */
+        $scope.calc_section_pct = function(num) {
+            var section_pct = parseFloat(num);
+            return section_pct.toFixed(1);
+        }
+
+
+        /*Test Results into blocks of fifths*/
+        /*Split an array into chunks of specific length*/
+        var chunkArrayInGroups = function(arr, chunk_length) {
+            return arr.reduce(function(r, v, i) {
+                if (i % chunk_length == 0) r.push(arr.slice(i, i + chunk_length));
+                return r;
+            }, []);
+        }
 
         /*helper function to get sum of array*/
         const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
