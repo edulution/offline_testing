@@ -5,13 +5,6 @@
                 <th id="responses_search">
                     <input st-search type="search" placeholder="Username,Test, Test Date..." class="form-control">
                 </th>
-                <th id="module_search">
-                    <select st-search="module" class=" form-control module_select_dropdown">
-                        <option value="" class="module_initial_value">Module</option>
-                        <option ng-repeat="row in results | unique: 'module'" value="{{row.module}}">{{row.module |
-                            ucfirst}}</option>
-                    </select>
-                </th>
             </tr>
             <tr>
                 <th st-ratio="10" st-sort="username">Username</th>
@@ -25,8 +18,6 @@
                 <th st-ratio="12"></th>
             </tr>
         </thead>
-
-
         <tbody>
             <tr ng-repeat="result in results_placeholder">
                 <td st-ratio="10">{{result.username}}</td>
@@ -76,7 +67,6 @@
                                   result.block_5.result <= .74 && {'background-color': '#99CC33'} ||
                                   result.block_5.result <=  1 && {'background-color': '#00B050'}">
                     {{result.block_5.name}}</td>
-
             </tr>
         </tbody>
         <tfoot>
@@ -87,5 +77,4 @@
             </tr>
         </tfoot>
     </table>
-
 </div> <!-- table row -->
