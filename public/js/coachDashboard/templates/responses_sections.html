@@ -5,6 +5,16 @@
                 <th id="responses_search">
                     <input st-search type="search" placeholder="Username,Test, Test Date..." class="form-control">
                 </th>
+                <th colspan="1" id="course_search">
+                    <select st-search="course" class=" form-control module_select_dropdown">
+                        <option value="" class="module_initial_value">Course</option>
+                        <option ng-repeat="row in results | unique: 'course' | orderBy: 'course'" value="{{row.course}}">{{row.course.replace('_', ' ') |
+                            ucfirst}}</option>
+                    </select>
+                </th>
+                <th>
+                    <st-date-range predicate="test_date" before="query.before" after="query.after"></st-date-range>
+                </th>
             </tr>
             <tr>
                 <th st-ratio="10" st-sort="username">Username</th>
