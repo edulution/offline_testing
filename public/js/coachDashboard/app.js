@@ -6,16 +6,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         $ctrl.animationsEnabled = true;
 
         $scope.init = function() {
-
-            /*placeholder value used in smart-table because users are loaded asynchorously*/
-            $scope.users_placeholder = [];
-
-            /*placeholder value used in smart-table because results are loaded asynchorously*/
-            $scope.results_placeholder = [];
-
-            /*placeholder value used in smart-table because learners_count are loaded asynchorously*/
-            $scope.learners_count_placeholder = []
-
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
 
@@ -24,6 +14,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*empty object to initalize tests_marks*/
             $scope.tests_marks = {};
+
+            /*enable angular animations*/
+            $ctrl.animationsEnabled = true;
 
             $http.get("/api/get_users").then(function(response) {
                 $scope.users = response.data;
