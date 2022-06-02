@@ -56,7 +56,7 @@ router.get('/get_users', async (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'select * from users u left join vrecommended_test r on u.user_id = r.user_id left join user_membership_count mc on u.user_id = mc.user_id;'
+        text: 'select * from users'
     }
 
     try {
