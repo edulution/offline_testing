@@ -34,8 +34,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -108,7 +106,7 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
                             <label for="q3_d"> 3250 m</label>
                         </p>
-                        <h3>(4) Convert 9,8 km to metres.</h3>
+                        <h3>(4) Convert 9.8 km to metres.</h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_a">9 m </label>
@@ -128,7 +126,7 @@
                         <h3>(5) Convert 89 m to millimetres.</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
-                            <label for="q5_a">8,9 mm</label>
+                            <label for="q5_a">8.9 mm</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="00">
@@ -142,10 +140,10 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_d">89 000 mm</label>
                         </p>
-                        <h3>(6) When Richard runs, his steps are 1 metre long. If he ran 11,05 km, how many steps did he take?</h3>
+                        <h3>(6) When Richard runs, his steps are 1 metre long. If he ran 11.05 km, how many steps did he take?</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
-                            <label for="q6_a">11,5 steps</label>
+                            <label for="q6_a">11.5 steps</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">

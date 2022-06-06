@@ -34,8 +34,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -300,7 +298,7 @@
                             <label for="q14_c">75</label>
                         </p>
                         <p>
-                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="1  ">
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="1">
                             <label for="q14_d">74</label>
                         </p>
                         <h3>(15) Calculate 64 &plus; 36</h3>

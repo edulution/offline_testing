@@ -34,8 +34,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -276,19 +274,19 @@
                         <h3>(12) If a bag has 12 green marbles and 8 blue marbles, what is the probability of someone randomly picking out a blue marble from the bag?</h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
-                            <label for="q12_a">0,12</label>
+                            <label for="q12_a">0.12</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
-                            <label for="q12_b">0,2</label>
+                            <label for="q12_b">0.2</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="1">
-                            <label for="q12_c">0,4</label>
+                            <label for="q12_c">0.4</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
-                            <label for="q12_d">0,8</label>
+                            <label for="q12_d">0.8</label>
                         </p>
                         <h3>(13) Jessica records the ages of children at her school. She records the results in a histogram. </h3>
                         <h3>

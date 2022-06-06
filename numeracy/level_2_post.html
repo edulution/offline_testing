@@ -30,8 +30,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -676,11 +674,11 @@
                         <h3>(37) Convert 153 cm to millimetres.</h3>
                         <p>
                             <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="0">
-                            <label for="q37_a">15,3 mm</label>
+                            <label for="q37_a">15.3 mm</label>
                         </p>
                         <p>
                             <input type="radio" id="q37_b" name="q37" ng-model="testResponse.q37" value="00">
-                            <label for="q37_b">1,53 mm</label>
+                            <label for="q37_b">1.53 mm</label>
                         </p>
                         <p>
                             <input type="radio" id="q37_c" name="q37" ng-model="testResponse.q37" value="000">
