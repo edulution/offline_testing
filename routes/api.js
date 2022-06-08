@@ -56,7 +56,7 @@ router.get('/get_users', async (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'select * from users;'
+        text: 'select * from users'
     }
 
     try {
@@ -80,7 +80,7 @@ router.get('/index_of_topics', (request, response, next) => {
 
     pool.query(topics_query)
         .then(res => response.status(200).send(res.rows))
-        .catch(e => console.log(err.stack))
+        .catch(e => console.log(e.stack))
 
 
 });
@@ -168,6 +168,56 @@ router.get('/get_test_marks', (request, response) => {
 
 });
 
+router.get('/results_breakdown', async (request, response) => {
+    const results_query = {
+        nam: 'fetch-results-breakdown',
+        text: "select * from vtestscorebytopic;"
+    }
+    const res = await pool.query(results_query);
+    const res_rows = res.rows;
+
+    /**Restructure the results breakdown data */
+    var result = res_rows.reduce((acc, curr) => {
+        let item = acc.find(
+            (item) =>
+            item.response_id === curr.response_id && item.user_id === curr.user_id && item.username === curr.username && item.test_name === curr.test_name && item.test_date === curr.test_date && item.module === curr.module && item.course == curr.course
+        );
+
+        if (item) {
+            item.topic_details.push({
+                topic_id: curr.topic_id,
+                topic_name: curr.topic_name,
+                topic_score: curr.topic_score,
+                channel_name: curr.channel_name,
+                channel_id: curr.channel_id,
+                total_wt: curr.total_wt
+            });
+        } else {
+            acc.push({
+                response_id: curr.response_id,
+                user_id: curr.user_id,
+                username: curr.username,
+                test_name: curr.test_name,
+                test_date: curr.test_date,
+                module: curr.module,
+                course: curr.course,
+                topic_details: [{
+                    topic_id: curr.topic_id,
+                    topic_name: curr.topic_name,
+                    topic_score: curr.topic_score,
+                    channel_name: curr.channel_name,
+                    channel_id: curr.channel_id,
+                    total_wt: curr.total_wt
+                }, ],
+            });
+        }
+
+        return acc;
+    }, []);
+
+    response.status(200).send(result)
+
+});
 
 router.post('/submit_test', [(request, response, next) => {
 
@@ -331,13 +381,13 @@ router.get('/user_testcheck', (request, response) => {
 
     /*create a list containing the object props of interest*/
     /*these vars will be used as params in the query to the db*/
-    let query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module];
+    let query_params = [queryObject.user_id, queryObject.test, queryObject.course, queryObject.module, queryObject.test_date];
 
     /*declare a query variable containing a parametized call to the user_testcheck function*/
     let testcheck_query = {
         /*Query to call function for test check*/
         name: 'check-user-test',
-        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4)'
+        text: 'SELECT * FROM user_testcheck($1,$2,$3,$4,$5)'
     }
 
     /*Make the query using the query text and params*/
