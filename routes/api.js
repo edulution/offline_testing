@@ -171,7 +171,7 @@ router.get('/get_test_marks', (request, response) => {
 router.get('/results_breakdown', async (request, response) => {
     const results_query = {
         nam: 'fetch-results-breakdown',
-        text: "select * from vtestscorebytopic;"
+        text: "select v.*, u.class_name, u.group_name from vtestscorebytopic v left join users u on v.user_id = u.user_id;"
     }
     const res = await pool.query(results_query);
     const res_rows = res.rows;
@@ -199,6 +199,8 @@ router.get('/results_breakdown', async (request, response) => {
                 username: curr.username,
                 test_name: curr.test_name,
                 test_date: curr.test_date,
+                class_name: curr.class_name,
+                group_name: curr.group_name,
                 module: curr.module,
                 course: curr.course,
                 topic_details: [{
