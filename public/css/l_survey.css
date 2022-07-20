@@ -4,12 +4,18 @@ body {
 }
 .radio_container{
     margin: 25px !important;
-    padding: 10px;
+    padding: 10px 0;
     font-size: 17px;
     border-radius: 20px !important;
     cursor: pointer !important;
     margin-left: 15px !important;
+    justify-content: space-between !important;
+    margin: 0 auto;
+    margin-left: 30px !important;
     
+}
+input + label{
+    margin-right: 30px;
 }
 
 .radio {
@@ -138,10 +144,12 @@ form {
 }
 
 .checkbox {
-    margin: 25px;
+    margin: 40px;
     padding: 5px;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important ;
     font-size: 17px;
+    padding-left: 0.8em;
+    padding-top: 0.6em;
 
 }
 

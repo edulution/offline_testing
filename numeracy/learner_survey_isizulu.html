@@ -7,186 +7,182 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Learner Survey</title>
+    <link rel="icon" href="/images/favicon.png" />
     <!--Style Css-->
     <link rel="stylesheet" href="/css/l_survey.css" />
-    <link rel="icon" href="/images/favicon.png">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    />
     <!--fonts-->
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
       rel="stylesheet"
     />
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet" />
     <!--boostrap-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
   </head>
   <body>
     <section>
       <div class="container">
         <div class="row">
-            <form name="form.Survey">
-              <div id="edulution_logo">
-                <img
-                  src="/images/edulution_logo.png"
-                  alt="logo"
-                  class="responsive"
-                />
-              </div>
-              <h2 class="form_title">Learner Survey</h2>
-              <div class="username">USERNAME</div>
-              <!--TO INCLUDE JS-->
-              <input type="text-1" placeholder="Please fill in your username here" />
-              <div class="instructions">INSTRUCTIONS</div>
-              <div class="ins">
-                <p>
-                  Answer the questions as honestly as possible <br />You have 20
-                  Minutes to complete this survey <br />Ask your coach if your
-                  are not sure how to answer the questions
-                </p>
-              </div>
-              <div class="survey">SURVEY</div>
-              <h3>
-                (1.) Sengiyakwazi ukwenza ngcono umsebenzi wasekhaya seloku
-                ngangena kwaEdulution.
-              </h3>
-              <div class="radio_container">
+          <form id="form.Survey">
+            <div id="edulution_logo">
+              <img
+                src="/images/edulution_logo.png"
+                alt="logo"
+                class="responsive"
+              />
+            </div>
+            <h2 class="form_title">Ucwaningo Lwabafundi</h2>
+            <div class="username">IGAMA LOMSEBENZISI</div>
+            <!--TO INCLUDE JS-->
+            <input
+              type="text-1" id="username"
+              placeholder="Cela ufake igama lomsebenzisi la" required
+            />
+            <div class="instructions">IMIYALELO</div>
+            <div class="ins">
+              <p>
+                Phendula yonke imibuzo ngokwethembeka <br />Unemizuzu engama 20
+                ukuqeda lolucwaningo <br />Uma ungenaso isiqiniseko ngombuzo,
+                cela usizo ku coach wakho
+              </p>
+            </div>
+            <div class="survey">UCWANINGO</div>
+            <h3>
+              (1.) Sengiyakwazi ukwenza ngcono umsebenzi wasekhaya seloku
+              ngangena kwaEdulution.
+            </h3>
+            <div class="radio_container">
               <!--Each group of radio buttons with the same name corresponds to one question-->
-                <input type="radio" value="none" name="homework" />
-                <label for="q1">YEBO</label>
-                <input type="radio" value="none" name="homework" />
-                <label for="q1">CHA</label>
-                <input type="radio" value="none" name="homework" />
-                <label for="q1">Anginaso isiqiniseko</label>
-              </div>
-              <h3>
-                (2.) Isifundo seMaths ngisithola sesiba lula kimi seloku
-                ngingene kwaEdulution.
-              </h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="Maths" />
-                <label for="q2">YEBO</label>
-                <input type="radio" value="none" name="Maths" />
-                <label for="q2">CHA</label>
-                <input type="radio" value="none" name="Maths" />
-                <label for="q2">Anginaso isiqiniseko</label>
-              </div>
-              <h3>(3.) Sengithola imiphumela engcono nasezivivinyweni.</h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="results" />
-                <label for="q3">YEBO</label>
-                <input type="radio" value="none" name="results" />
-                <label for="q3">CHA</label>
-                <input type="radio" value="none" name="results" />
-                <label for="q3">Anginaso isiqiniseko</label>
-              </div>
-              <h3>
-                (4.) Kuqala, ngangiyisaba iMaths, kodwa manje sengiyayithanda.
-              </h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="afraid" />
-                <label for="q4">YEBO</label>
-                <input type="radio" value="none" name="afraid" />
-                <label for="q4">CHA</label>
-                <input type="radio" value="none" name="afraid" />
-                <label for="q4">Anginaso isiqiniseko</label>
-              </div>
-              <h3>(5.) Umqeqeshi (ucoach) wami uyangisiza uma nginemibuzo.</h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="help" />
-                <label for="q5">YEBO</label>
-                <input type="radio" value="none" name="help" />
-                <label for="q5">CHA</label>
-                <input type="radio" value="none" name="help" />
-                <label for="q5">Anginaso isiqiniseko</label>
-              </div>
-              <h3>(6.) Umqeqeshi wami wenza ukufunda kwami kubemnandi.</h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="excited" />
-                <label for="q6">YEBO</label>
-                <input type="radio" value="none" name="excited" />
-                <label for="q6">CHA</label>
-                <input type="radio" value="none" name="excited" />
-                <label for="q6">Anginaso isiqiniseko</label>
-              </div>
-              <h3>(7.) Ngifuna ukwenza iMaths emabangeni aphezulu.</h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="school" />
-                <label for="q7">YEBO</label>
-                <input type="radio" value="none" name="school" />
-                <label for="q7">CHA</label>
-                <input type="radio" value="none" name="school" />
-                <label for="q7">Anginaso isiqiniseko</label>
-              </div>
-              <h3>(8.) Senginokuzithemba okukhulu manje.</h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="confident" />
-                <label for="q8">YEBO</label>
-                <input type="radio" value="none" name="confident" />
-                <label for="q8">CHA</label>
-                <input type="radio" value="none" name="confident" />
-                <label for="q8">Anginaso isiqiniseko</label>
-              </div>
-              <h3>
-                (9.) Yisiphi isizathu esikwenza uphuthe emaklasini
-                akwaEdulution?
-              </h3>
-              <div class="checkbox">
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Ezokuthutha</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Imisebenzi yasekhaya</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">isidlo sasemini , ilantshi</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Ukulamba</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Ngizizwa ngingathandi ukuza</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Angimthandi umqeqeshi</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Ukugula</label><br />
-                <input type="checkbox" name="survey" value="reason" />
-                <label for="q9">Izidingo zasekhaya</label><br />
-                <label for="q9">Okunye:</label>
-                <input type="text" />
-              </div>
-              <h3>(10.) Uma uhluleka ukuphendula umbuzo, wenzenjani?</h3>
-              <div class="checkbox">
-                <input type="checkbox" name="survey" value="cant" />
-                <label for="q10">Ngicela umngane angisize</label><br />
-                <input type="checkbox" name="survey" value="cant" />
-                <label for="q10">Ngicela umqeqeshi angisize</label><br />
-                <input type="checkbox" name="survey" value="cant" />
-                <label for="q10"
-                  >icebo engilinekeziwe ukufinyelela empendulweni</label
-                ><br />
-                <input type="checkbox" name="survey" value="cant" />
-                <label for="q10">Ngibukela I video</label><br />
-                <input type="checkbox" name="survey" value="cant" />
-                <label for="q10">Ngiyacabangisisa</label><br />
-                <input type="checkbox" name="survey" value="cant" />
-                <label for="q10">Ngiyazihlalela ngilinde</label><br />
-              </div>
-              <h3>
-                (11.) Ungakujabulela ukuza kwa Edulution uma izikole zivaliwe?
-              </h3>
-              <div class="radio_container">
-                <input type="radio" value="none" name="holidays" />
-                <label for="q11">YEBO</label>
-                <input type="radio" value="none" name="holidays" />
-                <label for="q11">CHA</label>
-                <input type="radio" value="none" name="holidays" />
-                <label for="q11">Anginaso isiqiniseko</label>
-              </div>
-              <!--TO INCLUSE JS-->
-              <input type="submit" value="SUBMIT" />
-            </form>
-          
+              <input type="radio" value="none" name="homework" />
+              <label for="q1">Yebo</label>
+              <input type="radio" value="none" name="homework" />
+              <label for="q1">Cha</label>
+              <input type="radio" value="none" name="homework" />
+              <label for="q1">Anginaso isiqiniseko</label>
+            </div>
+            <h3>
+              (2.) Isifundo seMaths ngisithola sesiba lula kimi seloku ngingene
+              kwaEdulution.
+            </h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="Maths" />
+              <label for="q2">Yebo</label>
+              <input type="radio" value="none" name="Maths" />
+              <label for="q2">Cha</label>
+              <input type="radio" value="none" name="Maths" />
+              <label for="q2">Anginaso isiqiniseko</label>
+            </div>
+            <h3>(3.) Sengithola imiphumela engcono nasezivivinyweni.</h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="results" />
+              <label for="q3">Yebo</label>
+              <input type="radio" value="none" name="results" />
+              <label for="q3">Cha</label>
+              <input type="radio" value="none" name="results" />
+              <label for="q3">Anginaso isiqiniseko</label>
+            </div>
+            <h3>
+              (4.) Kuqala, ngangiyisaba iMaths, kodwa manje sengiyayithanda.
+            </h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="afraid" />
+              <label for="q4">Yebo</label>
+              <input type="radio" value="none" name="afraid" />
+              <label for="q4">Cha</label>
+              <input type="radio" value="none" name="afraid" />
+              <label for="q4">Anginaso isiqiniseko</label>
+            </div>
+            <h3>(5.) Umqeqeshi (ucoach) wami uyangisiza uma nginemibuzo.</h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="help" />
+              <label for="q5">Yebo</label>
+              <input type="radio" value="none" name="help" />
+              <label for="q5">Cha</label>
+              <input type="radio" value="none" name="help" />
+              <label for="q5">Anginaso isiqiniseko</label>
+            </div>
+            <h3>(6.) Umqeqeshi wami wenza ukufunda kwami kubemnandi.</h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="excited" />
+              <label for="q6">Yebo</label>
+              <input type="radio" value="none" name="excited" />
+              <label for="q6">Cha</label>
+              <input type="radio" value="none" name="excited" />
+              <label for="q6">Anginaso isiqiniseko</label>
+            </div>
+            <h3>(7.) Ngifuna ukwenza iMaths emabangeni aphezulu.</h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="school" />
+              <label for="q7">Yebo</label>
+              <input type="radio" value="none" name="school" />
+              <label for="q7">Cha</label>
+              <input type="radio" value="none" name="school" />
+              <label for="q7">Anginaso isiqiniseko</label>
+            </div>
+            <h3>(8.) Senginokuzithemba okukhulu manje.</h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="confident" />
+              <label for="q8">Yebo</label>
+              <input type="radio" value="none" name="confident" />
+              <label for="q8">Cha</label>
+              <input type="radio" value="none" name="confident" />
+              <label for="q8">Anginaso isiqiniseko</label>
+            </div>
+            <h3>
+              (9.) Yisiphi isizathu esikwenza uphuthe emaklasini akwaEdulution?
+            </h3>
+            <div class="checkbox">
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Ezokuthutha</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Imisebenzi yasekhaya</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Isidlo sasemini , ilantshi</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Ukulamba</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Ngizizwa ngingathandi ukuza</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Angimthandi umqeqeshi</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Ukugula</label><br />
+              <input type="checkbox" name="survey" value="reason" />
+              <label for="q9">Izidingo zasekhaya</label><br />
+              <label for="q9">Okunye:</label>
+              <input type="text" />
+            </div>
+            <h3>(10.) Uma uhluleka ukuphendula umbuzo, wenzenjani?</h3>
+            <div class="checkbox">
+              <input type="checkbox" name="survey" value="cant" />
+              <label for="q10">Ngicela umngane angisize</label><br />
+              <input type="checkbox" name="survey" value="cant" />
+              <label for="q10">Ngicela umqeqeshi angisize</label><br />
+              <input type="checkbox" name="survey" value="cant" />
+              <label for="q10"
+                >Icebo engilinekeziwe ukufinyelela empendulweni</label
+              ><br />
+              <input type="checkbox" name="survey" value="cant" />
+              <label for="q10">Ngibukela I video</label><br />
+              <input type="checkbox" name="survey" value="cant" />
+              <label for="q10">Ngiyacabangisisa</label><br />
+              <input type="checkbox" name="survey" value="cant" />
+              <label for="q10">Ngiyazihlalela ngilinde</label><br />
+            </div>
+            <h3>
+              (11.) Ungakujabulela ukuza kwa Edulution uma izikole zivaliwe?
+            </h3>
+            <div class="radio_container">
+              <input type="radio" value="none" name="holidays" />
+              <label for="q11">Yebo</label>
+              <input type="radio" value="none" name="holidays" />
+              <label for="q11">Cha</label>
+              <input type="radio" value="none" name="holidays" />
+              <label for="q11">Anginaso isiqiniseko</label>
+            </div>
+            <!--TO INCLUSE JS-->
+            <input type="submit" value="HAMBISA" />
+          </form>
         </div>
       </div>
     </section>
