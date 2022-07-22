@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
 
@@ -12,7 +11,6 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
-    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
@@ -20,7 +18,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -52,7 +49,6 @@
                         <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) Calculate 4<span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span> &plus; 3<span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span></h3>
                         <p>
-                            <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
                             <!-- Wrong answers are 0, correct answer is 1 -->
                             <!-- Example below -->
@@ -310,8 +306,6 @@
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
                             <label for="q15_d">14</label>
                         </p>
-                        <div class="HeaderbannerLabel">COACH SECTION</div>
-                        <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='level_3_sec_2'">
                         <input type="hidden" name="course" ng-init="testResponse.course='level_3'">

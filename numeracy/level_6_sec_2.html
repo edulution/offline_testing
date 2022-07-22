@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- TODO : add attribute ng-app="passProtect" to html tag -->
 <!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
 
@@ -12,7 +11,6 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
-    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
@@ -20,7 +18,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -52,7 +49,6 @@
                         <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) Select an expression equivalent to 4<sup>11</sup> &times; 4<sup>9</sup></h3>
                         <p>
-                            <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
                             <!-- Wrong answers are 0, correct answer is 1 -->
                             <!-- Example below -->
@@ -166,8 +162,8 @@
                             <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_b"><i>q</i> = 1</label>
                         </p>
-                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
-                            <label for="q7_c"><i>q</i> = 12</label>
+                        <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
+                        <label for="q7_c"><i>q</i> = 12</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
@@ -190,7 +186,7 @@
                             <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_d">𝑥 = 10</label>
                         </p>
-                       <h3>(9) Calculate  <span class="frac"><sup>3</sup><sub>6</sub></span>  &times; ( &minus; <span class="frac"><sup>4</sup><sub>5</sub></span>)</h3>
+                        <h3>(9) Calculate <span class="frac"><sup>3</sup><sub>6</sub></span> &times; ( &minus; <span class="frac"><sup>4</sup><sub>5</sub></span>)</h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
                             <label for="q9_a"><span class="frac"><sup>2</sup><sub>5</sub></span></label>
@@ -207,7 +203,7 @@
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_d">&minus;<span class="frac"><sup>7</sup><sub>11</sub></span></label>
                         </p>
-                        <h3>(10) Calculate  &minus;2<span class="frac"><sup>1</sup><sub>4</sub></span> &times; &minus;5<span class="frac"><sup>2</sup><sub>3</sub></span></h3>
+                        <h3>(10) Calculate &minus;2<span class="frac"><sup>1</sup><sub>4</sub></span> &times; &minus;5<span class="frac"><sup>2</sup><sub>3</sub></span></h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
                             <label for="q10_a">&minus; 12<span class="frac"><sup>3</sup><sub>4</sub></span></label>
@@ -224,7 +220,7 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_d">12<span class="frac"><sup>3</sup><sub>4</sub></span></label>
                         </p>
-                        <h3>(11) Calculate  8 &divide; <span class="frac"><sup>4</sup><sub>5</sub></span></h3>
+                        <h3>(11) Calculate 8 &divide; <span class="frac"><sup>4</sup><sub>5</sub></span></h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
                             <label for="q11_a"><span class="frac"><sup>2</sup><sub>5</sub></span></label>
@@ -241,7 +237,7 @@
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
                             <label for="q11_d">2</label>
                         </p>
-                        <h3>(12) Calculate  &minus;<span class="frac"><sup>3</sup><sub>7</sub></span> &divide; <span class="frac"><sup>9</sup><sub>21</sub></span></h3>
+                        <h3>(12) Calculate &minus;<span class="frac"><sup>3</sup><sub>7</sub></span> &divide; <span class="frac"><sup>9</sup><sub>21</sub></span></h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
                             <label for="q12_a">&minus;1</label>
@@ -258,7 +254,7 @@
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_d">1</label>
                         </p>
-                        <h3>(13) Calculate   9<span class="frac"><sup>2</sup><sub>7</sub></span> &divide; (&minus;5<span class="frac"><sup>1</sup><sub>2</sub></span>)</h3>
+                        <h3>(13) Calculate 9<span class="frac"><sup>2</sup><sub>7</sub></span> &divide; (&minus;5<span class="frac"><sup>1</sup><sub>2</sub></span>)</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="1">
                             <label for="q13_a">&minus;3<span class="frac"><sup>5</sup><sub>7</sub></span></label>
@@ -275,7 +271,7 @@
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
                             <label for="q13_d">3<span class="frac"><sup>5</sup><sub>7</sub></span></label>
                         </p>
-                        <h3>(14) Calculate  (<span class="frac"><sup>1</sup><sub>3</sub></span> &plus; <span class="frac"><sup>1</sup><sub>6</sub></span>) &divide; <span class="frac"><sup>1</sup><sub>7</sub></span></h3>
+                        <h3>(14) Calculate (<span class="frac"><sup>1</sup><sub>3</sub></span> &plus; <span class="frac"><sup>1</sup><sub>6</sub></span>) &divide; <span class="frac"><sup>1</sup><sub>7</sub></span></h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
                             <label for="q14_a"><span class="frac"><sup>1</sup><sub>2</sub></span></label>
@@ -292,7 +288,7 @@
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="1">
                             <label for="q14_d">3<span class="frac"><sup>1</sup><sub>2</sub></span></label>
                         </p>
-                        <h3>(15) Calculate  (2<span class="frac"><sup>2</sup><sub>9</sub></span> &minus; 1<span class="frac"><sup>1</sup><sub>6</sub></span>) &divide; <span class="frac"><sup>1</sup><sub>6</sub></span></h3>
+                        <h3>(15) Calculate (2<span class="frac"><sup>2</sup><sub>9</sub></span> &minus; 1<span class="frac"><sup>1</sup><sub>6</sub></span>) &divide; <span class="frac"><sup>1</sup><sub>6</sub></span></h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
                             <label for="q15_a"><span class="frac"><sup>3</sup><sub>19</sub></span></label>
@@ -309,8 +305,6 @@
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="1">
                             <label for="q15_d">6<span class="frac"><sup>1</sup><sub>3</sub></span></label>
                         </p>
-                        <div class="HeaderbannerLabel">COACH SECTION</div>
-                        <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='level_6_sec_2'">
                         <input type="hidden" name="course" ng-init="testResponse.course='level_6'">
