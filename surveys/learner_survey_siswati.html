@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ss">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learner Survey</title>
+    <link rel="icon" href="/images/favicon.png">
+    <!--Style Css-->
+    <link rel="stylesheet" href="/css/learner_survey.css" />
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <!--boostrap-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <form name="form.Survey">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" alt="logo" class="responsive" />
+                    </div>
+                    <h2 class="form_title">Lucwaningo Lebafundzi</h2>
+                    <div class="username">LIGAMA LEMSEBENTISI</div>
+                    <!--TO INCLUDE JS-->
+                    <input type="text-1" id="username" placeholder="Sicela ufake ligama lhako lemsebentisi lapha" required />
+                    <div class="instructions">IMLAYETO</div>
+                    <div class="ins">
+                        <p>
+                            Phendula lemibuto ngalokukhulu kutsembeka <br />Unemizuzu lengemashumi lamabili kuphendula lesivivinyo <br />Buta kumceceshi (Coach) uma ungavisisi kutsi iphendvulwa njani lemibuto
+                        </p>
+                    </div>
+                    <div class="survey">LUCWANINGO</div>
+                    <h3>(1.) Sengiyakwati kutentela kancono umsebenti wesikolo wasekhaya seloku ngacala ka Edulution.</h3>
+                    <div class="radio_container">
+                        <!--Each group of radio buttons with the same name corresponds to one question-->
+                        <input type="radio" value="none" name="homework" />
+                        <label for="q1">Yebo</label>
+                        <input type="radio" value="none" name="homework" />
+                        <label for="q1">Cha</label>
+                        <input type="radio" value="none" name="homework" />
+                        <label for="q1">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(2.) Tibalo tibalula kimi seluku ngacala ka Edulution.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="Maths" />
+                        <label for="q2">Yebo</label>
+                        <input type="radio" value="none" name="Maths" />
+                        <label for="q2">Cha</label>
+                        <input type="radio" value="none" name="Maths" />
+                        <label for="q2">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(3.) Imiphumela yami nagivivinywa iya ngokuya ibancono kunakucala.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="results" />
+                        <label for="q3">Yebo</label>
+                        <input type="radio" value="none" name="results" />
+                        <label for="q3">Cha</label>
+                        <input type="radio" value="none" name="results" />
+                        <label for="q3">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(4.) Bengitisaba tibalo, kodvwa nyalo sengititsandza tibalo.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="afraid" />
+                        <label for="q4">Yebo</label>
+                        <input type="radio" value="none" name="afraid" />
+                        <label for="q4">Cha</label>
+                        <input type="radio" value="none" name="afraid" />
+                        <label for="q4">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(5.) Umceceshi wami uyangilekelela uma ngicela lusito.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="help" />
+                        <label for="q5">Yebo</label>
+                        <input type="radio" value="none" name="help" />
+                        <label for="q5">Cha</label>
+                        <input type="radio" value="none" name="help" />
+                        <label for="q5">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(6.) Umceceshi wami wenta kufundza kwami kubemnandzi.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="excited" />
+                        <label for="q6">Yebo</label>
+                        <input type="radio" value="none" name="excited" />
+                        <label for="q6">Cha</label>
+                        <input type="radio" value="none" name="excited" />
+                        <label for="q6">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(7.) Ngifuna kwenta tibalo emabangeni lasetulu.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="school" />
+                        <label for="q7">Yebo</label>
+                        <input type="radio" value="none" name="school" />
+                        <label for="q7">Cha</label>
+                        <input type="radio" value="none" name="school" />
+                        <label for="q7">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(8.) Senginekutetsemba lokukhulu.</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="confident" />
+                        <label for="q8">Yebo</label>
+                        <input type="radio" value="none" name="confident" />
+                        <label for="q8">Cha</label>
+                        <input type="radio" value="none" name="confident" />
+                        <label for="q8">Anginaso siciniseko</label>
+                    </div>
+                    <h3>(9.) Ngusiphi sizatfu lesikwenta uphutselwe ma session aka Edulution?</h3>
+                    <div class="checkbox">
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Tigitjelwa</label><br>
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Misebenti yasekhaya</label><br>
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Indlala nobe ngumphako</label><br>
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Ngitiva ngingatsandzi kuta</label><br>
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Angimtsandzi umceceshi</label><br>
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Kugula</label><br>
+                        <input type="checkbox" name="survey" value="reason">
+                        <label for="q9">Tidzingo tasekhaya</label><br>
+                        <label for="q9">Nulokunye:</label>
+                        <input type="text">
+                    </div>
+                    <h3>(10.) Uma uhluleka kuphendvula umbuto, wentanjani?</h3>
+                    <div class="checkbox">
+                        <input type="checkbox" name="survey" value="cant">
+                        <label for="q10">Ngicela lusito kumngani</label><br>
+                        <input type="checkbox" name="survey" value="cant">
+                        <label for="q10">Ngicela lusito kumceceshi</label><br>
+                        <input type="checkbox" name="survey" value="cant">
+                        <label for="q10">Ngisebentisa I hint</label><br>
+                        <input type="checkbox" name="survey" value="cant">
+                        <label for="q10">Ngibukela I video</label><br>
+                        <input type="checkbox" name="survey" value="cant">
+                        <label for="q10">Ngiyaticabangela</label><br>
+                        <input type="checkbox" name="survey" value="cant">
+                        <label for="q10">Ngiyatihlalela ngilindze</label>
+                    </div>
+                    <h3>(11.) Ungakujabulela kuta ka Edulution uma tikole tivaliwe?</h3>
+                    <div class="radio_container">
+                        <input type="radio" value="none" name="holidays" />
+                        <label for="q11">Yebo</label>
+                        <input type="radio" value="none" name="holidays" />
+                        <label for="q11">Cha</label>
+                        <input type="radio" value="none" name="holidays" />
+                        <label for="q11">Anginaso siciniseko</label>
+                    </div>
+                    <!--TO INCLUDE JS-->
+                    <input type="submit" value="HAMBISA" />
+            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
