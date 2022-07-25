@@ -36,14 +36,15 @@
     <section>
         <div class="container">
             <div class="row">
-                <form name="form.Survey">
+                <form name="form.testForm">
                     <div id="edulution_logo">
                         <img src="/images/edulution_logo.png" alt="logo" class="responsive" />
                     </div>
                     <h2 class="form_title">Lucwaningo Lebafundzi</h2>
                     <div class="username">LIGAMA LEMSEBENTISI</div>
                     <!--TO INCLUDE JS-->
-                    <input type="text-1" id="username" placeholder="Sicela ufake ligama lhako lemsebentisi lapha" required />
+                    <!-- <usernameinput placeholder="Sicela ufake ligama lhako lemsebentisi lapha"></usernameinput> -->
+                    <usernameinput></usernameinput>
                     <div class="instructions">IMLAYETO</div>
                     <div class="ins">
                         <p>
@@ -53,122 +54,123 @@
                     <div class="survey">LUCWANINGO</div>
                     <h3>(1.) Sengiyakwati kutentela kancono umsebenti wesikolo wasekhaya seloku ngacala ka Edulution.</h3>
                     <div class="radio_container">
-                        <!--Each group of radio buttons with the same name corresponds to one question-->
-                        <input type="radio" value="none" name="homework" />
+                        <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="A" />
                         <label for="q1">Yebo</label>
-                        <input type="radio" value="none" name="homework" />
+                        <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="B" />
                         <label for="q1">Cha</label>
-                        <input type="radio" value="none" name="homework" />
+                        <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="C" />
                         <label for="q1">Anginaso siciniseko</label>
                     </div>
                     <h3>(2.) Tibalo tibalula kimi seluku ngacala ka Edulution.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="Maths" />
+                        <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="A" />
                         <label for="q2">Yebo</label>
-                        <input type="radio" value="none" name="Maths" />
+                        <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="B" />
                         <label for="q2">Cha</label>
-                        <input type="radio" value="none" name="Maths" />
+                        <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="C" />
                         <label for="q2">Anginaso siciniseko</label>
                     </div>
                     <h3>(3.) Imiphumela yami nagivivinywa iya ngokuya ibancono kunakucala.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="results" />
+                        <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="A" />
                         <label for="q3">Yebo</label>
-                        <input type="radio" value="none" name="results" />
+                        <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="B" />
                         <label for="q3">Cha</label>
-                        <input type="radio" value="none" name="results" />
+                        <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="C" />
                         <label for="q3">Anginaso siciniseko</label>
                     </div>
                     <h3>(4.) Bengitisaba tibalo, kodvwa nyalo sengititsandza tibalo.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="afraid" />
+                        <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="A" />
                         <label for="q4">Yebo</label>
-                        <input type="radio" value="none" name="afraid" />
+                        <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="B" />
                         <label for="q4">Cha</label>
-                        <input type="radio" value="none" name="afraid" />
+                        <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="C" />
                         <label for="q4">Anginaso siciniseko</label>
                     </div>
                     <h3>(5.) Umceceshi wami uyangilekelela uma ngicela lusito.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="help" />
+                        <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="A" />
                         <label for="q5">Yebo</label>
-                        <input type="radio" value="none" name="help" />
+                        <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="B" />
                         <label for="q5">Cha</label>
-                        <input type="radio" value="none" name="help" />
+                        <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="C" />
                         <label for="q5">Anginaso siciniseko</label>
                     </div>
                     <h3>(6.) Umceceshi wami wenta kufundza kwami kubemnandzi.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="excited" />
+                        <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="A" />
                         <label for="q6">Yebo</label>
-                        <input type="radio" value="none" name="excited" />
+                        <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="B" />
                         <label for="q6">Cha</label>
-                        <input type="radio" value="none" name="excited" />
+                        <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="C" />
                         <label for="q6">Anginaso siciniseko</label>
                     </div>
                     <h3>(7.) Ngifuna kwenta tibalo emabangeni lasetulu.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="school" />
+                        <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="A" />
                         <label for="q7">Yebo</label>
-                        <input type="radio" value="none" name="school" />
+                        <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="B" />
                         <label for="q7">Cha</label>
-                        <input type="radio" value="none" name="school" />
+                        <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="C" />
                         <label for="q7">Anginaso siciniseko</label>
                     </div>
                     <h3>(8.) Senginekutetsemba lokukhulu.</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="confident" />
+                        <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="A" />
                         <label for="q8">Yebo</label>
-                        <input type="radio" value="none" name="confident" />
+                        <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="B" />
                         <label for="q8">Cha</label>
-                        <input type="radio" value="none" name="confident" />
+                        <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="C" />
                         <label for="q8">Anginaso siciniseko</label>
                     </div>
                     <h3>(9.) Ngusiphi sizatfu lesikwenta uphutselwe ma session aka Edulution?</h3>
                     <div class="checkbox">
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_a" ng-model="testResponse.q9[1]" ng-true-value="'A'" />
                         <label for="q9">Tigitjelwa</label><br>
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_b" ng-model="testResponse.q9[2]" ng-true-value="'B'" />
                         <label for="q9">Misebenti yasekhaya</label><br>
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_c" ng-model="testResponse.q9[3]" ng-true-value="'C'" />
                         <label for="q9">Indlala nobe ngumphako</label><br>
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_d" ng-model="testResponse.q9[4]" ng-true-value="'D'" />
                         <label for="q9">Ngitiva ngingatsandzi kuta</label><br>
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_e" ng-model="testResponse.q9[5]" ng-true-value="'E'" />
                         <label for="q9">Angimtsandzi umceceshi</label><br>
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_f" ng-model="testResponse.q9[6]" ng-true-value="'F'" />
                         <label for="q9">Kugula</label><br>
-                        <input type="checkbox" name="survey" value="reason">
+                        <input type="checkbox" id="q9_g" ng-model="testResponse.q9[7]" ng-true-value="'G'" />
                         <label for="q9">Tidzingo tasekhaya</label><br>
                         <label for="q9">Nulokunye:</label>
-                        <input type="text">
+                        <input type="text" ng-model="testResponse.q9[8]" />
                     </div>
                     <h3>(10.) Uma uhluleka kuphendvula umbuto, wentanjani?</h3>
                     <div class="checkbox">
-                        <input type="checkbox" name="survey" value="cant">
+                        <input type="checkbox" id="q10_a" ng-model="testResponse.q10[1]" ng-true-value="'A'" />
                         <label for="q10">Ngicela lusito kumngani</label><br>
-                        <input type="checkbox" name="survey" value="cant">
+                        <input type="checkbox" id="q10_b" ng-model="testResponse.q10[2]" ng-true-value="'B'" />
                         <label for="q10">Ngicela lusito kumceceshi</label><br>
-                        <input type="checkbox" name="survey" value="cant">
+                        <input type="checkbox" id="q10_c" ng-model="testResponse.q10[3]" ng-true-value="'C'" />
                         <label for="q10">Ngisebentisa I hint</label><br>
-                        <input type="checkbox" name="survey" value="cant">
+                        <input type="checkbox" id="q10_d" ng-model="testResponse.q10[4]" ng-true-value="'D'" />
                         <label for="q10">Ngibukela I video</label><br>
-                        <input type="checkbox" name="survey" value="cant">
+                        <input type="checkbox" id="q10_e" ng-model="testResponse.q10[5]" ng-true-value="'E'" />
                         <label for="q10">Ngiyaticabangela</label><br>
-                        <input type="checkbox" name="survey" value="cant">
+                        <input type="checkbox" id="q10_f" ng-model="testResponse.q10[6]" ng-true-value="'F'" />
                         <label for="q10">Ngiyatihlalela ngilindze</label>
                     </div>
                     <h3>(11.) Ungakujabulela kuta ka Edulution uma tikole tivaliwe?</h3>
                     <div class="radio_container">
-                        <input type="radio" value="none" name="holidays" />
+                        <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="A" />
                         <label for="q11">Yebo</label>
-                        <input type="radio" value="none" name="holidays" />
+                        <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="B" />
                         <label for="q11">Cha</label>
-                        <input type="radio" value="none" name="holidays" />
+                        <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="C" />
                         <label for="q11">Anginaso siciniseko</label>
                     </div>
-                    <!--TO INCLUDE JS-->
-                    <input type="submit" value="HAMBISA" />
+                    <input type="hidden" name="test" ng-init="testResponse.test='learner_survey_ss'">
+                    <input type="hidden" name="course" ng-init="testResponse.course='learner_survey'">
+                    <input type="hidden" name="module" ng-init="testResponse.module='learner_survey'">
+                    <button id="testsubmit-btn" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
             </div>
             </form>
         </div>
