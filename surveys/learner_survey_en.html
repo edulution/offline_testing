@@ -142,7 +142,7 @@
                         <input type="checkbox" id="q9_g" ng-model="testResponse.q9[7]" ng-true-value="'G'" />
                         <label for="q9_g">Needed at home</label><br>
                         <label for="q9_h" id="q9_h">Other:</label>
-                        <input type="text" ng-model="testResponse.q9[8]" />
+                        <input type="text" ng-model="testResponse.q9[8]" autocomplete="off" maxlength="50" />
                     </div>
                     <h3>(10.) When you can’t do a question, what do you do?</h3>
                     <div class="checkbox">
@@ -172,7 +172,6 @@
                         <label for="q11_c">Not sure</label>
                     </div>
                     <input type="hidden" name="test" ng-init="testResponse.test='learner_survey_en'">
-                    <input type="hidden" name="course" ng-init="testResponse.course='learner_survey'">
                     <input type="hidden" name="module" ng-init="testResponse.module='learner_survey'">
                     <button id="testsubmit-btn" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
             </div>

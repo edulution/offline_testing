@@ -154,7 +154,7 @@
                         <input type="checkbox" id="q9_g" ng-model="testResponse.q9[7]" ng-true-value="'G'" />
                         <label for="q9">Izidingo zasekhaya</label><br />
                         <label for="q9">Okunye:</label>
-                        <input type="text" ng-model="testResponse.q9[8]" />
+                        <input type="text" ng-model="testResponse.q9[8]" autocomplete="off" maxlength="50" />
                     </div>
                     <h3>(10.) Uma uhluleka ukuphendula umbuzo, wenzenjani?</h3>
                     <div class="checkbox">
@@ -182,7 +182,6 @@
                         <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="C" />
                         <label for="q11">Anginaso isiqiniseko</label>
                     </div>
-                    <input type="hidden" name="test" ng-init="testResponse.test='learner_survey_zu'">
                     <input type="hidden" name="test" ng-init="testResponse.test='learner_survey_zu'">
                     <input type="hidden" name="module" ng-init="testResponse.module='learner_survey'">
                     <button id="testsubmit-btn" type="submit" value="Hambisa" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
