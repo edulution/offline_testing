@@ -75,5 +75,5 @@ CREATE TABLE public.survey_responses (
     q68 varchar,
     q69 varchar,
     q70 varchar,
-    user_id uuid,
+    user_id uuid
 );
