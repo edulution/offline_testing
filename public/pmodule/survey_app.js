@@ -29,15 +29,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             $scope.existingResponses = [];
 
-            /*properities used to check whether grade 7 test has already been written by the same learner on the same day*/
-            $scope.grade7_props = ["user_id", "test", "course", "module", "test_date"];
-
-            /*learner grades*/
-            /*grade 0 = unknown grade*/
-            $scope.learner_grades = ['4', '5', '6', '7'];
-
-            /*learner sexes used on selection*/
-            $scope.learner_sexes = [{ label: 'Male', value: 'M' }, { label: 'Female', value: 'F' }]
 
             /*Send get request to endpoint to return all user objects*/
             $http.get("/api/get_users").then(function(response) {
@@ -150,23 +141,12 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         function get_responses_concat_list(responses) {
             /*initialize empty array to hold list of concatenated props for each already existing response*/
             responses_list = []
-            /*future work. use array instead of direct string comparison in case other courses need this functionality*/
-            if ($scope.testResponse.course.indexOf("grade7") !== -1) {
-                /*console.log("Grade 7 test. Not overwriting")*/
-                /*Grade 7 test should be overwritten only if the same test is written on the same day*/
-                for (var i in responses) {
-                    /*Get the responses concat list with only the props needed for grade 7 tests*/
-                    var response_cat = concat_props(responses[i], $scope.grade7_props)
-                    /*push string of concatenated props into the array defined at the beginning of the function*/
-                    responses_list.push(response_cat)
-                }
-            } else {
-                /*For any other test, get the response props with the default value*/
-                /*(no need to pass in second argument to concat_props)*/
-                for (var i in responses) {
-                    var response_cat = concat_props(responses[i])
-                    responses_list.push(response_cat)
-                }
+
+            /*For any other test, get the response props with the default value*/
+            /*(no need to pass in second argument to concat_props)*/
+            for (var i in responses) {
+                var response_cat = concat_props(responses[i])
+                responses_list.push(response_cat)
             }
             /*return the list of concatenated props for all existing tests*/
             return responses_list
@@ -175,12 +155,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         function check_response_already_exists(testResponse) {
             /*Same logic as get_responses_concat_list, but applied to the current test being submitted*/
             /*The concatenated props of the current test are compared to the list of concatenated props for all existing tests*/
-            if ($scope.testResponse.course.indexOf("grade7") !== -1) {
-                var testResponse_concat = concat_props(testResponse, $scope.grade7_props)
-            } else {
-                var testResponse_concat = concat_props(testResponse)
-            }
 
+            var testResponse_concat = concat_props(testResponse)
 
             /*check if the response submitted exists in list of existing responses*/
             if ($scope.existingResponses.indexOf(testResponse_concat) >= 0) {
@@ -288,21 +264,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             templateUrl: "/pmodule/templates/survey_username_input.html"
         };
     })
-    /*Element directive for coach section*/
-    .directive('coachsection', function() {
-        return {
-            restrict: 'E',
-            templateUrl: "/pmodule/templates/validate_coach_id_and_password.html"
-        };
-    })
-    /*Element directive for gr7 exam number input */
-    .directive('gr7numberinput', function() {
-        return {
-            restrict: 'E',
-            templateUrl: "/pmodule/templates/gr7_exam_number.html"
-        };
-    })
-
     /*directive to invalidate the form based on student_id inputted*/
     .directive('whitelist', function() {
         return {
