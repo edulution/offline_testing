@@ -374,6 +374,38 @@ router.post('/submit_ext_eval', (request, response, next) => {
 });
 
 
+router.post('/submit_survey', (request, response, next) => {
+
+    let test_resp = request.body
+
+    /*properties of response object - user_id,username,q1,q2..*/
+    let test_resp_props = Object.keys(test_resp)
+
+    console.log(test_resp)
+
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
+
+    /*remove the test date from the reponse props*/
+    /*let utest_date = uresponses.pop();*/
+
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    /*Insert statement to run on database. test date added as current date from server*/
+
+    let insert_statement = 'INSERT INTO survey_responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+    console.log(insert_statement);
+
+    // promise
+    pool.query(insert_statement)
+        .then(res => {
+            response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'))
+            console.log("Promise returned: Survey submited sucessfully!")
+        })
+        .catch(e => console.error(e.stack))
+});
+
+
 /*Endpoint to check if a user is eligible to write a particular test*/
 router.get('/user_testcheck', (request, response) => {
     /*parse the query params into an object*/
