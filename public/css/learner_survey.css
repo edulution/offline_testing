@@ -1,8 +1,9 @@
 body {
     background-color: rgb(179, 255, 179) !important;
-    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important ;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important;
 }
-.radio_container{
+
+.radio_container {
     margin: 25px !important;
     padding: 10px 0;
     font-size: 17px;
@@ -12,9 +13,10 @@ body {
     justify-content: space-between !important;
     margin: 0 auto;
     margin-left: 30px !important;
-    
+
 }
-input + label{
+
+input+label {
     margin-right: 30px;
 }
 
@@ -24,7 +26,7 @@ input + label{
     cursor: pointer !important;
     margin-right: 10px;
     margin-left: 15px !important;
-    
+
 
 }
 
@@ -146,7 +148,7 @@ form {
 .checkbox {
     margin: 40px;
     padding: 5px;
-    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important ;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important;
     font-size: 17px;
     padding-left: 0.8em;
     padding-top: 0.6em;
@@ -154,13 +156,13 @@ form {
 }
 
 input[type=submit] {
-    padding:5px 15px; 
-    background:rgb(13, 155, 207);
+    padding: 5px 15px;
+    background: rgb(13, 155, 207);
     color: white;
-    border:0 none;
-    cursor:pointer;
+    border: 0 none;
+    cursor: pointer;
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     font: 400 16px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important;
 
 }
