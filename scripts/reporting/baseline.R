@@ -43,6 +43,8 @@ ext_eval_query <-
   and e.module = tm.module
   and e.course = tm.course"
 
+survey_responses_query <-
+  "select * from survey_responses"
 
 device_name_query <- "select * from device"
 
@@ -52,8 +54,11 @@ tresponses <- dbGetQuery(conn, tresponses_query)
 # Fetch external evaluation responses
 ext_eval <- dbGetQuery(conn, ext_eval_query)
 
+# Fetch survey responses
+survey_responses <- dbGetQuery(conn, survey_responses_query)
+
 # Bind the two together and fill any empty columns with NA
-tresponses <- tresponses %>% plyr::rbind.fill(ext_eval)
+tresponses <- tresponses %>% plyr::rbind.fill(ext_eval, survey_responses)
 
 # get device name
 device_name <- dbGetQuery(conn, device_name_query) %>% pull(name) %>% str_sub(1,5)
