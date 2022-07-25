@@ -383,6 +383,14 @@ router.post('/submit_survey', (request, response, next) => {
 
     console.log(test_resp)
 
+    for (let v in test_resp) {
+        /*if the reponse is of type object(array). Questions with a single response will be of type string*/
+        if (typeof(test_resp[v]) == "object") {
+            test_resp[v] = JSON.stringify(test_resp[v])
+        }
+    }
+
+
     /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
     let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
 
