@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="edulutionPortal">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Learner Survey</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link href="/css/portal.css" rel="stylesheet" />
+    <link href="/css/navbar.css" rel="stylesheet" />
+    <!-- your app's js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <!-- Added new jquery -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- Added native js  -->
+    <script type="text/javascript" src="/js/portal/app.js"></script>
+</head>
+
+<body class="mainBackground">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar_background navbar-static-top">
+        <div class="container">
+            <div class="navbar-header logos">
+                <a class="navbar-brand logo" href="/">
+                    <img class="img-responsive" src="/images/edulution_logo_white.svg">
+                </a>
+            </div>
+            <p class="title_header">Learner Survey</p>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <!-- Navigation Bar -->
+    <!-- List which holds all surveys -->
+    <div class="container">
+        <div>
+            <!-- Panel Group of all learner surveys-->
+            <!-- Begin Panel Group -->
+            <div class="panel-group">
+                <!-- Begin Panel -->
+                <div class="col-md-8 col-md-offset-2 gr7_test_panel_container">
+                    <a href="#" onclick="window.open('/surveys/learner_survey_en','_self')">
+                        <div class="panel panel-default">
+                            <div class="panel-heading " id="level2_backgroundcolor">
+                                <h4 class="panel-title">
+                                    English
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+                <!-- End Panel -->
+                <!-- Begin Panel -->
+                <div class="col-md-8 col-md-offset-2 gr7_test_panel_container">
+                    <a href="#" onclick="window.open('/surveys/learner_survey_isizulu','_self')">
+                        <div class="panel panel-default">
+                            <div class="panel-heading " id="level2_backgroundcolor">
+                                <h4 class="panel-title">
+                                    Isizulu
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+                <!-- End Panel -->
+                <!-- Begin Panel -->
+                <div class="col-md-8 col-md-offset-2 gr7_test_panel_container">
+                    <a href="#" onclick="window.open('/surveys/learner_survey_siswati','_self')">
+                        <div class="panel panel-default">
+                            <div class="panel-heading " id="level2_backgroundcolor">
+                                <h4 class="panel-title">
+                                    Siswati
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+                <!-- End Panel -->
+        </div>
+    </div>
+</body>
+
+</html>
