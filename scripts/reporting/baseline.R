@@ -30,7 +30,7 @@ conn <- dbConnect(
 
 # get test responses, join with user_id
 tresponses_query <-
-  "select r.*, tm.testmaxscore from responses r 
+  "select r.*, tm.testmaxscore from responses r
   left join test_marks tm
   on r.test = tm.test_id
   and r.module = tm.module
@@ -61,7 +61,9 @@ survey_responses <- dbGetQuery(conn, survey_responses_query)
 tresponses <- tresponses %>% plyr::rbind.fill(ext_eval, survey_responses)
 
 # get device name
-device_name <- dbGetQuery(conn, device_name_query) %>% pull(name) %>% str_sub(1,5)
+device_name <- dbGetQuery(conn, device_name_query) %>%
+  pull(name) %>%
+  str_sub(1, 5)
 
 # clean up and close database connection
 dbDisconnect(conn)
@@ -118,8 +120,7 @@ empty_as_zero <- function(x) {
   }
   if (x == "") {
     return("0")
-  }
-  else {
+  } else {
     return(x)
   }
 }
@@ -137,10 +138,15 @@ preproc_tresponses <- function(tresponses_raw) {
   # Leave all others as empty
   for (i in 1:nrow(tresponses_raw)) {
     row <- tresponses_raw[i, ]
-    q1_index <- which(names(row) == "q1")
-    q_max_index <- which(names(row) == paste0("q", row$testmaxscore))
-    row[q1_index:q_max_index] <- lapply(row[q1_index:q_max_index], empty_as_zero)
-    tmp_df <- tmp_df %>% rbind(row)
+    # If the response is the learner survey, simply add it to the tmp df for the next step
+    if (row$module == "learner_survey") {
+      tmp_df <- tmp_df %>% rbind(row)
+    } else {
+      q1_index <- which(names(row) == "q1")
+      q_max_index <- which(names(row) == paste0("q", row$testmaxscore))
+      row[q1_index:q_max_index] <- lapply(row[q1_index:q_max_index], empty_as_zero)
+      tmp_df <- tmp_df %>% rbind(row)
+    }
   }
 
   # Set the tmp dataframe to the real thing
@@ -175,8 +181,6 @@ preproc_tresponses <- function(tresponses_raw) {
     mutate(centre = rep(device_name)) %>%
     # add valid column(default to true)
     mutate(valid = rep(1)) %>%
-    # Filter out tests that have no max score
-    filter(!is.na(testmaxscore)) %>%
     # arrange columns, let all familiar columns appear on the left,
     # then all cols from res001...res126 appear on the right
     select(
@@ -198,7 +202,6 @@ preproc_tresponses <- function(tresponses_raw) {
   # return the processed testresponses df
   return(tr_proc)
 }
-
 
 # Simple function to generate filename of csv report in desired  --------
 
@@ -251,7 +254,7 @@ baseline <- function(year_month, tresponses) {
       "baseline_",
       year_month
     ),
-    quote = FALSE,
+    quote = TRUE,
     col.names = TRUE,
     row.names = FALSE,
     na = ""
