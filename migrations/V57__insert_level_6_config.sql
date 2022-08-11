@@ -22,8 +22,6 @@ INSERT INTO public.test_marks (
     test_pass_score,
     channel_id,
     test_type,
-    test_seq,
-    test_type,
     test_seq)
 VALUES (
     'level_6_pre',
