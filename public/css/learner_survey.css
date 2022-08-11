@@ -193,3 +193,9 @@ input[type=radio] {
     text-transform: uppercase;
     margin-top: 50px;
 }
+
+
+#username_input {
+    margin-left: 3%;
+
+}
