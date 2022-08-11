@@ -20,7 +20,9 @@ INSERT INTO public.test_marks (
     module,
     testmaxscore,
     test_pass_score,
-    channel_id)
+    channel_id,
+    test_type,
+    test_seq)
 VALUES (
     'level_6_pre',
     'Level 6 Pre-Test',
@@ -28,7 +30,9 @@ VALUES (
     'numeracy',
     50,
     0.75,
-    NULL);
+    NULL,
+    'TST',
+    1);
 
 INSERT INTO public.test_marks (
     test_id,
@@ -37,7 +41,9 @@ INSERT INTO public.test_marks (
     module,
     testmaxscore,
     test_pass_score,
-    channel_id)
+    channel_id,
+    test_type,
+    test_seq)
 VALUES (
     'level_6_post',
     'Level 6 Post-Test',
@@ -45,7 +51,9 @@ VALUES (
     'numeracy',
     50,
     0.75,
-    NULL);
+    NULL,
+    'TST',
+    5);
 
 -- Insert Level 6 testlets
 INSERT INTO public.test_marks (
@@ -55,7 +63,9 @@ INSERT INTO public.test_marks (
     module,
     testmaxscore,
     test_pass_score,
-    channel_id)
+    channel_id,
+    test_type,
+    test_seq)
 VALUES (
     'level_6_sec_1',
     'Level 6 Section 1 Testlet',
@@ -63,7 +73,9 @@ VALUES (
     'numeracy',
     15,
     0.75,
-    'cf1b82ba14524cf78a08ce8c01626b28');
+    'cf1b82ba14524cf78a08ce8c01626b28',
+    'TLT',
+    1);
 
 INSERT INTO public.test_marks (
     test_id,
@@ -72,7 +84,9 @@ INSERT INTO public.test_marks (
     module,
     testmaxscore,
     test_pass_score,
-    channel_id)
+    channel_id,
+    test_type,
+    test_seq)
 VALUES (
     'level_6_sec_2',
     'Level 6 Section 2 Testlet',
@@ -80,7 +94,9 @@ VALUES (
     'numeracy',
     15,
     0.75,
-    'b21103bd85f64e18b6a6e4cb50665386');
+    'b21103bd85f64e18b6a6e4cb50665386',
+    'TLT',
+    2);
 
 INSERT INTO public.test_marks (
     test_id,
@@ -89,7 +105,9 @@ INSERT INTO public.test_marks (
     module,
     testmaxscore,
     test_pass_score,
-    channel_id)
+    channel_id,
+    test_type,
+    test_seq)
 VALUES (
     'level_6_sec_3',
     'Level 6 Section 3 Testlet',
@@ -97,7 +115,9 @@ VALUES (
     'numeracy',
     15,
     0.75,
-    '20e95963caea4ab5ac505c60f3c5a5bb');
+    '20e95963caea4ab5ac505c60f3c5a5bb',
+    'TLT',
+    3);
 
 INSERT INTO public.test_marks (
     test_id,
@@ -106,7 +126,9 @@ INSERT INTO public.test_marks (
     module,
     testmaxscore,
     test_pass_score,
-    channel_id)
+    channel_id,
+    test_type,
+    test_seq)
 VALUES (
     'level_6_sec_4',
     'Level 6 Section 4 Testlet',
@@ -114,7 +136,9 @@ VALUES (
     'numeracy',
     15,
     0.75,
-    '1ab4e3287ce745ee9166bb13021a3b55');
+    '1ab4e3287ce745ee9166bb13021a3b55',
+    'TLT',
+    4);
 
 -- Insert level 6 topics
 INSERT INTO test_topics (
@@ -342,6 +366,8 @@ VALUES (
     'Level 6 - Section 4',
     4);
 
+
+-- Insert test questions for all Level 6 Tests and Testlets
 INSERT INTO test_questions (
     source_blquestion_id,
     question_index,
