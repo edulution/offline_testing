@@ -1,6 +1,7 @@
-<div class="HeaderbannerLabel">USERNAME</div>
-<input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist autocomplete="off" class="user_input" placeholder="Please fill in your username">
-<span class="password-error" ng-show="form.testForm.username.$dirty && form.testForm.username.$error.whitelist"><i class="fa fa-times" aria-hidden="true"></i>
-    Please enter a valid Username</span>
-<span class="valid-field" ng-show="form.testForm.username.$dirty && !form.testForm.username.$error.whitelist"><i class="fa fa-check" aria-hidden="true"></i>
-    {{display_username()}}</span>
+<div>
+    <input type="text" autocomplete="off" id="user_id" name="username" ng-model="testResponse.username" whitelist autocomplete="off" class="user_input" placeholder="Please fill in your username">
+    <span class="password-error" ng-show="form.testForm.username.$dirty && form.testForm.username.$error.whitelist"><i class="fa fa-times" aria-hidden="true"></i>
+        Please enter a valid Username</span>
+    <span class="valid-field" ng-show="form.testForm.username.$dirty && !form.testForm.username.$error.whitelist"><i class="fa fa-check" aria-hidden="true"></i>
+        {{display_username()}}</span>
+</div>
