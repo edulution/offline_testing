@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(179, 255, 179) !important;
+    background-color: #265a88 !important;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important;
 }
 
@@ -49,9 +49,9 @@ h3 {
 }
 
 .row {
-    background-color: rgb(179, 255, 179);
-    margin-right: 15px;
-    margin-left: 15px;
+    background-color: #265a88;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 
@@ -157,7 +157,7 @@ form {
 
 input[type=submit] {
     padding: 5px 15px;
-    background: rgb(13, 155, 207);
+    /*background: rgb(13, 155, 207);*/
     color: white;
     border: 0 none;
     cursor: pointer;
@@ -168,8 +168,34 @@ input[type=submit] {
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 3%;
+    padding-left: 3%;
     margin-right: auto;
     margin-left: auto;
+}
+
+
+input[type=checkbox],
+input[type=radio] {
+    transform: scale(1.5);
+}
+
+
+#suveysubmit-btn {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 30px;
+    min-width: 88px;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+
+#username_input {
+    margin-left: 3%;
+
 }
