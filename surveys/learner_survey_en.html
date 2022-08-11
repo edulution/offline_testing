@@ -47,8 +47,8 @@
                     <div class="instructions">INSTRUCTIONS</div>
                     <div class="ins">
                         <p>
-                            Answer the questions as honestly as possible <br />You have 20
-                            Minutes to complete this survey <br />Ask your coach if your
+                            Answer the questions as honestly as possible <br>You have 20
+                            Minutes to complete this survey <br>Ask your coach if your
                             are not sure how to answer the questions
                         </p>
                     </div>
@@ -128,34 +128,34 @@
                     <h3>(9.) When you miss a session what is the main reason?</h3>
                     <div class="checkbox">
                         <input type="checkbox" id="q9_a" ng-model="testResponse.q9[1]" ng-true-value="'A'" />
-                        <label for="q9_a">Transport</label><br>
+                        <label for="q9_a">Transport</label><br><br>
                         <input type="checkbox" id="q9_b" ng-model="testResponse.q9[2]" ng-true-value="'B'" />
-                        <label for="q9_b">Duties at home</label><br>
+                        <label for="q9_b">Duties at home</label><br><br>
                         <input type="checkbox" id="q9_c" ng-model="testResponse.q9[3]" ng-true-value="'C'" />
-                        <label for="q9_c">Lunch/Hungry</label><br>
+                        <label for="q9_c">Lunch/Hungry</label><br><br>
                         <input type="checkbox" id="q9_d" ng-model="testResponse.q9[4]" ng-true-value="'D'" />
-                        <label for="q9_d">Didn’t feel like it</label><br>
+                        <label for="q9_d">Didn’t feel like it</label><br><br>
                         <input type="checkbox" id="q9_e" ng-model="testResponse.q9[5]" ng-true-value="'E'" />
-                        <label for="q9_e">Don’t like coach</label><br>
+                        <label for="q9_e">Don’t like coach</label><br><br>
                         <input type="checkbox" id="q9_f" ng-model="testResponse.q9[6]" ng-true-value="'F'" />
-                        <label for="q9_f">Sickness</label><br>
+                        <label for="q9_f">Sickness</label><br><br>
                         <input type="checkbox" id="q9_g" ng-model="testResponse.q9[7]" ng-true-value="'G'" />
-                        <label for="q9_g">Needed at home</label><br>
+                        <label for="q9_g">Needed at home</label><br><br>
                         <label for="q9_h" id="q9_h">Other:</label>
                         <input type="text" ng-model="testResponse.q9[8]" autocomplete="off" maxlength="50" />
                     </div>
                     <h3>(10.) When you can’t do a question, what do you do?</h3>
                     <div class="checkbox">
                         <input type="checkbox" id="q10_a" ng-model="testResponse.q10[1]" ng-true-value="'A'" />
-                        <label for="q10">Ask a friend for help</label><br>
+                        <label for="q10">Ask a friend for help</label><br><br>
                         <input type="checkbox" id="q10_b" ng-model="testResponse.q10[2]" ng-true-value="'B'" />
-                        <label for="q10">Ask coach to help</label><br>
+                        <label for="q10">Ask coach to help</label><br><br>
                         <input type="checkbox" id="q10_c" ng-model="testResponse.q10[3]" ng-true-value="'C'" />
-                        <label for="q10">Use the hint</label><br>
+                        <label for="q10">Use the hint</label><br><br>
                         <input type="checkbox" id="q10_d" ng-model="testResponse.q10[4]" ng-true-value="'D'" />
-                        <label for="q10">Watch a video</label><br>
+                        <label for="q10">Watch a video</label><br><br>
                         <input type="checkbox" id="q10_e" ng-model="testResponse.q10[5]" ng-true-value="'E'" />
-                        <label for="q10">Think about it</label><br>
+                        <label for="q10">Think about it</label><br><br>
                         <input type="checkbox" id="q10_f" ng-model="testResponse.q10[6]" ng-true-value="'F'" />
                         <label for="q10">Sit and wait</label>
                     </div>
@@ -173,7 +173,7 @@
                     </div>
                     <input type="hidden" name="test" ng-init="testResponse.test='learner_survey_en'">
                     <input type="hidden" name="module" ng-init="testResponse.module='learner_survey'">
-                    <button id="testsubmit-btn" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
+                    <button id="surveysubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
             </div>
             </form>
         </div>

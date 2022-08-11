@@ -49,8 +49,8 @@
                     <div class="instructions">IMIYALELO</div>
                     <div class="ins">
                         <p>
-                            Phendula yonke imibuzo ngokwethembeka <br />Unemizuzu engama 20
-                            ukuqeda lolucwaningo <br />Uma ungenaso isiqiniseko ngombuzo,
+                            Phendula yonke imibuzo ngokwethembeka <br>Unemizuzu engama 20
+                            ukuqeda lolucwaningo <br>Uma ungenaso isiqiniseko ngombuzo,
                             cela usizo ku coach wakho
                         </p>
                     </div>
@@ -140,36 +140,36 @@
                     </h3>
                     <div class="checkbox">
                         <input type="checkbox" id="q9_a" ng-model="testResponse.q9[1]" ng-true-value="'A'" />
-                        <label for="q9">Ezokuthutha</label><br />
+                        <label for="q9">Ezokuthutha</label><br><br>
                         <input type="checkbox" id="q9_b" ng-model="testResponse.q9[2]" ng-true-value="'B'" />
-                        <label for="q9">Imisebenzi yasekhaya</label><br />
+                        <label for="q9">Imisebenzi yasekhaya</label><br><br>
                         <input type="checkbox" id="q9_c" ng-model="testResponse.q9[3]" ng-true-value="'C'" />
-                        <label for="q9">Isidlo sasemini , ilantshi/ Ukulamba</label><br />
+                        <label for="q9">Isidlo sasemini , ilantshi/ Ukulamba</label><br><br>
                         <input type="checkbox" id="q9_d" ng-model="testResponse.q9[4]" ng-true-value="'D'" />
-                        <label for="q9">Ngizizwa ngingathandi ukuza</label><br />
+                        <label for="q9">Ngizizwa ngingathandi ukuza</label><br><br>
                         <input type="checkbox" id="q9_e" ng-model="testResponse.q9[5]" ng-true-value="'E'" />
-                        <label for="q9">Angimthandi umqeqeshi</label><br />
+                        <label for="q9">Angimthandi umqeqeshi</label><br><br>
                         <input type="checkbox" id="q9_f" ng-model="testResponse.q9[6]" ng-true-value="'F'" />
-                        <label for="q9">Ukugula</label><br />
+                        <label for="q9">Ukugula</label><br><br>
                         <input type="checkbox" id="q9_g" ng-model="testResponse.q9[7]" ng-true-value="'G'" />
-                        <label for="q9">Izidingo zasekhaya</label><br />
+                        <label for="q9">Izidingo zasekhaya</label><br><br>
                         <label for="q9">Okunye:</label>
                         <input type="text" ng-model="testResponse.q9[8]" autocomplete="off" maxlength="50" />
                     </div>
                     <h3>(10.) Uma uhluleka ukuphendula umbuzo, wenzenjani?</h3>
                     <div class="checkbox">
                         <input type="checkbox" id="q10_a" ng-model="testResponse.q10[1]" ng-true-value="'A'" />
-                        <label for="q10">Ngicela umngane angisize</label><br />
+                        <label for="q10">Ngicela umngane angisize</label><br><br>
                         <input type="checkbox" id="q10_b" ng-model="testResponse.q10[2]" ng-true-value="'B'" />
-                        <label for="q10">Ngicela umqeqeshi angisize</label><br />
+                        <label for="q10">Ngicela umqeqeshi angisize</label><br><br>
                         <input type="checkbox" id="q10_c" ng-model="testResponse.q10[3]" ng-true-value="'C'" />
-                        <label for="q10">Icebo engilinekeziwe ukufinyelela empendulweni</label><br />
+                        <label for="q10">Icebo engilinekeziwe ukufinyelela empendulweni</label><br><br>
                         <input type="checkbox" id="q10_d" ng-model="testResponse.q10[4]" ng-true-value="'D'" />
-                        <label for="q10">Ngibukela I video</label><br />
+                        <label for="q10">Ngibukela I video</label><br><br>
                         <input type="checkbox" id="q10_e" ng-model="testResponse.q10[5]" ng-true-value="'E'" />
-                        <label for="q10">Ngiyacabangisisa</label><br />
+                        <label for="q10">Ngiyacabangisisa</label><br><br>
                         <input type="checkbox" id="q10_f" ng-model="testResponse.q10[6]" ng-true-value="'F'" />
-                        <label for="q10">Ngiyazihlalela ngilinde</label><br />
+                        <label for="q10">Ngiyazihlalela ngilinde</label><br><br>
                     </div>
                     <h3>
                         (11.) Ungakujabulela ukuza kwa Edulution uma izikole zivaliwe?
@@ -184,7 +184,7 @@
                     </div>
                     <input type="hidden" name="test" ng-init="testResponse.test='learner_survey_zu'">
                     <input type="hidden" name="module" ng-init="testResponse.module='learner_survey'">
-                    <button id="testsubmit-btn" type="submit" value="Hambisa" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
+                    <button id="surveysubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Hambisa" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
                 </form>
             </div>
         </div>
