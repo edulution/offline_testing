@@ -231,6 +231,11 @@ img .images {
     color: #fff;
 }
 
+/*Text on accordion panels for level assessments*/
+.level-panel-title {
+    color: white;
+}
+
 #home_backgroundcolor {
     background: #ccc;
 }
@@ -254,6 +259,10 @@ img .images {
 
 #level5_backgroundcolor {
     background: #FFC72C;
+}
+
+#level6_backgroundcolor {
+    background: #2ca02c;
 }
 
 /* Button Text for all the Playlist  */
@@ -281,107 +290,3 @@ img .images {
     margin-top: -3%;
 
 }
-
-/* Sidebar */
-/* Style the tab */
-/* .tab {
- 
-  border: 1px solid #ccc;
-  background-color: rgb(7, 29, 73); */
-/* width: 30%;
-  height: 600px; */
-/* margin: 0;
-  padding: 0;
-  width: 30%;
-  position: fixed;
-  height: 100%;
-  overflow-x: hidden;
-  color:#fff;
-} */
-
-/* Style the buttons inside the tab */
-/* .tab button {
-  display: block;
-  background-color: inherit;
-  color: #fff;
-  padding: 30px 56px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 15px;
-} */
-
-/* Change background color of buttons on hover */
-/* .tab button:hover {
-  background-color: #ddd;
-} */
-
-/* Create an active/current "tab button" class */
-/* .tab button.active {
-  background-color: #ccc;
-} */
-
-/* Style the tab content */
-/* .tabcontent {
-  float: left;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  width: 70%;
-  border-left: none;
-  height: 100%;
-} */
-
-/* Sidebar */
-/* .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 30%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-} */
-
-/* .sidebar a {
-  display: block;
-  color: black;
-  padding: 50px;
-  text-decoration: none;
-}
- 
-.sidebar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 100px;
-} */
-
-/* Sidebar to be added in the next Version */
-/* @media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-} */
