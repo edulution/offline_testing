@@ -50,8 +50,8 @@ h3 {
 
 .row {
     background-color: #265a88;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 
@@ -168,8 +168,8 @@ input[type=submit] {
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 3%;
+    padding-left: 3%;
     margin-right: auto;
     margin-left: auto;
 }
