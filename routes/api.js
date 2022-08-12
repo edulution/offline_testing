@@ -145,7 +145,7 @@ router.get('/get_responses', (request, response) => {
     const get_responses_query = {
         /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
         name: 'fetch-responses',
-        text: 'select u.username,u.first_name,u.last_name,tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0)+ coalesce(q20::integer,0.0)+ coalesce(q21::integer,0.0)+ coalesce(q22::integer,0.0)+ coalesce(q23::integer,0.0)+ coalesce(q24::integer,0.0)+ coalesce(q25::integer,0.0)+ coalesce(q26::integer,0.0)+ coalesce(q27::integer,0.0)+ coalesce(q28::integer,0.0)+ coalesce(q29::integer,0.0)+ coalesce(q30::integer,0.0)+ coalesce(q31::integer,0.0)+ coalesce(q32::integer,0.0)+ coalesce(q33::integer,0.0)+ coalesce(q34::integer,0.0)+ coalesce(q35::integer,0.0)+ coalesce(q36::integer,0.0)+ coalesce(q37::integer,0.0)+ coalesce(q38::integer,0.0)+ coalesce(q39::integer,0.0)+ coalesce(q40::integer,0.0)+ coalesce(q41::integer,0.0)+ coalesce(q42::integer,0.0)+ coalesce(q43::integer,0.0)+ coalesce(q44::integer,0.0)+ coalesce(q45::integer,0.0)+ coalesce(q46::integer,0.0)+ coalesce(q47::integer,0.0)+ coalesce(q48::integer,0.0)+ coalesce(q49::integer,0.0)+ coalesce(q50::integer,0.0)+ coalesce(q51::integer,0.0)+ coalesce(q52::integer,0.0)+ coalesce(q53::integer,0.0)+ coalesce(q54::integer,0.0)+ coalesce(q55::integer,0.0)+ coalesce(q56::integer,0.0)+ coalesce(q57::integer,0.0)+ coalesce(q58::integer,0.0)+ coalesce(q59::integer,0.0)+ coalesce(q60::integer,0.0)+ coalesce(q61::integer,0.0)+ coalesce(q62::integer,0.0)+ coalesce(q63::integer,0.0)+ coalesce(q64::integer,0.0)+ coalesce(q65::integer,0.0)+ coalesce(q66::integer,0.0)+ coalesce(q67::integer,0.0)+ coalesce(q68::integer,0.0)+ coalesce(q69::integer,0.0)+ coalesce(q70::integer,0.0))/testmaxscore,2) as score_pct from responses r left join users u on r.user_id = u.user_id left join test_marks tm on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc'
+        text: 'select u.username,u.first_name,u.last_name,u.class_name, u.group_name, tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0)+ coalesce(q20::integer,0.0)+ coalesce(q21::integer,0.0)+ coalesce(q22::integer,0.0)+ coalesce(q23::integer,0.0)+ coalesce(q24::integer,0.0)+ coalesce(q25::integer,0.0)+ coalesce(q26::integer,0.0)+ coalesce(q27::integer,0.0)+ coalesce(q28::integer,0.0)+ coalesce(q29::integer,0.0)+ coalesce(q30::integer,0.0)+ coalesce(q31::integer,0.0)+ coalesce(q32::integer,0.0)+ coalesce(q33::integer,0.0)+ coalesce(q34::integer,0.0)+ coalesce(q35::integer,0.0)+ coalesce(q36::integer,0.0)+ coalesce(q37::integer,0.0)+ coalesce(q38::integer,0.0)+ coalesce(q39::integer,0.0)+ coalesce(q40::integer,0.0)+ coalesce(q41::integer,0.0)+ coalesce(q42::integer,0.0)+ coalesce(q43::integer,0.0)+ coalesce(q44::integer,0.0)+ coalesce(q45::integer,0.0)+ coalesce(q46::integer,0.0)+ coalesce(q47::integer,0.0)+ coalesce(q48::integer,0.0)+ coalesce(q49::integer,0.0)+ coalesce(q50::integer,0.0)+ coalesce(q51::integer,0.0)+ coalesce(q52::integer,0.0)+ coalesce(q53::integer,0.0)+ coalesce(q54::integer,0.0)+ coalesce(q55::integer,0.0)+ coalesce(q56::integer,0.0)+ coalesce(q57::integer,0.0)+ coalesce(q58::integer,0.0)+ coalesce(q59::integer,0.0)+ coalesce(q60::integer,0.0)+ coalesce(q61::integer,0.0)+ coalesce(q62::integer,0.0)+ coalesce(q63::integer,0.0)+ coalesce(q64::integer,0.0)+ coalesce(q65::integer,0.0)+ coalesce(q66::integer,0.0)+ coalesce(q67::integer,0.0)+ coalesce(q68::integer,0.0)+ coalesce(q69::integer,0.0)+ coalesce(q70::integer,0.0))/testmaxscore,2) as score_pct from responses r left join users u on r.user_id = u.user_id left join test_marks tm on r.test = tm.test_id and r.course = tm.course and r.module = tm.module order by test_date desc'
     }
 
     /*Callback returns status code and result of query*/
@@ -171,7 +171,7 @@ router.get('/get_test_marks', (request, response) => {
 router.get('/results_breakdown', async (request, response) => {
     const results_query = {
         nam: 'fetch-results-breakdown',
-        text: "select * from vtestscorebytopic;"
+        text: "select v.*, u.class_name, u.group_name from vtestscorebytopic v left join users u on v.user_id = u.user_id;"
     }
     const res = await pool.query(results_query);
     const res_rows = res.rows;
@@ -199,6 +199,8 @@ router.get('/results_breakdown', async (request, response) => {
                 username: curr.username,
                 test_name: curr.test_name,
                 test_date: curr.test_date,
+                class_name: curr.class_name,
+                group_name: curr.group_name,
                 module: curr.module,
                 course: curr.course,
                 topic_details: [{
@@ -369,6 +371,46 @@ router.post('/submit_ext_eval', (request, response, next) => {
         .then(res => {
             response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'))
             console.log("Promise returned: Evaluation   submited sucessfully!")
+        })
+        .catch(e => console.error(e.stack))
+});
+
+
+router.post('/submit_survey', (request, response, next) => {
+
+    let test_resp = request.body
+
+    /*properties of response object - user_id,username,q1,q2..*/
+    let test_resp_props = Object.keys(test_resp)
+
+    console.log(test_resp)
+
+    for (let v in test_resp) {
+        /*if the reponse is of type object(array). Questions with a single response will be of type string*/
+        if (typeof(test_resp[v]) == "object") {
+            test_resp[v] = JSON.stringify(test_resp[v])
+        }
+    }
+
+
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
+
+    /*remove the test date from the reponse props*/
+    /*let utest_date = uresponses.pop();*/
+
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    /*Insert statement to run on database. test date added as current date from server*/
+
+    let insert_statement = 'INSERT INTO survey_responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+    console.log(insert_statement);
+
+    // promise
+    pool.query(insert_statement)
+        .then(res => {
+            response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'))
+            console.log("Promise returned: Survey submited sucessfully!")
         })
         .catch(e => console.error(e.stack))
 });
