@@ -34,8 +34,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -60,7 +58,7 @@
                             <!-- Example below -->
                             <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
                             <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
-                            <label for="q1_a">0,75%</label>
+                            <label for="q1_a">0.75%</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
@@ -91,14 +89,14 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
                             <label for="q2_d">72%</label>
                         </p>
-                        <h3>(3) Select the percentage that is equivalent to 0,09.</h3>
+                        <h3>(3) Select the percentage that is equivalent to 0.09.</h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
-                            <label for="q3_a">0,09%</label>
+                            <label for="q3_a">0.09%</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
-                            <label for="q3_b">0,99%</label>
+                            <label for="q3_b">0.99%</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="1">
@@ -108,10 +106,10 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
                             <label for="q3_d">90%</label>
                         </p>
-                        <h3>(4) Select the percentage that is equivalent to 0,7.</h3>
+                        <h3>(4) Select the percentage that is equivalent to 0.7.</h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
-                            <label for="q4_a">0,7%</label>
+                            <label for="q4_a">0.7%</label>
                         </p>
                         <p>
                             <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="00">
@@ -128,11 +126,11 @@
                         <h3>(5) Select the decimal fraction that is equivalent to 80%.</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
-                            <label for="q5_a">0,08</label>
+                            <label for="q5_a">0.08</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
-                            <label for="q5_b">0,8</label>
+                            <label for="q5_b">0.8</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="000">
@@ -145,11 +143,11 @@
                         <h3>(6) Select the decimal fraction that is equivalent to 5%.</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="1">
-                            <label for="q6_a">0,05</label>
+                            <label for="q6_a">0.05</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">
-                            <label for="q6_b">0,5</label>
+                            <label for="q6_b">0.5</label>
                         </p>
                         <p>
                             <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="000">
@@ -160,18 +158,18 @@
                             <label for="q6_d">50</label>
                         </p>
                         <h3>(7) Determine the percentage that makes this statement correct</h3>
-                        <h3><span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> = 0,625 = [___]%</h3>
+                        <h3><span class="frac"><sup>5</sup><span>/</span><sub>8</sub></span> = 0.625 = [___]%</h3>
                         <p>
                             <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
-                            <label for="q7_a">0,625</label>
+                            <label for="q7_a">0.625</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
-                            <label for="q7_b">6,25</label>
+                            <label for="q7_b">6.25</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="1">
-                            <label for="q7_c">62,5</label>
+                            <label for="q7_c">62.5</label>
                         </p>
                         <p>
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
@@ -214,7 +212,7 @@
                         <h3>(10) Calculate 29% of 1.</h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
-                            <label for="q10_a">0,29</label>
+                            <label for="q10_a">0.29</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="00">
@@ -222,14 +220,14 @@
                         </p>
                         <p>
                             <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
-                            <label for="q10_c">2,9</label>
+                            <label for="q10_c">2.9</label>
                         </p>
                         <p>
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
                             <label for="q10_d">29</label>
                         </p>
                         <h3>(11) Select the symbol that makes the statement true.</h3>
-                        <h3>0,36[___] 36%</h3>
+                        <h3>0.36[___] 36%</h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
                             <label for="q11_a">&lt;</label>
@@ -247,7 +245,7 @@
                             <label for="q11_d">None of these</label>
                         </p>
                         <h3>(12) Select the symbol that makes the statement true.</h3>
-                        <h3>9% [___] 0,9</h3>
+                        <h3>9% [___] 0.9</h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
                             <label for="q12_a">&lt;</label>
