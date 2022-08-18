@@ -1,7 +1,7 @@
 -- View that contains data from the responses table pivoted longer
 -- questions and answers in single colummns
 
-DROP VIEW IF EXISTS vresponseslong;
+DROP VIEW IF EXISTS vresponseslong CASCADE;
 
 
 CREATE OR REPLACE VIEW vresponseslong AS
