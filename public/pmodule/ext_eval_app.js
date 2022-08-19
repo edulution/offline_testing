@@ -1,7 +1,7 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
     .service('passwordService', function() {
-        var password = "2167dcb0ca8c44c0fbe2a49acf2d0455";
+        var password = "a184055dcfef943a7cf115d2785860ed";
 
         return {
             getPassword: function() {
