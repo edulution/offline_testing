@@ -1,7 +1,7 @@
 -- View that contains data from the responses table pivoted longer
 -- questions and answers in single colummns
 
-DROP VIEW IF EXISTS vresponseslong;
+DROP VIEW IF EXISTS vresponseslong cascade;
 
 
 CREATE OR REPLACE VIEW vresponseslong AS
@@ -19,7 +19,7 @@ SELECT response_id,
 FROM responses;
 
  -- View: public.vresponsesfull
- -- DROP VIEW public.vresponsesfull;
+DROP VIEW IF EXISTS public.vresponsesfull cascade;
 
 CREATE OR REPLACE VIEW public.vresponsesfull AS
 SELECT username,
@@ -37,7 +37,7 @@ SELECT username,
        module,
        test_date,
        question_number,
-       answer,
+       coalesce(answer::numeric, 0) as answer,
        topic_id,
        topic_name,
        channel_name,
