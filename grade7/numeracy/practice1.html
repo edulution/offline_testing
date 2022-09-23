@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html ng-app="passProtect">
+
+<head>
+    <title>Grade 7 Practice</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo_white.svg" width="400px" height="300px" class="img-responsive center-block">
+                    </div>
+                    <form name="form.testForm">
+                        <div class="HeaderbannerLabel">GRADE 7 Practice</div>
+                        <p class="test_name">Practice 1</p>
+                        <usernameinput></usernameinput>
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <h3>Time allowed: <b>1 Hour 30 Minutes</b></h3>
+                        <h3>Calculators are NOT allowed</h3>
+                        <div class="HeaderbannerLabel extend_banner">ASSESSMENT</div>
+                        <h3>(1) 750 000 - 365 000 = </h3>
+                        <p>
+                            <!-- TODO: Add value attribute to each radio button -->
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_a">385 000</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
+                            <label for="q1_b">38 500</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
+                            <label for="q1_c">3 850</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="q1_d">385</label>
+                        </p>
+                        <h3>(2) 2 435 - 1 276.</h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="q2_a">3 721</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
+                            <label for="q2_b">3 601 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
+                            <label for="q2_c">1 269</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_d">1 159</label>
+                        </p>
+                        <h3>(3) Which of the following is a set of factors of 10?</h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
+                            <label for="q3_a">{1,2,3,5}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
+                            <label for="q3_b">{1,2,5,8}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_c">{1,2,5,10}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
+                            <label for="q3_d">{1,4,5,10}</label>
+                        </p>
+                        <h3>(4) Express 5<sup>4</sup> in expanded notation.</h3>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_a">5 &times; 5 &times; 5 &times; 5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="00">
+                            <label for="q4_b">5 &plus; 5 &plus; 5 &plus; 5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_c">5 &times; 4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">4 &times; 4 &times; 4 &times; 4 &times; 4</label>
+                        </p>
+                        <h3>(5) Which of the Iines on the diagram is a line of symmetry?</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2021_question5.png" alt="image missing" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
+                            <label for="q5_a">AD</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="00">
+                            <label for="q5_b">BE</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_c">CF</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
+                            <label for="q5_d">AE</label>
+                        </p>
+                        <h3>(6) A woman sold 144 eggs on the first day, 108 eggs on the second day and 72 eggs on the third day. How many eggs did she sell altogether?</h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="q6_a">180</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">
+                            <label for="q6_b">216</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="000">
+                            <label for="q6_c">252</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_d">324</label>
+                        </p>
+                        <h3>(7) 7Look at the sets below. The set X &Intersection; Y is ...</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2020_q7.png" alt="image missing" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="q7_a">{English, Maths}.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
+                            <label for="q7_b">{Maths, Music}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_c">{Art, Music}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_d">{Art, Maths}.</label>
+                        </p>
+                        <h3>(8) 3 &times; 3 &times; 3 &times; 3 &times; 3 can be written in index notation as ..</h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_a">3<sup>5</sup></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="q8_b">5<sup>3</sup></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_c">3 &times; 5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0000">
+                            <label for="q8_d">5 &times; 3</label>
+                        </p>
+                        <h3>(9) The perimeter of the shape below is...</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2020_q9.png" alt="image missing" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
+                            <label for="q9_a">129mm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_b">119mm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_c">109mm</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
+                            <label for="q9_d">87mm</label>
+                        </p>
+                        <h3>(10) Convert 36% to a decimal number.</h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
+                            <label for="q10_a">0.036</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_b">0.36</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_c">3.6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">36.0</label>
+                        </p>
+                        <h3>(11) Which of the diagrams below is a cylinder?</h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a"><img src="/images/2022_grade7_practice/2020_q11_a.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
+                            <label for="q11_b"><img src="/images/2022_grade7_practice/2020_q11_b.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_c"><img src="/images/2022_grade7_practice/2020_q11_c.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_d"><img src="/images/2022_grade7_practice/2020_q11_d.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <h3>(12) Convert 4 <span class="frac"><sup>1</sup><sub>2</sub></span> to an improper fraction.</h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_a"><span class="frac"><sup>9</sup><sub>2</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="q12_b"><span class="frac"><sup>9</sup><sub>3</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_c"><span class="frac"><sup>5</sup><sub>2</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_d"><span class="frac"><sup>4</sup><sub>2</sub></span></label>
+                        </p>
+                        <h3>(13) Chibeka bought 50.7kg of beef from one butchery and 10.5kg of beef from a different butchery. How many kilograms of beef did he buy altogether?</h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a">40.2kg</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="q13_b">50.2kg</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
+                            <label for="q13_c">53.5kg</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d">61.2kg</label>
+                        </p>
+                        <h3>(14) A lady had $40. She bought a dress and a pair of shoes and her change was $7. How much did she spend?</h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_a">$33</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="00">
+                            <label for="q14_b">$40</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_c">$47</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="q14_d">$280</label>
+                        </p>
+                        <h3>(15) If the price of a car is $500, how much will 3 cars of the same type cost?</h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="q15_a">$497</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="q15_b">$503</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_c">$1 500</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
+                            <label for="q15_d">$1 666</label>
+                        </p>
+                        <h3>(16) If set M ={2, 3, 5, 7, 11}, the numbers in set M are called ..</h3>
+                        <p>
+                            <input type="radio" id="q16_a" name="q16" ng-model="testResponse.q16" value="0">
+                            <label for="q16_a">Composite numbers</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_b" name="q16" ng-model="testResponse.q16" value="00">
+                            <label for="q16_b">Natural numbers</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_c" name="q16" ng-model="testResponse.q16" value="000">
+                            <label for="q16_c">Odd numbers</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="1">
+                            <label for="q16_d">Prime numbers</label>
+                        </p>
+                        <h3>(17) If set A = {3, 4, 6, 9, 12, 13} and set B = {1, 3, 9, 12, 21}, list the elements of A &Intersection; B.</h3>
+                        <p>
+                            <input type="radio" id="q17_a" name="q17" ng-model="testResponse.q17" value="0">
+                            <label for="q17_a">{1, 3, 4, 6, 9, 12, 15, 21}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_b" name="q17" ng-model="testResponse.q17" value="00">
+                            <label for="q17_b">{3, 4, 6, 9, 12, 15}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_c" name="q17" ng-model="testResponse.q17" value="000">
+                            <label for="q17_c">{I, 3, 9, 12, 21}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="1">
+                            <label for="q17_d">{3, 9, 12}</label>
+                        </p>
+                        <h3>(18) In Roman numerals, 106 is written as ...</h3>
+                        <p>
+                            <input type="radio" id="q18_a" name="q18" ng-model="testResponse.q18" value="0">
+                            <label for="q18_a">XCVI</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_b" name="q18" ng-model="testResponse.q18" value="00">
+                            <label for="q18_b">CN</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_c" name="q18" ng-model="testResponse.q18" value="1">
+                            <label for="q18_c">CVI</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="0000">
+                            <label for="q18_d">CXVI</label>
+                        </p>
+                        <h3>(19) The sum of three numbers is 36. If the numbers are 12, <i>x</i> and 18, what is the value of
+                            <i>x</i> ?</h3>
+                        <p>
+                            <input type="radio" id="q19_a" name="q19" ng-model="testResponse.q19" value="0">
+                            <label for="q19_a">18</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_b" name="q19" ng-model="testResponse.q19" value="1">
+                            <label for="q19_b">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_c" name="q19" ng-model="testResponse.q19" value="000">
+                            <label for="q19_c">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0000">
+                            <label for="q19_d">2</label>
+                        </p>
+                        <h3>(20) Given that Set A = {a, b, c} and Set B = {d, e, f, g}, A &Intersection; B equals ..</h3>
+                        <p>
+                            <input type="radio" id="q20_a" name="q20" ng-model="testResponse.q20" value="1">
+                            <label for="q20_a">{ }</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_b" name="q20" ng-model="testResponse.q20" value="00">
+                            <label for="q20_b">{a, b, c}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_c" name="q20" ng-model="testResponse.q20" value="000">
+                            <label for="q20_c">{d, e, f, g}</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q20_d" name="q20" ng-model="testResponse.q20" value="0000">
+                            <label for="q20_d">{a, b, c, d, e, f, g}</label>
+                        </p>
+                        <h3>(21) The number line below shows ..</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2020_q21.png" alt="image missing" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q21_a" name="q21" ng-model="testResponse.q21" value="0">
+                            <label for="q21_a">&minus;6 &plus; (&plus;5) &equals; &minus;1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_b" name="q21" ng-model="testResponse.q21" value="00">
+                            <label for="q21_b">&plus;6 &plus; (&minus;5) &equals; &plus;1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_c" name="q21" ng-model="testResponse.q21" value="1">
+                            <label for="q21_c">&plus;6 &plus; (&minus;7) &equals; &plus;1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q21_d" name="q21" ng-model="testResponse.q21" value="0000">
+                            <label for="q21_d">&plus;6 &plus; (&plus;7) &equals; &minus;1</label>
+                        </p>
+                        <h3>(22) A man bought a car at K20 000.00. He later sold it and made a loss of 45%. Find the loss that he made.</h3>
+                        <p>
+                            <input type="radio" id="q22_a" name="q22" ng-model="testResponse.q22" value="1">
+                            <label for="q22_a">K9 000.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_b" name="q22" ng-model="testResponse.q22" value="00">
+                            <label for="q22_b">K900.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_c" name="q22" ng-model="testResponse.q22" value="000">
+                            <label for="q22_c">K90.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q22_d" name="q22" ng-model="testResponse.q22" value="0000">
+                            <label for="q22_d">K9.00</label>
+                        </p>
+                        <h3>(23) Express 21<sub>five</sub> as a number in base 10.</h3>
+                        <p>
+                            <input type="radio" id="q23_a" name="q23" ng-model="testResponse.q23" value="0">
+                            <label for="q23_a">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_b" name="q23" ng-model="testResponse.q23" value="00">
+                            <label for="q23_b">5</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_c" name="q23" ng-model="testResponse.q23" value="000">
+                            <label for="q23_c">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q23_d" name="q23" ng-model="testResponse.q23" value="1">
+                            <label for="q23_d">11</label>
+                        </p>
+                        <h3>(24) If there are 24 women and 6 men in a certain shop, what is the ratio of women to men in its simplest form?</h3>
+                        <p>
+                            <input type="radio" id="q24_a" name="q24" ng-model="testResponse.q24" value="0">
+                            <label for="q24_a">2 to 1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_b" name="q24" ng-model="testResponse.q24" value="00">
+                            <label for="q24_b">2 to 4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_c" name="q24" ng-model="testResponse.q24" value="1">
+                            <label for="q24_c">4 to 1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q24_d" name="q24" ng-model="testResponse.q24" value="0000">
+                            <label for="q24_d">4 to 2</label>
+                        </p>
+                        <h3>(25) Which of the following decimal fractions is the smallest?</h3>
+                        <p>
+                            <input type="radio" id="q25_a" name="q25" ng-model="testResponse.q25" value="0">
+                            <label for="q25_a">0.666</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_b" name="q25" ng-model="testResponse.q25" value="00">
+                            <label for="q25_b">0.500</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_c" name="q25" ng-model="testResponse.q25" value="000">
+                            <label for="q25_c">0.333</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q25_d" name="q25" ng-model="testResponse.q25" value="1">
+                            <label for="q25_d">0.250</label>
+                        </p>
+                        <h3>(26) Find the Highest Common Factor of 6 and 12.</h3>
+                        <p>
+                            <input type="radio" id="q26_a" name="q26" ng-model="testResponse.q26" value="0">
+                            <label for="q26_a">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_b" name="q26" ng-model="testResponse.q26" value="00">
+                            <label for="q26_b">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_c" name="q26" ng-model="testResponse.q26" value="1">
+                            <label for="q26_c">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q26_d" name="q26" ng-model="testResponse.q26" value="0000">
+                            <label for="q26_d">12</label>
+                        </p>
+                        <h3>(27) Which of the following integers is the smallest?</h3>
+                        <p>
+                            <input type="radio" id="q27_a" name="q27" ng-model="testResponse.q27" value="0">
+                            <label for="q27_a">&plus;9</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_b" name="q27" ng-model="testResponse.q27" value="00">
+                            <label for="q27_b">&plus;1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_c" name="q27" ng-model="testResponse.q27" value="000">
+                            <label for="q27_c">0</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q27_d" name="q27" ng-model="testResponse.q27" value="1">
+                            <label for="q27_d">&minus;9</label>
+                        </p>
+                        <h3>(28) 4.576 &times; 100 &equals;</h3>
+                        <p>
+                            <input type="radio" id="q28_a" name="q28" ng-model="testResponse.q28" value="0">
+                            <label for="q28_a">4 576</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_b" name="q28" ng-model="testResponse.q28" value="00">
+                            <label for="q28_b">457.6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_c" name="q28" ng-model="testResponse.q28" value="1">
+                            <label for="q28_c">45.76</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q28_d" name="q28" ng-model="testResponse.q28" value="0000">
+                            <label for="q28_d">4.57</label>
+                        </p>
+                        <h3>(29) Mr Sampa had 112 bags of rice in his shop. If he sold 14 bags, how many bags of rice remained?</h3>
+                        <p>
+                            <input type="radio" id="q29_a" name="q29" ng-model="testResponse.q29" value="0">
+                            <label for="q29_a">1 268</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_b" name="q29" ng-model="testResponse.q29" value="00">
+                            <label for="q29_b">126</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_c" name="q29" ng-model="testResponse.q29" value="000">
+                            <label for="q29_c">108</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q29_d" name="q29" ng-model="testResponse.q29" value="1">
+                            <label for="q29_d">98</label>
+                        </p>
+                        <h3>(30) How many metres make one kilometre?</h3>
+                        <p>
+                            <input type="radio" id="q30_a" name="q30" ng-model="testResponse.q30" value="0">
+                            <label for="q30_a">10 000m</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_b" name="q30" ng-model="testResponse.q30" value="1">
+                            <label for="q30_b">1 000m</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_c" name="q30" ng-model="testResponse.q30" value="000">
+                            <label for="q30_c">100m</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q30_d" name="q30" ng-model="testResponse.q30" value="0000">
+                            <label for="q30_d">10m</label>
+                        </p>
+                        <h3>(31) Look at the sets below.</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2020_q31.png" alt="image missing" class="img-responsive" /></div>
+                        <h3> The number of members in A &Union; B is ..</h3>
+                        <p>
+                            <input type="radio" id="q31_a" name="q31" ng-model="testResponse.q31" value="0">
+                            <label for="q31_a">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_b" name="q31" ng-model="testResponse.q31" value="1">
+                            <label for="q31_b">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_c" name="q31" ng-model="testResponse.q31" value="000">
+                            <label for="q31_c">7</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q31_d" name="q31" ng-model="testResponse.q31" value="0000">
+                            <label for="q31_d">8</label>
+                        </p>
+                        <h3>(32) The mode of 3, 6, 2, 9, 1, 2, 5, 6 and 2 is ..</h3>
+                        <p>
+                            <input type="radio" id="q32_a" name="q32" ng-model="testResponse.q32" value="0">
+                            <label for="q32_a">1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_b" name="q32" ng-model="testResponse.q32" value="1">
+                            <label for="q32_b">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_c" name="q32" ng-model="testResponse.q32" value="000">
+                            <label for="q32_c">3</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q32_d" name="q32" ng-model="testResponse.q32" value="0000">
+                            <label for="q32_d">6</label>
+                        </p>
+                        <h3>(33) Find the cost of 10 books, if one book costs K50.00.</h3>
+                        <p>
+                            <input type="radio" id="q33_a" name="q33" ng-model="testResponse.q33" value="1">
+                            <label for="q33_a">K500.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_b" name="q33" ng-model="testResponse.q33" value="00">
+                            <label for="q33_b">K60.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_c" name="q33" ng-model="testResponse.q33" value="000">
+                            <label for="q33_c">K50.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q33_d" name="q33" ng-model="testResponse.q33" value="0000">
+                            <label for="q33_d">K40.00</label>
+                        </p>
+                        <h3>(34) Find the value of 12 &times; (4 &plus; 9).</h3>
+                        <p>
+                            <input type="radio" id="q34_a" name="q34" ng-model="testResponse.q34" value="0">
+                            <label for="q34_a">25</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_b" name="q34" ng-model="testResponse.q34" value="00">
+                            <label for="q34_b">37</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_c" name="q34" ng-model="testResponse.q34" value="000">
+                            <label for="q34_c">146</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q34_d" name="q34" ng-model="testResponse.q34" value="1">
+                            <label for="q34_d">156</label>
+                        </p>
+                        <h3>(35) Find the Highest Common Factor of 24 and 36.</h3>
+                        <p>
+                            <input type="radio" id="q35_a" name="q35" ng-model="testResponse.q35" value="0">
+                            <label for="q35_a">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_b" name="q35" ng-model="testResponse.q35" value="00">
+                            <label for="q35_b">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_c" name="q35" ng-model="testResponse.q35" value="1">
+                            <label for="q35_c">12</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q35_d" name="q35" ng-model="testResponse.q35" value="0000">
+                            <label for="q35_d">72</label>
+                        </p>
+                        <h3>(36) How many vertices does the shape below have?</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2021_q36.png" alt="image missing" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q36_a" name="q36" ng-model="testResponse.q36" value="0">
+                            <label for="q36_a">4 </label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_b" name="q36" ng-model="testResponse.q36" value="00">
+                            <label for="q36_b">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_c" name="q36" ng-model="testResponse.q36" value="1">
+                            <label for="q36_c">8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q36_d" name="q36" ng-model="testResponse.q36" value="0000">
+                            <label for="q36_d">10</label>
+                        </p>
+                        <h3>(37) In Roman numerals, 1 915 can be written as..</h3>
+                        <p>
+                            <input type="radio" id="q37_a" name="q37" ng-model="testResponse.q37" value="1">
+                            <label for="q37_a">MCMXV.</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_b" name="q37" ng-model="testResponse.q37" value="00">
+                            <label for="q37_b">MCNIXIL</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_c" name="q37" ng-model="testResponse.q37" value="000">
+                            <label for="q37_c">MCMX</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q37_d" name="q37" ng-model="testResponse.q37" value="0000">
+                            <label for="q37_d">MCMV</label>
+                        </p>
+                        <h3>(38) Which number line correctly shows 50 &minus; 20?</h3>
+                        <p>
+                            <input type="radio" id="q38_a" name="q38" ng-model="testResponse.q38" value="1">
+                            <label for="q38_a"><img src="/images/2022_grade7_practice/2021_q38_a.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_b" name="q38" ng-model="testResponse.q38" value="00">
+                            <label for="q38_b"><img src="/images/2022_grade7_practice/2021_q38_b.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_c" name="q38" ng-model="testResponse.q38" value="000">
+                            <label for="q38_c"><img src="/images/2022_grade7_practice/2021_q38_c.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q38_d" name="q38" ng-model="testResponse.q38" value="0000">
+                            <label for="q38_d"><img src="/images/2022_grade7_practice/2021_q38_d.png" alt="image missing" class="img-responsive"></label>
+                        </p>
+                        <h3>(39) The mapping below is called a ... mapping.</h3>
+                        <div class="img_answers"><img src="/images/2022_grade7_practice/2020_q39.png" alt="image missing" class="img-responsive" /></div>
+                        <p>
+                            <input type="radio" id="q39_a" name="q39" ng-model="testResponse.q39" value="0">
+                            <label for="q39_a">one-to-one</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_b" name="q39" ng-model="testResponse.q39" value="1">
+                            <label for="q39_b">one-to-many</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_c" name="q39" ng-model="testResponse.q39" value="000">
+                            <label for="q39_c">many-to-one</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q39_d" name="q39" ng-model="testResponse.q39" value="0000">
+                            <label for="q39_d">many-to-many</label>
+                        </p>
+                        <h3>(40) Express the ratio 30 minutes to 2 hours in its lowest terms.</h3>
+                        <p>
+                            <input type="radio" id="q40_a" name="q40" ng-model="testResponse.q40" value="1">
+                            <label for="q40_a">1 to 4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_b" name="q40" ng-model="testResponse.q40" value="00">
+                            <label for="q40_b">3 to 12</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_c" name="q40" ng-model="testResponse.q40" value="000">
+                            <label for="q40_c">30 to 60</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q40_d" name="q40" ng-model="testResponse.q40" value="0000">
+                            <label for="q40_d">30 to 120</label>
+                        </p>
+                        <h3>(41) Find the simple interest on K30 000.00 saved for 3 years at the rate of 4% per year.</h3>
+                        <p>
+                            <input type="radio" id="q41_a" name="q41" ng-model="testResponse.q41" value="0">
+                            <label for="q41_a">K4 788.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_b" name="q41" ng-model="testResponse.q41" value="00">
+                            <label for="q41_b">K3 778.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_c" name="q41" ng-model="testResponse.q41" value="000">
+                            <label for="q41_c">K3 688.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q41_d" name="q41" ng-model="testResponse.q41" value="1">
+                            <label for="q41_d">K3 600.00</label>
+                        </p>
+                        <h3>(42) The lowest common multiple of 7 and 11 is ...</h3>
+                        <p>
+                            <input type="radio" id="q42_a" name="q42" ng-model="testResponse.q42" value="0">
+                            <label for="q42_a">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_b" name="q42" ng-model="testResponse.q42" value="00">
+                            <label for="q42_b">18</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_c" name="q42" ng-model="testResponse.q42" value="000">
+                            <label for="q42_c">44</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q42_d" name="q42" ng-model="testResponse.q42" value="1">
+                            <label for="q42_d">77</label>
+                        </p>
+                        <h3>(43) An angle which is 180° is called ...</h3>
+                        <p>
+                            <input type="radio" id="q43_a" name="q43" ng-model="testResponse.q43" value="0">
+                            <label for="q43_a">an obtuse angle</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_b" name="q43" ng-model="testResponse.q43" value="00">
+                            <label for="q43_b">an acute angle</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_c" name="q43" ng-model="testResponse.q43" value="1">
+                            <label for="q43_c">a straight angle</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q43_d" name="q43" ng-model="testResponse.q43" value="0000">
+                            <label for="q43_d">a reflex angle</label>
+                        </p>
+                        <h3>(44) How many weeks are there in 364 days?</h3>
+                        <p>
+                            <input type="radio" id="q44_a" name="q44" ng-model="testResponse.q44" value="0">
+                            <label for="q44_a">51 weeks</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_b" name="q44" ng-model="testResponse.q44" value="1">
+                            <label for="q44_b">52 weeks</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_c" name="q44" ng-model="testResponse.q44" value="000">
+                            <label for="q44_c">53 weeks</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q44_d" name="q44" ng-model="testResponse.q44" value="0000">
+                            <label for="q44_d">54 weeks</label>
+                        </p>
+                        <h3>(45) The temperatures at a certain place for 5 days were 24°C, 28°C, 31°C, 29°C and 30°C. Calculate the average temperature.</h3>
+                        <p>
+                            <input type="radio" id="q45_a" name="q45" ng-model="testResponse.q45" value="0">
+                            <label for="q45_a">22.0°C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_b" name="q45" ng-model="testResponse.q45" value="00">
+                            <label for="q45_b">22.4°C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_c" name="q45" ng-model="testResponse.q45" value="000">
+                            <label for="q45_c">28.0°C</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q45_d" name="q45" ng-model="testResponse.q45" value="1">
+                            <label for="q45_d">28.4°C</label>
+                        </p>
+                        <h3>(46) What is the next number in the sequence below? <br> 3, 9, 27 ...</h3>
+                        <p>
+                            <input type="radio" id="q46_a" name="q46" ng-model="testResponse.q46" value="1">
+                            <label for="q46_a">81</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_b" name="q46" ng-model="testResponse.q46" value="00">
+                            <label for="q46_b">39</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_c" name="q46" ng-model="testResponse.q46" value="000">
+                            <label for="q46_c">36</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q46_d" name="q46" ng-model="testResponse.q46" value="0000">
+                            <label for="q46_d">30</label>
+                        </p>
+                        <h3>(47) Express the ratio 4: 12 : 32 in its lowest terms.</h3>
+                        <p>
+                            <input type="radio" id="q47_a" name="q47" ng-model="testResponse.q47" value="0">
+                            <label for="q47_a">4: 12: 16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_b" name="q47" ng-model="testResponse.q47" value="00">
+                            <label for="q47_b">2:6:16</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_c" name="q47" ng-model="testResponse.q47" value="000">
+                            <label for="q47_c">1: 6: 8</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q47_d" name="q47" ng-model="testResponse.q47" value="1">
+                            <label for="q47_d">1: 3: 8</label>
+                        </p>
+                        <h3>(48) In Hindu-Arabic numeration, the Roman numeral MCDLXXVI can be written as ...</h3>
+                        <p>
+                            <input type="radio" id="q48_a" name="q48" ng-model="testResponse.q48" value="0">
+                            <label for="q48_a">1 676</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_b" name="q48" ng-model="testResponse.q48" value="00">
+                            <label for="q48_b">1 674</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_c" name="q48" ng-model="testResponse.q48" value="1">
+                            <label for="q48_c">1 476</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q48_d" name="q48" ng-model="testResponse.q48" value="0000">
+                            <label for="q48_d">1 474</label>
+                        </p>
+                        <h3>(49) Chisha had K700.00. She bought a pair of shoes at K80.00, a dress at K120.00 and a handbag at K180.00. How much did she remain with?</h3>
+                        <p>
+                            <input type="radio" id="q49_a" name="q49" ng-model="testResponse.q49" value="0">
+                            <label for="q49_a">K620.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_b" name="q49" ng-model="testResponse.q49" value="00">
+                            <label for="q49_b">K580.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_c" name="q49" ng-model="testResponse.q49" value="000">
+                            <label for="q49_c">K520.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q49_d" name="q49" ng-model="testResponse.q49" value="1">
+                            <label for="q49_d">K320.00</label>
+                        </p>
+                        <h3>(50) 142<sub>five</sub> &minus; 23<sub>five</sub> &equals;</h3>
+                        <p>
+                            <input type="radio" id="q50_a" name="q50" ng-model="testResponse.q50" value="1">
+                            <label for="q50_a">114 <sub>five</sub></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_b" name="q50" ng-model="testResponse.q50" value="00">
+                            <label for="q50_b">120 <sub>five</sub></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_c" name="q50" ng-model="testResponse.q50" value="000">
+                            <label for="q50_c">121 <sub>five</sub></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q50_d" name="q50" ng-model="testResponse.q50" value="0000">
+                            <label for="q50_d">165 <sub>five</sub></label>
+                        </p>
+                        <h3>(51) (360 &divide; 6) &times; 7 &equals;</h3>
+                        <p>
+                            <input type="radio" id="q51_a" name="q51" ng-model="testResponse.q51" value="0">
+                            <label for="q51_a">67</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q51_b" name="q51" ng-model="testResponse.q51" value="00">
+                            <label for="q51_b">252</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q51_c" name="q51" ng-model="testResponse.q51" value="1">
+                            <label for="q51_c">420</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q51_d" name="q51" ng-model="testResponse.q51" value="0000">
+                            <label for="q51_d">857</label>
+                        </p>
+                        <h3>(52) Order the integers below from the smallest to the largest. &plus;4, &minus;1, 0, &minus;4, 1</h3>
+                        <p>
+                            <input type="radio" id="q52_a" name="q52" ng-model="testResponse.q52" value="0">
+                            <label for="q52_a">1, 0, &plus;4, &minus;4, &minus;1</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q52_b" name="q52" ng-model="testResponse.q52" value="1">
+                            <label for="q52_b"> &minus;4, &minus;1, 0, 1, &plus;4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q52_c" name="q52" ng-model="testResponse.q52" value="000">
+                            <label for="q52_c">0, 1, &minus;1, &minus;4, &plus;4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q52_d" name="q52" ng-model="testResponse.q52" value="0000">
+                            <label for="q52_d">0, &minus;1, 1, &plus;4, &minus;4</label>
+                        </p>
+                        <h3>(53) If 15% of a class is absent on Monday, what percentage is present?</h3>
+                        <p>
+                            <input type="radio" id="q53_a" name="q53" ng-model="testResponse.q53" value="0">
+                            <label for="q53_a">115%</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q53_b" name="q53" ng-model="testResponse.q53" value="00">
+                            <label for="q53_b">100%</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q53_c" name="q53" ng-model="testResponse.q53" value="1">
+                            <label for="q53_c">85%</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q53_d" name="q53" ng-model="testResponse.q53" value="0000">
+                            <label for="q53_d">15%</label>
+                        </p>
+                        <h3>(54) A table and 2 chairs cost K200.00 altogether. If the table costs K100.00, what is the cost of one chair?</h3>
+                        <p>
+                            <input type="radio" id="q54_a" name="q54" ng-model="testResponse.q54" value="1">
+                            <label for="q54_a">K50.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q54_b" name="q54" ng-model="testResponse.q54" value="00">
+                            <label for="q54_b">Kl00.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q54_c" name="q54" ng-model="testResponse.q54" value="000">
+                            <label for="q54_c">K200.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q54_d" name="q54" ng-model="testResponse.q54" value="0000">
+                            <label for="q54_d">K300.00</label>
+                        </p>
+                        <h3>(55) What is 20% of K29 900.00?</h3>
+                        <p>
+                            <input type="radio" id="q55_a" name="q55" ng-model="testResponse.q55" value="1">
+                            <label for="q55_a">K5 980.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q55_b" name="q55" ng-model="testResponse.q55" value="00">
+                            <label for="q55_b">K5 080.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q55_c" name="q55" ng-model="testResponse.q55" value="000">
+                            <label for="q55_c">K4 980.00</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q55_d" name="q55" ng-model="testResponse.q55" value="0000">
+                            <label for="q55_d">K4 880.00</label>
+                        </p>
+                        <h3>(56) Divide 6 by <span class="frac"><sup>2</sup><span>/</span><sub>3</sub></span></h3>
+                        <p>
+                            <input type="radio" id="q56_a" name="q56" ng-model="testResponse.q56" value="0">
+                            <label for="q56_a">2</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q56_b" name="q56" ng-model="testResponse.q56" value="00">
+                            <label for="q56_b">4</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q56_c" name="q56" ng-model="testResponse.q56" value="000">
+                            <label for="q56_c">6</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q56_d" name="q56" ng-model="testResponse.q56" value="1">
+                            <label for="q56_d">9</label>
+                        </p>
+                        <h3>(57) Zangiwe cycled a distance of 18 Km in 3 hours. At what speed was she cycling?</h3>
+                        <p>
+                            <input type="radio" id="q57_a" name="q57" ng-model="testResponse.q57" value="1">
+                            <label for="q57_a">6 Km/h</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q57_b" name="q57" ng-model="testResponse.q57" value="00">
+                            <label for="q57_b">15 Km/h</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q57_c" name="q57" ng-model="testResponse.q57" value="000">
+                            <label for="q57_c">21 Km/h</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q57_d" name="q57" ng-model="testResponse.q57" value="0000">
+                            <label for="q57_d">54 Km/h</label>
+                        </p>
+                        <h3>(58) An item bought for K40.00 was later sold at K48.00. Calculate the percentage profit.</h3>
+                        <p>
+                            <input type="radio" id="q58_a" name="q58" ng-model="testResponse.q58" value="1">
+                            <label for="q58_a">20%</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q58_b" name="q58" ng-model="testResponse.q58" value="00">
+                            <label for="q58_b">40%</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q58_c" name="q58" ng-model="testResponse.q58" value="000">
+                            <label for="q58_c">48%</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q58_d" name="q58" ng-model="testResponse.q58" value="0000">
+                            <label for="q58_d">80%</label>
+                        </p>
+                        <h3>(59) 180 people used 1O bags of mealie meal in 5 days. <br> How many bags of the same size can 90 people use in 5 days if they eat at the same rate?</h3>
+                        <p>
+                            <input type="radio" id="q59_a" name="q59" ng-model="testResponse.q59" value="0">
+                            <label for="q59_a">170</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q59_b" name="q59" ng-model="testResponse.q59" value="00">
+                            <label for="q59_b">20</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q59_c" name="q59" ng-model="testResponse.q59" value="000">
+                            <label for="q59_c">18</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q59_d" name="q59" ng-model="testResponse.q59" value="1">
+                            <label for="q59_d">5</label>
+                        </p>
+                        <h3>(60) <span class="frac"><sup>2</sup><sub>3</sub></span> &plus; <span class="frac"><sup>1</sup><sub>5</sub></span> &equals;</h3>
+                        <p>
+                            <input type="radio" id="q60_a" name="q60" ng-model="testResponse.q60" value="0">
+                            <label for="q60_a"><span class="frac"><sup>3</sup><sub>8</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q60_b" name="q60" ng-model="testResponse.q60" value="00">
+                            <label for="q60_b"><span class="frac"><sup>2</sup><sub>15</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q60_c" name="q60" ng-model="testResponse.q60" value="000">
+                            <label for="q60_c"><span class="frac"><sup>7</sup><sub>15</sub></span></label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q60_d" name="q60" ng-model="testResponse.q60" value="1">
+                            <label for="q60_d"><span class="frac"><sup>13</sup><sub>15</sub></span></label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='grade7_practice1'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='zm_gr7_revision'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <gr7numberinput></gr7numberinput>
+                        <coachsection></coachsection>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
