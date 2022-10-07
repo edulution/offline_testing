@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- TODO : add attribute ng-app="passProtect" to html tag -->
-<!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
 
 <head>
@@ -12,7 +10,6 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
-    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
@@ -20,7 +17,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -50,9 +46,8 @@
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
                         <div class="HeaderbannerLabel">TEST</div>
-                        <h3>(1) Complete the equation:  <span class="frac"><sup>&#9723;</sup><sub>10</sub></span> = <span class="frac"><sup>90</sup><sub>100</sub></span></h3>
+                        <h3>(1) Complete the equation: <span class="frac"><sup>&#9723;</sup><sub>10</sub></span> = <span class="frac"><sup>90</sup><sub>100</sub></span></h3>
                         <p>
-                            <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
                             <!-- Wrong answers are 0, correct answer is 1 -->
                             <!-- Example below -->
@@ -72,7 +67,7 @@
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="1">
                             <label for="q1_d">90</label>
                         </p>
-                        <h3>(2) Complete the equation:  <span class="frac"><sup>&#9723;</sup><sub>10</sub></span> = <span class="frac"><sup>70</sup><sub>100</sub></span></h3>
+                        <h3>(2) Complete the equation: <span class="frac"><sup>&#9723;</sup><sub>10</sub></span> = <span class="frac"><sup>70</sup><sub>100</sub></span></h3>
                         <p>
                             <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_a">100</label>
@@ -89,7 +84,7 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
                             <label for="q2_d">7</label>
                         </p>
-                        <h3>(3) Complete the equation:  <span class="frac"><sup>&#9723;</sup><sub>100</sub></span> = <span class="frac"><sup>6</sup><sub>10</sub></span></h3>
+                        <h3>(3) Complete the equation: <span class="frac"><sup>&#9723;</sup><sub>100</sub></span> = <span class="frac"><sup>6</sup><sub>10</sub></span></h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_a">10</label>
@@ -106,7 +101,7 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="1">
                             <label for="q3_d">60</label>
                         </p>
-                        <h3>(4) Complete the equation:  <span class="frac"><sup>3</sup><sub>2</sub></span> = <span class="frac"><sup>&#9723;</sup><sub>4</sub></span></h3>
+                        <h3>(4) Complete the equation: <span class="frac"><sup>3</sup><sub>2</sub></span> = <span class="frac"><sup>&#9723;</sup><sub>4</sub></span></h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_a">8</label>
@@ -317,9 +312,8 @@
                             <label for="q15_d">14</label>
                         </p>
                         <div class="HeaderbannerLabel">COACH SECTION</div>
-                        <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
-                        <input type="hidden" name="test" ng-init="testResponse.test='level_3_sec_2'">
+                        <input type="hidden" name="test" ng-init="testResponse.test='level_3_sec_2_v2'">
                         <input type="hidden" name="course" ng-init="testResponse.course='level_3'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <coachsection></coachsection>
