@@ -2,14 +2,20 @@
     <table st-table="results_placeholder" st-safe-src="results" class="table">
         <thead>
             <tr>
-                <th id="responses_search">
-                    <input st-search type="search" placeholder="Username, First name, Last name, Test, Test Date..."
-                        class="form-control">
+                <th colspan="2" id="responses_search">
+                    <input st-search type="search" placeholder="Username, First name, Last name, Test, Test Date..." class="form-control">
                 </th>
-                <th id="module_search">
-                    <select st-search="module" class=" form-control module_select_dropdown">
-                        <option value="" class="module_initial_value">Module</option>
-                        <option ng-repeat="row in results | unique: 'module'" value="{{row.module}}">{{row.module |
+                <th colspan="1" id="class_search">
+                    <select st-search="class_name" class=" form-control module_select_dropdown">
+                        <option value="" class="module_initial_value">All Classes</option>
+                        <option ng-repeat="result in results | unique: 'class_name' | orderBy: 'class_name'" value="{{result.class_name}}">{{result.class_name |
+                            ucfirst}}</option>
+                    </select>
+                </th>
+                <th colspan="1" id="course_search">
+                    <select st-search="course" class=" form-control module_select_dropdown">
+                        <option value="" class="module_initial_value">All Courses</option>
+                        <option ng-repeat="row in results | unique: 'course' | orderBy: 'course'" value="{{row.course}}">{{row.course.replace('_', ' ') |
                             ucfirst}}</option>
                     </select>
                 </th>
@@ -24,8 +30,6 @@
                 <th st-ratio="10" st-sort="coach_id">Coach ID</th>
             </tr>
         </thead>
-
-
         <tbody>
             <tr ng-repeat="result in results_placeholder">
                 <td st-ratio="20">{{result.username}}</td>
@@ -53,5 +57,4 @@
             </tr>
         </tfoot>
     </table>
-
 </div><!-- table row -->

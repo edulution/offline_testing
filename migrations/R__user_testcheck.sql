@@ -4,7 +4,7 @@
 Learners cannot write any test or testlet that they have passed before
 Learners can write Pre Tests from different levels on the same day
  */
-CREATE OR REPLACE FUNCTION user_testcheck (i_userid uuid, i_test varchar, i_course varchar, i_module varchar)
+CREATE OR REPLACE FUNCTION user_testcheck (i_userid uuid, i_test varchar, i_course varchar, i_module varchar, i_date varchar)
     RETURNS TABLE (
         can_write_test boolean,
         output_message text)
@@ -20,6 +20,7 @@ DECLARE
     recommended_course RECORD;
     can_write_test boolean;
     output_message text;
+    has_written_test_on_same_day boolean;
 BEGIN
     /*Get all details of the current test and store them in the current*/
     SELECT
@@ -45,6 +46,12 @@ BEGIN
     FROM
         get_highest_passed_test (i_userid, i_module) INTO highest_test_passed;
 
+    /*Check if the user has already written the current test on that particular day*/
+    SELECT
+        *
+    FROM
+        has_written_test (i_userid, i_test, i_course, i_module, i_date) INTO has_written_test_on_same_day;
+
     /*If the user has never passed any test, recommend the course with the lowest sort order in the module*/
     IF highest_test_passed IS NULL THEN
         SELECT
@@ -68,10 +75,16 @@ BEGIN
     SELECT
         *
     FROM
-        get_tests_not_passed(i_userid, i_module)
+        get_tests_not_passed (i_userid, i_module)
     WHERE
         course = recommended_course.course
-        and test_id not in (select test_id from get_tests_already_written(i_userid, i_module) where test_type = 'TST')
+        AND test_id NOT IN (
+            SELECT
+                test_id
+            FROM
+                get_tests_already_written (i_userid, i_module)
+            WHERE
+                test_type = 'TST')
     ORDER BY
         test_seq
     LIMIT 1 INTO recommended_test;
@@ -109,9 +122,16 @@ BEGIN
                 AND course = current_test.course
                 AND module = current_test.module) INTO possible_rewrite;
 
-    /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
-    IF (current_test.test_type = 'EPR' OR current_test.module = 'literacy') AND has_passed_currtest = 'f' THEN
-        can_write_test := 't';
+    /*If the user has already written the current test on that particular day*/
+    IF has_written_test_on_same_day = 't' THEN
+        can_write_test := 'f';
+        output_message := 'This test has already been written by this user today';
+
+        /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
+    elsif (current_test.test_type = 'EPR'
+            OR current_test.module = 'literacy')
+            AND has_passed_currtest = 'f' THEN
+            can_write_test := 't';
         output_message := 'Check completed. This test can be written';
 
         /*No other check on literacy and grade 7 tests except whether the test has been passed or not*/
@@ -132,9 +152,10 @@ BEGIN
             AND has_written_currtest = 't' THEN
             can_write_test := 'f';
         output_message := 'A Pre-Test can only be written once. The recommended test is: ' || recommended_test.test_name;
-    /*elsif possible_rewrite = 't' THEN
-        can_write_test := 'f';
-        output_message := 'The recommended test is: ' || recommended_test.test_name || ' but this test can be rewritten';*/
+
+        /*elsif possible_rewrite = 't' THEN
+         can_write_test := 'f';
+         output_message := 'The recommended test is: ' || recommended_test.test_name || ' but this test can be rewritten';*/
     elsif recommended_test.test_id = current_test.test_id
             AND recommended_test.course = current_test.course
             AND recommended_test.module = current_test.module THEN

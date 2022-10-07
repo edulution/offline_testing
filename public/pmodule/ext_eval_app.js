@@ -1,6 +1,15 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
-    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5) {
+    .service('passwordService', function() {
+        var password = "5560d90609cbacd6223e94c0d1ded646";
+
+        return {
+            getPassword: function() {
+                return password;
+            }
+        };
+    })
+    .controller('MainCtrl', function($scope, $http, $uibModal, $location, $log, $document, md5, passwordService) {
 
         /*Alias for controller*/
         var $ctrl = this;
@@ -25,7 +34,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             /*learner grades*/
             /*grade 0 = unknown grade*/
-            $scope.learner_grades = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+            $scope.learner_grades = ['4', '5', '6', '7'];
 
             /*learner sexes used on selection*/
             $scope.learner_sexes = [{ label: 'Male', value: 'M' }, { label: 'Female', value: 'F' }]
@@ -53,7 +62,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             })
 
             /*variables for validating coach_id*/
-            $scope.testSubmitPassword = "fc11587579b9372463e406b065134af3";
+            $scope.testSubmitPassword = passwordService.getPassword();
             $scope.wrongPassword = false;
             $scope.wrongCoachID = false;
 
@@ -230,8 +239,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5) {
-        $scope.coachPassword = "fc11587579b9372463e406b065134af3";
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5, passwordService) {
+        $scope.coachPassword = passwordService.getPassword();
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
@@ -252,6 +261,29 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
 
         /*end ModalInstanceCtrl*/
+    })
+    /*Element directive for username input partial
+    Better than using ng-include because problems with relative paths are avoided
+    And can take advantage of other features of directives like isolated scope if needed*/
+    .directive('usernameinput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/ext_eval_username_input.html"
+        };
+    })
+    /*Element directive for coach section*/
+    .directive('coachsection', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/validate_coach_id_and_password.html"
+        };
+    })
+    /*Element directive for gr7 exam number input */
+    .directive('gr7numberinput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "/pmodule/templates/gr7_exam_number.html"
+        };
     })
 
     /*directive to invalidate the form based on student_id inputted*/

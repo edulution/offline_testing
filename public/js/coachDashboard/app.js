@@ -2,25 +2,20 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
 
+        /*enable angular animations*/
+        $ctrl.animationsEnabled = true;
         $scope.init = function() {
+            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
+            $scope.results_breakdown_placeholder = []
 
-            /*placeholder value used in smart-table because users are loaded asynchorously*/
-            $scope.users_placeholder = [];
-
-            /*placeholder value used in smart-table because results are loaded asynchorously*/
-            $scope.results_placeholder = [];
-
-            /*placeholder value used in smart-table because learners_count are loaded asynchorously*/
-            $scope.learners_count_placeholder = []
+            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
+            $scope.results_breakdown_placeholder = []
 
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
             /*empty object to initalize tests_marks*/
             $scope.tests_marks = {};
-
-            /*enable angular animations*/
-            $ctrl.animationsEnabled = true;
 
             $http.get("/api/get_users").then(function(response) {
                 $scope.users = response.data;
@@ -40,9 +35,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                     for (var i = response.data.length - 1; i >= 0; i--) {
                         /*Convert test dates to javascript dates to enable search by alphanumeric characters*/
                         response.data[i]["test_date"] = new Date(response.data[i]["test_date"])
-
-                        /*Generate blocks of fifths for each response*/
-                        generate_blocks($scope.tests_marks, response.data[i])
 
                         /*Get test name*/
                         get_test_name($scope.tests_marks, response.data[i])
@@ -68,6 +60,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 $scope.learners_count = response.data;
             });
 
+            $http.get("/api/results_breakdown").then(function(response) {
+                $scope.results_breakdown = response.data;
+            });
+
 
 
         }
@@ -91,7 +87,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*console.log("modal loaded");*/
         };
 
-
         /*Calculate the score percent for a test*/
         var calculate_score = function(testMarks, testResponse) {
             /*get the maxscore from config*/
@@ -108,6 +103,27 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         }
 
+        /**function to find score */
+        $scope.percentage_score = function(arr) {
+            var total = 0;
+
+            /*how many avgs */
+            var count = 0;
+            for (var i = 0; i < arr.length; i++) {
+                total += parseFloat(arr[i].answer)
+                count++;
+            }
+            var percerntage = total / count * 100;
+            return percerntage.toFixed(1);
+        }
+
+
+        /**function to display scores in each topic */
+        $scope.calc_section_pct = function(num) {
+            var section_pct = parseFloat(num);
+            return section_pct.toFixed(1);
+        }
+
 
         /*Test Results into blocks of fifths*/
         /*Split an array into chunks of specific length*/
@@ -117,7 +133,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 return r;
             }, []);
         }
-
 
         /*helper function to get sum of array*/
         const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
@@ -181,68 +196,49 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         }
 
 
-        /*Create obeject properties for fifths of each response*/
-        var get_block_values = function(testResponse, testMaxScore, chunksArray) {
-            let one_fifth = testMaxScore / 5
-            /*assumptions*/
-            /*each question has a maxscore of 1*/
-            /*the number of questions in a tests = maxscore*/
-            /*the maxscore is always divisible by 5 with no remainder*/
+        /*Calculate the score percent for a test*/
+        var calculate_score = function(testMarks, testResponse) {
+            /*get the maxscore from config*/
+            var maxScore = get_test_max_score(testMarks, testResponse)
 
-            /*create blocks of fifths based on the number of questions in a test*/
-            /*the names of the blocks may vary depending on the total number of questions in a test*/
-            let block_1_name = 'Q1 to ' + 'Q' + one_fifth
-            let block_2_name = 'Q' + (one_fifth + 1) + ' to Q' + (one_fifth * 2)
-            let block_3_name = 'Q' + (one_fifth * 2 + 1) + ' to Q' + (one_fifth * 3)
-            let block_4_name = 'Q' + (one_fifth * 3 + 1) + ' to Q' + (one_fifth * 4)
-            let block_5_name = 'Q' + (one_fifth * 4 + 1) + ' to Q' + (one_fifth * 5)
+            /*get object values for all qs in the response*/
+            var all_qvals = Object.values(get_all_qs(testResponse))
 
-            /*assign the result property on each block to true or false based on whether the value is equal to the value of one fifth*/
-            /*This will modify the object passed in and returns nothing*/
-            testResponse.block_1 = { name: block_1_name, result: chunksArray[0] / one_fifth }
-            testResponse.block_2 = { name: block_2_name, result: chunksArray[1] / one_fifth }
-            testResponse.block_3 = { name: block_3_name, result: chunksArray[2] / one_fifth }
-            testResponse.block_4 = { name: block_4_name, result: chunksArray[3] / one_fifth }
-            testResponse.block_5 = { name: block_5_name, result: chunksArray[4] / one_fifth }
+            /*get only the slice of the qvals for the test e.g get only the first 25 vals if the test is out of 25*/
+            var qvals_for_test = all_qvals.slice(0, maxScore)
 
-            /*console.log(testResponse)*/
+            /*get the sum of the values and calculate the percent score based on maxscore*/
+            testResponse.score_pct = get_sum_of_array(qvals_for_test) / maxScore
+
+        }
+
+        const weightedMean = function(arrValues, arrWeights) {
+            const result = arrValues
+                .map((value, i) => {
+                    const weight = arrWeights[i]
+                    const sum = value * weight
+                    return [sum, weight]
+                })
+                .reduce((p, c) => [p[0] + c[0], p[1] + c[1]], [0, 0])
+
+            return result[0] / result[1]
+        }
+
+
+        $scope.topic_score_weighted_mean = function(topic_details_arr) {
+            var topic_scores = topic_details_arr.map((obj) => obj.topic_score).map(Number)
+            var topic_weights = topic_details_arr.map((obj) => obj.total_wt).map(Number)
+
+
+            return weightedMean(topic_scores, topic_weights)
 
         }
 
 
-        /*Main function which puts everything together*/
-        /*Modifies testresponse object and adds properties block_1 to block_5*/
-        var generate_blocks = function(testMarks, testResponse) {
-            /*Get the cutoff point to be used when slicing the q values i.e the number of answers expected for a test*/
-            let cuttoffPoint = get_test_max_score(testMarks, testResponse)
 
-            /*Get one fifth of the cut off point. Will be used as the length of the chunks when the sections are created*/
-            let one_fifth = cuttoffPoint / 5
 
-            /*Get the object values for q1 to q..*/
-            let all_qvals = Object.values(get_all_qs(testResponse))
 
-            /*Slice only the values for the particular test*/
-            let qvals_for_test = all_qvals.slice(0, cuttoffPoint)
 
-            /*Divide the values array evenly into chunks. Each chunk is one fifth of the total length*/
-            let qvals_chunks = chunkArrayInGroups(qvals_for_test, one_fifth)
-
-            /*Empty array to store the sum of each chunk*/
-            let qvals_chunk_totals = []
-
-            /*Loop through the chunks arrays and get the sum*/
-            /*Push the sum to the empty array declared above*/
-            for (var i = 0; i < qvals_chunks.length; i++) {
-                qvals_chunk_totals.push(get_sum_of_array(qvals_chunks[i]))
-            }
-
-            /*finally create the values and results for each chunk of questions*/
-            /*based on the maxscore for the test and totals for each chunk*/
-            /*This will modify the object passed in and returns nothing*/
-            get_block_values(testResponse, cuttoffPoint, qvals_chunk_totals)
-
-        }
     })
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
     .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {

@@ -23,6 +23,7 @@ const playlists = require('./routes/playlists')
 const numeracy = require('./routes/numeracy')
 const literacy = require('./routes/literacy')
 const grade7 = require('./routes/grade7')
+const surveys = require('./routes/surveys')
 
 app.use('/', portal)
 app.use('/api', api)
@@ -30,6 +31,8 @@ app.use('/playlists', playlists)
 app.use('/numeracy', numeracy)
 /*app.use('/literacy', literacy)*/
 app.use('/grade7', grade7)
+
+app.use('/surveys', surveys)
 
 /*Results dashboard page*/
 app.get('/results', (req, res) => {
