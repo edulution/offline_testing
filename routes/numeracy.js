@@ -10,12 +10,13 @@ router.use(express.static(path.resolve(
 /*Get the selected test as a param of the request*/
 /*then construct the path to the html file*/
 /*It is assumed that the name of the html file is the same as the requested test*/
-router.get('/:test', (req, res) => {
+router.get('/:version/:test', (req, res) => {
     let selected_module = "numeracy"
+    let selected_version = req.params.version
     let selected_test = req.params.test
     /* Construct path to Grade 7 revision numeracy */
     res.sendFile(path.resolve(
-        path.join(selected_module, selected_test + '.html')
+        path.join(selected_module, selected_version, selected_test + '.html')
     ))
 });
 

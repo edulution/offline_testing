@@ -195,6 +195,7 @@ preproc_tresponses <- function(tresponses_raw) {
       course,
       test,
       valid,
+      test_version
       # All the res columns sorted in alphabetical (lexical) order
       names(tr_proc)[str_detect(names(tr_proc), "res" %R% one_or_more(DIGIT))] %>% sort()
     )
