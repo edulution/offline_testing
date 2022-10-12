@@ -1,2 +1,3 @@
-alter table responses
-add column test_version varchar(10);
+ALTER TABLE responses
+    ADD COLUMN test_version varchar(10);
+
