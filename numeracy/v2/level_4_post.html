@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- TODO : add attribute ng-app="passProtect" to html tag -->
-<!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
 
 <head>
@@ -12,7 +10,6 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
-    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
@@ -20,7 +17,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -54,7 +50,6 @@
                         <div class="HeaderbannerLabel">TEST</div>
                         <h3>(1) Select the least common multiple of 6 and 7.</h3>
                         <p>
-                            <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
                             <!-- Wrong answers are 0. correct answer is 1 -->
                             <!-- Example below -->
@@ -195,7 +190,7 @@
                             <label for="q8_d"><span class="frac"><sup>2</sup><span>/</span><sub>5</sub></span></span> and <span class="frac"><sup>1</sup><span>/</span><sub>5</sub></span></span></label>
                         </p>
                         <h3>(9) Determine the common fraction that makes this statement correct</h3>
-                        <h3><span class="frac"><sup>25</sup><span>/</span><sub>100</sub></span></span> &plus; <span class="frac"><sup>25</sup><span>/</span><sub>100</sub></span></span> &plus; [___] = <span class="frac"><sup>75</sup><span>/</span><sub>100</sub></span></span></h3>
+                        <h3><span class="frac"><sup>25</sup><span>/</span><sub>100</sub></span></span> &plus; <span class="frac"><sup>25</sup><span>/</span><sub>100</sub></span></span> &plus; &#9723; = <span class="frac"><sup>75</sup><span>/</span><sub>100</sub></span></span></h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
                             <label for="q9_a"><span class="frac"><sup>5</sup><span>/</span><sub>0</sub></span></span></label>
@@ -953,11 +948,11 @@
                             <label for="q50_d">more than 100 trees</label>
                         </p>
                         <div class="HeaderbannerLabel">COACH SECTION</div>
-                        <!-- TODO: Add text input fields for user_id. coach_email -->
                         <!-- Hidden fields for test.course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='level_4_post'">
                         <input type="hidden" name="course" ng-init="testResponse.course='level_4'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <input type="hidden" name="test_version" ng-init="testResponse.test_version='v2'">
                         <coachsection></coachsection>
                     </form>
                 </div>
