@@ -34,8 +34,6 @@
 </head>
 
 <body ng-controller="MainCtrl as ctrl">
-    <!-- include partial for password modal -->
-    <div ng-include="pmodule/templates/pmodal_content.html"></div>
     <!-- Run init function when page opens -->
     <span ng-init=init()></span>
     <section>
@@ -239,19 +237,19 @@
                         </h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
-                            <label for="q10_a">57 cm3</label>
+                            <label for="q10_a">57 cm<sup>3</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="00">
-                            <label for="q10_b">100 cm3</label>
+                            <label for="q10_b">100 cm<sup>3</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="1">
-                            <label for="q10_c">350 cm3</label>
+                            <label for="q10_c">350 cm<sup>3</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
-                            <label for="q10_d">400 cm3</label>
+                            <label for="q10_d">400 cm<sup>3</sup></label>
                         </p>
                         <h3>(11) Calculate the surface area of the rectangular prism. The net of the prism is shown. </h3>
                         <h3>
@@ -259,19 +257,19 @@
                         </h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
-                            <label for="q11_a">61 units2</label>
+                            <label for="q11_a">61 units<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
-                            <label for="q11_b">90 units2</label>
+                            <label for="q11_b">90 units<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="1">
-                            <label for="q11_c">126 units2</label>
+                            <label for="q11_c">126 units<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
-                            <label for="q11_d">150 units2</label>
+                            <label for="q11_d">150 units<sup>2</sup></label>
                         </p>
                         <h3>(12) If a bag has 12 green marbles and 8 blue marbles, what is the probability of someone randomly picking out a blue marble from the bag?</h3>
                         <p>
@@ -300,11 +298,11 @@
                             <label for="q13_a">10 &minus; 11 years</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="1">
                             <label for="q13_b">11&minus;12 years</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
                             <label for="q13_c">12 &minus; 13 years</label>
                         </p>
                         <p>
@@ -322,11 +320,11 @@
                             <label for="q14_b">15</label>
                         </p>
                         <p>
-                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="1">
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
                             <label for="q14_c">16</label>
                         </p>
                         <p>
-                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="1">
                             <label for="q14_d">17</label>
                         </p>
                         <h3>(15) Joyce asks her friends their Maths test results out of 25. She wrote them below. Determine the median of the results.</h3>
@@ -340,11 +338,11 @@
                             <label for="q15_b">15</label>
                         </p>
                         <p>
-                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="1">
                             <label for="q15_c">16</label>
                         </p>
                         <p>
-                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="1">
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
                             <label for="q15_d">17</label>
                         </p>
                         <div class="HeaderbannerLabel">COACH SECTION</div>
