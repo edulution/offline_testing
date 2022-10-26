@@ -7,14 +7,14 @@
                 </th>
                 <th colspan="1" id="class_search">
                     <select st-search="class_name" class=" form-control module_select_dropdown">
-                        <option value="" class="module_initial_value">Class</option>
+                        <option value="" class="module_initial_value">All Classes</option>
                         <option ng-repeat="row in users | unique: 'class_name' | orderBy: 'class_name'" value="{{row.class_name}}">{{row.class_name |
                             ucfirst}}</option>
                     </select>
                 </th>
                 <th colspan="1" id="group_search">
                     <select st-search="group_name" class=" form-control module_select_dropdown">
-                        <option value="" class="module_initial_value">Group</option>
+                        <option value="" class="module_initial_value">All Groups</option>
                         <option ng-repeat="row in users | unique: 'group_name' | orderBy: 'group_name'" value="{{row.group_name}}">{{row.group_name |
                             ucfirst}}</option>
                     </select>

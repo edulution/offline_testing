@@ -35,6 +35,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             /*learner grades*/
 
+            /*grade 0 = unknown grade*/
             $scope.learner_grades = ['3', '4', '5', '6', '7'];
 
             /*learner sexes used on selection*/
@@ -262,7 +263,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                     }).catch(function onReject(errorResponse) {
                         /*Log any errors to the console*/
                         console.log(errorResponse.status);
-                    }).finally(function () {
+                    }).finally(function() {
                         $scope.testcheck_loading = false;
                     });
                 } else {
@@ -283,18 +284,18 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, md5) {
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, md5) {
         $scope.coachPassword = "fc49a594c8d54de357ad7b5f2addab9f";
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
 
 
-        $PasswordModalCtrl.cancel = function () {
+        $PasswordModalCtrl.cancel = function() {
             $uibModalInstance.dismiss();
         };
 
-        $PasswordModalCtrl.checkPassword = function (password) {
+        $PasswordModalCtrl.checkPassword = function(password) {
             if (md5.createHash(password) == $scope.coachPassword) {
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
@@ -309,21 +310,21 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
     /*Element directive for username input partial
     Better than using ng-include because problems with relative paths are avoided
     And can take advantage of other features of directives like isolated scope if needed*/
-    .directive('usernameinput', function () {
+    .directive('usernameinput', function() {
         return {
             restrict: 'E',
             templateUrl: "/pmodule/templates/username_input.html"
         };
     })
     /*Element directive for coach section*/
-    .directive('coachsection', function () {
+    .directive('coachsection', function() {
         return {
             restrict: 'E',
             templateUrl: "/pmodule/templates/validate_coach_id_and_password.html"
         };
     })
     /*Element directive for gr7 exam number input */
-    .directive('gr7numberinput', function () {
+    .directive('gr7numberinput', function() {
         return {
             restrict: 'E',
             templateUrl: "/pmodule/templates/gr7_exam_number.html"
@@ -334,23 +335,23 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
 
     /*directive to invalidate the form based on student_id inputted*/
-    .directive('whitelist', function () {
+    .directive('whitelist', function() {
         return {
             require: 'ngModel',
             scope: true,
-            link: function (scope, elem, attr, ngModel) {
+            link: function(scope, elem, attr, ngModel) {
                 /*global variables to store list of users objects and usernames*/
                 var whitelist = scope.usernames;
 
                 //For DOM -> model validation
-                ngModel.$parsers.unshift(function (value) {
+                ngModel.$parsers.unshift(function(value) {
                     var valid = whitelist.indexOf(value) > -1;
                     ngModel.$setValidity('whitelist', valid);
                     return valid ? value : undefined;
                 });
 
                 //For model -> DOM validation
-                ngModel.$formatters.unshift(function (value) {
+                ngModel.$formatters.unshift(function(value) {
                     ngModel.$setValidity('whitelist', whitelist.indexOf(value) > -1);
                     return value;
                 });
@@ -361,11 +362,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
     })
 
     /*directive to capture the keypress of the Enter key*/
-    .directive('pressEnter', function () {
-        return function (scope, element, attrs) {
-            element.bind("keydown keypress", function (event) {
+    .directive('pressEnter', function() {
+        return function(scope, element, attrs) {
+            element.bind("keydown keypress", function(event) {
                 if (event.which === 13) {
-                    scope.$apply(function () {
+                    scope.$apply(function() {
                         scope.$eval(attrs.pressEnter);
                     });
 
@@ -375,11 +376,11 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
     })
     /*Directive to check if user input is an integer. Used to validate grade 7 examination numbers*/
-    .directive('integer', function () {
+    .directive('integer', function() {
         return {
             require: 'ngModel',
-            link: function (scope, elm, attrs, ctrl) {
-                ctrl.$validators.integer = function (modelValue, viewValue) {
+            link: function(scope, elm, attrs, ctrl) {
+                ctrl.$validators.integer = function(modelValue, viewValue) {
                     /*regular expression used to check if a grade 7 examination number is an integer*/
                     var INTEGER_REGEXP = /^-?\d+$/;
 
