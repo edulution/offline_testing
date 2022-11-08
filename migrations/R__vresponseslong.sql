@@ -99,7 +99,8 @@ SELECT username,
        module,
        test_date,
        COALESCE(avg(answer::numeric), 0::numeric) AS topic_score,
-       COALESCE(sum(wt), 0::numeric) AS total_wt
+       COALESCE(sum(wt), 0::numeric) AS total_wt,
+       (COALESCE(avg(vresponsesfull.answer), 0::numeric) *COALESCE(sum(vresponsesfull.wt), 0::numeric)) as wt_score
 FROM vresponsesfull
 GROUP BY username,
          first_name,
