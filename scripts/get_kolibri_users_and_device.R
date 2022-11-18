@@ -107,7 +107,7 @@ learners_and_grades <- memberships %>%
 # Get final users df
 users <- facilityusers %>%
   # filter out admins and coaches to get list of users
-  dplyr::filter(!id %in% roles$user_id) %>%
+  # dplyr::filter(!id %in% roles$user_id) %>%
   # join the users df to the groups df by user_id
   dplyr::left_join(
     learners_and_groups,
