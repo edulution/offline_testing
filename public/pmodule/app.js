@@ -10,11 +10,25 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
         };
     })
     .service('timestampService', function ($http) {
+        var testStartTime = null;
+        var currentTimeStamp = null;
         return {
-            getServerTimestamp: function (){
+            sendTimeStampRequest: function (){
                 return $http.get("/api/get_server_timestamp")
-        }
-    }})
+            },
+            getTestStartTime: function(){
+                return this.testStartTime;
+                /*console.log("Test start time retrieved: " + this.testStartTime)*/
+            },
+            setTestStartTime: function(){
+                 this.sendTimeStampRequest().then((response) => {
+                    this.testStartTime = response.data;
+                    /*console.log("Start time set to: " + this.testStartTime)*/
+                })
+             }
+
+        };
+    })
     .controller('MainCtrl', ($scope, $timeout, $http, $uibModal, $location, $log, $document, md5, passwordService, timestampService) => {
 
         /*Alias for controller*/
@@ -63,13 +77,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 $scope.serverDate = response.data;
             })
 
-
-            /*get server timestamp from endpoint*/
-            timestampService.getServerTimestamp().then((response) => {
-                $scope.serverTimestamp = response.data;
-                console.log("Page loaded: " + $scope.serverTimestamp)
-            });
-            
 
             /*get server date from endpoint*/
             $http.get("/api/get_responses").then((response) => {
@@ -202,8 +209,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             /*add the user_id as an attribute to the testResponse object*/
             $scope.testResponse.user_id = currentUser.user_id
 
-            /*set the test date of the response to the server date*/
-            $scope.testResponse.test_date = $scope.serverDate
 
             /*check if the response already exists*/
             check_response_already_exists($scope.testResponse)
@@ -220,9 +225,23 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
         /*Test submission function*/
         $scope.submit = () => {
-            $http.post("/api/submit_test", $scope.testResponse).then(success =>
+            /*set the test date of the response to the server date*/
+            $scope.testResponse.test_date = $scope.serverDate
+
+            /*Retrieve the test start time and submit time using the timestampService*/
+            
+            $scope.testResponse.test_start_timestamp = timestampService.getTestStartTime()
+            
+            timestampService.sendTimeStampRequest().then((response) => {
+                $scope.testResponse.test_submit_timestamp = response.data;
+                console.log("Test submission time: " + $scope.testResponse.test_submit_timestamp)
+            }).then((success)=>{
+                $http.post("/api/submit_test", $scope.testResponse).then(success =>
                 /*redirect to sucessful submission page*/
                 window.location = '/api/sucessful_submit')
+            })
+
+            
         }
 
         /*Test submission function*/
@@ -266,6 +285,9 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                             /*If the user CAN write the test
                             Make testcheck_result valid*/
                             $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", true)
+
+                            /*Set the start time of the test*/
+                            timestampService.setTestStartTime()
                         } else {
 
                             /*If the user CANNOT write the test
@@ -313,10 +335,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             if (md5.createHash(password) == $scope.coachPassword) {
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
-                timestampService.getServerTimestamp().then((response) => {
-                $scope.startTime = response.data;
-                console.log("Start time: " + $scope.startTime);
-            });
             } 
             else {
                 $scope.wrongPassword = true;
