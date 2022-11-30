@@ -9,7 +9,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             }
         };
     })
-    .controller('MainCtrl', ($scope, $timeout, $http, $uibModal, $location, $log, $document, md5, passwordService) => {
+    .service('timestampService', function ($http) {
+        return {
+            getServerTimestamp: function (){
+                return $http.get("/api/get_server_timestamp")
+        }
+    }})
+    .controller('MainCtrl', ($scope, $timeout, $http, $uibModal, $location, $log, $document, md5, passwordService, timestampService) => {
 
         /*Alias for controller*/
         const $ctrl = this;
@@ -56,6 +62,14 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 /*set to scope variable serverDate*/
                 $scope.serverDate = response.data;
             })
+
+
+            /*get server timestamp from endpoint*/
+            timestampService.getServerTimestamp().then((response) => {
+                $scope.serverTimestamp = response.data;
+                console.log("Page loaded: " + $scope.serverTimestamp)
+            });
+            
 
             /*get server date from endpoint*/
             $http.get("/api/get_responses").then((response) => {
@@ -284,7 +298,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, md5, passwordService) {
+    .controller('ModalInstanceCtrl', function ($scope, $http, $uibModalInstance, md5, passwordService, timestampService) {
         $scope.coachPassword = passwordService.getPassword()
         $scope.wrongPassword = false;
 
@@ -299,7 +313,12 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             if (md5.createHash(password) == $scope.coachPassword) {
                 $scope.wrongPassword = false;
                 $uibModalInstance.dismiss();
-            } else {
+                timestampService.getServerTimestamp().then((response) => {
+                $scope.startTime = response.data;
+                console.log("Start time: " + $scope.startTime);
+            });
+            } 
+            else {
                 $scope.wrongPassword = true;
             }
         };
