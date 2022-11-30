@@ -51,13 +51,13 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
             })
 
-            /*get server date from enpoint*/
+            /*get server date from endpoint*/
             $http.get("/api/get_server_date").then((response) => {
                 /*set to scope variable serverDate*/
                 $scope.serverDate = response.data;
             })
 
-            /*get server date from enpoint*/
+            /*get server date from endpoint*/
             $http.get("/api/get_responses").then((response) => {
                 /*get list of concatenated props for all existing test responses*/
                 $scope.existingResponses = get_responses_concat_list(response.data)
@@ -284,8 +284,8 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
     })
     /*Controller for password modal*/
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, md5) {
-        $scope.coachPassword = "fc49a594c8d54de357ad7b5f2addab9f";
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, md5, passwordService) {
+        $scope.coachPassword = passwordService.getPassword()
         $scope.wrongPassword = false;
 
         var $PasswordModalCtrl = this;
