@@ -18,22 +18,8 @@ router.use(express.static(path.resolve('public')));
 /*Return today as string*/
 /*Used for timestamping of responses*/
 const get_datetime_string = () => {
-    let today = new Date()
-    let dd = today.getDate()
-    let mm = today.getMonth() + 1 //January is 0!
-    let yyyy = today.getFullYear()
+    let today = new Date().toString()
 
-    /*prefix date with 0 if less than 10(for consisitency with central db)*/
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-
-    /*prefix month with 0 if less than 10(for consisitency with central db)*/
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-    /*return today's date as string*/
-    today = yyyy + '-' + mm + '-' + dd
     return today
 }
 
