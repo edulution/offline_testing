@@ -2,13 +2,13 @@
 
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   echo "NAME"
-  echo " check_db_exists - Check databases exit"
+  echo "    check_db_exists - Check databases exit"
   echo
   echo "DESCRIPTION"
-  echo "  Using the Kolibri database user, the script checks if the Baseline database exists"
+  echo "    Using the Kolibri database user, the script checks if the Baseline database exists"
   echo 
   echo "Example"
-  echo " ./check_db_exists.sh "
+  echo "    ./check_db_exists.sh "
   exit 1
 fi
 
