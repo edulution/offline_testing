@@ -1,5 +1,19 @@
 #!/bin/bash
 
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo "NAME"
+  echo " 	get_kolibri_users_and_device - Get KOLIBRI users and device"
+  echo
+  echo "DESCRIPTION"
+  echo "  	The script extracts users for offline assesment validation."
+  echo "	Using the db_exists function, get_kolibri_users_and_device checks if the baseline database exists"
+  echo "	and populates the users table with learners extracted from Kolibri"
+  echo
+  echo "Example"
+  echo " 	./check_db_exists.sh "
+  exit 1
+fi
+
 # source helper function to check if database exists
 # shellcheck source=/dev/null
 source ~/.baseline_testing/scripts/check_db_exists.sh
