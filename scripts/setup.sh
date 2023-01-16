@@ -1,5 +1,23 @@
 #!/bin/bash
 
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo "NAME"
+  echo "	setup - Baseline setup script"
+  echo
+  echo "DESCRIPTION"
+  echo "	Setup is a script that used to setup offline testing. "
+  echo 
+  echo "	Setup links npm packages required for learner assesment, Opening up port for external access,"
+  echo "	get users from KOLIBRI, set up cronjob and start testing server."
+  echo 
+  echo "	Documentation for get users script, set up cronjob and start testing server script can be viewed "
+  echo "	by using -h or --help option for the repective script."
+  echo 
+  echo "Example"
+  echo "	./setup.sh "
+  exit 1
+fi
+
 # First time setup script
 
 # Go into directory for baseline testing
