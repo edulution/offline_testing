@@ -1,5 +1,18 @@
 #!/bin/bash
 
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo "NAME"
+  echo "    start_testing_server - Start testing server"
+  echo
+  echo "DESCRIPTION"
+  echo "    Using Forever, start_testing_server creates a Node.js script continuously runs in the background on the server."
+  echo "	Start testing server, starts and stops the main file in the application with forever" 
+  echo
+  echo "Example"
+  echo "    ./check_db_exists.sh "
+  exit 1
+fi
+
 # Restart testing server
 
 # set vars for forever and node
