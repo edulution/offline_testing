@@ -56,7 +56,7 @@ router.get('/get_users', async (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'select * from users'
+        text: 'select u.*, kf.deleted, kf.birth_year, kf.gender from users u left join ext.kolibriauth_facilityuser kf on u.user_id = kf.id'
     }
 
     try {
