@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="row in users_placeholder">
+            <tr ng-repeat="row in users_placeholder" ng-class="{linethrough:row.deleted===true}">
                 <td st-ratio="20">{{row.username}}</td>
                 <td st-ratio="20">{{row.first_name}}</td>
                 <td st-ratio="20">{{row.last_name}}</td>
