@@ -211,6 +211,7 @@ generate_filename <- function(report, input_date) {
   # Put generated file in a folder called reports/baseline in home directory
   # Generate filename based on name of report and user input
   filename <- paste0("~/.reports/baseline/", report, device_name, "_", input_date, "_",format(Sys.time(), '%Y%m%d%H%M%S'), ".csv")
+  return(filename)
 }
 
 
@@ -256,7 +257,6 @@ baseline <- function(year_month, tresponses) {
       year_month
     ),
     quote = TRUE,
-    col.names = TRUE,
     row.names = FALSE,
     na = ""
   )
