@@ -207,10 +207,10 @@ preproc_tresponses <- function(tresponses_raw) {
 # Simple function to generate filename of csv report in desired  --------
 
 
-generate_filename <- function(report, date) {
+generate_filename <- function(report, input_date) {
   # Put generated file in a folder called reports/baseline in home directory
   # Generate filename based on name of report and user input
-  filename <- paste("~/.reports/baseline/", report, device_name, "_", date, ".csv", sep = "")
+  filename <- paste0("~/.reports/baseline/", report, device_name, "_", input_date, "_",format(Sys.time(), '%Y%m%d%H%M%S'), ".csv")
 }
 
 
