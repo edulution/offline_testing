@@ -107,7 +107,7 @@ router.get('/get_learners_count', async (request, response) => {
     /*Query to fetch all grades and total learners in the grade*/
     const classes = {
         name: 'fetch-classes',
-        text: "select case when class_name is null then 'Unenrolled' else class_name end as class_name, class_total from (select class_name, count(*) class_total from users group by class_name) classes;"
+        text: "select * from vactivelearners_count"
     }
 
     /*return result query */
