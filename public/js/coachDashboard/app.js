@@ -21,7 +21,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 $scope.users = response.data;
                 /*console.log($scope.users);*/
 
-                $scope.totalLearners = $scope.users.length
+                $scope.activeLearners = $scope.users.filter(user => user.deleted === false).length;
+                $scope.deletedLearners = $scope.users.filter(user => user.deleted === true).length;
             });
 
             $http.get("/api/get_test_marks").then(function(response) {
