@@ -8,9 +8,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
 
-            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
-            $scope.results_breakdown_placeholder = []
-
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
@@ -196,23 +193,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             return all_qs;
         }
 
-
-        /*Calculate the score percent for a test*/
-        var calculate_score = function(testMarks, testResponse) {
-            /*get the maxscore from config*/
-            var maxScore = get_test_max_score(testMarks, testResponse)
-
-            /*get object values for all qs in the response*/
-            var all_qvals = Object.values(get_all_qs(testResponse))
-
-            /*get only the slice of the qvals for the test e.g get only the first 25 vals if the test is out of 25*/
-            var qvals_for_test = all_qvals.slice(0, maxScore)
-
-            /*get the sum of the values and calculate the percent score based on maxscore*/
-            testResponse.score_pct = get_sum_of_array(qvals_for_test) / maxScore
-
-        }
-
         const weightedMean = function(arrValues, arrWeights) {
             const result = arrValues
                 .map((value, i) => {
@@ -234,11 +214,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             return weightedMean(topic_scores, topic_weights)
 
         }
-
-
-
-
-
 
     })
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
@@ -321,17 +296,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
         };
     })
-    /*element directive for responses by question tab(development only)*/
-    .directive('questresponses', function() {
-        return {
-            restrict: 'E',
-            templateUrl: '/js/coachDashboard/templates/responses_q.html',
-            link: function(scope, element, attributes) {
-                /*class for all elements in directive. used for scoped styling*/
-                element.addClass('questresponses');
-            }
-        };
-    })
     /*element directive for tests count tab*/
     .directive('testscount', function() {
         return {
@@ -340,17 +304,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             link: function(scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('testscount');
-            }
-        };
-    })
-    /*element directive for results by section tab*/
-    .directive('responsesections', function() {
-        return {
-            restrict: 'E',
-            templateUrl: '/js/coachDashboard/templates/responses_sections.html',
-            link: function(scope, element, attributes) {
-                /*class for all elements in directive. used for scoped styling*/
-                element.addClass('responsesections');
             }
         };
     })
