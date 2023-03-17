@@ -1,12 +1,12 @@
 -- Add the new columns to the kolibriauth_facilityuser foreign table after changes to Kolibri schema
 ALTER FOREIGN TABLE ext.kolibriauth_facilityuser
-    ADD COLUMN deleted boolean;
+    ADD COLUMN IF NOT EXISTS deleted boolean;
 
 ALTER FOREIGN TABLE ext.kolibriauth_facilityuser
-    ADD COLUMN birth_year varchar;
+    ADD COLUMN IF NOT EXISTS birth_year varchar;
 
 ALTER FOREIGN TABLE ext.kolibriauth_facilityuser
-    ADD COLUMN exam_number varchar;
+    ADD COLUMN IF NOT EXISTS exam_number varchar;
 
 ALTER FOREIGN TABLE ext.kolibriauth_facilityuser
-    ADD COLUMN gender varchar;
+    ADD COLUMN IF NOT EXISTS gender varchar;
