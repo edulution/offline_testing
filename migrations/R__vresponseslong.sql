@@ -37,6 +37,7 @@ SELECT username,
        course,
        module,
        test_date,
+       test_version,
        question_number,
        coalesce(answer::numeric, 0) as answer,
        topic_id,
@@ -61,6 +62,7 @@ FROM
           vr.course,
           vr.module,
           vr.test_date,
+          vr.test_version,
           vr.question_number,
           vr.answer,
           tq.topic_id,
@@ -75,6 +77,7 @@ FROM
    AND split_part(vr.question_number, 'q'::text, 2) = tq.question_index::text
    AND vr.module::text = tq.module::text
    AND vr.course::text = tq.course::text
+   AND vr.test_version::text = tq.test_version::text
    LEFT JOIN test_topics tt ON tq.topic_id = tt.topic_id
    LEFT JOIN users u ON vr.user_id = u.user_id
    LEFT JOIN test_marks tm ON vr.test::text = tm.test_id::text
