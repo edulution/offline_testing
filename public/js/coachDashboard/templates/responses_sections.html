@@ -69,7 +69,7 @@
                     <table class="table table-responsive">
                         <tr>
                             <th st-ratio="20" class="group_info">Topic</th>
-                            <th st-ratio="20" class="group_info">Channel</th>
+                            <!-- <th st-ratio="20" class="group_info">Channel</th> -->
                             <th st-ratio="20" class="group_info">Score</th>
                         </tr>
                         <tr ng-repeat="topic in data.topic_details">
@@ -79,7 +79,7 @@
                             topic.topic_score <= .69 && {'background-color': '#F5C216'} ||
                             topic.topic_score <= .74 && {'background-color': '#99CC33'} ||
                             topic.topic_score <=  1 && {'background-color': '#00B050'}">{{ topic.topic_name }}</td>
-                            <td st-ratio="20">{{ topic.channel_name }}</td>
+                            <!-- <td st-ratio="20">{{ topic.channel_name }}</td> -->
                             <td st-ratio="20">{{ topic.topic_score * 100 | number : 1}}%</td>
                         </tr>
                     </table>
