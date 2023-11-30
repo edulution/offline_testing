@@ -1,6 +1,7 @@
 <div class="container" id="table-container">
     <div class="table-responsive row">
-        <div id="total-learners"><span>Total Learners: {{ totalLearners }}</span></div>
+        <div id="total-learners"><span>Active Learners: {{ activeLearners }}</span></div>
+        <div id="total-learners"><span>Deleted Learners: {{ deletedLearners }}</span></div>
         <table st-table="learners_count_placeholder" st-safe-src="learners_count" class="table detail" id="detail_table">
             <thead>
                 <tr>

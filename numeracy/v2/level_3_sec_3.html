@@ -119,7 +119,7 @@
                             <label for="q4_d">6<span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span></label>
                         </p>
                         <h3>(5) Select the symbol that makes the statement true.</h3>
-                        <h3>0.3[___] 0.6</h3>
+                        <h3>0.3 &#9723; 0.6</h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_a">&lt;</label>
@@ -137,7 +137,7 @@
                             <label for="q5_d">None of these</label>
                         </p>
                         <h3>(6) Select the symbol that makes the statement true.</h3>
-                        <h3>7 <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> [___] 7.5</h3>
+                        <h3>7 <span class="frac"><sup>4</sup><span>/</span><sub>5</sub></span> &#9723; 7.5</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
                             <label for="q6_a">&lt;</label>
@@ -155,13 +155,13 @@
                             <label for="q6_d">None of these</label>
                         </p>
                         <h3>(7) Select the symbol that makes the statement true.</h3>
-                        <h3>5 <span class="frac"><sup>21</sup><span>/</span><sub>30</sub></span> [___] 5.8</h3>
+                        <h3>5 <span class="frac"><sup>21</sup><span>/</span><sub>30</sub></span> &#9723; 5.8</h3>
                         <p>
-                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="1">
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
                             <label for="q7_a">&lt;</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_b">&gt;</label>
                         </p>
                         <p>
@@ -196,7 +196,7 @@
                             <label for="q9_a">1 litre</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="1">
                             <label for="q9_b">4 litres</label>
                         </p>
                         <p>
@@ -204,7 +204,7 @@
                             <label for="q9_c">5 litres</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_d">16 litres</label>
                         </p>
                         <h3>(10) Green paint is made by mixing yellow paint and blue paint. The quantities used are recorded in the table.</h3>
@@ -268,7 +268,7 @@
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_d">Rectangular prism</label>
                         </p>
-                        <h3>(13) Which line is a ray of ∠𝐴𝐵𝐶?</h3>
+                        <h3>(13) Which line is a ray of &ang;ABC?</h3>
                         <h3>
                             <div><img src="/images/level_3_sec_3/level_3_sec_3_q13.jpg" class="img-responsive" /></div>
                         </h3>
@@ -288,7 +288,7 @@
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
                             <label for="q13_d">None of these</label>
                         </p>
-                        <h3>(14) Which point is the vertex of ∠𝑌𝑊𝑆?</h3>
+                        <h3>(14) Which point is the vertex of &ang;YWS?</h3>
                         <h3>
                             <div><img src="/images/level_3_sec_3/level_3_sec_3_q14.jpg" class="img-responsive" /></div>
                         </h3>
@@ -328,10 +328,12 @@
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
                             <label for="q15_d">D</label>
                         </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='level_3_sec_3'">
                         <input type="hidden" name="course" ng-init="testResponse.course='level_3'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <input type="hidden" name="test_version" ng-init="testResponse.test_version='v2'">
                         <coachsection></coachsection>
                     </form>
                 </div>

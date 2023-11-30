@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
 <html ng-app="passProtect">
 
 <head>
-    <title>Level 6 Section 4 Test </title>
+    <title>Level 5 Section 4 Test</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -10,6 +12,7 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
@@ -17,6 +20,7 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -40,333 +44,312 @@
                         <img src="/images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="form.testForm">
-                        <p class="test_name">Level 6 Section 4 Test</p>
+                        <p class="test_name">Level 5 Section 4 Test</p>
                         <usernameinput></usernameinput>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
                         <div class="HeaderbannerLabel">TEST</div>
-                        <h3>(1) Determine the size of <i>BA&#770;C</i> (𝑥).</h3>
+                        <h3>(1) Select a correct property of a rhombus.</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q1_c250.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q1.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
+                            <!-- TODO: Add value attribute to each radio button -->
                             <!-- Each group of radio buttons with the same name corresponds to one question -->
                             <!-- Wrong answers are 0, correct answer is 1 -->
                             <!-- Example below -->
                             <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
                             <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
-                            <label for="q1_a"><i>BA&#770;C</i> = 32&deg;</label>
+                            <label for="q1_a">Four 90&deg; angles</label>
                         </p>
                         <p>
                             <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="00">
-                            <label for="q1_b"><i>BA&#770;C</i> = 40&deg;</label>
+                            <label for="q1_b">Only 1 pair of adjacent sides equal</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
-                            <label for="q1_c"><i>BA&#770;C</i> = 72&deg;</label>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_c">All sides equal</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="1">
-                            <label for="q1_d"><i>BA&#770;C</i> = 108&deg;</label>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="q1_d">Two 90&deg; angles</label>
                         </p>
-                        <h3>(2) Calculate the size of <i>DF&#770;E</i> (𝑦).</h3>
+                        <h3>(2) How many sides of an isosceles triangle are equal?</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q2_c200.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q2.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
-                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="1">
-                            <label for="q2_a"><i>DF&#770;E</i> = 15&deg;</label>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="q2_a">None of them</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
-                            <label for="q2_b"><i>DF&#770;E</i> = 30&deg;</label>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_b">Two sides</label>
                         </p>
                         <p>
                             <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="000">
-                            <label for="q2_c"><i>DF&#770;E</i> = 150&deg;</label>
+                            <label for="q2_c">All three sides</label>
                         </p>
-                        <p>
-                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
-                            <label for="q2_d"><i>DF&#770;E</i> = 180&deg;</label>
-                        </p>
-                        <h3>(3) Calculate the size of <i>GZ&#770;J</i> <i>(z).</i></h3>
+                        <h3>(3) What is the diameter of the circle if the radius is 24 mm?</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q3_c250.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q3.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
-                            <label for="q3_a"><i>GZ&#770;J</i> = 20&deg;</label>
+                            <label for="q3_a">12 mm</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="00">
-                            <label for="q3_b"><i>GZ&#770;J</i> = 75&deg;</label>
+                            <label for="q3_b">24 mm</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="000">
-                            <label for="q3_c"><i>GZ&#770;J</i> = 85&deg;</label>
+                            <label for="q3_c">36 mm</label>
                         </p>
                         <p>
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="1">
-                            <label for="q3_d"><i>GZ&#770;J</i> = 105&deg;</label>
+                            <label for="q3_d">48 mm</label>
                         </p>
-                        <h3>(4) Select the calculation that can be used to determine the circumference of a circle with a radius of 12 cm..</h3>
+                        <h3>(4) Square A is enlarged in the ratio 1:3 to create Square B (with sides 12 mm). What is the area of Square A?</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q4_c250.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q4.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
-                            <label for="q4_a">&pi; &times; 12</label>
+                            <label for="q4_a">9 mm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
-                            <label for="q4_b">&pi; &times; 24</label>
+                            <label for="q4_b">16 mm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
-                            <label for="q4_c">&pi; &times; 144</label>
+                            <label for="q4_c">72 mm<sup>2</sup> </label>
                         </p>
                         <p>
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
-                            <label for="q4_d">&pi;<sup>2</sup> &times; 12</label>
+                            <label for="q4_d">144 mm<sup>2</sup></label>
                         </p>
-                        <h3>(5) Select the calculation that can be used to determine the area of a circle with a radius of 12 cm.</h3>
+                        <h3>(5) How would you describe &ang;ABC?</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q5_c250.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q5.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
-                            <label for="q5_a">&pi; &times; 12</label>
+                            <label for="q5_a">Straight angle</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="00">
-                            <label for="q5_b">&pi; &times; 24</label>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_b">Acute angle</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="1">
-                            <label for="q5_c">&pi; &times; 144</label>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="q5_c">Right angle</label>
                         </p>
                         <p>
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
-                            <label for="q5_d">&pi;<sup>2</sup> &times; 12</label>
+                            <label for="q5_d">Obtuse angle</label>
                         </p>
-                        <h3>(6) Select the calculation that can be used to determine the diameter of a circle with the circumference of 50 cm.</h3>
+                        <h3>(6) Use the formula: <i>Area &equals; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> &times; base &times; &perp;height </i> to calculate the area of the triangle with a base of 11cm and a perpendicular height of 8cm.</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q6_c250.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q6.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
-                            <label for="q6_a"><span class="frac"><sup>25</sup><sub>&pi;</sub></span></label>
+                            <label for="q6_a">19 cm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">
-                            <label for="q6_b">50&pi;</label>
+                            <label for="q6_b">38 cm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
-                            <label for="q6_c"><span class="frac"><sup>50</sup><sub>&pi;</sub></span></label>
+                            <label for="q6_c">44 cm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0000">
-                            <label for="q6_d"><span class="frac"><sup>50</sup><sub>&pi;<sup>2</sup></sub></span></label>
+                            <label for="q6_d">88 cm<sup>2</sup></label>
                         </p>
-                        <h3>(7) Select the calculation that can be used to determine the radius of a circle with an area of 50 cm<sup>2</sup>.</h3>
+                        <h3>(7) Use the formula: <i>Area &equals; <span class="frac"><sup>1</sup><span>/</span><sub>2</sub></span> &times; base &times; &perp;height </i> to calculate the area of the right-angled triangle.</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q7_c250.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q7.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
-                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
-                            <label for="q7_a">&pi; &times; 50</label>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_a">20 mm<sup>2</sup></label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
-                            <label for="q7_b">
-                                <span style="white-space: nowrap; font-size:small">
-                                    &radic;
-                                    <span style="text-decoration:overline;">&nbsp;50 &divide; &pi;&nbsp;
-                                    </span>
-                                </span>
-                            </label>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
+                            <label for="q7_b">24 mm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
-                            <label for="q7_c">25 &divide; &pi;</label>
+                            <label for="q7_c">40 mm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
-                            <label for="q7_d">
-                                <span style="white-space: nowrap; font-size:small">
-                                    &radic;
-                                    <span style="text-decoration:overline;">
-                                        &nbsp;50&nbsp;
-                                    </span>
-                                </span> &divide; &pi;
-                            </label>
+                            <label for="q7_d">440 mm<sup>2</sup> </label>
                         </p>
-                        <h3>(8) Which point has coordinates (&minus;2; 1)?</h3>
+                        <h3>(8) Calculate the area of the trapezium.</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q8_c500.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q8.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
-                            <label for="q8_a">A</label>
+                            <label for="q8_a">32 cm<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00">
-                            <label for="q8_b">B</label>
+                            <label for="q8_b">56 cm<sup>2</sup></label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="1">
-                            <label for="q8_c">C</label>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_c">72 cm<sup>2</sup></label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0000">
-                            <label for="q8_d">D</label>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_d">88 cm<sup>2</sup></label>
                         </p>
-                        <h3>(9) Which graph shows a line going through the points: (0; 2), (1; 0) and (2; &minus;2)?</h3>
+                        <h3>(9) What single transformation was applied to Triangle A to get Triangle B?</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q9_c500.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q9.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
-                            <label for="q9_a">A</label>
+                            <label for="q9_a">Translation</label>
                         </p>
                         <p>
                             <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
-                            <label for="q9_b">B</label>
+                            <label for="q9_b">Rotation</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
-                            <label for="q9_c">C</label>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_c">Reflection</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
-                            <label for="q9_d">D</label>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
+                            <label for="q9_d">Dilation</label>
                         </p>
-                        <h3>(10) Which graph best represents the equation 𝑦 = <span class="frac"><sup>1</sup><sub>2</sub></span>𝑥 &plus; <span class="frac"><sup>1</sup><sub>2</sub></span>?</h3>
+                        <h3>(10) Calculate the volume of the rectanglular prism whose base has an area of 50cm<sup>2</sup> and is 7 cm high.</h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q10_c500.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q10.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
-                            <label for="q10_a">A</label>
+                            <label for="q10_a">57 cm<sup>3</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="00">
-                            <label for="q10_b">B</label>
+                            <label for="q10_b">100 cm<sup>3</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="1">
-                            <label for="q10_c">C</label>
+                            <label for="q10_c">350 cm<sup>3</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
-                            <label for="q10_d">D</label>
+                            <label for="q10_d">400 cm<sup>3</sup></label>
                         </p>
-                        <h3>(11) Determine the equation of the graph shown.</h3>
+                        <h3>(11) Calculate the surface area of the rectangular prism. The net of the prism is shown. </h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q11_c500.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q11.jpg" class="img-responsive" /></div>
                         </h3>
                         <p>
                             <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
-                            <label for="q11_a">𝑦 = 𝑥 &plus; 3</label>
+                            <label for="q11_a">61 units<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
-                            <label for="q11_b">𝑦 = &minus; 𝑥 &plus; 3</label>
+                            <label for="q11_b">90 units<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="1">
-                            <label for="q11_c">𝑦 = 𝑥 &minus; 3</label>
+                            <label for="q11_c">126 units<sup>2</sup></label>
                         </p>
                         <p>
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
-                            <label for="q11_d">𝑦 = &minus; 𝑥 &minus; 3</label>
+                            <label for="q11_d">150 units<sup>2</sup></label>
                         </p>
-                        <h3>(12) Determine the equation of the graph shown.</h3>
-                        </h3>
-                        <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q12_c500.jpg" class="img-responsive" /></div>
-                        </h3>
+                        <h3>(12) If a bag has 12 green marbles and 8 blue marbles, what is the probability of someone randomly picking out a blue marble from the bag?</h3>
                         <p>
                             <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="0">
-                            <label for="q12_a">𝑦 = 𝑥 &plus; 4</label>
+                            <label for="q12_a">0.12</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
-                            <label for="q12_b">𝑦 = 4𝑥</label>
+                            <label for="q12_b">0.2</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="1">
-                            <label for="q12_c">𝑦 = 4</label>
+                            <label for="q12_c">0.4</label>
                         </p>
                         <p>
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
-                            <label for="q12_d">𝑥 = 4</label>
+                            <label for="q12_d">0.8</label>
                         </p>
-                        <h3>(13) Which triangle is the image of the black triangle after a translation 2 units right and 3 units up?</h3>
+                        <h3>(13) Jessica records the ages of children at her school. She records the results in a histogram. </h3>
                         <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q13_c500.jpg" class="img-responsive" /></div>
+                            <div><img src="/images/level_5_sec_4/level_5_sec_4_q13.jpg" class="img-responsive" /></div>
                         </h3>
+                        <h3> In which age range were between 50 and 60 children recorded?</h3>
                         <p>
                             <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
-                            <label for="q13_a">A</label>
+                            <label for="q13_a">10 &minus; 11 years</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
-                            <label for="q13_b">B</label>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_b">11&minus;12 years</label>
                         </p>
                         <p>
-                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="1">
-                            <label for="q13_c">C</label>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
+                            <label for="q13_c">12 &minus; 13 years</label>
                         </p>
                         <p>
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
-                            <label for="q13_d">D</label>
+                            <label for="q13_d">13 &minus; 14 years</label>
                         </p>
-                        <h3>(14) Identify the transformation that maps &Delta;<i>ABC</i> to &Delta;<i>A'B'C'.</i></h3>
-                        <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q14_c500.jpg" class="img-responsive" /></div>
-                        </h3>
+                        <h3>(14) Joyce asked her friends their Maths test result out of 25. She wrote them below. Calculate the mean of their results.</h3>
+                        <h3>22, 16, 20, 12, 15</h3>
                         <p>
                             <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
-                            <label for="q14_a">translation</label>
+                            <label for="q14_a">14</label>
                         </p>
                         <p>
-                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
-                            <label for="q14_b">reflection</label>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="00">
+                            <label for="q14_b">15</label>
                         </p>
                         <p>
                             <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
-                            <label for="q14_c">rotation</label>
+                            <label for="q14_c">16</label>
                         </p>
                         <p>
-                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
-                            <label for="q14_d">dilation</label>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_d">17</label>
                         </p>
-                        <h3>(15) &Delta;<i>ABC</i> has been reflected to create its image &Delta;<i>A'B'C'</i>. Which line is the line of reflection?</h3>
-                        <h3>
-                            <div><img src="/images/level_6_sec_4/l6_s4_q15_c500.jpg" class="img-responsive" /></div>
-                        </h3>
+                        <h3>(15) Joyce asks her friends their Maths test results out of 25. She wrote them below. Determine the median of the results.</h3>
+                        <h3>22, 16, 20, 12, 15</h3>
                         <p>
                             <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
-                            <label for="q15_a">𝑦 = 0 (The 𝑥 &minus; axis)</label>
+                            <label for="q15_a">14</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
-                            <label for="q15_b">𝑦 = &minus; 𝑥</label>
+                            <label for="q15_b">15</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="1">
-                            <label for="q15_c">𝑥 = 0 (The 𝑦 &minus; axis)</label>
+                            <label for="q15_c">16</label>
                         </p>
                         <p>
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
-                            <label for="q15_d">𝑥 = 𝑥</label>
+                            <label for="q15_d">17</label>
                         </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- TODO: Add text input fields for user_id, coach_email -->
                         <!-- Hidden fields for test,course and module -->
-                        <input type="hidden" name="test" ng-init="testResponse.test='level_6_sec_4'">
-                        <input type="hidden" name="course" ng-init="testResponse.course='level_6'">
+                        <input type="hidden" name="test" ng-init="testResponse.test='level_5_sec_4'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='level_5'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
                         <coachsection></coachsection>
                     </form>
@@ -375,5 +358,4 @@
         </div>
     </section>
 </body>
-
 </html>

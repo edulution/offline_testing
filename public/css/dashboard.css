@@ -5,6 +5,11 @@ body {
   overflow-x: hidden;
 }
 
+.linethrough{
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
 /* Navbar Height */
 .navbar {
   height: 100px;
@@ -966,6 +971,7 @@ div.content {
     margin-top: 2%;
     width: 360px;
   }
+}
 
   /* Media Query  Small Tablets  */
   @media (max-width : 750px) {

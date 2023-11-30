@@ -48,6 +48,9 @@ survey_responses_query <-
 
 device_name_query <- "select * from device"
 
+# Query that joins users to collections then gets facility name as centre name
+users_by_facility_query <- "select f.id, c.name as centre from ext.kolibriauth_facilityuser f left join ext.kolibriauth_collection c on f.facility_id = c.id"
+
 # Fetch the test responses
 tresponses <- dbGetQuery(conn, tresponses_query)
 
@@ -64,6 +67,9 @@ tresponses <- tresponses %>% plyr::rbind.fill(ext_eval, survey_responses)
 device_name <- dbGetQuery(conn, device_name_query) %>%
   pull(name) %>%
   str_sub(1, 5)
+
+# Execute the users by facility query and store the result
+users_by_facilty <- dbGetQuery(conn, users_by_facility_query)
 
 # clean up and close database connection
 dbDisconnect(conn)
@@ -177,8 +183,10 @@ preproc_tresponses <- function(tresponses_raw) {
   tr_proc <- tr_proc %>%
     # remove hyphens from user_id(uuid)
     mutate(user_id = str_replace_all(user_id, "-", "")) %>%
-    # add centre column
-    mutate(centre = rep(device_name)) %>%
+    # Join users to users by facility to get centre column
+    left_join(users_by_facilty, by = c("user_id"="id")) %>%
+    # If the centre is null, replace the centre name with default device name
+    mutate(centre = case_when(is.na(centre) ~ device_name, TRUE ~ centre)) %>%
     # add valid column(default to true)
     mutate(valid = rep(1)) %>%
     # arrange columns, let all familiar columns appear on the left,
@@ -195,6 +203,7 @@ preproc_tresponses <- function(tresponses_raw) {
       course,
       test,
       valid,
+      test_version,
       # All the res columns sorted in alphabetical (lexical) order
       names(tr_proc)[str_detect(names(tr_proc), "res" %R% one_or_more(DIGIT))] %>% sort()
     )
@@ -206,10 +215,10 @@ preproc_tresponses <- function(tresponses_raw) {
 # Simple function to generate filename of csv report in desired  --------
 
 
-generate_filename <- function(report, date) {
+generate_filename <- function(report, input_date) {
   # Put generated file in a folder called reports/baseline in home directory
   # Generate filename based on name of report and user input
-  filename <- paste("~/.reports/baseline/", report, device_name, "_", date, ".csv", sep = "")
+  filename <- paste0("~/.reports/baseline/", report, device_name, "_", input_date, "_",format(Sys.time(), '%Y%m%d%H%M%S'), ".csv")
 }
 
 

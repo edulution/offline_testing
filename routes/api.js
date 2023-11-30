@@ -62,7 +62,7 @@ router.get('/get_users', async (request, response, next) => {
     const users_query = {
         /*Query to fetch all users*/
         name: 'fetch-users',
-        text: 'select * from users'
+        text: 'select u.*, kf.deleted, kf.birth_year, kf.gender from users u left join ext.kolibriauth_facilityuser kf on u.user_id = kf.id'
     }
 
     try {
@@ -113,7 +113,7 @@ router.get('/get_learners_count', async (request, response) => {
     /*Query to fetch all grades and total learners in the grade*/
     const classes = {
         name: 'fetch-classes',
-        text: "select case when class_name is null then 'Unenrolled' else class_name end as class_name, class_total from (select class_name, count(*) class_total from users group by class_name) classes;"
+        text: "select * from vactivelearners_count"
     }
 
     /*return result query */

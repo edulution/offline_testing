@@ -19,6 +19,12 @@
                             ucfirst}}</option>
                     </select>
                 </th>
+                <th colspan="1" id="deleted_search">
+                    <select st-search="deleted" class=" form-control module_select_dropdown">
+                        <option value="" class="module_initial_value">Active / Deleted</option>
+                        <option ng-repeat="row in users | unique: 'deleted' | orderBy: '-deleted'" value="{{!row.deleted}}">{{row.deleted ? 'Active' : 'Deleted'}}</option>
+                    </select>
+                </th>
             </tr>
             <tr>
                 <th st-ratio="20" st-sort="username">Username</th>
@@ -30,7 +36,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="row in users_placeholder">
+            <tr ng-repeat="row in users_placeholder" ng-class="{linethrough:row.deleted===true}">
                 <td st-ratio="20">{{row.username}}</td>
                 <td st-ratio="20">{{row.first_name}}</td>
                 <td st-ratio="20">{{row.last_name}}</td>
