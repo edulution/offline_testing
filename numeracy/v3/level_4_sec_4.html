@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html ng-app="passProtect">
+
+<head>
+    <title>Level 4 Section 4 Test </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="form.testForm">
+                        <p class="test_name">Level 4 Section 4 Test</p>
+                        <usernameinput></usernameinput>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Test is for 15 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
+                        <div class="HeaderbannerLabel">TEST</div>
+                        <h3>(1) Which of the following animals is most likely to weigh 4 kg?</h3>
+                        <p>
+                            <!-- Each group of radio buttons with the same name corresponds to one question -->
+                            <!-- Wrong answers are 0, correct answer is 1 -->
+                            <!-- Example below -->
+                            <!-- <input type="radio" id="test1" name="q1" ng-model="testResponse.q1" value="0"> -->
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
+                            <label for="q1_a">A mouse</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
+                            <label for="q1_b">A pet cat</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="000">
+                            <label for="q1_c">A horse</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
+                            <label for="q1_d">An elephant</label>
+                        </p>
+                        <h3>(2) Lusungu stands on a bathroom scale. How much does he weigh?</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q2_c200.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
+                            <label for="q2_a">30 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="00">
+                            <label for="q2_b">43 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="1">
+                            <label for="q2_c">47 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
+                            <label for="q2_d">50 kilograms</label>
+                        </p>
+                        <h3>(3) What mass is shown on this spring scale?</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q3_c300.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="0">
+                            <label for="q3_a">20 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="1">
+                            <label for="q3_b">23 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="000">
+                            <label for="q3_c">25 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
+                            <label for="q3_d">27 kilograms</label>
+                        </p>
+                        <h3>(4) Convert 5 300 grams to kilograms.</h3>
+                        <p>
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
+                            <label for="q4_a">0.53 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
+                            <label for="q4_b">5.3 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="000">
+                            <label for="q4_c">53 kilograms</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
+                            <label for="q4_d">53 000 kilograms</label>
+                        </p>
+                        <h3>(5) A teaspoon has a capacity of 5 millilitres. A tablespoon has a capacity of 15 millilitres. How many teaspoons have the same capacity as a tablespoon?</h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
+                            <label for="q5_a">2 teaspoons</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
+                            <label for="q5_b">3 teaspoons</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="000">
+                            <label for="q5_c">5 teaspoons</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
+                            <label for="q5_d">10 teaspoons</label>
+                        </p>
+                        <h3>(6) Convert 1.125 litres to millilitres</h3>
+                        <p>
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="0">
+                            <label for="q6_a">0.1125 millilitres</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="00">
+                            <label for="q6_b">11.25 millilitres</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="1">
+                            <label for="q6_c">1 125 millilitres</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0000">
+                            <label for="q6_d">11 250 millilitres</label>
+                        </p>
+                        <h3>(7) Mwanida counts the different shapes that her teacher has in her classroom. She records her results in a pictograph. How many triangles are there in Mwanida’s classroom?</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q7_c500.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
+                            <label for="q7_a">4 triangles</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="00">
+                            <label for="q7_b">6 triangles</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_c" name="q7" ng-model="testResponse.q7" value="000">
+                            <label for="q7_c">8 triangles</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="1">
+                            <label for="q7_d">10 triangles</label>
+                        </p>
+                        <h3>(8) Mwanida counts the different shapes that her teacher has in her classroom. She records her results in a pictograph. Which shape is there least of in the classroom?</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q8_c500.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
+                            <label for="q8_a">Circles</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="00">
+                            <label for="q8_b">Squares</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="000">
+                            <label for="q8_c">Triangles</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="1">
+                            <label for="q8_d">Pentagons</label>
+                        </p>
+                        <h3>(9) Kapalu counted the different colour Smarties in his box. The bar graph shows his results.</h3>
+                        <h3>Which colour Smartie does he have the most of?</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q9_c300.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
+                            <label for="q9_a">Blue</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="00">
+                            <label for="q9_b">Green</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="000">
+                            <label for="q9_c">Red</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="1">
+                            <label for="q9_d">Orange</label>
+                        </p>
+                        <h3>(10) Kapalu counted the different colour Smarties in his box. The bar graph shows his results.</h3>
+                        <h3>Estimate how many purple Smarties he has.</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q10_c300.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
+                            <label for="q10_a">15 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="00">
+                            <label for="q10_b">28 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_c" name="q10" ng-model="testResponse.q10" value="000">
+                            <label for="q10_c">49 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="0000">
+                            <label for="q10_d">65 Smarties</label>
+                        </p>
+                        <h3>(11) Kapalu counted the different colour Smarties in his box. The bar graph shows his results.</h3>
+                        <h3>Determine the approximate difference in the number of orange Smarties and the number of purple Smarties.</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q11_c300.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <p>
+                            <input type="radio" id="q11_a" name="q11" ng-model="testResponse.q11" value="0">
+                            <label for="q11_a">less than 20 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_b" name="q11" ng-model="testResponse.q11" value="00">
+                            <label for="q11_b">between 20 and 30 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_c" name="q11" ng-model="testResponse.q11" value="1">
+                            <label for="q11_c">between 40 and 50 Smarties</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
+                            <label for="q11_d">more than 60 Smarties</label>
+                        </p>
+                        <h3>(12) The pictograph represents the number of ice-cream cones sold each month of the year.</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q12_c300.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <h3>In which month were 100 ice-cream cones sold?</h3>
+                        <p>
+                            <input type="radio" id="q12_a" name="q12" ng-model="testResponse.q12" value="1">
+                            <label for="q12_a">February</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_b" name="q12" ng-model="testResponse.q12" value="00">
+                            <label for="q12_b">October</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_c" name="q12" ng-model="testResponse.q12" value="000">
+                            <label for="q12_c">November</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
+                            <label for="q12_d">December</label>
+                        </p>
+                        <h3>(13) The pictograph represents the number of ice-cream cones sold each month of the year.</h3>
+                        <h3>
+                            <div><img src="/images/level_4_sec_4/l4_s4_q13_c300.jpg" class="img-responsive" /></div>
+                        </h3>
+                        <h3>How many ice-cream cones were sold in April?</h3>
+                        <p>
+                            <input type="radio" id="q13_a" name="q13" ng-model="testResponse.q13" value="0">
+                            <label for="q13_a">10 ice-cream cones</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_b" name="q13" ng-model="testResponse.q13" value="00">
+                            <label for="q13_b">20 ice-cream cones</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_c" name="q13" ng-model="testResponse.q13" value="000">
+                            <label for="q13_c">25 ice-cream cones</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="1">
+                            <label for="q13_d">30 ice-cream cones</label>
+                        </p>
+                        <h3>(14) Mom bakes 21 cakes in 3 days. How many cakes does she bake in 6 days?</h3>
+                        <p>
+                            <input type="radio" id="q14_a" name="q14" ng-model="testResponse.q14" value="0">
+                            <label for="q14_a">7</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_b" name="q14" ng-model="testResponse.q14" value="1">
+                            <label for="q14_b">42</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_c" name="q14" ng-model="testResponse.q14" value="000">
+                            <label for="q14_c">63</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
+                            <label for="q14_d">126</label>
+                        </p>
+                        <h3>(15) Which car is travelling fastest?</h3>
+                        <p>
+                            <input type="radio" id="q15_a" name="q15" ng-model="testResponse.q15" value="0">
+                            <label for="q15_a">Car A travels 240 km in 2 hours</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_b" name="q15" ng-model="testResponse.q15" value="00">
+                            <label for="q15_b">Car B travels 360 km in 3 hours</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_c" name="q15" ng-model="testResponse.q15" value="000">
+                            <label for="q15_c">Car C travels 480 km in 4 hours</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="1">
+                            <label for="q15_d">They are all travelling the same speed</label>
+                        </p>
+                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- Hidden fields for test,course and module -->
+                        <input type="hidden" name="test" ng-init="testResponse.test='level_4_sec_4'">
+                        <input type="hidden" name="course" ng-init="testResponse.course='level_4'">
+                        <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
+                        <input type="hidden" name="test_version" ng-init="testResponse.test_version='v3'">
+                        <coachsection></coachsection>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
