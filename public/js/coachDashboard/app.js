@@ -11,9 +11,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
 
-            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
-            $scope.results_breakdown_placeholder = []
-
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
@@ -24,7 +21,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 $scope.users = response.data;
                 /*console.log($scope.users);*/
 
-                $scope.totalLearners = $scope.users.length
+                $scope.activeLearners = $scope.users.filter(user => user.deleted === false).length;
+                $scope.deletedLearners = $scope.users.filter(user => user.deleted === true).length;
             });
 
             $http.get("/api/get_test_marks").then(function(response) {
