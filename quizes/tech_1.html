@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="passProtect">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech 1 Quiz</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/learner_survey.css" />
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/survey_app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <form name="form.testForm">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" alt="logo" class="responsive" />
+                    </div>
+                    <h2 class="form_title">Tech 1</h2>
+                    <div class="username">USERNAME</div>
+                    <!--TO INCLUDE JS-->
+                    <usernameinput></usernameinput>
+                    <div class="instructions">INSTRUCTIONS</div>
+                    <div class="ins">
+                        <p>
+                            Select the correct answer in this quiz, Some questions will require you to pick <br> more than one correct answer.
+                        </p>
+                    </div>
+                    <div class="survey">QUIZ</div>
+                    <!-- Hardware Section -->
+                    <h2>Hardware</h2>
+                    <p>Which of the following is NOT a type of a computer? (Select all that apply)</p>
+                    <input type="checkbox" name="computer_type" value="Desktop" id="desktop"><label for="desktop">Desktop</label><br>
+                    <input type="checkbox" name="computer_type" value="USB Drive" id="usb_drive"><label for="usb_drive">USB Drive</label><br>
+                    <input type="checkbox" name="computer_type" value="Laptop" id="laptop"><label for="laptop">Laptop</label><br>
+                    <input type="checkbox" name="computer_type" value="Projector" id="projector"><label for="projector">Projector</label><br>
+                    <input type="checkbox" name="computer_type" value="Tablet" id="tablet"><label for="tablet">Tablet</label><br>
+                    <input type="checkbox" name="computer_type" value="Smartphone" id="smartphone"><label for="smartphone">Smartphone</label><br>
+                    <input type="checkbox" name="computer_type" value="VGA cable" id="vga_cable"><label for="vga_cable">VGA cable</label><br>
+                    <input type="checkbox" name="computer_type" value="Router" id="router"><label for="router">Router</label><br>
+
+                    <p>The _______ is a metallic and plastic box that contains the main components of the computer, including the motherboard, central processing unit (CPU), and power supply. The front of the case usually has an On/Off button and one or more optical drives.</p>
+                    <input type="radio" name="computer_component" value="Keyboard" id="keyboard"><label for="keyboard">Keyboard</label><br>
+                    <input type="radio" name="computer_component" value="Laptop" id="laptop_component"><label for="laptop_component">Laptop</label><br>
+                    <input type="radio" name="computer_component" value="Monitor" id="monitor"><label for="monitor">Monitor</label><br>
+                    <input type="radio" name="computer_component" value="Computer case" id="computer_case"><label for="computer_case">Computer case</label><br>
+                    <input type="radio" name="computer_component" value="Pointing device" id="pointing_device"><label for="pointing_device">Pointing device</label><br>
+
+                    <p>Which of the following is the use of the router in the field or center? (Select all that apply)</p>
+                    <input type="checkbox" name="router_use" value="Baseline testing" id="baseline_testing"><label for="baseline_testing">Baseline testing</label><br>
+                    <input type="checkbox" name="router_use" value="Sending monthend commands from the laptop" id="sending_commands"><label for="sending_commands">Sending monthend commands from the laptop</label><br>
+                    <input type="checkbox" name="router_use" value="Accessing Facebook" id="accessing_facebook"><label for="accessing_facebook">Accessing Facebook</label><br>
+                    <input type="checkbox" name="router_use" value="Syncing the coach tablet" id="syncing_tablet"><label for="syncing_tablet">Syncing the coach tablet</label><br>
+                    <input type="checkbox" name="router_use" value="Logging in students" id="logging_students"><label for="logging_students">Logging in students</label><br>
+                    <input type="checkbox" name="router_use" value="None of the above" id="none_router_use"><label for="none_router_use">None of the above</label><br>
+
+                    <p>Which of this is NOT typically found at an Edulution centre? (Select all that apply)</p>
+                    <input type="checkbox" name="edulution_item" value="Laptop" id="laptop_edulution"><label for="laptop_edulution">Laptop</label><br>
+                    <input type="checkbox" name="edulution_item" value="Router" id="router_edulution"><label for="router_edulution">Router</label><br>
+                    <input type="checkbox" name="edulution_item" value="Printer" id="printer_edulution"><label for="printer_edulution">Printer</label><br>
+                    <input type="checkbox" name="edulution_item" value="Ethernet cable" id="ethernet_cable"><label for="ethernet_cable">Ethernet cable</label><br>
+                    <input type="checkbox" name="edulution_item" value="Projector" id="projector_edulution"><label for="projector_edulution">Projector</label><br>
+                    <input type="checkbox" name="edulution_item" value="Overhead headphones" id="headphones_edulution"><label for="headphones_edulution">Overhead headphones</label><br>
+                    <input type="checkbox" name="edulution_item" value="Cloud systems" id="cloud_systems"><label for="cloud_systems">Cloud systems</label><br>
+                    <input type="checkbox" name="edulution_item" value="USB Drive" id="usb_drive_edulution"><label for="usb_drive_edulution">USB Drive</label><br>
+
+                    <p>What is the maximum optimal number of users that can be connected to the router simultaneously?</p>
+                    <input type="radio" name="max_users" value="20" id="max_users_20"><label for="max_users_20">20</label><br>
+                    <input type="radio" name="max_users" value="25" id="max_users_25"><label for="max_users_25">25</label><br>
+                    <input type="radio" name="max_users" value="30" id="max_users_30"><label for="max_users_30">30</label><br>
+                    <input type="radio" name="max_users" value="35" id="max_users_35"><label for="max_users_35">35</label><br>
+                    <input type="radio" name="max_users" value="40" id="max_users_40"><label for="max_users_40">40</label><br>
+
+                    <!-- Software Section -->
+                    <h2>Software</h2>
+                    <p>Select examples of software. (Select all that apply)</p>
+                    <input type="checkbox" name="software_example" value="Chrome" id="chrome"><label for="chrome">Chrome</label><br>
+                    <input type="checkbox" name="software_example" value="Firefox" id="firefox"><label for="firefox">Firefox</label><br>
+                    <input type="checkbox" name="software_example" value="Trackpad" id="trackpad"><label for="trackpad">Trackpad</label><br>
+                    <input type="checkbox" name="software_example" value="Internet Explorer" id="internet_explorer"><label for="internet_explorer">Internet Explorer</label><br>
+                    <input type="checkbox" name="software_example" value="Microsoft Office" id="microsoft_office"><label for="microsoft_office">Microsoft Office</label><br>
+                    <input type="checkbox" name="software_example" value="Windows" id="windows"><label for="windows">Windows</label><br>
+                    <input type="checkbox" name="software_example" value="Webcam" id="webcam"><label for="webcam">Webcam</label><br>
+
+                    <p>Chrome, Firefox, Internet Explorer, Opera Mini is a good example of a…</p>
+                    <input type="radio" name="browser_example" value="Web browser" id="web_browser"><label for="web_browser">Web browser</label><br>
+                    <input type="radio" name="browser_example" value="Piece of Hardware" id="hardware"><label for="hardware">Piece of Hardware</label><br>
+                    <input type="radio" name="browser_example" value="Google page" id="google_page"><label for="google_page">Google page</label><br>
+                    <input type="radio" name="browser_example" value="Word processing software" id="word_processing_software"><label for="word_processing_software">Word processing software</label><br>
+                    <input type="radio" name="browser_example" value="Server" id="server"><label for="server">Server</label><br>
+
+                    <p>The process of completely erasing the memory on a tablet and restoring to default settings, or configuring with a new image is called…</p>
+                    <input type="radio" name="memory_process" value="Flushing" id="flushing"><label for="flushing">Flushing</label><br>
+                    <input type="radio" name="memory_process" value="Flashing" id="flashing"><label for="flashing">Flashing</label><br>
+                    <input type="radio" name="memory_process" value="Rebooting" id="rebooting"><label for="rebooting">Rebooting</label><br>
+                    <input type="radio" name="memory_process" value="Shutdown" id="shutdown"><label for="shutdown">Shutdown</label><br>
+                    <input type="radio" name="memory_process" value="Transferring" id="transferring"><label for="transferring">Transferring</label><br>
+
+                    <p>Everything you do on the computer will rely on both hardware and software</p>
+                    <input type="radio" name="reliance" value="True" id="true"><label for="true">True</label><br>
+                    <input type="radio" name="reliance" value="False" id="false"><label for="false">False</label><br>
+
+                    <p>Which applications are found on the Student and Coach Image? (Select all that apply)</p>
+                    <input type="checkbox" name="image_applications" value="Chrome/ Firefox" id="image_chrome_firefox"><label for="image_chrome_firefox">Chrome/ Firefox</label><br>
+                    <input type="checkbox" name="image_applications" value="Math Workout" id="math_workout"><label for="math_workout">Math Workout</label><br>
+                    <input type="checkbox" name="image_applications" value="Whatsapp" id="whatsapp"><label for="whatsapp">Whatsapp</label><br>
+                    <input type="checkbox" name="image_applications" value="Edulution Portal" id="edulution_portal"><label for="edulution_portal">Edulution Portal</label><br>
+                    <input type="checkbox" name="image_applications" value="Google Drive" id="google_drive"><label for="google_drive">Google Drive</label><br>
+                    <input type="checkbox" name="image_applications" value="Settings" id="settings"><label for="settings">Settings</label><br>
+                    <input type="checkbox" name="image_applications" value="Speedtest" id="speedtest"><label for="speedtest">Speedtest</label><br>
+
+                    <p>Which of the following applications is not part of the student tablet?</p>
+                    <input type="radio" name="tablet_application" value="Browser" id="browser"><label for="browser">Browser</label><br>
+                    <input type="radio" name="tablet_application" value="Edulution Portal" id="edulution_portal_tablet"><label for="edulution_portal_tablet">Edulution Portal</label><br>
+                    <input type="radio" name="tablet_application" value="Google Drive" id="google_drive_tablet"><label for="google_drive_tablet">Google Drive</label><br>
+                    <input type="radio" name="tablet_application" value="Math Workout" id="math_workout_tablet"><label for="math_workout_tablet">Math Workout</label><br>
+                    <input type="radio" name="tablet_application" value="Settings" id="settings_tablet"><label for="settings_tablet">Settings</label><br>
+                    <input type="radio" name="tablet_application" value="Connectbot" id="connectbot"><label for="connectbot">Connectbot</label><br>
+
+                    <p>Define Edulution Portal.</p>
+                    <input type="radio" name="edulution_definition" value="An online drive used to store documents" id="online_drive"><label for="online_drive">An online drive used to store documents</label><br>
+                    <input type="radio" name="edulution_definition" value="Network term that describes different ports found on laptops found at Edulution which are used for v16" id="network_term"><label for="network_term">Network term that describes different ports found on laptops found at Edulution which are used for v16</label><br>
+                    <input type="radio" name="edulution_definition" value="An application developed and used by students to easily navigate to different exercises and stores tests in offline mode" id="student_application"><label for="student_application">An application developed and used by students to easily navigate to different exercises and stores tests in offline mode</label><br>
+                    <input type="radio" name="edulution_definition" value="An integrated piece of software used for payments the accounts by the Admin team." id="integrated_software"><label for="integrated_software">An integrated piece of software used for payments the accounts by the Admin team.</label><br>
+                    <input type="radio" name="edulution_definition" value="None of the above" id="none_definition"><label for="none_definition">None of the above</label><br>
+
+                    <!-- Hardware - Laptop Specific Section -->
+                    <h2>Hardware – laptop specific questions</h2>
+                    <p>Which part do you use to move the pointer on a laptop?</p>
+                    <input type="radio" name="pointer_part" value="Track pad" id="track_pad"><label for="track_pad">Track pad</label><br>
+                    <input type="radio" name="pointer_part" value="Touch sense" id="touch_sense"><label for="touch_sense">Touch sense</label><br>
+                    <input type="radio" name="pointer_part" value="Eye tracker" id="eye_tracker"><label for="eye_tracker">Eye tracker</label><br>
+                    <input type="radio" name="pointer_part" value="All of the above" id="all_of_the_above"><label for="all_of_the_above">All of the above</label><br>
+
+                    <p>Which of the following is a USB port?</p>
+                    <input type="radio" name="usb_port" value="Option A" id="usb_port_a"><label for="usb_port_a">Option A</label><br>
+                    <input type="radio" name="usb_port" value="Option B" id="usb_port_b"><label for="usb_port_b">Option B</label><br>
+                    <input type="radio" name="usb_port" value="Option C" id="usb_port_c"><label for="usb_port_c">Option C</label><br>
+                    <input type="radio" name="usb_port" value="Option D" id="usb_port_d"><label for="usb_port_d">Option D</label><br>
+
+                    <!-- Submission of quizes -->
+                    <input type="hidden" name="test" ng-init="testResponse.test='tech1_quiz'">
+                    <input type="hidden" name="module" ng-init="testResponse.module='coach_quizes'">
+                    <button id="surveysubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
