@@ -11,11 +11,11 @@ router.use(express.static(path.resolve(
 /*then construct the path to the html file*/
 /*It is assumed that the name of the html file is the same as the requested test*/
 
-router.get('/:quizes', (req, res) => {
-    let selected_module = "quizes"
-    let selected_quizes = req.params.quizes
+router.get('/:training', (req, res) => {
+    let selected_module = "training"
+    let selected_training = req.params.training
     res.sendFile(path.resolve(
-        path.join(selected_module, selected_quizes + '.html')
+        path.join(selected_module, selected_training + '.html')
     ))
 });
 

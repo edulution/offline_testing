@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Tech 2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="form.testForm">
+                        <p class="test_name">TECH 2</p>
+                        <usernameinput></usernameinput>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Select the most correct answer to each question. <br>You have 30 Minutes to complete this test.</div>
+                        <div class="HeaderbannerLabel">QUIZ</div>         
+
+                    <!-- Question 1 -->
+                    <h3>1. It is the 1st of May in 2021. The Hub calls and says please submit all the end of the month reports, which commands should you use on the terminal?</h3>
+                    <p>
+                        <input type="radio" id="q3_a" name="q3" value="alldata 05-21">
+                        <label for="q3_a">alldata 05-21</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_b" name="q3" value="Option 2 dataall 05-20">
+                        <label for="q3_b">Option 2 dataall 05-20</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_c" name="q3" value="dataall 04-20">
+                        <label for="q3_c">dataall 04-20</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_d" name="q3" value="month end 03-05">
+                        <label for="q3_d">month end 03-05</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_e" name="q3" value="month end 04-20">
+                        <label for="q3_e">month end 04-20</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_f" name="q3" value="data all 05-20">
+                        <label for="q3_f">data all 05-20</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_g" name="q3" value="month end 05-21">
+                        <label for="q3_g">month end 05-21</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q3_h" name="q3" value="activity 0420">
+                        <label for="q3_h">activity 0420</label>
+                    </p>
+                
+                    <h3>2. Pick all the different commands that are used on the terminal?</h3>
+                    <p>
+                        <input type="checkbox" id="q4_a" name="q4_a" value="shutdown">
+                        <label for="q4_a">shutdown</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_b" name="q4_b" value="xvolume">
+                        <label for="q4_b">xvolume</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_c" name="q4_c" value="backup">
+                        <label for="q4_c">backup</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_d" name="q4_d" value="restartko">
+                        <label for="q4_d">restartko</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_e" name="q4_e" value="reset">
+                        <label for="q4_e">reset</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_f" name="q4_f" value="kolibri status">
+                        <label for="q4_f">kolibri status</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_g" name="q4_g" value="dir">
+                        <label for="q4_g">dir</label>
+                    </p>
+
+                    <h3>3. What should you do if Kolibri is not working/ has stopped working?</h3>
+                    <p>
+                        <input type="checkbox" id="q5_a" name="q5_a" value="Reboot the Laptop">
+                        <label for="q5_a">Reboot the Laptop</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q5_b" name="q5_b" value="Check if the router is working">
+                        <label for="q5_b">Check if the router is working</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q5_c" name="q5_c" value="Call the hub to work on the Laptop remotely while connected to the internet">
+                        <label for="q5_c">Call the hub to work on the Laptop remotely while connected to the internet</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q5_d" name="q5_d" value="Shutdown everything and wait until the tech team comes to your center">
+                        <label for="q5_d">Shutdown everything and wait until the tech team comes to your center</label>
+                    </p>
+                
+                    <h3>4. Can the learners still connect to Kolibri if there are no bundles/ data in the router?</h3>
+                    <p>
+                        <input type="radio" id="q6_a" name="q6" value="Yes">
+                        <label for="q6_a">Yes</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q6_b" name="q6" value="No">
+                        <label for="q6_b">No</label>
+                    </p>
+                
+                    <h3>5. What is the purpose of the terminal on the center laptop?</h3>
+                    <p>
+                        <input type="checkbox" id="q7_a" name="q7_a" value="To submit baseline tests">
+                        <label for="q7_a">To submit baseline tests</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q7_b" name="q7_b" value="To sync Google Drive">
+                        <label for="q7_b">To sync Google Drive</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q7_c" name="q7_c" value="To shutdown down the Laptop">
+                        <label for="q7_c">To shutdown down the Laptop</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q7_d" name="q7_d" value="To submit Kolibri data at the end of the month">
+                        <label for="q7_d">To submit Kolibri data at the end of the month</label>
+                    </p>
+                
+                    <h3>6. Which application is used to execute Kolibri commands on the laptop?</h3>
+                    <p>
+                        <input type="radio" id="q8_a" name="q8" value="ConnectBot">
+                        <label for="q8_a">ConnectBot</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_b" name="q8" value="Windows Power shell">
+                        <label for="q8_b">Windows Power shell</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_c" name="q8" value="Terminal">
+                        <label for="q8_c">Terminal</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_d" name="q8" value="Gedit">
+                        <label for="q8_d">Gedit</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_e" name="q8" value="Tablet">
+                        <label for="q8_e">Tablet</label>
+                    </p>
+
+                    <h3>7. What is the correct username of this learner: Abraham Musonda, Grade 6, Centre: ABC, Date of Birth 10 March 2009</h3>
+                    <p>
+                        <input type="radio" id="q9_a" name="q9" value="mabraham">
+                        <label for="q9_a">mabraham</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q9_b" name="q9" value="amusonda">
+                        <label for="q9_b">amusonda</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q9_c" name="q9" value="amusondaabc">
+                        <label for="q9_c">amusondaabc</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q9_d" name="q9" value="abrahammusonda09">
+                        <label for="q9_d">abrahammusonda09</label>
+                    </p>
+                    <!-- Add other choices similarly -->
+                
+                    <h3>8. How do you flash a tablet?</h3>
+                    <p>
+                        <input type="checkbox" id="q10_a" name="q10_a" value="Call support immediately">
+                        <label for="q10_a">Call support immediately</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_b" name="q10_b" value="On the tablet go to Settings->Backup and Reset->Factory data reset">
+                        <label for="q10_b">On the tablet go to Settings->Backup and Reset->Factory data reset</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_c" name="q10_c" value="Delete the setting application">
+                        <label for="q10_c">Delete the setting application</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_d" name="q10_d" value="None of the above">
+                        <label for="q10_d">None of the above</label>
+                    </p>
+                
+                    <h3>9. Which commands are NOT used on the terminal on the laptop?</h3>
+                    <p>
+                        <input type="checkbox" id="q11_a" name="q11_a" value="restartko">
+                        <label for="q11_a">restartko</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_b" name="q11_b" value="kolibri restart">
+                        <label for="q11_b">kolibri restart</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_c" name="q11_c" value="alldata">
+                        <label for="q11_c">alldata</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_d" name="q11_d" value="reboot">
+                        <label for="q11_d">reboot</label>
+                    </p>
+                
+                    <h3>10. Why do you need to backup the data?</h3>
+                    <p>
+                        <input type="radio" id="q12_a" name="q12" value="Because the learners require the data for studying">
+                        <label for="q12_a">Because the learners require the data for studying</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q12_b" name="q12" value="To ensure that your activity of the session will not be lost if there is a problem">
+                        <label for="q12_b">To ensure that your activity of the session will not be lost if there is a problem</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q12_c" name="q12" value="Because there is a high chance of getting a virus attack">
+                        <label for="q12_c">Because there is a high chance of getting a virus attack</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q12_d" name="q12" value="So that the Hub can see your activity">
+                        <label for="q12_d">So that the Hub can see your activity</label>
+                    </p>
+                
+                    
+                    <br>
+                    
+                    <!-- TODO: Add text input fields for user_id, coach_email -->
+                    <!-- Hidden fields for test,course and module -->
+                    <input type="hidden" name="test" ng-init="testResponse.test='tech_2'">
+                    <input type="hidden" name="course" ng-init="testResponse.course='tech_training'">
+                    <input type="hidden" name="module" ng-init="testResponse.module='training">
+                    <button id="testsubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>

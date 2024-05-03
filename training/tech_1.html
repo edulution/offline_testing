@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Tech 1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="form.testForm">
+                        <p class="test_name">TECH 1</p>
+                        <usernameinput></usernameinput>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Select the most correct answer to each question. <br>You have 30 Minutes to complete this test.</div>
+                        <div class="HeaderbannerLabel">QUIZ</div>                   
+                    <h3>1. Which of the following is NOT a type of a computer?</h3>
+                    <p>
+                        <input type="checkbox" id="q1_a" name="q1_a" value="0">
+                        <label for="q1_a">Desktop</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_b" name="q1_b" value="1">
+                        <label for="q1_b">USB Drive</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_c" name="q1_c" value="2">
+                        <label for="q1_c">Laptop</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_d" name="q1_d" value="3">
+                        <label for="q1_d">Projector</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_e" name="q1_e" value="4">
+                        <label for="q1_e">Tablet</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_f" name="q1_f" value="5">
+                        <label for="q1_f">Smartphone</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_g" name="q1_g" value="6">
+                        <label for="q1_g">VGA cable</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q1_h" name="q1_h" value="7">
+                        <label for="q1_h">Router</label>
+                    </p>
+
+                    <h3>2. The _______ is a metallic and plastic box that contains the main components of the computer, including the motherboard, central processing unit (CPU), and power supply. The front of the case usually has an On/Off button and one or more optical drives.</h3>
+                    <p>
+                        <input type="radio" id="q2_a" name="q2" value="0">
+                        <label for="q2_a">Keyboard</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q2_b" name="q2" value="1">
+                        <label for="q2_b">Router</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q2_c" name="q2" value="2">
+                        <label for="q2_c">Monitor</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q2_d" name="q2" value="3">
+                        <label for="q2_d">Computer case</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q2_e" name="q2" value="4">
+                        <label for="q2_e">Pointing device</label>
+                    </p>
+
+                    <h3>3. Which of the following is the use of the router in the field or center? (Select all that apply)</h3>
+                    <p>
+                        <input type="checkbox" id="q3_a" name="q3_a" value="0">
+                        <label for="q3_a">Baseline testing</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q3_b" name="q3_b" value="1">
+                        <label for="q3_b">Accessing Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q3_c" name="q3_c" value="2">
+                        <label for="q3_c">To access the terminal</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q3_d" name="q3_d" value="3">
+                        <label for="q3_d">Logging in of students</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q3_e" name="q3_e" value="4">
+                        <label for="q3_e">None of the above</label>
+                    </p>
+
+                    <h3>4. Which of one of these is NOT typically found at an Edulution centre? (Select all that apply)</h3>
+                    <p>
+                        <input type="checkbox" id="q4_a" name="q4_a" value="0">
+                        <label for="q4_a">Laptop</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_b" name="q4_b" value="1">
+                        <label for="q4_b">Router</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_c" name="q4_c" value="2">
+                        <label for="q4_c">Printer</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_d" name="q4_d" value="3">
+                        <label for="q4_d">Ethernet cable</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_e" name="q4_e" value="4">
+                        <label for="q4_e">Projector</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_f" name="q4_f" value="5">
+                        <label for="q4_f">Overhead headphones</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_g" name="q4_g" value="6">
+                        <label for="q4_g">Google Cloud</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q4_h" name="q4_h" value="7">
+                        <label for="q4_h">USB Drive</label>
+                    </p>
+
+                    <h3>5. What is the maximum number of users that can be connected to the router simultaneously?</h3>
+                    <p>
+                        <input type="radio" id="q5_a" name="q5" value="0">
+                        <label for="q5_a">20</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q5_b" name="q5" value="1">
+                        <label for="q5_b">25</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q5_c" name="q5" value="2">
+                        <label for="q5_c">30</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q5_d" name="q5" value="3">
+                        <label for="q5_d">35</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q5_e" name="q5" value="4">
+                        <label for="q5_e">40</label>
+                    </p>
+
+                    <h3>6. Select examples of software. (Select all that apply)</h3>
+                    <p>
+                        <input type="checkbox" id="q6_a" name="q6_a" value="0">
+                        <label for="q6_a">Chrome</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q6_b" name="q6_b" value="1">
+                        <label for="q6_b">Firefox</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q6_c" name="q6_c" value="2">
+                        <label for="q6_c">Trackpad</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q6_d" name="q6_d" value="3">
+                        <label for="q6_d">Internet Explorer</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q6_e" name="q6_e" value="4">
+                        <label for="q6_e">Microsoft/ Libre Office Windows</label>
+                    </p>
+
+                    <h3>7. Chrome, Firefox, Internet Explorer, Opera Mini is a good example of a.....</h3>
+                    <p>
+                        <input type="radio" id="q7_a" name="q7" value="0">
+                        <label for="q7_a">Web browser</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q7_b" name="q7" value="1">
+                        <label for="q7_b">Piece of Hardware</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q7_c" name="q7" value="2">
+                        <label for="q7_c">Google page</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q7_d" name="q7" value="3">
+                        <label for="q7_d">Word processing software</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q7_e" name="q7" value="4">
+                        <label for="q7_e">Server</label>
+                    </p>
+
+                    <h3>8. The process of completely erasing the memory on a tablet and restoring to default settings, or configuring with a new image is called....</h3>
+                    <p>
+                        <input type="radio" id="q8_a" name="q8" value="0">
+                        <label for="q8_a">Flushing</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_b" name="q8" value="1">
+                        <label for="q8_b">Flashing</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_c" name="q8" value="2">
+                        <label for="q8_c">Rebooting</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_d" name="q8" value="3">
+                        <label for="q8_d">Shutdown</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q8_e" name="q8" value="4">
+                        <label for="q8_e">Transferring</label>
+                    </p>
+
+                    <h3>9. Everything you do on the computer will rely on both hardware and software.</h3>
+                    <p>
+                        <input type="radio" id="q9_a" name="q9" value="0">
+                        <label for="q9_a">True</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q9_b" name="q9" value="1">
+                        <label for="q9_b">False</label>
+                    </p>
+
+                    <h3>10. Which applications are found on the Student and Coach Image? (Select all that apply)</h3>
+                    <p>
+                        <input type="checkbox" id="q10_a" name="q10_a" value="0">
+                        <label for="q10_a">Chrome</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_b" name="q10_b" value="1">
+                        <label for="q10_b">Math Workout</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_c" name="q10_c" value="2">
+                        <label for="q10_c">Whatsapp</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_d" name="q10_d" value="3">
+                        <label for="q10_d">Edulution Portal</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q10_e" name="q10_e" value="4">
+                        <label for="q10_e">Google Drive Settings</label>
+                    </p>
+
+                    <h3>11. Which of the following applications is not part of the Student tablet?</h3>
+                    <p>
+                        <input type="checkbox" id="q11_a" name="q11_a" value="0">
+                        <label for="q11_a">Browser</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_b" name="q11_b" value="1">
+                        <label for="q11_b">Edulution Portal</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_c" name="q11_c" value="2">
+                        <label for="q11_c">Google Drive</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_d" name="q11_d" value="3">
+                        <label for="q11_d">Math Workout</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q11_e" name="q11_e" value="4">
+                        <label for="q11_e">Settings</label>
+                    </p>
+
+                    <h3>12. Define Edulution portal</h3>
+                    <p>
+                        <input type="radio" id="q12_a" name="q12" value="0">
+                        <label for="q12_a">An online drive used to store documents</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q12_b" name="q12" value="1">
+                        <label for="q12_b">Network term that describes different ports found on laptops found at Edulution which are used for v16</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q12_c" name="q12" value="2">
+                        <label for="q12_c">An application developed and used by students to easily navigate to different exercises and stores tests in offline mode</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q12_d" name="q12" value="3">
+                        <label for="q12_d">An integrated piece of software used for payments of accounts by the Finance team</label>
+                    </p>
+
+                    <h3>13. Which part do you use to move the pointer on a laptop?</h3>
+                    <p>
+                        <input type="radio" id="q13_a" name="q13" value="0">
+                        <label for="q13_a">Trackpad</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q13_b" name="q13" value="1">
+                        <label for="q13_b">Touch sense</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q13_c" name="q13" value="2">
+                        <label for="q13_c">Eye tracker</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q13_d" name="q13" value="3">
+                        <label for="q13_d">All of the above</label>
+                    </p>
+
+                    <h3>14. Which of the following is a USB port?</h3>
+                    <div>
+                        <img src="/images/coach_quizes/q14.png" class="img-responsive" />
+                    </div>
+                    <p>
+                        <input type="radio" id="q14_a" name="q14" value="0">
+                        <label for="q14_a">A</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q14_b" name="q14" value="1">
+                        <label for="q14_b">B</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q14_c" name="q14" value="2">
+                        <label for="q14_c">C</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q14_d" name="q14" value="3">
+                        <label for="q14_d">D</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q14_e" name="q14" value="4">
+                        <label for="q14_e">E</label>
+                    </p>
+
+                    <h3>15. Which of the following is an Ethernet port?</h3>
+                    <div>
+                        <img src="/images/coach_quizes/q14.png" class="img-responsive" />
+                    </div>
+                    <p>
+                        <input type="radio" id="q15_a" name="q15" value="0">
+                        <label for="q15_a">A</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q15_b" name="q15" value="1">
+                        <label for="q15_b">B</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q15_c" name="q15" value="2">
+                        <label for="q15_c">C</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q15_d" name="q15" value="3">
+                        <label for="q15_d">D</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q15_e" name="q15" value="4">
+                        <label for="q15_e">E</label>
+                    </p>
+
+                    <h3>16. Select a match of hardware components that serve Kolibri at Edulution in the centers?</h3>
+                    <p>
+                        <input type="radio" id="q16_a" name="q16" value="0">
+                        <label for="q16_a">Router -&gt; SD card -&gt; Electricity</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q16_b" name="q16" value="1">
+                        <label for="q16_b">Router -&gt; Tablet -&gt; Power bank -&gt; Laptop</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q16_c" name="q16" value="2">
+                        <label for="q16_c">Laptop -&gt; SD card -&gt; Router -&gt; Ethernet Cable -&gt; Tablet Laptop -&gt; Ethernet Cable -&gt; Router -&gt; Tablets</label>
+                    </p>
+
+                    <h3>17. What role does the router play on a laptop at an Edulution Centre? (Select all that apply)</h3>
+                    <p>
+                        <input type="checkbox" id="q17_a" name="q17_a" value="0">
+                        <label for="q17_a">It is used to shutdown the laptop</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q17_b" name="q17_b" value="1">
+                        <label for="q17_b">Since it’s an MTN device, the router is used for telephone calls to call the Hub</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q17_c" name="q17_c" value="2">
+                        <label for="q17_c">It is used to connect the laptop to the internet for support with the Hub</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q17_d" name="q17_d" value="3">
+                        <label for="q17_d">It serves to broadcast Kolibri over local Wi-Fi range</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="q17_e" name="q17_e" value="4">
+                        <label for="q17_e">None of the above</label>
+                    </p>
+
+                    <h3>18. Time is always up to date on the laptop hence there no need to make corrections to laptop time when you switch it on.</h3>
+                    <p>
+                        <input type="radio" id="q18_a" name="q18" value="0">
+                        <label for="q18_a">True</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q18_b" name="q18" value="1">
+                        <label for="q18_b">False</label>
+                    </p>
+
+                    <h3>19. What is the correct way of switching off the laptop after running a session?</h3>
+                    <p>
+                        <input type="radio" id="q19_a" name="q19" value="0">
+                        <label for="q19_a">By clicking on the switch off icon on the desktop</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q19_b" name="q19" value="1">
+                        <label for="q19_b">By typing the shutdown command on the terminal and wait for a few minutes until all light indicators have gone off</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="q19_c" name="q19" value="2">
+                        <label for="q19_c">None of the above</label>
+                    </p>
+                    <br>                    
+                    
+                    <!-- TODO: Add text input fields for user_id, coach_email -->
+                    <!-- Hidden fields for test,course and module -->
+                    <input type="hidden" name="test" ng-init="testResponse.test='tech_1'">
+                    <input type="hidden" name="course" ng-init="testResponse.course='tech_training'">
+                    <input type="hidden" name="module" ng-init="testResponse.module='training">
+                    <button id="testsubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
