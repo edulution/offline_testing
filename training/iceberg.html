@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- TODO : add attribute ng-app="passProtect" to html tag -->
+<!-- <html ng-app="passProtect"> -->
+<html ng-app="passProtect">
+
+<head>
+    <title>Iceberg</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!--Fonts-->
+    <!-- TODO : please ensure that all fonts and libraries are offline -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/css/angular-ui.min.css" rel="stylesheet">
+    <!--Js-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/no_back_please.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- TODO: Include password modal js below -->
+    <!-- password modal js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/angular-ui.min.js"></script>
+    <script src="/js/angular-md5.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="/pmodule/app.js"></script>
+    <link rel="stylesheet" href="/pmodule/password_modal.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+    <!-- Run init function when page opens -->
+    <span ng-init=init()></span>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 main_content">
+                    <div id="edulution_logo">
+                        <img src="/images/edulution_logo.png" class="img-responsive center-block">
+                    </div>
+                    <form name="form.testForm">
+                        <p class="test_name">ICEBERG</p>
+                        <usernameinput></usernameinput>
+                        <!-- Input fiels for user_id contains some js code for validation -->
+                        <div class="HeaderbannerLabel">INSTRUCTIONS</div>
+                        <div class="ins">Select the most correct answer to each question. <br>You have 30 Minutes to complete this test.</div>
+                        <div class="HeaderbannerLabel">QUIZ</div>                   
+                        <h3>1. What is the only part of your Iceberg that is visible to others?</h3>
+                        <p>
+                            <input type="radio" id="q1_a" name="q1" value="0">
+                            <label for="q1_a">Thoughts and Feelings</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_b" name="q1" value="0">
+                            <label for="q1_b">Needs</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_c" name="q1" value="0">
+                            <label for="q1_c">Words and Actions</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_d" name="q1" value="0">
+                            <label for="q1_d">Beliefs and Priorities</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q1_e" name="q1" value="0">
+                            <label for="q1_e">All of the above</label>
+                        </p>
+                        
+                        <h3>2. What is the correct Iceberg order, from top to bottom?</h3>
+                        <p>
+                            <input type="radio" id="q2_a" name="q2" value="0">
+                            <label for="q2_a">Behaviours -&gt; Values -&gt; Feelings -&gt; Needs</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_b" name="q2" value="0">
+                            <label for="q2_b">Beliefs -&gt; Needs -&gt; Thoughts -&gt; Behaviours</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_c" name="q2" value="0">
+                            <label for="q2_c">Varies depending on the person</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q2_d" name="q2" value="0">
+                            <label for="q2_d">Behaviours -&gt; Thoughts -&gt; Feelings -&gt; Values -&gt; Needs</label>
+                        </p>
+                        
+                        <h3>3. What are Interferences? Choose the answer that is most correct</h3>
+                        <p>
+                            <input type="radio" id="q3_a" name="q3" value="0">
+                            <label for="q3_a">Negative reactions from people</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_b" name="q3" value="0">
+                            <label for="q3_b">Anything that stops potential from showing</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_c" name="q3" value="0">
+                            <label for="q3_c">Feelings of sadness</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_d" name="q3" value="0">
+                            <label for="q3_d">The way others see us</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q3_e" name="q3" value="0">
+                            <label for="q3_e">Unmet needs</label>
+                        </p>
+                        
+                        <h3>4. What lies outside the Circle of Control? * Select all that apply</h3>
+                        <p>
+                            <input type="checkbox" id="q4_a" name="q4_a" value="0">
+                            <label for="q4_a">Weather</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_b" name="q4_b" value="0">
+                            <label for="q4_b">Other people’s behaviour</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_c" name="q4_c" value="0">
+                            <label for="q4_c">Your choices</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_d" name="q4_d" value="0">
+                            <label for="q4_d">Job market</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_e" name="q4_e" value="0">
+                            <label for="q4_e">Traffic</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_f" name="q4_f" value="0">
+                            <label for="q4_f">Your attitude</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_g" name="q4_g" value="0">
+                            <label for="q4_g">Work habits</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_h" name="q4_h" value="0">
+                            <label for="q4_h">Punctuality</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="q4_i" name="q4_i" value="0">
+                            <label for="q4_i">Confidence</label>
+                        </p>
+                        
+                        <h3>5. Growth and personal self-improvement is ...</h3>
+                        <p>
+                            <input type="radio" id="q5_a" name="q5" value="0">
+                            <label for="q5_a">Optional</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_b" name="q5" value="0">
+                            <label for="q5_b">Automatic</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_c" name="q5" value="0">
+                            <label for="q5_c">A luxury</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_d" name="q5" value="1">
+                            <label for="q5_d">A choice</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="q5_e" name="q5" value="0">
+                            <label for="q5_e">Compulsory</label>
+                        </p>
+                    <br>                    
+                    
+                    <!-- TODO: Add text input fields for user_id, coach_email -->
+                    <!-- Hidden fields for test,course and module -->
+                    <input type="hidden" name="test" ng-init="testResponse.test='iceberg">
+                    <input type="hidden" name="course" ng-init="testResponse.course='iceberg'">
+                    <input type="hidden" name="module" ng-init="testResponse.module='training">
+                    <button id="testsubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+            </form>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
