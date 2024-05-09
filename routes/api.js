@@ -416,6 +416,74 @@ router.post('/submit_survey', (request, response, next) => {
 });
 
 
+
+router.post('/submit_training_test', [(request, response, next) => {
+
+    /*simple function to sum values in an array*/
+    const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
+
+    /*Get the test response from the request body*/
+    let test_resp = request.body
+
+    console.log(test_resp)
+    /*check if response was checkboxes
+    will appear as array in response*/
+
+    /*for each response recieved*/
+    for (let v in test_resp) {
+        /*if the reponse is of type object(array). Questions with a single response will be of type string*/
+        if (typeof(test_resp[v]) == "object") {
+            /*use reducer method to get sum of elements*/
+            total = Object.values(test_resp[v]).reduce(reducer, 0)
+            /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
+            if (total <= 0) {
+                test_resp[v] = '0'
+            } else {
+                /*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
+                test_resp[v] = '1'
+            }
+        } else {
+            /*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
+            if (Number(test_resp[v]) < 1) {
+                test_resp[v] = '0'
+            }
+        }
+    }
+
+    /*properties of response object - user_id,username,q1,q2..*/
+    let test_resp_props = Object.keys(test_resp)
+
+    console.log(test_resp_props)
+
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
+
+    console.log(uresponses)
+
+    /*remove the test date from the reponse props*/
+    /*let utest_date = uresponses.pop();*/
+
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    console.log(uresponses)
+
+    /*Insert statement to run on database. test date added as current date from server*/
+
+    let insert_statement = 'INSERT INTO training_responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+    console.log(insert_statement);
+
+    // execute the query and return a promise
+    pool.query(insert_statement)
+        .then(result => {
+            console.log("Promise returned: Coach Training Assessment Submited Sucessfully!")
+        })
+        .catch(e => console.error(e.stack))
+    next();
+}, (request, response) => {
+    /*Display successful submission page after request sucessful*/
+    response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+}]);
+
 /*Endpoint to check if a user is eligible to write a particular test*/
 router.get('/user_testcheck', (request, response) => {
     /*parse the query params into an object*/
