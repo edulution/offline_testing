@@ -12,7 +12,7 @@ router.use(express.static(path.resolve(
 /*It is assumed that the name of the html file is the same as the requested test*/
 
 router.get('/:training', (req, res) => {
-    let selected_module = "training"
+    let selected_module = "coach_training"
     let selected_training = req.params.training
     res.sendFile(path.resolve(
         path.join(selected_module, selected_training + '.html')
