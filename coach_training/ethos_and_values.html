@@ -12,7 +12,6 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="/css/custom.css">
     <!--Fonts-->
-    <!-- TODO : please ensure that all fonts and libraries are offline -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/angular-ui.min.css" rel="stylesheet">
@@ -20,7 +19,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/no_back_please.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <!-- TODO: Include password modal js below -->
     <!-- password modal js -->
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -28,7 +26,7 @@
     <script src="/js/angular-ui.min.js"></script>
     <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <script src="/pmodule/app.js"></script>
+    <script src="/pmodule/coach_training_app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 </head>
@@ -44,7 +42,7 @@
                         <img src="/images/edulution_logo.png" class="img-responsive center-block">
                     </div>
                     <form name="form.testForm">
-                        <p class="test_name">ETHOS & VALUES</p>
+                        <p class="test_name">ETHOS & VALUES ASSESSMENT</p>
                         <usernameinput></usernameinput>
                         <!-- Input fiels for user_id contains some js code for validation -->
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
@@ -52,156 +50,156 @@
                         <div class="HeaderbannerLabel">QUIZ</div>
                         <h3>1. The name Edulution is the joining of two words. Which two words are they?</h3>
                         <p>
-                            <input type="radio" id="q1_a" name="q1" value="0">
+                            <input type="radio" id="q1_a" name="q1" ng-model="testResponse.q1" value="0">
                             <label for="q1_a">Education & convolution</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_b" name="q1" value="1">
+                            <input type="radio" id="q1_b" name="q1" ng-model="testResponse.q1" value="1">
                             <label for="q1_b">Education & revolution</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_c" name="q1" value="0">
+                            <input type="radio" id="q1_c" name="q1" ng-model="testResponse.q1" value="0">
                             <label for="q1_c">Educate & revolution</label>
                         </p>
                         <p>
-                            <input type="radio" id="q1_d" name="q1" value="0">
+                            <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0">
                             <label for="q1_d">Educate & constitution</label>
                         </p>
                         <h3>2. What are the overall objectives of Edulution for the children of Africa?</h3>
                         <p>
-                            <input type="radio" id="q2_a" name="q2" value="0">
+                            <input type="radio" id="q2_a" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_a">To provide foundational mathematics that is curriculum aligned</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_b" name="q2" value="0">
+                            <input type="radio" id="q2_b" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_b">To help learners from Grade 4 - 7 improve their mathematical skills</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_c" name="q2" value="1">
+                            <input type="radio" id="q2_c" name="q2" ng-model="testResponse.q2" value="1">
                             <label for="q2_c">To change how learners learn Maths in a new revolutionary way to improve outcomes</label>
                         </p>
                         <p>
-                            <input type="radio" id="q2_d" name="q2" value="0">
+                            <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0">
                             <label for="q2_d">To help people get jobs and improve the quality of their lives</label>
                         </p>
                         <h3>3. At Edulution we uphold 5 core values – these are the pillars of our belief system –can you name them?</h3>
                         <p>
-                            <input type="radio" id="q3_a" name="q3" value="1">
+                            <input type="radio" id="q3_a" name="q3" ng-model="testResponse.q3" value="1">
                             <label for="q3_a">Fun Energy Vigour Enthusiasm Respect</label>
                         </p>
                         <p>
-                            <input type="radio" id="q3_b" name="q3" value="0">
+                            <input type="radio" id="q3_b" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_b">Fairness Energy Vaping Empathy Responsibility</label>
                         </p>
                         <p>
-                            <input type="radio" id="q3_c" name="q3" value="0">
+                            <input type="radio" id="q3_c" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_c">Fun Empathy Vision Enthusiasm Respect</label>
                         </p>
                         <p>
-                            <input type="radio" id="q3_d" name="q3" value="0">
+                            <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0">
                             <label for="q3_d">Fairness Empathy Vison Enthusiasm Respect</label>
                         </p>
                         <h3>4. Of the following which is the most important Edulution value in the learning process?</h3>
                         <p>
-                            <input type="radio" id="q4_a" name="q4" value="0">
+                            <input type="radio" id="q4_a" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_a">Utilizing groups</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_b" name="q4" value="1">
+                            <input type="radio" id="q4_b" name="q4" ng-model="testResponse.q4" value="1">
                             <label for="q4_b">Learners that are actively engaged, working at their own pace to achieve mastery in a supported environment until mastery is achieved</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_c" name="q4" value="0">
+                            <input type="radio" id="q4_c" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_c">Encouraging peer to peer learning</label>
                         </p>
                         <p>
-                            <input type="radio" id="q4_d" name="q4" value="0">
+                            <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0">
                             <label for="q4_d">Views audio as important to learning</label>
                         </p>
                         <h3>5. Our programme is suitable for children at which Grades?</h3>
                         <p>
-                            <input type="radio" id="q5_a" name="q5" value="0">
+                            <input type="radio" id="q5_a" name="q5" ng-model="testResponse.q5" value="0">
                             <label for="q5_a">1 – 4</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_b" name="q5" value="1">
+                            <input type="radio" id="q5_b" name="q5" ng-model="testResponse.q5" value="1">
                             <label for="q5_b">4 - 7</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_c" name="q5" value="0">
+                            <input type="radio" id="q5_c" name="q5" ng-model="testResponse.q5" value="0">
                             <label for="q5_c">4 – 9</label>
                         </p>
                         <p>
-                            <input type="radio" id="q5_d" name="q5" value="0">
+                            <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0">
                             <label for="q5_d">4 - 8</label>
                         </p>
                         <h3>6. Can a child chart his own learning by looking at the Learner Monthly Report or is this just a tool for Coaches?</h3>
                         <p>
-                            <input type="radio" id="q6_a" name="q6" value="1">
+                            <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="1">
                             <label for="q6_a">Yes, a child can chart his own learning by using the Learner Monthly Report</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_b" name="q6" value="0">
+                            <input type="radio" id="q6_b" name="q6" ng-model="testResponse.q6" value="0">
                             <label for="q6_b">No, he can’t do this</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_c" name="q6" value="0">
+                            <input type="radio" id="q6_c" name="q6" ng-model="testResponse.q6" value="0">
                             <label for="q6_c">The Learner Monthly Report is just for use by coaches</label>
                         </p>
                         <p>
-                            <input type="radio" id="q6_d" name="q6" value="0">
+                            <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0">
                             <label for="q6_d">A coach can guide a learner using the Learner Monthly Report and this isn’t shown to learners</label>
                         </p>
                         <h3>7. There are several Levels.. Can a learner start on any Level?</h3>
                         <p>
-                            <input type="radio" id="q7_a" name="q7" value="0">
+                            <input type="radio" id="q7_a" name="q7" ng-model="testResponse.q7" value="0">
                             <label for="q7_a">Yes</label>
                         </p>
                         <p>
-                            <input type="radio" id="q7_b" name="q7" value="1">
+                            <input type="radio" id="q7_b" name="q7" ng-model="testResponse.q7" value="1">
                             <label for="q7_b">No</label>
                         </p>
                         <h3>8. How soon after joining the program should a child be given an entry point test?</h3>
                         <p>
-                            <input type="radio" id="q8_a" name="q8" value="0">
+                            <input type="radio" id="q8_a" name="q8" ng-model="testResponse.q8" value="0">
                             <label for="q8_a">Three sessions</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_b" name="q8" value="1">
+                            <input type="radio" id="q8_b" name="q8" ng-model="testResponse.q8" value="1">
                             <label for="q8_b">Four hours</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_c" name="q8" value="0">
+                            <input type="radio" id="q8_c" name="q8" ng-model="testResponse.q8" value="0">
                             <label for="q8_c">When he can log in and log out</label>
                         </p>
                         <p>
-                            <input type="radio" id="q8_d" name="q8" value="0">
+                            <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0">
                             <label for="q8_d">When the coach can see he is ready</label>
                         </p>
                         <h3>9. Edulution encourages which of the following for use during a session?</h3>
                         <p>
-                            <input type="radio" id="q9_a" name="q9" value="0">
+                            <input type="radio" id="q9_a" name="q9" ng-model="testResponse.q9" value="0">
                             <label for="q9_a">Work in ability groups</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_b" name="q9" value="1">
+                            <input type="radio" id="q9_b" name="q9" ng-model="testResponse.q9" value="1">
                             <label for="q9_b">Peer to peer support and learning</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_c" name="q9" value="0">
+                            <input type="radio" id="q9_c" name="q9" ng-model="testResponse.q9" value="0">
                             <label for="q9_c">Mobile phone use</label>
                         </p>
                         <p>
-                            <input type="radio" id="q9_d" name="q9" value="0">
+                            <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0">
                             <label for="q9_d">None of the above</label>
                         </p>
                         <h3>10. True or False – Edulution replaces Maths lessons in school?</h3>
                         <p>
-                            <input type="radio" id="q10_a" name="q10" value="0">
+                            <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="0">
                             <label for="q10_a">True</label>
                         </p>
                         <p>
-                            <input type="radio" id="q10_b" name="q10" value="1">
+                            <input type="radio" id="q10_b" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_b">False</label>
                         </p>
                         <br>
@@ -209,8 +207,8 @@
                         <!-- Hidden fields for test,course and module -->
                         <input type="hidden" name="test" ng-init="testResponse.test='ethos_and_values'">
                         <input type="hidden" name="course" ng-init="testResponse.course='ethos_and_values'">
-                        <input type="hidden" name="module" ng-init="testResponse.module='training">
-                        <button id="testsubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+                        <input type="hidden" name="module" ng-init="testResponse.module='coach_training">
+                        <button id="testsubmit-btn" class="btn btn-primary btn-lg" type="submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()" value="Submit">Submit</button>
                 </div>
             </div>
     </section>
