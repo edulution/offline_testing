@@ -469,7 +469,7 @@ router.post('/submit_training_test', [(request, response, next) => {
 
     /*Insert statement to run on database. test date added as current date from server*/
 
-    let insert_statement = 'INSERT INTO training_responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+    let insert_statement = 'INSERT INTO responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
     console.log(insert_statement);
 
     // execute the query and return a promise
