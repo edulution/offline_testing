@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
@@ -16,17 +15,7 @@
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <!-- Added native js  -->
-    <script type="text/javascript" src="js/portal/app.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55202294-3"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-55202294-3');
-    </script>
+    <script type="text/javascript" src="/js/portal/app.js"></script>
 </head>
 
 <body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
@@ -51,7 +40,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1  col-xs-offset-0 ">
-                <a href="#" onclick="window.open('https://training.edulution.org','_self')">
+                <a href="#" onclick="window.open('http://192.168.8.200:8080','_self')">
                     <div class="button_spacing">
                         <div class="icon_background">
                             <img src="images/portal/home_page_images/kolibri_logo.png" class="img-rounded kolibri_logo_btn" alt="kolibri logo">
@@ -81,33 +70,35 @@
     </div>
     <!-- End Grid (Kolibri and Numeracy Assessments) 1-->
     <br>
-    <!-- Grid Body (Grade 7 Playlist and Literacy Assessments) 2 -->
+    <!-- Grid Body (Coach Quizes) 2 -->
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1  col-xs-offset-0 ">
-                <a href="#" onclick="window.open('/grade7_revision','_self')">
+                <a href="#" onclick="window.open('/training_quizes','_self')">
                     <div class="button_spacing">
                         <div class="icon_background">
-                            <img src="images/portal/home_page_images/number_7.png" class="img-rounded kolibri_logo_btn" alt="Grade 7 logo">
+                            <img src="images/portal/home_page_images/quiz-r.png" class="img-rounded kolibri_logo_btn" alt="Coach Quizes">
                             <p class="icon_texts">
-                                GRADE 7
+                                TRAINING
                                 <br>
-                                REVISION</p>
+                                QUIZES</p>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            </div>
             <div class="col-lg-4  col-md-4 col-lg-offset-1 col-md-offset-1 col-sm-4 col-sm-push-1 col-xs-4 col-xs-offset-2 ">
-                <a href="#" onclick="window.open('/literacy_tests','_self')">
+                <a href="#" onclick="window.open('/surveys/learner_survey_en','_self')">
                     <div class="button_spacing">
                         <div class="icon_background">
-                            <img src="images/portal/home_page_images/literacy_books.png" class="img-rounded numeracy_assessments_btn" alt="Numeracy Assessments">
+                            <img src="images/portal/home_page_images/learner_survey.png" class="img-rounded numeracy_assessments_btn" alt="numeracy assessments">
                             <p class="icon_texts">
-                                LITERACY
+                                LEARNER
                                 <br>
-                                ASSESSMENTS
+                                SURVEY
                             </p>
                         </div>
                     </div>
@@ -115,27 +106,6 @@
             </div>
         </div>
     </div>
-    <!-- End Grid (Grade 7 Playlist and Literacy Assessments) 2-->
-    <!-- Begin External evaluations -->
-    <!-- <div class="container">
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1  col-xs-offset-0 ">
-            <a href="#" onclick="window.open('/external_evaluations','_self')">
-                <div class="button_spacing">
-                    <div class="icon_background">
-                        <img src="images/portal/home_page_images/ext_eval.png" class="img-rounded kolibri_logo_btn" alt="Grade 7 logo">
-                        <p class="icon_texts">
-                            EXTERNAL
-                            <br>
-                            EVALUATIONS</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-        </div>
-    </div>
-</div> -->
     <!-- End External evaluations -->
     <!-- Footer -->
     <div ng-include="'/include/footer.html'"></div>

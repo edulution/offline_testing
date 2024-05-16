@@ -11,6 +11,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
 
+            /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
+            $scope.results_breakdown_placeholder = []
+
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 

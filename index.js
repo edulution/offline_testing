@@ -24,6 +24,7 @@ const numeracy = require('./routes/numeracy')
 const literacy = require('./routes/literacy')
 const grade7 = require('./routes/grade7')
 const surveys = require('./routes/surveys')
+const coach_training = require('./routes/training')
 
 app.use('/', portal)
 app.use('/api', api)
@@ -31,7 +32,7 @@ app.use('/playlists', playlists)
 app.use('/numeracy', numeracy)
 /*app.use('/literacy', literacy)*/
 app.use('/grade7', grade7)
-
+app.use('/coach_training', coach_training)
 app.use('/surveys', surveys)
 
 /*Results dashboard page*/
