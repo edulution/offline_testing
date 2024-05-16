@@ -16,8 +16,8 @@ const pool = new Pool({
     database: process.env.BASELINE_DATABASE_NAME,
     password: process.env.BASELINE_DATABASE_PASSWORD,
     port: process.env.BASELINE_DATABASE_PORT,
-})
-*/
+})*/
+
 
 router.use(express.static(path.resolve('public')));
 
