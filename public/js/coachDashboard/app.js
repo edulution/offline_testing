@@ -280,20 +280,18 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             restrict: 'E',
             templateUrl: '/js/coachDashboard/templates/navigation.html',
             controller: function($window) {
-                this.tab = 0; /* initially set tab to 1*/
-                this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
+                this.tab = 1; // Initially set tab to 1
+                this.selectTab = function(setTab) { // Set tab to whatever tab user clicks
                     this.tab = setTab;
-                    /*console.log(this.tab);*/
                 };
-                this.isSelected = function(checkTab) { /* Check which tab is selected to trigger show of selected tab */
+                this.isSelected = function(checkTab) { // Check which tab is selected to trigger show of selected tab
                     return this.tab === checkTab;
-
                 };
-
-                /*function to refresh page when button clicked*/
+    
+                // Function to refresh page when button clicked
                 this.refresh = function() {
                     $window.location.reload();
-                }
+                };
             },
             controllerAs: 'menu'
         };
@@ -353,7 +351,34 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
         };
     })
-
+    /*element directive for learner details & quiz results tab*/
+    .directive('learnerdetails', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/js/coachDashboard/templates/learner_details.html',
+            controller: function($scope) {
+                this.rankQuizResults = function() {
+                    if ($scope.learners) {
+                        $scope.learners.forEach(function(learner) {
+                            learner.quizResults = learner.quizResults.sort(function(a, b) {
+                                return b.score_pct - a.score_pct;
+                            });
+                        });
+                    }
+                };
+    
+                $scope.$watch('learners', (newVal) => {
+                    if (newVal) {
+                        this.rankQuizResults();
+                    }
+                });
+            },
+            controllerAs: 'learnerCtrl',
+            link: function(scope, element) {
+                element.addClass('learnerdetails');
+            }
+        };
+    })
     /*element directive for learners count by class tab*/
     .directive('learnerscount', function() {
         return {

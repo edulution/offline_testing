@@ -467,7 +467,7 @@ router.post('/submit_quiz', async (req, res) => {
 
     /* Insert the quiz response into the database */
     const insertStatement = `
-        INSERT INTO quiz_responses (${quizRespProps.join(', ')})
+        INSERT INTO responses (${quizRespProps.join(', ')})
         VALUES (${uresponses.map((_, i) => `$${i + 1}`).join(', ')})
     `;
 
