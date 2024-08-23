@@ -3,7 +3,8 @@ const router = express.Router()
 const path = require('path')
 const url = require('url');
 
-const { Pool, Client } = require('pg')
+const { Pool, Client } = require('pg');
+const { request } = require('http');
 
 const pool = new Pool({
     user: process.env.BASELINE_DATABASE_USER,
@@ -439,6 +440,83 @@ router.get('/user_testcheck', (request, response) => {
         /*Log any errors to the console*/
         .catch(e => console.log(e.stack))
 });
+
+/*Endpoint to get the test details for a particular test*/
+router.post('/submit_quiz', async (req, res) => {
+    const quizResp = req.body;
+
+    /*Function to sum values in an array*/
+    const sumValues = arr => arr.reduce((acc, val) => acc + Number(val), 0);
+
+    // Process quiz responses
+    for (let key in quizResp) {
+        if (Array.isArray(quizResp[key])) {
+
+            /*if the reponse is of type object(array). Questions with a single response will be of type string*/
+            quizResp[key] = sumValues(quizResp[key]) > 0 ? '1' : '0';
+        } else {
+            /*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
+            quizResp[key] = Number(quizResp[key]) < 1 ? '0' : quizResp[key];
+        }
+    }
+
+    /* Get the properties of the quiz response object */
+    const quizRespProps = Object.keys(quizResp);
+    /*  Get the values of the quiz response object */
+    const uresponses = quizRespProps.map(key => quizResp[key]);
+
+    /* Insert the quiz response into the database */
+    const insertStatement = `
+        INSERT INTO responses (${quizRespProps.join(', ')})
+        VALUES (${uresponses.map((_, i) => `$${i + 1}`).join(', ')})
+    `;
+
+    try {
+        /* Execute the query */
+        await pool.query(insertStatement, uresponses);
+        /* Send a success response */
+        console.log("Quiz submitted successfully!");
+        res.status(200).json({ message: "Quiz submitted successfully!" });
+    } catch (error) {
+        /* Log any errors to the console */
+        console.error('Error submitting quiz:', error.stack);
+        res.status(500).json({ error: "An error occurred while submitting the quiz." });
+    }
+});
+
+
+/* Endpoint to fetch quiz data */
+router.get('/get_quiz_data', async (req, res, next) => {
+    const quizDataQuery = {
+        name: 'fetch-quiz-data',
+        text: 'SELECT * FROM math_day_quiz'
+    };
+
+    try {
+        /* Execute the query */
+        const { rows } = await pool.query(quizDataQuery);
+
+        /* Log the response for debugging */
+        console.log('Quiz data fetched successfully:', rows);
+
+        /* Send the response */
+        res.status(200).json({
+            status: 'success',
+            data: rows
+        });
+    } catch (error) {
+        /* Log the error */
+        console.error('Error fetching quiz data:', error.stack);
+
+        /* Send a standardized error response */
+        res.status(500).json({
+            status: 'error',
+            message: 'An error occurred while fetching quiz data.'
+        });
+    }
+    next();
+});
+
 
 
 module.exports = router
