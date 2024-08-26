@@ -5,7 +5,7 @@ CREATE TABLE public.math_day_quiz (
     module varchar,
     username varchar,
     coach_id varchar,
-    test_date varchar,
+    test_date DATE,
     q1 varchar,
     q2 varchar,
     q3 varchar,
