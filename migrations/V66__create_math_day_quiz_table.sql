@@ -38,6 +38,5 @@ CREATE TABLE public.math_day_quiz (
     course varchar,
     user_id uuid,
     sex varchar(1),
-    grade varchar(2),
-    gr7_exam_number varchar(12)
+    grade varchar(1)
 );
