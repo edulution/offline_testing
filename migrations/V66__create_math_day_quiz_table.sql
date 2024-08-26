@@ -1,5 +1,6 @@
 /*Create responses table*/
 CREATE TABLE public.math_day_quiz (
+    response_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     test varchar,
     module varchar,
     username varchar,
