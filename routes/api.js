@@ -442,81 +442,101 @@ router.get('/user_testcheck', (request, response) => {
 });
 
 /*Endpoint to get the test details for a particular test*/
-router.post('/submit_quiz', async (req, res) => {
-    const quizResp = req.body;
+router.post('/submit_quiz', [(request, response, next) => {
 
-    /*Function to sum values in an array*/
-    const sumValues = arr => arr.reduce((acc, val) => acc + Number(val), 0);
+    /*simple function to sum values in an array*/
+    const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
 
-    // Process quiz responses
-    for (let key in quizResp) {
-        if (Array.isArray(quizResp[key])) {
+    /*Get the test response from the request body*/
+    let test_resp = request.body
 
-            /*if the reponse is of type object(array). Questions with a single response will be of type string*/
-            quizResp[key] = sumValues(quizResp[key]) > 0 ? '1' : '0';
+    console.log(test_resp)
+    /*check if response was checkboxes
+    will appear as array in response*/
+
+    /*for each response recieved*/
+    for (let v in test_resp) {
+        /*if the reponse is of type object(array). Questions with a single response will be of type string*/
+        if (typeof(test_resp[v]) == "object") {
+            /*use reducer method to get sum of elements*/
+            total = Object.values(test_resp[v]).reduce(reducer, 0)
+            /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
+            if (total <= 0) {
+                test_resp[v] = '0'
+            } else {
+                /*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
+                test_resp[v] = '1'
+            }
         } else {
             /*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
-            quizResp[key] = Number(quizResp[key]) < 1 ? '0' : quizResp[key];
+            if (Number(test_resp[v]) < 1) {
+                test_resp[v] = '0'
+            }
         }
     }
 
-    /* Get the properties of the quiz response object */
-    const quizRespProps = Object.keys(quizResp);
-    /*  Get the values of the quiz response object */
-    const uresponses = quizRespProps.map(key => quizResp[key]);
+    /*properties of response object - user_id,username,q1,q2..*/
+    let test_resp_props = Object.keys(test_resp)
 
-    /* Insert the quiz response into the database */
-    const insertStatement = `
-        INSERT INTO responses (${quizRespProps.join(', ')})
-        VALUES (${uresponses.map((_, i) => `$${i + 1}`).join(', ')})
-    `;
+    console.log(test_resp_props)
 
-    try {
-        /* Execute the query */
-        await pool.query(insertStatement, uresponses);
-        /* Send a success response */
-        console.log("Quiz submitted successfully!");
-        res.status(200).json({ message: "Quiz submitted successfully!" });
-    } catch (error) {
-        /* Log any errors to the console */
-        console.error('Error submitting quiz:', error.stack);
-        res.status(500).json({ error: "An error occurred while submitting the quiz." });
-    }
-});
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
+
+    console.log(uresponses)
+
+    /*remove the test date from the reponse props*/
+    /*let utest_date = uresponses.pop();*/
+
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+    console.log(uresponses)
+
+    /*Insert statement to run on database. test date added as current date from server*/
+
+    let insert_statement = 'INSERT INTO math_day_quiz(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+    console.log(insert_statement);
+
+    // execute the query and return a promise
+    pool.query(insert_statement)
+        .then(result => {
+            console.log("Promise returned: Quiz submited sucessfully!")
+        })
+        .catch(e => console.error(e.stack))
+    next();
+}, (request, response) => {
+    /*Display successful submission page after request sucessful*/
+    response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+}]);
 
 
 /* Endpoint to fetch quiz data */
-router.get('/get_quiz_data', async (req, res, next) => {
-    const quizDataQuery = {
+/*endpoint to get all test_responses as json*/
+router.get('/get_quiz_data', (request, response) => {
+    const get_quiz_data_query = {
+        /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
         name: 'fetch-quiz-data',
-        text: 'SELECT * FROM math_day_quiz'
-    };
-
-    try {
-        /* Execute the query */
-        const { rows } = await pool.query(quizDataQuery);
-
-        /* Log the response for debugging */
-        console.log('Quiz data fetched successfully:', rows);
-
-        /* Send the response */
-        res.status(200).json({
-            status: 'success',
-            data: rows
-        });
-    } catch (error) {
-        /* Log the error */
-        console.error('Error fetching quiz data:', error.stack);
-
-        /* Send a standardized error response */
-        res.status(500).json({
-            status: 'error',
-            message: 'An error occurred while fetching quiz data.'
-        });
+        text: 'select u.username,u.first_name,u.last_name,u.class_name, u.group_name, tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0))/testmaxscore,2) as score_pct from math_day_quiz r left join users u on r.user_id = u.user_id left join quiz_marks qm on r.quiz = tm.quiz_id and r.course = tm.course and r.module = tm.module order by quiz_date desc'
     }
-    next();
+
+    /*Callback returns status code and result of query*/
+    pool.query(get_quiz_data_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(e => console.log(e.stack))
+
 });
 
+router.get('/get_quiz_marks', (request, response) => {
+    const test_marks_query = {
+        name: 'fetch-quiz-marks',
+        text: 'SELECT * from quiz_marks'
+    }
 
+    /*Callback returns status code and result of query*/
+    pool.query(quiz_marks_query)
+        .then(res => response.status(200).send(res.rows))
+        .catch(e => console.log(e.stack))
+
+});
 
 module.exports = router

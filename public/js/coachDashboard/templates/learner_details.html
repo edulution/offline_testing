@@ -1,12 +1,11 @@
 <div class="learner-details">
     <h4>Quiz Scores</h4>
     <div ng-repeat="learner in learners" class="learner">
-        <h3>{{ learner.name }}</h3>
-        <p>Average Score: {{ learner.averageScore | number:2 }}%</p>
         <ul>
             <li ng-repeat="result in learner.quizResults">
                 Quiz Score: {{ result.score }}%
             </li>
         </ul>
+    </div>
     </div>
 </div>

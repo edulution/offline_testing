@@ -10,7 +10,7 @@ router.use(express.static(path.resolve(
 /* Get the selected test as a param of the request */
 /* then construct the path to the html file */
 /* It is assumed that the name of the html file is the same as the requested test */
-router.get('/:test', (req, res) => {
+router.get('/:quiz', (req, res) => {
     let selected_module = "math_quiz";
     let selected_test = req.params.test;
     
