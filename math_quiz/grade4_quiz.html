@@ -19,7 +19,7 @@
     <script src="/js/angular-ui.min.js"></script>
     <script src="/js/angular-md5.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <script src="/pmodule/app.js"></script>
+    <script src="/pmodule/quiz_app.js"></script>
     <link rel="stylesheet" href="/pmodule/password_modal.css">
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 </head>
@@ -39,7 +39,6 @@
                         <div class="HeaderbannerLabel">INSTRUCTIONS</div>
                         <div class="ins">Test is for 30 marks.<br>Use a pencil and paper to do all your working out.<br>Select the most correct answer to each question.<br>You may NOT use a calculator to help you.<br>You have 1 Hour 30 Minutes to complete this test.<br>Ask your coach if you are not sure how to answer the questions.</div>
                         <div class="HeaderbannerLabel">TEST</div>
-
                         <!-- Question 1 -->
                         <h3>(1) Round off 3242 to the nearest 10.</h3>
                         <p>
@@ -58,7 +57,6 @@
                             <input type="radio" id="q1_d" name="q1" ng-model="testResponse.q1" value="0000">
                             <label for="q1_d">3230</label>
                         </p>
-
                         <!-- Question 2 -->
                         <h3>(2) Round off 5920 to the nearest 100.</h3>
                         <p>
@@ -77,7 +75,6 @@
                             <input type="radio" id="q2_d" name="q2" ng-model="testResponse.q2" value="0000">
                             <label for="q2_d">5800</label>
                         </p>
-
                         <!-- Question 3 -->
                         <h3>(3) 6000 &plus; 30 &plus; 200 &plus; 5 &equals; _____________</h3>
                         <p>
@@ -96,7 +93,6 @@
                             <input type="radio" id="q3_d" name="q3" ng-model="testResponse.q3" value="0000">
                             <label for="q3_d">6150</label>
                         </p>
-
                         <!-- Question 4 -->
                         <h3>(4) Write the value of the 9 in 7986.</h3>
                         <p>
@@ -115,7 +111,6 @@
                             <input type="radio" id="q4_d" name="q4" ng-model="testResponse.q4" value="0000">
                             <label for="q4_d">800</label>
                         </p>
-
                         <!-- Question 5 -->
                         <h3>(5) Write the place value of the 6 in 4865.</h3>
                         <p>
@@ -134,9 +129,8 @@
                             <input type="radio" id="q5_d" name="q5" ng-model="testResponse.q5" value="0000">
                             <label for="q5_d">1</label>
                         </p>
-
                         <!-- Question 6 -->
-                        <h3>(6) Fill in &lt;, &gt;, &equals;, &NotEqual;  4858 ___ 4885.</h3>
+                        <h3>(6) Fill in &lt;, &gt;, &equals;, &NotEqual; 4858 ___ 4885.</h3>
                         <p>
                             <input type="radio" id="q6_a" name="q6" ng-model="testResponse.q6" value="1">
                             <label for="q6_a">&lt;</label>
@@ -153,7 +147,6 @@
                             <input type="radio" id="q6_d" name="q6" ng-model="testResponse.q6" value="0000">
                             <label for="q6_d">&ne;</label>
                         </p>
-
                         <!-- Question 7 -->
                         <h3>(7) Fill in &lt;, &gt;, &equals;, &NotEqual; 230 &plus; ___ &equals; 300.</h3>
                         <p>
@@ -172,7 +165,6 @@
                             <input type="radio" id="q7_d" name="q7" ng-model="testResponse.q7" value="0000">
                             <label for="q7_d">&ne;</label>
                         </p>
-
                         <!-- Question 8 -->
                         <h3>(8) Fill in &lt;, &gt;, &equals;, &NotEqual; 89 &plus; 46 &equals; 46 &plus; ___.</h3>
                         <p>
@@ -191,7 +183,6 @@
                             <input type="radio" id="q8_d" name="q8" ng-model="testResponse.q8" value="0000">
                             <label for="q8_d">91</label>
                         </p>
-
                         <!-- Question 9 -->
                         <h3>(9) Fill in &lt;, &gt;, &equals;, &NotEqual; 56 &minus; 14 &equals; ___ &plus; 42.</h3>
                         <p>
@@ -210,9 +201,8 @@
                             <input type="radio" id="q9_d" name="q9" ng-model="testResponse.q9" value="0000">
                             <label for="q9_d">9</label>
                         </p>
-
                         <!-- Question 10 -->
-                        <h3>(10) Fill in &lt;, &gt;, &equals;, &NotEqual;  ___ &plus; 49 &equals; ___ &plus; 36.</h3>
+                        <h3>(10) Fill in &lt;, &gt;, &equals;, &NotEqual; ___ &plus; 49 &equals; ___ &plus; 36.</h3>
                         <p>
                             <input type="radio" id="q10_a" name="q10" ng-model="testResponse.q10" value="1">
                             <label for="q10_a">13</label>
@@ -229,7 +219,6 @@
                             <input type="radio" id="q10_d" name="q10" ng-model="testResponse.q10" value="000">
                             <label for="q10_d">14</label>
                         </p>
-
                         <!-- Question 11 -->
                         <h3>(11) What number comes next: 3425, 3450, _____</h3>
                         <p>
@@ -248,7 +237,6 @@
                             <input type="radio" id="q11_d" name="q11" ng-model="testResponse.q11" value="0000">
                             <label for="q11_d">3490</label>
                         </p>
-
                         <!-- Question 12 -->
                         <h3>(12) What number comes next: 7980, 7975, _____</h3>
                         <p>
@@ -267,7 +255,6 @@
                             <input type="radio" id="q12_d" name="q12" ng-model="testResponse.q12" value="0000">
                             <label for="q12_d">7960</label>
                         </p>
-
                         <!-- Question 13 -->
                         <h3>(13) Calculate 4385 &plus; 2343</h3>
                         <p>
@@ -286,7 +273,6 @@
                             <input type="radio" id="q13_d" name="q13" ng-model="testResponse.q13" value="0000">
                             <label for="q13_d">6730</label>
                         </p>
-
                         <!-- Question 14 -->
                         <h3>(14) Calculate 8752 &minus; 2325</h3>
                         <p>
@@ -305,7 +291,6 @@
                             <input type="radio" id="q14_d" name="q14" ng-model="testResponse.q14" value="0000">
                             <label for="q14_d">6430</label>
                         </p>
-
                         <!-- Question 15 -->
                         <h3>(15) Calculate 32 &times; 25</h3>
                         <p>
@@ -324,7 +309,6 @@
                             <input type="radio" id="q15_d" name="q15" ng-model="testResponse.q15" value="0000">
                             <label for="q15_d">840</label>
                         </p>
-
                         <!-- Question 16 -->
                         <h3>(16) Calculate 396 &divide; 3</h3>
                         <p>
@@ -343,7 +327,6 @@
                             <input type="radio" id="q16_d" name="q16" ng-model="testResponse.q16" value="0000">
                             <label for="q16_d">128</label>
                         </p>
-
                         <!-- Question 17 -->
                         <h3>(17) Calculate 4/5 &plus; 1/5</h3>
                         <p>
@@ -362,7 +345,6 @@
                             <input type="radio" id="q17_d" name="q17" ng-model="testResponse.q17" value="0000">
                             <label for="q17_d">9/5</label>
                         </p>
-
                         <!-- Question 18 -->
                         <h3>(18) Calculate 7/10 &minus; 3/10</h3>
                         <p>
@@ -381,7 +363,6 @@
                             <input type="radio" id="q18_d" name="q18" ng-model="testResponse.q18" value="0000">
                             <label for="q18_d">9/10</label>
                         </p>
-
                         <!-- Question 19 -->
                         <h3>(19) At the party Busi ate 3/8 of the pizza and Linda ate 2/8 of the pizza. How much pizza is left?</h3>
                         <p>
@@ -400,14 +381,13 @@
                             <input type="radio" id="q19_d" name="q19" ng-model="testResponse.q19" value="0000">
                             <label for="q19_d">1/8</label>
                         </p>
-
-
-                        
-                        <div class="HeaderbannerLabel">COACH SECTION</div>
+                        <!-- <div class="HeaderbannerLabel">COACH SECTION</div> -->
                         <input type="hidden" name="test" ng-init="testResponse.test='grade_4_quiz'">
                         <input type="hidden" name="course" ng-init="testResponse.course='math_quiz'">
                         <input type="hidden" name="module" ng-init="testResponse.module='numeracy'">
-                        <coachsection></coachsection>
+                        <br>
+                        <br>
+                        <button id="surveysubmit-btn" class="btn btn-primary btn-lg" type="submit" value="Submit" ng-disabled="form.testForm.$invalid" ng-click="confirm_submission()">Submit</button>
                     </form>
                 </div>
             </div>
