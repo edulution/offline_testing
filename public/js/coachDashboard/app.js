@@ -10,6 +10,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
+            
+            $scope.quiz_results_placeholder = []
 
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
@@ -63,6 +65,10 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             $http.get("/api/results_breakdown").then(function(response) {
                 $scope.results_breakdown = response.data;
+            });
+
+            $http.get("/api/get_quiz_results").then(function(response) {
+                $scope.quiz_results = response.data;
             });
 
 
@@ -353,11 +359,11 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         };
     })
     /*element directive for learner details & quiz results tab*/
-    .directive('learnerdetails', function() {
+    .directive('quizresults', function() {
         return {
             restrict: 'E',
-            templateUrl: '/js/coachDashboard/templates/learner_details.html',
-            controller: function($scope) {
+            templateUrl: '/js/coachDashboard/templates/quiz_results.html',
+            /*controller: function($scope) {
                 this.rankQuizResults = function() {
                     if ($scope.learners) {
                         $scope.learners.forEach(function(learner) {
@@ -374,9 +380,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                     }
                 });
             },
-            controllerAs: 'learnerCtrl',
+            controllerAs: 'learnerCtrl',*/
             link: function(scope, element) {
-                element.addClass('learnerdetails');
+                element.addClass('quizresults');
             }
         };
     })

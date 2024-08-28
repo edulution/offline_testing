@@ -1,0 +1,59 @@
+<div class="table-responsive row">
+    <table st-table="quiz_results_placeholder" st-safe-src="quiz_results" class="table">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <input st-search type="search" placeholder="Search for Username, First name, or Last name..." class="form-control">
+                </th>
+                <th colspan="1" id="class_search">
+                    <select st-search="class_name" class=" form-control module_select_dropdown">
+                        <option value="" class="module_initial_value">All Classes</option>
+                        <option ng-repeat="row in quiz_results | unique: 'class_name' | orderBy: 'class_name'" value="{{row.class_name}}">{{row.class_name |
+                            ucfirst}}</option>
+                    </select>
+                </th>
+                <th colspan="1" id="quiz_search">
+                    <select st-search="test_name" class=" form-control module_select_dropdown">
+                        <option value="" class="module_initial_value">All Quizzes</option>
+                        <option ng-repeat="row in quiz_results | unique: 'test_name' | orderBy: 'test_nme'" value="{{row.test_name}}">{{row.test_name |
+                            ucfirst}}</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th st-ratio="10" st-sort="username">Username</th>
+                <th st-ratio="20" st-sort="first_name">First Name</th>
+                <th st-ratio="20" st-sort="last_name">Last Name</th>
+                <th st-ratio="10" st-sort="class_name">Class</th>
+                <th st-ratio="20" st-sort="test_name">Quiz Name</th>
+                <th st-ratio="20" st-sort="quiz_score">Score</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in quiz_results_placeholder">
+                <td st-ratio="10">{{row.username}}</td>
+                <td st-ratio="20">{{row.first_name}}</td>
+                <td st-ratio="20">{{row.last_name}}</td>
+                <td st-ratio="10">{{row.class_name}}</td>
+                <td st-ratio="20">{{row.test_name}}</td>
+                <td st-ratio="20" ng-style="row.score_pct <= 0 && {'background-color': '#D9D9D9'} ||
+                                  row.score_pct <= .25 && {'background-color': '#FF412A'} ||
+                                  row.score_pct <= .50 && {'background-color': '#EC9090'} ||
+                                  row.score_pct <= .69 && {'background-color': '#F5C216'} ||
+                                  row.score_pct <= .74 && {'background-color': '#99CC33'} ||
+                                  row.score_pct <=  1 && {'background-color': '#00B050'}">
+                    {{row.score_pct * 100 | number : 1}}%
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" class="text-center">
+                    <div class="pagination"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<!-- table row -->
