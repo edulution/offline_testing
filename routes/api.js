@@ -512,28 +512,15 @@ router.post('/submit_quiz', [(request, response, next) => {
 
 /* Endpoint to fetch quiz data */
 /*endpoint to get all test_responses as json*/
-router.get('/get_quiz_data', (request, response) => {
+router.get('/get_quiz_results', (request, response) => {
     const get_quiz_data_query = {
         /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
         name: 'fetch-quiz-data',
-        text: 'select u.username,u.first_name,u.last_name,u.class_name, u.group_name, tm.test_name,r.*,round((coalesce(q1::integer,0.0)+ coalesce(q2::integer,0.0)+ coalesce(q3::integer,0.0)+ coalesce(q4::integer,0.0)+ coalesce(q5::integer,0.0)+ coalesce(q6::integer,0.0)+ coalesce(q7::integer,0.0)+ coalesce(q8::integer,0.0)+ coalesce(q9::integer,0.0)+ coalesce(q10::integer,0.0)+ coalesce(q11::integer,0.0)+ coalesce(q12::integer,0.0)+ coalesce(q13::integer,0.0)+ coalesce(q14::integer,0.0)+ coalesce(q15::integer,0.0)+ coalesce(q16::integer,0.0)+ coalesce(q17::integer,0.0)+ coalesce(q18::integer,0.0)+ coalesce(q19::integer,0.0))/testmaxscore,2) as score_pct from math_day_quiz r left join users u on r.user_id = u.user_id left join quiz_marks qm on r.quiz = tm.quiz_id and r.course = tm.course and r.module = tm.module order by quiz_date desc'
+        text: 'SELECT * FROm vquizscores'
     }
 
     /*Callback returns status code and result of query*/
     pool.query(get_quiz_data_query)
-        .then(res => response.status(200).send(res.rows))
-        .catch(e => console.log(e.stack))
-
-});
-
-router.get('/get_quiz_marks', (request, response) => {
-    const test_marks_query = {
-        name: 'fetch-quiz-marks',
-        text: 'SELECT * from quiz_marks'
-    }
-
-    /*Callback returns status code and result of query*/
-    pool.query(quiz_marks_query)
         .then(res => response.status(200).send(res.rows))
         .catch(e => console.log(e.stack))
 
