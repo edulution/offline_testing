@@ -1,7 +1,11 @@
 CREATE VIEW public.quiz_scores_view AS
 SELECT 
     response_id,
-    user_id,
+    users.user_id,
+    users.first_name,
+    users.last_name,
+    users.username,
+    users.class_name,
     course,
     module,
     test,
