@@ -17,4 +17,4 @@ INSERT INTO public.quiz_marks(
 	VALUES ('grade_5_quiz','Grade 5 Math Quiz','math_quiz', 'numeracy', 15);
 INSERT INTO public.quiz_marks(
 	test_id, test_name, course, module, testmaxscore)
-	VALUES ('grade_6_quiz','Grade 6 Math Quiz','math_quiz', 'numeracy', 30);
+	VALUES ('grade_6_quiz','Grade 6 Math Quiz','math_quiz', 'numeracy', 19);
