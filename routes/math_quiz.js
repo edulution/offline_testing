@@ -12,7 +12,7 @@ router.use(express.static(path.resolve(
 /* It is assumed that the name of the html file is the same as the requested test */
 router.get('/:quiz', (req, res) => {
     let selected_module = "math_quiz";
-    let selected_test = req.params.test;
+    let selected_test = req.params.quiz;
     
     /* Construct path to the selected test in the math_quiz directory */
     res.sendFile(path.resolve(
