@@ -1,3 +1,4 @@
+create or replace view vquizscores as
 WITH quiz_scores_raw AS (
     SELECT
         response_id,
