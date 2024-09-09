@@ -2,6 +2,14 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
 
+        // Control the visibility of the help page
+        $scope.showHelpPage = false;
+
+        // Function to toggle the help page
+        $scope.toggleHelpPage = function() {
+            $scope.showHelpPage = !$scope.showHelpPage;
+        };
+
         /*enable angular animations*/
         $ctrl.animationsEnabled = true;
         $scope.init = function() {
@@ -369,16 +377,14 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 element.addClass('learnerscount');
             }
         };
-    });
-    /*element directive for the help page on the dahsboard*/
-    .directive('help', function() {
+    })
+    /*element directive for help page*/
+    .directive('helpPage', function() {
         return {
             restrict: 'E',
             templateUrl: '/js/coachDashboard/templates/help.html',
             link: function(scope, element, attributes) {
-                /*class for all elements in directive. used for scoped styling*/
-                element.addClass('help');
+                element.addClass('help-page');
             }
         };
     });
-    
