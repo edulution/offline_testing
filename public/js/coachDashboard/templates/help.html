@@ -1,0 +1,86 @@
+<div class="container mt-5">
+    <h1 class="text-center">Help & FAQ - Command Reference</h1>
+
+    <!-- Search and Filter Section -->
+    <div class="form-inline mb-4">
+        <input type="search" id="searchInput" class="form-control w-100" placeholder="Search for a command..." onkeyup="filterCommands()">
+        <select id="categoryFilter" class="form-control" onchange="filterCommands()">
+            <option value="">All Categories</option>
+            <option value="git">Git Commands</option>
+            <option value="linux">Linux Commands</option>
+            <option value="general">General</option>
+        </select>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faqContainer" class="faq-section">
+        <!-- Example Command 1 -->
+        <div class="card faq-card" data-category="git">
+            <div class="card-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                <h5 class="mb-0">What does 'git init' do?</h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#faqContainer">
+                <div class="card-body">
+                    <p>'git init' initializes a new Git repository in your project folder, setting up the necessary files for tracking changes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Command 2 -->
+        <div class="card faq-card" data-category="git">
+            <div class="card-header" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                <h5 class="mb-0">What does 'git clone' do?</h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#faqContainer">
+                <div class="card-body">
+                    <p>'git clone' copies a remote repository to your local machine, allowing you to work with all of its files and history.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Command 3 -->
+        <div class="card faq-card" data-category="linux">
+            <div class="card-header" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                <h5 class="mb-0">What does 'ls' do?</h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#faqContainer">
+                <div class="card-body">
+                    <p>'ls' lists the contents of a directory in your Linux terminal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Command 4 -->
+        <div class="card faq-card" data-category="general">
+            <div class="card-header" id="headingFour" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                <h5 class="mb-0">What does 'echo' do?</h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#faqContainer">
+                <div class="card-body">
+                    <p>'echo' prints text or variable values to the terminal or console.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Filter commands based on search input and category selection
+    function filterCommands() {
+        const searchInput = document.getElementById("searchInput").value.toLowerCase();
+        const categoryFilter = document.getElementById("categoryFilter").value;
+        const faqCards = document.querySelectorAll(".faq-card");
+
+        faqCards.forEach(card => {
+            const commandTitle = card.querySelector(".card-header h5").textContent.toLowerCase();
+            const commandCategory = card.getAttribute("data-category");
+
+            // Filter based on search and category
+            if ((commandTitle.includes(searchInput) || searchInput === "") && (commandCategory === categoryFilter || categoryFilter === "")) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+</script>

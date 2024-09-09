@@ -294,6 +294,11 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 this.refresh = function() {
                     $window.location.reload();
                 }
+                /*function to open help page*/
+                this.openHelp = function() {
+                    this.tab = 6;
+                }
+
             },
             controllerAs: 'menu'
         };
@@ -365,3 +370,15 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
         };
     });
+    /*element directive for the help page on the dahsboard*/
+    .directive('help', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/js/coachDashboard/templates/help.html',
+            link: function(scope, element, attributes) {
+                /*class for all elements in directive. used for scoped styling*/
+                element.addClass('help');
+            }
+        };
+    });
+    
