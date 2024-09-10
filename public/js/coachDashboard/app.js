@@ -1,12 +1,6 @@
 angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'smart-table', 'angular.filter'])
     .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
-
-        /* Function to navigate to the help page */
-        $scope.goToHelpPage = function() {
-            $location.path('/help');
-        };
-
         /*enable angular animations*/
         $ctrl.animationsEnabled = true;
         $scope.init = function() {
@@ -239,14 +233,12 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         }
 
-    })
 
-    .controller('HelpModalInstanceCtrl', function($scope, $uibModalInstance) {
-        $scope.close = function() {
-            $uibModalInstance.dismiss('cancel');
-        };
-    })
 
+
+
+
+    })
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
     .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
         /*The password a coach is expected to enter*/
@@ -286,30 +278,27 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         return {
             restrict: 'E',
             templateUrl: '/js/coachDashboard/templates/navigation.html',
-            controller: function($window, $scope, $location) {
-                this.tab = 0;
-    
+            controller: function($window) {
+                this.tab = 0; 
                 this.selectTab = function(setTab) {
                     this.tab = setTab;
-                    $scope.showHelpPage = (this.tab === 6);
+                    /*console.log(this.tab);*/
                 };
-    
                 this.isSelected = function(checkTab) {
                     return this.tab === checkTab;
+
                 };
-    
+
+                /*function to refresh page when button clicked*/
                 this.refresh = function() {
                     $window.location.reload();
-                };
-    
-                this.openHelp = function() {
-                    $location.path('/help');
-                };
+                }
+
             },
             controllerAs: 'menu'
         };
     })
-    
+
     /*element directive for learners tab*/
     .directive('learners', function() {
         return {
@@ -374,17 +363,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             link: function(scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('learnerscount');
-            }
-        };
-    })
-    
-    /*element directive for help page*/
-    .directive('helppage', function() {
-        return {
-            restrict: 'E',
-            templateUrl: '/js/coachDashboard/templates/help.html',
-            link: function(scope, element, attributes) {
-                element.addClass('helppage');
             }
         };
     });
