@@ -2,12 +2,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
     .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
 
-        // Control the visibility of the help page
-        $scope.showHelpPage = false;
-
-        // Function to toggle the help page
-        $scope.toggleHelpPage = function() {
-            $scope.showHelpPage = !$scope.showHelpPage;
+        /* Function to navigate to the help page */
+        $scope.goToHelpPage = function() {
+            $location.path('/help');
         };
 
         /*enable angular animations*/
@@ -242,12 +239,14 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
         }
 
-
-
-
-
-
     })
+
+    .controller('HelpModalInstanceCtrl', function($scope, $uibModalInstance) {
+        $scope.close = function() {
+            $uibModalInstance.dismiss('cancel');
+        };
+    })
+
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/
     .controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
         /*The password a coach is expected to enter*/
@@ -287,30 +286,30 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
         return {
             restrict: 'E',
             templateUrl: '/js/coachDashboard/templates/navigation.html',
-            controller: function($window) {
-                this.tab = 0; /* initially set tab to 1*/
-                this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
+            controller: function($window, $scope, $location) {
+                this.tab = 0;
+    
+                this.selectTab = function(setTab) {
                     this.tab = setTab;
-                    /*console.log(this.tab);*/
+                    $scope.showHelpPage = (this.tab === 6);
                 };
-                this.isSelected = function(checkTab) { /* Check which tab is selected to trigger show of selected tab */
+    
+                this.isSelected = function(checkTab) {
                     return this.tab === checkTab;
-
                 };
-
-                /*function to refresh page when button clicked*/
+    
                 this.refresh = function() {
                     $window.location.reload();
-                }
-                /*function to open help page*/
+                };
+    
                 this.openHelp = function() {
-                    this.tab = 6;
-                }
-
+                    $location.path('/help');
+                };
             },
             controllerAs: 'menu'
         };
     })
+    
     /*element directive for learners tab*/
     .directive('learners', function() {
         return {
@@ -378,13 +377,14 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             }
         };
     })
+    
     /*element directive for help page*/
-    .directive('helpPage', function() {
+    .directive('helppage', function() {
         return {
             restrict: 'E',
             templateUrl: '/js/coachDashboard/templates/help.html',
             link: function(scope, element, attributes) {
-                element.addClass('help-page');
+                element.addClass('helppage');
             }
         };
     });
