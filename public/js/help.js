@@ -2,14 +2,14 @@ angular.module('helpApp', [])
 .controller('HelpController', function($scope) {
     // FAQ data 
     $scope.faqs = [
-        { category: 'kolibri', question: "What does 'monthend 09-24' do?", answer: "This submits monthend report for your centre. This command is used for both mid-month and monthend, where (09) is the month and (24) is the year. Substitute the month and the year with the right dates." },
-        { category: 'kolibri', question: "What does 'make_quiz' do?", answer: "This command recreates quiz in Kolibri. Every time this runs, quizzes are regenerated." },
-        { category: 'kolibri', question: "How do can i make a backup?", answer: "You make a backup of your data by opening the terminal and entering the command 'backup', this process does not require any internet connection"},
-        { category: 'kolibri', question: "How can i upload a backup to telegram?", answer: "Copy the backup you want to upload from the centre laptop on to your mobile device, and then open the Edulution Telegram channel and upload the backup there, this requires internet connection. The anmount of data usage during the upload process will depend on the size of the backup you are uploading"},
+        { category: 'kolibri', question: "What does 'monthend 02-24' do?", answer: "Input the command ‘monthend 02-24’; where, in this instance, '02' represents the month (February) and ‘24’ is the year (2024). The month-end process occurs on the 15th and the last day of every month. If the 15th falls on a Saturday, submission should be conducted on the preceding Friday, adhering to the same protocol for the month-end date" },
+        { category: 'kolibri', question: "What does 'make_quiz' do?", answer: "When you use the ‘make_quiz’ command it will refresh previously created quizzes." },
+        { category: 'kolibri', question: "How do can i make a backup?", answer: "On the session laptop, initiate the backup process by accessing the terminal and executing the command “backup”. This action generates a backup inclusive of data up to the current day"},
+        { category: 'kolibri', question: "How can i upload a backup to telegram?", answer: "Upon completion of taking backup, duplicate the backup and transfer it to the Coach tablet. Upload the backup to the Edulution Telegram Channel for secure data storage twice a month (mid-month and month-end data)"},
         { category: 'kolibri', question: "What does 'assign_learners' do?", answer: "This command assigns learners to their correct groups"},
         { category: 'linux', question: "What does 'shutdown' do?", answer: "This command shuts down the session laptop, by first making a backup, then after that, the computer shuts down." },
-        { category: 'kolibri', question: "What does 'restartko' do?", answer: "This command restarts Kolibri. It takes less than 3 minutes for Kolibri to start running again once this command is run." },
-        { category: 'monthend', question: "When do we submit 'monthend' ?", answer: "We submit monthend on the last day of the month, and on the 15th of every month"}
+        { category: 'kolibri', question: "What does 'restartko' do?", answer: "This command restarts Kolibri. It takes less than 2 minutes for Kolibri to start running again once this command is run." },
+        { category: 'monthend', question: "When do we submit 'monthend' ?", answer: "The month-end process occurs on the 15th and the last day of every month. If the 15th falls on a Saturday, submission should be conducted on the preceding Friday, adhering to the same protocol for the month-end date." },
     ];
 
     $scope.searchText = '';
