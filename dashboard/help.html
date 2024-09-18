@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help - Command Reference</title>
+    <title>Help page</title>
     <link rel="stylesheet" href="/css/help.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="text-center text-white">
-            <h3>Help Page - Command Reference</h3>
+            <h3>Help Page</h3>
         </div>
     </header>
     
@@ -38,31 +38,31 @@
         <!-- Search and Filter Section -->
         <div class="row g-2">
             <div class="col-md-8">
-                <input type="search" id="searchInput" placeholder="Search for a command..." ng-model="searchText" ng-change="filterCommands()">
+                <input type="search" id="searchInput" placeholder="Search..." ng-model="searchText" ng-change="filterCommands()">
             </div>
             <div class="col-md-4">
                 <select id="categoryFilter" ng-model="selectedCategory" ng-change="filterCommands()">
                     <option value="">All Categories</option>
-                    <option value="monthend">Monthend Reports</option>
+                    <option value="software">Software</option>
                     <option value="kolibri">Kolibri</option>
-                    <option value="linux">Linux</option>
+                    <option value="reports">Reports</option>
+                    <option value="hardware">Hardware</option>
                 </select>
             </div>
         </div>
 
         <!-- FAQ Section -->
         <div id="faqContainer">
-            <!-- FAQ entries -->
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item" ng-repeat="faq in filteredFaqs" ng-show="faqMatches(faq)" data-category="{{faq.category}}">
                     <h2 class="accordion-header" id="heading{{$index}}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}">
-                            <i class="fas fa-question-circle"></i>{{ faq.question }}
+                            <i class="fas fa-question-circle"></i> {{ faq.question }}
                         </button>
                     </h2>
                     <div id="collapse{{$index}}" class="accordion-collapse collapse" aria-labelledby="heading{{$index}}" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            <p>{{ faq.answer }}</p>
+                            <p ng-bind-html="faq.answer"></p> <!-- Render answer as HTML -->
                         </div>
                     </div>
                 </div>
