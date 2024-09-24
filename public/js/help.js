@@ -11,7 +11,7 @@ angular.module('helpApp', ['ngSanitize']) // Include ngSanitize module
         { category: 'kolibri', question: "What does 'restartko' do?", answer: "The <b>'restartko'</b> command restarts Kolibri, ensuring it runs smoothly. Kolibri should be operational again within 2 minutes." },
         { category: 'kolibri', question: "How do learners log in to Kolibri?", answer: "Learners log in to Kolibri by opening Edulution Portal on the tablets, then selecting the Kolibri icon on the portal home page, entering their username, and tapping <b>'Sign in'</b>." },
         { category: 'kolibri', question: "What should I do if learners are not appearing in the Kolibri dashboard?", answer: "If learners are not showing on the Kolibri dashboard, ensure that learners are still logged in from the tablet and refresh the page. If the issue persists, check for possible network issues or try restarting Kolibri using the <b>'restartko'</b> command." },
-        { category: 'kolibri', question: "How do I view learner progress on the Coach Dashboard ?", answer: "Go to the Coach Dashboard and view the <b>'Learners'</b> tab for a detailed overview of each learner's progress." },
+        { category: 'kolibri', question: "How do I view learner details?", answer: "Go to the Coach Dashboard and view the <b>'Learners'</b> tab for a detailed overview of each learner's details this would include <b>Username</b>, <b>Class</b> and <b>Group</b>." },
 
         // Reports
         { category: 'reports', question: "How do I analyze test results?", answer: "Go to the <b>Coach Dashboard</b> and select <b>'Test Results'</b>. You can view a detailed breakdown of the learner’s performance and identify areas where they may need additional support." },
