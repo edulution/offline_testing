@@ -1,7 +1,6 @@
 angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'smart-table', 'angular.filter'])
     .controller('MainCtrl', function($scope, $uibModal, $log, $document, $http) {
         var $ctrl = this;
-
         /*enable angular animations*/
         $ctrl.animationsEnabled = true;
         $scope.init = function() {
@@ -281,12 +280,12 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             restrict: 'E',
             templateUrl: '/js/coachDashboard/templates/navigation.html',
             controller: function($window) {
-                this.tab = 0; /* initially set tab to 1*/
-                this.selectTab = function(setTab) { /* Set tab to whatever tab user clicks*/
+                this.tab = 0; 
+                this.selectTab = function(setTab) {
                     this.tab = setTab;
                     /*console.log(this.tab);*/
                 };
-                this.isSelected = function(checkTab) { /* Check which tab is selected to trigger show of selected tab */
+                this.isSelected = function(checkTab) {
                     return this.tab === checkTab;
 
                 };
@@ -295,10 +294,12 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 this.refresh = function() {
                     $window.location.reload();
                 }
+
             },
             controllerAs: 'menu'
         };
     })
+
     /*element directive for learners tab*/
     .directive('learners', function() {
         return {
