@@ -1,7 +1,7 @@
 /*Angular module to display password modal and make sure correct password is entered*/
 angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 'ui.filters', 'angular-md5'])
     .service('passwordService', function() {
-        var password = "5560d90609cbacd6223e94c0d1ded646";
+        var password = "2a02e66508b5bce74599bd6af0deee4c";
 
         return {
             getPassword: function() {
@@ -80,7 +80,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'pmodule/templates/pmodal_content.html',
+                templateUrl: '/pmodule/templates/pmodal_content.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$password_modal_ctrl',
                 backdrop: 'static',
@@ -101,7 +101,7 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
                 animation: $ctrl.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'pmodule/templates/confirm_overwrite_test.html',
+                templateUrl: '/pmodule/templates/confirm_overwrite_test.html',
                 controller: 'MainCtrl',
                 scope: $scope,
                 backdrop: 'static',
