@@ -4,7 +4,7 @@ options(warn = -1)
 suppressMessages(library(timeDate))
 suppressMessages(library(plyr))
 suppressMessages(library(dplyr))
-suppressMessages(library(RPostgreSQL))
+suppressMessages(library(RPostgres))
 suppressMessages(library(stringr))
 suppressMessages(library(rebus))
 
@@ -18,7 +18,7 @@ bl_db_passwd <- Sys.getenv("BASELINE_DATABASE_PASSWORD")
 bl_db_port <- Sys.getenv("BASELINE_DATABASE_PORT")
 
 # Connect to test responses database
-pg <- dbDriver("PostgreSQL")
+pg <- RPostgres::Postgres()
 conn <- dbConnect(
   pg,
   dbname = bl_db_name,
@@ -120,16 +120,27 @@ check_tests_in_curr_month <- function(year_month, tresponses) {
 # Helper function to set empty strings to 0 and otherwise return t --------
 
 
-empty_as_zero <- function(x) {
-  if (is.na(x)) {
-    return("0")
-  }
-  if (x == "") {
-    return("0")
+# empty_as_zero <- function(x) {
+#   if (is.na(x)) {
+#     return("0")
+#   }
+#   if (x == "") {
+#     return("0")
+#   } else {
+#     return(x)
+#   }
+# }
+
+replace_empty_with_zero <- function(df, regex = "^q\\d+") {
+  if (is.null(regex)) {
+    df %>%
+      mutate(across(where(is.character), ~ if_else(. == "", "0", .)))
   } else {
-    return(x)
+    df %>%
+      mutate(across(matches(regex), ~ if_else(. == "", "0", .)))
   }
 }
+
 
 
 
@@ -142,18 +153,23 @@ preproc_tresponses <- function(tresponses_raw) {
 
   # Loop through each row in tresponses. set empty string to 0 on cols that are within a test's max score
   # Leave all others as empty
-  for (i in 1:nrow(tresponses_raw)) {
-    row <- tresponses_raw[i, ]
-    # If the response is the learner survey, simply add it to the tmp df for the next step
-    if (row$module == "learner_survey") {
-      tmp_df <- tmp_df %>% rbind(row)
-    } else {
-      q1_index <- which(names(row) == "q1")
-      q_max_index <- which(names(row) == paste0("q", row$testmaxscore))
-      row[q1_index:q_max_index] <- lapply(row[q1_index:q_max_index], empty_as_zero)
-      tmp_df <- tmp_df %>% rbind(row)
-    }
-  }
+  # for (i in 1:nrow(tresponses_raw)) {
+  #   row <- tresponses_raw[i, ]
+  #   # If the response is the learner survey, simply add it to the tmp df for the next step
+  #   if (row$module == "learner_survey") {
+  #     tmp_df <- tmp_df %>% rbind(row)
+  #   } else {
+  #     q1_index <- which(names(row) == "q1")
+  #     q_max_index <- which(names(row) == paste0("q", row$testmaxscore))
+  #     row[q1_index:q_max_index] <- lapply(row[q1_index:q_max_index], empty_as_zero)
+  #     tmp_df <- tmp_df %>% rbind(row)
+  #   }
+  # }
+
+  tmp_survey_responses <- tresponses_raw %>% filter(module == "learner_survey")
+  tmp_other_responses <- tresponses_raw %>% filter(!module == "learner_survey") %>% replace_empty_with_zero()
+  tmp_df <- tmp_df %>% rbind(tmp_survey_responses, tmp_other_responses)
+
 
   # Set the tmp dataframe to the real thing
   tr_proc <- tmp_df
