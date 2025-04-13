@@ -41,4 +41,9 @@ router.get('/external_evaluations', (req, res) => {
 router.get('/learner_survey', (req, res) => {
     res.sendFile(path.resolve('portal/learner_survey.html'));
 });
+
+/*coach dashboard help page */
+router.get('/help', (req, res) => {
+    res.sendFile(path.resolve('dashboard/help.html'));
+});
 module.exports = router

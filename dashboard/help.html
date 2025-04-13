@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="helpApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help page</title>
+    <link rel="stylesheet" href="/css/help.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-locale_en-zm.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular-filter.min.js"></script>
+    <script src="/js/smart-table.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <script src="/js/angular-sanitize.js"></script>
+    <script src="/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <script src="/js/help.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body ng-controller="HelpController">
+    <header style="background-color: rgb(7, 29, 73); padding: 20px 0;">
+        <div class="navbar-header logos">
+            <a class="navbar-brand logo" href="/coach">
+                <img class="img-responsive" src="images/edulution_logo_white.svg" style="height: 40px;">
+            </a>
+        </div>
+        <div class="text-center text-white">
+            <h3>Help Page</h3>
+        </div>
+    </header>
+    
+    <div class="container">
+
+        <!-- Search and Filter Section -->
+        <div class="row g-2">
+            <div class="col-md-8">
+                <input type="search" id="searchInput" placeholder="Search..." ng-model="searchText" ng-change="filterCommands()">
+            </div>
+            <div class="col-md-4">
+                <select id="categoryFilter" ng-model="selectedCategory" ng-change="filterCommands()">
+                    <option value="">All Categories</option>
+                    <option value="software">Software</option>
+                    <option value="kolibri">Kolibri</option>
+                    <option value="reports">Reports</option>
+                    <option value="hardware">Hardware</option>
+                    <option value="common_commands">Common commands</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div id="faqContainer">
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item" ng-repeat="faq in filteredFaqs" ng-show="faqMatches(faq)" data-category="{{faq.category}}">
+                    <h2 class="accordion-header" id="heading{{$index}}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$index}}" aria-expanded="false" aria-controls="collapse{{$index}}">
+                            <i class="fas fa-question-circle"></i> {{ faq.question }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{$index}}" class="accordion-collapse collapse" aria-labelledby="heading{{$index}}" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p ng-bind-html="faq.answer"></p> <!-- Render answer as HTML -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

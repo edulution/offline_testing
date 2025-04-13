@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/fontawesome-all.min.css">
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-locale_en-zm.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular-filter.min.js"></script>
     <script src="/js/smart-table.min.js"></script>
     <script src="/js/angular-animate.js"></script>
@@ -21,18 +21,20 @@
     <script src="/js/coachDashboard/app.js"></script>
 </head>
 
-<body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
+<body class="mainBackground">
     <!-- open password modal when page is loaded(prod only) -->
-    <span ng-init=init()></span>
+    <span ng-init="init()"></span>
     <navigation></navigation>
+
     <div class="container-fluid">
+        <ng-view></ng-view> <!-- Added ng-view directive -->
         <learners ng-show="menu.isSelected(0)"></learners>
         <responses ng-show="menu.isSelected(1)"></responses>
         <responsesections ng-show="menu.isSelected(4)"></responsesections>
         <!-- hide results by question tab for now -->
         <!-- <questresponses ng-show="menu.isSelected(2)"></questresponses> -->
         <testscount ng-show="menu.isSelected(3)"></testscount>
-        <learnerscount ng-show="menu.isSelected(5)"></learnerscount>
+        <learnerscount ng-show="menu.isSelected(5)"></learnerscount>        
     </div>
 </body>
 

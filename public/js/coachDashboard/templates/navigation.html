@@ -8,12 +8,19 @@
         </div>
         <p class="title_header">Coach Dashboard</p>
         <div class="index_button">
-            <button class="btn btn-button index_btn" ng-click="menu.refresh()">
-                <h4>Refresh</h4>
-            </button>
+        <!-- Refresh Button -->
+        <button class="btn btn-button index_btn me-2" ng-click="menu.refresh()">
+            <h4 class="mb-0">Refresh</h4>
+        </button>
+        <!-- Help Button -->
+        <a class="btn btn-light help_button" href="/help">
+            <img src="images/help-web-button-2.png" alt="help" class="img-fluid" style="max-width: 50px;">
+        </a>
         </div>
     </div>
 </nav>
+
+<!-- Tab Navigation -->
 <div class="container-fluid tabs">
     <div class="clearfix"></div>
     <ul class="nav nav-tabs">

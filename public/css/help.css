@@ -1,0 +1,125 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(7, 29, 73);
+    padding: 20px 0;
+}
+
+header .navbar-header .navbar-brand img {
+    height: 40px;
+}
+
+header {
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Search and Filter Section */
+#searchInput, #categoryFilter {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#searchInput:focus, #categoryFilter:focus {
+    border-color: #80bdff;
+    outline: none;
+}
+
+.row.g-2 {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.col-md-8, .col-md-4 {
+    flex: 1;
+}
+
+/* FAQ Section */
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-header {
+    font-size: 18px;
+}
+
+.accordion-button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: none;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #e2e6ea;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button.collapsed {
+    background-color: #f8f9fa;
+}
+
+.accordion-button i {
+    margin-right: 10px;
+    color: #0a0a0a;
+}
+
+.accordion-body {
+    padding: 20px;
+    background-color: #fff;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.accordion-body p {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .col-md-8, .col-md-4 {
+        flex: 100%;
+    }
+
+    .row.g-2 {
+        flex-direction: column;
+    }
+
+    #searchInput, #categoryFilter {
+        margin-bottom: 15px;
+    }
+}
