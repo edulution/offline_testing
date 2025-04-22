@@ -41,4 +41,10 @@ router.get('/external_evaluations', (req, res) => {
 router.get('/learner_survey', (req, res) => {
     res.sendFile(path.resolve('portal/learner_survey.html'));
 });
+
+/*skillz hub page*/
+router.get('/skills_hub_tests', (req, res) => {
+    res.sendFile(path.resolve('portal/skills_hub_tests.html'));
+});
+
 module.exports = router

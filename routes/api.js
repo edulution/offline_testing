@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const path = require('path')
 const url = require('url');
+const crypto = require('crypto');
+const fs = require('fs');
 
 const { Pool, Client } = require('pg')
 
@@ -440,5 +442,63 @@ router.get('/user_testcheck', (request, response) => {
         .catch(e => console.log(e.stack))
 });
 
+/*skillz assessments*/
+router.post('/skills_hub', (req, res) => {
+    /*Extract form values*/
+    let data = req.body
+    /*Create a random md5 hash for each submission*/
+    let hash = crypto.createHash('md5').update(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).digest("hex")
+    /*Prepend datetime to the hash*/
+    let prepend = new Date().toISOString()
+    /*Clean the datetime to remove colons and decimals*/
+    prepend = prepend.replace(/:/g, "_").replace(/\./g, "_")
+    let filename = prepend + "_" + hash
+
+    /*Fields to extract*/
+    let extract_fields = ['user', 'test', 'course', 'score', 'module']
+
+    /*Check if all fields are present*/
+    for (var i = 0; i < extract_fields.length; i++) {
+        if (data[extract_fields[i]] === undefined || data[extract_fields[i]] === null) {
+            res.status(400).json({
+                success: false,
+                message: 'Missing field ' + extract_fields[i]
+            })
+            return false
+        }
+    }
+
+    /*Create the file to be written*/
+    var submittedData = {}
+    extract_fields.forEach(item => {
+        submittedData[item] = data[item]
+    })
+
+    /*Add the timestamp*/
+    submittedData.timestamp = new Date().toISOString();
+
+    /*Add the responses*/
+    submittedData.responses = {}
+    Object.keys(data).forEach(item => {
+        if (item.startsWith('q')) {
+            submittedData.responses[item] = data[item]
+        }
+    })
+
+    /*Write the file*/
+    fs.writeFile(path.join(__basedir, 'submit', 'skills_hub', filename), JSON.stringify(submittedData, null, 3), err => {
+        if (err) {
+            res.status(500).json({
+                success: false,
+                message: 'Error writing file'
+            })
+            return false
+        }
+        res.status(200).json({
+            success: true,
+            message: 'Data saved'
+        })
+    })
+})
 
 module.exports = router

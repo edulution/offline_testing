@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <title>Skills Hub Tests</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link href="/css/portal.css" rel="stylesheet" />
+    <link href="/css/navbar.css" rel="stylesheet" />
+    <!-- your app's js -->
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-animate.js"></script>
+    <!-- Added new jquery -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- Added native js  -->
+    <script type="text/javascript" src="/js/portal/app.js"></script>
+</head>
+
+<body class="mainBackground" ng-app="edulutionPortal" ng-controller="MainCtrl">
+    <!-- Navbar -->
+    <div ng-include="'include/navbar.html'"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <div class="main-heading">
+                    <h1 class="page-title">Skills Hub Selection</h1>
+                </div>
+                <table class="table-responsive assessment-table">
+                    <tr>
+                        <td>
+                            <div>
+                                <a href="/skills_hub/math_assessment" class="topics-btn">
+                                    <button class="btn btn-button">
+                                        <h4>Math Assessment</h4>
+                                    </button>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <a href="/skills_hub/literacy_assessment" class="topics-btn">
+                                    <button class="btn btn-button">
+                                        <h4>Literacy Assessment</h4>
+                                    </button>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div ng-include="'/include/footer.html'"></div>
+</body>
+
+</html> 
