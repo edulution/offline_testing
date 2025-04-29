@@ -230,12 +230,18 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
             $scope.$watch('form.testForm.username.$error.whitelist', () => {
 
                 if (!$scope.form.testForm.username.$error.whitelist) {
-                    /*console.log('username:', $scope.form.testForm.username)*/
-                    /*$scope.form.testForm.username.$setPristine()*/
                     let currentUser = $scope.users.find(user => { return user.username == $scope.testResponse.username })
-                    /*var currentTest = { $scope.testResponse.test, $scope.testResponse.course, $scope.testResponse.course }*/
-                    /*Get the test, course and module of the testResponse object as an object*/
                     let currentTest = (({ test, course, module }) => ({ test, course, module }))($scope.testResponse)
+
+                    // Skip test check for literacy and math assessments
+                    if (currentTest.test === 'literacy_assessment' || currentTest.test === 'math_assessment') {
+                        $scope.testcheck = {
+                            can_write_test: true,
+                            output_message: 'You may proceed with the assessment'
+                        };
+                        $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", true);
+                        return;
+                    }
 
                     /*Variable that determines whether or not the loading spinner is visible on the front end*/
                     $scope.testcheck_loading = true;
@@ -256,7 +262,6 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
                             /*If the user CANNOT write the test
                             Make testcheck_result invalid*/
-                            /*$scope.form.testForm.testcheck_result.$valid = false;*/
                             $scope.form.testForm.testcheck_result.$setValidity("testcheck_result", false)
                         }
 
