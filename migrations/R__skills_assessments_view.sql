@@ -23,8 +23,8 @@ SELECT
     round(score::numeric / testmaxscore::numeric, 2) AS score_pct,
     test_date
 FROM
-    quiz_scores_raw m
+    skillshub_scores_raw m
     LEFT JOIN users u ON m.user_id = u.user_id
-    LEFT JOIN quiz_marks q ON m.test = q.test_id
+    LEFT JOIN skillshub_marks q ON m.test = q.test_id
         AND m.course = q.course
         AND m.module = q.module;
