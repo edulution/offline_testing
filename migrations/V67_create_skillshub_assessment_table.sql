@@ -1,11 +1,11 @@
-/*Create responses table*/
+-- Create responses table
 CREATE TABLE public.skillshub_quiz (
     response_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    test varchar,
-    module varchar,
-    username varchar,
+    test varchar NOT NULL,
+    module varchar NOT NULL,
+    username varchar NOT NULL,
     coach_id varchar,
-    test_date DATE,
+    test_date DATE DEFAULT CURRENT_DATE,
     q1 varchar,
     q2 varchar,
     q3 varchar,
@@ -36,10 +36,20 @@ CREATE TABLE public.skillshub_quiz (
     q28 varchar,
     q29 varchar,
     q30 varchar,
-    course varchar,
+    course varchar NOT NULL,
     user_id uuid,
     sex varchar(1),
     grade varchar(1),
     gender varchar(1),
     FOREIGN KEY (user_id) REFERENCES public.users(user_id)
+);
+
+-- Create test configuration table
+CREATE TABLE public.skillshub_marks (
+    test_id varchar NOT NULL,
+    test_name varchar NOT NULL,
+    course varchar NOT NULL,
+    module varchar NOT NULL,
+    testmaxscore integer NOT NULL,
+    PRIMARY KEY (test_id, course, module)
 );
