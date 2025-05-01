@@ -26,15 +26,15 @@ WITH quiz_scores_raw AS (
         public.skillshub_quiz
 )
 SELECT
-    response_id,
+    m.response_id,
     u.user_id,
-    first_name,
-    last_name,
-    username,
-    class_name,
-    test_name,
-    round(score::numeric / testmaxscore::numeric, 2) AS score_pct,
-    test_date
+    u.first_name,
+    u.last_name,
+    u.username,
+    u.class_name,
+    q.test_name,
+    round(m.score::numeric / q.testmaxscore::numeric, 2) AS score_pct,
+    m.test_date
 FROM
     quiz_scores_raw m
     LEFT JOIN users u ON m.user_id = u.user_id
