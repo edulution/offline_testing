@@ -1,11 +1,11 @@
--- Create responses table
+/*Create responses table*/
 CREATE TABLE public.skillshub_quiz (
     response_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    test varchar NOT NULL,
-    module varchar NOT NULL,
-    username varchar NOT NULL,
+    test varchar,
+    module varchar,
+    username varchar,
     coach_id varchar,
-    test_date DATE DEFAULT CURRENT_DATE,
+    test_date DATE,
     q1 varchar,
     q2 varchar,
     q3 varchar,
@@ -36,7 +36,7 @@ CREATE TABLE public.skillshub_quiz (
     q28 varchar,
     q29 varchar,
     q30 varchar,
-    course varchar NOT NULL,
+    course varchar,
     user_id uuid,
     sex varchar(1),
     grade varchar(1),
