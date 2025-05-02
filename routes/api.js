@@ -576,23 +576,26 @@ router.post('/submit_quiz', [(request, response, next) => {
 
 }]);
 
-/* Endpoint to fetch quiz data */
-
-/*endpoint to get all test_responses as json*/
-
-
-router.get('/get_skillshub_results', (request, response) => {
-
-    const get_skillshub_data_query = {
-        /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
-        name: 'fetch-skillshub-data',
-        text: 'SELECT * FROM vskillshubscores'
+/* Get skillshub assessment results */
+router.get('/skillshub_results', async (request, response) => {
+    try {
+        const query = `
+            SELECT 
+                username,
+                first_name,
+                last_name,
+                test_name,
+                score_pct,
+                test_date
+            FROM vskillshubscores 
+            ORDER BY test_date DESC
+        `;
+        const result = await pool.query(query);
+        response.json(result.rows);
+    } catch (err) {
+        console.error('Error fetching skillshub results:', err);
+        response.status(500).json({ error: 'Failed to fetch skillshub results' });
     }
-
-    /*Callback returns status code and result of query*/
-
-
-
 });
 
 
