@@ -26,21 +26,19 @@ router.get('/:quiz', (req, res) => {
 
     let selected_module = "skills_hub";
 
-
     let selected_test = req.params.quiz;
 
+    /* Construct path to the selected test in the skills_hub directory */
+    const filePath = path.resolve(
+        path.join(__basedir, selected_module, selected_test + '.html')
+    );
 
+    // Check if file exists before sending
+    if (!require('fs').existsSync(filePath)) {
+        return res.status(404).send('Assessment not found');
+    }
 
-    /* Construct path to the selected test in the math_quiz directory */
-
-    res.sendFile(path.resolve(
-
-        path.join(selected_module, selected_test + '.html')
-
-    ));
-
+    res.sendFile(filePath);
 });
-
-
 
 module.exports = router;
