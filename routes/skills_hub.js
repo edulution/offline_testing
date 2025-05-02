@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 /* It is assumed that the name of the html file is the same as the requested test */
 router.get('/:quiz', (req, res) => {
     let selected_module = "skills_hub";
-    let selected_test = req.params.quiz;
+    let selected_test = req.params.quiz + '.html';
 
     /* Construct path to the selected test in the skills_hub directory */
     const filePath = path.resolve(
