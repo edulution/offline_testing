@@ -1,5 +1,5 @@
-CREATE OR REPLACE VIEW vquizscores AS
-WITH quiz_scores_raw AS (
+CREATE OR REPLACE VIEW vskillshubscores AS
+WITH skillshub_scores_raw AS (
     SELECT
         response_id,
         user_id,
@@ -36,7 +36,7 @@ SELECT
     round(m.score::numeric / q.testmaxscore::numeric, 2) AS score_pct,
     m.test_date
 FROM
-    quiz_scores_raw m
+    skillshub_scores_raw m
     LEFT JOIN users u ON m.user_id = u.user_id
     LEFT JOIN skillshub_marks q ON m.test = q.test_id
         AND m.course = q.course
