@@ -90,7 +90,7 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             });
 
             /*console.log("modal loaded");*/
-        };
+        }
 
         /*Calculate the score percent for a test*/
         var calculate_score = function(testMarks, testResponse) {
@@ -208,7 +208,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
 
             /*get object values for all qs in the response*/
             var all_qvals = Object.values(get_all_qs(testResponse))
-
             /*get only the slice of the qvals for the test e.g get only the first 25 vals if the test is out of 25*/
             var qvals_for_test = all_qvals.slice(0, maxScore)
 
@@ -238,11 +237,6 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             return weightedMean(topic_scores, topic_weights)
 
         }
-
-
-
-
-
 
     })
     /*Controller for a modalinstance that was opened by the $ctrl.openModal function*/

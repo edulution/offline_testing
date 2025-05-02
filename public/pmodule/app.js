@@ -205,14 +205,25 @@ angular.module('passProtect', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui', 
 
 
         /*Test submission function*/
-        $scope.submit = () => {
-            $http.post("/api/submit_test", $scope.testResponse).then(success =>
+        $scope.submit = function() {
+            // Get the current URL path
+            const currentPath = window.location.pathname;
+            // Check if this is a skillshub test
+            const isSkillshubTest = currentPath.startsWith('/skills_hub/');
+            
+            // Add test identifier for skillshub tests
+            if (isSkillshubTest) {
+                $scope.testResponse.test = 'skills_hub_' + currentPath.split('/').pop().replace('.html', '');
+            }
+
+            $http.post("/api/submit_test", $scope.testResponse).then(function(success) {
                 /*redirect to sucessful submission page*/
-                window.location = '/api/sucessful_submit')
-        }
+                window.location = '/api/sucessful_submit'
+            });
+        };
 
         /*Test submission function*/
-        $scope.overwrite_test = () => {
+        $scope.overwrite_test = function() {
             $http.post("/api/overwrite_test", $scope.testResponse).then(res => {
                 /*redirect to sucessful submission page*/
                 if (res.status == 200) {
