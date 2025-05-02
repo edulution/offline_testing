@@ -11,6 +11,8 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             /*placeholder value used in smart-table because results_breakdown are loaded asynchorously*/
             $scope.results_breakdown_placeholder = []
 
+            $scope.skillshub_results_placeholder = []
+
             /*pagination - items to display on each page*/
             $scope.itemsByPage = 15;
 
@@ -65,7 +67,9 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
                 $scope.results_breakdown = response.data;
             });
 
-
+            $http.get("/api/skillshub_results").then(function(response) {
+                $scope.skillshub_results = response.data;
+            });
 
         }
 
@@ -363,6 +367,18 @@ angular.module('coachDashBoard', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'sm
             link: function(scope, element, attributes) {
                 /*class for all elements in directive. used for scoped styling*/
                 element.addClass('learnerscount');
+            }
+        };
+    })
+    
+    /*element directive for skillshub results tab*/
+    .directive('skillshubresults', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/js/coachDashboard/templates/skillshub_results.html',
+            link: function(scope, element, attributes) {
+                /*class for all elements in directive. used for scoped styling*/
+                element.addClass('skillshubresults');
             }
         };
     });
