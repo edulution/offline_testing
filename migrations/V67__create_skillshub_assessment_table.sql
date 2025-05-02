@@ -39,7 +39,7 @@ CREATE TABLE public.skillshub_quiz (
     course varchar,
     user_id uuid,
     sex varchar(1),
-    grade varchar(1),
+    grade varchar(2),
     gender varchar(1),
     FOREIGN KEY (user_id) REFERENCES public.users(user_id)
 );
