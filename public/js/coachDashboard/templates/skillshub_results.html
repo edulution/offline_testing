@@ -2,10 +2,10 @@
     <table st-table="skillshub_results_placeholder" st-safe-src="skillshub_results" class="table">
         <thead>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     <input st-search type="search" placeholder="Search for Username, First name, or Last name..." class="form-control">
                 </th>
-                <th colspan="1" id="assessment_search">
+                <th colspan="2" id="assessment_search">
                     <select st-search="test_name" class=" form-control module_select_dropdown">
                         <option value="" class="module_initial_value">All Assessments</option>
                         <option ng-repeat="row in skillshub_results | unique: 'test_name'" value="{{row.test_name}}">{{row.test_name |
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="row in quiz_results_placeholder">
+            <tr ng-repeat="row in skillshub_results_placeholder">
                 <td st-ratio="10">{{row.username}}</td>
                 <td st-ratio="20">{{row.first_name}}</td>
                 <td st-ratio="20">{{row.last_name}}</td>
