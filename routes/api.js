@@ -442,63 +442,158 @@ router.get('/user_testcheck', (request, response) => {
         .catch(e => console.log(e.stack))
 });
 
-/*skillz assessments*/
-router.post('/skills_hub', (req, res) => {
-    /*Extract form values*/
-    let data = req.body
-    /*Create a random md5 hash for each submission*/
-    let hash = crypto.createHash('md5').update(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)).digest("hex")
-    /*Prepend datetime to the hash*/
-    let prepend = new Date().toISOString()
-    /*Clean the datetime to remove colons and decimals*/
-    prepend = prepend.replace(/:/g, "_").replace(/\./g, "_")
-    let filename = prepend + "_" + hash
+/*Endpoint to get the test details for a particular test*/
 
-    /*Fields to extract*/
-    let extract_fields = ['user', 'test', 'course', 'score', 'module']
+router.post('/submit_quiz', [(request, response, next) => {
 
-    /*Check if all fields are present*/
-    for (var i = 0; i < extract_fields.length; i++) {
-        if (data[extract_fields[i]] === undefined || data[extract_fields[i]] === null) {
-            res.status(400).json({
-                success: false,
-                message: 'Missing field ' + extract_fields[i]
-            })
-            return false
+
+
+    /*simple function to sum values in an array*/
+
+    const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
+
+
+
+    /*Get the test response from the request body*/
+
+    let test_resp = request.body
+
+
+
+    console.log(test_resp)
+
+    /*check if response was checkboxes
+
+    will appear as array in response*/
+
+
+
+    /*for each response recieved*/
+
+    for (let v in test_resp) {
+
+        /*if the reponse is of type object(array). Questions with a single response will be of type string*/
+
+        if (typeof(test_resp[v]) == "object") {
+
+            /*use reducer method to get sum of elements*/
+
+            total = Object.values(test_resp[v]).reduce(reducer, 0)
+
+            /*if the total is less than 0, make the response 0. Wrong responses have -1 mark, so will be negative total*/
+
+            if (total <= 0) {
+
+                test_resp[v] = '0'
+
+            } else {
+
+                /*if the total is not 0, then only the correct responses were selected. Assign value to 1*/
+
+                test_resp[v] = '1'
+
+            }
+
+        } else {
+
+            /*if only one correct response was selected, value will be partial marks. Partial marks are not allowed. Assign the value to 0*/
+
+            if (Number(test_resp[v]) < 1) {
+
+                test_resp[v] = '0'
+
+            }
+
         }
+
     }
 
-    /*Create the file to be written*/
-    var submittedData = {}
-    extract_fields.forEach(item => {
-        submittedData[item] = data[item]
-    })
 
-    /*Add the timestamp*/
-    submittedData.timestamp = new Date().toISOString();
 
-    /*Add the responses*/
-    submittedData.responses = {}
-    Object.keys(data).forEach(item => {
-        if (item.startsWith('q')) {
-            submittedData.responses[item] = data[item]
-        }
-    })
+    /*properties of response object - user_id,username,q1,q2..*/
 
-    /*Write the file*/
-    fs.writeFile(path.join(__basedir, 'submit', 'skills_hub', filename), JSON.stringify(submittedData, null, 3), err => {
-        if (err) {
-            res.status(500).json({
-                success: false,
-                message: 'Error writing file'
-            })
-            return false
-        }
-        res.status(200).json({
-            success: true,
-            message: 'Data saved'
+    let test_resp_props = Object.keys(test_resp)
+
+
+
+    console.log(test_resp_props)
+
+
+
+    /*Get user responses for test_resp_props above as array. Preserve quotes for insertion into database*/
+
+    let uresponses = test_resp_props.map((v) => { return test_resp[v]; })
+
+
+
+    console.log(uresponses)
+
+
+
+    /*remove the test date from the reponse props*/
+
+    /*let utest_date = uresponses.pop();*/
+
+
+
+    let uresponses_quoted = "'" + uresponses.join("','") + "'"
+
+
+
+    console.log(uresponses)
+
+
+
+    /*Insert statement to run on database. test date added as current date from server*/
+
+
+
+    let insert_statement = 'INSERT INTO skillshub_quiz(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+
+    console.log(insert_statement);
+
+
+
+    // execute the query and return a promise
+
+    pool.query(insert_statement)
+
+        .then(result => {
+
+            console.log("Promise returned: Quiz submited sucessfully!")
+
         })
-    })
-})
+
+        .catch(e => console.error(e.stack))
+
+    next();
+
+}, (request, response) => {
+
+    /*Display successful submission page after request sucessful*/
+
+    response.sendFile(path.join(__basedir, '/submit/sucessful_submission.html'));
+
+}]);
+
+/* Endpoint to fetch quiz data */
+
+/*endpoint to get all test_responses as json*/
+
+
+router.get('/get_skillshub_results', (request, response) => {
+
+    const get_skillshub_data_query = {
+        /*Query to fetch all the responses from the responses table and calculate the score percent for each one*/
+        name: 'fetch-skillshub-data',
+        text: 'SELECT * FROM vskillshubscores'
+    }
+
+    /*Callback returns status code and result of query*/
+
+
+
+});
+
 
 module.exports = router
