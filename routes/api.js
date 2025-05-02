@@ -274,8 +274,8 @@ router.post('/submit_test', [(request, response, next) => {
     console.log(uresponses)
 
     /*Insert statement to run on database. test date added as current date from server*/
-
-    let insert_statement = 'INSERT INTO responses(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
+    let table_name = test_resp.test && test_resp.test.startsWith('skills_hub') ? 'skillshub_quiz' : 'responses';
+    let insert_statement = 'INSERT INTO ' + table_name + '(' + test_resp_props.toString() + ') values (' + uresponses_quoted + ')'
     console.log(insert_statement);
 
     // execute the query and return a promise
